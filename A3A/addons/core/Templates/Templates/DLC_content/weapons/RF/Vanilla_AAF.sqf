@@ -1,6 +1,8 @@
 (_sfLoadoutData get "SMGs") append [
-    ["SMG_01_black_RF","muzzle_snds_acp","acc_pointer_IR","optic_VRCO_RF",["30Rnd_45ACP_Mag_SMG_01","30Rnd_45ACP_Mag_SMG_01","30Rnd_45ACP_Mag_SMG_01","30Rnd_45ACP_Mag_SMG_01_Tracer_Green"], [], ""]
+    ["SMG_01_black_RF","muzzle_snds_acp", _sfAccessories,["optic_VRCO_RF", "optic_Holosight_smg"],["30Rnd_45ACP_Mag_SMG_01","30Rnd_45ACP_Mag_SMG_01","30Rnd_45ACP_Mag_SMG_01","30Rnd_45ACP_Mag_SMG_01_Tracer_Green"], [], ""], 4
 ];
+_sfTlOptics append ["optic_VRCO_RF", 0.5];
+_sfRifleOptics append ["optic_VRCO_RF", 1.25];
 
 (_eliteLoadoutData get "SMGs") append [
     ["SMG_01_black_RF","","acc_pointer_IR","optic_VRCO_RF",["30Rnd_45ACP_Mag_SMG_01","30Rnd_45ACP_Mag_SMG_01","30Rnd_45ACP_Mag_SMG_01","30Rnd_45ACP_Mag_SMG_01_Tracer_Green"], [], ""]
