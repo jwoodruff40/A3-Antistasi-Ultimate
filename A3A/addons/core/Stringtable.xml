@@ -2724,8 +2724,8 @@
                 <Russian>Выбрана полная победа&lt;br/&gt;Чтобы выполнить это условие победы, захватите все аванпосты, ресурсы, фабрики, морские порты, военные базы и аэропорты и поддерживайте большую поддержку населения, чем ваши враги.</Russian>
             </Key>
             <Key ID="STR_antistasi_journal_entry_text_Default_economic">
-                <Original>Economic Victory Selected&lt;br/&gt;To complete this win condition, Gain more than 2 million units of currency.</Original>
-                <Russian>Экономическая победа выбрана&lt;br/&gt;Чтобы выполнить это условие победы, получите более 2 миллионов единиц валюты.</Russian>
+                <Original>Economic Victory Selected&lt;br/&gt;To complete this win condition, Gain more than a set amount of currency.&lt;br/&gt;Calculated as: amount of resources on the map * 100,000&lt;br/&gt;Needed amount on current map : %1%2</Original>
+                <Russian>Экономическая победа выбрана&lt;br/&gt;Чтобы выполнить это условие победы, получите больше установленной суммы валюты.&lt;br/&gt;Рассчитывается как: количество ресурсов на карте * 100,000.&lt;br/&gt;Необходимая сумма на текущей карте : %1%2</Russian>
             </Key>
             <Key ID="STR_antistasi_journal_entry_text_Default_logistical">
                 <Original>Logistical Victory Selected&lt;br/&gt;To complete this win condition, capture all seaports, military bases, and airports, and maintain more population support than your enemies.</Original>
@@ -5816,6 +5816,23 @@
                 <Russian>Вызывающий поддержку</Russian>
                 <Korean>지원 요청자</Korean>
                 <French>Appel de soutien</French>
+            </Key>
+            <Key ID="STR_A3AU_ambient_sounds">
+                <Original>Enable Ambient Sounds</Original>
+                <English>Enable Ambient Sounds</English>
+                <Russian>Включить фоновые звуки</Russian>
+                <German>Ambientegeräusche aktivieren</German>
+                <Italian>Abilita suoni ambientali</Italian>
+                <Spanish>Habilitar sonidos ambientales</Spanish>
+                <French>Activer les sons d'ambiance</French>
+                <Korean>환경 소리 활성화</Korean>
+                <Japanese>環境音を有効にする</Japanese>
+                <Chineseimp>启用环境声音</Chineseimp>
+                <Chinese>啟用環境聲音</Chinese>
+                <Polish>Włącz dźwięki otoczenia</Polish>
+                <Czech>Povolit ambientní zvuky</Czech>
+                <Portuguese>Ativar sons ambientais</Portuguese>
+                <Turkish>Ortam Seslerini Etkinleştir</Turkish>
             </Key>
             <Key ID="STR_A3AU_hide_enemy_markers">
                 <Original>Hide Enemy Zone Markers</Original>

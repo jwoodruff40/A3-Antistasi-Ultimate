@@ -38,8 +38,8 @@ class Params
     class limitedFT
     {
         title = $STR_params_allowFT;
-        values[] = {0,1,2};
-        texts[] = {$STR_params_allowFT_0, $STR_params_allowFT_1,$STR_params_civ_traffic_none};
+        values[] = {0,1,2,3};
+        texts[] = {$STR_params_allowFT_0, $STR_params_allowFT_1, $STR_params_allowFT_2, $STR_params_civ_traffic_none};
         default = 0;
     };
     class civTraffic
@@ -253,6 +253,13 @@ class Params
         texts[] = {$STR_antistasi_dialogs_generic_button_no_text,$STR_antistasi_dialogs_generic_button_yes_text};
         default = 0;
     };
+    class createAmbientSounds
+    {
+        title = $STR_A3AU_ambient_sounds;
+        values[] = {0,1};
+        texts[] = {$STR_antistasi_dialogs_generic_button_no_text,$STR_antistasi_dialogs_generic_button_yes_text};
+        default = 1;
+    };
     class hideEnemyMarkersReconPlaneDistance
     {
         title = $STR_A3AU_hide_enemy_markers_recon_plane_distance;
@@ -300,7 +307,7 @@ class Params
         title = $STR_A3AU_sway_enabled;
         values[] = {0,25,50,75,100};
         texts[] = {"0%","25%","50%","75%","100%"};
-        default = 1;
+        default = 100;
     };
 
     class Spacer60
