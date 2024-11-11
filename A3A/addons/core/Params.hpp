@@ -253,13 +253,6 @@ class Params
         texts[] = {$STR_antistasi_dialogs_generic_button_no_text,$STR_antistasi_dialogs_generic_button_yes_text};
         default = 0;
     };
-    class createAmbientSounds
-    {
-        title = $STR_A3AU_ambient_sounds;
-        values[] = {0,1};
-        texts[] = {$STR_antistasi_dialogs_generic_button_no_text,$STR_antistasi_dialogs_generic_button_yes_text};
-        default = 1;
-    };
     class hideEnemyMarkersReconPlaneDistance
     {
         title = $STR_A3AU_hide_enemy_markers_recon_plane_distance;
