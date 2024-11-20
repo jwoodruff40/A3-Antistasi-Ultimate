@@ -116,8 +116,8 @@ setVar("vehiclesPlanesCAS", OccAndInv("vehiclesPlanesCAS") );
 setVar("vehiclesPlanesLargeAA", OccAndInv("vehiclesPlanesLargeAA") );
 setVar("vehiclesPlanesLargeCAS", OccAndInv("vehiclesPlanesLargeCAS") );
 setVar("vehiclesPlanesTransport", OccAndInv("vehiclesPlanesTransport"));
-//probably should add gunships here
 setVar("vehiclesAirPatrol", OccAndInv("vehiclesAirPatrol"));
+setVar("vehiclesPlanesGunship", OccAndInv("vehiclesPlanesGunship"));
 setVar("staticMortars", OccAndInv("staticMortars") + Riv("staticMortars") + Reb("staticMortars") + ("STATICMORTAR" call _fnc_extractMarketClasses));
 setVar("staticAA", OccAndInv("staticAA") + Reb("staticAA") + ("STATICAA" call _fnc_extractMarketClasses));
 setVar("staticAT", OccAndInv("staticAT") + Reb("staticAT") + ("STATICAT" call _fnc_extractMarketClasses));
