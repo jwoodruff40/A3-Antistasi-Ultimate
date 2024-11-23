@@ -1,10 +1,9 @@
+_sfMGOptics append ["optic_ERCO_blk_F", 2.5];
 (_sfLoadoutData get "machineGuns") append [
-    ["LMG_03_F", "muzzle_snds_H_MG_khk_F", "acc_pointer_IR", "optic_ERCO_blk_F", ["200Rnd_556x45_Box_F", "200Rnd_556x45_Box_F", "200Rnd_556x45_Box_Tracer_F"], [], ""],
-    ["LMG_03_F", "muzzle_snds_H_MG_khk_F", "acc_pointer_IR", "optic_MRCO", ["200Rnd_556x45_Box_F", "200Rnd_556x45_Box_F", "200Rnd_556x45_Box_Tracer_F"], [], ""],
-    ["LMG_03_F", "muzzle_snds_H_MG_khk_F", "acc_pointer_IR", "optic_Hamr", ["200Rnd_556x45_Box_F", "200Rnd_556x45_Box_F", "200Rnd_556x45_Box_Tracer_F"], [], ""]
+    ["LMG_03_F", "muzzle_snds_H_MG_khk_F", _sfAccessories, _sfMGOptics, ["200Rnd_556x45_Box_F", "200Rnd_556x45_Box_F", "200Rnd_556x45_Box_Tracer_F"], [], ""], 1
 ];
 (_sfLoadoutData get "SMGs") append [
-    ["SMG_05_F","muzzle_snds_L","acc_pointer_IR","optic_Holosight_smg_khk_F",["30Rnd_9x21_Mag_SMG_02","30Rnd_9x21_Mag_SMG_02","30Rnd_9x21_Mag_SMG_02","30Rnd_9x21_Mag_SMG_02_Tracer_Green"], [], ""]
+     ["SMG_05_F","muzzle_snds_L",_sfAccessories,"optic_Holosight_smg_blk_F",["30Rnd_9x21_Mag_SMG_02","30Rnd_9x21_Mag_SMG_02","30Rnd_9x21_Mag_SMG_02","30Rnd_9x21_Mag_SMG_02_Tracer_Green"], [], ""], 1
 ];
 
 (_eliteLoadoutData get "marksmanRifles") append [

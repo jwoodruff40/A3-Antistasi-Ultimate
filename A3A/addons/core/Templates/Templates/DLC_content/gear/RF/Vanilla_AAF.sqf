@@ -1,5 +1,5 @@
 (_sfLoadoutData get "backpacks") pushBack "B_DuffleBag_Olive_NoLogo_RF";
-(_sfLoadoutData get "helmets") append ["H_HelmetIA_sb_digital_RF","H_HelmetHeavy_Olive_RF","H_HelmetHeavy_Simple_Olive_RF","H_HelmetHeavy_VisorUp_Olive_RF"];
+(_sfLoadoutData get "helmets") append ["H_HelmetIA_sb_digital_RF", 2, "H_HelmetHeavy_Olive_RF", 2, "H_HelmetHeavy_Simple_Olive_RF", 2,"H_HelmetHeavy_VisorUp_Olive_RF", 2];
 
 (_eliteLoadoutData get "backpacks") append ["B_DuffleBag_Olive_NoLogo_RF","I_CommandoMortar_weapon_RF"];
 (_eliteLoadoutData get "helmets") append ["H_HelmetIA_sb_digital_RF","H_HelmetHeavy_Olive_RF","H_HelmetHeavy_Simple_Olive_RF","H_HelmetHeavy_VisorUp_Olive_RF"];
