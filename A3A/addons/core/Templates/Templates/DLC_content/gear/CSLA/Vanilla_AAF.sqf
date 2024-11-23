@@ -1,10 +1,10 @@
-(_sfLoadoutData get "backpacks") append ["US85_bpAlice","US85_bpSf"];
+(_sfLoadoutData get "backpacks") append ["US85_bpAlice", 0.5,"US85_bpSf", 1];
 
-(_eliteLoadoutData get "backpacks") append ["US85_bpAlice","US85_bpSf"];
+(_eliteLoadoutData get "backpacks") append ["US85_bpAlice", 0.5, "US85_bpSf", 1];
 
-(_militaryLoadoutData get "backpacks") append ["US85_bpAlice","US85_bpSf"];
+(_militaryLoadoutData get "backpacks") append ["US85_bpAlice", 1,"US85_bpSf", 0.5];
 
-(_crewLoadoutData get "helmets") append ["US85_helmetDH132","US85_helmetDH132G","US85_helmetDH132G_on"];
+(_crewLoadoutData get "helmets") append ["US85_helmetDH132", 0.33, "US85_helmetDH132G", 0.33, "US85_helmetDH132G_on", 0.33];
 
 
 

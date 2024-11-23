@@ -269,14 +269,14 @@ _loadoutData set ["marksmanRifles", []];
 _loadoutData set ["sniperRifles", []];
 
 _loadoutData set ["lightATLaunchers", [
-["launch_MRAWS_green_F", "", "acc_pointer_IR", "", ["MRAWS_HE_F", "MRAWS_HEAT55_F"], [], ""],
-["launch_MRAWS_green_F", "", "acc_pointer_IR", "", ["MRAWS_HEAT_F", "MRAWS_HEAT55_F"], [], ""],
-["launch_MRAWS_green_F", "", "acc_pointer_IR", "", ["MRAWS_HEAT_F", "MRAWS_HE_F"], [], ""],
-["launch_MRAWS_green_rail_F", "", "acc_pointer_IR", "", ["MRAWS_HE_F", "MRAWS_HEAT55_F"], [], ""],
-["launch_MRAWS_green_rail_F", "", "acc_pointer_IR", "", ["MRAWS_HEAT_F", "MRAWS_HEAT55_F"], [], ""],
-["launch_MRAWS_green_rail_F", "", "acc_pointer_IR", "", ["MRAWS_HEAT_F", "MRAWS_HE_F"], [], ""]
+["launch_MRAWS_green_F", "", "acc_pointer_IR", "", ["MRAWS_HE_F", "MRAWS_HEAT55_F"], [], ""], 1
+["launch_MRAWS_green_F", "", "acc_pointer_IR", "", ["MRAWS_HEAT_F", "MRAWS_HEAT55_F"], [], ""], 1
+["launch_MRAWS_green_F", "", "acc_pointer_IR", "", ["MRAWS_HEAT_F", "MRAWS_HE_F"], [], ""], 1
+["launch_MRAWS_green_rail_F", "", "acc_pointer_IR", "", ["MRAWS_HE_F", "MRAWS_HEAT55_F"], [], ""], 1
+["launch_MRAWS_green_rail_F", "", "acc_pointer_IR", "", ["MRAWS_HEAT_F", "MRAWS_HEAT55_F"], [], ""], 1
+["launch_MRAWS_green_rail_F", "", "acc_pointer_IR", "", ["MRAWS_HEAT_F", "MRAWS_HE_F"], [], ""], 1
 ]];
-_loadoutData set ["ATLaunchers", ["launch_NLAW_F"]];
+_loadoutData set ["ATLaunchers", ["launch_NLAW_F"], 1];
 _loadoutData set ["missileATLaunchers", [
 ["launch_I_Titan_short_F", "", "acc_pointer_IR", "", ["Titan_AT"], [], ""]
 ]];
@@ -401,6 +401,8 @@ _sfLoadoutData set ["grenadeLaunchers", [
 ["arifle_Mk20_GL_F", "muzzle_snds_M", "acc_pointer_IR", "optic_Holosight_blk_F", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Yellow"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""]
 ]];
 
+_sfSMGoptics = ["optic_Aco_smg", 1, "optic_Holosight", 2];
+_sfP90optics = ["optic_Aco_smg", 1, "optic_Holosight_blk_F", 2];
 _sfLoadoutData set ["SMGs", [
 ["SMG_01_F", "muzzle_snds_acp", "", "optic_Holosight", [], [], ""],
 ["SMG_01_F", "muzzle_snds_acp", "", "optic_Aco_smg", [], [], ""],
@@ -643,13 +645,13 @@ _crewLoadoutData set ["uniforms", ["U_I_CombatUniform", "U_I_CombatUniform_short
 if (_hasTanks) then {
     _crewLoadoutData set ["uniforms", ["U_Tank_green_F"]];
 };
-_crewLoadoutData set ["vests", ["V_BandollierB_oli"]];
-_crewLoadoutData set ["helmets", ["H_HelmetCrew_I"]];
+_crewLoadoutData set ["vests", ["V_BandollierB_oli", 1]];
+_crewLoadoutData set ["helmets", ["H_HelmetCrew_I", 1]];
 
 private _pilotLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
-_pilotLoadoutData set ["uniforms", ["U_I_HeliPilotCoveralls","U_I_pilotCoveralls"]];
-_pilotLoadoutData set ["vests", ["V_TacVest_oli"]];
-_pilotLoadoutData set ["helmets", ["H_PilotHelmetHeli_I", "H_CrewHelmetHeli_I"]];
+_pilotLoadoutData set ["uniforms", ["U_I_HeliPilotCoveralls", 1, "U_I_pilotCoveralls", 1]];
+_pilotLoadoutData set ["vests", ["V_TacVest_oli", 1]];
+_pilotLoadoutData set ["helmets", ["H_PilotHelmetHeli_I", 1, "H_CrewHelmetHeli_I", 1]];
 
 ////
 if (_hasMarksman) then {
