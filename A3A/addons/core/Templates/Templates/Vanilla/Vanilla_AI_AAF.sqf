@@ -586,10 +586,10 @@ _policeLoadoutData set ["sidearms", ["hgun_Rook40_F", 10]];
 
 private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData; 
 _militiaLoadoutData set ["uniforms", ["U_I_CombatUniform", 3, "U_I_CombatUniform_shortsleeve", 3, "U_BG_Guerilla1_2_F", 4]];
-_militiaLoadoutData set ["vests", ["V_BandollierB_oli", 0.5, "V_Chestrig_oli", 2, "V_TacVest_oli", 1.5]];
-_militiaLoadoutData set ["Hvests", ["V_TacVest_oli", 1]];
-_militiaLoadoutData set ["backpacks", ["B_TacticalPack_oli", 2, "B_FieldPack_oli", 2, "B_AssaultPack_dgtl", 1]];
-_militiaLoadoutData set ["helmets", ["H_HelmetIA", 2, "H_Booniehat_dgtl", 1.5, "H_Cap_blk_Raven", 1]];
+_militiaLoadoutData set ["vests", ["V_BandollierB_oli", 1.25, "V_Chestrig_oli", 5, "V_TacVest_oli", 3.75]];
+_militiaLoadoutData set ["Hvests", ["V_TacVest_oli", 10]];
+_militiaLoadoutData set ["backpacks", ["B_TacticalPack_oli", 4, "B_FieldPack_oli", 4, "B_AssaultPack_dgtl", 2]];
+_militiaLoadoutData set ["helmets", ["H_HelmetIA", 4.5, "H_Booniehat_dgtl", 2.5, "H_Cap_blk_Raven", 2.5]];
 
 _militiaRifleSights = ["optic_ACO_grn", 2, "", 8];
 _militiaSlRifleSights = ["optic_ACO_grn", 3.5, "optic_MRCO", 4.5, "", 2];
