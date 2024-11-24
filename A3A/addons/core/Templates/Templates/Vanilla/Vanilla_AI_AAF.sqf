@@ -444,12 +444,11 @@ private _eliteLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _eliteLoadoutData set ["uniforms", ["U_I_CombatUniform_shortsleeve", 5, "U_I_CombatUniform", 5]];
 _eliteLoadoutData set ["slUniforms", ["U_I_OfficerUniform", 10]];
 _eliteLoadoutData set ["vests", ["V_PlateCarrierIA2_dgtl", 3.75, "V_PlateCarrierIA1_dgtl", 3.75, "V_PlateCarrierIAGL_dgtl", 1.5,"V_PlateCarrierIAGL_oli", 1]];
-_eliteLoadoutData set ["Hvests", ["V_PlateCarrierIAGL_dgtl", 1.5,"V_PlateCarrierIAGL_oli", 1]];
+_eliteLoadoutData set ["Hvests", ["V_PlateCarrierIAGL_dgtl", 6,"V_PlateCarrierIAGL_oli", 4]];
 _eliteLoadoutData set ["backpacks", ["B_TacticalPack_oli", 2, "B_FieldPack_oli", 0.5, "B_Carryall_oli", 1, "B_AssaultPack_dgtl", 3,"B_Kitbag_sgg", 3.5]];
-_eliteLoadoutData set ["helmets", ["H_HelmetIA", 6.75, "H_Cap_blk_Raven", 0.5, "H_Cap_oli_hs", 0.25, "H_Cap_headphones", 0.25, "H_Booniehat_oli", 0.5, "H_Booniehat_dgtl", 1.25, "H_Watchcap_camo", 0.25, "H_Watchcap_camo", 0.25]];
+_eliteLoadoutData set ["helmets", ["H_HelmetIA", 6.75, "H_Cap_blk_Raven", 0.5, "H_Cap_oli_hs", 0.25, "H_Cap_headphones", 0.25, "H_Booniehat_oli", 0.5, "H_Booniehat_dgtl", 1.25, "H_Watchcap_camo", 0.25, "H_Booniehat_khk_hs", 0.25]];
 
 _eliteLoadoutData set ["binoculars", ["Rangefinder"]];
-_eliteLoadoutData set ["backpacks", ["B_TacticalPack_oli", "B_FieldPack_oli", "B_Carryall_oli", "B_AssaultPack_dgtl"]];
 
 _eliteSlOptics = ["optic_MRCO", 3, "optic_Hamr", 6, "optic_Holosight_blk_F", 1];
 _eliteRifleOptics = ["optic_Holosight_blk_F", 7, "optic_MRCO", 2, "optic_Hamr", 1];
