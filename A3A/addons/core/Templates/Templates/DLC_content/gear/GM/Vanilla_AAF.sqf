@@ -1,5 +1,5 @@
-(_sfLoadoutData get "backpacks") append ["gm_dk_army_backpack_73_oli", 0.75, "gm_ge_army_backpack_90_oli", 1, "gm_ge_army_backpack_80_oli", 0.5];
-(_sfLoadoutData get "helmets") append ["gm_dk_headgear_m96_oli", 1, "gm_ge_headgear_beret_crew_blk", 1.5, "gm_ge_headgear_m92_cover_glasses_oli", 0.5, "gm_ge_headgear_m92_cover_oli", 0.5, "gm_ge_headgear_psh77_oli", 0.5, "gm_ge_headgear_psh77_up_oli", 1.25, "gm_ge_headgear_psh77_down_oli", 1.25, "gm_ge_headgear_hat_beanie_crew_blk", 0.5,  "gm_ge_headgear_headset_crew_oli", 0.5, "gm_xx_headgear_headwrap_crew_01_oli", 0.5, "gm_xx_headgear_headwrap_crew_01_grn", 0.5, "gm_ge_headgear_hat_beanie_crew_blk", 0.5];
+(_sfLoadoutData get "backpacks") append ["gm_dk_army_backpack_73_oli", 1.5, "gm_ge_army_backpack_90_oli", 2, "gm_ge_army_backpack_80_oli", 1];
+(_sfLoadoutData get "helmets") append ["gm_dk_headgear_m96_oli", 1, "gm_ge_headgear_beret_crew_blk", 1.5, "gm_ge_headgear_m92_cover_glasses_oli", 1.5, "gm_ge_headgear_m92_cover_oli", 1.5, "gm_ge_headgear_psh77_oli", 1, "gm_ge_headgear_psh77_up_oli", 1, "gm_ge_headgear_psh77_down_oli", 2, "gm_ge_headgear_hat_beanie_crew_blk", 0.25,  "gm_ge_headgear_headset_crew_oli", 0.25, "gm_xx_headgear_headwrap_crew_01_oli", 0.25, "gm_xx_headgear_headwrap_crew_01_grn", 0.25, "gm_ge_headgear_hat_beanie_crew_blk", 0.25];
 
 (_eliteLoadoutData get "backpacks") append ["gm_dk_army_backpack_73_oli", 1, "gm_ge_army_backpack_90_oli", 1, "gm_ge_army_backpack_80_oli", 0.5];
 (_eliteLoadoutData get "helmets") append ["gm_dk_headgear_m96_oli", 1.5, "gm_ge_headgear_beret_crew_blk", 1.5, "gm_ge_headgear_m92_cover_glasses_oli", 1.5, "gm_ge_headgear_m92_cover_oli", 1.5, "gm_ge_headgear_psh77_oli", 1, "gm_ge_headgear_psh77_up_oli", 1.5, "gm_ge_headgear_psh77_down_oli", 1.5, "gm_ge_headgear_hat_beanie_crew_blk", 0.5, "gm_ge_headgear_headset_crew_oli", 0.5, "gm_xx_headgear_headwrap_crew_01_oli", 0.25, "gm_xx_headgear_headwrap_crew_01_grn", 0.25 ];
@@ -19,9 +19,9 @@
     "gm_ge_headgear_m92_cover_oli", 2.5
 ];
 
-(crewLoadoutData get "helmets") append ["gm_ge_headgear_crewhat_80_blk", 1];
+(crewLoadoutData get "helmets") append ["gm_ge_headgear_crewhat_80_blk", 8];
 
-(_pilotLoadoutData get "uniforms") append ["gm_ge_uniform_pilot_commando_oli", 0.5, "gm_ge_uniform_pilot_commando_rolled_oli", 0.5];
+(_pilotLoadoutData get "uniforms") append ["gm_ge_uniform_pilot_commando_oli", 2.5, "gm_ge_uniform_pilot_commando_rolled_oli", 2.5];
 
      
 
