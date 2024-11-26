@@ -1,42 +1,36 @@
 
-sfAccessories append ["saber_light_ir_lxWS", 0.5];
+_sfAccessories append ["saber_light_ir_lxWS", 2.5];
+_sfSMGoptics append ["optic_r1_low_lxWS", 4];
 
 _sfLoadoutData set ["designatedGrenadeLaunchers", [
-    ["glaunch_GLX_lxWS", "", _eliteAccessories, "", ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Pellet_Grenade_shell_lxWS", "1Rnd_Smoke_Grenade_shell", "3Rnd_HE_Grenade_shell"], ["1Rnd_Smoke_Grenade_shell"], ""], 0.75,
-    ["glaunch_GLX_camo_lxWS", "", _eliteAccessories, "", ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Pellet_Grenade_shell_lxWS", "1Rnd_Smoke_Grenade_shell", "3Rnd_HE_Grenade_shell"], [], ""], 1
+    ["glaunch_GLX_lxWS", "", _eliteAccessories, "", ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Pellet_Grenade_shell_lxWS", "1Rnd_Smoke_Grenade_shell", "3Rnd_HE_Grenade_shell"], ["1Rnd_Smoke_Grenade_shell"], ""], 5,
+    ["glaunch_GLX_camo_lxWS", "", _eliteAccessories, "", ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Pellet_Grenade_shell_lxWS", "1Rnd_Smoke_Grenade_shell", "3Rnd_HE_Grenade_shell"], ["1Rnd_Smoke_Grenade_shell"], ""], 10
 ]];
 
-_sfMGOptics append ["optic_r1_high_lxWS", 1.5];
+_sfMGOptics append ["optic_r1_high_lxWS", 2];
 (_sfLoadoutData get "machineGuns") append [
-    ["LMG_S77_AAF_lxWS", "suppressor_h_lxWS", _sfAccessories, _sfMGOptics, ["100Rnd_762x51_S77_Red_lxWS", "100Rnd_762x51_S77_Red_lxWS", "100Rnd_762x51_S77_Red_Tracer_lxWS"], [], ""], 0.75,
-    ["LMG_S77_Compact_lxWS", "suppressor_h_lxWS", _sfAccessories, _sfMGOptics, ["100Rnd_762x51_S77_Red_lxWS", "100Rnd_762x51_S77_Red_lxWS", "100Rnd_762x51_S77_Red_Tracer_lxWS"], [], ""], 1
+    ["arifle_XMS_M_khk_lxWS", "muzzle_snds_H", _sfAccessories, _sfMGOptics, ["75Rnd_556x45_Stanag_red_lxWS", "75Rnd_556x45_Stanag_red_lxWS", "75Rnd_556x45_Stanag_red_lxWS"], [], "bipod_03_F_blk"], 10,
+    ["arifle_XMS_M_Sand_lxWS", "muzzle_snds_H", _sfAccessories, _sfMGOptics, ["75Rnd_556x45_Stanag_red_lxWS", "75Rnd_556x45_Stanag_red_lxWS", "75Rnd_556x45_Stanag_red_lxWS"], [], "bipod_03_F_blk"], 5,
 ];
 
-_sfRifleOptics append ["optic_r1_high_lxWS", 1];
+_sfRifleOptics append ["optic_r1_high_lxWS", 2];
 (_sfLoadoutData get "slRifles") append [
-    ["sgun_aa40_lxWS","muzzle_snds_12Gauge_lxWS",_sfAccessories,"optic_r1_high_lxWS",["20Rnd_12Gauge_AA40_Pellets_lxWS","20Rnd_12Gauge_AA40_Slug_lxWS","8Rnd_12Gauge_AA40_Smoke_lxWS","8Rnd_12Gauge_AA40_HE_lxWS"], [], ""], 0.5,
-    ["arifle_Galat_lxWS","suppressor_h_lxWS",_sfAccessories,_sfTlOptics,["30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F"], [], ""], 1,
-    ["arifle_SLR_Para_lxWS","suppressor_h_lxWS",_sfAccessories,_sfTlOptics,["30Rnd_762x51_slr_reload_tracer_green_lxWS","30Rnd_762x51_slr_reload_tracer_green_lxWS","30Rnd_762x51_slr_tracer_green_lxWS"], [], ""], 1.5,
-    ["arifle_Velko_lxWS","suppressor_l_lxWS",_sfAccessories,_sfTlOptics,["35Rnd_556x45_Velko_reload_tracer_red_lxWS","35Rnd_556x45_Velko_reload_tracer_red_lxWS","50Rnd_556x45_Velko_reload_tracer_red_lxWS"], [], ""], 1.5
+    ["arifle_XMS_Base_khk_lxWS", "muzzle_snds_M", _sfAccessories, _sfTlOptics, ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Yellow"], ["6Rnd_12Gauge_Pellets","6Rnd_12Gauge_Pellets","6Rnd_12Gauge_Slug","6Rnd_12Gauge_Slug"], ""], 2.75,
+    ["arifle_XMS_Base_Sand_lxWS", "muzzle_snds_M", _sfAccessories, _sfTlOptics, ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Yellow"], ["6Rnd_12Gauge_Pellets","6Rnd_12Gauge_Pellets","6Rnd_12Gauge_Slug","6Rnd_12Gauge_Slug"], ""], 1.25,
+    ["arifle_XMS_GL_khk_lxWS", "muzzle_snds_M", _sfAccessories, _sfTlOptics, ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Yellow"], ["UGL_FlareWhite_F", "UGL_FlareWhite_F", "1Rnd_SmokeRed_Grenade_shell", "1Rnd_SmokeGreen_Grenade_shell", "1Rnd_SmokeBlue_Grenade_shell"], ""], 4,
+    ["arifle_XMS_GL_Sand_lxWS", "muzzle_snds_M", _sfAccessories, _sfTlOptics, ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Yellow"], ["UGL_FlareWhite_F", "UGL_FlareWhite_F", "1Rnd_SmokeRed_Grenade_shell", "1Rnd_SmokeGreen_Grenade_shell", "1Rnd_SmokeBlue_Grenade_shell"], ""], 2
 ];
 (_sfLoadoutData get "rifles") append [
-    ["sgun_aa40_lxWS","muzzle_snds_12Gauge_lxWS",_sfAccessories,"optic_r1_high_lxWS",["20Rnd_12Gauge_AA40_Pellets_lxWS","20Rnd_12Gauge_AA40_Slug_lxWS","8Rnd_12Gauge_AA40_Smoke_lxWS","8Rnd_12Gauge_AA40_HE_lxWS"], [], ""], 0.5,
-    ["arifle_Galat_lxWS","suppressor_h_lxWS",_sfAccessories,_sfRifleOptics,["30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F"], [], ""], 1,
-    ["arifle_SLR_Para_lxWS","suppressor_h_lxWS",_sfAccessories,_sfRifleOptics,["30Rnd_762x51_slr_reload_tracer_green_lxWS","30Rnd_762x51_slr_reload_tracer_green_lxWS","30Rnd_762x51_slr_tracer_green_lxWS"], [], ""], 1,
-    ["arifle_Velko_lxWS","suppressor_l_lxWS",_sfAccessories,_sfRifleOptics,["35Rnd_556x45_Velko_reload_tracer_red_lxWS","35Rnd_556x45_Velko_reload_tracer_red_lxWS","50Rnd_556x45_Velko_reload_tracer_red_lxWS"], [], ""], 1.5
+    ["arifle_XMS_Base_khk_lxWS", "muzzle_snds_M", _sfAccessories, _sfTlOptics, ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Yellow"], [], ""], 13.5,
+    ["arifle_XMS_Base_Sand_lxWS", "muzzle_snds_M", _sfAccessories, _sfTlOptics, ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Yellow"], [], ""], 6.5,
 ];
 (_sfLoadoutData get "grenadeLaunchers") append [
-    ["arifle_SLR_V_GL_lxWS","","",_sfRifleOptics,["30Rnd_762x51_slr_reload_tracer_green_lxWS","30Rnd_762x51_slr_reload_tracer_green_lxWS","30Rnd_762x51_slr_reload_tracer_green_lxWS","30Rnd_762x51_slr_tracer_green_lxWS"], ["1Rnd_40mm_HE_lxWS","1Rnd_58mm_AT_lxWS","1Rnd_50mm_Smoke_lxWS"], ""], 0.5,
-    ["arifle_VelkoR5_GL_lxWS","suppressor_l_lxWS",_sfAccessories,_sfRifleOptics,["35Rnd_556x45_Velko_reload_tracer_red_lxWS","35Rnd_556x45_Velko_reload_tracer_red_lxWS","50Rnd_556x45_Velko_reload_tracer_red_lxWS"], ["1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell","1Rnd_Pellet_Grenade_shell_lxWS"], ""], 1
+    ["arifle_XMS_GL_khk_lxWS", "muzzle_snds_M", _sfAccessories, _sfRifleOptics, ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Yellow"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""], 13.5,
+    ["arifle_XMS_GL_Sand_lxWS", "muzzle_snds_M", _sfAccessories, _sfRifleOptics, ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Yellow"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""], 6.5
 ];
-(_sfLoadoutData get "carbines") append [
-    ["arifle_VelkoR5_lxWS","suppressor_l_lxWS",_sfAccessories,_sfRifleOptics,["35Rnd_556x45_Velko_reload_tracer_red_lxWS","35Rnd_556x45_Velko_reload_tracer_red_lxWS","50Rnd_556x45_Velko_reload_tracer_red_lxWS"], ["1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell","1Rnd_Pellet_Grenade_shell_lxWS"], ""], 1,
-    ["arifle_SLR_Para_lxWS", "suppressor_h_lxWS", _sfAccessories, _sfRifleOptics,  ["20Rnd_762x51_slr_lxWS", "30Rnd_762x51_slr_lxWS", "30Rnd_762x51_slr_lxWS"], [], ""], 0.5,
-    ["arifle_SLR_Para_snake_lxWS", "suppressor_h_lxWS", _sfAccessories, _sfRifleOptics,  ["20Rnd_762x51_slr_lxWS", "30Rnd_762x51_slr_lxWS", "30Rnd_762x51_slr_lxWS"], [], ""], 0.25
-];
+
 (_sfLoadoutData get "marksmanRifles") append [
-    ["srifle_EBR_blk_lxWS", "muzzle_snds_B", _sfAccessories, _sfMarksmanOptics, ["20Rnd_762x51_Mag_blk_lxWS","20Rnd_762x51_Mag_blk_lxWS","20Rnd_762x51_Mag_blk_lxWS"], [], ""], 1,
-    ["srifle_EBR_snake_lxWS", "muzzle_snds_B", _sfAccessories, _sfMarksmanOptics, ["20Rnd_762x51_Mag_blk_lxWS","20Rnd_762x51_Mag_blk_lxWS","20Rnd_762x51_Mag_blk_lxWS"], [], ""], 0.25
+    ["srifle_EBR_blk_lxWS", "muzzle_snds_B", _sfAccessories, _sfMarksmanOptics, ["20Rnd_762x51_Mag_blk_lxWS","20Rnd_762x51_Mag_blk_lxWS","20Rnd_762x51_Mag_blk_lxWS"], [], ""], 5,
 ];
 
 _eliteLoadoutData set ["designatedGrenadeLaunchers", [

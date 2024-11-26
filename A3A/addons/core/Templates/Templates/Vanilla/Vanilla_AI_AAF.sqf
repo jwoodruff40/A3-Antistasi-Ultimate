@@ -568,7 +568,7 @@ _policeLoadoutData set ["vests", ["V_TacVest_blk_POLICE", 6, "V_Rangemaster_belt
 private _helmets = ["H_Cap_police", 10];
 
 _policeLoadoutData set ["helmets", _helmets];
-_policeSMGSights = ["optic_Aco_smg, 3, "", 7];
+_policeSMGSights = ["optic_Aco_smg", 3, "", 7];
 _policeAttachments = ["acc_flashlight", 6, "", 4];
 _policeLoadoutData set ["SMGs", [
 ["SMG_01_F", "", "acc_flashlight_smg_01", _policeSMGSights, [], [], ""], 1.5
