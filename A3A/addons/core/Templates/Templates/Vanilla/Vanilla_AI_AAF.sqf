@@ -514,7 +514,7 @@ _militaryLoadoutData set ["backpacks", ["B_TacticalPack_oli", 2.5, "B_FieldPack_
 _militaryLoadoutData set ["helmets", ["H_HelmetIA", 6.9, "H_Cap_blk_Raven", 1, "H_Cap_oli_hs", 0.5, "H_Cap_headphones", 0.1, "H_Booniehat_oli", 0.25, "H_Booniehat_dgtl", 1.25]];
 _militaryLoadoutData set ["binoculars", ["Rangefinder"]];
 
-_militaryRifleSights = ["optic_ACO_grn", 6, "optic_Holosight_blk_F", 3, "", 1];
+_militaryRifleSights = ["optic_ACO_grn", 4, "optic_Holosight_blk_F", 2, "", 0.5];
 _militarySlRifleSights = ["optic_Hamr", 2, "optic_MRCO", 6, "optic_Holosight_blk_F", 2];
 _militaryAttachments = ["acc_flashlight", 7, "", 2, "acc_pointer_IR", 1];
 
