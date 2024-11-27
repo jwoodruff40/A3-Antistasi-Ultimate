@@ -21,6 +21,10 @@ private _hasLawsOfWar = "orange" in A3A_enabledDLC;
 //       Vehicles       //
 //////////////////////////
 
+["vehiclesSDV", ["O_SDV_01_F"]] call _fnc_saveToTemplate;
+
+["vehiclesDropPod", ["Land_Pod_Heli_Transport_04_covered_F"]] call _fnc_saveToTemplate;
+
 ["ammobox", "O_R_supplyCrate_F"] call _fnc_saveToTemplate;     
 ["surrenderCrate", "Box_RUS_Wps_F"] call _fnc_saveToTemplate; 
 ["equipmentBox", "Box_RUS_Equip_F"] call _fnc_saveToTemplate; 
@@ -121,6 +125,7 @@ if (_hasTanks) then {
 };
 
 ["variants", [
+    ["Land_Pod_Heli_Transport_04_covered_F", ["Black",1]],
     ["O_T_VTOL_02_infantry_dynamicLoadout_F", ["Grey",1]],
     ["O_Plane_Transport_01_infantry_F", ["Grey",1]],
     ["O_G_Offroad_01_armed_F", ["Olive", 1]],
