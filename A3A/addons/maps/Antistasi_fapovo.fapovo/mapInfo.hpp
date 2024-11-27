@@ -48,7 +48,7 @@ class fapovo {
 		{571.25,8023.13,0}, // ID: 3 - Kruger Lab Outpost
 		{5665.13,3989.38,0}, // ID: 4 - Castle Serm
 		{467.452,4498.5,0}, // ID: 5 - MOB Mermaid
-		{8315.94,8295.46,0}, // ID: 6 - Airport Botana Intl.
+		{8315.94,8295.46,0} // ID: 6 - Airport Botana Intl.
 
 	};
 	antennasBlacklistIndex[] = {};
@@ -56,7 +56,7 @@ class fapovo {
 		
 	};
 	garrison[] = {
-		{},{},{"airport_3","outpost_3","milbase_2","seaport_4","outpost_1","resource_8"},{}
+		{},{"airport_3","outpost_3","milbase_2","seaport_4","outpost_1","resource_8"},{},{}
 	};
 	fuelStationTypes[] = {
 		"Land_FuelStation_01_pump_F","Land_FuelStation_02_pump_F","Land_FuelStation_03_pump_F","Land_fs_feed_F","Land_FuelStation_Feed_F","Land_FuelStation_01_pump_malevil_F","Land_Fuelstation","Land_Fuelstation_army","Land_A_FuelStation_Feed","Land_Ind_FuelStation_Feed_EP1","Land_FuelStation_Feed_PMC"
