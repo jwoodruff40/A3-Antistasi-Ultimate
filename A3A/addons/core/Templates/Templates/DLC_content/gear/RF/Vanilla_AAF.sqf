@@ -1,4 +1,4 @@
-(_eliteLoadoutData get "backpacks") append ["B_DuffleBag_Olive_NoLogo_RF", 1.5,"I_CommandoMortar_weapon_RF", 0.75];
+(_sfLoadoutData get "backpacks") append ["B_DuffleBag_Olive_NoLogo_RF", 1.5];
 (_sfLoadoutData get "helmets") append ["H_HelmetIA_sb_digital_RF", 5, "H_HelmetHeavy_Olive_RF", 2, "H_HelmetHeavy_Simple_Olive_RF", 1.25, "H_HelmetHeavy_VisorUp_Olive_RF", 1.25];
 
 (_eliteLoadoutData get "backpacks") append ["B_DuffleBag_Olive_NoLogo_RF", 1.5,"I_CommandoMortar_weapon_RF", 0.25];
