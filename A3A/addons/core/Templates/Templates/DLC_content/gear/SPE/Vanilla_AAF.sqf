@@ -20,4 +20,4 @@
     "G_SPE_Binoculars"
 ];
 
-(_crewLoadoutData get "helmets") append ["H_SPE_US_Helmet_Tank_M1_OS","H_SPE_US_Helmet_Tank_M1_NS"];
+(_crewLoadoutData get "helmets") append ["H_SPE_US_Helmet_Tank_M1_OS", 2.5,"H_SPE_US_Helmet_Tank_M1_NS", 2.5];
