@@ -621,7 +621,7 @@ _militiaLoadoutData set ["SMGs", [
 
 _militiaMGSights = ["optic_ACO_grn", 1.5, "", 8.5];
 _militiaLoadoutData set ["machineGuns", [
-["LMG_Mk200_F", "", _militiaAttachments, "", ["200Rnd_65x39_cased_Box_Red", "200Rnd_65x39_cased_Box_Red", "200Rnd_65x39_cased_Box_Tracer_Red"], [], "bipod_03_F_blk"], 10
+["LMG_Mk200_F", "", _militiaAttachments, _militiaMGSights, ["200Rnd_65x39_cased_Box_Red", "200Rnd_65x39_cased_Box_Red", "200Rnd_65x39_cased_Box_Tracer_Red"], [], "bipod_03_F_blk"], 10
 ]];
 
 _militiaMarksmanSights = ["optic_MRCO", 10];
