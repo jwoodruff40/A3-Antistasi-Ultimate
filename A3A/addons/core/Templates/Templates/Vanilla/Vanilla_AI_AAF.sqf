@@ -480,13 +480,13 @@ _eliteLoadoutData set ["SMGs", [
 ["SMG_02_F", "", _eliteAccessories, _eliteP90Optics, [], [], ""], 0.5
 ]];
 
-_eliteMGOptics = ["optic_NVS", 0.75, "optic_MRCO", 5, "optic_Holosight_blk_F", 2.5, "optic_Hamr", 1.75];
+_eliteMGOptics = ["optic_NVS", 0.75, "optic_MRCO", 4, "optic_Holosight_blk_F", 2.75, "optic_Hamr", 2.5];
 
 _eliteLoadoutData set ["machineGuns", [
     ["LMG_Mk200_F", "", _eliteAccessories, _eliteMGOptics, ["200Rnd_65x39_cased_Box_Red", "200Rnd_65x39_cased_Box_Red", "200Rnd_65x39_cased_Box_Tracer_Red"], [], ""], 10
 ]];
 
-_eliteMarksmanOptics = ["optic_DMS", 6, "optic_NVS", 2, "optic_SOS", 2];
+_eliteMarksmanOptics = ["optic_DMS", 6, "optic_NVS", 1, "optic_SOS", 3];
 
 _eliteLoadoutData set ["marksmanRifles", [
    ["srifle_EBR_F", "", _eliteAccessories, _eliteMarksmanOptics, ["20Rnd_762x51_Mag","20Rnd_762x51_Mag","20Rnd_762x51_Mag"], [], "bipod_03_F_blk"], 10
@@ -495,7 +495,7 @@ _eliteLoadoutData set ["marksmanRifles", [
 _eliteSniperOptics = ["optic_LRPS", 5, "optic_SOS", 2, "optic_TWS", 3];
 
 _eliteLoadoutData set ["sniperRifles", [
-["srifle_GM6_F", "", "", _eliteSniperOptics, ["5Rnd_127x108_Mag", "5Rnd_127x108_APDS_Mag"], [], ""], 1
+["srifle_GM6_F", "", "", _eliteSniperOptics, ["5Rnd_127x108_Mag", "5Rnd_127x108_APDS_Mag"], [], ""], 10
 ]];
 _eliteLoadoutData set ["sidearms", [
 ["hgun_ACPC2_F", "", "acc_flashlight_pistol", "", [], [], ""], 10
