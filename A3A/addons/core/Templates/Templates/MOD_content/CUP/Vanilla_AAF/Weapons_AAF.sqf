@@ -450,6 +450,7 @@ _cupEliteSMGXM8Optics = ["CUP_optic_ISM_PCAP", 10];
 ];
 //////////////////////////////////////////////////////
 _militarySlRifleSights append ["CUP_optic_RCO", 6, "CUP_optic_Eotech553_Black", 2];
+_cupMilitarySlRifleOptics = ["CUP_optic_RCO", 6, "CUP_optic_Eotech553_Black", 2];
 _cupMilitarySlG36Optics = ["CUP_optic_Eotech553_Black", 1, "CUP_optic_HensoldtZO_low", 2];
 
 _cupMilitaryG36Optics = ["CUP_optic_G36DualOptics_3D", 4, "CUP_optic_G36Optics_3D", 2, "CUP_optic_G36Optics_Holo_3D", 1];
@@ -477,6 +478,7 @@ _cupMilitaryAttachments = ["CUP_acc_Flashlight", 6, "CUP_acc_ANPEQ_2_grey", 2, "
 	["CUP_arifle_AG36", "",_cupMilitaryAttachments,_cupMilitaryG36Optics,["CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36","CUP_30Rnd_TE1_Green_Tracer_556x45_G36"], ["CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203","CUP_1Rnd_StarFlare_Red_M203","CUP_1Rnd_StarCluster_Red_M203","CUP_FlareRed_M203","CUP_1Rnd_SmokeRed_M203"], ""] 0.75
 ];
 _militaryRifleSights append ["CUP_optic_RCO", 1.5, "CUP_optic_Eotech553_Black", 2.5, "CUP_optic_HoloBlack", 5];
+_cupMilitaryRifleOptics = ["CUP_optic_RCO", 1.5, "CUP_optic_Eotech553_Black", 2.5, "CUP_optic_HoloBlack", 5];
 _cupMilitaryG36RISOptics = ["CUP_optic_HoloBlack", 4, "CUP_optic_Eotech553_Black", 2, "CUP_optic_HensoldtZO_low", 1];
 
 (_militaryLoadoutData get "rifles") append [
@@ -564,8 +566,9 @@ _cupMilitaryMGOptics = ["CUP_optic_ACOG2", 4, "CUP_optic_ACOG_TA31_KF", 1];
 	["CUP_arifle_AG36", "",_cupMilitaryAttachments,_cupMilitaryG36Optics,["CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36","CUP_30Rnd_TE1_Green_Tracer_556x45_G36"], ["CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203","CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203"], ""], 1
 ];
 _militaryMarksmanSights append ["CUP_optic_LeupoldMk4", 3, "CUP_optic_LeupoldM3LR", 1];
+
 (_militaryLoadoutData get "marksmanRifles") append [
-    ["CUP_srifle_M14_DMR", "",_cupMilitaryAttachments,_cupMilitaryMarksmanOptics ,["CUP_20Rnd_762x51_DMR","CUP_20Rnd_762x51_DMR","CUP_20Rnd_762x51_DMR","CUP_20Rnd_TE1_Green_Tracer_762x51_DMR"], [], "CUP_bipod_Harris_1A2_L_BLK"], 5
+    ["CUP_srifle_M14_DMR", "",_cupMilitaryAttachments, _militaryMarksmanSights ,["CUP_20Rnd_762x51_DMR","CUP_20Rnd_762x51_DMR","CUP_20Rnd_762x51_DMR","CUP_20Rnd_TE1_Green_Tracer_762x51_DMR"], [], "CUP_bipod_Harris_1A2_L_BLK"], 5
 ];
 _cupMilitarySniperCamo = ["CUP_Mxx_camo", 1, "CUP_Mxx_camo_half", 1.5, "", 1];
 _militarySniperSights append ["CUP_optic_LeupoldMk4_20x40_LRT", 3];
@@ -573,6 +576,7 @@ _militarySniperSights append ["CUP_optic_LeupoldMk4_20x40_LRT", 3];
 	["CUP_srifle_M40A3","",_cupMilitarySniperCamo, _militarySniperSights,["CUP_5Rnd_762x51_M24","CUP_5Rnd_762x51_M24","CUP_5Rnd_762x51_M24"], [], "CUP_bipod_Harris_1A2_L_BLK"], 5
 ];
 _militarySMGSights append ["CUP_optic_HoloBlack", 7, "CUP_optic_Eotech553_black", 3];
+_cupMilitarySMGOptics = ["CUP_optic_HoloBlack", 7, "CUP_optic_Eotech553_black", 3];
 (_militaryLoadoutData get "SMGs") append [
     ["CUP_smg_MP7","",_cupMilitaryAttachments,_cupMilitarySMGOptics,["CUP_40Rnd_46x30_MP7","CUP_40Rnd_46x30_MP7","CUP_40Rnd_46x30_MP7_Green_Tracer","CUP_40Rnd_46x30_MP7_Green_Tracer"], [], ""], 2,
 
