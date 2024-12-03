@@ -1,25 +1,25 @@
 (_loadoutData get "glasses") append [
-    "vn_b_spectacles_tinted",
-    "vn_g_glasses_01",
-    "vn_b_squares_tinted",
-    "vn_b_squares",
-    "vn_g_spectacles_01",
-    "vn_g_spectacles_02",
-    "vn_b_spectacles",
-    "vn_b_aviator"
+    // "vn_b_spectacles_tinted", Anything commented out has models, textures, and for some even names as vanilla items. Thus they are redundant.
+    "vn_g_glasses_01", 2.5,
+    // "vn_b_squares_tinted",
+    // "vn_b_squares", 1,
+    "vn_g_spectacles_01", 1.5,
+    "vn_g_spectacles_02", 2,
+    // "vn_b_spectacles",
+    // "vn_b_aviator"
 ];
 (_loadoutData get "goggles") append [
-    "vn_b_acc_towel_02",
-    "vn_b_acc_towel_01",
-    "vn_b_acc_rag_02",
-    "vn_b_acc_rag_01",
-    "vn_o_poncho_01_01",
-    "vn_o_acc_goggles_02",
-    "vn_b_acc_goggles_01",
-    "vn_b_acc_m17_01",
-    "vn_o_bandana_g",
-    "vn_o_bandana_b",
-    "vn_b_bandana_a"
+    "vn_b_acc_towel_02", 1,
+    "vn_b_acc_towel_01", 1,
+    "vn_b_acc_rag_02", 1,
+    "vn_b_acc_rag_01", 1,
+    "vn_o_poncho_01_01", 2,
+    "vn_o_acc_goggles_02", 3,
+    "vn_b_acc_goggles_01", 3,
+    "vn_b_acc_m17_01", 1,
+    "vn_o_bandana_g", 1.5, // These bandanas are identical to vanilla items but the latter aren't included in the base AAF file so they get to stay for now.
+    "vn_o_bandana_b", 1.5,
+    "vn_b_bandana_a", 1
 ];
 
 (_militaryLoadoutData get "Hvests") append ["vn_b_vest_usarmy_14", 2.5, "vn_b_vest_usarmy_13", 2.5];
