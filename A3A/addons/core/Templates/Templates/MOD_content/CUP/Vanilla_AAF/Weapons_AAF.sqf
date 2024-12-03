@@ -587,8 +587,8 @@ _cupMilitarySMGOptics = ["CUP_optic_HoloBlack", 7, "CUP_optic_Eotech553_black", 
 	["CUP_smg_MP5A5_Rail","",_cupMilitaryAttachments,_cupMilitarySMGOptics,["CUP_30Rnd_9x19_MP5","CUP_30Rnd_9x19_MP5","CUP_30Rnd_9x19_MP5","CUP_30Rnd_Green_Tracer_9x19_MP5"], [], ""], 5
 ];
 /////////////
-_militiaSlRifleSights append ["CUP_optic_Aimpoint_5000", 0.25, "CUP_optic_AC11704_Black", 0.25, "CUP_optic_HoloBlack", 0.25];
-_militiaRifleSights append ["CUP_optic_Aimpoint_5000", 0.25, "CUP_optic_AC11704_Black", 0.25, "CUP_optic_HoloBlack", 0.25];
+_militiaSlRifleSights append ["CUP_optic_Aimpoint_5000", 2.5, "CUP_optic_AC11704_Black", 0.75, "CUP_optic_HoloBlack", 0.75];
+_militiaRifleSights append ["CUP_optic_Aimpoint_5000", 0.5, "CUP_optic_AC11704_Black", 0.2, "CUP_optic_HoloBlack", 0.2];
 (_militiaLoadoutData get "slRifles") append [
     ["CUP_arifle_M16A1GL", "","","",["CUP_20Rnd_556x45_Stanag","CUP_20Rnd_556x45_Stanag","CUP_20Rnd_556x45_Stanag","CUP_20Rnd_556x45_Stanag_Tracer_Green"], ["CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203","CUP_1Rnd_StarFlare_Red_M203","CUP_1Rnd_StarCluster_Red_M203","CUP_FlareRed_M203","CUP_1Rnd_SmokeRed_M203"], ""], 5 // No optics since it uses a barrel mounted leaf sight for grenade launcher aiming.
 ];
