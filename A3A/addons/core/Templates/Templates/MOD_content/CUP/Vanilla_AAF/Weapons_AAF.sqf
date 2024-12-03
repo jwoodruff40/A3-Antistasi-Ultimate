@@ -588,8 +588,8 @@ _cupMilitarySMGOptics = ["CUP_optic_HoloBlack", 7, "CUP_optic_Eotech553_black", 
 	["CUP_smg_MP5A5_Rail","",_cupMilitaryAttachments,_cupMilitarySMGOptics,["CUP_30Rnd_9x19_MP5","CUP_30Rnd_9x19_MP5","CUP_30Rnd_9x19_MP5","CUP_30Rnd_Green_Tracer_9x19_MP5"], [], ""], 5
 ];
 /////////////
-_militiaSlRifleSights append ["CUP_optic_Aimpoint_5000", 0.25, "CUP_optic_AC11704_Black", 0.25, "CUP_optic_HoloBlack", 0.25];
-_militiaRifleSights append ["CUP_optic_Aimpoint_5000", 0.25, "CUP_optic_AC11704_Black", 0.25, "CUP_optic_HoloBlack", 0.25];
+_militiaSlRifleSights append ["CUP_optic_Aimpoint_5000", 2.5, "CUP_optic_AC11704_Black", 0.75, "CUP_optic_HoloBlack", 0.75];
+_militiaRifleSights append ["CUP_optic_Aimpoint_5000", 0.5, "CUP_optic_AC11704_Black", 0.2, "CUP_optic_HoloBlack", 0.2];
 (_militiaLoadoutData get "slRifles") append [
     ["CUP_arifle_M16A1GL", "","","",["CUP_20Rnd_556x45_Stanag","CUP_20Rnd_556x45_Stanag","CUP_20Rnd_556x45_Stanag","CUP_20Rnd_556x45_Stanag_Tracer_Green"], ["CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203","CUP_1Rnd_StarFlare_Red_M203","CUP_1Rnd_StarCluster_Red_M203","CUP_FlareRed_M203","CUP_1Rnd_SmokeRed_M203"], ""], 5 // No optics since it uses a barrel mounted leaf sight for grenade launcher aiming.
 ];
@@ -647,10 +647,10 @@ _militiaRifleSights append ["CUP_optic_Aimpoint_5000", 0.25, "CUP_optic_AC11704_
 	["CUP_arifle_M4A1","",_militiaAttachments,_militiaRifleSights,["CUP_20Rnd_556x45_Stanag","CUP_20Rnd_556x45_Stanag","CUP_20Rnd_556x45_Stanag","CUP_20Rnd_556x45_Stanag_Tracer_Green"], [], ""], 4
 ];
 (_militiaLoadoutData get "grenadeLaunchers") append [
-    ["CUP_arifle_M16A1GL", "","","",["CUP_20Rnd_556x45_Stanag","CUP_20Rnd_556x45_Stanag","CUP_20Rnd_556x45_Stanag","CUP_20Rnd_556x45_Stanag_Tracer_Green"], ["CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203","CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203"], ""], 5 // No optics since it uses a barrel mounted leaf sight for grenade launcher aiming.
+    ["CUP_arifle_M16A1GL", "","","",["CUP_20Rnd_556x45_Stanag","CUP_20Rnd_556x45_Stanag","CUP_20Rnd_556x45_Stanag","CUP_20Rnd_556x45_Stanag_Tracer_Green"], ["CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203","CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203"], ""], 8
 ];
 (_militiaLoadoutData get "SMGs") append [
-    ["CUP_smg_MP5A5","", _militiaAttachments,_militiaSMGsights,["CUP_30Rnd_9x19_MP5","CUP_30Rnd_9x19_MP5","CUP_30Rnd_9x19_MP5","CUP_30Rnd_Green_Tracer_9x19_MP5"], [], ""], 6
+    ["CUP_smg_MP5A5","","","",["CUP_30Rnd_9x19_MP5","CUP_30Rnd_9x19_MP5","CUP_30Rnd_9x19_MP5","CUP_30Rnd_Green_Tracer_9x19_MP5"], [], ""], 8
 ];
 (_militiaLoadoutData get "designatedGrenadeLaunchers") append [
     ["CUP_glaunch_M79", "", "", "", ["CUP_1Rnd_HE_M203","CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203","CUP_1Rnd_HEDP_M203"], [], ""], 5
