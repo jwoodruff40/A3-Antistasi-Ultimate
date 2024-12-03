@@ -23,7 +23,7 @@ _sfMGOptics append ["optic_DMS_weathered_Kir_F", 0.5];
 (_sfLoadoutData get "machineGuns") append [
     ["LMG_Mk200_black_F", "muzzle_snds_H", _sfAccessories, _sfMGOptics, ["200Rnd_65x39_cased_Box", "200Rnd_65x39_cased_Box", "200Rnd_65x39_cased_Box_Tracer"], [], "bipod_03_F_oli"], 5
 ];
-
+//////////////////////////////////////////////////////
 (_eliteLoadoutData get "slRifles") append [
     ["arifle_MSBS65_UBS_F", "", _eliteAccessories, "optic_ico_01_f",["30Rnd_65x39_caseless_msbs_mag","30Rnd_65x39_caseless_msbs_mag","30Rnd_65x39_caseless_msbs_mag_Tracer"], ["6Rnd_12Gauge_Pellets","6Rnd_12Gauge_Pellets","6Rnd_12Gauge_Slug","6Rnd_12Gauge_Slug"], ""], 2,
     ["arifle_MSBS65_UBS_F", "", _eliteAccessories, _eliteSlOptics,["30Rnd_65x39_caseless_msbs_mag","30Rnd_65x39_caseless_msbs_mag","30Rnd_65x39_caseless_msbs_mag_Tracer"], ["6Rnd_12Gauge_Pellets","6Rnd_12Gauge_Pellets","6Rnd_12Gauge_Slug","6Rnd_12Gauge_Slug"], ""], 5
@@ -48,11 +48,11 @@ _eliteMGOptics append ["optic_DMS_weathered_Kir_F", 0.5]
 (_eliteLoadoutData get "machineGuns") append [
     ["LMG_Mk200_black_F", "", _eliteAccessories, _eliteMGOptics, ["200Rnd_65x39_cased_Box", "200Rnd_65x39_cased_Box", "200Rnd_65x39_cased_Box_Tracer"], [], "bipod_02_F_lush"], 5,
 ];
-
+//////////////////////////////////////////////////////
 _militaryMGSights append ["optic_DMS_weathered_Kir_F", 0.5]
 (_militaryLoadoutData get "machineGuns") append [
     ["LMG_Mk200_black_F", "", _militaryAttachments, _militaryMGSights, ["200Rnd_65x39_cased_Box", "200Rnd_65x39_cased_Box", "200Rnd_65x39_cased_Box_Tracer"], [], "bipod_02_F_lush"], 5
-
+//////////////////////////////////////////////////////
 (_militiaLoadoutData get "marksmanRifles") append [
     ["srifle_DMR_06_hunter_F", "", "", _militiaMarksmanSights,["10Rnd_Mk14_762x51_Mag","10Rnd_Mk14_762x51_Mag","10Rnd_Mk14_762x51_Mag","10Rnd_Mk14_762x51_Mag"], [], ""], 15
 ];

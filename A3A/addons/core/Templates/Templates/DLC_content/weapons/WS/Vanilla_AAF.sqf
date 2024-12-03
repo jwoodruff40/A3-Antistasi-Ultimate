@@ -35,7 +35,7 @@ _sfRifleOptics append ["optic_r1_high_black_lxWS", 2, "optic_r1_high_black_sand_
 (_sfLoadoutData get "marksmanRifles") append [
     ["srifle_EBR_blk_lxWS", "muzzle_snds_B", _sfAccessories, _sfMarksmanOptics, ["20Rnd_762x51_Mag_blk_lxWS","20Rnd_762x51_Mag_blk_lxWS","20Rnd_762x51_Mag_blk_lxWS"], [], ""], 5
 ];
-
+//////////////////////////////////////////////////////
 _eliteAccessories append ["saber_light_lxWS", 1, "saber_light_ir_lxW", 2.5]
 _eliteLoadoutData set ["designatedGrenadeLaunchers", [
     ["glaunch_GLX_lxWS", "", _eliteAccessories, "", ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Pellet_Grenade_shell_lxWS", "1Rnd_Smoke_Grenade_shell", "3Rnd_HE_Grenade_shell"], ["1Rnd_Smoke_Grenade_shell"], ""], 3.5,
@@ -75,7 +75,7 @@ _eliteRifleOptics append ["optic_r1_high_black_lxWS", 2, "optic_r1_high_black_sa
 (_eliteLoadoutData get "marksmanRifles") append [
     ["srifle_EBR_blk_lxWS", "", _eliteAccessories, _eliteMarksmanOptics, ["20Rnd_762x51_Mag_blk_lxWS","20Rnd_762x51_Mag_blk_lxWS","20Rnd_762x51_Mag_blk_lxWS"], [], ""], 5
 ];
-
+//////////////////////////////////////////////////////
 _militaryAttachments append ["saber_light_lxWS", 4]
 (_militaryLoadoutData get "machineGuns") append [
     ["LMG_S77_AAF_lxWS", "", _militaryAttachments, _militaryMGSights, ["100Rnd_762x51_S77_Red_lxWS", "100Rnd_762x51_S77_Red_lxWS", "100Rnd_762x51_S77_Red_Tracer_lxWS"], [], ""], 9,
@@ -109,7 +109,7 @@ _militaryRifleSights append ["optic_r1_high_black_sand_lxWS", 3]
 (_militaryLoadoutData get "marksmanRifles") append [
     ["srifle_EBR_blk_lxWS", "", _militaryAttachments, _militaryMarksmanSights, ["20Rnd_762x51_Mag_blk_lxWS","20Rnd_762x51_Mag_blk_lxWS","20Rnd_762x51_Mag_blk_lxWS"], [], ""], 5
 ];
-
+//////////////////////////////////////////////////////
 (_militiaLoadoutData get "slRifles") append [
     ["arifle_Galat_worn_lxWS","",_militiaAttachments,_militiaRifleSights,["30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F"], [], ""], 10,
     ["arifle_SLR_lxWS","",_militiaAttachments,_militiaRifleSights,["30Rnd_762x51_slr_reload_tracer_green_lxWS","30Rnd_762x51_slr_reload_tracer_green_lxWS","30Rnd_762x51_slr_tracer_green_lxWS"], [], ""], 10,

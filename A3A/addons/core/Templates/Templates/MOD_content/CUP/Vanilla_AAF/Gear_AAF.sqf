@@ -35,7 +35,7 @@
     ];
 (_sfLoadoutData get "vests") append [];
 (_sfLoadoutData get "Hvests") append [];
-
+//////////////////////////////////////////////////////
 (_eliteLoadoutData get "helmets") append [
     "CUP_H_RUS_Altyn_black", 0.1,
     "CUP_H_RUS_Altyn_Goggles_black", 0.05,
@@ -90,7 +90,7 @@
     "CUP_V_CZ_NPP2006_vz95_black", 2,
     "CUP_V_CZ_NPP2006_nk_black" 4
     ];
-
+//////////////////////////////////////////////////////
 (_militaryLoadoutData get "helmets") append [
     "CUP_H_PMC_Beanie_Headphones_Khaki", 1,
     "CUP_H_OpsCore_Covered_AAF_NoHS", 3,
@@ -141,7 +141,7 @@
     "CUP_V_B_Ciras_Olive2", 2,
     "CUP_V_B_Ciras_Olive", 4
     ];
-
+//////////////////////////////////////////////////////
 (_militiaLoadoutData get "helmets") append [
     "CUP_H_PMC_Beanie_Headphones_Khaki", 0.5,
     "CUP_H_RUS_ZSH_1_Goggles", 0.75,
