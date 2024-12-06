@@ -806,5 +806,14 @@ class CfgFunctions
             class remainingFuel {};
             class rotateItem {};
         };
+        
+        class reload_repack_turret_magazines {	//category
+            file = QPATHTOFOLDER(Scripts\ReloadRepackTurretMagazines\scripts);
+            class postInit {
+                postInit = 1;
+            };
+            class reloadTurret {};
+            class monitorMagazines {};
+        };
     };
 };
