@@ -36,12 +36,28 @@ private _infantrySquadArray = [
     selectRandom ([_faction, "groupsTierSquads"] call SCRT_fnc_unit_flattenTier)
 ] select _difficult;
 
-if ((_faction get "staticHowitzers") isEqualTo []) then {
-    _artilleryClass = selectRandom (_faction get "staticMortars");
-    _artilleryShellClass = _faction get "mortarMagazineHE";
+if (tierWar < 6) then {
+    if ((_faction get "staticHowitzers") isEqualTo []) then {
+      _artilleryClass = selectRandom (_faction get "staticMortars");
+      _artilleryShellClass = _faction get "mortarMagazineHE";
+    } else {
+      _artilleryClass = selectRandom (_faction get "staticHowitzers");
+      _artilleryShellClass = _faction get "howitzerMagazineHE";
+    };
 } else {
-    _artilleryClass = selectRandom (_faction get "staticHowitzers");
-    _artilleryShellClass = _faction get "howitzerMagazineHE";
+    if ((_faction get "vehiclesArtillery") isEqualTo []) then {
+       if ((_faction get "staticHowitzers") isEqualTo []) then {
+         _artilleryClass = selectRandom (_faction get "staticMortars");
+         _artilleryShellClass = _faction get "mortarMagazineHE";
+       } else {
+         _ artilleryClass = selectRandom (_faction get "staticHowitzers");
+         _artilleryShellClass = _faction get "howitzerMagazineHE";
+       };
+    } else {
+      _artilleryClass = selectRandom (_faction get "vehiclesArtillery");
+      private _artilleryShellClassPool = (_faction get "magazines") get _artilleryClass;
+      private _artilleryShellClass = selectRandom _artilleryShellClassPool;
+    };
 };
 
 _mgClass = selectRandom (_faction get "staticMGs");
