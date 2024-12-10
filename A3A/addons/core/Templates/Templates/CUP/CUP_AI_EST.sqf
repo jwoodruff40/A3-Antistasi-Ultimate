@@ -786,7 +786,7 @@ _policeLoadoutData set ["sidearms", [
 ////////////////////////////////
 
 private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData; 
-_militiaLoadoutData set ["uniforms", ["EST_Jacket_MP_01", "EST_CombatUni_Green", "EST_CombatUni_Green_Rolled"]];
+_militiaLoadoutData set ["uniforms", ["EST_CombatUni_Green", "EST_CombatUni_Green_Rolled"]];
 _militiaLoadoutData set ["vests", ["Tac_Vest_EST_MP", "Tac_Vest_EST_Woodland"]];
 _militiaLoadoutData set ["Hvests", ["Tac_Vest_EST_MP", "Tac_Vest_EST_Woodland"]];
 _militiaLoadoutData set ["backpacks", ["Assaultpack_EST_Olive", "Assaultpack_EST_Black", "Fieldpack_EST_Black", "Fieldpack_EST_Olive"]];
