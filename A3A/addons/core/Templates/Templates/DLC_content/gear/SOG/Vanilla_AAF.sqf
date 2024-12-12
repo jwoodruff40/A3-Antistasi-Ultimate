@@ -4,7 +4,7 @@
     // "vn_b_squares_tinted",
     // "vn_b_squares", 1,
     "vn_g_spectacles_01", 1.5,
-    "vn_g_spectacles_02", 2,
+    "vn_g_spectacles_02", 2
     // "vn_b_spectacles",
     // "vn_b_aviator"
 ];
