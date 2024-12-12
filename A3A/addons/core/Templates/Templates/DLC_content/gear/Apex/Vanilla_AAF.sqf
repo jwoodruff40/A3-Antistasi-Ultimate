@@ -13,7 +13,7 @@ _helmets append [ // Police helmets.
 	"H_Beret_gen_F", 8
 ];
 (_policeLoadoutData get "vests") append [
-	"V_TacVest_gen_F", 6
+	"V_TacVest_gen_F", 4
 ];
 (_policeLoadoutData get "uniforms") append [
 	"U_B_GEN_Soldier_F", 10,
