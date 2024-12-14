@@ -444,7 +444,7 @@ switch _mode do {
 
 	  private _sortByAmountIndex =  _ctrlSort lbadd (localize "STR_JNA_SORT_BY_AMOUNT");
       private _sortDefaultIndex = _ctrlSort lbadd (localize "STR_JNA_SORT_DEFAULT");
-	private _sortColorIndex = _ctrlSort lbadd (localize "STR_JNA_SORT_COLOR");
+	  private _sortColorIndex = _ctrlSort lbadd (localize "STR_JNA_SORT_COLOR");
 	  private _sortModIndex = _ctrlSort lbadd (localize "STR_JNA_SORT_MOD");
 
       _ctrlSort lbSetValue [0, SORT_ALPHABETICAL];
@@ -1398,7 +1398,6 @@ switch _mode do {
 				getnumber (_xCfg >> "mass");
 			};
 			_ctrlList lnbsetvalue [[_lbAdd,0], _mass];
-
 		}else{
 			_lbAdd = _ctrlList lbadd _displayName;
 			_ctrlList lbsetdata [_lbAdd,_data];
@@ -1412,6 +1411,24 @@ switch _mode do {
 			])then{
 				_ammo_logo = getText(configfile >> "RscDisplayArsenal" >> "Controls" >> "TabCargoMag" >> "text");
 				_ctrlList lbsetpictureright [_lbAdd,_ammo_logo];
+				_xCfg call ADDMODICON;
+			};
+
+			if(_index in [
+				IDC_RSCDISPLAYARSENAL_TAB_UNIFORM,
+				IDC_RSCDISPLAYARSENAL_TAB_VEST,
+				IDC_RSCDISPLAYARSENAL_TAB_BACKPACK,
+				IDC_RSCDISPLAYARSENAL_TAB_HEADGEAR,
+				IDC_RSCDISPLAYARSENAL_TAB_GOGGLES,
+				IDC_RSCDISPLAYARSENAL_TAB_NVGS,
+				IDC_RSCDISPLAYARSENAL_TAB_BINOCULARS,
+				IDC_RSCDISPLAYARSENAL_TAB_MAP,
+				IDC_RSCDISPLAYARSENAL_TAB_GPS,
+				IDC_RSCDISPLAYARSENAL_TAB_RADIO,
+				IDC_RSCDISPLAYARSENAL_TAB_COMPASS,
+				IDC_RSCDISPLAYARSENAL_TAB_WATCH
+			])then{
+				_xCfg call ADDMODICON;
 			};
 
 			//grayout attachments
@@ -1431,10 +1448,9 @@ switch _mode do {
 				if not (({_x == _item} count _compatibleItems > 0) || _item isequalto "")exitwith{
 					_ctrlList lbSetColor [_lbAdd, [1,1,1,0.25]];
 				};
+				_xCfg call ADDMODICON;
 			};
-
 		};
-		_xCfg call ADDMODICON;
 	};
 
 	///////////////////////////////////////////////////////////////////////////////////////////

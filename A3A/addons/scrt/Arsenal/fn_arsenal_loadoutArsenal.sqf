@@ -1400,6 +1400,24 @@ switch _mode do {
 			])then{
 				_ammo_logo = getText(configfile >> "RscDisplayArsenal" >> "Controls" >> "TabCargoMag" >> "text");
 				_ctrlList lbsetpictureright [_lbAdd,_ammo_logo];
+				_xCfg call ADDMODICON;
+			};
+
+			if(_index in [
+				IDC_RSCDISPLAYARSENAL_TAB_UNIFORM,
+				IDC_RSCDISPLAYARSENAL_TAB_VEST,
+				IDC_RSCDISPLAYARSENAL_TAB_BACKPACK,
+				IDC_RSCDISPLAYARSENAL_TAB_HEADGEAR,
+				IDC_RSCDISPLAYARSENAL_TAB_GOGGLES,
+				IDC_RSCDISPLAYARSENAL_TAB_NVGS,
+				IDC_RSCDISPLAYARSENAL_TAB_BINOCULARS,
+				IDC_RSCDISPLAYARSENAL_TAB_MAP,
+				IDC_RSCDISPLAYARSENAL_TAB_GPS,
+				IDC_RSCDISPLAYARSENAL_TAB_RADIO,
+				IDC_RSCDISPLAYARSENAL_TAB_COMPASS,
+				IDC_RSCDISPLAYARSENAL_TAB_WATCH
+			])then{
+				_xCfg call ADDMODICON;
 			};
 
 			//grayout attachments
@@ -1419,10 +1437,9 @@ switch _mode do {
 				if not (({_x == _item} count _compatibleItems > 0) || _item isequalto "")exitwith{
 					_ctrlList lbSetColor [_lbAdd, [1,1,1,0.25]];
 				};
+				_xCfg call ADDMODICON;
 			};
-
 		};
-		_xCfg call ADDMODICON;
 		//["UpdateItemGui",[_display,_index,_lbAdd]] call SCRT_fnc_arsenal_loadoutArsenal;
 	};
 
