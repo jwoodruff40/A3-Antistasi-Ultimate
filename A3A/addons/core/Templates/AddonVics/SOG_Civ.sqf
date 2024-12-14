@@ -30,3 +30,4 @@ _addon set ["vehiclesCivBoat", [
 _addon set ["vehiclesCivHeli", [
 	"vn_o_air_mi2_02_02", 0.3
 ]];
+//
