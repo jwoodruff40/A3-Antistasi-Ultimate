@@ -9,8 +9,8 @@ _sfLoadoutData set ["designatedGrenadeLaunchers", [
     ["LMG_S77_Compact_lxWS", "suppressor_h_lxWS", sfAccessories, _sfMGOptics, ["100Rnd_762x51_S77_Red_lxWS", "100Rnd_762x51_S77_Red_lxWS", "100Rnd_762x51_S77_Red_Tracer_lxWS"], [], ""], 5
 ];
 
-_sfTlOptics append ["optic_r1_high_black_lxWS", 2, "optic_r1_high_black_sand_lxWS" 2];
-_sfRifleOptics append ["optic_r1_high_black_lxWS", 2, "optic_r1_high_black_sand_lxWS" 2];
+_sfTlOptics append ["optic_r1_high_black_lxWS", 2, "optic_r1_high_black_sand_lxWS", 2];
+_sfRifleOptics append ["optic_r1_high_black_lxWS", 2, "optic_r1_high_black_sand_lxWS", 2];
 (_sfLoadoutData get "slRifles") append [
     ["sgun_aa40_lxWS","muzzle_snds_12Gauge_lxWS",sfAccessories,_sfTlOptics,["20Rnd_12Gauge_AA40_Pellets_lxWS","20Rnd_12Gauge_AA40_Slug_lxWS","8Rnd_12Gauge_AA40_Smoke_lxWS","8Rnd_12Gauge_AA40_HE_lxWS"], [], ""], 4,
     ["arifle_Galat_lxWS","suppressor_h_lxWS",sfAccessories,_sfTlOptics,["30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F"], [], ""], 2,
@@ -82,7 +82,7 @@ _militaryAttachments append ["saber_light_lxWS", 4];
     ["LMG_S77_Compact_lxWS", "", _militaryAttachments, _militaryMGSights, ["100Rnd_762x51_S77_Red_lxWS", "100Rnd_762x51_S77_Red_lxWS", "100Rnd_762x51_S77_Red_Tracer_lxWS"], [], ""], 3
 ];
 
-_militarySlRifleSights append ["optic_r1_high_black_lxWS", 2 "optic_r1_high_black_sand_lxWS", 1];
+_militarySlRifleSights append ["optic_r1_high_black_lxWS", 2, "optic_r1_high_black_sand_lxWS", 1];
 _militaryRifleSights append ["optic_r1_high_black_lxWS", 2, "optic_r1_high_black_sand_lxWS", 1];
 (_militaryLoadoutData get "slRifles") append [
     ["sgun_aa40_lxWS","",_militaryAttachments,_militarySlRifleSights,["8Rnd_12Gauge_AA40_Pellets_lxWS","8Rnd_12Gauge_AA40_Pellets_lxWS","8Rnd_12Gauge_AA40_Slug_lxWS","8Rnd_12Gauge_AA40_Slug_lxWS"], [], ""], 0.5,

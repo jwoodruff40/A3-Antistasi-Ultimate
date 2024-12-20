@@ -37,7 +37,7 @@ _militaryRifleSights append ["optic_VRCO_RF", 2.5];
 //////////////////////////////////////////////////////
 _rfSFDeagleSights = ["optic_VRCO_pistol_RF", 8, "optic_rds_RF", 2]; // Better than making variants of each Deagle with different optics and separately balancing their weights.
 (_sfLoadoutData get "sidearms") append [
-    ["hgun_Glock19_Tan_RF", "muzzle_snds_L", "acc_flashlight_IR_pistol_RF", "optic_MRD_tan_RF", ["17Rnd_9x19_Mag_RF","33Rnd_9x19_Mag_RF"], [], ""], 2.5
+    ["hgun_Glock19_Tan_RF", "muzzle_snds_L", "acc_flashlight_IR_pistol_RF", "optic_MRD_tan_RF", ["17Rnd_9x19_Mag_RF","33Rnd_9x19_Mag_RF"], [], ""], 2.5,
     ["hgun_Glock19_auto_Tan_RF", "muzzle_snds_L", "acc_flashlight_IR_pistol_RF", "optic_MRD_tan_RF", ["17Rnd_9x19_Mag_RF","33Rnd_9x19_Mag_RF","65Rnd_9x19_Mag_RF"], [], ""], 7.5,
     ["hgun_DEagle_RF", "", "", _rfSFDeagleSights, ["7Rnd_50AE_Mag_RF","7Rnd_50AE_Mag_RF","7Rnd_50AE_Mag_RF"], [], ""], 5, 
     ["hgun_DEagle_classic_RF", "", "", _rfSFDeagleSights, ["7Rnd_50AE_Mag_RF","7Rnd_50AE_Mag_RF","7Rnd_50AE_Mag_RF"], [], ""], 2,

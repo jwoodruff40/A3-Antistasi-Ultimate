@@ -59,7 +59,7 @@ _cupSFRifleOptics_XM8 = ["CUP_optic_AMO_PCAP_green", 6, "CUP_optic_ISM_PCAP_gree
 	["CUP_arifle_XM8_Sharpshooter_Rail", "CUP_muzzle_snds_XM8",_cupSFXM8Attachments,_cupSFRifleOptics,["CUP_30Rnd_TE1_Green_Tracer_556x45_XM8","CUP_30Rnd_556x45_XM8","CUP_30Rnd_556x45_XM8","CUP_30Rnd_556x45_XM8"], [], "CUP_bipod_VLTOR_Modpod_od"], 2,
 
 	["CUP_arifle_XM8_Sharpshooter_FG_Green", "CUP_muzzle_snds_XM8",_cupSFXM8Attachments,_cupSFRifleOptics_XM8,["CUP_30Rnd_TE1_Green_Tracer_556x45_XM8","CUP_30Rnd_556x45_XM8","CUP_30Rnd_556x45_XM8","CUP_30Rnd_556x45_XM8"], [], "CUP_bipod_VLTOR_Modpod_od"], 1,
-	["CUP_arifle_XM8_Sharpshooter_FG", "CUP_muzzle_snds_XM8",_cupSFXM8Attachments,_cupSFRifleOptics_XM8,["CUP_30Rnd_TE1_Green_Tracer_556x45_XM8","CUP_30Rnd_556x45_XM8","CUP_30Rnd_556x45_XM8","CUP_30Rnd_556x45_XM8"], [], "CUP_bipod_VLTOR_Modpod_od"], 1
+	["CUP_arifle_XM8_Sharpshooter_FG", "CUP_muzzle_snds_XM8",_cupSFXM8Attachments,_cupSFRifleOptics_XM8,["CUP_30Rnd_TE1_Green_Tracer_556x45_XM8","CUP_30Rnd_556x45_XM8","CUP_30Rnd_556x45_XM8","CUP_30Rnd_556x45_XM8"], [], "CUP_bipod_VLTOR_Modpod_od"], 1,
 	["CUP_arifle_XM8_Sharpshooter_Green", "CUP_muzzle_snds_XM8",_cupSFXM8Attachments,_cupSFRifleOptics_XM8,["CUP_30Rnd_TE1_Green_Tracer_556x45_XM8","CUP_30Rnd_556x45_XM8","CUP_30Rnd_556x45_XM8","CUP_30Rnd_556x45_XM8"], [], "CUP_bipod_VLTOR_Modpod_od"], 1,
 	["CUP_arifle_XM8_Sharpshooter", "CUP_muzzle_snds_XM8",_cupSFXM8Attachments,_cupSFRifleOptics_XM8,["CUP_30Rnd_TE1_Green_Tracer_556x45_XM8","CUP_30Rnd_556x45_XM8","CUP_30Rnd_556x45_XM8","CUP_30Rnd_556x45_XM8"], [], "CUP_bipod_VLTOR_Modpod_od"], 1
 ];
@@ -280,7 +280,7 @@ _eliteMGOptics append ["CUP_optic_G33_HWS_BLK", 1.5, "CUP_optic_Eotech553_Black"
 	["CUP_arifle_XM8_SAW_FG_Rail", "",_cupEliteAttachments,_cupEliteRifleOptics,["CUP_100Rnd_556x45_BetaCMag","CUP_100Rnd_556x45_BetaCMag"], [], "CUP_bipod_VLTOR_Modpod_black"], 0.1,
 	["CUP_arifle_XM8_SAW_Rail_Green", "",_cupEliteGreenAttachments,_cupEliteGreenRifleOptics,["CUP_100Rnd_556x45_BetaCMag","CUP_100Rnd_556x45_BetaCMag"], [], "CUP_bipod_VLTOR_Modpod_od"], 2,
 	["CUP_arifle_XM8_SAW_Rail", "",_cupEliteAttachments,_cupEliteRifleOptics,["CUP_100Rnd_556x45_BetaCMag","CUP_100Rnd_556x45_BetaCMag"], [], "CUP_bipod_VLTOR_Modpod_black"], 1,
-	["CUP_arifle_XM8_SAW_FG_Green", "",_cupEliteGreenAttachments,_cupEliteXM8Optics,["CUP_100Rnd_556x45_BetaCMag","CUP_100Rnd_556x45_BetaCMag"], [], "CUP_bipod_VLTOR_Modpod_od"], 0.5
+	["CUP_arifle_XM8_SAW_FG_Green", "",_cupEliteGreenAttachments,_cupEliteXM8Optics,["CUP_100Rnd_556x45_BetaCMag","CUP_100Rnd_556x45_BetaCMag"], [], "CUP_bipod_VLTOR_Modpod_od"], 0.5,
 	["CUP_arifle_XM8_SAW_FG", "",_cupEliteAttachments,_cupEliteXM8Optics,["CUP_100Rnd_556x45_BetaCMag","CUP_100Rnd_556x45_BetaCMag"], [], "CUP_bipod_VLTOR_Modpod_black"], 0.25,
 	["CUP_arifle_XM8_SAW_Green", "",_cupEliteGreenAttachments,_cupEliteXM8Optics,["CUP_100Rnd_556x45_BetaCMag","CUP_100Rnd_556x45_BetaCMag"], [], "CUP_bipod_VLTOR_Modpod_od"], 1,
 	["CUP_arifle_XM8_SAW", "",_cupEliteAttachments,_cupEliteXM8Optics,["CUP_100Rnd_556x45_BetaCMag","CUP_100Rnd_556x45_BetaCMag"], [], "CUP_bipod_VLTOR_Modpod_black"], 0.5,
@@ -396,7 +396,7 @@ _cupEliteXM8CarbineOptics = ["CUP_optic_RCO_PCAP", 1, "CUP_optic_ISM_PCAP", 4];
 	["CUP_arifle_ACRC_EGLM_blk_556", "",_cupEliteAttachments,_cupEliteRifleOptics,["CUP_30Rnd_556x45_PMAG_BLACK_PULL","CUP_30Rnd_556x45_PMAG_BLACK_PULL","CUP_30Rnd_556x45_PMAG_BLACK_PULL_Tracer_Green","CUP_30Rnd_556x45_PMAG_BLACK_PULL_Tracer_Green"], ["CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203","CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203"], ""], 0.75,
 
 	["CUP_arifle_ACR_EGLM_blk_68", "",_cupEliteAttachments,_cupEliteRifleOptics,["CUP_30Rnd_680x43_Stanag","CUP_30Rnd_680x43_Stanag","CUP_30Rnd_680x43_Stanag","CUP_30Rnd_680x43_Stanag_Tracer_Green"], ["CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203","CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203"], ""], 2,
-	["CUP_arifle_ACR_EGLM_blk_556", "",_cupEliteAttachments,_cupEliteRifleOptics,["CUP_30Rnd_556x45_PMAG_BLACK_PULL","CUP_30Rnd_556x45_PMAG_BLACK_PULL","CUP_30Rnd_556x45_PMAG_BLACK_PULL_Tracer_Green","CUP_30Rnd_556x45_PMAG_BLACK_PULL_Tracer_Green"], ["CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203","CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203"], ""] 0.75
+	["CUP_arifle_ACR_EGLM_blk_556", "",_cupEliteAttachments,_cupEliteRifleOptics,["CUP_30Rnd_556x45_PMAG_BLACK_PULL","CUP_30Rnd_556x45_PMAG_BLACK_PULL","CUP_30Rnd_556x45_PMAG_BLACK_PULL_Tracer_Green","CUP_30Rnd_556x45_PMAG_BLACK_PULL_Tracer_Green"], ["CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203","CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203"], ""], 0.75
 	
 ];
 _eliteMarksmanOptics append ["CUP_optic_SB_11_4x20_PM", 5, "CUP_optic_AN_PVS_10_black", 0.5];
@@ -678,7 +678,7 @@ _militiaMGSights = ["CUP_optic_Aimpoint_5000", 0.25, "CUP_optic_AC11704_Black", 
 	["CUP_lmg_M240_norail", "", "", "", ["CUP_100Rnd_TE4_LRT4_White_Tracer_762x51_Belt_M","CUP_100Rnd_TE4_LRT4_White_Tracer_762x51_Belt_M","CUP_100Rnd_TE4_LRT4_White_Tracer_762x51_Belt_M"], [], ""], 1
 ];
 
-_militiaMarksmanSights append ["CUP_optic_SB_11_4x20_PM", 0.5, "Leupold Mk4 CQ/T 1-3x14mm", 7.5] // Shortdot is pretty good for early game DMR scopes, so make it pretty rare.
+_militiaMarksmanSights append ["CUP_optic_SB_11_4x20_PM", 0.5, "CUP_optic_LeupoldMk4_CQ_T", 7.5]; // Shortdot is pretty good for early game DMR scopes, so make it pretty rare.
 (_militiaLoadoutData get "marksmanRifles") append [
     ["CUP_arifle_IMI_Romat_railed", "","",_militiaMarksmanSight,["CUP_20Rnd_762x51_FNFAL_M","CUP_20Rnd_762x51_FNFAL_M","CUP_20Rnd_762x51_FNFAL_M","CUP_20Rnd_TE1_Green_Tracer_762x51_FNFAL_M"], [], ""], 0.2,
 
@@ -686,7 +686,7 @@ _militiaMarksmanSights append ["CUP_optic_SB_11_4x20_PM", 0.5, "Leupold Mk4 CQ/T
 	["CUP_srifle_M21_ris", "","",_militiaMarksmanSight,["CUP_20Rnd_762x51_DMR","CUP_20Rnd_762x51_DMR","CUP_20Rnd_762x51_DMR","CUP_20Rnd_TE1_Green_Tracer_762x51_DMR"], [], ""], 2
 
 ];
-_militiaSniperSights append ["CUP_optic_SB_11_4x20_PM", 7.5]
+_militiaSniperSights append ["CUP_optic_SB_11_4x20_PM", 7.5];
 (_militiaLoadoutData get "sniperRifles") append [
     ["CUP_srifle_Remington700","","","CUP_optic_Remington",["CUP_6Rnd_762x51_R700","CUP_6Rnd_762x51_R700","CUP_6Rnd_762x51_R700"], [], ""], 1,
 	["CUP_srifle_LeeEnfield_rail","","",_militiaSniperSights,["CUP_10x_303_M","CUP_10x_303_M","CUP_10x_303_M"], [], "CUP_bipod_Harris_1A2_L_BLK"], 0.25,
@@ -728,7 +728,7 @@ _militiaSniperSights append ["CUP_optic_SB_11_4x20_PM", 7.5]
 	["CUP_sgun_M1014","","","",["CUP_8Rnd_12Gauge_Pellets_No00_Buck","CUP_8Rnd_12Gauge_Pellets_No4_Buck","CUP_8Rnd_12Gauge_Slug","CUP_8Rnd_12Gauge_Slug"], [], ""], 1.5,
 
 	["CUP_sgun_CZ584_RIS","","","",["CUP_1Rnd_12Gauge_Pellets_No00_Buck","CUP_1Rnd_12Gauge_Pellets_No4_Buck","CUP_1Rnd_12Gauge_Pellets_No4_Bird","CUP_1Rnd_12Gauge_Slug"], ["CUP_1Rnd_762x51_CZ584","CUP_1Rnd_762x51_CZ584"], ""], 0.2,
-	["CUP_sgun_CZ584","","","",["CUP_1Rnd_12Gauge_Pellets_No00_Buck","CUP_1Rnd_12Gauge_Pellets_No4_Buck","CUP_1Rnd_12Gauge_Pellets_No4_Bird","CUP_1Rnd_12Gauge_Slug"], ["CUP_1Rnd_762x51_CZ584","CUP_1Rnd_762x51_CZ584"], ""], 0.2
+	["CUP_sgun_CZ584","","","",["CUP_1Rnd_12Gauge_Pellets_No00_Buck","CUP_1Rnd_12Gauge_Pellets_No4_Buck","CUP_1Rnd_12Gauge_Pellets_No4_Bird","CUP_1Rnd_12Gauge_Slug"], ["CUP_1Rnd_762x51_CZ584","CUP_1Rnd_762x51_CZ584"], ""], 0.2,
 
 	["CUP_smg_BallisticShield_Sa61","","CUP_acc_SF_XC1","",["CUP_50Rnd_B_765x17_Ball_M","CUP_20Rnd_B_765x17_Ball_M","CUP_20Rnd_B_765x17_Ball_M","CUP_10Rnd_B_765x17_Ball_M"], [], "CUP_decal_BallisticShield_Police_worn"], 0.2,
 	["CUP_smg_BallisticShield_PP19","","CUP_acc_Flashlight","",["CUP_30Rnd_9x19_Vityaz","CUP_30Rnd_9x19AP_Vityaz","CUP_10Rnd_9x19_Saiga9","CUP_10Rnd_9x19_Saiga9"], [], "CUP_decal_BallisticShield_Police_worn"], 0.2,

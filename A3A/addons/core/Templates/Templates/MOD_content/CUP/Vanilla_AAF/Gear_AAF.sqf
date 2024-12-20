@@ -16,7 +16,7 @@
     "CUP_H_OpsCore_Covered_AAF_NoHS", 4,
     "CUP_H_OpsCore_Covered_AAF", 4,
     "CUP_H_RUS_K6_3_Shield_Up_khaki", 0.25,
-    "CUP_H_RUS_K6_3_Shield_Down_khaki", 0.25
+    "CUP_H_RUS_K6_3_Shield_Down_khaki", 0.25,
     "CUP_H_RUS_K6_3_Goggles_khaki", 0.25,
     "CUP_H_RUS_K6_3_khaki", 0.5,
     "CUP_H_RUS_K6_3_Shield_Up", 0.25,
@@ -88,14 +88,14 @@
     "CUP_V_CZ_NPP2006_co_black", 2,
     "CUP_V_CZ_NPP2006_ok_black", 2,
     "CUP_V_CZ_NPP2006_vz95_black", 2,
-    "CUP_V_CZ_NPP2006_nk_black" 4
+    "CUP_V_CZ_NPP2006_nk_black", 4
     ];
 //////////////////////////////////////////////////////
 (_militaryLoadoutData get "helmets") append [
     "CUP_H_PMC_Beanie_Headphones_Khaki", 1,
     "CUP_H_OpsCore_Covered_AAF_NoHS", 3,
     "CUP_H_OpsCore_Covered_AAF", 3,
-    "CUP_H_PMC_EP_Headset" 1
+    "CUP_H_PMC_EP_Headset", 1
     ];
 (_militaryLoadoutData get "backpacks") append [
     "CUP_B_Kombat_Olive", 2,
@@ -109,7 +109,7 @@
     "CUP_V_PMC_CIRAS_OD_Patrol", 0.5,
     "CUP_V_CPC_communications_rngr", 0.5,
     "CUP_V_CPC_Fast_rngr", 0.5,
-    "CUP_V_CPC_light_rngr", , 0.5,
+    "CUP_V_CPC_light_rngr", 0.5,
     "CUP_V_CPC_medical_rngr",  0.5,
     "CUP_V_CPC_tl_rngr", 0.5,
     "CUP_V_CPC_weapons_rngr", 0.5,

@@ -661,7 +661,7 @@ _militiaLoadoutData set ["sidearms", ["hgun_ACPC2_F", 10]];
 
 
 private _crewLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData; 
-_crewLoadoutData set ["uniforms", ["U_I_CombatUniform", 4, "U_I_CombatUniform_shortsleeve", 6],];
+_crewLoadoutData set ["uniforms", ["U_I_CombatUniform", 4, "U_I_CombatUniform_shortsleeve", 6]];
 if (_hasTanks) then {
     _crewLoadoutData set ["uniforms", ["U_Tank_green_F", 10]];
 };
