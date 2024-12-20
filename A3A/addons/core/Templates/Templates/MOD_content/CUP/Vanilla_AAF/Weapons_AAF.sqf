@@ -563,7 +563,7 @@ _cupMilitaryMGOptics = ["CUP_optic_ACOG2", 4, "CUP_optic_ACOG_TA31_KF", 1];
 
 	["CUP_arifle_G36A3_AG36", "",_cupMilitaryAttachments,_cupMilitaryG36RISOptics,["CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36","CUP_30Rnd_TE1_Green_Tracer_556x45_G36"], ["CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203","CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203"], ""], 0.75,
 	
-	["CUP_arifle_G36A_AG36_RIS", "",_cupMilitaryAttachments_cupMilitaryG36RISOptics,["CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36","CUP_30Rnd_TE1_Green_Tracer_556x45_G36"], ["CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203","CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203"], ""], 0.75,
+	["CUP_arifle_G36A_AG36_RIS", "",_cupMilitaryAttachments,_cupMilitaryG36RISOptics,["CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36","CUP_30Rnd_TE1_Green_Tracer_556x45_G36"], ["CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203","CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203"], ""], 0.75,
 
 	["CUP_arifle_AG36", "",_cupMilitaryAttachments,_cupMilitaryG36Optics,["CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36","CUP_30Rnd_TE1_Green_Tracer_556x45_G36"], ["CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203","CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203"], ""], 1
 ];
@@ -680,10 +680,10 @@ _militiaMGSights = ["CUP_optic_Aimpoint_5000", 0.25, "CUP_optic_AC11704_Black", 
 
 _militiaMarksmanSights append ["CUP_optic_SB_11_4x20_PM", 0.5, "CUP_optic_LeupoldMk4_CQ_T", 7.5]; // Shortdot is pretty good for early game DMR scopes, so make it pretty rare.
 (_militiaLoadoutData get "marksmanRifles") append [
-    ["CUP_arifle_IMI_Romat_railed", "","",_militiaMarksmanSight,["CUP_20Rnd_762x51_FNFAL_M","CUP_20Rnd_762x51_FNFAL_M","CUP_20Rnd_762x51_FNFAL_M","CUP_20Rnd_TE1_Green_Tracer_762x51_FNFAL_M"], [], ""], 0.2,
+    ["CUP_arifle_IMI_Romat_railed", "","",_militiaMarksmanSights,["CUP_20Rnd_762x51_FNFAL_M","CUP_20Rnd_762x51_FNFAL_M","CUP_20Rnd_762x51_FNFAL_M","CUP_20Rnd_TE1_Green_Tracer_762x51_FNFAL_M"], [], ""], 0.2,
 
 	["CUP_srifle_M21", "","","CUP_optic_artel_m14",["CUP_20Rnd_762x51_DMR","CUP_20Rnd_762x51_DMR","CUP_20Rnd_762x51_DMR","CUP_20Rnd_TE1_Green_Tracer_762x51_DMR"], [], ""], 4,
-	["CUP_srifle_M21_ris", "","",_militiaMarksmanSight,["CUP_20Rnd_762x51_DMR","CUP_20Rnd_762x51_DMR","CUP_20Rnd_762x51_DMR","CUP_20Rnd_TE1_Green_Tracer_762x51_DMR"], [], ""], 2
+	["CUP_srifle_M21_ris", "","",_militiaMarksmanSights,["CUP_20Rnd_762x51_DMR","CUP_20Rnd_762x51_DMR","CUP_20Rnd_762x51_DMR","CUP_20Rnd_TE1_Green_Tracer_762x51_DMR"], [], ""], 2
 
 ];
 _militiaSniperSights append ["CUP_optic_SB_11_4x20_PM", 7.5];

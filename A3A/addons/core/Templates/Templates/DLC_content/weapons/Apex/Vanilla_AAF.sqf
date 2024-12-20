@@ -35,7 +35,7 @@ _militarySlRifleSights append ["optic_ERCO_blk_F", 1.5];
     ["LMG_03_F", "", _militaryAttachments, _militaryMGSights, ["200Rnd_556x45_Box_F", "200Rnd_556x45_Box_F", "200Rnd_556x45_Box_Tracer_F"], [], ""], 7.5
 ];
 (_militaryLoadoutData get "SMGs") append [
-    ["SMG_05_F","", _militaryAttachments, _militarySMGSight,["30Rnd_9x21_Mag_SMG_02","30Rnd_9x21_Mag_SMG_02","30Rnd_9x21_Mag_SMG_02","30Rnd_9x21_Mag_SMG_02_Tracer_Green"], [], ""], 4
+    ["SMG_05_F","", _militaryAttachments, _militarySMGSights,["30Rnd_9x21_Mag_SMG_02","30Rnd_9x21_Mag_SMG_02","30Rnd_9x21_Mag_SMG_02","30Rnd_9x21_Mag_SMG_02_Tracer_Green"], [], ""], 4
 ];
 //////////////////////////////////////////////////////
 (_policeLoadoutData get "SMGs") append [
