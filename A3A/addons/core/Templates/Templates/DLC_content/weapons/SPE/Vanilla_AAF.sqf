@@ -30,7 +30,7 @@
     ["SPE_M1903A3_Springfield", ["SPE_ACC_M1_Bayo", 1, "SPE_ACC_M1905_Bayo", 1, "", 3],"","",["SPE_5Rnd_762x63","SPE_5Rnd_762x63_M1","SPE_5Rnd_762x63_t","SPE_5Rnd_762x63_M2_AP","SPE_8Rnd_762x63","SPE_8Rnd_762x63_M1","SPE_8Rnd_762x63_t","SPE_8Rnd_762x63_M2_AP"],[],""], 0.5,
     ["SPE_M1_Garand",["SPE_ACC_M1_Bayo", 1, "SPE_ACC_M1905_Bayo", 1, "", 3],"","",["SPE_8Rnd_762x63","SPE_8Rnd_762x63_M1","SPE_8Rnd_762x63_t","SPE_8Rnd_762x63_M2_AP"],[],""], 1,
     ["SPE_K98_Late",["SPE_ACC_K98_Bayo", 1, "", 3],"","",["SPE_5Rnd_792x57","SPE_5Rnd_792x57_t","SPE_5Rnd_792x57_SMK","SPE_5Rnd_792x57_sS"],[],""], 0.25,
-    ["SPE_K98"["SPE_ACC_K98_Bayo", 1, "", 3],"","",["SPE_5Rnd_792x57","SPE_5Rnd_792x57_t","SPE_5Rnd_792x57_SMK","SPE_5Rnd_792x57_sS"],[],""], 0.2,
+    ["SPE_K98", ["SPE_ACC_K98_Bayo", 1, "", 3],"","",["SPE_5Rnd_792x57","SPE_5Rnd_792x57_t","SPE_5Rnd_792x57_SMK","SPE_5Rnd_792x57_sS"],[],""], 0.2,
     ["SPE_G43","","","",["SPE_10Rnd_792x57","SPE_10Rnd_792x57_T2","SPE_10Rnd_792x57_SMK","SPE_10Rnd_792x57_sS","SPE_10Rnd_792x57_T"],[],""], 0.5
 ];
 

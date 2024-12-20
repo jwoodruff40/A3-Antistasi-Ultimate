@@ -589,7 +589,7 @@ _policeLoadoutData set ["helmets", _helmets];
 _policeSMGSights = ["optic_Aco_smg", 3, "", 7];
 _policeAttachments = ["acc_flashlight", 6, "", 4];
 _policeLoadoutData set ["SMGs", [
-["SMG_01_F", "", "acc_flashlight_smg_01", _policeSMGSights, [], [], ""], 1.5
+["SMG_01_F", "", "acc_flashlight_smg_01", _policeSMGSights, [], [], ""], 1.5,
 ["SMG_03_black", "", "", "", ["50Rnd_570x28_SMG_03","50Rnd_570x28_SMG_03","50Rnd_570x28_SMG_03"], [], ""], 0.5,
 ["SMG_03C_black", "", "", "", ["50Rnd_570x28_SMG_03","50Rnd_570x28_SMG_03","50Rnd_570x28_SMG_03"], [], ""], 1,
 ["SMG_03_TR_black", "", _policeAttachments, _policeSMGSights, ["50Rnd_570x28_SMG_03","50Rnd_570x28_SMG_03","50Rnd_570x28_SMG_03"], [], ""], 0.25,
