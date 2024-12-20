@@ -91,7 +91,6 @@
             ITEM(hafm_mag_30Rnd_556x45_M855A1_Stanag, 100, MZ_STOCK);
             ITEM(hafm_mag_30Rnd_556x45_Mk318_Stanag, 100, MZ_STOCK);
             ITEM(hafm_mag_arrow, 80, MZ_STOCK);
-            ITEM(hafm_mag_arrow_exp, 400, MZ_STOCK);
             ITEM(HAFM_20rnd_G3A3_762, 150, MZ_STOCK);
             ITEM(HAFM_HK21_762, 150, MZ_STOCK);
             ITEM(HAFM_20rnd_M14_762, 150, MZ_STOCK);
