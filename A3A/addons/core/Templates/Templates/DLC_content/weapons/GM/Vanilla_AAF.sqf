@@ -16,8 +16,8 @@
     ["gm_sg551_swat_blk","gm_suppressor_atec150_556mm_blk", _sfAccessories, _sfTlOptics, ["gm_30Rnd_556x45mm_B_T_DM21_sg550_brn","gm_30Rnd_556x45mm_B_DM11_sg550_brn","gm_30Rnd_556x45mm_B_DM11_sg550_brn","gm_30Rnd_556x45mm_B_T_DM21_sg550_brn"], [], ""], 5
 ];
 (_sfLoadoutData get "rifles") append [
-    ["gm_sg551_ris_blk", "gm_suppressor_atec150_556mm_blk","", sfRifleOptics, ["gm_30Rnd_556x45mm_B_T_DM21_sg550_brn","gm_30Rnd_556x45mm_B_DM11_sg550_brn","gm_30Rnd_556x45mm_B_DM11_sg550_brn","gm_30Rnd_556x45mm_B_T_DM21_sg550_brn"], [], ""], 4,
-    ["gm_sg542_ris_blk", "gm_suppressor_atec150_762mm_blk","", sfRifleOptics, ["gm_20Rnd_762x51mm_B_T_DM21A2_sg542_blk","gm_20Rnd_762x51mm_AP_DM151_sg542_blk","gm_20Rnd_762x51mm_B_DM41_sg542_blk","gm_20Rnd_762x51mm_B_DM111_sg542_blk"], [], ""], 4
+    ["gm_sg551_ris_blk", "gm_suppressor_atec150_556mm_blk","", _sfRifleOptics, ["gm_30Rnd_556x45mm_B_T_DM21_sg550_brn","gm_30Rnd_556x45mm_B_DM11_sg550_brn","gm_30Rnd_556x45mm_B_DM11_sg550_brn","gm_30Rnd_556x45mm_B_T_DM21_sg550_brn"], [], ""], 4,
+    ["gm_sg542_ris_blk", "gm_suppressor_atec150_762mm_blk","", _sfRifleOptics, ["gm_20Rnd_762x51mm_B_T_DM21A2_sg542_blk","gm_20Rnd_762x51mm_AP_DM151_sg542_blk","gm_20Rnd_762x51mm_B_DM41_sg542_blk","gm_20Rnd_762x51mm_B_DM111_sg542_blk"], [], ""], 4
 ];
 (_sfLoadoutData get "marksmanRifles") append [
     ["gm_msg90_blk","","","gm_feroz24_stanagHK_blk",["gm_20Rnd_762x51mm_AP_DM151_g3_blk","gm_20Rnd_762x51mm_B_DM41_g3_blk", "gm_20Rnd_762x51mm_B_DM111_g3_blk","gm_20Rnd_762x51mm_B_T_DM21A2_g3_blk"], [], "gm_msg90_bipod_blk"], 2,

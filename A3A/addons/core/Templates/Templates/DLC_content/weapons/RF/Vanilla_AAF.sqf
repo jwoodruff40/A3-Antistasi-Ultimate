@@ -7,7 +7,7 @@ _sfRifleOptics append ["optic_VRCO_RF", 1.25];
 //////////////////////////////////////////////////////
 _eliteSMGOptics append ["optic_VRCO_RF", 5];
 (_eliteLoadoutData get "SMGs") append [
-    ["SMG_01_black_RF","","acc_flashlight_smg_01", _eliteSMGOptic,["30Rnd_45ACP_Mag_SMG_01","30Rnd_45ACP_Mag_SMG_01","30Rnd_45ACP_Mag_SMG_01","30Rnd_45ACP_Mag_SMG_01_Tracer_Green"], [], ""], 2.5
+    ["SMG_01_black_RF","","acc_flashlight_smg_01", _eliteSMGOptics,["30Rnd_45ACP_Mag_SMG_01","30Rnd_45ACP_Mag_SMG_01","30Rnd_45ACP_Mag_SMG_01","30Rnd_45ACP_Mag_SMG_01_Tracer_Green"], [], ""], 2.5
 ];
 _eliteSlOptics append ["optic_VRCO_RF", 0.5];
 _eliteRifleOptics append ["optic_VRCO_RF", 3.5];

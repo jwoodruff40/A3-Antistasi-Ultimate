@@ -268,7 +268,7 @@ _cupEliteGreenRifleBipods = ["CUP_bipod_VLTOR_Modpod_od", 1, "", 2];
 	["CUP_arifle_ACR_blk_68", "",_cupEliteAttachments,_cupEliteRifleOptics,["CUP_30Rnd_680x43_Stanag","CUP_30Rnd_680x43_Stanag","CUP_30Rnd_680x43_Stanag","CUP_30Rnd_680x43_Stanag_Tracer_Green"], [], ""], 3,
 	["CUP_arifle_ACR_blk_556", "",_cupEliteAttachments,_cupEliteRifleOptics,["CUP_30Rnd_556x45_PMAG_BLACK_PULL","CUP_30Rnd_556x45_PMAG_BLACK_PULL","CUP_30Rnd_556x45_PMAG_BLACK_PULL_Tracer_Green","CUP_30Rnd_556x45_PMAG_BLACK_PULL_Tracer_Green"], [], ""], 1,
 
-	["CUP_sgun_AA12", "",cupEliteAttachments,"",["CUP_20Rnd_B_AA12_Buck_4","CUP_20Rnd_B_AA12_Buck_00","CUP_20Rnd_B_AA12_Slug","CUP_20Rnd_B_AA12_HE"], [], ""], 0.5
+	["CUP_sgun_AA12", "",_cupEliteAttachments,"",["CUP_20Rnd_B_AA12_Buck_4","CUP_20Rnd_B_AA12_Buck_00","CUP_20Rnd_B_AA12_Slug","CUP_20Rnd_B_AA12_HE"], [], ""], 0.5
 ];
 
 _cupEliteMGOptics = ["CUP_optic_ElcanM145", 5, "CUP_optic_G33_HWS_BLK", 2, "CUP_optic_Eotech553_Black", 0.5, "CUP_optic_Elcan_SpecterDR_KF_RMR_black", 0.75, "CUP_optic_Elcan_SpecterDR_RMR_black", 1.5, "CUP_optic_Elcan_SpecterDR_black", 2.5, "CUP_optic_Elcan_SpecterDR_KF_black", 0.5];
@@ -388,7 +388,7 @@ _cupEliteXM8CarbineOptics = ["CUP_optic_RCO_PCAP", 1, "CUP_optic_ISM_PCAP", 4];
 	["CUP_CZ_BREN2_556_11_GL", "",_cupEliteAttachments,_cupEliteRifleOptics,["CUP_30Rnd_556x45_Stanag_Mk16_woodland","CUP_30Rnd_556x45_Stanag_Mk16_woodland","CUP_30Rnd_556x45_Stanag_Mk16_woodland_Tracer_Green","CUP_30Rnd_556x45_Stanag_Mk16_woodland_Tracer_Green"], ["CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203","CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203"], ""], 0.25,
 
 	["CUP_CZ_BREN2_762_14_GL_Grn", "",_cupEliteGreenAttachments,_cupEliteRifleOptics,["CUP_30Rnd_762x39_CZ807","CUP_30Rnd_762x39_CZ807","CUP_30Rnd_TE1_Green_Tracer_762x39_CZ807"], ["CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203","CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203"], ""], 0.2,
-	["CUP_CZ_BREN2_762_14_GL", "",_cupEliteAttachments_cupEliteRifleOptics,["CUP_30Rnd_762x39_CZ807","CUP_30Rnd_762x39_CZ807","CUP_30Rnd_TE1_Green_Tracer_762x39_CZ807"], ["CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203","CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203"], ""], 0.1,
+	["CUP_CZ_BREN2_762_14_GL", "",_cupEliteAttachments,_cupEliteRifleOptics,["CUP_30Rnd_762x39_CZ807","CUP_30Rnd_762x39_CZ807","CUP_30Rnd_TE1_Green_Tracer_762x39_CZ807"], ["CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203","CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203"], ""], 0.1,
 
 	["CUP_arifle_CZ805_GL_blk", "",_cupEliteAttachments,_cupEliteRifleOptics,["CUP_30Rnd_556x45_CZ805","CUP_30Rnd_556x45_CZ805","CUP_30Rnd_TE1_Green_Tracer_556x45_CZ805","CUP_30Rnd_TE1_Green_Tracer_556x45_CZ805"], ["CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203","CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203"], ""], 0.5,
 

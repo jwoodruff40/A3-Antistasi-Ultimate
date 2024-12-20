@@ -5,23 +5,23 @@ _sfLoadoutData set ["designatedGrenadeLaunchers", [
 ]];
 
 (_sfLoadoutData get "machineGuns") append [
-    ["LMG_S77_AAF_lxWS", "suppressor_h_lxWS", sfAccessories, _sfMGOptics, ["100Rnd_762x51_S77_Red_lxWS", "100Rnd_762x51_S77_Red_lxWS", "100Rnd_762x51_S77_Red_Tracer_lxWS"], [], ""], 3,
-    ["LMG_S77_Compact_lxWS", "suppressor_h_lxWS", sfAccessories, _sfMGOptics, ["100Rnd_762x51_S77_Red_lxWS", "100Rnd_762x51_S77_Red_lxWS", "100Rnd_762x51_S77_Red_Tracer_lxWS"], [], ""], 5
+    ["LMG_S77_AAF_lxWS", "suppressor_h_lxWS", _sfAccessories, _sfMGOptics, ["100Rnd_762x51_S77_Red_lxWS", "100Rnd_762x51_S77_Red_lxWS", "100Rnd_762x51_S77_Red_Tracer_lxWS"], [], ""], 3,
+    ["LMG_S77_Compact_lxWS", "suppressor_h_lxWS", _sfAccessories, _sfMGOptics, ["100Rnd_762x51_S77_Red_lxWS", "100Rnd_762x51_S77_Red_lxWS", "100Rnd_762x51_S77_Red_Tracer_lxWS"], [], ""], 5
 ];
 
 _sfTlOptics append ["optic_r1_high_black_lxWS", 2, "optic_r1_high_black_sand_lxWS", 2];
 _sfRifleOptics append ["optic_r1_high_black_lxWS", 2, "optic_r1_high_black_sand_lxWS", 2];
 (_sfLoadoutData get "slRifles") append [
-    ["sgun_aa40_lxWS","muzzle_snds_12Gauge_lxWS",sfAccessories,_sfTlOptics,["20Rnd_12Gauge_AA40_Pellets_lxWS","20Rnd_12Gauge_AA40_Slug_lxWS","8Rnd_12Gauge_AA40_Smoke_lxWS","8Rnd_12Gauge_AA40_HE_lxWS"], [], ""], 4,
-    ["arifle_Galat_lxWS","suppressor_h_lxWS",sfAccessories,_sfTlOptics,["30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F"], [], ""], 2,
+    ["sgun_aa40_lxWS","muzzle_snds_12Gauge_lxWS",_sfAccessories,_sfTlOptics,["20Rnd_12Gauge_AA40_Pellets_lxWS","20Rnd_12Gauge_AA40_Slug_lxWS","8Rnd_12Gauge_AA40_Smoke_lxWS","8Rnd_12Gauge_AA40_HE_lxWS"], [], ""], 4,
+    ["arifle_Galat_lxWS","suppressor_h_lxWS",_sfAccessories,_sfTlOptics,["30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F"], [], ""], 2,
     ["arifle_SLR_V_lxWS","suppressor_h_lxWS","",_sfTlOptics,["30Rnd_762x51_slr_reload_tracer_green_lxWS","30Rnd_762x51_slr_reload_tracer_green_lxWS","30Rnd_762x51_slr_tracer_green_lxWS"], [], ""], 4,
-    ["arifle_Velko_lxWS","suppressor_l_lxWS",sfAccessories,_sfTlOptics,["35Rnd_556x45_Velko_reload_tracer_red_lxWS","35Rnd_556x45_Velko_reload_tracer_red_lxWS","50Rnd_556x45_Velko_reload_tracer_red_lxWS"], [], ""], 4
+    ["arifle_Velko_lxWS","suppressor_l_lxWS",_sfAccessories,_sfTlOptics,["35Rnd_556x45_Velko_reload_tracer_red_lxWS","35Rnd_556x45_Velko_reload_tracer_red_lxWS","50Rnd_556x45_Velko_reload_tracer_red_lxWS"], [], ""], 4
 ];
 (_sfLoadoutData get "rifles") append [
-    ["sgun_aa40_lxWS","muzzle_snds_12Gauge_lxWS",sfAccessories,_sfRifleOptics,["20Rnd_12Gauge_AA40_Pellets_lxWS","20Rnd_12Gauge_AA40_Slug_lxWS","8Rnd_12Gauge_AA40_Smoke_lxWS","8Rnd_12Gauge_AA40_HE_lxWS"], [], ""], 1,
-    ["arifle_Galat_lxWS","suppressor_h_lxWS",sfAccessories,_sfRifleOptics,["30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F"], [], ""], 2,
+    ["sgun_aa40_lxWS","muzzle_snds_12Gauge_lxWS",_sfAccessories,_sfRifleOptics,["20Rnd_12Gauge_AA40_Pellets_lxWS","20Rnd_12Gauge_AA40_Slug_lxWS","8Rnd_12Gauge_AA40_Smoke_lxWS","8Rnd_12Gauge_AA40_HE_lxWS"], [], ""], 1,
+    ["arifle_Galat_lxWS","suppressor_h_lxWS",_sfAccessories,_sfRifleOptics,["30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F"], [], ""], 2,
     ["arifle_SLR_V_lxWS","suppressor_h_lxWS","",_sfRifleOptics,["30Rnd_762x51_slr_reload_tracer_green_lxWS","30Rnd_762x51_slr_reload_tracer_green_lxWS","30Rnd_762x51_slr_tracer_green_lxWS"], [], ""], 1.5,
-    ["arifle_Velko_lxWS","suppressor_l_lxWS",sfAccessories,_sfRifleOptics,["35Rnd_556x45_Velko_reload_tracer_red_lxWS","35Rnd_556x45_Velko_reload_tracer_red_lxWS","50Rnd_556x45_Velko_reload_tracer_red_lxWS"], [], ""], 4
+    ["arifle_Velko_lxWS","suppressor_l_lxWS",_sfAccessories,_sfRifleOptics,["35Rnd_556x45_Velko_reload_tracer_red_lxWS","35Rnd_556x45_Velko_reload_tracer_red_lxWS","50Rnd_556x45_Velko_reload_tracer_red_lxWS"], [], ""], 4
 ];
 (_sfLoadoutData get "grenadeLaunchers") append [
     ["arifle_SLR_V_GL_lxWS","","",_sfRifleOptics,["30Rnd_762x51_slr_reload_tracer_green_lxWS","30Rnd_762x51_slr_reload_tracer_green_lxWS","30Rnd_762x51_slr_reload_tracer_green_lxWS","30Rnd_762x51_slr_tracer_green_lxWS"], ["1Rnd_40mm_HE_lxWS","1Rnd_58mm_AT_lxWS","1Rnd_50mm_Smoke_lxWS"], ""], 1, //uncommon bc rifle grenades are odd for SF

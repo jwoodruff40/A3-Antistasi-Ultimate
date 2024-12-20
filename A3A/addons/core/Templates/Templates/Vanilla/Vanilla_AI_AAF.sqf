@@ -276,7 +276,9 @@ _loadoutData set ["lightATLaunchers", [
 ["launch_MRAWS_green_rail_F", "", "acc_pointer_IR", "", ["MRAWS_HEAT_F", "MRAWS_HEAT55_F"], [], ""], 1,
 ["launch_MRAWS_green_rail_F", "", "acc_pointer_IR", "", ["MRAWS_HEAT_F", "MRAWS_HE_F"], [], ""], 1.5
 ]];
-_loadoutData set ["ATLaunchers", ["launch_NLAW_F"], 10];
+_loadoutData set ["ATLaunchers", [
+["launch_NLAW_F"], 10
+]];
 _loadoutData set ["missileATLaunchers", [
 ["launch_I_Titan_short_F", "", "acc_pointer_IR", "", ["Titan_AT"], [], ""], 10
 ]];

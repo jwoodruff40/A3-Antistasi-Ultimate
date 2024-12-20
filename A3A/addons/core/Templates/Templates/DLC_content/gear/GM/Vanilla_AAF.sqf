@@ -74,7 +74,7 @@
     "gm_ge_headgear_m92_cover_oli", 2.5
 ];
 //////////////////////////////////////////////////////
-(crewLoadoutData get "helmets") append [
+(_crewLoadoutData get "helmets") append [
     "gm_ge_headgear_crewhat_80_blk", 8
 ];
 

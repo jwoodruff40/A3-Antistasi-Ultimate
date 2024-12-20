@@ -17,7 +17,7 @@ _eliteSlOptics append ["optic_ERCO_blk_F", 3];
 // ]; // Why are Marksman DLC items defined in the Apex file?
 _eliteMGOptics append ["optic_ERCO_blk_F", 2];
 (_eliteLoadoutData get "machineGuns") append [
-    ["LMG_03_F", "", eliteAccessories, _eliteMGOptics, ["200Rnd_556x45_Box_F", "200Rnd_556x45_Box_F", "200Rnd_556x45_Box_Tracer_F"], [], ""], 2
+    ["LMG_03_F", "", _eliteAccessories, _eliteMGOptics, ["200Rnd_556x45_Box_F", "200Rnd_556x45_Box_F", "200Rnd_556x45_Box_Tracer_F"], [], ""], 2
 ];
 (_eliteLoadoutData get "SMGs") append [
     ["SMG_05_F","", _eliteAccessories, _eliteSMGOptics,["30Rnd_9x21_Mag_SMG_02","30Rnd_9x21_Mag_SMG_02","30Rnd_9x21_Mag_SMG_02","30Rnd_9x21_Mag_SMG_02_Tracer_Green"], [], ""], 1
@@ -32,10 +32,10 @@ _militaryMGSights append ["optic_ERCO_blk_F", 1];
 _militaryRifleSights append ["optic_ERCO_blk_F", 0.5];
 _militarySlRifleSights append ["optic_ERCO_blk_F", 1.5];
 (_militaryLoadoutData get "machineGuns") append [
-    ["LMG_03_F", "", _militaryAttachment, _militaryMGSights, ["200Rnd_556x45_Box_F", "200Rnd_556x45_Box_F", "200Rnd_556x45_Box_Tracer_F"], [], ""], 7.5
+    ["LMG_03_F", "", _militaryAttachments, _militaryMGSights, ["200Rnd_556x45_Box_F", "200Rnd_556x45_Box_F", "200Rnd_556x45_Box_Tracer_F"], [], ""], 7.5
 ];
 (_militaryLoadoutData get "SMGs") append [
-    ["SMG_05_F","", _militaryAttachment, _militarySMGSight,["30Rnd_9x21_Mag_SMG_02","30Rnd_9x21_Mag_SMG_02","30Rnd_9x21_Mag_SMG_02","30Rnd_9x21_Mag_SMG_02_Tracer_Green"], [], ""], 4
+    ["SMG_05_F","", _militaryAttachments, _militarySMGSight,["30Rnd_9x21_Mag_SMG_02","30Rnd_9x21_Mag_SMG_02","30Rnd_9x21_Mag_SMG_02","30Rnd_9x21_Mag_SMG_02_Tracer_Green"], [], ""], 4
 ];
 //////////////////////////////////////////////////////
 (_policeLoadoutData get "SMGs") append [
