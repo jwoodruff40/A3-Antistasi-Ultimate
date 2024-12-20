@@ -274,7 +274,7 @@ _loadoutData set ["lightATLaunchers", [
 ["launch_MRAWS_green_F", "", "acc_pointer_IR", "", ["MRAWS_HEAT_F", "MRAWS_HE_F"], [], ""], 2,
 ["launch_MRAWS_green_rail_F", "", "acc_pointer_IR", "", ["MRAWS_HE_F", "MRAWS_HEAT55_F"], [], ""], 1.75,
 ["launch_MRAWS_green_rail_F", "", "acc_pointer_IR", "", ["MRAWS_HEAT_F", "MRAWS_HEAT55_F"], [], ""], 1,
-["launch_MRAWS_green_rail_F", "", "acc_pointer_IR", "", ["MRAWS_HEAT_F", "MRAWS_HE_F"], [], ""], 1.5,
+["launch_MRAWS_green_rail_F", "", "acc_pointer_IR", "", ["MRAWS_HEAT_F", "MRAWS_HE_F"], [], ""], 1.5
 ]];
 _loadoutData set ["ATLaunchers", ["launch_NLAW_F"], 10];
 _loadoutData set ["missileATLaunchers", [
@@ -434,7 +434,7 @@ _sfLoadoutData set ["SMGs", [
 ["SMG_03C_TR_camo", "muzzle_snds_570", _sfAccessories, _sfP90optics, ["50Rnd_570x28_SMG_03","50Rnd_570x28_SMG_03","50Rnd_570x28_SMG_03"], [], ""], 3,
 ["SMG_03C_TR_khaki", "muzzle_snds_570", _sfAccessories, _sfP90optics, ["50Rnd_570x28_SMG_03","50Rnd_570x28_SMG_03","50Rnd_570x28_SMG_03"], [], ""], 0.75,
 ["SMG_03C_TR_black", "muzzle_snds_570", _sfAccessories, _sfP90optics, ["50Rnd_570x28_SMG_03","50Rnd_570x28_SMG_03","50Rnd_570x28_SMG_03"], [], ""], 0.75,
-["SMG_02_F", "muzzle_snds_L", _sfAccessories, _sfP90optics, [], [], ""], 1.5,
+["SMG_02_F", "muzzle_snds_L", _sfAccessories, _sfP90optics, [], [], ""], 1.5
 ]];
 
 _sfMGOptics = ["optic_tws_mg", 2.5, "optic_MRCO", 2, "optic_Holosight_blk_F", 2, "optic_Hamr", 3, "optic_ACO_grn", 1];
@@ -495,7 +495,7 @@ _eliteLoadoutData set ["SMGs", [
 ["SMG_03C_black", "", "", "", ["50Rnd_570x28_SMG_03","50Rnd_570x28_SMG_03","50Rnd_570x28_SMG_03"], [], ""], 0.75,
 ["SMG_03C_TR_camo", "", _eliteAccessories, _eliteP90Optics, ["50Rnd_570x28_SMG_03","50Rnd_570x28_SMG_03","50Rnd_570x28_SMG_03"], [], ""], 3.5,
 ["SMG_03C_TR_khaki", "", _eliteAccessories, _eliteP90Optics, ["50Rnd_570x28_SMG_03","50Rnd_570x28_SMG_03","50Rnd_570x28_SMG_03"], [], ""], 0.75,
-["SMG_03C_TR_black", "", _eliteAccessories, _eliteP90Optics, ["50Rnd_570x28_SMG_03","50Rnd_570x28_SMG_03","50Rnd_570x28_SMG_03"], [], ""], 1.25
+["SMG_03C_TR_black", "", _eliteAccessories, _eliteP90Optics, ["50Rnd_570x28_SMG_03","50Rnd_570x28_SMG_03","50Rnd_570x28_SMG_03"], [], ""], 1.25,
 ["SMG_02_F", "", _eliteAccessories, _eliteP90Optics, [], [], ""], 0.5
 ]];
 
@@ -593,7 +593,7 @@ _policeLoadoutData set ["SMGs", [
 ["SMG_03_black", "", "", "", ["50Rnd_570x28_SMG_03","50Rnd_570x28_SMG_03","50Rnd_570x28_SMG_03"], [], ""], 0.5,
 ["SMG_03C_black", "", "", "", ["50Rnd_570x28_SMG_03","50Rnd_570x28_SMG_03","50Rnd_570x28_SMG_03"], [], ""], 1,
 ["SMG_03_TR_black", "", _policeAttachments, _policeSMGSights, ["50Rnd_570x28_SMG_03","50Rnd_570x28_SMG_03","50Rnd_570x28_SMG_03"], [], ""], 0.25,
-["SMG_03C_TR_black", "", _policeAttachments, _policeSMGSights, ["50Rnd_570x28_SMG_03","50Rnd_570x28_SMG_03","50Rnd_570x28_SMG_03"], [], ""], 0.75
+["SMG_03C_TR_black", "", _policeAttachments, _policeSMGSights, ["50Rnd_570x28_SMG_03","50Rnd_570x28_SMG_03","50Rnd_570x28_SMG_03"], [], ""], 0.75,
 ["SMG_02_F", "", _policeAttachments, _policeSMGSights, [], [], ""], 6
 ]];
 _policeLoadoutData set ["sidearms", ["hgun_Rook40_F", 10]];
