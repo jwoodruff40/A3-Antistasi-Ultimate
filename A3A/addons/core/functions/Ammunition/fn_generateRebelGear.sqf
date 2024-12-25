@@ -18,17 +18,44 @@ Info("Started updating A3A_rebelGear");
 #define ITEM_MIN 10
 #define ITEM_MAX 50
 
+private _fnc_weaponWeight = { // heavily inspired by / borrowed from ACE3 Arsenal Weapon Stats
+    params ["_class"];
+
+    // copied from A3A\addons\core\functions\Ammunition\fn_equipmentClassToCategories.sqf
+    private _config = configFile >> "CfgWeapons" >> _class; 
+    private _mainmag = getArray (_config >> "Magazines") # 0;
+    private _magcfg = configFile >> "CfgMagazines" >> _mainmag;
+    private _ammocfg = configFile >> "CfgAmmo" >> getText (_magcfg >> "ammo");
+    // end copy
+
+    private _firemode = getArray (_config >> "modes") # 0; // primary firemode ("SINGLE", "FULLAUTO", etc)
+    private _weight = getNumber (_config >> "WeaponSlotsInfo" >> "mass"); // Mass / Weight
+    private _accuracy = getNumber (_config >> _firemode >> "dispersion") * 10000; // Dispersion / Accuracy
+    private _rof = (1 / getNumber (_config >> _firemode >> "reloadTime")); // Rate of Fire (rounds per second)
+    private _magcap = getNumber (_magcfg >> "count"); // Mag Capacity
+
+    // Impact (based on ACE3 concept - an idea of the impact force of the projectile based on the ammo hit / damage property and the weapon initSpeed / muzzle velocity property)
+    private _hit = getNumber ( _ammocfg >> "hit");
+    private _basevel = getNumber (_config >> "initSpeed");
+    private _magvel = getNumber (_magcfg >> "initSpeed"); 
+    private _muzvel = if (_basevel > 0) then { _basevel } else { if (_basevel == 0) then { _magvel } else { abs _basevel * _magvel } };
+    private _impact = sqrt (_hit ^ 2 * _muzvel); // copied from ACE3\addons\ACE_ARSENAL\functions\fnc_statBarStatement_impact.sqf;
+    
+    // Total "score" (array weight) of the weapon based on calculated properties
+    round (_accuracy + _rof + _magcap + _impact/30 -_weight/5);
+};
+
 private _fnc_addItemNoUnlocks = {
-    params ["_array", "_class", "_amount"];
-    if (_amount < 0) exitWith { _array append [_class, 1] };
+    params ["_array", "_class", "_weight", "_amount"];
+    if (_amount < 0) exitWith { _array append [_class, _weight] };
     if (_amount <= ITEM_MIN) exitWith {};
     _array pushBack _class;
     _array pushBack linearConversion [ITEM_MIN, ITEM_MAX, _amount, 0, 1, true];
 };
 
 private _fnc_addItemUnlocks = {
-    params ["_array", "_class", "_amount"];
-    if (_amount < 0) exitWith { _array append [_class, 1] };
+    params ["_array", "_class", "_weight", "_amount"];
+    if (_amount < 0) exitWith { _array append [_class, _weight] };
 };
 
 private _fnc_addItem = [_fnc_addItemUnlocks, _fnc_addItemNoUnlocks] select (minWeaps < 0);
@@ -47,14 +74,15 @@ private _gl = [];
 {
     _x params ["_class", "_amount"];
     private _categories = _class call A3A_fnc_equipmentClassToCategories;
+    private _weight = _class call _fnc_WeaponWeight;
 
     call {
-        if ("GrenadeLaunchers" in _categories) exitWith { [_gl, _class, _amount] call _fnc_addItem };       // call before rifles
-        if ("Rifles" in _categories) exitWith { [_rifle, _class, _amount/2] call _fnc_addItem };
-        if ("SniperRifles" in _categories) exitWith { [_sniper, _class, _amount] call _fnc_addItem };
-        if ("MachineGuns" in _categories) exitWith { [_mg, _class, _amount] call _fnc_addItem };
-        if ("SMGs" in _categories) exitWith { [_smg, _class, _amount] call _fnc_addItem };
-        if ("Shotguns" in _categories) exitWith { [_shotgun, _class, _amount] call _fnc_addItem };
+        if ("GrenadeLaunchers" in _categories) exitWith { [_gl, _class, _weight, _amount] call _fnc_addItem };       // call before rifles
+        if ("Rifles" in _categories) exitWith { [_rifle, _class, _weight, _amount/2] call _fnc_addItem };
+        if ("SniperRifles" in _categories) exitWith { [_sniper, _class, _weight, _amount] call _fnc_addItem };
+        if ("MachineGuns" in _categories) exitWith { [_mg, _class, _weight, _amount] call _fnc_addItem };
+        if ("SMGs" in _categories) exitWith { [_smg, _class, _weight, _amount] call _fnc_addItem };
+        if ("Shotguns" in _categories) exitWith { [_shotgun, _class, _weight, _amount] call _fnc_addItem };
     };
 } forEach (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_PRIMARYWEAPON);
 
