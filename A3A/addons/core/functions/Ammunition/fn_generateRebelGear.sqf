@@ -21,16 +21,13 @@ Info("Started updating A3A_rebelGear");
 private _fnc_weaponWeight = { // heavily inspired by / borrowed from ACE3 Arsenal Weapon Stats
     params ["_class"];
 
-    // copied from A3A\addons\core\functions\Ammunition\fn_equipmentClassToCategories.sqf
-    private _config = configFile >> "CfgWeapons" >> _class; 
-    private _mainmag = getArray (_config >> "Magazines") # 0;
-    private _magcfg = configFile >> "CfgMagazines" >> _mainmag;
-    private _ammocfg = configFile >> "CfgAmmo" >> getText (_magcfg >> "ammo");
-    // end copy
+    private _config = _class call A3A_fnc_itemConfig;
+    private _magcfg = getArray (_config >> "Magazines") # 0 call A3A_fnc_itemConfig;
+    private _ammocfg = getText (_magcfg >> "ammo") call A3A_fnc_itemConfig;
 
     private _firemode = getArray (_config >> "modes") # 0; // primary firemode ("SINGLE", "FULLAUTO", etc)
-    private _weight = getNumber (_config >> "WeaponSlotsInfo" >> "mass"); // Mass / Weight
-    private _accuracy = getNumber (_config >> _firemode >> "dispersion") * 10000; // Dispersion / Accuracy
+    private _weight = (_config call A3A_fnc_itemConfigMass) / 5; // Mass / Weight; divided by 5 to weigh the attribute less in the overall score
+    private _accuracy = getNumber (_config >> _firemode >> "dispersion") * 10000; // Dispersion / Accuracy; multiplied by 10000 to weigh the attribute more in the overall score
     private _rof = (1 / getNumber (_config >> _firemode >> "reloadTime")); // Rate of Fire (rounds per second)
     private _magcap = getNumber (_magcfg >> "count"); // Mag Capacity
 
@@ -39,10 +36,10 @@ private _fnc_weaponWeight = { // heavily inspired by / borrowed from ACE3 Arsena
     private _basevel = getNumber (_config >> "initSpeed");
     private _magvel = getNumber (_magcfg >> "initSpeed"); 
     private _muzvel = if (_basevel > 0) then { _basevel } else { if (_basevel == 0) then { _magvel } else { abs _basevel * _magvel } };
-    private _impact = sqrt (_hit ^ 2 * _muzvel); // copied from ACE3\addons\ACE_ARSENAL\functions\fnc_statBarStatement_impact.sqf;
+    private _impact = sqrt (_hit ^ 2 * _muzvel) / 30; // copied from ACE3\addons\ACE_ARSENAL\functions\fnc_statBarStatement_impact.sqf; divided by 30 to weigh the attribute less in the overall score
     
     // Total "score" (array weight) of the weapon based on calculated properties
-    round (_accuracy + _rof + _magcap + _impact/30 -_weight/5);
+    round (_accuracy + _rof + _magcap + _impact -_weight);
 };
 
 private _fnc_addItemNoUnlocks = {
