@@ -72,7 +72,7 @@ private _typeVehObj = "";
 
 switch (toLowerANSI _convoyType) do
 {
-    case "ammunition":
+        case "ammunition": ///shouldn't they all start from the Capital?
     {
         _textX = format [localize "STR_A3A_Missions_AS_Convoy_task_dest_ammo",_nameOrigin,_displayTime,_nameDest];
         _taskTitle = localize "STR_A3A_Missions_AS_Convoy_task_header_ammo";
@@ -91,14 +91,14 @@ switch (toLowerANSI _convoyType) do
         _textX = format [localize "STR_A3A_Missions_AS_Convoy_task_dest_armor",_nameOrigin,_displayTime,_nameDest];
         _taskTitle = localize "STR_A3A_Missions_AS_Convoy_task_header_armor";
         _taskIcon = "destroy";
-        _typeVehObj = selectRandom (_faction get "vehiclesAA");
+        _typeVehObj = selectRandom (_faction get "vehiclesAA"); /// more vehicle variaty?
     };
     case "prisoners":
     {
         _textX = format [localize "STR_A3A_Missions_AS_Convoy_task_dest_prisoners",_nameOrigin,_displayTime,_nameDest];
         _taskTitle = localize "STR_A3A_Missions_AS_Convoy_task_header_prisoners";
         _taskIcon = "run";
-        _typeVehObj = selectRandom (_faction get "vehiclesTrucks");
+        _typeVehObj = selectRandom (_faction get "vehiclesTrucks"); /// maybe add medical vehicles here
     };
     case "reinforcements":
     {
@@ -121,8 +121,9 @@ switch (toLowerANSI _convoyType) do
         _taskIcon = "truck";
         _typeVehObj = selectRandom (FactionGet(reb, "vehiclesCivSupply"));
     };
-};
+};/// add case "repair"
 
+///look at this in detail
 
 // Find suitable nav points for origin/dest
 private _posOrigin = navGrid select ([_mrkOrigin] call A3A_fnc_getMarkerNavPoint) select 0;
