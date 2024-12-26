@@ -1,11 +1,19 @@
 /**
-    Maps the class name of an item to the variable name of the category it belongs in.
+    Calculates weight (preference - for use in weighted list(s)) of given item based on attributes important to that item type.
+	Currently supports weapon item types, but is structured to calculate additional types in the future.
+
+	Author: jwoodruff40
+
+	Uses some concepts (and particularly _impact calculation) from ACE.
+	Thanks ACE!
+	(https://github.com/acemod/ACE3)
 
     Params:
-        _className - Class of the equipment to unlock.
+        _class - ( String ) - Class of the item to calculate weight for.
+		_itemType - ( String ) - Type of the item (e.g. "SniperRifles", "Handguns", "ArmoredVests", etc). Item type determines which calculation to use / which attributes to include in the calculation.
 
     Returns:
-        Array of appropriate categories, selected from allCategories.
+        _arrayWeight - ( Number ) - weight for use in weighted list / selection by selectRandomWeighted.
 **/
 
 #include "..\..\script_component.hpp"
