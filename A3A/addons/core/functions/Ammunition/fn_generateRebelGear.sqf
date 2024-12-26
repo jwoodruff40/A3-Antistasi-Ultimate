@@ -43,15 +43,15 @@ private _fnc_weaponWeight = { // heavily inspired by / borrowed from ACE3 Arsena
 };
 
 private _fnc_addItemNoUnlocks = {
-    params ["_array", "_class", "_weight", "_amount"];
+    params ["_array", "_class", "_amount", ["_weight", 1]];
     if (_amount < 0) exitWith { _array append [_class, _weight] };
     if (_amount <= ITEM_MIN) exitWith {};
     _array pushBack _class;
-    _array pushBack linearConversion [ITEM_MIN, ITEM_MAX, _amount, 0, 1, true];
+    _array pushBack (linearConversion [ITEM_MIN, ITEM_MAX, _amount, 0, 1, true] * _weight); // multiply weight (preference) by ratio of amount of item to max amount of that item such that items rebels have more of are more likely to be selected
 };
 
 private _fnc_addItemUnlocks = {
-    params ["_array", "_class", "_weight", "_amount"];
+    params ["_array", "_class", "_amount", ["_weight", 1]];
     if (_amount < 0) exitWith { _array append [_class, _weight] };
 };
 
@@ -74,12 +74,12 @@ private _gl = [];
     private _weight = _class call _fnc_WeaponWeight;
 
     call {
-        if ("GrenadeLaunchers" in _categories) exitWith { [_gl, _class, _weight, _amount] call _fnc_addItem };       // call before rifles
-        if ("Rifles" in _categories) exitWith { [_rifle, _class, _weight, _amount/2] call _fnc_addItem };
-        if ("SniperRifles" in _categories) exitWith { [_sniper, _class, _weight, _amount] call _fnc_addItem };
-        if ("MachineGuns" in _categories) exitWith { [_mg, _class, _weight, _amount] call _fnc_addItem };
-        if ("SMGs" in _categories) exitWith { [_smg, _class, _weight, _amount] call _fnc_addItem };
-        if ("Shotguns" in _categories) exitWith { [_shotgun, _class, _weight, _amount] call _fnc_addItem };
+        if ("GrenadeLaunchers" in _categories) exitWith { [_gl, _class, _amount, _weight] call _fnc_addItem };       // call before rifles
+        if ("Rifles" in _categories) exitWith { [_rifle, _class, _amount/2, _weight] call _fnc_addItem };
+        if ("SniperRifles" in _categories) exitWith { [_sniper, _class, _amount, _weight] call _fnc_addItem };
+        if ("MachineGuns" in _categories) exitWith { [_mg, _class, _amount, _weight] call _fnc_addItem };
+        if ("SMGs" in _categories) exitWith { [_smg, _class, _amount, _weight] call _fnc_addItem };
+        if ("Shotguns" in _categories) exitWith { [_shotgun, _class, _amount, _weight] call _fnc_addItem };
     };
 } forEach (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_PRIMARYWEAPON);
 
