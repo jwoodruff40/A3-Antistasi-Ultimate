@@ -18,7 +18,7 @@ Info("Started updating A3A_rebelGear");
 #define ITEM_MIN 10
 #define ITEM_MAX 50
 
-private _fnc_weaponWeight = { // heavily inspired by / borrowed from ACE3 Arsenal Weapon Stats
+private _fnc_weaponArrayWeight = { // heavily inspired by / borrowed from ACE3 Arsenal Weapon Stats
     params ["_class"];
 
     private _config = _class call A3A_fnc_itemConfig;
@@ -39,20 +39,20 @@ private _fnc_weaponWeight = { // heavily inspired by / borrowed from ACE3 Arsena
     private _impact = sqrt (_hit ^ 2 * _muzvel) / 30; // copied from ACE3\addons\ACE_ARSENAL\functions\fnc_statBarStatement_impact.sqf; divided by 30 to weigh the attribute less in the overall score
     
     // Total "score" (array weight) of the weapon based on calculated properties
-    round (_accuracy + _rof + _magcap + _impact -_weight);
+    round (_accuracy + _rof + _magcap + _impact - _weight);
 };
 
 private _fnc_addItemNoUnlocks = {
-    params ["_array", "_class", "_amount", ["_weight", 1]];
-    if (_amount < 0) exitWith { _array append [_class, _weight] };
+    params ["_array", "_class", "_amount", ["_arrayWeight", 1]];
+    if (_amount < 0) exitWith { _array append [_class, _arrayWeight] };
     if (_amount <= ITEM_MIN) exitWith {};
     _array pushBack _class;
-    _array pushBack (linearConversion [ITEM_MIN, ITEM_MAX, _amount, 0, 1, true] * _weight); // multiply weight (preference) by ratio of amount of item to max amount of that item such that items rebels have more of are more likely to be selected
+    _array pushBack (linearConversion [ITEM_MIN, ITEM_MAX, _amount, 0, 1, true] * _arrayWeight); // multiply weight (preference) by ratio of amount of item to max amount of that item such that items rebels have more of are more likely to be selected
 };
 
 private _fnc_addItemUnlocks = {
-    params ["_array", "_class", "_amount", ["_weight", 1]];
-    if (_amount < 0) exitWith { _array append [_class, _weight] };
+    params ["_array", "_class", "_amount", ["_arrayWeight", 1]];
+    if (_amount < 0) exitWith { _array append [_class, _arrayWeight] };
 };
 
 private _fnc_addItem = [_fnc_addItemUnlocks, _fnc_addItemNoUnlocks] select (minWeaps < 0);
@@ -71,15 +71,15 @@ private _gl = [];
 {
     _x params ["_class", "_amount"];
     private _categories = _class call A3A_fnc_equipmentClassToCategories;
-    private _weight = _class call _fnc_WeaponWeight;
+    private _arrayWeight = _class call _fnc_weaponArrayWeight;
 
     call {
-        if ("GrenadeLaunchers" in _categories) exitWith { [_gl, _class, _amount, _weight] call _fnc_addItem };       // call before rifles
-        if ("Rifles" in _categories) exitWith { [_rifle, _class, _amount/2, _weight] call _fnc_addItem };
-        if ("SniperRifles" in _categories) exitWith { [_sniper, _class, _amount, _weight] call _fnc_addItem };
-        if ("MachineGuns" in _categories) exitWith { [_mg, _class, _amount, _weight] call _fnc_addItem };
-        if ("SMGs" in _categories) exitWith { [_smg, _class, _amount, _weight] call _fnc_addItem };
-        if ("Shotguns" in _categories) exitWith { [_shotgun, _class, _amount, _weight] call _fnc_addItem };
+        if ("GrenadeLaunchers" in _categories) exitWith { [_gl, _class, _amount, _arrayWeight] call _fnc_addItem };       // call before rifles
+        if ("Rifles" in _categories) exitWith { [_rifle, _class, _amount/2, _arrayWeight] call _fnc_addItem };
+        if ("SniperRifles" in _categories) exitWith { [_sniper, _class, _amount, _arrayWeight] call _fnc_addItem };
+        if ("MachineGuns" in _categories) exitWith { [_mg, _class, _amount, _arrayWeight] call _fnc_addItem };
+        if ("SMGs" in _categories) exitWith { [_smg, _class, _amount, _arrayWeight] call _fnc_addItem };
+        if ("Shotguns" in _categories) exitWith { [_shotgun, _class, _amount, _arrayWeight] call _fnc_addItem };
     };
 } forEach (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_PRIMARYWEAPON);
 
