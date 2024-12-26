@@ -18,63 +18,6 @@ Info("Started updating A3A_rebelGear");
 #define ITEM_MIN 10
 #define ITEM_MAX 50
 
-private _fnc_itemArrayWeight = { // heavily inspired by / borrowed from ACE3 Arsenal Weapon Stats
-    params ["_class", ["_itemType", ""]];
-
-    private _config = _class call A3A_fnc_itemConfig;
-    private _magcfg = getArray (_config >> "Magazines") # 0 call A3A_fnc_itemConfig;
-    private _ammocfg = getText (_magcfg >> "ammo") call A3A_fnc_itemConfig;
-    private _firemode = getArray (_config >> "modes") # 0; // primary firemode ("SINGLE", "FULLAUTO", etc)
-    private _modecfg = [_config >> _firemode, _config] select (_firemode == "this");
-    
-    private _weight = (_config call A3A_fnc_itemConfigMass); // Mass / Weight
-    private _accuracy = getNumber (_modecfg >> "dispersion"); // Dispersion / Accuracy
-    private _reloadtime = getNumber (_modecfg >> "reloadTime"); 
-    private _rof = [1 / _reloadtime, 0] select (_reloadTime == 0); // Rate of Fire (rounds per second)
-    private _magcap = getNumber (_magcfg >> "count"); // Mag Capacity
-    private _hit = getNumber ( _ammocfg >> "hit");
-    private _basevel = getNumber (_config >> "initSpeed");
-    private _magvel = getNumber (_magcfg >> "initSpeed"); 
-    private _muzvel = if (_basevel > 0) then { _basevel } else { if (_basevel == 0) then { _magvel } else { abs _basevel * _magvel } };
-    private _impact = sqrt (_hit ^ 2 * _muzvel); // impact based on ACE3 concept combining hit / damage and velocity of projectile; modified from ACE3\addons\ACE_ARSENAL\functions\fnc_statBarStatement_impact.sqf
-    private _caliber = getNumber (_ammocfg >> "caliber"); // Unintuitively by name, this is a penetration multiplier. More useful for rockets / missiles than bullets.
-    private _effrange = 0; // not always reliable (hence not used in most weapons). Iterates through all firemodes, so probably doesn't need to be run for every weapon type.
-    if (_firemode == "this") then {
-        _effrange = getNumber (_config >> "MidRange") * getNumber (_config >> "MidRangeProbab");
-    } else {
-        {
-            private _range = getNumber (_config >> _x >> "MidRange") * getNumber (_config >> _x >> "MidRangeProbab");
-            if (_range > _effrange) then { _effrange = _range };
-        } forEach getArray (_config >> "modes");
-    };
-
-    // Total "score" (array weight) of the weapon based on calculated properties
-    private _arrayWeight = 1; // in case this function is called with an itemType without custom weighting setup or without an item type, just use default weight (but this shouldn't be called unless you're attempting to change this behavior)
-
-    switch (_itemType) do {
-        // Calculate _arrayWeight based on item attributes above, and scaling them as needed (which attributes and how they're scaled dependent on item type)
-        case "Rifles": { _arrayWeight = round ((_accuracy * 10000) + _rof + _magcap + (_impact / 30) - (_weight / 5)) }; // Rifles. Blend of most attributes
-        case "SniperRifles" : { _arrayWeight = round ((_accuracy * 50000) + (_effrange / 15) + (_impact / 30) + (_rof) - (_weight/3)) }; // Favor accuracy and range more. RoF still factored due to generally shorter range / more frenetic AI engagements.
-        case "GrenadeLaunchers";
-        case "MachineGuns";
-        case "SMGs";
-        case "Shotguns";
-        case "PrimaryWeaponsCatchAll" : { _arrayWeight = round ((_accuracy * 10000) + _rof + _magcap + (_impact / 30) - (_weight / 5)) }; // Primary weapons catchall. Same as Rifles.
-        case "RocketLaunchers" : { _arrayWeight = round ((_impact * _caliber / 20) + (_effrange / 4) - (_weight / 2)) }; // Multiplies impact by caliber (penetration) to favor launchers better against vehicles.
-        case "MissileLaunchersAT";
-        case "MissileLaunchersAA";
-        case "SecondaryWeaponsCatchAll" : { _arrayWeight = 1 }; // placeholder catchall for launchers
-        case "Handguns" : { _arrayWeight = round (_rof + _magcap + (_impact * 20000) - (_weight * 2.5)) }; // Handguns. Array weight favors weapons with high RoF, Mag capacity, and impact force while heavily discriminating against weight, since it's a backup weapon.
-        case "ArmoredVests";
-        case "CivilianVests";
-        case "ArmoredHeadgear";
-        case "Backpacks";
-        case "GearCatchAll" : { _arrayWeight = 1 }; // placeholder catchall for gear (vests, helmets, backpacks)
-    };
-    
-    _arrayWeight;
-};
-
 private _fnc_addItemNoUnlocks = {
     params ["_array", "_class", "_amount", ["_arrayWeight", 1]];
     if (_amount < 0) exitWith { _array append [_class, _arrayWeight] };
@@ -116,7 +59,7 @@ private _gl = [];
 
     {
         _x params ["_itemType", "_array"];
-        _arrayWeight = [_class, _itemType] call _fnc_itemArrayWeight;
+        _arrayWeight = [_class, _itemType] call A3A_fnc_itemArrayWeight;
         if (_itemType in _categories) then { [_array, _class, _amount, _arrayWeight] call _fnc_addItem };
     } forEach _itemTypes;
 
@@ -141,7 +84,11 @@ private _mlaunchersAA = [];
         _amount = _amount min (_magcount/2);
     };*/
 
-    if ("RocketLaunchers" in _categories) then { [_rlaunchers, _class, _amount] call _fnc_addItem; continue };
+    if ("RocketLaunchers" in _categories) then { 
+        _arrayWeight = [_class, "RocketLaunchers"] call A3A_fnc_itemArrayWeight;
+        [_rlaunchers, _class, _amount, _arrayWeight] call _fnc_addItem;
+        continue
+    };
     if ("MissileLaunchers" in _categories) then {
         if ("AA" in _categories) exitWith { [_mlaunchersAA, _class, _amount] call _fnc_addItemNoUnlocks };
         if ("AT" in _categories) exitWith { [_mlaunchersAT, _class, _amount] call _fnc_addItemNoUnlocks };
