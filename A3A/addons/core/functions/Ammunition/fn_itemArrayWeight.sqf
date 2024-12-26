@@ -26,6 +26,7 @@ private _magcfg = getArray (_config >> "Magazines") # 0 call A3A_fnc_itemConfig;
 private _ammocfg = getText (_magcfg >> "ammo") call A3A_fnc_itemConfig;
 private _firemode = getArray (_config >> "modes") # 0; // primary firemode ("SINGLE", "FULLAUTO", etc)
 private _modecfg = [_config >> _firemode, _config] select (_firemode == "this");
+private _categories = _class call A3A_fnc_equipmentClassToCategories;
 
 private _weight = (_config call A3A_fnc_itemConfigMass); // Mass / Weight
 private _accuracy = getNumber (_modecfg >> "dispersion"); // Dispersion / Accuracy
@@ -47,6 +48,7 @@ if (_firemode == "this") then {
 		if (_range > _effrange) then { _effrange = _range };
 	} forEach getArray (_config >> "modes");
 };
+private _isDisposable = [0, 20] select ("Disposable" in _categories);
 
 // Total "score" (array weight) of the weapon based on calculated properties
 private _arrayWeight = 1; // in case this function is called with an itemType without custom weighting setup or without an item type, just use default weight (but this shouldn't be called unless you're attempting to change this behavior)
@@ -54,13 +56,13 @@ private _arrayWeight = 1; // in case this function is called with an itemType wi
 switch (_itemType) do {
 	// Calculate _arrayWeight based on item attributes above, and scaling them as needed (which attributes and how they're scaled dependent on item type)
 	case "Rifles": { _arrayWeight = round ((_accuracy * 10000) + _rof + _magcap + (_impact / 30) - (_weight / 5)) }; // Rifles. Blend of most attributes
-	case "SniperRifles" : { _arrayWeight = round ((_accuracy * 50000) + (_effrange / 15) + (_impact / 30) + (_rof) - (_weight/3)) }; // Favor accuracy and range more. RoF still factored due to generally shorter range / more frenetic AI engagements.
+	case "SniperRifles" : { _arrayWeight = round ((_accuracy * 50000) + (_effrange / 15) + (_impact / 30) + _rof - (_weight/3)) }; // Favor accuracy and range more. RoF still factored due to generally shorter range / more frenetic AI engagements.
 	case "GrenadeLaunchers";
 	case "MachineGuns";
 	case "SMGs";
 	case "Shotguns";
 	case "PrimaryWeaponsCatchAll" : { _arrayWeight = round ((_accuracy * 10000) + _rof + _magcap + (_impact / 30) - (_weight / 5)) }; // Primary weapons catchall. Same as Rifles.
-	case "RocketLaunchers" : { _arrayWeight = round ((_impact * _caliber / 20) + (_effrange / 4) - (_weight / 2)) }; // Multiplies impact by caliber (penetration) to favor launchers better against vehicles.
+	case "RocketLaunchers" : { _arrayWeight = round ((_impact * _caliber / 20) + (_effrange / 4) - (_weight / 2) - _isDisposable) }; // Multiplies impact by caliber (penetration) to favor launchers better against vehicles.
 	case "MissileLaunchersAT";
 	case "MissileLaunchersAA";
 	case "SecondaryWeaponsCatchAll" : { _arrayWeight = 1 }; // placeholder catchall for launchers
