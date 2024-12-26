@@ -18,8 +18,8 @@ Info("Started updating A3A_rebelGear");
 #define ITEM_MIN 10
 #define ITEM_MAX 50
 
-private _fnc_weaponArrayWeight = { // heavily inspired by / borrowed from ACE3 Arsenal Weapon Stats
-    params ["_class"];
+private _fnc_itemArrayWeight = { // heavily inspired by / borrowed from ACE3 Arsenal Weapon Stats
+    params ["_class", ["_itemType", ""]];
 
     private _config = _class call A3A_fnc_itemConfig;
     private _magcfg = getArray (_config >> "Magazines") # 0 call A3A_fnc_itemConfig;
@@ -39,7 +39,29 @@ private _fnc_weaponArrayWeight = { // heavily inspired by / borrowed from ACE3 A
     private _impact = sqrt (_hit ^ 2 * _muzvel) / 30; // copied from ACE3\addons\ACE_ARSENAL\functions\fnc_statBarStatement_impact.sqf; divided by 30 to weigh the attribute less in the overall score
     
     // Total "score" (array weight) of the weapon based on calculated properties
-    round (_accuracy + _rof + _magcap + _impact - _weight);
+    private _arrayWeight = 1; // in case this function is called with an itemType without custom weighting setup or without an item type, just use default weight (but this shouldn't be called unless you're attempting to change this behavior)
+
+    switch (_itemType) do {
+        case "GrenadeLaunchers";
+        case "Rifles";
+        case "SniperRifles";
+        case "MachineGuns";
+        case "SMGs";
+        case "Shotguns";
+        case "PrimaryWeaponsCatchAll" : { _arrayWeight = round (_accuracy + _rof + _magcap + _impact - _weight) };
+        case "RocketLaunchers";
+        case "MissileLaunchersAT";
+        case "MissileLaunchersAA";
+        case "SecondaryWeaponsCatchAll" : { _arrayWeight = 1 }; // placeholder catchall for launchers
+        case "Handguns" : { _arrayWeight = 1 }; // placeholder for handguns
+        case "ArmoredVests";
+        case "CivilianVests";
+        case "ArmoredHeadgear";
+        case "Backpacks";
+        case "GearCatchAll" : { _arrayWeight = 1 }; // placeholder catchall for gear (vests, helmets, backpacks)
+    };
+    
+    _arrayWeight;
 };
 
 private _fnc_addItemNoUnlocks = {
@@ -68,19 +90,25 @@ private _shotgun = [];
 private _sniper = [];
 private _mg = [];
 private _gl = [];
+
 {
     _x params ["_class", "_amount"];
     private _categories = _class call A3A_fnc_equipmentClassToCategories;
-    private _arrayWeight = _class call _fnc_weaponArrayWeight;
+    private _itemTypes = [
+        ["GrenadeLaunchers", _gl],
+        ["Rifles", _rifle],
+        ["SniperRifles", _sniper],
+        ["MachineGuns", _mg],
+        ["SMGs", _smg],
+        ["Shotguns", _shotgun]
+    ];
 
-    call {
-        if ("GrenadeLaunchers" in _categories) exitWith { [_gl, _class, _amount, _arrayWeight] call _fnc_addItem };       // call before rifles
-        if ("Rifles" in _categories) exitWith { [_rifle, _class, _amount/2, _arrayWeight] call _fnc_addItem };
-        if ("SniperRifles" in _categories) exitWith { [_sniper, _class, _amount, _arrayWeight] call _fnc_addItem };
-        if ("MachineGuns" in _categories) exitWith { [_mg, _class, _amount, _arrayWeight] call _fnc_addItem };
-        if ("SMGs" in _categories) exitWith { [_smg, _class, _amount, _arrayWeight] call _fnc_addItem };
-        if ("Shotguns" in _categories) exitWith { [_shotgun, _class, _amount, _arrayWeight] call _fnc_addItem };
-    };
+    {
+        _x params ["_itemType", "_array"];
+        _arrayWeight = [_class, _itemType] call _fnc_itemArrayWeight;
+        if (_itemType in _categories) then { [_array, _class, _amount, _arrayWeight] call _fnc_addItem };
+    } forEach _itemTypes;
+
 } forEach (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_PRIMARYWEAPON);
 
 _rebelGear set ["Rifles", _rifle];
