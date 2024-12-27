@@ -8,6 +8,7 @@ params ["_mrkDest", "_mrkOrigin", ["_convoyType", ""], ["_resPool", "legacy"], [
 private _difficult = if (random 10 < tierWar) then {true} else {false};
 private _sideX = if (sidesX getVariable [_mrkOrigin,sideUnknown] == Occupants) then {Occupants} else {Invaders};
 private _faction = Faction(_sideX);
+private _sideshort =  if (sidesX getVariable [_mrkOrigin,sideUnknown] == Occupants) then {occ} else {inv};
 
 private _posSpawn = getMarkerPos _mrkOrigin;			// used for spawning infantry before moving them into vehicles
 private _posHQ = getMarkerPos respawnTeamPlayer;
@@ -37,7 +38,7 @@ private _convoyTypes = [];
 
 switch (true) do {
     case ((_mrkDest in airportsX) or {_mrkDest in outposts or {_mrkDest in milbases}}): {
-        _convoyTypes append ["Ammunition", "Armor"];
+        _convoyTypes append ["Ammunition", "Armor", "Repair"];
         if (_mrkDest in outposts && {((count (garrison getVariable [_mrkDest, []])) / 2) >= [_mrkDest] call A3A_fnc_garrisonSize}) then {
             _convoyTypes pushBack "Reinforcements";
         };
@@ -69,10 +70,66 @@ private _taskTitle = "";
 private _taskIcon = "";
 private _taskState1 = "CREATED";
 private _typeVehObj = "";
+private _vehiclePool = [];
 
-switch (toLowerANSI _convoyType) do
+//// add check for warlevel vehicles and replace stuff with militia vehicles and/or do randomization vehicle groups like vehiclesArmor
+
+//trucks to carry infantry
+private _vehTrucks =
+OccAndInv("vehiclesTrucks")
++ OccAndInv("vehiclesMilitiaTrucks")
++ Riv("vehiclesRivalsTrucks")
++ Reb("vehiclesTruck");
+setVar("vehiclesTrucks", _vehTrucks);
+
+//Armed cars
+private _carsArmed =
+OccAndInv("vehiclesLightArmed")
++ OccAndInv("vehiclesMilitiaLightArmed")
++ Reb("vehiclesLightArmed")
++ Riv("vehiclesRivalsLightArmed")
++ ("ARMEDCAR" call _fnc_extractMarketClasses);
+setVar("vehiclesLightArmed", _carsArmed);
+
+//Unarmed cars
+private _carsUnarmed =
+OccAndInv("vehiclesLightUnarmed")      // anything else?
++ OccAndInv("vehiclesMilitiaCars")
++ OccAndInv("vehiclesPolice")
++ Riv("vehiclesRivalsCars")
++ ("UNARMEDCAR" call _fnc_extractMarketClasses)
++ Reb("vehiclesLightUnarmed");
+setVar("vehiclesLightUnarmed", _carsUnarmed);
+setVar("vehiclesLight", _carsArmed + _carsUnarmed);
+
+//all Occ&Inv armor
+private _vehArmor =
+getVar("vehiclesTanks")
++ getVar("vehiclesAA")
++ getVar("vehiclesArtillery")
++ getVar("vehiclesLightAPCs")
++ getVar("vehiclesAPCs")
++ getVar("vehiclesLightTanks")
++ getVar("vehiclesAirborne")
++ getVar("vehiclesIFVs");
+setVar("vehiclesArmor", _vehArmor);
+
+//rebel vehicles
+private _vehReb = 
+    Reb("vehiclesBasic") + Reb("vehiclesTruck") + Reb("vehiclesBoat")
+    + Reb("vehiclesAT") + Reb("vehiclesLightArmed") + Reb("vehiclesLightUnarmed")
+    + Reb("staticMGs") + Reb("staticAT") + Reb("staticAA") + Reb("staticMortars")
+    + Reb("vehiclesHelis") + Reb("vehiclesPlane") + Reb("vehiclesMedical") + Reb("vehiclesAA")
+    + (A3U_blackMarketStock apply {_x select 0});
+setVar("vehiclesReb", _vehReb);
+
+//trucks that can cary logistics cargo
+private _vehCargoTrucks = (_vehTrucks + OccAndInv("vehiclesCargoTrucks")) select { [_x] call A3A_Logistics_fnc_getVehCapacity > 1 };
+setVar("vehiclesCargoTrucks", _vehCargoTrucks);
+
+switch (toLowerANSI _convoyType) do ///why? toLowerANSI
 {
-        case "ammunition": ///shouldn't they all start from the Capital?
+    case "ammunition": ///shouldn't they all start from the Capital?
     {
         _textX = format [localize "STR_A3A_Missions_AS_Convoy_task_dest_ammo",_nameOrigin,_displayTime,_nameDest];
         _taskTitle = localize "STR_A3A_Missions_AS_Convoy_task_header_ammo";
@@ -86,44 +143,67 @@ switch (toLowerANSI _convoyType) do
 		_taskIcon = "refuel";
 		_typeVehObj = selectRandom (_faction get "vehiclesFuelTrucks");
 	};
+    case "repair":
+    {
+        _textX = format [localize "STR_A3A_Missions_AS_Convoy_task_dest_repair",_nameOrigin,_displayTime,_nameDest,FactionGet(reb,"name")];
+        _taskTitle = localize "STR_A3A_Missions_AS_Convoy_task_header_repair";
+        _taskIcon = "repair";
+        _typeVehObj = selectRandom (_faction get "vehiclesRepairTrucks");
+    };
     case "armor":
     {
         _textX = format [localize "STR_A3A_Missions_AS_Convoy_task_dest_armor",_nameOrigin,_displayTime,_nameDest];
         _taskTitle = localize "STR_A3A_Missions_AS_Convoy_task_header_armor";
         _taskIcon = "destroy";
-        _typeVehObj = selectRandom (_faction get "vehiclesAA"); /// more vehicle variaty?
+        _typeVehObj = selectRandom (FactionGet(_sideshort, "vehiclesArmor"));
     };
     case "prisoners":
     {
         _textX = format [localize "STR_A3A_Missions_AS_Convoy_task_dest_prisoners",_nameOrigin,_displayTime,_nameDest];
         _taskTitle = localize "STR_A3A_Missions_AS_Convoy_task_header_prisoners";
         _taskIcon = "run";
-        _typeVehObj = selectRandom (_faction get "vehiclesTrucks"); /// maybe add medical vehicles here
+        _typeVehObj = selectRandom (if (tierWar < 5) then {(_faction get "vehiclesMilitiaTrucks")
+        } else {
+            if (tierWar < 7) then {
+                (_faction get "vehiclesMilitiaTrucks") + (_faction get "vehiclesTrucks")
+            } else {
+                (_faction get "vehiclesTrucks")
+            }
+        };)
     };
     case "reinforcements":
     {
         _textX = format [localize "STR_A3A_Missions_AS_Convoy_task_dest_reinf",_nameOrigin,_displayTime,_nameDest];
         _taskTitle = localize "STR_A3A_Missions_AS_Convoy_task_header_reinf";
         _taskIcon = "meet";
-        _typeVehObj = selectRandom (_faction get "vehiclesTrucks");
+        _typeVehObj = selectRandom (if (tierWar < 5) then {(_faction get "vehiclesMilitiaTrucks")
+        } else {
+            if (tierWar < 7) then {
+                (_faction get "vehiclesMilitiaTrucks") + (_faction get "vehiclesTrucks")
+            } else {
+                (_faction get "vehiclesTrucks")
+            }
+        };)
     };
     case "money":
     {
         _textX = format [localize "STR_A3A_Missions_AS_Convoy_task_dest_money",_nameOrigin,_displayTime,_nameDest];
         _taskTitle = localize "STR_A3A_Missions_AS_Convoy_task_header_money";
-        _taskIcon = "truck";
+        _taskIcon = "takeoff"; ///"truck" icon doesn't exist
         _typeVehObj = selectRandom (FactionGet(reb, "vehiclesCivSupply"));
     };
     case "supplies":
     {
         _textX = format [localize "STR_A3A_Missions_AS_Convoy_task_dest_supplies",_nameOrigin,_displayTime,_nameDest,FactionGet(reb,"name")];
         _taskTitle = localize "STR_A3A_Missions_AS_Convoy_task_header_supplies";
-        _taskIcon = "truck";
-        _typeVehObj = selectRandom (FactionGet(reb, "vehiclesCivSupply"));
+        _taskIcon = "box";
+        private _supplyVehicles = (FactionGet(reb, "vehiclesCivSupply"));
+        private _medicalVehicles = _faction get "vehiclesMedical";
+        _vehiclePool = append [_supplyVehicles,_medicalVehicles];
+        _typeVehObj = selectRandom _vehiclePool;
     };
-};/// add case "repair"
-
-///look at this in detail
+};
+//_typeVehObj = selectRandom (if (tierWar < 5) then {FactionGet(_sideshort, "vehiclesMilitiaCargoTrucks")} else {_faction get "vehiclesTrucks"});
 
 // Find suitable nav points for origin/dest
 private _posOrigin = navGrid select ([_mrkOrigin] call A3A_fnc_getMarkerNavPoint) select 0;
@@ -263,7 +343,20 @@ for "_i" from 1 to _countX do
 
 // Lead vehicle
 sleep 2;
-private _typeVehX = selectRandom (if (_sideX == Occupants && random 4 < tierWar) then {_faction get "vehiclesPolice"} else {_faction get "vehiclesLightArmed"});
+private _typeVehX = selectRandom (if (_sideX == Occupants && random 4 < tierWar) then {
+        _faction get "vehiclesPolice"
+    } else {
+        if (tierWar < 5) then {
+            (_faction get "vehiclesMilitiaLightArmed")
+        } else {
+            if (tierWar < 7) then {
+                (_faction get "vehiclesLightArmed") + (_faction get "vehiclesMilitiaLightArmed")
+            } else {
+                (_faction get "vehiclesLightArmed")
+            }
+        };
+    }
+); ///maybe a proper war level check?
 private _LeadText = localize "STR_marker_convoy_lead_vehicle";
 private _vehLead = [_typeVehX, _LeadText] call _fnc_spawnConvoyVehicle;
 
@@ -361,6 +454,24 @@ if (_convoyType isEqualTo "Fuel") then
     else
     {
         [true, false, 1800*_bonus, 5*_bonus, 25, 120, "fuel"] call _fnc_applyResults;
+        [0,300*_bonus] remoteExec ["A3A_fnc_resourcesFIA",2];
+        {
+            [10*_bonus,_x] call A3A_fnc_addScorePlayer;
+            [(25*_bonus * 10),_x] call A3A_fnc_addMoneyPlayer;
+        } forEach (call SCRT_fnc_misc_getRebelPlayers);
+    };
+};
+
+if (_convoyType isEqualTo "Repair") then
+{
+    waitUntil {sleep 1; (time > _timeout) or (_vehObj distance _posDest < _arrivalDist) or (not alive _vehObj) or (side group driver _vehObj != _sideX)};
+    if ((_vehObj distance _posDest < _arrivalDist) or (time > _timeout)) then
+    {
+        [false, true, -1200*_bonus, -10*_bonus, -5, 60, "repair"] call _fnc_applyResults;
+    }
+    else
+    {
+        [true, false, 1800*_bonus, 5*_bonus, 25, 120, "repair"] call _fnc_applyResults;
         [0,300*_bonus] remoteExec ["A3A_fnc_resourcesFIA",2];
         {
             [10*_bonus,_x] call A3A_fnc_addScorePlayer;

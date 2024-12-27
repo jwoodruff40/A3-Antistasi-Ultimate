@@ -9265,6 +9265,10 @@
                 <Korean>의료 보급품이 있는 트럭이 %3을(를) 목적지로 %1에서 %2(으)로 출발하려고 합니다. 트럭을 훔쳐서 %3으로 가져오고 해당 주민들에게 그 보급품을 주는 사람이 %4이라는 것을 알리십시오.</Korean>
                 <French>Un camion de matériel médical à destination de %3 est sur le point de partir à %2 de %1. Volez ce camion, amenez-le en %3 et faites savoir aux gens qui s'y trouvent que c'est %4 qui distribue ces fournitures.</French>
             </Key>
+            <Key ID="STR_A3A_Missions_AS_Convoy_task_dest_repair">
+                <Original>A repair vehicle is set to depart from %1 at %2, heading to %3. Steal that vehicle and bring it to HQ, it's time to take care of our fleet.</Original>
+                <Russian>Ремонтная техника отправиться из %1 в %2, она направляется в %3. Угоните эту технику и доставьте её в штаб, настало время обслужить нашу технику.</Russian>
+            </Key>
             <Key ID="STR_A3A_Missions_AS_Convoy_task_header_food">
                 <Original>Intercept Food Convoy</Original>
                 <Russian>Перехватите конвой с едой</Russian>
