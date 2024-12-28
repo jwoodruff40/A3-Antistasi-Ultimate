@@ -14,13 +14,6 @@ private _difficult = if (random 10 < tierWar) then {true} else {false};
 private _sideX = if (sidesX getVariable [_markerX, sideUnknown] == Occupants) then {Occupants} else {Invaders};
 private _faction = Faction(_sideX);
 
-diag_log _faction;
-diag_log _faction;
-diag_log _faction;
-diag_log _sideX;
-diag_log _sideX;
-diag_log _sideX;
-
 private _limit = if (_difficult) then {
 	60 call SCRT_fnc_misc_getTimeLimit
 } else {
