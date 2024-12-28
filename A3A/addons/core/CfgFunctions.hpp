@@ -808,7 +808,7 @@ class CfgFunctions
         };
         
         class reload_repack_turret_magazines {	//category
-            file = QPATHTOFOLDER(Scripts\ReloadRepackTurretMagazines\scripts);
+            file = QPATHTOFOLDER(Scripts\RRTurretMagazines\scripts);
             class postInit {
                 postInit = 1;
             };
