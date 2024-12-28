@@ -5259,9 +5259,9 @@
                 <Original>Enable spectrum device hacking capability (conctact dlc required)</Original>
                 <Russian>Разрешить возможность взлома с помощью spectrum device (необходимо дополнение contact)</Russian>
             </Key>
-            <Key ID="STR_params_disableSmokecoverauto">
-                <Original>Disable smokecoverauto script (helps with fps in case you pc can't handle them)</Original>
-                <Russian>Выключить автоматическое отбрасываение дымов (помогает с фпс в случае если ваш пк не выдерживает)</Russian>
+            <Key ID="STR_params_disableAutoSmokeCover">
+                <Original>Disable Auto Smoke Cover Script (Helps with performance)</Original>
+                <Russian>Выключить скрипт для автоматического отбрасываения дымов (помогает с производительностью)</Russian>
             </Key>
             <Key ID="STR_params_allowUnfairSupports">
                 <Original>Allow unfair (unbalanced) supports to be used by the enemy</Original>
