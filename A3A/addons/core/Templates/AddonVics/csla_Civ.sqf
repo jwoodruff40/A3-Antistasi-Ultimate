@@ -25,7 +25,7 @@ _addon set ["vehiclesCivBoat", [
 ]];
 
 _addon set ["vehiclesCivHeli", [
-	"CSLA_Mi17"
+	"CSLA_Mi17_noinsignia"
 ]];
 
 _addon set ["vehiclesCivPlanes", [
