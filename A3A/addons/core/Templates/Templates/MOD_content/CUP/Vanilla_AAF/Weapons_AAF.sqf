@@ -463,7 +463,7 @@ _cupMilitaryAttachments = ["CUP_acc_Flashlight", 6, "CUP_acc_ANPEQ_2_grey", 2, "
 (_militaryLoadoutData get "slRifles") append [
     ["CUP_arifle_DSA_SA58_OSW_M203", "",_cupMilitaryAttachments,_cupMilitarySlRifleOptics,["CUP_30Rnd_762x51_FNFAL_M","CUP_30Rnd_762x51_FNFAL_M","CUP_30Rnd_762x51_FNFAL_M","CUP_30Rnd_TE1_Green_Tracer_762x51_FNFAL_M"], ["CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203","CUP_1Rnd_StarFlare_Red_M203","CUP_1Rnd_StarCluster_Red_M203","CUP_FlareRed_M203","CUP_1Rnd_SmokeRed_M203"], ""], 1,
 
-	["CUP_arifle_M4A1_GL_carryhandle", "",_cupMilitaryAttachments,_cupMilitarySlRifleOptics,["CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag_Tracer_Green"], ["CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203","CUP_1Rnd_StarFlare_Red_M203","CUP_1Rnd_StarCluster_Red_M203","CUP_FlareRed_M203","CUP_1Rnd_SmokeRed_M203"], ""], 3,
+	["CUP_arifle_M4A1_GL_carryhandle", "",_cupMilitaryAttachments,_cupMilitarySlRifleOptics,["CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag_Tracer_Green"], ["CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203","CUP_1Rnd_StarFlare_Red_M203","CUP_1Rnd_StarCluster_Red_M203","CUP_FlareRed_M203","CUP_1Rnd_SmokeRed_M203"], ""], 2,
 	["CUP_arifle_M4A1_BUIS_GL", "",_cupMilitaryAttachments,_cupMilitarySlRifleOptics,["CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag_Tracer_Green"], ["CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203","CUP_1Rnd_StarFlare_Red_M203","CUP_1Rnd_StarCluster_Red_M203","CUP_FlareRed_M203","CUP_1Rnd_SmokeRed_M203"], ""], 1,
 
 	["CUP_arifle_M16A4_GL", "",_cupMilitaryAttachments,_cupMilitarySlRifleOptics,["CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag_Tracer_Green"], ["CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203","CUP_1Rnd_StarFlare_Red_M203","CUP_1Rnd_StarCluster_Red_M203","CUP_FlareRed_M203","CUP_1Rnd_SmokeRed_M203"], ""], 2,
@@ -489,52 +489,53 @@ _cupMilitaryG36RISOptics = ["CUP_optic_HoloBlack", 4, "CUP_optic_Eotech553_Black
    	["CUP_arifle_DSA_SA58_DMR", "",_cupMilitaryAttachments,_cupMilitaryRifleOptics,["CUP_30Rnd_762x51_FNFAL_M","CUP_30Rnd_762x51_FNFAL_M","CUP_30Rnd_762x51_FNFAL_M","CUP_30Rnd_TE1_Green_Tracer_762x51_FNFAL_M"], [], ""], 0.25,
    	["CUP_arifle_DSA_SA58", "",_cupMilitaryAttachments,_cupMilitaryRifleOptics,["CUP_30Rnd_762x51_FNFAL_M","CUP_30Rnd_762x51_FNFAL_M","CUP_30Rnd_762x51_FNFAL_M","CUP_30Rnd_TE1_Green_Tracer_762x51_FNFAL_M"], [], ""], 1,
 
-	["CUP_arifle_M4A3_black", "",_cupMilitaryAttachments,_cupMilitaryRifleOptics,["CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag_Tracer_Green"], [], ""], 1,
-	["CUP_arifle_M4A1", "",_cupMilitaryAttachments,_cupMilitaryRifleOptics,["CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag_Tracer_Green"], [], ""], 4,
-	["CUP_arifle_M4A1_standard_black", "",_cupMilitaryAttachments,_cupMilitaryRifleOptics,["CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag_Tracer_Green"], [], ""], 1.25,
-	["CUP_arifle_M4A1_black", "",_cupMilitaryAttachments,_cupMilitaryRifleOptics,["CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag_Tracer_Green"], [], ""], 1.75,
+	["CUP_arifle_M4A3_black", "",_cupMilitaryAttachments,_cupMilitaryRifleOptics,["CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag_Tracer_Green"], [], ""], 0.75,
+	["CUP_arifle_M4A1", "",_cupMilitaryAttachments,_cupMilitaryRifleOptics,["CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag_Tracer_Green"], [], ""], 2,
+	["CUP_arifle_M4A1_standard_black", "",_cupMilitaryAttachments,_cupMilitaryRifleOptics,["CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag_Tracer_Green"], [], ""], 0.75,
+	["CUP_arifle_M4A1_black", "",_cupMilitaryAttachments,_cupMilitaryRifleOptics,["CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag_Tracer_Green"], [], ""], 1,
 
-	["CUP_arifle_M16A4_Grip", "",_cupMilitaryAttachments,_cupMilitaryRifleOptics,["CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag_Tracer_Green"], [], ""], 1.5,
-	["CUP_arifle_M16A4_Base", "",_cupMilitaryAttachments,_cupMilitaryRifleOptics,["CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag_Tracer_Green"], [], ""], 4,
+	["CUP_arifle_M16A4_Grip", "",_cupMilitaryAttachments,_cupMilitaryRifleOptics,["CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag_Tracer_Green"], [], ""], 0.75,
+	["CUP_arifle_M16A4_Base", "",_cupMilitaryAttachments,_cupMilitaryRifleOptics,["CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag_Tracer_Green"], [], ""], 2,
 
 	["CUP_arifle_M16A2", "",_cupMilitaryAttachments,_cupMilitaryRifleOptics,["CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag_Tracer_Green"], [], ""], 2,
 	["CUP_arifle_M16A1E1", "",_cupMilitaryAttachments,_cupMilitaryRifleOptics,["CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag_Tracer_Green"], [], ""], 0.5,
 
 	["CUP_arifle_L85A2_G", "",_cupMilitaryAttachments,_cupMilitaryL85Optics ,["CUP_30Rnd_556x45_Stanag_L85","CUP_30Rnd_556x45_Stanag_L85","CUP_30Rnd_556x45_Stanag_L85_Tracer_Green","CUP_30Rnd_556x45_Stanag_L85_Tracer_Green"], [], ""], 1,
-	["CUP_arifle_L85A2_NG", "",_cupMilitaryAttachments,_cupMilitaryL85Optics ,["CUP_30Rnd_556x45_Stanag_L85","CUP_30Rnd_556x45_Stanag_L85","CUP_30Rnd_556x45_Stanag_L85_Tracer_Green","CUP_30Rnd_556x45_Stanag_L85_Tracer_Green"], [], ""], 1,
-	["CUP_arifle_L85A2", "",_cupMilitaryAttachments,_cupMilitaryL85Optics ,["CUP_30Rnd_556x45_Stanag_L85","CUP_30Rnd_556x45_Stanag_L85","CUP_30Rnd_556x45_Stanag_L85_Tracer_Green","CUP_30Rnd_556x45_Stanag_L85_Tracer_Green"], [], ""], 1,
+	["CUP_arifle_L85A2_NG", "",_cupMilitaryAttachments,_cupMilitaryL85Optics ,["CUP_30Rnd_556x45_Stanag_L85","CUP_30Rnd_556x45_Stanag_L85","CUP_30Rnd_556x45_Stanag_L85_Tracer_Green","CUP_30Rnd_556x45_Stanag_L85_Tracer_Green"], [], ""], 0.75,
+	["CUP_arifle_L85A2", "",_cupMilitaryAttachments,_cupMilitaryL85Optics ,["CUP_30Rnd_556x45_Stanag_L85","CUP_30Rnd_556x45_Stanag_L85","CUP_30Rnd_556x45_Stanag_L85_Tracer_Green","CUP_30Rnd_556x45_Stanag_L85_Tracer_Green"], [], ""], 0.75,
 
-	["CUP_arifle_G36KA3_grip", "",_cupMilitaryAttachments,_cupMilitaryG36RISOptics,["CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36","CUP_30Rnd_TE1_Green_Tracer_556x45_G36"], [], ""], 2,
-	["CUP_arifle_G36KA3_afg", "",_cupMilitaryAttachments,_cupMilitaryG36RISOptics,["CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36","CUP_30Rnd_TE1_Green_Tracer_556x45_G36"], [], ""], 2,
+	["CUP_arifle_G36KA3_grip", "",_cupMilitaryAttachments,_cupMilitaryG36RISOptics,["CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36","CUP_30Rnd_TE1_Green_Tracer_556x45_G36"], [], ""], 0.75,
+	["CUP_arifle_G36KA3_afg", "",_cupMilitaryAttachments,_cupMilitaryG36RISOptics,["CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36","CUP_30Rnd_TE1_Green_Tracer_556x45_G36"], [], ""], 0.75,
 	["CUP_arifle_G36KA3", "",_cupMilitaryAttachments,_cupMilitaryG36RISOptics,["CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36","CUP_30Rnd_TE1_Green_Tracer_556x45_G36"], [], ""], 2,
 
 	["CUP_arifle_G36K_KSK_VFG", "",_cupMilitaryAttachments,_cupMilitaryG36RISOptics,["CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36","CUP_30Rnd_TE1_Green_Tracer_556x45_G36"], [], ""], 0.5,
 	["CUP_arifle_G36K_KSK_AFG", "",_cupMilitaryAttachments,_cupMilitaryG36RISOptics,["CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36","CUP_30Rnd_TE1_Green_Tracer_556x45_G36"], [], ""], 0.5,
 	["CUP_arifle_G36K_KSK", "",_cupMilitaryAttachments,_cupMilitaryG36RISOptics,["CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36","CUP_30Rnd_TE1_Green_Tracer_556x45_G36"], [], ""], 0.5,
 
-	["CUP_arifle_G36K_RIS", "",_cupMilitaryAttachments,_cupMilitaryG36RISOptics,["CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36","CUP_30Rnd_TE1_Green_Tracer_556x45_G36"], [], ""], 2.5,
+	["CUP_arifle_G36K_RIS", "",_cupMilitaryAttachments,_cupMilitaryG36RISOptics,["CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36","CUP_30Rnd_TE1_Green_Tracer_556x45_G36"], [], ""], 2,
 	["CUP_arifle_G36A_RIS", "",_cupMilitaryAttachments,_cupMilitaryG36RISOptics,["CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36","CUP_30Rnd_TE1_Green_Tracer_556x45_G36"], [], ""], 2,
 
-	["CUP_arifle_G36K", "",_cupMilitaryAttachments,_cupMilitaryG36Optics,["CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36","CUP_30Rnd_TE1_Green_Tracer_556x45_G36"], [], ""], 1.75,
+	["CUP_arifle_G36K", "",_cupMilitaryAttachments,_cupMilitaryG36Optics,["CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36","CUP_30Rnd_TE1_Green_Tracer_556x45_G36"], [], ""], 1,
 	["CUP_arifle_G36E", "",_cupMilitaryAttachments,_cupMilitaryG36Optics,["CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36","CUP_30Rnd_TE1_Green_Tracer_556x45_G36"], [], ""], 1.25,
-	["CUP_arifle_G36A", "",_cupMilitaryAttachments,_cupMilitaryG36Optics,["CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36","CUP_30Rnd_TE1_Green_Tracer_556x45_G36"], [], ""], 1.25,
+	["CUP_arifle_G36A", "",_cupMilitaryAttachments,_cupMilitaryG36Optics,["CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36","CUP_30Rnd_TE1_Green_Tracer_556x45_G36"], [], ""], 0.75,
 
-	["CUP_arifle_G36A3_grip", "",_cupMilitaryAttachments,_cupMilitaryG36RISOptics,["CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36","CUP_30Rnd_TE1_Green_Tracer_556x45_G36"], [], ""], 2,
+	["CUP_arifle_G36A3_grip", "",_cupMilitaryAttachments,_cupMilitaryG36RISOptics,["CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36","CUP_30Rnd_TE1_Green_Tracer_556x45_G36"], [], ""], 1.25,
 	["CUP_arifle_G36A3", "",_cupMilitaryAttachments,_cupMilitaryG36RISOptics,["CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36","CUP_30Rnd_TE1_Green_Tracer_556x45_G36"], [], ""], 2
 
 ];
 (_militaryLoadoutData get "carbines") append [
-	["CUP_arifle_Colt727", "",_cupMilitaryAttachments,_cupMilitaryRifleOptics,["CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag_Tracer_Green"], [], ""], 3,
+	["CUP_arifle_Colt727", "",_cupMilitaryAttachments,_cupMilitaryRifleOptics,["CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag_Tracer_Green"], [], ""], 2,
 
 	["CUP_arifle_G36CA3_grip", "",_cupMilitaryAttachments,_cupMilitaryG36RISOptics,["CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36","CUP_30Rnd_TE1_Green_Tracer_556x45_G36"], [], ""], 0.5,
 	["CUP_arifle_G36CA3_afg", "",_cupMilitaryAttachments,_cupMilitaryG36RISOptics,["CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36","CUP_30Rnd_TE1_Green_Tracer_556x45_G36"], [], ""], 0.5,
-	["CUP_arifle_G36CA3", "",_cupMilitaryAttachments,_cupMilitaryG36RISOptics,["CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36","CUP_30Rnd_TE1_Green_Tracer_556x45_G36"], [], ""], 1.5,
+	["CUP_arifle_G36CA3", "",_cupMilitaryAttachments,_cupMilitaryG36RISOptics,["CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36","CUP_30Rnd_TE1_Green_Tracer_556x45_G36"], [], ""], 1.25,
 
-	["CUP_arifle_G36C_VFG", "",_cupMilitaryAttachments,_cupMilitaryG36RISOptics,["CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36","CUP_30Rnd_TE1_Green_Tracer_556x45_G36"], [], ""], 1,
-	["CUP_arifle_G36C_VFG_Carry", "",_cupMilitaryAttachments,_cupMilitaryG36RISOptics,["CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36","CUP_30Rnd_TE1_Green_Tracer_556x45_G36"], [], ""], 1.5,
-	["CUP_arifle_G36C", "",_cupMilitaryAttachments,_cupMilitaryG36RISOptics,["CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36","CUP_30Rnd_TE1_Green_Tracer_556x45_G36"], [], ""], 4
+	["CUP_arifle_G36C_VFG", "",_cupMilitaryAttachments,_cupMilitaryG36RISOptics,["CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36","CUP_30Rnd_TE1_Green_Tracer_556x45_G36"], [], ""], 0.5,
+	["CUP_arifle_G36C_VFG_Carry", "",_cupMilitaryAttachments,_cupMilitaryG36RISOptics,["CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36","CUP_30Rnd_TE1_Green_Tracer_556x45_G36"], [], ""], 0.5,
+	["CUP_arifle_G36C", "",_cupMilitaryAttachments,_cupMilitaryG36RISOptics,["CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36_wdl","CUP_30Rnd_556x45_G36","CUP_30Rnd_TE1_Green_Tracer_556x45_G36"], [], ""], 2
 ];
 _cupMilitaryMGOptics = ["CUP_optic_ACOG2", 4, "CUP_optic_ACOG_TA31_KF", 1];
+
 (_militaryLoadoutData get "machineGuns") append [
     ["CUP_lmg_m249_pip4", "",_cupMilitaryAttachments,_cupMilitaryMGOptics,["CUP_200Rnd_TE4_Green_Tracer_556x45_M249_Pouch","CUP_200Rnd_TE4_Green_Tracer_556x45_M249","CUP_200Rnd_TE4_Green_Tracer_556x45_M249"], [], ""], 3,
 
@@ -548,13 +549,14 @@ _cupMilitaryMGOptics = ["CUP_optic_ACOG2", 4, "CUP_optic_ACOG_TA31_KF", 1];
 
 	["CUP_M60A4_EP1", "",_cupMilitaryAttachments,_cupMilitaryMGOptics,["CUP_100Rnd_TE4_LRT4_Green_Tracer_762x51_Belt_M","CUP_100Rnd_TE4_LRT4_Green_Tracer_762x51_Belt_M","CUP_100Rnd_TE4_LRT4_Green_Tracer_762x51_Belt_M"], [], ""], 1
 ];
+
 (_militaryLoadoutData get "grenadeLaunchers") append [
     ["CUP_arifle_DSA_SA58_OSW_M203", "",_cupMilitaryAttachments,_cupMilitaryRifleOptics,["CUP_30Rnd_762x51_FNFAL_M","CUP_30Rnd_762x51_FNFAL_M","CUP_30Rnd_762x51_FNFAL_M","CUP_30Rnd_TE1_Green_Tracer_762x51_FNFAL_M"], ["CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203","CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203"], ""], 1,
 
-	["CUP_arifle_M4A1_GL_carryhandle", "",_cupMilitaryAttachments,_cupMilitaryRifleOptics,["CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag_Tracer_Green"], ["CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203","CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203"], ""], 4,
-	["CUP_arifle_M4A1_BUIS_GL", "",_cupMilitaryAttachments,_cupMilitaryRifleOptics,["CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag_Tracer_Green"], ["CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203","CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203"], ""], 1.5,
+	["CUP_arifle_M4A1_GL_carryhandle", "",_cupMilitaryAttachments,_cupMilitaryRifleOptics,["CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag_Tracer_Green"], ["CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203","CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203"], ""], 2,
+	["CUP_arifle_M4A1_BUIS_GL", "",_cupMilitaryAttachments,_cupMilitaryRifleOptics,["CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag_Tracer_Green"], ["CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203","CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203"], ""], 0.75,
 
-	["CUP_arifle_M16A4_GL", "",_cupMilitaryAttachments,_cupMilitaryRifleOptics,["CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag_Tracer_Green"], ["CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203","CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203"], ""], 2.5,
+	["CUP_arifle_M16A4_GL", "",_cupMilitaryAttachments,_cupMilitaryRifleOptics,["CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag_Tracer_Green"], ["CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203","CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203"], ""], 2,
 	
 	["CUP_arifle_L85A2_GL", "",_cupMilitaryAttachments,_cupMilitaryL85Optics,["CUP_30Rnd_556x45_Stanag_L85","CUP_30Rnd_556x45_Stanag_L85","CUP_30Rnd_556x45_Stanag_L85_Tracer_Green","CUP_30Rnd_556x45_Stanag_L85_Tracer_Green"], ["CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203","CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203"], ""], 0.5,
 
@@ -597,7 +599,7 @@ _militiaRifleSights append ["CUP_optic_Aimpoint_5000", 0.5, "CUP_optic_AC11704_B
 _cupFALbipods = [ "CUP_bipod_FNFAL", 1, "", 5];
 (_militiaLoadoutData get "rifles") append [
     ["CUP_arifle_G3A3_modern_ris_black", "",_militiaAttachments,_militiaRifleSights,["CUP_20Rnd_762x51_G3","CUP_20Rnd_762x51_G3","CUP_20Rnd_762x51_G3","CUP_20Rnd_TE1_Green_Tracer_762x51_G3"], [], ""], 0.75,
-	["CUP_arifle_G3A3_modern_ris", "",_militiaAttachments,_militiaRifleSights,["CUP_20Rnd_762x51_G3","CUP_20Rnd_762x51_G3","CUP_20Rnd_762x51_G3","CUP_20Rnd_TE1_Green_Tracer_762x51_G3"], [], ""], 2,
+	["CUP_arifle_G3A3_modern_ris", "",_militiaAttachments,_militiaRifleSights,["CUP_20Rnd_762x51_G3","CUP_20Rnd_762x51_G3","CUP_20Rnd_762x51_G3","CUP_20Rnd_TE1_Green_Tracer_762x51_G3"], [], ""], 1.75,
 	
 	["CUP_arifle_G3A3_ris_vfg_black", "",_militiaAttachments,_militiaRifleSights,["CUP_20Rnd_762x51_G3","CUP_20Rnd_762x51_G3","CUP_20Rnd_762x51_G3","CUP_20Rnd_TE1_Green_Tracer_762x51_G3"], [], ""], 0.1,
 	["CUP_arifle_G3A3_ris_vfg", "",_militiaAttachments,_militiaRifleSights,["CUP_20Rnd_762x51_G3","CUP_20Rnd_762x51_G3","CUP_20Rnd_762x51_G3","CUP_20Rnd_TE1_Green_Tracer_762x51_G3"], [], ""], 0.2,
@@ -629,12 +631,12 @@ _cupFALbipods = [ "CUP_bipod_FNFAL", 1, "", 5];
 	["CUP_arifle_FNFAL5062", "",_militiaAttachments,"",["CUP_20Rnd_762x51_FNFAL_M","CUP_20Rnd_762x51_FNFAL_M","CUP_20Rnd_762x51_FNFAL_M","CUP_20Rnd_TE1_Green_Tracer_762x51_FNFAL_M"], [], _cupFALbipods], 0.1,
 	["CUP_arifle_FNFAL5061_railed", "",_militiaAttachments,_militiaRifleSights,["CUP_20Rnd_762x51_FNFAL_M","CUP_20Rnd_762x51_FNFAL_M","CUP_20Rnd_762x51_FNFAL_M","CUP_20Rnd_TE1_Green_Tracer_762x51_FNFAL_M"], [], _cupFALbipods], 0.75,
 	["CUP_arifle_FNFAL5061", "",_militiaAttachments,"",["CUP_20Rnd_762x51_FNFAL_M","CUP_20Rnd_762x51_FNFAL_M","CUP_20Rnd_762x51_FNFAL_M","CUP_20Rnd_TE1_Green_Tracer_762x51_FNFAL_M"], [], _cupFALbipods], 0.15,
-	["CUP_arifle_FNFAL5060_railed", "",_militiaAttachments,_militiaRifleSights,["CUP_20Rnd_762x51_FNFAL_M","CUP_20Rnd_762x51_FNFAL_M","CUP_20Rnd_762x51_FNFAL_M","CUP_20Rnd_TE1_Green_Tracer_762x51_FNFAL_M"], [], _cupFALbipods], 2,
+	["CUP_arifle_FNFAL5060_railed", "",_militiaAttachments,_militiaRifleSights,["CUP_20Rnd_762x51_FNFAL_M","CUP_20Rnd_762x51_FNFAL_M","CUP_20Rnd_762x51_FNFAL_M","CUP_20Rnd_TE1_Green_Tracer_762x51_FNFAL_M"], [], _cupFALbipods], 1.5,
 	["CUP_arifle_FNFAL5060", "",_militiaAttachments,"",["CUP_20Rnd_762x51_FNFAL_M","CUP_20Rnd_762x51_FNFAL_M","CUP_20Rnd_762x51_FNFAL_M","CUP_20Rnd_TE1_Green_Tracer_762x51_FNFAL_M"], [], _cupFALbipods], 0.25,
 
 	["CUP_arifle_AUG_A1", "","","",["CUP_30Rnd_556x45_AUG","CUP_30Rnd_556x45_AUG","CUP_30Rnd_556x45_AUG","CUP_30Rnd_TE1_Green_Tracer_556x45_AUG"], [], ""], 0.25,
 
-	["CUP_arifle_M16A1", "",_militiaAttachments,_militiaRifleSights,["CUP_20Rnd_556x45_Stanag","CUP_20Rnd_556x45_Stanag","CUP_20Rnd_556x45_Stanag","CUP_20Rnd_556x45_Stanag_Tracer_Green"], [], ""], 6,
+	["CUP_arifle_M16A1", "",_militiaAttachments,_militiaRifleSights,["CUP_20Rnd_556x45_Stanag","CUP_20Rnd_556x45_Stanag","CUP_20Rnd_556x45_Stanag","CUP_20Rnd_556x45_Stanag_Tracer_Green"], [], ""], 5, //relatively high because this is one of the only non-battle rifles
 
 	["CUP_srifle_M14", "",_militiaAttachments,_militiaRifleSights,["CUP_20Rnd_762x51_DMR","CUP_20Rnd_TE1_Green_Tracer_762x51_DMR","CUP_20Rnd_TE1_Green_Tracer_762x51_DMR","CUP_20Rnd_TE1_Green_Tracer_762x51_DMR"], [], ""], 1.5
 ];
@@ -643,10 +645,10 @@ _cupFALbipods = [ "CUP_bipod_FNFAL", 1, "", 5];
 	["CUP_arifle_Fort224","",_militiaAttachments,_militiaRifleSights,["CUP_30Rnd_545x39_Fort224_M","CUP_30Rnd_545x39_Fort224_M","CUP_30Rnd_Subsonic_545x39_Fort224_M","CUP_30Rnd_TE1_Green_Tracer_545x39_Fort224_M"], [], ""], 0.25,
 	["CUP_arifle_Fort221","",_militiaAttachments,_militiaRifleSights,["CUP_30Rnd_545x39_Fort224_M","CUP_30Rnd_545x39_Fort224_M","CUP_30Rnd_Subsonic_545x39_Fort224_M","CUP_30Rnd_TE1_Green_Tracer_545x39_Fort224_M"], [], ""], 0.5,
 
-	["CUP_arifle_X95_Grippod","",_militiaAttachments,_militiaRifleSights,["CUP_30Rnd_556x45_X95","CUP_30Rnd_556x45_X95","CUP_30Rnd_556x45_X95","CUP_30Rnd_556x45_X95_Tracer_Green"], [], ""], 0.75,
-	["CUP_arifle_X95","",_militiaAttachments,_militiaRifleSights,["CUP_30Rnd_556x45_X95","CUP_30Rnd_556x45_X95","CUP_30Rnd_556x45_X95","CUP_30Rnd_556x45_X95_Tracer_Green"], [], ""], 1.5,
+	["CUP_arifle_X95_Grippod","",_militiaAttachments,_militiaRifleSights,["CUP_30Rnd_556x45_X95","CUP_30Rnd_556x45_X95","CUP_30Rnd_556x45_X95","CUP_30Rnd_556x45_X95_Tracer_Green"], [], ""], 0.5,
+	["CUP_arifle_X95","",_militiaAttachments,_militiaRifleSights,["CUP_30Rnd_556x45_X95","CUP_30Rnd_556x45_X95","CUP_30Rnd_556x45_X95","CUP_30Rnd_556x45_X95_Tracer_Green"], [], ""], 1,
 
-	["CUP_arifle_M4A1","",_militiaAttachments,_militiaRifleSights,["CUP_20Rnd_556x45_Stanag","CUP_20Rnd_556x45_Stanag","CUP_20Rnd_556x45_Stanag","CUP_20Rnd_556x45_Stanag_Tracer_Green"], [], ""], 4
+	["CUP_arifle_M4A1","",_militiaAttachments,_militiaRifleSights,["CUP_20Rnd_556x45_Stanag","CUP_20Rnd_556x45_Stanag","CUP_20Rnd_556x45_Stanag","CUP_20Rnd_556x45_Stanag_Tracer_Green"], [], ""], 2
 ];
 (_militiaLoadoutData get "grenadeLaunchers") append [
     ["CUP_arifle_M16A1GL", "","","",["CUP_20Rnd_556x45_Stanag","CUP_20Rnd_556x45_Stanag","CUP_20Rnd_556x45_Stanag","CUP_20Rnd_556x45_Stanag_Tracer_Green"], ["CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203","CUP_1Rnd_HEDP_M203","CUP_1Rnd_HE_M203"], ""], 8
