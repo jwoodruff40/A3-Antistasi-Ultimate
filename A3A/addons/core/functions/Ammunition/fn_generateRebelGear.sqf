@@ -59,8 +59,8 @@ private _gl = [];
 
     {
         _x params ["_itemType", "_array"];
-        _arrayWeight = [_class, _itemType] call A3A_fnc_itemArrayWeight;
-        if (_itemType in _categories) then { [_array, _class, _amount, _arrayWeight] call _fnc_addItem };
+        _arrayWeight = [_class, _itemType, _categories] call A3A_fnc_itemArrayWeight;
+        if (_itemType in _categories) exitWith { [_array, _class, _amount, _arrayWeight] call _fnc_addItem };
     } forEach _itemTypes;
 
 } forEach (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_PRIMARYWEAPON);
@@ -85,7 +85,7 @@ private _mlaunchersAA = [];
     };*/
 
     if ("RocketLaunchers" in _categories) then { 
-        _arrayWeight = [_class, "RocketLaunchers"] call A3A_fnc_itemArrayWeight;
+        _arrayWeight = [_class, "RocketLaunchers", _categories] call A3A_fnc_itemArrayWeight;
         [_rlaunchers, _class, _amount, _arrayWeight] call _fnc_addItem;
         continue
     };
