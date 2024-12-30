@@ -2443,7 +2443,7 @@ switch _mode do {
 			_ctrlDLC = _display displayctrl IDC_RSCDISPLAYARSENAL_INFO_DLCICON;
 			_ctrlDLCBackground = _display displayctrl IDC_RSCDISPLAYARSENAL_INFO_DLCBACKGROUND;
 			_dlc = _itemCfg call GETDLC;
-			if (_dlc != ""/*  && _fullVersion */) then {
+			if (_dlc != "") then { // && _fullVersion 
 
 				_dlcParams = modParams [_dlc,["name","logo","logoOver"]];
 				_name = _dlcParams param [0,""];
