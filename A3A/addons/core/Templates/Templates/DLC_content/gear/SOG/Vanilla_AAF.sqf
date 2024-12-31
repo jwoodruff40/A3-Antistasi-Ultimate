@@ -23,8 +23,11 @@
 ];
 //////////////////////////////////////////////////////
 (_militaryLoadoutData get "Hvests") append [
-    "vn_b_vest_usarmy_14", 2.5,
-    "vn_b_vest_usarmy_13", 2.5
+    "vn_b_vest_usarmy_14", 0.5,
+    "vn_b_vest_usarmy_13", 0.5,
+    "vn_b_vest_usmc_02", 1,
+    "vn_b_vest_usmc_01", 1,
+    "vn_b_vest_usmc_06", 1
 ];
 (_militaryLoadoutData get "vests") append [ // These freqs together should make the SOG vests have a cumulative spawn weight of 3.9.
     "vn_b_vest_anzac_09", 0.65,
@@ -57,7 +60,14 @@
     "vn_b_pack_m41_01", 0.5
 ];
 //////////////////////////////////////////////////////
-(_militiaLoadoutData get "Hvests") append ["vn_b_vest_usmc_02", 1,"vn_b_vest_usmc_01", 1,"vn_b_vest_usmc_06", 1]; // USMC body armor is significantly better than tactical rig defense wise, so make it a bit rarer.
+(_militiaLoadoutData get "Hvests") append [
+    "vn_b_vest_usarmy_13", 1,
+    "vn_b_vest_usarmy_14", 1,
+    "vn_b_vest_usmc_02", 0.75,
+    "vn_b_vest_usmc_01", 0.75,
+    "vn_b_vest_usmc_06", 0.75
+];
+
 (_militiaLoadoutData get "vests") append [ // While individual spawn chance is low, as a whole this should make all the SOG rigging slightly more common than the vanilla chest rig.
     "vn_b_vest_sog_04", 0.5,
     "vn_b_vest_sog_01", 0.5,
