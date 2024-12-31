@@ -119,18 +119,18 @@ switch (true) do {
         if (_smokes isNotEqualTo []) then { _unit addMagazines [selectRandomWeighted _smokes, 1] };
 
         // increase likelihood of rifleman getting a disposable launcher by war level (10% chance * war level)
-        if (random 10 < tierWar) then {
+        if (random 10 < (tierWar / 2)) then {
             private _rlaunchers = A3A_rebelGear get "RocketLaunchers";
             private _launcherPool = [];
             
             {
                 private _categories = _x call A3A_fnc_equipmentClassToCategories;
 
-                if ("Disposable" in _categories) exitWith {_launcherPool pushBack [_x, (_rlaunchers find _x) + 1 ]};
-            } forEach _rlaunchers;
+                if ("Disposable" in _categories) then {_launcherPool append [_x, _rlaunchers select (_rlaunchers find _x) + 1 ]};
+            } forEach (_rlaunchers select {_x isEqualType ""});
 
             private _launcher = selectRandomWeighted _launcherPool;
-            if !(isNil "_launcher") then { [_unit, _launcher, 100] call _fnc_addSecondaryAndMags }
+            if !(isNil "_launcher") then { [_unit, _launcher, 100] call _fnc_addSecondaryAndMags };
         };
     };
     case (_unitType isEqualTo FactionGet(reb,"unitMG")): {
