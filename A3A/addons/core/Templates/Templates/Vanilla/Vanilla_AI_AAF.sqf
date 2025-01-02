@@ -12,6 +12,7 @@ private _hasCSLA = "csla" in A3A_enabledDLC;
 private _hasRF = "rf" in A3A_enabledDLC;
 private _hasSOG = "vn" in A3A_enabledDLC;
 private _hasSPE = "spe" in A3A_enabledDLC;
+private _hasEF = "ef" in A3A_enabledDLC;
 
 //////////////////////////
 //   Side Information   //
@@ -27,6 +28,8 @@ private _hasSPE = "spe" in A3A_enabledDLC;
 //////////////////////////
 //       Vehicles       //
 //////////////////////////
+
+["vehiclesSDV", ["I_SDV_01_F"]] call _fnc_saveToTemplate;
 
 ["ammobox", "I_supplyCrate_F"] call _fnc_saveToTemplate;     //Don't touch or you die a sad and lonely death!
 ["surrenderCrate", "Box_IND_Wps_F"] call _fnc_saveToTemplate; //Changeing this from default will require you to define logistics attachement offset for the box type
@@ -145,6 +148,10 @@ if (_hasSPE) then {
     #include "..\DLC_content\vehicles\SPE\Vanilla_AAF.sqf"
 };
 
+if (_hasEF) then {
+    #include "..\DLC_content\vehicles\EF\Vanilla_AAF.sqf"
+};
+
 //If CUP
 if (isClass (configFile >> "cfgVehicles" >> "CUP_ZSU23_Base")) then {
     #include "..\MOD_content\CUP\Vanilla_AAF\Vehicles_AAF.sqf"
@@ -202,6 +209,7 @@ if (isClass (configFile >> "cfgVehicles" >> "CUP_ZSU23_Base")) then {
     #include "..\vehicleAnimations\vehicleAnimations_CSLA.sqf",
     #include "..\vehicleAnimations\vehicleAnimations_SOG.sqf",
     #include "..\vehicleAnimations\vehicleAnimations_SPE.sqf",
+    #include "..\vehicleAnimations\vehicleAnimations_EF.sqf",
     #include "..\MOD_content\CUP\Vehicles_Animations.sqf"
 ]] call _fnc_saveToTemplate;
 
@@ -694,6 +702,10 @@ if (_hasSOG) then {
 if (_hasSPE) then {
     #include "..\DLC_content\gear\SPE\Vanilla_AAF.sqf"
     #include "..\DLC_content\weapons\SPE\Vanilla_AAF.sqf"
+};
+
+if (_hasEF) then {
+    #include "..\DLC_content\gear\EF\Vanilla_AAF.sqf"
 };
 
 //////mod content

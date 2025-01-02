@@ -12,6 +12,7 @@ private _hasCSLA = "csla" in A3A_enabledDLC;
 private _hasRF = "rf" in A3A_enabledDLC;
 private _hasSOG = "vn" in A3A_enabledDLC;
 private _hasSPE = "spe" in A3A_enabledDLC;
+private _hasEF = "ef" in A3A_enabledDLC;
 
 //////////////////////////
 //   Side Information   //
@@ -28,7 +29,9 @@ private _hasSPE = "spe" in A3A_enabledDLC;
 //       Vehicles       //
 //////////////////////////
 
-/* ["vehiclesDropPod", ["SpaceshipCapsule_01_F"]] call _fnc_saveToTemplate;  */
+["vehiclesSDV", ["B_SDV_01_F"]] call _fnc_saveToTemplate;
+
+["vehiclesDropPod", ["SpaceshipCapsule_01_F"]] call _fnc_saveToTemplate;
 
 ["ammobox", "B_supplyCrate_F"] call _fnc_saveToTemplate;
 ["surrenderCrate", "Box_IND_Wps_F"] call _fnc_saveToTemplate; //Changeing this from default will require you to define logistics attachement offset for the box type
@@ -148,6 +151,10 @@ if (_hasSPE) then {
     #include "..\DLC_content\vehicles\SPE\Vanilla_LDF.sqf"
 };
 
+if (_hasEF) then {
+    #include "..\DLC_content\vehicles\EF\Vanilla_NATO_Temparate.sqf"
+};
+
 ["vehiclesPlanesTransport", _planesTransport] call _fnc_saveToTemplate;
 ["vehiclesPlanesGunship", _gunship] call _fnc_saveToTemplate;
 ["vehiclesGunBoats", _gunBoat] call _fnc_saveToTemplate;
@@ -196,7 +203,8 @@ if (_hasSPE) then {
     #include "..\vehicleAnimations\vehicleAnimations_GM.sqf",
     #include "..\vehicleAnimations\vehicleAnimations_CSLA.sqf",
     #include "..\vehicleAnimations\vehicleAnimations_SOG.sqf",
-    #include "..\vehicleAnimations\vehicleAnimations_SPE.sqf"
+    #include "..\vehicleAnimations\vehicleAnimations_SPE.sqf",
+    #include "..\vehicleAnimations\vehicleAnimations_EF.sqf"
 ]] call _fnc_saveToTemplate;
 
 ["variants", [
@@ -239,8 +247,15 @@ if (_hasWS) then {
         #include "..\DLC_content\faces\WS\WS_white.sqf"
     ];
 };
+if (_hasEF) then {
+    _faces append [
+        #include "..\DLC_content\faces\EF\EF_white.sqf" ///probaly need to separate by camos
+    ];
+};
 ["faces", _faces] call _fnc_saveToTemplate;
 ["voices", ["Male01pol","Male02pol","Male03pol"]] call _fnc_saveToTemplate;
+
+"EnochMen" call _fnc_saveNames;
 
 //////////////////////////
 //       Loadouts       //
@@ -710,6 +725,10 @@ if (_hasSOG) then {
 if (_hasSPE) then {
     #include "..\DLC_content\gear\SPE\Vanilla_LDF.sqf"
     #include "..\DLC_content\weapons\SPE\Vanilla_LDF.sqf"
+};
+
+if (_hasEF) then {
+    #include "..\DLC_content\gear\EF\Vanilla_LDF.sqf"
 };
 
 /////////////////////////////////

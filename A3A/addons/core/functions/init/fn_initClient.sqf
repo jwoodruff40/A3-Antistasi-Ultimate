@@ -188,7 +188,7 @@ stragglers = creategroup teamPlayer;
 (group player) enableAttack false;
 
 if (isNil "ace_noradio_enabled" or {!ace_noradio_enabled}) then {
-    [player, nil, selectRandom (A3A_faction_reb get "voices")] call A3A_fnc_setIdentity
+    [player, createHashMapFromArray [["speaker", selectRandom (A3A_faction_reb get "voices")]]] call A3A_fnc_setIdentity;
 };
 //Give the player the base loadout.
 [player] call A3A_fnc_dress;
@@ -652,6 +652,8 @@ if (!isMultiplayer) then {
 };
 
 call A3U_fnc_checkMods;
+
+if (A3A_hasACE) then {call A3A_fnc_initACE};
 
 if (["WBK_IMS_ANIMS_2"] call A3U_fnc_hasAddon) then {
     [player] call A3U_fnc_IMS_stealthKill;
