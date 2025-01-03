@@ -352,6 +352,18 @@ switch _mode do {
 			_x ctrlCommit 0;
 		} forEach [_ctrlListLoadedMag, _ctrlListLoadedMag2];
 
+		// Custom whatever tf this thing is
+		_ctrlListDItemOptic = _display displayCtrl (IDC_RSCDISPLAYARSENAL_LISTDISABLED + IDC_RSCDISPLAYARSENAL_TAB_ITEMOPTIC);
+		_ctrlListDItemOpticPos = ctrlPosition _ctrlListDItemOptic;
+		_ctrlListDLoadedMag = _display ctrlCreate ["RscListBox", IDC_RSCDISPLAYARSENAL_LISTDISABLED + IDC_RSCDISPLAYARSENAL_TAB_LOADEDMAG];
+		_ctrlListDLoadedMag2 = _display ctrlCreate ["RscListBox", IDC_RSCDISPLAYARSENAL_LISTDISABLED + IDC_RSCDISPLAYARSENAL_TAB_LOADEDMAG2];
+		{
+			_x ctrlSetPosition _ctrlListDItemOpticPos;
+			_x ctrlEnable false;
+			_x ctrlSetFade 1;
+			_x ctrlCommit 0;
+		} forEach [_ctrlListDLoadedMag, _ctrlListDLoadedMag2];
+
 		// Custom sorts
 		_ctrlSortItemOptic = _display displayCtrl (IDC_RSCDISPLAYARSENAL_SORT + IDC_RSCDISPLAYARSENAL_TAB_ITEMOPTIC);
 		_ctrlSortItemOpticPos = ctrlPosition _ctrlSortItemOptic;
@@ -984,6 +996,32 @@ switch _mode do {
 				_ctrlListSecondaryWeapon = _display displayctrl (IDC_RSCDISPLAYARSENAL_LIST + IDC_RSCDISPLAYARSENAL_TAB_SECONDARYWEAPON);
 				_ctrlListHandgun = _display displayctrl (IDC_RSCDISPLAYARSENAL_LIST + IDC_RSCDISPLAYARSENAL_TAB_HANDGUN);
 
+				//_weaponMagazines = switch true do {
+				_weapon = "";
+				_weaponMagazines = [];
+				switch true do {
+					case (ctrlenabled _ctrlListPrimaryWeapon): {_weapon = primaryWeapon player; _weaponMagazines = primaryWeaponMagazine player};
+					case (ctrlenabled _ctrlListSecondaryWeapon): {_weapon = secondaryWeapon` player; _weaponMagazines = secondaryWeaponMagazine player};
+					case (ctrlenabled _ctrlListHandgun): {_weapon = handgunWeapon player; _weaponMagazines = handgunMagazine player};
+					default {[]};
+				};
+
+				_item = if !(isNil _weaponMagazines select 0) then {
+					if ((_weaponMagazines select 0) in compatibleMagazines [_weapon, "this"]) then {
+						_weaponMagazines select 0
+					} else {
+						_weaponMagazines select 1
+					};
+				};
+
+				["UpdateItemAdd",[_index,_item,0]] call jn_fnc_arsenal;
+				["ListSelectCurrent",[_display,_index,_item]] call jn_fnc_arsenal;
+			};/*
+			case IDC_RSCDISPLAYARSENAL_TAB_LOADEDMAG2: {
+				_ctrlListPrimaryWeapon = _display displayctrl (IDC_RSCDISPLAYARSENAL_LIST + IDC_RSCDISPLAYARSENAL_TAB_PRIMARYWEAPON);
+				_ctrlListSecondaryWeapon = _display displayctrl (IDC_RSCDISPLAYARSENAL_LIST + IDC_RSCDISPLAYARSENAL_TAB_SECONDARYWEAPON);
+				_ctrlListHandgun = _display displayctrl (IDC_RSCDISPLAYARSENAL_LIST + IDC_RSCDISPLAYARSENAL_TAB_HANDGUN);
+
 				_weaponMagazines = switch true do {
 					case (ctrlenabled _ctrlListPrimaryWeapon): {primaryWeaponMagazine player};
 					case (ctrlenabled _ctrlListSecondaryWeapon): {secondaryWeaponMagazine player};
@@ -995,7 +1033,7 @@ switch _mode do {
 				_item = _weaponMagazines select _mag2;
 				["UpdateItemAdd",[_index,_item,0]] call jn_fnc_arsenal;
 				["ListSelectCurrent",[_display,_index,_item]] call jn_fnc_arsenal;
-			};
+			};*/
 			case IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG;
 			case IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL;
 			case IDC_RSCDISPLAYARSENAL_TAB_CARGOTHROW;
