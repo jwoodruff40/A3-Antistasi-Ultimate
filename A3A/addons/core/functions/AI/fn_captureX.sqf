@@ -13,6 +13,7 @@ private _modAggro = [0, 0];
 private _modHR = false;
 private _response = "";
 private _fleeSide = _sideX;
+private _joinPlyGroup = false;
 
 private _unitPrefix = _unit getVariable "unitPrefix";
 
@@ -38,6 +39,9 @@ if (_recruiting) then {
 
 	if (random 100 < _chance) then
     {
+		if (count (units _playerX) < 10) then {
+			_joinPlyGroup = true;
+		};
 		_modAggro = [1, 30];
 		_response = localize "STR_recruit_success_text";
 		_modHR = true;
@@ -66,16 +70,19 @@ else {
 
 sleep 2;
 _unit globalChat _response;
+if (_joinPlyGroup) then {
+	[_unit] joinSilent (group _playerX) 
+} else {
+	[_unit, _fleeSide] remoteExec ["A3A_fnc_fleeToSide", _unit];
 
-[_unit, _fleeSide] remoteExec ["A3A_fnc_fleeToSide", _unit];
+	private _group = group _unit;		// Group should be surrender-specific now
+	sleep 100;
+	if (alive _unit && {!(_unit getVariable ["incapacitated", false])}) then
+	{
+		([_sideX] + _modAggro) remoteExec ["A3A_fnc_addAggression",2];
+		if (_modHR) then { [1,0] remoteExec ["A3A_fnc_resourcesFIA",2] };
+	};
 
-private _group = group _unit;		// Group should be surrender-specific now
-sleep 100;
-if (alive _unit && {!(_unit getVariable ["incapacitated", false])}) then
-{
-	([_sideX] + _modAggro) remoteExec ["A3A_fnc_addAggression",2];
-	if (_modHR) then { [1,0] remoteExec ["A3A_fnc_resourcesFIA",2] };
+	deleteVehicle _unit;
+	deleteGroup _group;
 };
-
-deleteVehicle _unit;
-deleteGroup _group;
