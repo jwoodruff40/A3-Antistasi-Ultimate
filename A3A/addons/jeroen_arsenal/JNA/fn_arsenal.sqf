@@ -146,7 +146,7 @@ private _minItemsMember = {
 	params ["_index", "_item"];					// Arsenal tab index, item classname
 	private _min = jna_minItemMember select _index;
 	_min = A3A_arsenalLimits getOrDefault [_item, _min];
-	if (_index == IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG || _index == IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL) then {
+	if (_index in [IDC_RSCDISPLAYARSENAL_TAB_LOADEDMAG, IDC_RSCDISPLAYARSENAL_TAB_LOADEDMAG2, IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG, IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL]) then {
 		_min = _min * getNumber (configfile >> "CfgMagazines" >> _item >> "count");
 	};
 	_min;
@@ -1001,13 +1001,13 @@ switch _mode do {
 				_weaponMagazines = [];
 				switch true do {
 					case (ctrlenabled _ctrlListPrimaryWeapon): {_weapon = primaryWeapon player; _weaponMagazines = primaryWeaponMagazine player};
-					case (ctrlenabled _ctrlListSecondaryWeapon): {_weapon = secondaryWeapon` player; _weaponMagazines = secondaryWeaponMagazine player};
+					case (ctrlenabled _ctrlListSecondaryWeapon): {_weapon = secondaryWeapon player; _weaponMagazines = secondaryWeaponMagazine player};
 					case (ctrlenabled _ctrlListHandgun): {_weapon = handgunWeapon player; _weaponMagazines = handgunMagazine player};
 					default {[]};
 				};
 
-				_item = if !(isNil _weaponMagazines select 0) then {
-					if ((_weaponMagazines select 0) in compatibleMagazines [_weapon, "this"]) then {
+				_item = if (isNil (_weaponMagazines select 0)) then { "" } else {
+					if ((_weaponMagazines select 0) in [compatibleMagazines [_weapon, "this"]]) then {
 						_weaponMagazines select 0
 					} else {
 						_weaponMagazines select 1
@@ -1374,8 +1374,8 @@ switch _mode do {
 		if(_index == IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL)then{
 			switch true do {
 				case (ctrlEnabled (_display displayctrl (IDC_RSCDISPLAYARSENAL_LIST + IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG))): { _index = IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG; };
-				case ((ctrlEnabled (_display displayctrl (IDC_RSCDISPLAYARSENAL_LIST + IDC_RSCDISPLAYARSENAL_TAB_LOADEDMAG)))): { _index = IDC_RSCDISPLAYARSENAL_TAB_LOADEDMAG; };
-				case ((ctrlEnabled (_display displayctrl (IDC_RSCDISPLAYARSENAL_LIST + IDC_RSCDISPLAYARSENAL_TAB_LOADEDMAG2)))): { _index = IDC_RSCDISPLAYARSENAL_TAB_LOADEDMAG2; };
+				case (ctrlEnabled (_display displayctrl (IDC_RSCDISPLAYARSENAL_LIST + IDC_RSCDISPLAYARSENAL_TAB_LOADEDMAG))): { _index = IDC_RSCDISPLAYARSENAL_TAB_LOADEDMAG; };
+				case (ctrlEnabled (_display displayctrl (IDC_RSCDISPLAYARSENAL_LIST + IDC_RSCDISPLAYARSENAL_TAB_LOADEDMAG2))): { _index = IDC_RSCDISPLAYARSENAL_TAB_LOADEDMAG2; };
 			};
 		};
 
@@ -1436,8 +1436,8 @@ switch _mode do {
 		if(_index == IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL)then{
 			switch true do {
 				case (ctrlEnabled (_display displayctrl (IDC_RSCDISPLAYARSENAL_LIST + IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG))): { _index = IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG; };
-				case ((ctrlEnabled (_display displayctrl (IDC_RSCDISPLAYARSENAL_LIST + IDC_RSCDISPLAYARSENAL_TAB_LOADEDMAG)))): { _index = IDC_RSCDISPLAYARSENAL_TAB_LOADEDMAG; };
-				case ((ctrlEnabled (_display displayctrl (IDC_RSCDISPLAYARSENAL_LIST + IDC_RSCDISPLAYARSENAL_TAB_LOADEDMAG2)))): { _index = IDC_RSCDISPLAYARSENAL_TAB_LOADEDMAG2; };
+				case (ctrlEnabled (_display displayctrl (IDC_RSCDISPLAYARSENAL_LIST + IDC_RSCDISPLAYARSENAL_TAB_LOADEDMAG))): { _index = IDC_RSCDISPLAYARSENAL_TAB_LOADEDMAG; };
+				case (ctrlEnabled (_display displayctrl (IDC_RSCDISPLAYARSENAL_LIST + IDC_RSCDISPLAYARSENAL_TAB_LOADEDMAG2))): { _index = IDC_RSCDISPLAYARSENAL_TAB_LOADEDMAG2; };
 			};
 		};
 
@@ -1804,6 +1804,8 @@ switch _mode do {
 		_itemCfg = switch _index do {
 			case IDC_RSCDISPLAYARSENAL_TAB_BACKPACK:	{configfile >> "cfgvehicles" >> _item};
 			case IDC_RSCDISPLAYARSENAL_TAB_GOGGLES:		{configfile >> "cfgglasses" >> _item};
+			case IDC_RSCDISPLAYARSENAL_TAB_LOADEDMAG;
+			case IDC_RSCDISPLAYARSENAL_TAB_LOADEDMAG2;
 			case IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG;
 			case IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL;
 			case IDC_RSCDISPLAYARSENAL_TAB_CARGOTHROW;
@@ -2083,6 +2085,7 @@ switch _mode do {
 							};
 						}foreach _oldAttachments;
 
+						player selectWeapon _item;
 					};
 
 					//re-add magazines
@@ -2265,52 +2268,42 @@ switch _mode do {
 				};
 			};
 			case IDC_RSCDISPLAYARSENAL_TAB_LOADEDMAG: {
+				_oldMag = currentMagazine player;
+				_oldAmmoCount = 0;
+				if (isNil _oldMag) then { _oldMag = "" } else { { if ((_x#0 == _oldMag) && (_x#2)) then { _oldAmmoCount = _x#1 }; } forEach (magazinesAmmoFull player)};
+				_newMag = _item;
+				_cfgAmmoCount = getNumber (configFile >> "CfgMagazines" >> _newMag >> "count");
+				_newAmmoCount = [_amount, _cfgAmmoCount] select ((_amount == -1) || (_amount > _cfgAmmoCount));
+
 				switch true do {
 					case (ctrlenabled _ctrlListPrimaryWeapon): {
-						_weapon = primaryWeapon player;
-						_weaponConfig = configFile >> "CfgWeapons" >> _weapon;
-						_itemConfig = configFile >> "CfgMagazines" >> _item;
-						_firstMag = primaryWeaponMagazine player select 0;
-						_ammoCountOld = { if (_x#0 == _firstMag && _x#2) exitWith { _x#1 }; } forEach (magazinesAmmoFull player);
-						_ammoCountNew = if (_amount > getNumber (_itemConfig >> "count")) then { getNumber (_itemConfig >> "count") } else { _amount };
-						_oldItem = if (isNil _firstMag) then { "" } else { 
-							if (count getArray(_weaponConfig >> "muzzles") == 1) then { _firstMag } else {
-								if (_firstMag in compatibleMagazines [_weapon, configName (getArray(_weaponConfig >> "muzzles") select 1)]) then {
-									""
-								} else { _firstMag };
-							};
-						};
-
-						if (_oldItem != _item) then {
-							player removeprimaryweaponitem _oldItem;
-							[IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL, _oldItem, _ammoCountOld] call jn_fnc_arsenal_addItem;
-							if (_item != "") then {
-								player addprimaryweaponitem _item;
-								[IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL, _item, _ammoCountNew] call jn_fnc_arsenal_removeItem;
+						if (_oldMag != _newMag) then {
+							player removePrimaryWeaponItem _oldMag;
+							//[IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL, _oldMag, _oldAmmoCount] call jn_fnc_arsenal_addItem;
+							[IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL, _oldMag, 30] call jn_fnc_arsenal_addItem;
+							if (_newMag != "") then {
+								player addPrimaryWeaponItem _newMag;
+								[IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL, _newMag, _newAmmoCount] call jn_fnc_arsenal_removeItem;
 							};
 						};
 					};
-					case (ctrlenabled _ctrlListSecondaryWeapon): {
-						_oldItem = (secondaryWeaponMagazine player select 0);
-						if (isNil _oldItem) then { _oldItem = "" };
-						if (_oldItem != _item) then {
-							player removesecondaryweaponitem _oldItem;
-							[IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL, _oldItem] call jn_fnc_arsenal_addItem;
-							if (_item != "") then {
-								player addsecondaryweaponitem _item;
-								[IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL, _item] call jn_fnc_arsenal_removeItem;
+					case (ctrlEnabled _ctrlListSecondaryWeapon): {
+						if (_oldMag != _newMag) then {
+							player removeSecondaryWeaponItem _oldMag;
+							[IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL, _oldMag, _oldAmmoCount] call jn_fnc_arsenal_addItem;
+							if (_newMag != "") then {
+								player addSecondaryWeaponItem _newMag;
+								[IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL, _newMag, _newAmmoCount] call jn_fnc_arsenal_removeItem;
 							};
 						};
 					};
-					case (ctrlenabled _ctrlListHandgun): {
-						_oldItem = (handgunMagazine player select 0);
-						if (isNil _oldItem) then { _oldItem = "" };
-						if (_oldItem != _item) then {
-							player removehandgunitem _oldItem;
-							[IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL, _oldItem] call jn_fnc_arsenal_addItem;
-							if (_item != "") then {
-								player addhandgunitem _item;
-								[IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL, _item] call jn_fnc_arsenal_removeItem;
+					case (ctrlEnabled _ctrlListHandgun): {
+						if (_oldMag != _newMag) then {
+							player removeHandgunItem _oldMag;
+							[IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL, _oldMag, _oldAmmoCount] call jn_fnc_arsenal_addItem;
+							if (_newMag != "") then {
+								player addHandgunItem _newMag;
+								[IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL, _newMag, _newAmmoCount] call jn_fnc_arsenal_removeItem;
 							};
 						};
 					};
@@ -2320,18 +2313,19 @@ switch _mode do {
 				_weapon = primaryWeapon player;
 				_config = configFile >> "CfgWeapons" >> _weapon;
 				_firstMag = primaryWeaponMagazine player select 0;
-				_oldItem = if (isNil _firstMag) then { "" } else {
+				_oldMag = if (isNil _firstMag) then { "" } else {
 					if (_firstMag in compatibleMagazines [_weapon, configName (getArray(_config >> "muzzles") select 1)]) then {
 						_firstMag
 					} else { (primaryWeaponMagazine player select 1) };
 				};
+				_newMag = _item;
 
-				if (_oldItem != _item) then {
-					player removeprimaryweaponitem _oldItem;
-					[IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL, _oldItem] call jn_fnc_arsenal_addItem;
-					if (_item != "") then {
-						player addprimaryweaponitem _item;
-						[IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL, _item] call jn_fnc_arsenal_removeItem;
+				if (_oldMag != _newMag) then {
+					player removePrimaryWeaponItem _oldMag;
+					[IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL, _oldMag] call jn_fnc_arsenal_addItem;
+					if (_newMag != "") then {
+						player addPrimaryWeaponItem _newMag;
+						[IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL, _newMag] call jn_fnc_arsenal_removeItem;
 					};
 				};
 			};
