@@ -353,6 +353,7 @@ switch _mode do {
 		} forEach [_ctrlListLoadedMag, _ctrlListLoadedMag2];
 
 		// Custom whatever tf this thing is
+		/*
 		_ctrlListDItemOptic = _display displayCtrl (IDC_RSCDISPLAYARSENAL_LISTDISABLED + IDC_RSCDISPLAYARSENAL_TAB_ITEMOPTIC);
 		_ctrlListDItemOpticPos = ctrlPosition _ctrlListDItemOptic;
 		_ctrlListDLoadedMag = _display ctrlCreate ["RscListBox", IDC_RSCDISPLAYARSENAL_LISTDISABLED + IDC_RSCDISPLAYARSENAL_TAB_LOADEDMAG];
@@ -363,7 +364,7 @@ switch _mode do {
 			_x ctrlSetFade 1;
 			_x ctrlCommit 0;
 		} forEach [_ctrlListDLoadedMag, _ctrlListDLoadedMag2];
-
+		*/
 		// Custom sorts
 		_ctrlSortItemOptic = _display displayCtrl (IDC_RSCDISPLAYARSENAL_SORT + IDC_RSCDISPLAYARSENAL_TAB_ITEMOPTIC);
 		_ctrlSortItemOpticPos = ctrlPosition _ctrlSortItemOptic;
@@ -860,6 +861,12 @@ switch _mode do {
 
 		//Select right tab
 		if (_showItems) then {
+			switch true do {
+				case (_index == IDC_RSCDISPLAYARSENAL_TAB_PRIMARYWEAPON): { player selectWeapon (primaryWeapon player) };
+				case (_index == IDC_RSCDISPLAYARSENAL_TAB_SECONDARYWEAPON): { player selectWeapon (secondaryWeapon player) };
+				case (_index == IDC_RSCDISPLAYARSENAL_TAB_HANDGUN): { player selectWeapon (handgunWeapon player) };
+			};
+
 			['TabSelectRight',[_display,IDC_RSCDISPLAYARSENAL_TAB_LOADEDMAG]] call jn_fnc_arsenal;
 		};
 
@@ -990,50 +997,24 @@ switch _mode do {
 				["UpdateItemAdd",[_index,_item,0]] call jn_fnc_arsenal;
 				["ListSelectCurrent",[_display,_index,_item]] call jn_fnc_arsenal;
 			};
-			case IDC_RSCDISPLAYARSENAL_TAB_LOADEDMAG;
-			case IDC_RSCDISPLAYARSENAL_TAB_LOADEDMAG2: {
-				_ctrlListPrimaryWeapon = _display displayctrl (IDC_RSCDISPLAYARSENAL_LIST + IDC_RSCDISPLAYARSENAL_TAB_PRIMARYWEAPON);
-				_ctrlListSecondaryWeapon = _display displayctrl (IDC_RSCDISPLAYARSENAL_LIST + IDC_RSCDISPLAYARSENAL_TAB_SECONDARYWEAPON);
-				_ctrlListHandgun = _display displayctrl (IDC_RSCDISPLAYARSENAL_LIST + IDC_RSCDISPLAYARSENAL_TAB_HANDGUN);
-
-				//_weaponMagazines = switch true do {
-				_weapon = "";
-				_weaponMagazines = [];
-				switch true do {
-					case (ctrlenabled _ctrlListPrimaryWeapon): {_weapon = primaryWeapon player; _weaponMagazines = primaryWeaponMagazine player};
-					case (ctrlenabled _ctrlListSecondaryWeapon): {_weapon = secondaryWeapon player; _weaponMagazines = secondaryWeaponMagazine player};
-					case (ctrlenabled _ctrlListHandgun): {_weapon = handgunWeapon player; _weaponMagazines = handgunMagazine player};
-					default {[]};
-				};
-
-				_item = if (isNil (_weaponMagazines select 0)) then { "" } else {
-					if ((_weaponMagazines select 0) in [compatibleMagazines [_weapon, "this"]]) then {
-						_weaponMagazines select 0
-					} else {
-						_weaponMagazines select 1
-					};
-				};
+			case IDC_RSCDISPLAYARSENAL_TAB_LOADEDMAG: {
+				_item = currentMagazine player;
 
 				["UpdateItemAdd",[_index,_item,0]] call jn_fnc_arsenal;
 				["ListSelectCurrent",[_display,_index,_item]] call jn_fnc_arsenal;
-			};/*
+			};
 			case IDC_RSCDISPLAYARSENAL_TAB_LOADEDMAG2: {
-				_ctrlListPrimaryWeapon = _display displayctrl (IDC_RSCDISPLAYARSENAL_LIST + IDC_RSCDISPLAYARSENAL_TAB_PRIMARYWEAPON);
-				_ctrlListSecondaryWeapon = _display displayctrl (IDC_RSCDISPLAYARSENAL_LIST + IDC_RSCDISPLAYARSENAL_TAB_SECONDARYWEAPON);
-				_ctrlListHandgun = _display displayctrl (IDC_RSCDISPLAYARSENAL_LIST + IDC_RSCDISPLAYARSENAL_TAB_HANDGUN);
-
-				_weaponMagazines = switch true do {
-					case (ctrlenabled _ctrlListPrimaryWeapon): {primaryWeaponMagazine player};
-					case (ctrlenabled _ctrlListSecondaryWeapon): {secondaryWeaponMagazine player};
-					case (ctrlenabled _ctrlListHandgun): {handgunMagazine player};
-					default {[]};
-				};
-
-				_mag2 = [0,1] select (ctrlEnabled (_display displayCtrl (IDC_RSCDISPLAYARSENAL_LIST + IDC_RSCDISPLAYARSENAL_TAB_LOADEDMAG2)));
-				_item = _weaponMagazines select _mag2;
+				_weapon = primaryWeapon player;
+				_weaponCfg = configFile >> "CfgWeapons" >> _weapon;
+				_muzzle = configName (_weaponCfg >> (getArray (_weaponCfg >> "muzzles") select 1));
+				_item = "";
+				{
+					if (_x in compatibleMagazines [_weapon, _muzzle]) exitWith { _item = _x};
+				} forEach (primaryWeaponMagazine player);
+				
 				["UpdateItemAdd",[_index,_item,0]] call jn_fnc_arsenal;
 				["ListSelectCurrent",[_display,_index,_item]] call jn_fnc_arsenal;
-			};*/
+			};
 			case IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG;
 			case IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL;
 			case IDC_RSCDISPLAYARSENAL_TAB_CARGOTHROW;
@@ -2084,8 +2065,6 @@ switch _mode do {
 								default {""};
 							};
 						}foreach _oldAttachments;
-
-						player selectWeapon _item;
 					};
 
 					//re-add magazines
@@ -2268,9 +2247,19 @@ switch _mode do {
 				};
 			};
 			case IDC_RSCDISPLAYARSENAL_TAB_LOADEDMAG: {
-				_oldMag = currentMagazine player;
+				private ["_weapon", "_weaponMagazines"];
+				_index = IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL;
+				switch true do {
+					case (ctrlenabled _ctrlListPrimaryWeapon): { _weapon = primaryWeapon player; _weaponMagazines = primaryWeaponMagazine player };
+					case (ctrlEnabled _ctrlListSecondaryWeapon): { _weapon = secondaryWeapon player; _weaponMagazines = secondaryWeaponMagazine player };
+					case (ctrlEnabled _ctrlListHandgun): { _weapon = handgunWeapon player; _weaponMagazines = handgunMagazine player };
+				};
+				_oldMag = "";
+				{
+					if (_x in compatibleMagazines [_weapon, "this"]) exitWith { _oldMag = _x};
+				} forEach _weaponMagazines;
 				_oldAmmoCount = 0;
-				if (isNil _oldMag) then { _oldMag = "" } else { { if ((_x#0 == _oldMag) && (_x#2)) then { _oldAmmoCount = _x#1 }; } forEach (magazinesAmmoFull player)};
+				{ if ((_x#0 == _oldMag) && (_x#2)) exitWith { _oldAmmoCount = _x#1 }; } forEach (magazinesAmmoFull player);
 				_newMag = _item;
 				_cfgAmmoCount = getNumber (configFile >> "CfgMagazines" >> _newMag >> "count");
 				_newAmmoCount = [_amount, _cfgAmmoCount] select ((_amount == -1) || (_amount > _cfgAmmoCount));
@@ -2279,53 +2268,54 @@ switch _mode do {
 					case (ctrlenabled _ctrlListPrimaryWeapon): {
 						if (_oldMag != _newMag) then {
 							player removePrimaryWeaponItem _oldMag;
-							//[IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL, _oldMag, _oldAmmoCount] call jn_fnc_arsenal_addItem;
-							[IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL, _oldMag, 30] call jn_fnc_arsenal_addItem;
+							[_index, _oldMag, _oldAmmoCount] call jn_fnc_arsenal_addItem;
 							if (_newMag != "") then {
 								player addPrimaryWeaponItem _newMag;
-								[IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL, _newMag, _newAmmoCount] call jn_fnc_arsenal_removeItem;
+								[_index, _newMag, _newAmmoCount] call jn_fnc_arsenal_removeItem;
 							};
 						};
 					};
 					case (ctrlEnabled _ctrlListSecondaryWeapon): {
 						if (_oldMag != _newMag) then {
 							player removeSecondaryWeaponItem _oldMag;
-							[IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL, _oldMag, _oldAmmoCount] call jn_fnc_arsenal_addItem;
+							[_index, _oldMag, _oldAmmoCount] call jn_fnc_arsenal_addItem;
 							if (_newMag != "") then {
 								player addSecondaryWeaponItem _newMag;
-								[IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL, _newMag, _newAmmoCount] call jn_fnc_arsenal_removeItem;
+								[_index, _newMag, _newAmmoCount] call jn_fnc_arsenal_removeItem;
 							};
 						};
 					};
 					case (ctrlEnabled _ctrlListHandgun): {
 						if (_oldMag != _newMag) then {
 							player removeHandgunItem _oldMag;
-							[IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL, _oldMag, _oldAmmoCount] call jn_fnc_arsenal_addItem;
+							[_index, _oldMag, _oldAmmoCount] call jn_fnc_arsenal_addItem;
 							if (_newMag != "") then {
 								player addHandgunItem _newMag;
-								[IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL, _newMag, _newAmmoCount] call jn_fnc_arsenal_removeItem;
+								[_index, _newMag, _newAmmoCount] call jn_fnc_arsenal_removeItem;
 							};
 						};
 					};
 				};
 			};
 			case IDC_RSCDISPLAYARSENAL_TAB_LOADEDMAG2: {
+				// this all assumes a "standard" weapon with one primary muzzle, one and only one alternate muzzle (GL), and that the alternate muzzle only has one round (i.e. a normal rifle with single shot underbarrel grenade launcher)
+				// will probably break with anything weird like a masterkey / underbarrel shotgun or something else I can't think of rn
+				_index = IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL;
 				_weapon = primaryWeapon player;
-				_config = configFile >> "CfgWeapons" >> _weapon;
-				_firstMag = primaryWeaponMagazine player select 0;
-				_oldMag = if (isNil _firstMag) then { "" } else {
-					if (_firstMag in compatibleMagazines [_weapon, configName (getArray(_config >> "muzzles") select 1)]) then {
-						_firstMag
-					} else { (primaryWeaponMagazine player select 1) };
-				};
+				_weaponCfg = configFile >> "CfgWeapons" >> _weapon;
+				_muzzle = configName (_weaponCfg >> (getArray (_weaponCfg >> "muzzles") select 1));
+				_oldMag = "";
+				{
+					if (_x in compatibleMagazines [_weapon, _muzzle]) exitWith { _oldMag = _x};
+				} forEach (primaryWeaponMagazine player);
 				_newMag = _item;
 
 				if (_oldMag != _newMag) then {
 					player removePrimaryWeaponItem _oldMag;
-					[IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL, _oldMag] call jn_fnc_arsenal_addItem;
+					[_index, _oldMag] call jn_fnc_arsenal_addItem;
 					if (_newMag != "") then {
 						player addPrimaryWeaponItem _newMag;
-						[IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL, _newMag] call jn_fnc_arsenal_removeItem;
+						[_index, _newMag] call jn_fnc_arsenal_removeItem;
 					};
 				};
 			};
