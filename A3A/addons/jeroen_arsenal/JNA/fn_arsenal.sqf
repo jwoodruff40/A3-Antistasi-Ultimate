@@ -352,19 +352,6 @@ switch _mode do {
 			_x ctrlCommit 0;
 		} forEach [_ctrlListLoadedMag, _ctrlListLoadedMag2];
 
-		// Custom whatever tf this thing is
-		/*
-		_ctrlListDItemOptic = _display displayCtrl (IDC_RSCDISPLAYARSENAL_LISTDISABLED + IDC_RSCDISPLAYARSENAL_TAB_ITEMOPTIC);
-		_ctrlListDItemOpticPos = ctrlPosition _ctrlListDItemOptic;
-		_ctrlListDLoadedMag = _display ctrlCreate ["RscListBox", IDC_RSCDISPLAYARSENAL_LISTDISABLED + IDC_RSCDISPLAYARSENAL_TAB_LOADEDMAG];
-		_ctrlListDLoadedMag2 = _display ctrlCreate ["RscListBox", IDC_RSCDISPLAYARSENAL_LISTDISABLED + IDC_RSCDISPLAYARSENAL_TAB_LOADEDMAG2];
-		{
-			_x ctrlSetPosition _ctrlListDItemOpticPos;
-			_x ctrlEnable false;
-			_x ctrlSetFade 1;
-			_x ctrlCommit 0;
-		} forEach [_ctrlListDLoadedMag, _ctrlListDLoadedMag2];
-		*/
 		// Custom sorts
 		_ctrlSortItemOptic = _display displayCtrl (IDC_RSCDISPLAYARSENAL_SORT + IDC_RSCDISPLAYARSENAL_TAB_ITEMOPTIC);
 		_ctrlSortItemOpticPos = ctrlPosition _ctrlSortItemOptic;
@@ -1676,7 +1663,7 @@ switch _mode do {
 				_ammoTotal = 0;
 				//_compatableMagazines = server getVariable [format ["%1_mags", _item],[]];//TODO marker for changed entry
 				scopeName "updateWeapon";//TODO marker for changed entry
-				_compatableMagazines = getarray (configfile >> "cfgweapons" >> _item >> "magazines");
+				_compatableMagazines = compatibleMagazines _item;
 
 				{
 					private ["_amount"];
@@ -2071,8 +2058,8 @@ switch _mode do {
 					_loadoutNew = getUnitLoadout player;
 					_loadout set[_index, _loadoutNew select _index];
 					player setUnitLoadout _loadout;
-					_oldCompatableMagazines = getarray (configfile >> "cfgweapons" >> _oldItem >> "magazines");
-					_newCompatableMagazines = getarray (configfile >> "cfgweapons" >> _item >> "magazines");
+					_oldCompatableMagazines = compatibleMagazines _oldItem;
+					_newCompatableMagazines = compatibleMagazines _item;
 					{
 						_magazine = _x select 0;
 						_amount = _x select 1;
