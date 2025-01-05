@@ -71,7 +71,8 @@ else {
 sleep 2;
 _unit globalChat _response;
 if (_joinPlyGroup) then {
-	[_unit] joinSilent (group _playerX) 
+	[_unit] joinSilent (group _playerX);
+ [_unit, true] call A3A_fnc_FIAinit;
 } else {
 	[_unit, _fleeSide] remoteExec ["A3A_fnc_fleeToSide", _unit];
 
