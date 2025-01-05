@@ -43,7 +43,7 @@ private _rebelGear = createHashMap;
         private _categories = _class call A3A_fnc_equipmentClassToCategories;
         private _mainCategory = _categories select 0;
 
-        switch (_categories select 0) do {
+        switch (_mainCategory) do {
             // Primary Weapons
             case "Rifles";
             case "SniperRifles";
@@ -74,17 +74,21 @@ private _rebelGear = createHashMap;
                 };
             };
 
-            // Handguns (Placeholder)
-            // case "Handguns": {};
+            // Handguns
+            case "Handguns": {
+                _arrayWeight = [_class, _categories] call A3A_fnc_itemArrayWeight;
+                _array = _rebelGear getOrDefault ["Handguns", [], true];
+                [_array, _class, _amount, _arrayWeight] call _fnc_addItem;
+            };
 
             // Gear
             case "Vests": {
-                _array = _rebelGear getOrDefault [["CivilianVests", "ArmoredVests"] select ("ArmoredVests" in _categories), [[1.5,0.5] select (minWeaps < 0)], true];
+                _array = _rebelGear getOrDefault [["CivilianVests", "ArmoredVests"] select ("ArmoredVests" in _categories), ["", [1.5,0.5] select (minWeaps < 0)], true];
                 [_array, _class, _amount] call _fnc_addItem;
             };
             case "Headgear": {
                 //_array = _rebelGear getOrDefault [["CosmeticHeadgear", "ArmoredHeadgear"] select ("ArmoredHeadgear" in _categories), ["", [1.5,0.5] select (minWeaps < 0)], true];    // not used, rebels have template-defined basic headgear
-                _array = _rebelGear getOrDefault ["ArmoredHeadgear"];
+                _array = _rebelGear getOrDefault ["ArmoredHeadgear", [], true];
                 if ("ArmoredHeadgear" in _categories) then { [_array, _class, _amount] call _fnc_addItem };
             };
             case "Backpacks": {
@@ -137,9 +141,9 @@ private _rebelGear = createHashMap;
 ];
 
 // Optic filtering. No weighting because of weapon compatibilty complexity
-private _opticClose = [];
-private _opticMid = [];
-private _opticLong = [];
+private _opticClose = _rebelGear getOrDefault ["OpticsClose", [], true];
+private _opticMid = _rebelGear getOrDefault ["OpticsMid", [], true];
+private _opticLong = _rebelGear getOrDefault ["OpticsLong", [], true];
 private _midCount = 0;
 {
     _x params ["_class", "_amount"];
@@ -169,21 +173,15 @@ if (_midCount < ITEM_MAX*2) then {
     };
 };
 
-_rebelGear set ["OpticsClose", _opticClose];
-_rebelGear set ["OpticsMid", _opticMid];
-_rebelGear set ["OpticsLong", _opticLong];
 _rebelGear set ["OpticsAll", _opticClose + _opticMid + _opticLong];     // for launchers
 
 // Light attachments, also no weights because of weapon compat
-private _lights = [];
 {
     _x params ["_class", "_amount"];
     if (_amount > 0 and {minWeaps > 0 or _amount < ITEM_MIN}) then { continue };
     private _categories = _class call A3A_fnc_equipmentClassToCategories;
-    if ("LightAttachments" in _categories) then { _lights pushBack _class };
+    if ("LightAttachments" in _categories) then { (_rebelGear getOrDefault ["LightAttachments", [], true]) pushBack _class };
 } forEach (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_ITEMACC);
-
-_rebelGear set ["LightAttachments", _lights];
 
 // Update everything while unscheduled so that version numbers match
 isNil {
