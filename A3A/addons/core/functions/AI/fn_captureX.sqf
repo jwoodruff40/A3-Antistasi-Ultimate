@@ -39,7 +39,7 @@ if (_recruiting) then {
 
 	if (random 100 < _chance) then
 	{
-		if (count (units _playerX) < 10) then {
+		if ((count units _playerX < 10) && (recruitToPlayerSquad isEqualTo 1)) then {
 			_joinPlyGroup = true;
 		};
 		_modAggro = [1, 30];
