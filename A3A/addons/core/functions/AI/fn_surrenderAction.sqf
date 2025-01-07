@@ -31,6 +31,8 @@ unassignVehicle _unit;			// stop them getting back into vehicles
 [_unit] orderGetin false;
 _unit setUnitPos "UP";
 _unit playMoveNow "AmovPercMstpSnonWnonDnon_AmovPercMstpSsurWnonDnon";		// hands up?
+_unit setVariable ["A3U_PoW_unitType", _unit getVariable "unitType", true]; // in case the original unitType is needed for something else in the future
+_unit setVariable ["A3U_PoW_speaker", speaker _unit, true];
 _unit setSpeaker "NoVoice";
 
 // prevent surrendered units from spawning garrisons

@@ -38,7 +38,7 @@ if (_recruiting) then {
 	if (_interrogated) then { _chance = _chance / 2 };
 
 	if (random 100 < _chance) then
-    {
+	{
 		if (count (units _playerX) < 10) then {
 			_joinPlyGroup = true;
 		};
@@ -71,8 +71,25 @@ else {
 sleep 2;
 _unit globalChat _response;
 if (_joinPlyGroup) then {
+	_unit setVariable ["surrendered", false, true];
+
+	// Dirty way to remove the flee to side on take damage event handler added when unit surrenders
+	private _handler = _unit addEventHandler ["HandleDamage", {}];
+	_unit removeEventHandler ["HandleDamage", _handler];
+	_unit removeEventHandler ["HandleDamage", _handler - 1];
+
 	[_unit] joinSilent (group _playerX);
- [_unit, true] call A3A_fnc_FIAinit;
+	_unit setCaptive false;
+	_unit stop false;
+	_unit switchMove "";
+	_unit enableAI "MOVE";
+	_unit enableAI "AUTOTARGET";
+	_unit enableAI "TARGET";
+	_unit enableAI "ANIM";
+	_unit setUnitPos "AUTO";
+	_unit setVariable ["unitType", "loadouts_reb_militia_Unarmed", true];
+	_unit setSpeaker (_unit getVariable "A3U_PoW_speaker");
+	[_unit, true] call A3A_fnc_FIAinit;
 } else {
 	[_unit, _fleeSide] remoteExec ["A3A_fnc_fleeToSide", _unit];
 
