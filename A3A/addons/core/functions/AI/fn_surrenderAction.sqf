@@ -102,15 +102,17 @@ if (!isNil "_markerX") then { [_markerX, _unitSide] remoteExec ["A3A_fnc_zoneChe
 
 sleep 3;				// Also protects against box kills
 _unit allowDamage true;
-_unit addEventHandler ["HandleDamage", {
-	// If unit gets injured after the delay, run away
-	params ["_unit","_part","_damage"];
-	if (_damage < 0.2) exitWith {};
-	[_unit, "remove"] remoteExec ["A3A_fnc_flagaction", [teamPlayer, civilian], _unit];
-	[_unit, side group _unit] spawn A3A_fnc_fleeToSide;
-	_unit removeEventHandler ["HandleDamage", _thisEventHandler];
-	nil;
-}];
+_unit setVariable ["A3U_PoW_EH_HandleDamage", 
+	_unit addEventHandler ["HandleDamage", {
+		// If unit gets injured after the delay, run away
+		params ["_unit","_part","_damage"];
+		if (_damage < 0.2) exitWith {};
+		[_unit, "remove"] remoteExec ["A3A_fnc_flagaction", [teamPlayer, civilian], _unit];
+		[_unit, side group _unit] spawn A3A_fnc_fleeToSide;
+		_unit removeEventHandler ["HandleDamage", _thisEventHandler];
+		nil;
+	}],
+true];
 
 if (_unit getVariable ["isRival", false]) then {
 	[_unit,"captureRivals"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_unit];

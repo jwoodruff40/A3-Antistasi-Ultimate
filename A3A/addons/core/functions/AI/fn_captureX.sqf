@@ -73,10 +73,7 @@ _unit globalChat _response;
 if (_joinPlyGroup) then {
 	_unit setVariable ["surrendered", false, true];
 
-	// Dirty way to remove the flee to side on take damage event handler added when unit surrenders
-	private _handler = _unit addEventHandler ["HandleDamage", {}];
-	_unit removeEventHandler ["HandleDamage", _handler];
-	_unit removeEventHandler ["HandleDamage", _handler - 1];
+	_unit removeEventHandler ["HandleDamage", _unit getVariable "A3U_PoW_EH_HandleDamage"];
 
 	[_unit] joinSilent (group _playerX);
 	_unit setCaptive false;
