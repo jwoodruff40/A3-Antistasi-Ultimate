@@ -287,20 +287,12 @@ for "_i" from 1 to _countX do
 
 // Lead vehicle
 sleep 2;
-private _typeVehX = selectRandom (if (_sideX == Occupants && random 4 < tierWar) then {
-        _faction get "vehiclesPolice"
-    } else {
-        if (tierWar < 5) then {
-            (_faction get "vehiclesMilitiaLightArmed")
-        } else {
-            if (tierWar < 7) then {
-                (_faction get "vehiclesLightArmed") + (_faction get "vehiclesMilitiaLightArmed")
-            } else {
-                (_faction get "vehiclesLightArmed")
-            }
-        };
-    }
-); ///maybe a proper war level check?
+private _typeVehX = selectRandom ( switch true do {
+    case (_sideX == Occupants && random 4 < tierWar): { (_faction get "vehiclesPolice") };
+    case (tierWar < 5): { (_faction get "vehiclesMilitiaLightArmed") };
+    case (tierWar < 7): { (_faction get "vehiclesLightArmed") + (_faction get "vehiclesMilitiaLightArmed") };
+    default { (_faction get "vehiclesLightArmed") };
+});
 private _LeadText = localize "STR_marker_convoy_lead_vehicle";
 private _vehLead = [_typeVehX, _LeadText] call _fnc_spawnConvoyVehicle;
 
