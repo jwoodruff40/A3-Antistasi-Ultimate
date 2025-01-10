@@ -123,14 +123,11 @@ switch (toLowerANSI _convoyType) do ///why? toLowerANSI
         _textX = format [localize "STR_A3A_Missions_AS_Convoy_task_dest_reinf",_nameOrigin,_displayTime,_nameDest];
         _taskTitle = localize "STR_A3A_Missions_AS_Convoy_task_header_reinf";
         _taskIcon = "meet";
-        _typeVehObj = selectRandom (if (tierWar < 5) then {(_faction get "vehiclesMilitiaTrucks")
-        } else {
-            if (tierWar < 7) then {
-                (_faction get "vehiclesMilitiaTrucks") + (_faction get "vehiclesTrucks")
-            } else {
-                (_faction get "vehiclesTrucks")
-            }
-        };)
+_typeVehObj = selectRandom ( switch true do {
+            case (tierWar < 5): { (_faction get "vehiclesMilitiaTrucks") };
+            case (tierWar < 7): { (_faction get "vehiclesMilitiaTrucks") + (_faction get "vehiclesTrucks") };
+            default { (_faction get "vehiclesTrucks") };
+        });
     };
     case "money":
     {
