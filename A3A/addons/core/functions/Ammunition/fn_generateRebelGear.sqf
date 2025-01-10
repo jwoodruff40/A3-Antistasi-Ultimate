@@ -35,7 +35,39 @@ private _fnc_addItem = [_fnc_addItemUnlocks, _fnc_addItemNoUnlocks] select (minW
 
 
 // Work with temporary array so that we're not transferring partials
-private _rebelGear = createHashMap;
+private _rebelGear = createHashMapFromArray [
+    ["Rifles", []],
+    ["SMGs", []],
+    ["Shotguns", []],
+    ["MachineGuns", []],
+    ["SniperRifles", []],
+    ["GrenadeLaunchers", []],
+    
+    ["RocketLaunchers", []],
+    ["MissileLaunchersAT", []],
+    ["MissileLaunchersAA", []],
+
+    ["ArmoredVests", ["", [1.5, 0.5] select (minWeaps < 0)]],
+    ["CivilianVests", []],
+    ["ArmoredHeadgear", ["", [1.5, 0.5] select (minWeaps < 0)]],
+    ["BackpacksCargo", []],
+
+    ["NVGs", ["", 0.5]],
+    ["Radios", []],
+    ["MineDetectors", []],
+    ["Toolkits", []],
+    ["Medikits", []],
+
+    ["SmokeGrenades", []],
+    ["Grenades", []],
+    ["ExplosiveCharges", []],
+
+    ["OpticsClose", []],
+    ["OpticsMid", []],
+    ["OpticsLong", []],
+    ["OpticsAll", []],
+    ["LightAttachments", []]
+];
 
 {
     {
