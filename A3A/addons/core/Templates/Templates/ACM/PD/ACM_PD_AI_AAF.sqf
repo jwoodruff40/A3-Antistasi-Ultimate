@@ -19,70 +19,126 @@ private _hasSOG = "vn" in A3A_enabledDLC;
 ["surrenderCrate", "Box_IND_Wps_F"] call _fnc_saveToTemplate; //Changeing this from default will require you to define logistics attachement offset for the box type
 ["equipmentBox", "Box_AAF_Equip_F"] call _fnc_saveToTemplate; //Changeing this from default will require you to define logistics attachement offset for the box type
 
-["vehiclesBasic", ["acm_gm_aaf2015_fiains_ind_v_k125_car"]] call _fnc_saveToTemplate;
-["vehiclesLightUnarmed", ["acm_gm_aaf2015_aaf_v_w123_car", "acm_gm_aaf2015_aaf_v_iltis_cargo_car", "acm_gm_aaf2015_aaf_v_typ247_cargo_car", "acm_gm_aaf2015_aaf_v_typ253_cargo_car", "acm_gm_aaf2015_aaf_v_typ253_MP_car", "acm_gm_aaf2015_aaf_v_btr60pa_apc", "acm_gm_aaf2015_aaf_v_btr60pu12_apc"]] call _fnc_saveToTemplate;
-["vehiclesLightArmed", ["acm_gm_aaf2015_aaf_v_iltis_milan_car"]] call _fnc_saveToTemplate; //this line determines light and armed vehicles -- Example: ["vehiclesLightArmed", ["B_MRAP_01_hmg_F", "B_MRAP_01_gmg_F"]] -- Array, can contain multiple assets
-["vehiclesTrucks", ["acm_gm_aaf2015_aaf_v_ural_tractor_car", "acm_gm_aaf2015_aaf_v_ural_cargo_car"]] call _fnc_saveToTemplate;
-["vehiclesCargoTrucks", ["acm_gm_aaf2015_aaf_v_ural_tractor_car", "acm_gm_aaf2015_aaf_v_ural_cargo_car"]] call _fnc_saveToTemplate;
-["vehiclesAmmoTrucks", ["acm_gm_aaf2015_aaf_v_ural_ammo_car"]] call _fnc_saveToTemplate;
-["vehiclesRepairTrucks", ["acm_gm_aaf2015_aaf_v_ural_repair_car", "acm_gm_aaf2015_aaf_v_typ247_service_car", "acm_gm_aaf2015_aaf_v_m113a1dk_engineer_apc"]] call _fnc_saveToTemplate;
-["vehiclesFuelTrucks", ["acm_gm_aaf2015_aaf_v_ural_refuel_car"]] call _fnc_saveToTemplate;
-["vehiclesMedical", ["acm_gm_aaf2015_aaf_v_ural_medic_car", "acm_gm_aaf2015_aaf_v_m113a1dk_medical_apc"]] call _fnc_saveToTemplate;
-["vehiclesTanks", ["acm_gm_aaf2015_aaf_v_leopard1a3_tank", "acm_gm_aaf2015_aaf_v_leopard1a3a1_tank", "acm_gm_aaf2015_aaf_v_bpz_tank"]] call _fnc_saveToTemplate;
-["vehiclesAA", ["acm_gm_aaf2015_aaf_v_gepard_spaa"]] call _fnc_saveToTemplate;
-
-["vehiclesLightAPCs", ["acm_gm_aaf2015_aaf_v_btr60pb_apc"]] call _fnc_saveToTemplate;
-["vehiclesAPCs", ["acm_gm_aaf2015_aaf_v_m113a1dk_apc", "acm_gm_aaf2015_aaf_v_m113a1dk_command_apc", "acm_gm_aaf2015_aaf_v_m113a1dk_engineer_apc"]] call _fnc_saveToTemplate;
-["vehiclesIFVs", ["acm_gm_aaf2015_aaf_v_marder1a1a_ifv", "acm_gm_aaf2015_aaf_v_marder1a2_ifv"]] call _fnc_saveToTemplate;
-
-["vehiclesAirborne", ["acm_gm_aaf2015_aaf_v_btr60pb_apc", "acm_gm_aaf2015_aaf_v_m113a1dk_apc", "acm_gm_aaf2015_aaf_v_m113a1dk_command_apc", "acm_gm_aaf2015_aaf_v_m113a1dk_engineer_apc"]] call _fnc_saveToTemplate;
-["vehiclesLightTanks",  ["acm_gm_aaf2015_aaf_v_marder1a1a_ifv", "acm_gm_aaf2015_aaf_v_marder1a2_ifv", "acm_gm_aaf2015_aaf_v_m113a2dk_apc"]] call _fnc_saveToTemplate;
-
-
-["vehiclesTransportBoats", ["I_G_Boat_Transport_01_F"]] call _fnc_saveToTemplate;
-["vehiclesGunBoats", []] call _fnc_saveToTemplate;
-["vehiclesAmphibious", ["acm_gm_aaf2015_aaf_v_btr60pa_apc", "acm_gm_aaf2015_aaf_v_btr60pu12_apc", "acm_gm_aaf2015_aaf_v_btr60pb_apc",
-    "acm_gm_aaf2015_aaf_v_m113a1dk_apc", "acm_gm_aaf2015_aaf_v_m113a1dk_command_apc", "acm_gm_aaf2015_aaf_v_m113a1dk_engineer_apc", "acm_gm_aaf2015_aaf_v_m113a1dk_medical_apc", "acm_gm_aaf2015_aaf_v_m113a1dk_engineer_apc"]] call _fnc_saveToTemplate;
-
-["vehiclesPlanesCAS", ["acm_gm_aaf2015_aaf_v_a143_cas_plane"]] call _fnc_saveToTemplate;
-["vehiclesPlanesAA", []] call _fnc_saveToTemplate;
-["vehiclesPlanesTransport", ["acm_gm_aaf2015_aaf_v_L410t_salon_plane", "acm_gm_aaf2015_aaf_v_L410t_cargo_plane"]] call _fnc_saveToTemplate;
-
-["vehiclesHelisLight", ["acm_gm_aaf2015_aaf_v_bo105p1m_cargo_heli", "acm_gm_aaf2015_aaf_v_bo105p1m_swooper_heli"]] call _fnc_saveToTemplate;
-["vehiclesHelisTransport", ["acm_gm_aaf2015_aaf_v_Orca_cargo_heli", "acm_gm_aaf2015_aaf_v_ch53gs_cargo_heli"]] call _fnc_saveToTemplate;
-["vehiclesHelisAttack", ["acm_gm_aaf2015_aaf_v_Orca_armed_heli"]] call _fnc_saveToTemplate;
-["vehiclesHelisLightAttack", ["acm_gm_aaf2015_aaf_v_bo105p1m_atgm_heli"]] call _fnc_saveToTemplate;
-
-["vehiclesArtillery", ["acm_gm_aaf2015_aaf_v_ural_mlrs_arty", "acm_gm_aaf2015_aaf_v_2s1_arty"]] call _fnc_saveToTemplate;
-["magazines", createHashMapFromArray [
+_vehiclesBasic = ["acm_gm_aaf2015_fiains_ind_v_k125_car"];
+_vehiclesLightUnarmed = ["acm_gm_aaf2015_aaf_v_w123_car", "acm_gm_aaf2015_aaf_v_iltis_cargo_car", "acm_gm_aaf2015_aaf_v_typ247_cargo_car", "acm_gm_aaf2015_aaf_v_typ253_cargo_car", 
+    "acm_gm_aaf2015_aaf_v_typ253_MP_car", "acm_gm_aaf2015_aaf_v_btr60pa_apc", "acm_gm_aaf2015_aaf_v_btr60pu12_apc"];
+_vehiclesLightArmed = ["acm_gm_aaf2015_aaf_v_iltis_milan_car"];
+_vehiclesTrucks = ["acm_gm_aaf2015_aaf_v_ural_tractor_car", "acm_gm_aaf2015_aaf_v_ural_cargo_car"];
+_vehiclesCargoTrucks = ["acm_gm_aaf2015_aaf_v_ural_tractor_car", "acm_gm_aaf2015_aaf_v_ural_cargo_car"];
+_vehiclesAmmoTrucks = ["acm_gm_aaf2015_aaf_v_ural_ammo_car"];
+_vehiclesRepairTrucks = ["acm_gm_aaf2015_aaf_v_ural_repair_car", "acm_gm_aaf2015_aaf_v_typ247_service_car", "acm_gm_aaf2015_aaf_v_m113a1dk_engineer_apc"];
+_vehiclesFuelTrucks = ["acm_gm_aaf2015_aaf_v_ural_refuel_car"];
+_vehiclesMedical = ["acm_gm_aaf2015_aaf_v_ural_medic_car", "acm_gm_aaf2015_aaf_v_m113a1dk_medical_apc"];
+_vehiclesTanks = ["acm_gm_aaf2015_aaf_v_leopard1a3_tank", "acm_gm_aaf2015_aaf_v_leopard1a3a1_tank", "acm_gm_aaf2015_aaf_v_bpz_tank"];
+_vehiclesAA = ["acm_gm_aaf2015_aaf_v_gepard_spaa"];
+_vehiclesLightAPCs = ["acm_gm_aaf2015_aaf_v_btr60pb_apc"];
+_vehiclesAPCs = ["acm_gm_aaf2015_aaf_v_m113a1dk_apc", "acm_gm_aaf2015_aaf_v_m113a1dk_command_apc", "acm_gm_aaf2015_aaf_v_m113a1dk_engineer_apc"];
+_vehiclesIFVs = ["acm_gm_aaf2015_aaf_v_marder1a1a_ifv", "acm_gm_aaf2015_aaf_v_marder1a2_ifv"];
+_vehiclesAirborne = ["acm_gm_aaf2015_aaf_v_btr60pb_apc", "acm_gm_aaf2015_aaf_v_m113a1dk_apc", "acm_gm_aaf2015_aaf_v_m113a1dk_command_apc", "acm_gm_aaf2015_aaf_v_m113a1dk_engineer_apc"];
+_vehiclesLightTanks = ["acm_gm_aaf2015_aaf_v_marder1a1a_ifv", "acm_gm_aaf2015_aaf_v_marder1a2_ifv", "acm_gm_aaf2015_aaf_v_m113a2dk_apc"];
+_vehiclesTransportBoats = ["I_G_Boat_Transport_01_F"];
+_vehiclesGunBoats = [];
+_vehiclesAmphibious = ["acm_gm_aaf2015_aaf_v_btr60pa_apc", "acm_gm_aaf2015_aaf_v_btr60pu12_apc", "acm_gm_aaf2015_aaf_v_btr60pb_apc", "acm_gm_aaf2015_aaf_v_m113a1dk_apc", "acm_gm_aaf2015_aaf_v_m113a1dk_command_apc", 
+    "acm_gm_aaf2015_aaf_v_m113a1dk_engineer_apc", "acm_gm_aaf2015_aaf_v_m113a1dk_medical_apc", "acm_gm_aaf2015_aaf_v_m113a1dk_engineer_apc"];
+_vehiclesPlanesCAS = ["acm_gm_aaf2015_aaf_v_a143_cas_plane"];
+_vehiclesPlanesAA = [];
+_vehiclesPlanesTransport = ["acm_gm_aaf2015_aaf_v_L410t_salon_plane", "acm_gm_aaf2015_aaf_v_L410t_cargo_plane"];
+_vehiclesHelisLight = ["acm_gm_aaf2015_aaf_v_bo105p1m_cargo_heli", "acm_gm_aaf2015_aaf_v_bo105p1m_swooper_heli"];
+_vehiclesHelisTransport = ["acm_gm_aaf2015_aaf_v_Orca_cargo_heli", "acm_gm_aaf2015_aaf_v_ch53gs_cargo_heli"];
+_vehiclesHelisAttack = ["acm_gm_aaf2015_aaf_v_Orca_armed_heli"];
+_vehiclesHelisLightAttack = ["acm_gm_aaf2015_aaf_v_bo105p1m_atgm_heli"];
+_vehiclesArtillery = ["acm_gm_aaf2015_aaf_v_ural_mlrs_arty", "acm_gm_aaf2015_aaf_v_2s1_arty"];
+_magazines = [
     ["acm_gm_aaf2015_aaf_v_ural_mlrs_arty", ["gm_40Rnd_mlrs_122mm_he_9m22u","gm_40Rnd_mlrs_122mm_icm_9m218","gm_40Rnd_mlrs_122mm_mine_9m28k","gm_40Rnd_mlrs_122mm_mine_9m22k"]],
     ["acm_gm_aaf2015_aaf_v_2s1_arty", ["gm_28Rnd_122x447mm_he_of462","gm_28Rnd_122x447mm_he_3of56","gm_28Rnd_122x447mm_heat_bk6m","gm_28Rnd_122x447mm_heat_t_bk13"]]
-]] call _fnc_saveToTemplate;
+];
+_uavsAttack = ["acm_gm_aaf2015_aaf_ind_v_k40_uav"];
+_uavsPortable = ["acm_gm_aaf2015_aaf_ind_v_darter_uav"];
+_vehiclesMilitiaLightArmed = [];
+_vehiclesMilitiaTrucks = ["acm_gm_aaf2015_aaf_v_ural_cargo_car"];
+_vehiclesMilitiaCars = ["acm_gm_aaf2015_aaf_v_typ247_cargo_car", "acm_gm_aaf2015_aaf_v_typ253_MP_car", "acm_gm_aaf2015_aaf_v_w123_car", "acm_gm_aaf2015_aaf_v_iltis_cargo_car"];
+_vehiclesMilitiaAPCs = ["acm_gm_aaf2015_aaf_v_btr60pa_apc", "acm_gm_aaf2015_aaf_v_btr60pu12_apc"];
+_vehiclesPolice = ["acm_gm_aaf2015_police_v_w123_car", "acm_gm_aaf2015_police_v_typ253_cargo_car"];
+_staticMGs = ["acm_gm_aaf2015_aaf_ind_v_HMG_Low_turret", "acm_gm_aaf2015_aaf_ind_v_HMG_High_turret"];
+_staticAT = ["acm_gm_aaf2015_aaf_ind_v_milan_turret"];
+_staticAA = [];
+_staticMortars = ["acm_gm_aaf2015_aaf_ind_v_mortar_turret"];
+_staticHowitzers = [];
+_vehicleRadar = [];
+_vehicleSAM = [];
+_howitzerMagazineHE = [];
+_mortarMagazineHE = ["8Rnd_82mm_Mo_shells"];
+_mortarMagazineSmoke = ["8Rnd_82mm_Mo_Smoke_white"];
+_mortarMagazineFlare = ["8Rnd_82mm_Mo_Flare_white"];
 
-["uavsAttack", ["acm_gm_aaf2015_aaf_ind_v_k40_uav"]] call _fnc_saveToTemplate;
-["uavsPortable", ["acm_gm_aaf2015_aaf_ind_v_darter_uav"]] call _fnc_saveToTemplate;
+if (_hasSOG) then {
+    #include "..\DLC_content\vehicles\SOG\ACM_PD_AI_AAF.sqf"
+};
+
+if (_hasRHS) then {
+    #include "..\Mod_content\RHS\ACM_PD_AI_AAF.sqf"
+};
+
+["vehiclesBasic", _vehiclesBasic] call _fnc_saveToTemplate;
+["vehiclesLightUnarmed", _vehiclesLightUnarmed] call _fnc_saveToTemplate;
+["vehiclesLightArmed", _vehiclesLightArmed] call _fnc_saveToTemplate;
+["vehiclesTrucks", _vehiclesTrucks] call _fnc_saveToTemplate;
+["vehiclesCargoTrucks", _vehiclesCargoTrucks] call _fnc_saveToTemplate;
+["vehiclesAmmoTrucks", _vehiclesAmmoTrucks] call _fnc_saveToTemplate;
+["vehiclesRepairTrucks", _vehiclesRepairTrucks] call _fnc_saveToTemplate;
+["vehiclesFuelTrucks", _vehiclesFuelTrucks] call _fnc_saveToTemplate;
+["vehiclesMedical", _vehiclesMedical] call _fnc_saveToTemplate;
+["vehiclesTanks", _vehiclesTanks] call _fnc_saveToTemplate;
+["vehiclesAA", _vehiclesAA] call _fnc_saveToTemplate;
+
+["vehiclesLightAPCs", _vehiclesLightAPCs] call _fnc_saveToTemplate;
+["vehiclesAPCs", _vehiclesAPCs] call _fnc_saveToTemplate;
+["vehiclesIFVs", _vehiclesIFVs] call _fnc_saveToTemplate;
+
+["vehiclesAirborne", _vehiclesAirborne] call _fnc_saveToTemplate;
+["vehiclesLightTanks",  _vehiclesLightTanks] call _fnc_saveToTemplate;
+
+
+["vehiclesTransportBoats", _vehiclesTransportBoats] call _fnc_saveToTemplate;
+["vehiclesGunBoats", _vehiclesGunBoats] call _fnc_saveToTemplate;
+["vehiclesAmphibious", _vehiclesAmphibious] call _fnc_saveToTemplate;
+
+["vehiclesPlanesCAS", _vehiclesPlanesCAS] call _fnc_saveToTemplate;
+["vehiclesPlanesAA", _vehiclesPlanesAA] call _fnc_saveToTemplate;
+["vehiclesPlanesTransport", _vehiclesPlanesTransport] call _fnc_saveToTemplate;
+
+["vehiclesHelisLight", _vehiclesHelisLight] call _fnc_saveToTemplate;
+["vehiclesHelisTransport", _vehiclesHelisTransport] call _fnc_saveToTemplate;
+["vehiclesHelisAttack", _vehiclesHelisAttack] call _fnc_saveToTemplate;
+["vehiclesHelisLightAttack", _vehiclesHelisLightAttack] call _fnc_saveToTemplate;
+
+["vehiclesArtillery", _vehiclesArtillery] call _fnc_saveToTemplate;
+["magazines", createHashMapFromArray _magazines] call _fnc_saveToTemplate;
+
+["uavsAttack", _uavsAttack] call _fnc_saveToTemplate;
+["uavsPortable", _uavsPortable] call _fnc_saveToTemplate;
 
 //Config special vehicles - militia vehicles are mostly used in the early game, police cars are being used by troops around cities -- Example:
-["vehiclesMilitiaLightArmed", []] call _fnc_saveToTemplate;
-["vehiclesMilitiaTrucks", ["acm_gm_aaf2015_aaf_v_ural_cargo_car"]] call _fnc_saveToTemplate;
-["vehiclesMilitiaCars", ["acm_gm_aaf2015_aaf_v_typ247_cargo_car", "acm_gm_aaf2015_aaf_v_typ253_MP_car", "acm_gm_aaf2015_aaf_v_w123_car", "acm_gm_aaf2015_aaf_v_iltis_cargo_car"]] call _fnc_saveToTemplate;
-["vehiclesMilitiaAPCs", ["acm_gm_aaf2015_aaf_v_btr60pa_apc", "acm_gm_aaf2015_aaf_v_btr60pu12_apc"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaLightArmed", _vehiclesMilitiaLightArmed] call _fnc_saveToTemplate;
+["vehiclesMilitiaTrucks", _vehiclesMilitiaTrucks] call _fnc_saveToTemplate;
+["vehiclesMilitiaCars", _vehiclesMilitiaCars] call _fnc_saveToTemplate;
+["vehiclesMilitiaAPCs", _vehiclesMilitiaAPCs] call _fnc_saveToTemplate;
 
-["vehiclesPolice", ["acm_gm_aaf2015_police_v_w123_car", "acm_gm_aaf2015_police_v_typ253_cargo_car"]] call _fnc_saveToTemplate;
+["vehiclesPolice", _vehiclesPolice] call _fnc_saveToTemplate;
 
-["staticMGs", ["acm_gm_aaf2015_aaf_ind_v_HMG_Low_turret", "acm_gm_aaf2015_aaf_ind_v_HMG_High_turret"]] call _fnc_saveToTemplate;
-["staticAT", ["acm_gm_aaf2015_aaf_ind_v_milan_turret"]] call _fnc_saveToTemplate;
-["staticAA", []] call _fnc_saveToTemplate;
-["staticMortars", ["acm_gm_aaf2015_aaf_ind_v_mortar_turret"]] call _fnc_saveToTemplate;
-["staticHowitzers", [""]] call _fnc_saveToTemplate;
+["staticMGs", _staticMGs] call _fnc_saveToTemplate;
+["staticAT", _staticAT] call _fnc_saveToTemplate;
+["staticAA", _staticAA] call _fnc_saveToTemplate;
+["staticMortars", _staticMortars] call _fnc_saveToTemplate;
+["staticHowitzers", _staticHowitzers] call _fnc_saveToTemplate;
 
-["vehicleRadar", ""] call _fnc_saveToTemplate;
-["vehicleSam", ""] call _fnc_saveToTemplate;
+["vehicleRadar", _vehicleRadar] call _fnc_saveToTemplate;
+["vehicleSam", _vehicleSAM] call _fnc_saveToTemplate;
 
-["howitzerMagazineHE", ""] call _fnc_saveToTemplate;
-["mortarMagazineHE", "8Rnd_82mm_Mo_shells"] call _fnc_saveToTemplate;
-["mortarMagazineSmoke", "8Rnd_82mm_Mo_Smoke_white"] call _fnc_saveToTemplate;
-["mortarMagazineFlare", "8Rnd_82mm_Mo_Flare_white"] call _fnc_saveToTemplate;
+["howitzerMagazineHE", _howitzerMagazineHE] call _fnc_saveToTemplate;
+["mortarMagazineHE", _mortarMagazineHE] call _fnc_saveToTemplate;
+["mortarMagazineSmoke", _mortarMagazineSmoke] call _fnc_saveToTemplate;
+["mortarMagazineFlare", _mortarMagazineFlare] call _fnc_saveToTemplate;
 
 //Minefield definition
 ["minefieldAT", ["gm_minestatic_at_dm21", "gm_minestatic_at_dm1233"]] call _fnc_saveToTemplate;
@@ -265,6 +321,9 @@ _sfLoadoutData set ["carbines", [
 _sfLoadoutData set ["grenadeLaunchers", [
     ["gm_hk69a1_blk", "", "", "", ["1Rnd_HE_Grenade_shell"], ["1Rnd_HE_Grenade_shell"], ""]
 ]];
+if (_hasSOG) then {
+    (_sfLoadoutData get "grenadeLaunchers") pushBack ["vn_xm177_m203", "", "", "", ["gm_30Rnd_556x45mm_B_M855_stanag_gry","gm_30Rnd_556x45mm_B_T_M856_stanag_gry"], [], ""]
+};
 _sfLoadoutData set ["SMGs", [
     ["gm_mp5n_blk", "gm_suppressor_kacnavyk_9mm_blk", "", "", ["gm_30Rnd_9x19mm_AP_DM91_mp5a3_blk", "gm_30Rnd_9x19mm_B_DM11_mp5a3_blk", "gm_30Rnd_9x19mm_B_DM51_mp5a3_blk"], [], ""],
     ["gm_mp5n_blk", "gm_suppressor_kacnavyk_9mm_blk", "gm_rv_stanagClaw_blk", "", ["gm_30Rnd_9x19mm_AP_DM91_mp5a3_blk", "gm_30Rnd_9x19mm_B_DM11_mp5a3_blk", "gm_30Rnd_9x19mm_B_DM51_mp5a3_blk"], [], ""],
@@ -456,6 +515,11 @@ _militiaLoadoutData set ["sidearms", [["gm_p1_blk", "", "", "", ["gm_8Rnd_9x19mm
 _militiaLoadoutData set ["ATLaunchers", [
     ["gm_pzf44_2_oli", "", "", "gm_feroz2x17_pzf44_2_blk", ["gm_1Rnd_44x537mm_heat_dm32_pzf44_2"], [], ""],
 ]];
+if (_hasSOG) then {
+    (_militiaLoadoutData get "machineGuns") pushBack ["vn_l4", "", "", "", ["vn_l1a1_30_mag","vn_l1a1_30_t_mag"], [], ""];
+    (_militiaLoadoutData get "grenadeLaunchers") pushBack ["vn_m16_m203", "", "", "", ["vn_m16_20_mag","vn_m16_20_t_mag"], [], ""];
+    (_militiaLoadoutData get "marksmanRifles") pushBack ["vn_m14a1", "", "vn_o_9x_m14", "", ["vn_m14_mag","vn_m14_t_mag"], [], "vn_bipod_m14"];
+};
 //////////////////////////
 //    Misc Loadouts     //
 //////////////////////////

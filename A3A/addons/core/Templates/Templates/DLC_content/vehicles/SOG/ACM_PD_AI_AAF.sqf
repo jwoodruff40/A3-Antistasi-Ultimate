@@ -1,0 +1,17 @@
+_vehiclesMilitiaAPCs append ["acm_gm_aaf2015_SOG_aaf_v_m113_m40", "acm_gm_aaf2015_SOG_aaf_v_m132A1_Flamethrower"];
+_vehiclesAmphibious append ["acm_gm_aaf2015_SOG_aaf_v_m113_m40", "acm_gm_aaf2015_SOG_aaf_v_m132A1_Flamethrower"];
+_vehiclesArtillery append ["acm_gm_aaf2015_SOG_aaf_v_m125A1_Mortar"];
+//_magazines append ["acm_gm_aaf2015_SOG_aaf_v_m125A1_Mortar", []];
+_staticHowitzers append ["acm_gm_aaf2015_SOG_aaf_ind_v_m101_turret", "acm_gm_aaf2015_SOG_aaf_ind_v_m101_direct_turret"];
+_howitzerMagazineHE append ["vn_cannon_m101_mag_he_x8"];
+_vehiclesMilitiaLightArmed append ["acm_gm_aaf2015_SOG_aaf_v_m151A1_M2", "acm_gm_aaf2015_SOG_aaf_v_m151A1_M40A1"];
+_vehiclesMilitiaCars append ["acm_gm_aaf2015_SOG_aaf_v_m151A1", "acm_gm_aaf2015_SOG_aaf_v_m151A1_Cover"];
+_vehiclesPlanesCAS append ["acm_gm_aaf2015_SOG_aaf_v_Mig21_ATGM_plane", "acm_gm_aaf2015_SOG_aaf_v_Mig21_CAS_plane", "acm_gm_aaf2015_SOG_aaf_v_Mig21_HBMB_plane"];
+_vehiclesPlanesAA append ["acm_gm_aaf2015_SOG_aaf_v_Mig21_CAP_plane"];
+_staticMortars append ["acm_gm_aaf2015_SOG_aaf_ind_v_m2_mortar_turret", "acm_gm_aaf2015_SOG_aaf_ind_v_m29_mortar_turret"];
+_mortarMagazineHE append ["vn_mortar_m2_mag_he_x8"];
+_mortarMagazineSmoke append ["vn_mortar_m2_mag_wp_x8"];
+_mortarMagazineFlare ["vn_mortar_m2_mag_lume_x8"];
+_staticAA append ["acm_gm_aaf2015_SOG_aaf_ind_v_m40a1_turret"];
+_vehicleRadar append ["acm_gm_aaf2015_SOG_aaf_ind_v_rsna75_turret"];
+_vehicleSAM append ["acm_gm_aaf2015_SOG_aaf_ind_v_SA2_turret"];
