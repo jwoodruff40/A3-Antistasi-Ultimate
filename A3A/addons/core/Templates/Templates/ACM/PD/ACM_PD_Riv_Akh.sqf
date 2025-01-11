@@ -3,7 +3,7 @@
 ///////////////////////////
 
 ["name", "Akhanterites"] call _fnc_saveToTemplate;
-["nameLeader", "Col. Akhanteros"] call _fnc_saveToTemplate;
+["nameLeader", "Georgious Akhanteros"] call _fnc_saveToTemplate;
 
 //////////////////////////////////////
 //       	Identities    			//
@@ -42,7 +42,7 @@ _vehiclesRivalsAPCs = ["acm_gm_aaf2015_akh_opf_v_btr60pb_apc", "acm_gm_aaf2015_a
 _vehiclesRivalsTanks = ["acm_gm_aaf2015_akh_opf_v_t55_tank"];
 _vehiclesRivalsHelis = [];
 _vehiclesRivalsUavs = [];
-_staticLowWeapons = ["acm_gm_aaf2015_akh_opf_v_dshkmTripod_turret", "acm_gm_aaf2015_akh_opf_v_mg3Tripod_turret", "gm_gc_army_spg9_tripod", "gm_gc_army_fagot_launcher_tripod"];
+_staticLowWeapons = ["acm_gm_aaf2015_akh_opf_v_dshkmTripod_turret", "acm_gm_aaf2015_akh_opf_v_mg3Tripod_turret"];
 
 if (_hasSOG) then {
     #include "..\DLC_content\vehicles\SOG\ACM_PD_Riv_Akh.sqf"
