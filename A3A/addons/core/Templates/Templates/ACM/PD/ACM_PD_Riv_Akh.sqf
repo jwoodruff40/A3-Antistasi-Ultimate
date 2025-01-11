@@ -42,6 +42,7 @@ _vehiclesRivalsAPCs = ["acm_gm_aaf2015_akh_opf_v_btr60pb_apc", "acm_gm_aaf2015_a
 _vehiclesRivalsTanks = ["acm_gm_aaf2015_akh_opf_v_t55_tank"];
 _vehiclesRivalsHelis = [];
 _vehiclesRivalsUavs = [];
+_staticLowWeapons = ["acm_gm_aaf2015_akh_opf_v_dshkmTripod_turret", "acm_gm_aaf2015_akh_opf_v_mg3Tripod_turret", "gm_gc_army_spg9_tripod", "gm_gc_army_fagot_launcher_tripod"];
 
 if (_hasSOG) then {
     #include "..\DLC_content\vehicles\SOG\ACM_PD_Riv_Akh.sqf"
@@ -59,12 +60,7 @@ if (_hasRHS) then {
 ["vehiclesRivalsHelis", _vehiclesRivalsHelis] call _fnc_saveToTemplate;			
 ["vehiclesRivalsUavs", _vehiclesRivalsUavs] call _fnc_saveToTemplate;			
 
-["staticLowWeapons", [
-	"acm_gm_aaf2015_akh_opf_v_dshkmTripod_turret", 
-	"acm_gm_aaf2015_akh_opf_v_mg3Tripod_turret", 
-	"gm_gc_army_spg9_tripod", 
-	"gm_gc_army_fagot_launcher_tripod"
-]] call _fnc_saveToTemplate;
+["staticLowWeapons", _staticLowWeapons] call _fnc_saveToTemplate;
 ["staticMortars", ["CUP_O_2b14_82mm_RU"]] call _fnc_saveToTemplate;
 
 ["mortarMagazineHE", "8Rnd_82mm_Mo_shells"] call _fnc_saveToTemplate;
