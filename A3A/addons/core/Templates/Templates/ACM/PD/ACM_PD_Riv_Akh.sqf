@@ -35,13 +35,29 @@
 ["ammobox", "Box_FIA_Support_F"] call _fnc_saveToTemplate; 	//Don't touch or you die a sad and lonely death!
 ["surrenderCrate", "Box_Syndicate_Wps_F"] call _fnc_saveToTemplate;
 
-["vehiclesRivalsLightArmed", ["acm_gm_aaf2015_akh_opf_v_iltis_mg3_car"]] call _fnc_saveToTemplate;
-["vehiclesRivalsTrucks", ["acm_gm_aaf2015_akh_opf_v_ural_tractor_car", "acm_gm_aaf2015_akh_opf_v_ural_cargo_car"]] call _fnc_saveToTemplate;
-["vehiclesRivalsCars", ["acm_gm_aaf2015_akh_opf_v_w253_car", "acm_gm_aaf2015_akh_opf_v_iltis_cargo_car"]] call _fnc_saveToTemplate;
-["vehiclesRivalsAPCs", ["acm_gm_aaf2015_akh_opf_v_btr60pb_apc", "acm_gm_aaf2015_akh_opf_v_btr60pb_apc", "acm_gm_aaf2015_akh_opf_v_btr60pa_dshkm_apc"]] call _fnc_saveToTemplate;
-["vehiclesRivalsTanks", ["acm_gm_aaf2015_akh_opf_v_t55_tank"]] call _fnc_saveToTemplate;
-["vehiclesRivalsHelis", []] call _fnc_saveToTemplate;			
-["vehiclesRivalsUavs", []] call _fnc_saveToTemplate;			
+_vehiclesRivalsLightArmed = ["acm_gm_aaf2015_akh_opf_v_iltis_mg3_car"];
+_vehiclesRivalsTrucks = ["acm_gm_aaf2015_akh_opf_v_ural_tractor_car", "acm_gm_aaf2015_akh_opf_v_ural_cargo_car"];
+_vehiclesRivalsCars = ["acm_gm_aaf2015_akh_opf_v_w253_car", "acm_gm_aaf2015_akh_opf_v_iltis_cargo_car"];
+_vehiclesRivalsAPCs = ["acm_gm_aaf2015_akh_opf_v_btr60pb_apc", "acm_gm_aaf2015_akh_opf_v_btr60pb_apc", "acm_gm_aaf2015_akh_opf_v_btr60pa_dshkm_apc"];
+_vehiclesRivalsTanks = ["acm_gm_aaf2015_akh_opf_v_t55_tank"];
+_vehiclesRivalsHelis = [];
+_vehiclesRivalsUavs = [];
+
+if (_hasSOG) then {
+    #include "..\DLC_content\vehicles\SOG\ACM_PD_Riv_Akh.sqf"
+};
+
+if (_hasRHS) then {
+    #include "..\Mod_content\RHS\ACM_PD_Riv_Akh.sqf"
+};
+
+["vehiclesRivalsLightArmed", _vehiclesRivalsLightArmed] call _fnc_saveToTemplate;
+["vehiclesRivalsTrucks", _vehiclesRivalsTrucks] call _fnc_saveToTemplate;
+["vehiclesRivalsCars", _vehiclesRivalsCars] call _fnc_saveToTemplate;
+["vehiclesRivalsAPCs", _vehiclesRivalsAPCs] call _fnc_saveToTemplate;
+["vehiclesRivalsTanks", _vehiclesRivalsTanks] call _fnc_saveToTemplate;
+["vehiclesRivalsHelis", _vehiclesRivalsHelis] call _fnc_saveToTemplate;			
+["vehiclesRivalsUavs", _vehiclesRivalsUavs] call _fnc_saveToTemplate;			
 
 ["staticLowWeapons", [
 	"acm_gm_aaf2015_akh_opf_v_dshkmTripod_turret", 
@@ -174,6 +190,9 @@ _loadoutData set ["grenadeLaunchers", [
     ["gm_akm_pallad_wud", "", "", "gm_zvn64_ak", ["gm_30Rnd_762x39mm_B_57N231_ak47_blk", "gm_30Rnd_762x39mm_B_T_57N231P_ak47_blk"], ["1Rnd_HE_Grenade_shell"], ""],
 	["gm_hk69a1_blk", "", "", "", ["1Rnd_HE_Grenade_shell"], ["1Rnd_HE_Grenade_shell"], ""]
 ]];
+if (_hasSOG) then {
+    (_loadoutData get "grenadeLaunchers") pushBack ["vn_xm16e1_xm148", "", "", "", ["vn_m16_20_mag","vn_m16_20_t_mag"], [], ""]
+};
 _loadoutData set ["machineGuns", [
     ["gm_mg3_blk", "", "", "", ["gm_120Rnd_762x51mm_B_T_DM21A1_mg3_grn", "gm_120Rnd_762x51mm_B_T_DM21A2_mg3_grn", "gm_120Rnd_762x51mm_B_T_DM21_mg3_grn"], [], ""]
 ]];
