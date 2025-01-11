@@ -85,24 +85,7 @@ _loadoutData set ["antiInfantryGrenades", ["gm_handgrenade_frag_rgd5"]];
 _loadoutData set ["smokeGrenades", ["gm_smokeshell_wht_gc"]];
 _loadoutData set ["signalsmokeGrenades", ["gm_smokeshell_yel_gc", "gm_smokeshell_red_gc", "gm_smokeshell_org_gc", "gm_smokeshell_grn_gc", "gm_smokeshell_blu_gc", "gm_smokeshell_blk_gc"]];
 
-_loadoutData set ["facewear", [
-	"G_Shades_Black", 
-	"G_Shades_Blue", 
-	"G_Shades_Green", 
-	"G_Shades_Red", 
-	"G_Aviator",
-	"G_Spectacles", 
-	"G_Spectacles_Tinted",
-	"G_Sport_BlackWhite", 
-	"G_Sport_Blackyellow", 
-	"G_Sport_Greenblack", 
-	"G_Sport_Checkered", 
-	"G_Sport_Red", 
-	"G_Bandanna_aviator",
-	"G_Bandanna_beast",
-	"G_Bandanna_sport",
-	"G_Bandanna_shades"
-]];
+_loadoutData set ["facewear", ["G_simc_US_Bandoleer_556_fore", "G_simc_US_Bandoleer_556_left", "G_simc_US_Bandoleer_556_right", "G_simc_US_Bandoleer_4cm", "G_simc_US_Bandoleer_556", "G_simc_US_Bandoleer_556_low"]];
 _loadoutData set ["fullmask", []];
 
 _loadoutData set ["headgear", ["gm_pl_headgear_beret_blk_empty", "H_Simc_jaza_pith_up_khk"]];
