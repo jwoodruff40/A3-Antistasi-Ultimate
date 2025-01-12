@@ -140,7 +140,7 @@ _typeVehObj = selectRandom ( switch true do {
         _taskIcon = "box";
         private _supplyVehicles = (FactionGet(reb, "vehiclesCivSupply"));
         private _medicalVehicles = _faction get "vehiclesMedical";
-        _vehiclePool = append [_supplyVehicles,_medicalVehicles];
+        _vehiclePool = (_supplyVehicles + _medicalVehicles);
         _typeVehObj = selectRandom _vehiclePool;
     };
 };
