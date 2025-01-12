@@ -699,7 +699,7 @@ _militiaSniperOptics append ["CUP_optic_SB_11_4x20_PM", 7.5];
 (_policeLoadoutData get "sidearms") append [
     ["CUP_hgun_Browning_HP", "", "", "", ["CUP_13Rnd_9x19_Browning_HP","CUP_13Rnd_9x19_Browning_HP"], [], ""], 1,
 
-	["CUP_hgun_CZ75", "", "", "", ["CUP_hgun_CZ75","CUP_hgun_CZ75"], [], ""], 1.5,
+	["CUP_hgun_CZ75", "", "", "", ["CUP_16Rnd_9x19_cz75","CUP_16Rnd_9x19_cz75"], [], ""], 1.5,
 	["CUP_hgun_Compact", "", "", "", ["CUP_18Rnd_9x19_Phantom","CUP_10Rnd_9x19_Compact"], [], ""], 2,
 	["CUP_hgun_Duty", "", "", "", ["16Rnd_9x21_Mag","16Rnd_9x21_green_Mag"], [], ""], 3,
 	["CUP_hgun_Phantom", "", "", "", ["CUP_18Rnd_9x19_Phantom","CUP_18Rnd_9x19_Phantom"], [], ""], 2,
