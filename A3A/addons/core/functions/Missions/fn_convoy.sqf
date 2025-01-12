@@ -10,6 +10,7 @@ private _sideX = if (sidesX getVariable [_mrkOrigin,sideUnknown] == Occupants) t
 private _faction = Faction(_sideX);
 private _rebFaction = Faction(teamPlayer);
 
+
 private _posSpawn = getMarkerPos _mrkOrigin;			// used for spawning infantry before moving them into vehicles
 private _posHQ = getMarkerPos respawnTeamPlayer;
 
@@ -414,7 +415,7 @@ if (_convoyType isEqualTo "Fuel") then
 
 if (_convoyType isEqualTo "Repair") then
 {
-    waitUntil {sleep 1; (time > _timeout) or (_vehObj distance _posDest < _arrivalDist) or (not alive _vehObj) or (side group driver _vehObj != _sideX)};
+    waitUntil {sleep 1; (time > _timeout) || {(_vehObj distance _posDest < _arrivalDist) or (not alive _vehObj) or (side group driver _vehObj != _sideX)}};
     if ((_vehObj distance _posDest < _arrivalDist) or (time > _timeout)) then
     {
         [false, true, -1200*_bonus, -10*_bonus, -5, 60, "repair"] call _fnc_applyResults;
