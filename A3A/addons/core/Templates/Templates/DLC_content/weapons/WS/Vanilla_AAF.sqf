@@ -78,54 +78,54 @@ _eliteRifleOptics append ["optic_r1_high_lxWS", 2, "optic_r1_high_sand_lxWS", 1]
 //////////////////////////////////////////////////////
 _militaryAttachments append ["saber_light_lxWS", 4];
 (_militaryLoadoutData get "machineGuns") append [
-    ["LMG_S77_AAF_lxWS", "", _militaryAttachments, _militaryMGSights, ["100Rnd_762x51_S77_Red_lxWS", "100Rnd_762x51_S77_Red_lxWS", "100Rnd_762x51_S77_Red_Tracer_lxWS"], [], ""], 9,
-    ["LMG_S77_Compact_lxWS", "", _militaryAttachments, _militaryMGSights, ["100Rnd_762x51_S77_Red_lxWS", "100Rnd_762x51_S77_Red_lxWS", "100Rnd_762x51_S77_Red_Tracer_lxWS"], [], ""], 3
+    ["LMG_S77_AAF_lxWS", "", _militaryAttachments, _militaryMGOptics, ["100Rnd_762x51_S77_Red_lxWS", "100Rnd_762x51_S77_Red_lxWS", "100Rnd_762x51_S77_Red_Tracer_lxWS"], [], ""], 9,
+    ["LMG_S77_Compact_lxWS", "", _militaryAttachments, _militaryMGOptics, ["100Rnd_762x51_S77_Red_lxWS", "100Rnd_762x51_S77_Red_lxWS", "100Rnd_762x51_S77_Red_Tracer_lxWS"], [], ""], 3
 ];
 
-_militarySlRifleSights append ["optic_r1_high_lxWS", 2, "optic_r1_high_sand_lxWS", 1];
-_militaryRifleSights append ["optic_r1_high_lxWS", 2, "optic_r1_high_sand_lxWS", 1];
+_militarySlRifleOptics append ["optic_r1_high_lxWS", 2, "optic_r1_high_sand_lxWS", 1];
+_militaryRifleOptics append ["optic_r1_high_lxWS", 2, "optic_r1_high_sand_lxWS", 1];
 (_militaryLoadoutData get "slRifles") append [
-    ["sgun_aa40_lxWS","",_militaryAttachments,_militarySlRifleSights,["8Rnd_12Gauge_AA40_Pellets_lxWS","8Rnd_12Gauge_AA40_Pellets_lxWS","8Rnd_12Gauge_AA40_Slug_lxWS","8Rnd_12Gauge_AA40_Slug_lxWS"], [], ""], 0.5,
-    ["arifle_Galat_lxWS","",_militaryAttachments,_militarySlRifleSights,["30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F"], [], ""], 4,
-    ["arifle_SLR_V_lxWS","","",_militarySlRifleSights,["30Rnd_762x51_slr_reload_tracer_green_lxWS","30Rnd_762x51_slr_reload_tracer_green_lxWS","30Rnd_762x51_slr_tracer_green_lxWS"], [], ""], 3,
-    ["arifle_Velko_lxWS","",_militaryAttachments,_militarySlRifleSights,["35Rnd_556x45_Velko_reload_tracer_red_lxWS","35Rnd_556x45_Velko_reload_tracer_red_lxWS","50Rnd_556x45_Velko_reload_tracer_red_lxWS"], [], ""], 5
+    ["sgun_aa40_lxWS","",_militaryAttachments,_militarySlRifleOptics,["8Rnd_12Gauge_AA40_Pellets_lxWS","8Rnd_12Gauge_AA40_Pellets_lxWS","8Rnd_12Gauge_AA40_Slug_lxWS","8Rnd_12Gauge_AA40_Slug_lxWS"], [], ""], 0.5,
+    ["arifle_Galat_lxWS","",_militaryAttachments,_militarySlRifleOptics,["30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F"], [], ""], 4,
+    ["arifle_SLR_V_lxWS","","",_militarySlRifleOptics,["30Rnd_762x51_slr_reload_tracer_green_lxWS","30Rnd_762x51_slr_reload_tracer_green_lxWS","30Rnd_762x51_slr_tracer_green_lxWS"], [], ""], 3,
+    ["arifle_Velko_lxWS","",_militaryAttachments,_militarySlRifleOptics,["35Rnd_556x45_Velko_reload_tracer_red_lxWS","35Rnd_556x45_Velko_reload_tracer_red_lxWS","50Rnd_556x45_Velko_reload_tracer_red_lxWS"], [], ""], 5
 ];
 (_militaryLoadoutData get "rifles") append [
-    ["sgun_aa40_lxWS","",_militaryAttachments,_militaryRifleSights,["20Rnd_12Gauge_AA40_Pellets_lxWS","20Rnd_12Gauge_AA40_Slug_lxWS","8Rnd_12Gauge_AA40_Smoke_lxWS","8Rnd_12Gauge_AA40_HE_lxWS"], [], ""], 0.25,
-    ["arifle_Galat_lxWS","",_militaryAttachments,_militaryRifleSights,["30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F"], [], ""], 3,
-    ["arifle_SLR_V_lxWS","","",_militaryRifleSights,["30Rnd_762x51_slr_reload_tracer_green_lxWS","30Rnd_762x51_slr_reload_tracer_green_lxWS","30Rnd_762x51_slr_tracer_green_lxWS"], [], ""], 1.5,
-    ["arifle_Velko_lxWS","",_militaryAttachments,_militaryRifleSights,["35Rnd_556x45_Velko_reload_tracer_red_lxWS","35Rnd_556x45_Velko_reload_tracer_red_lxWS","50Rnd_556x45_Velko_reload_tracer_red_lxWS"], [], ""], 6
+    ["sgun_aa40_lxWS","",_militaryAttachments,_militaryRifleOptics,["20Rnd_12Gauge_AA40_Pellets_lxWS","20Rnd_12Gauge_AA40_Slug_lxWS","8Rnd_12Gauge_AA40_Smoke_lxWS","8Rnd_12Gauge_AA40_HE_lxWS"], [], ""], 0.25,
+    ["arifle_Galat_lxWS","",_militaryAttachments,_militaryRifleOptics,["30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F"], [], ""], 3,
+    ["arifle_SLR_V_lxWS","","",_militaryRifleOptics,["30Rnd_762x51_slr_reload_tracer_green_lxWS","30Rnd_762x51_slr_reload_tracer_green_lxWS","30Rnd_762x51_slr_tracer_green_lxWS"], [], ""], 1.5,
+    ["arifle_Velko_lxWS","",_militaryAttachments,_militaryRifleOptics,["35Rnd_556x45_Velko_reload_tracer_red_lxWS","35Rnd_556x45_Velko_reload_tracer_red_lxWS","50Rnd_556x45_Velko_reload_tracer_red_lxWS"], [], ""], 6
 ];
 (_militaryLoadoutData get "grenadeLaunchers") append [
-    ["arifle_SLR_V_GL_lxWS","","",_militaryRifleSights,["30Rnd_762x51_slr_reload_tracer_green_lxWS","30Rnd_762x51_slr_reload_tracer_green_lxWS","30Rnd_762x51_slr_reload_tracer_green_lxWS","30Rnd_762x51_slr_tracer_green_lxWS"], ["1Rnd_40mm_HE_lxWS","1Rnd_58mm_AT_lxWS","1Rnd_50mm_Smoke_lxWS"], ""], 3,
-    ["arifle_VelkoR5_GL_lxWS","",_militaryAttachments,_militaryRifleSights,["35Rnd_556x45_Velko_reload_tracer_red_lxWS","35Rnd_556x45_Velko_reload_tracer_red_lxWS","50Rnd_556x45_Velko_reload_tracer_red_lxWS"], ["1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell","1Rnd_Pellet_Grenade_shell_lxWS"], ""], 6
+    ["arifle_SLR_V_GL_lxWS","","",_militaryRifleOptics,["30Rnd_762x51_slr_reload_tracer_green_lxWS","30Rnd_762x51_slr_reload_tracer_green_lxWS","30Rnd_762x51_slr_reload_tracer_green_lxWS","30Rnd_762x51_slr_tracer_green_lxWS"], ["1Rnd_40mm_HE_lxWS","1Rnd_58mm_AT_lxWS","1Rnd_50mm_Smoke_lxWS"], ""], 3,
+    ["arifle_VelkoR5_GL_lxWS","",_militaryAttachments,_militaryRifleOptics,["35Rnd_556x45_Velko_reload_tracer_red_lxWS","35Rnd_556x45_Velko_reload_tracer_red_lxWS","50Rnd_556x45_Velko_reload_tracer_red_lxWS"], ["1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell","1Rnd_Pellet_Grenade_shell_lxWS"], ""], 6
 ];
 
 (_militaryLoadoutData get "carbines") append [
-    ["arifle_VelkoR5_lxWS","",_militaryAttachments,_militaryRifleSights,["35Rnd_556x45_Velko_reload_tracer_red_lxWS","35Rnd_556x45_Velko_reload_tracer_red_lxWS","50Rnd_556x45_Velko_reload_tracer_red_lxWS"], ["1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell","1Rnd_Pellet_Grenade_shell_lxWS"], ""], 10,
-    ["arifle_SLR_Para_lxWS", "", _militaryAttachments, _militaryRifleSights, ["20Rnd_762x51_slr_lxWS", "30Rnd_762x51_slr_lxWS", "30Rnd_762x51_slr_lxWS"], [], ""], 4,
-    ["arifle_SLR_Para_snake_lxWS", "", _militaryAttachments, _militaryRifleSights, ["20Rnd_762x51_slr_lxWS", "30Rnd_762x51_slr_lxWS", "30Rnd_762x51_slr_lxWS"], [], ""], 1
+    ["arifle_VelkoR5_lxWS","",_militaryAttachments,_militaryRifleOptics,["35Rnd_556x45_Velko_reload_tracer_red_lxWS","35Rnd_556x45_Velko_reload_tracer_red_lxWS","50Rnd_556x45_Velko_reload_tracer_red_lxWS"], ["1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell","1Rnd_Pellet_Grenade_shell_lxWS"], ""], 10,
+    ["arifle_SLR_Para_lxWS", "", _militaryAttachments, _militaryRifleOptics, ["20Rnd_762x51_slr_lxWS", "30Rnd_762x51_slr_lxWS", "30Rnd_762x51_slr_lxWS"], [], ""], 4,
+    ["arifle_SLR_Para_snake_lxWS", "", _militaryAttachments, _militaryRifleOptics, ["20Rnd_762x51_slr_lxWS", "30Rnd_762x51_slr_lxWS", "30Rnd_762x51_slr_lxWS"], [], ""], 1
 ];
 (_militaryLoadoutData get "marksmanRifles") append [
-    ["srifle_EBR_blk_lxWS", "", _militaryAttachments, _militaryMarksmanSights, ["20Rnd_762x51_Mag_blk_lxWS","20Rnd_762x51_Mag_blk_lxWS","20Rnd_762x51_Mag_blk_lxWS"], [], ""], 2
+    ["srifle_EBR_blk_lxWS", "", _militaryAttachments, _militaryMarksmanOptics, ["20Rnd_762x51_Mag_blk_lxWS","20Rnd_762x51_Mag_blk_lxWS","20Rnd_762x51_Mag_blk_lxWS"], [], ""], 2
 ];
 //////////////////////////////////////////////////////
 (_militiaLoadoutData get "slRifles") append [
-    ["arifle_Galat_worn_lxWS","",_militiaAttachments,_militiaRifleSights,["30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F"], [], ""], 6,
-    ["arifle_SLR_lxWS","",_militiaAttachments,_militiaRifleSights,["30Rnd_762x51_slr_reload_tracer_green_lxWS","30Rnd_762x51_slr_reload_tracer_green_lxWS","30Rnd_762x51_slr_tracer_green_lxWS"], [], ""], 1,
-    ["arifle_Velko_lxWS","",_militiaAttachments,_militiaRifleSights,["35Rnd_556x45_Velko_reload_tracer_red_lxWS","35Rnd_556x45_Velko_reload_tracer_red_lxWS","50Rnd_556x45_Velko_reload_tracer_red_lxWS"], [], ""], 3
+    ["arifle_Galat_worn_lxWS","",_militiaAttachments,_militiaRifleOptics,["30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F"], [], ""], 6,
+    ["arifle_SLR_lxWS","",_militiaAttachments,_militiaRifleOptics,["30Rnd_762x51_slr_reload_tracer_green_lxWS","30Rnd_762x51_slr_reload_tracer_green_lxWS","30Rnd_762x51_slr_tracer_green_lxWS"], [], ""], 1,
+    ["arifle_Velko_lxWS","",_militiaAttachments,_militiaRifleOptics,["35Rnd_556x45_Velko_reload_tracer_red_lxWS","35Rnd_556x45_Velko_reload_tracer_red_lxWS","50Rnd_556x45_Velko_reload_tracer_red_lxWS"], [], ""], 3
 ];
 (_militiaLoadoutData get "rifles") append [
-    ["arifle_Galat_worn_lxWS","",_militiaAttachments,_militiaRifleSights,["30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F"], [], ""], 8,
-    ["arifle_SLR_V_lxWS","","",_militiaRifleSights,["30Rnd_762x51_slr_reload_tracer_green_lxWS","30Rnd_762x51_slr_reload_tracer_green_lxWS","30Rnd_762x51_slr_tracer_green_lxWS"], [], ""], 3,
-    ["arifle_Velko_lxWS","",_militiaAttachments,_militiaRifleSights,["35Rnd_556x45_Velko_reload_tracer_red_lxWS","35Rnd_556x45_Velko_reload_tracer_red_lxWS","50Rnd_556x45_Velko_reload_tracer_red_lxWS"], [], ""], 3
+    ["arifle_Galat_worn_lxWS","",_militiaAttachments,_militiaRifleOptics,["30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F"], [], ""], 8,
+    ["arifle_SLR_V_lxWS","","",_militiaRifleOptics,["30Rnd_762x51_slr_reload_tracer_green_lxWS","30Rnd_762x51_slr_reload_tracer_green_lxWS","30Rnd_762x51_slr_tracer_green_lxWS"], [], ""], 3,
+    ["arifle_Velko_lxWS","",_militiaAttachments,_militiaRifleOptics,["35Rnd_556x45_Velko_reload_tracer_red_lxWS","35Rnd_556x45_Velko_reload_tracer_red_lxWS","50Rnd_556x45_Velko_reload_tracer_red_lxWS"], [], ""], 3
 ];
 (_militiaLoadoutData get "grenadeLaunchers") append [
-    ["arifle_SLR_V_GL_lxWS","", _militiaAttachments, _militiaRifleSights,["30Rnd_762x51_slr_reload_tracer_green_lxWS","30Rnd_762x51_slr_reload_tracer_green_lxWS","30Rnd_762x51_slr_reload_tracer_green_lxWS","30Rnd_762x51_slr_tracer_green_lxWS"], ["1Rnd_40mm_HE_lxWS","1Rnd_58mm_AT_lxWS","1Rnd_50mm_Smoke_lxWS"], ""], 4,
+    ["arifle_SLR_V_GL_lxWS","", _militiaAttachments, _militiaRifleOptics,["30Rnd_762x51_slr_reload_tracer_green_lxWS","30Rnd_762x51_slr_reload_tracer_green_lxWS","30Rnd_762x51_slr_reload_tracer_green_lxWS","30Rnd_762x51_slr_tracer_green_lxWS"], ["1Rnd_40mm_HE_lxWS","1Rnd_58mm_AT_lxWS","1Rnd_50mm_Smoke_lxWS"], ""], 4,
     ["arifle_VelkoR5_GL_lxWS","","acc_flashlight","",["35Rnd_556x45_Velko_reload_tracer_red_lxWS","35Rnd_556x45_Velko_reload_tracer_red_lxWS","50Rnd_556x45_Velko_reload_tracer_red_lxWS"], ["1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell","1Rnd_Pellet_Grenade_shell_lxWS"], ""], 8
 ];
 (_militiaLoadoutData get "carbines") append [
-    ["arifle_VelkoR5_lxWS","", _militiaAttachments, _militiaRifleSights,["35Rnd_556x45_Velko_reload_tracer_red_lxWS","35Rnd_556x45_Velko_reload_tracer_red_lxWS","50Rnd_556x45_Velko_reload_tracer_red_lxWS"], ["1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell","1Rnd_Pellet_Grenade_shell_lxWS"], ""], 5
+    ["arifle_VelkoR5_lxWS","", _militiaAttachments, _militiaRifleOptics,["35Rnd_556x45_Velko_reload_tracer_red_lxWS","35Rnd_556x45_Velko_reload_tracer_red_lxWS","50Rnd_556x45_Velko_reload_tracer_red_lxWS"], ["1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell","1Rnd_Pellet_Grenade_shell_lxWS"], ""], 5
 ];
 
 

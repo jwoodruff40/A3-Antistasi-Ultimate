@@ -49,16 +49,16 @@ _eliteMGOptics append ["optic_DMS_weathered_F", 0.5];
     ["LMG_Mk200_black_F", "", _eliteAccessories, _eliteMGOptics, ["200Rnd_65x39_cased_Box", "200Rnd_65x39_cased_Box", "200Rnd_65x39_cased_Box_Tracer"], [], "bipod_02_F_lush"], 5
 ];
 //////////////////////////////////////////////////////
-_militaryMGSights append ["optic_DMS_weathered_F", 0.5];
+_militaryMGOptics append ["optic_DMS_weathered_F", 0.5];
 (_militaryLoadoutData get "machineGuns") append [
-    ["LMG_Mk200_black_F", "", _militaryAttachments, _militaryMGSights, ["200Rnd_65x39_cased_Box", "200Rnd_65x39_cased_Box", "200Rnd_65x39_cased_Box_Tracer"], [], "bipod_02_F_lush"], 5
+    ["LMG_Mk200_black_F", "", _militaryAttachments, _militaryMGOptics, ["200Rnd_65x39_cased_Box", "200Rnd_65x39_cased_Box", "200Rnd_65x39_cased_Box_Tracer"], [], "bipod_02_F_lush"], 5
 ];
 //////////////////////////////////////////////////////
 (_militiaLoadoutData get "marksmanRifles") append [
-    ["srifle_DMR_06_hunter_F", "", "", _militiaMarksmanSights,["10Rnd_Mk14_762x51_Mag","10Rnd_Mk14_762x51_Mag","10Rnd_Mk14_762x51_Mag","10Rnd_Mk14_762x51_Mag"], [], ""], 15
+    ["srifle_DMR_06_hunter_F", "", "", _militiaMarksmanOptics,["10Rnd_Mk14_762x51_Mag","10Rnd_Mk14_762x51_Mag","10Rnd_Mk14_762x51_Mag","10Rnd_Mk14_762x51_Mag"], [], ""], 15
 ];
 (_militiaLoadoutData get "machineGuns") append [
-    ["LMG_Mk200_black_F", "", _militiaAttachments, _militiaMGSights, ["200Rnd_65x39_cased_Box", "200Rnd_65x39_cased_Box", "200Rnd_65x39_cased_Box_Tracer"], [], ""], 2.5
+    ["LMG_Mk200_black_F", "", _militiaAttachments, _militiaMGOptics, ["200Rnd_65x39_cased_Box", "200Rnd_65x39_cased_Box", "200Rnd_65x39_cased_Box_Tracer"], [], ""], 2.5
 ];
 
 
