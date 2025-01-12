@@ -1,12 +1,7 @@
 (_loadoutData get "glasses") append [
-    // "vn_b_spectacles_tinted", Anything commented out has models, textures, and for some even names as vanilla items. Thus they are redundant.
     "vn_g_glasses_01", 2.5,
-    // "vn_b_squares_tinted",
-    // "vn_b_squares", 1,
     "vn_g_spectacles_01", 1.5,
     "vn_g_spectacles_02", 2
-    // "vn_b_spectacles",
-    // "vn_b_aviator"
 ];
 (_loadoutData get "goggles") append [
     "vn_b_acc_towel_02", 1,

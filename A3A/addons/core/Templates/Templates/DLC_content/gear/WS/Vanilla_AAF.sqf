@@ -14,7 +14,6 @@
 	"lxWS_H_PASGT_goggles_olive_F", 1.5,
 	"H_Beret_Headset_lxWS", 0.25
 ];
-// (_eliteLoadoutData get "backpacks") pushBack "I_shield_backpack_lxWS"; // Isn't this a duplicate?
 //////////////////////////////////////////////////////
 (_militaryLoadoutData get "helmets") append [
 	"lxWS_H_bmask_camo02", 0.5,
