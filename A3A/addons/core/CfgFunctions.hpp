@@ -807,11 +807,9 @@ class CfgFunctions
             class rotateItem {};
         };
         
-        class reload_repack_turret_magazines {	//category
+        class reload_repack_turret_magazines {
             file = QPATHTOFOLDER(Scripts\RRTurretMagazines\scripts);
-            class postInit {
-                postInit = 1;
-            };
+            class postInit {};
             class reloadTurret {};
             class monitorMagazines {};
         };

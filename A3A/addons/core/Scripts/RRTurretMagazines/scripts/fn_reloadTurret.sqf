@@ -15,7 +15,7 @@
  */
 #include "..\..\..\script_component.hpp"
 
-//if !(RRTurretMagazines) exitwith {};
+if !(RRTurretMagazines) exitwith {};
 
 private _player = missionNamespace getVariable ["bis_fnc_moduleRemoteControl_unit", player];
 private _vehicle = vehicle _player;
