@@ -75,6 +75,12 @@ private _taskState1 = "CREATED";
 private _typeVehObj = "";
 private _vehiclePool = [];
 
+// * Cleanup the civilian and rebel equipment hashmaps (remove vehicle arrays that are nil or empty) before attempting to select a vehicle from them
+{
+    if (_x in keys _civFaction && {(_civFaction get _x) isEqualTo []}) then { _civFaction deleteAt _x };
+    if (_x in keys _rebFaction && {(_rebFaction get _x) isEqualTo []}) then { _rebFaction deleteAt _x };
+} forEach ["vehiclesCivMedical", "vehiclesCivIndustrial", "vehiclesCivSupply"];
+
 //// add check for warlevel vehicles and replace stuff with militia vehicles and/or do randomization vehicle groups like vehiclesArmor
 
 switch (toLowerANSI _convoyType) do ///why? toLowerANSI
@@ -142,7 +148,7 @@ switch (toLowerANSI _convoyType) do ///why? toLowerANSI
         _textX = format [localize "STR_A3A_Missions_AS_Convoy_task_dest_supplies",_nameOrigin,_displayTime,_nameDest,FactionGet(reb,"name")];
         _taskTitle = localize "STR_A3A_Missions_AS_Convoy_task_header_supplies";
         _taskIcon = "box";
-        _vehiclePool = if _civDisabled then { _milFaction get "vehiclesMilitiaTrucks" } else { _civFaction get "vehiclesCivMedical" } select { typeName _x == "STRING"}; // * convert weighted list to normal array
+        _vehiclePool = if _civDisabled then { _milFaction get "vehiclesMilitiaTrucks" } else { _civFaction getOrDefault ["vehiclesCivMedical", _civFaction get "vehiclesCivIndustrial"] } select { typeName _x == "STRING"}; // * convert weighted list to normal array
         _typeVehObj = selectRandom (_rebFaction getOrDefault ["vehiclesCivSupply", _vehiclePool]);
     };
 };
