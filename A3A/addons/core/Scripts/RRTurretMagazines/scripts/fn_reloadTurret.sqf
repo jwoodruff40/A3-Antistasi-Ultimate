@@ -9,7 +9,7 @@
  * None
  *
  * Example:
- * [] call rrtm_fnc_reloadTurret;
+ * [] call A3A_fnc_reloadTurret;
  *
  * Public: No
  */
