@@ -9,7 +9,7 @@
  * None
  *
  * Example:
- * [] call rrtm_fnc_monitorMagazines;
+ * [] call A3A_fnc_monitorMagazines;
  *
  * Public: No
  */
