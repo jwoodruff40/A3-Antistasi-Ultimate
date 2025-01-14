@@ -35,33 +35,39 @@ private _mortarsPool = _faction getOrDefault ["staticMortars", []];
 private _artilleryPool = _faction getOrDefault ["vehiclesArtillery", []];
 private _howitzersPool = _faction getOrDefault ["staticHowitzers", []];
 
+private _mortarMagazine = _faction get "mortarMagazineHE";
+private _artilleryMagazine = _faction get "magazines";
+private _howitzerMagazine = _faction get "howitzerMagazineHE";
+
 private _infantrySquadArray = [
     selectRandom ([_faction, "groupsTierMedium"] call SCRT_fnc_unit_flattenTier),
     selectRandom ([_faction, "groupsTierSquads"] call SCRT_fnc_unit_flattenTier)
 ] select _difficult;
 
-if (tierWar < 6) then {
-    if (_howitzersPool isEqualTo []) then {
-      _artilleryClass = selectRandom _mortarsPool;
-      _artilleryShellClass = _faction get "mortarMagazineHE";
-    } else {
-      _artilleryClass = selectRandom _howitzersPool;
-      _artilleryShellClass = _faction get "howitzerMagazineHE";
-    };
-} else {
-    if (_artilleryPool isEqualTo []) then {
-       if (_howitzersPool isEqualTo []) then {
-         _artilleryClass = selectRandom _mortarsPool;
-         _artilleryShellClass = _faction get "mortarMagazineHE";
-       } else {
-         _artilleryClass = selectRandom _howitzersPool;
-         _artilleryShellClass = _faction get "howitzerMagazineHE";
-       };
-    } else {
-      _artilleryClass = selectRandom _artilleryPool;
-      private _artilleryShellClassPool = (_faction get "magazines") get _artilleryClass;
-      private _artilleryShellClass = selectRandom _artilleryShellClassPool;
-    };
+switch (true) do 
+{ 
+	case (tierWar < 6): 
+	{
+		private _potentialArtillery = (_howitzersPool + _mortarsPool);
+		_artilleryClass = selectRandom (_potentialArtillery select {_x isNotEqualTo []});
+		_artilleryShellClass = if (_artilleryClass in _howitzersPool) then 
+        {
+            _howitzerMagazine
+        } else {
+            _mortarMagazine
+        };
+	};
+	default
+	{
+		private _potentialArtillery = (_howitzersPool + _artilleryPool);
+		_artilleryClass = selectRandom (_potentialArtillery select {_x isNotEqualTo []});
+		_artilleryShellClass = if (_artilleryClass in _howitzersPool) then 
+        {
+            _howitzerMagazine
+        } else {
+            selectRandom (_artilleryMagazine get _artilleryClass);
+        };
+	};
 };
 
 _mgClass = selectRandom (_faction get "staticMGs");
