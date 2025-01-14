@@ -267,7 +267,6 @@
         name = "CUP LDF";
         file = "CUP_AI_LDF";
     };
-
     class HAFM_Base : CUP_Base
     {
         requiredAddons[] = {"CUP_Creatures_People_Civil_Russia", "CUP_BaseConfigs", "CUP_AirVehicles_Core", "HAFM_Acc"};        // units, weapons, vehicles
@@ -301,4 +300,18 @@
         name = "CUP NorAF Arctic";
         file = "CUP_AI_NorAF_Arctic";
         climate[] = {"arctic"};
+    };
+
+    class EST_Base : CUP_Base
+    {
+        requiredAddons[] = {"CUP_Creatures_People_Civil_Russia", "CUP_BaseConfigs", "CUP_AirVehicles_Core", "Estraria_Army", "DEGA_Vehicles_V22", "BVC_Facewear"};
+        priority = 61;
+    };
+	
+    class CUP_EST : EST_Base
+    {
+        side = "Occ";
+        flagTexture = "\EST_Markers\Data\Marker_EST.paa";
+        name = "CUP EST";
+        file = "CUP_AI_EST";
     };
