@@ -3351,6 +3351,9 @@
                 <Portuguese>Substituir limities lado</Portuguese>
                 <Chinesesimp>覆盖阵营限制设置</Chinesesimp>
             </Key>
+            <Key ID="STR_antistasi_dialogs_setup_override_rebel_limits">
+                <Original>[!EXP] Override rebel limits</Original>
+            </Key>
             <Key ID="STR_antistasi_dialogs_setup_switch_enemy_sides">
                 <Original>Switch enemy sides</Original>
                 <Czech>Přepnout nepřátelské strany</Czech>

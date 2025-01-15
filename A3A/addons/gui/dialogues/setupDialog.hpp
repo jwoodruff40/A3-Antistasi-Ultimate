@@ -379,11 +379,27 @@ class A3A_SetupDialog : A3A_TabbedDialog
                     w = 28 * GRID_W;
                     h = 4 * GRID_H;
                 };
+                class AnyRebelCheck: A3A_Checkbox {
+                    idc = A3A_IDC_SETUP_ANYREBELCHECK;
+                    onCheckedChanged = "['fillFactions'] call A3A_fnc_setupFactionsTab";
+                    x = 124 * GRID_W;
+                    y = 16 * GRID_H;
+                    w = 4 * GRID_W;
+                    h = 4 * GRID_H;
+                };
+                class AnyRebelText: A3A_text {
+                    idc = -1;
+                    text = $STR_antistasi_dialogs_setup_override_rebel_limits;
+                    x = 128 * GRID_W;
+                    y = 16 * GRID_H;
+                    w = 28 * GRID_W;
+                    h = 4 * GRID_H;
+                };
                 class IgnoreCamoCheck: A3A_Checkbox {
                     idc = A3A_IDC_SETUP_IGNORECAMOCHECK;
                     onCheckedChanged = "['fillFactions'] call A3A_fnc_setupFactionsTab";
                     x = 124 * GRID_W;
-                    y = 16 * GRID_H;
+                    y = 22 * GRID_H;
                     w = 4 * GRID_W;
                     h = 4 * GRID_H;
                 };
@@ -391,7 +407,7 @@ class A3A_SetupDialog : A3A_TabbedDialog
                     idc = -1;
                     text = $STR_antistasi_dialogs_setup_override_camo_limits;
                     x = 128 * GRID_W;
-                    y = 16 * GRID_H;
+                    y = 22 * GRID_H;
                     w = 28 * GRID_W;
                     h = 4 * GRID_H;
                 };
@@ -399,7 +415,7 @@ class A3A_SetupDialog : A3A_TabbedDialog
                     idc = A3A_IDC_SETUP_SHOWMISSINGCHECK;
                     onCheckedChanged = "['fillFactions'] call A3A_fnc_setupFactionsTab";
                     x = 124 * GRID_W;
-                    y = 22 * GRID_H;
+                    y = 28 * GRID_H;
                     w = 4 * GRID_W;
                     h = 4 * GRID_H;
                 };
@@ -407,7 +423,7 @@ class A3A_SetupDialog : A3A_TabbedDialog
                     idc = -1;
                     text = $STR_antistasi_dialogs_setup_show_missing_mods;
                     x = 128 * GRID_W;
-                    y = 22 * GRID_H;
+                    y = 28 * GRID_H;
                     w = 28 * GRID_W;
                     h = 4 * GRID_H;
                 };

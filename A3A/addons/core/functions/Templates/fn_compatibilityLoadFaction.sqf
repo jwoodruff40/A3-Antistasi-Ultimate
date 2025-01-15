@@ -21,6 +21,11 @@ private _factionDefaultFile = ["EnemyDefaults","EnemyDefaults","RebelDefaults","
 _factionDefaultFile = QPATHTOFOLDER(Templates\Templates\FactionDefaults) + "\" + _factionDefaultFile + ".sqf";
 
 private _faction = [[_factionDefaultFile,_file]] call A3A_fnc_loadFaction;
+
+// * If we're using an Occ or Inv faction as rebels, we need to convert the faction from Occ / Inv to rebel template style
+private _convertToRebel = getText (configFile >> "A3A" >> "Templates" >> A3A_saveData get "factions" select 2 >> "side") in ["Occ", "Inv"];
+if _convertToRebel then { _faction = _faction call A3A_fnc_convertToRebelFaction};
+
 private _factionPrefix = ["occ", "inv", "reb", "civ"] #([west, east, independent, civilian] find _side);
 missionNamespace setVariable ["A3A_faction_" + _factionPrefix, _faction];
 [_faction, _factionPrefix] call A3A_fnc_compileGroups;
