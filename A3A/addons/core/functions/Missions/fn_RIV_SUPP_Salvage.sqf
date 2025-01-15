@@ -220,7 +220,7 @@ if (dateToNumber date < _dateLimitNum) then {
 			[_startingRoadPosition, _startingRoadPosition] //default position
 		] call BIS_fnc_findSafePos;
 		private _crew = [_groupCrew, selectRandom _crewClasses, _position, [], 0, "NONE"] call A3A_fnc_createUnit;
-		[_crew, 0] call A3A_fnc_equipRebel;	
+		["startEquipRebel", [_crew, 0]] call A3A_fnc_equipRebel;	
 		[_crew] call A3A_fnc_NATOinit;
 
 		_crew setDamage 1;

@@ -33,7 +33,7 @@ if (_typeX isEqualTo FactionGet(reb,"unitSniper")) then {
 	_unit setskill ["aimingShake",_skill + 0.2];
 };
 
-[_unit, 2] call A3A_fnc_equipRebel;			// 2 = garrison unit
+["startEquipRebel", [_unit, 2]] call A3A_fnc_equipRebel;			// 2 = garrison unit
 _unit selectWeapon (primaryWeapon _unit);
 
 private _killedEhId = _unit addEventHandler ["killed", {
