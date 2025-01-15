@@ -5039,8 +5039,8 @@
                 <French>Activer le reconditionnement des chargeurs?</French>
             </Key>
             <Key ID="STR_params_ReloadRepackTurretMagazines">
-                <Original>Enable ReloadRepackTurretMagazines?</Original>
-                <Russian>Включить ReloadRepackTurretMagazines?</Russian>
+                <Original>Enable Enable Turret Magazine Repacking?</Original>
+                <Russian>Включить Enable Turret Magazine Repacking?</Russian>
             </Key>
             <Key ID="STR_params_playerIcons">
                 <Original>Show 3D icons above unconscious players?</Original>
