@@ -12,6 +12,11 @@ Environment:
     Scheduled, any machine
 */
 
+/*
+loadout = [[primary], [secondary], [handgun], [uniform], [vest], [backpack], "headgear", "facewear", [binoculars], [assigned items]]
+assigned items = [map, gps/uav term, radio, compass, watch, nvg]
+*/
+
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 
@@ -23,57 +28,50 @@ call A3A_fnc_fetchRebelGear;        // Send current version of rebelGear from se
 private _unitType = if (_forceClass != "") then {_forceClass} else {_unit getVariable "unitType"};
 private _customLoadout = rebelLoadouts get _unitType;
 
-if (!isNil "_customLoadout") exitWith {
-    private _goggles = goggles _unit;
-	if (randomizeRebelLoadoutUniforms) then {
-		_unit setUnitLoadout _customLoadout;
+private _fnc_addSecondary = {
+    params ["_unit"];
 
-		_unit forceAddUniform (selectRandom (A3A_faction_reb get "uniforms"));
-		{_unit addItemToUniform _x} forEach (uniformItems _unit);
+    switch true do {
+        case (_unitType isEqualTo FactionGet(reb,"unitRifle") && {random 20 < tierWar});
+        case (_unitType isEqualTo FactionGet(reb,"unitLAT"));
+        case (_unitType isEqualTo FactionGet(reb,"unitAT"));
+        case (_unitType isEqualTo FactionGet(reb,"unitAA")): {
+            private _rLaunchers = A3A_rebelGear get "RocketLaunchers";
+            private _dLaunchers = [];
+            private _mLaunchersAT = A3A_rebelGear get "MissileLaunchersAT";
+            private _mLaunchersAA = A3A_rebelGear get "MissileLaunchersAA";
 
-		private _headgear = headgear _unit;
+            {
+                if ("Disposable" in (_x call A3A_fnc_equipmentClassToCategories)) then { _dLaunchers append [_x, _rlaunchers select (_rlaunchers find _x) + 1 ] };
+            } forEach (_rlaunchers select {typeName _x == "STRING"});
 
-		//if it isn't a helmet - randomize
-		if !(_headgear in allArmoredHeadgear) then {
-			_unit addHeadgear (selectRandom (A3A_faction_reb get "headgear"));
-		};
-	} else {
-		_unit setUnitLoadout _customLoadout;
-	};
+            private _launcherPool = createHashMapFromArray [
+                [FactionGet(reb,"unitRifle"), _dLaunchers],
+                [FactionGet(reb,"unitLAT"), _rLaunchers],
+                [FactionGet(reb,"unitAT"), _mLaunchersAT],
+                [FactionGet(reb,"unitAA"), _mLaunchersAA]
+            ];
+            
+            private _weapon = selectRandomWeighted (_launcherPool get _unitType);
 
-    if (goggles _unit != _goggles && {randomizeRebelLoadoutUniforms}) then {
-        removeGoggles _unit;
-        _unit addGoggles _goggles;
-    };
+            _unit addWeapon _weapon;
+            //private _magazine = (compatibleMagazines _weapon) arrayIntersect (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL) select 0;
+            private _magazine = compatibleMagazines _weapon select 0;
+            _unit addSecondaryWeaponItem _magazine;
 
-    _unit linkItem (selectRandom (A3A_faction_reb get "compasses"));
-	_unit linkItem (selectRandom (A3A_faction_reb get "maps"));
-	_unit linkItem (selectRandom (A3A_faction_reb get "watches"));
-	if (haveRadio) then {_unit linkItem (selectRandom (A3A_faction_reb get "radios"))};
+            if ("Disposable" in (_weapon call A3A_fnc_equipmentClassToCategories)) exitWith {};
+            private _magWeight = 20 max getNumber (configFile / "CfgMagazines" / _magazine / "mass");
+            _unit addMagazines [_magazine, round (random 0.5 + 100 / _magWeight)];
 
-	if (( _unit getVariable "unitType") isEqualTo FactionGet(reb,"unitExp")) then {
-		_unit enableAIFeature ["MINEDETECTION", true]; //This should prevent them from Stepping on the Mines as an "Expert" (It helps, they still step on them)
-	};
-};
-
-private _fnc_addSecondaryAndMags = {
-    params ["_unit", "_weapon", "_totalMagWeight"];
-
-    _unit addWeapon _weapon;
-    private _magazine = compatibleMagazines _weapon select 0;
-    _unit addSecondaryWeaponItem _magazine;
-
-    if ("Disposable" in (_weapon call A3A_fnc_equipmentClassToCategories)) exitWith {};
-    private _magWeight = 20 max getNumber (configFile / "CfgMagazines" / _magazine / "mass");
-    _unit addMagazines [_magazine, round (random 0.5 + _totalMagWeight / _magWeight)];
-
-    private _compatOptics = A3A_rebelOpticsCache get _weapon;
-    if (isNil "_compatOptics") then {
-        private _compatItems = compatibleItems _weapon; // cached, should be fast
-        _compatOptics = _compatItems arrayIntersect (A3A_rebelGear get "OpticsAll");
-        A3A_rebelOpticsCache set [_weapon, _compatOptics];
-    };
-    if (_compatOptics isNotEqualTo []) then { _unit addSecondaryWeaponItem (selectRandom _compatOptics) };
+            private _compatOptics = A3A_rebelOpticsCache get _weapon;
+            if (isNil "_compatOptics") then {
+                private _compatItems = compatibleItems _weapon; // cached, should be fast
+                _compatOptics = _compatItems arrayIntersect (A3A_rebelGear get "OpticsAll");
+                A3A_rebelOpticsCache set [_weapon, _compatOptics];
+            };
+            if (_compatOptics isNotEqualTo []) then { _unit addSecondaryWeaponItem (selectRandom _compatOptics) };
+        };
+    };    
 };
 
 private _fnc_addCharges = {
@@ -95,6 +93,16 @@ private _fnc_addRadio = {
     
     private _radio = selectRandomWeighted (A3A_rebelGear get "Radios");
     if (!isNil "_radio") then {_unit linkItem _radio};
+};
+
+private _fnc_addFacewear = {
+    params ["_unit"];
+
+    private _goggles = goggles _unit;
+    if (goggles _unit != _goggles && {randomizeRebelLoadoutUniforms}) then {
+        removeGoggles _unit;
+        _unit addGoggles _goggles;
+    };
 };
 
 private _fnc_addHeadgear = {
@@ -131,32 +139,12 @@ private _fnc_addGrenades = {
     } forEach _types;
 };
 
-private _fnc_addPrimaryAndMisc = {
+private _fnc_addPrimary = {
     params ["_unit"];
 
     switch (true) do {
         case (_unitType isEqualTo FactionGet(reb,"unitSniper")): {
             [_unit, "SniperRifles", 50] call A3A_fnc_randomRifle;
-        };
-        case (_unitType isEqualTo FactionGet(reb,"unitRifle")): {
-            [_unit, "Rifles", 70] call A3A_fnc_randomRifle;
-            [_unit, "Grenades", 2] call _fnc_addGrenades;
-            [_unit, "SmokeGrenades", 1] call _fnc_addGrenades;
-
-            // increase likelihood of rifleman getting a disposable launcher by war level (10% chance * war level)
-            if (random 10 < (tierWar / 2)) then {
-                private _rlaunchers = A3A_rebelGear get "RocketLaunchers";
-                private _launcherPool = [];
-                
-                {
-                    private _categories = _x call A3A_fnc_equipmentClassToCategories;
-
-                    if ("Disposable" in _categories) then {_launcherPool append [_x, _rlaunchers select (_rlaunchers find _x) + 1 ]};
-                } forEach (_rlaunchers select {_x isEqualType ""});
-
-                private _launcher = selectRandomWeighted _launcherPool;
-                if !(isNil "_launcher") then { [_unit, _launcher, 100] call _fnc_addSecondaryAndMags };
-            };
         };
         case (_unitType isEqualTo FactionGet(reb,"unitMG")): {
             [_unit, "MachineGuns", 150] call A3A_fnc_randomRifle;
@@ -164,9 +152,39 @@ private _fnc_addPrimaryAndMisc = {
         case (_unitType isEqualTo FactionGet(reb,"unitGL")): {
             [_unit, "GrenadeLaunchers", 50] call A3A_fnc_randomRifle;
         };
+        case (_unitType isEqualTo FactionGet(reb,"unitLAT"));
+        case (_unitType isEqualTo FactionGet(reb,"unitAT"));
+        case (_unitType isEqualTo FactionGet(reb,"unitAA"));
         case (_unitType isEqualTo FactionGet(reb,"unitExp")): {
             [_unit, "Rifles", 40] call A3A_fnc_randomRifle;
+        };
+        case (_unitType isEqualTo FactionGet(reb,"unitEng"));
+        case (_unitType isEqualTo FactionGet(reb,"unitSL"));
+        case (_unitType isEqualTo FactionGet(reb,"unitCrew")): {
+            [_unit, "Rifles", 50] call A3A_fnc_randomRifle;
+        };
+        case (_unitType isEqualTo FactionGet(reb,"unitRifle")): {
+            [_unit, "Rifles", 70] call A3A_fnc_randomRifle;
+        };
+        case (_unitType isEqualTo FactionGet(reb,"unitMedic")): {
+            [_unit, "SMGs", 40] call A3A_fnc_randomRifle;
+        };
+        default {
+            [_unit, "SMGs", 50] call A3A_fnc_randomRifle;
+            Error_1("Unknown unit class: %1", _unitType);
+        };
+    };
+};
 
+private _fnc_addClassEquip = {
+    params ["_unit"];
+
+    switch (true) do {
+        case (_unitType isEqualTo FactionGet(reb,"unitRifle")): {
+            [_unit, "Grenades", 2] call _fnc_addGrenades;
+            [_unit, "SmokeGrenades", 1] call _fnc_addGrenades;
+        };
+        case (_unitType isEqualTo FactionGet(reb,"unitExp")): {
             _unit enableAIFeature ["MINEDETECTION", true]; //This should prevent them from Stepping on the Mines as an "Expert" (It helps, they still step on them)
 
             private _mineDetector = selectRandomWeighted (A3A_rebelGear get "MineDetectors");
@@ -178,16 +196,13 @@ private _fnc_addPrimaryAndMisc = {
             [_unit, 50] call _fnc_addCharges;
         };
         case (_unitType isEqualTo FactionGet(reb,"unitEng")): {
-            [_unit, "Rifles", 50] call A3A_fnc_randomRifle;
-
             private _toolkit = selectRandomWeighted (A3A_rebelGear get "Toolkits");
             if !(isNil "_toolkit") then { _unit addItem _toolkit };
 
             [_unit, 50] call _fnc_addCharges;
         };
         case (_unitType isEqualTo FactionGet(reb,"unitMedic")): {
-            [_unit, "SMGs", 40] call A3A_fnc_randomRifle;
-            if (_smokes isNotEqualTo []) then { _unit addMagazines [selectRandomWeighted _smokes, 2] };
+            [_unit, "SmokeGrenades", 2] call _fnc_addGrenades;
 
             // not-so-temporary hack
             private _medItems = [];
@@ -201,33 +216,10 @@ private _fnc_addPrimaryAndMisc = {
                 _unit addItemToBackpack _x;
             } forEach _medItems;
         };
-        case (_unitType isEqualTo FactionGet(reb,"unitLAT")): {
-            [_unit, "Rifles", 40] call A3A_fnc_randomRifle;
-
-            private _launcher = selectRandomWeighted (A3A_rebelGear get "RocketLaunchers");
-            if !(isNil "_launcher") then { [_unit, _launcher, 100] call _fnc_addSecondaryAndMags };
-        };
-        case (_unitType isEqualTo FactionGet(reb,"unitAT")): {
-            [_unit, "Rifles", 40] call A3A_fnc_randomRifle;
-
-            private _launcher = selectRandomWeighted (A3A_rebelGear get "MissileLaunchersAT");
-            if !(isNil "_launcher") then { [_unit, _launcher, 100] call _fnc_addSecondaryAndMags };
-        };
-        case (_unitType isEqualTo FactionGet(reb,"unitAA")): {
-            [_unit, "Rifles", 40] call A3A_fnc_randomRifle;
-
-            private _launcher = selectRandomWeighted (A3A_rebelGear get "MissileLaunchersAA");
-            if !(isNil "_launcher") then { [_unit, _launcher, 100] call _fnc_addSecondaryAndMags };
-        };
         case (_unitType isEqualTo FactionGet(reb,"unitSL")): {
-            [_unit, "Rifles", 50] call A3A_fnc_randomRifle;
-            if (_smokes isNotEqualTo []) then { _unit addMagazines [selectRandomWeighted _smokes, 2] };
-        };
-        case (_unitType isEqualTo FactionGet(reb,"unitCrew")): {
-            [_unit, "Rifles", 50] call A3A_fnc_randomRifle;
+            [_unit, "SmokeGrenades", 2] call _fnc_addGrenades;
         };
         default {
-            [_unit, "SMGs", 50] call A3A_fnc_randomRifle;
             Error_1("Unknown unit class: %1", _unitType);
         };
     };
@@ -253,13 +245,52 @@ private _fnc_addNightEquip = {
     };
 };
 
-_unit call _fnc_addRadio;
-_unit call _fnc_addHeadgear;
-_unit call _fnc_addVest;
-_unit call _fnc_addBackpack;
-_unit call _fnc_addGrenades;
-_unit call _fnc_addPrimaryAndMisc;
-_unit call _fnc_addNightEquip;
+if (!isNil "_customLoadout") then {
+    // * remove invalid loadout entries before applying the loadout to the unit
+    private _tempLoadout = _customLoadout;
+    if ("petros_knows_best" in flatten _tempLoadout) then {
+        {
+            if (_x isEqualTo "petros_knows_best") then {_tempLoadout set [_forEachIndex, ""]};
+        } forEach _tempLoadout;
+    };
+    _unit setUnitLoadout _tempLoadout;
+    
+    private _addToLoadout = [
+        "_unit call _fnc_addPrimary;",
+        "_unit call _fnc_addSecondary;",
+        "// handguns", // * not implemented
+        "_unit forceAddUniform (selectRandom (A3A_faction_reb get 'uniforms')); {_unit addItemToUniform _x} forEach (uniformItems _unit);",
+        "_unit call _fnc_addVest; {_unit addItemToVest _x} forEach (vestItems _unit);",
+        "_unit call _fnc_addBackpack; {_unit addItemToBackpack _x} forEach (backpackItems _unit);",
+        "_unit call _fnc_addHeadgear;",
+        "_unit call _fnc_addFacewear;"
+    ];
+
+    {
+        if (_x select 0 == "petros_knows_best") then { call compile preprocessFileLineNumbers (_addToLoadout select _forEachIndex); };
+    } forEach (_customLoadout select [0,6]);
+
+    {
+        if (_x == "petros_knows_best") then { call compile preprocessFileLineNumbers (_addToLoadout select _forEachIndex) };
+    } forEach (_customLoadout select [6,2]);
+
+    _unit call _fnc_addClassEquip;
+    _unit call _fnc_addNightEquip;
+    _unit linkItem (selectRandom (A3A_faction_reb get "compasses"));
+	_unit linkItem (selectRandom (A3A_faction_reb get "maps"));
+	_unit linkItem (selectRandom (A3A_faction_reb get "watches"));
+	if (haveRadio) then {_unit linkItem (selectRandom (A3A_faction_reb get "radios"))};
+} else {
+    _unit call _fnc_addPrimary;
+    _unit call _fnc_addSecondary;
+    _unit call _fnc_addVest;
+    _unit call _fnc_addBackpack;
+    _unit call _fnc_addHeadgear;
+    _unit call _fnc_addRadio; 
+    _unit call _fnc_addGrenades;
+    _unit call _fnc_addClassEquip;
+    _unit call _fnc_addNightEquip; 
+};
 
 // remove backpack if empty, otherwise squad troops will throw it on the ground
 if (backpackItems _unit isEqualTo []) then { removeBackpack _unit };
