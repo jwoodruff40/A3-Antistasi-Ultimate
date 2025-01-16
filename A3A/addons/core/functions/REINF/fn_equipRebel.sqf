@@ -267,11 +267,11 @@ if (!isNil "_customLoadout") then {
     ];
 
     {
-        if (_x select 0 == "petros_knows_best") then { call compile preprocessFileLineNumbers (_addToLoadout select _forEachIndex); };
+        if (_x select 0 == "petros_knows_best") then { call compile (_addToLoadout select _forEachIndex); };
     } forEach (_customLoadout select [0,6]);
 
     {
-        if (_x == "petros_knows_best") then { call compile preprocessFileLineNumbers (_addToLoadout select _forEachIndex) };
+        if (_x == "petros_knows_best") then { call compile (_addToLoadout select _forEachIndex) };
     } forEach (_customLoadout select [6,2]);
 
     _unit call _fnc_addClassEquip;
