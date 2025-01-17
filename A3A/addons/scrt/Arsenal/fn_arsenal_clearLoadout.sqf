@@ -11,6 +11,7 @@ if (isNil "_loadout") exitWith {
 };
 
 rebelLoadouts deleteAt _loadoutKey;
+rebelLoadoutOverrides deleteAt _loadoutKey;
 publicVariable "rebelLoadouts";
 
 private _display = findDisplay 120000;

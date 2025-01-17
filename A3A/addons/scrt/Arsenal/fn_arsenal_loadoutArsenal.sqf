@@ -601,8 +601,8 @@ switch _mode do {
             private _displayName = _data select 2;
 
             //If it's the description string, then make sure it's first.
-            if (_item == "") then {
-              _amount = -100;
+            if (_item in ["", "petros_knows_best"]) then {
+              _amount = _amount -100;
             };
 
             _ctrlList lbSetValue [_i, _amount];
@@ -1164,7 +1164,7 @@ switch _mode do {
 		}else{
 			lbclear _ctrlList;
 
-			// add empty
+			// add empty item (deliberately choose nothing for this type) and any item ("randomly" (weighted) select an item)
 			if!(
 			_index in [
 				IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG,
@@ -1175,7 +1175,8 @@ switch _mode do {
 			])then{
 
 				//add empty
-				_emptyString =  ("            Qty:    Name:          <Empty>");
+				_anyItemString = ("       Any item (Petros Knows Best)       ");
+				_emptyItemString = ("            Qty:    Name:          <Empty>");
 				if(
 					_index in [
 						IDC_RSCDISPLAYARSENAL_TAB_PRIMARYWEAPON,
@@ -1183,11 +1184,15 @@ switch _mode do {
 						IDC_RSCDISPLAYARSENAL_TAB_HANDGUN
 					]
 				)then{
-					_emptyString = ("           ") + _emptyString; //little longer for bigger icons
+					_emptyItemString = ("           ") + _emptyItemString; //little longer for bigger icons
+					_anyItemString = ("           ") + _anyItemString; //little longer for bigger icons
 				};
-				_lbAdd = _ctrlList lbadd _emptyString;
-				_data = str ["",0,""];
-				_ctrlList lbsetdata [_lbAdd,_data];
+				_lbAddAny = _ctrlList lbAdd _anyItemString;
+				_lbAddEmpty = _ctrlList lbAdd _emptyItemString;
+				_anyItemData = str ["petros_knows_best",0,""];
+				_emptyItemData = str ["",0,""];
+				_ctrlList lbSetData [_lbAddEmpty, _emptyItemData];
+				_ctrlList lbSetData [_lbAddAny, _anyItemData];
 			};
 		};
 
@@ -1237,7 +1242,7 @@ switch _mode do {
 		if (typeName _display == "STRING") exitWith {};
 		if(str _display isEqualTo "No display")exitWith{};
 
-		if(_item isEqualTo "")exitWith{};
+		if(_item in ["", "petros_knows_best"])exitWith{};
 
 		if(_index == IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL)then{
 			if (ctrlEnabled (_display displayctrl (IDC_RSCDISPLAYARSENAL_LIST + IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG)))then{
@@ -1294,7 +1299,7 @@ switch _mode do {
 
 		if (typeName _display == "STRING") exitWith {};
 		if(str _display isEqualTo "No display")exitWith{};
-		if(_item isEqualTo "")exitWith{};
+		if(_item in ["", "petros_knows_best"])exitWith{};
 
 		if(_index == IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL)then{
 			if (ctrlEnabled (_display displayctrl (IDC_RSCDISPLAYARSENAL_LIST + IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG)))then{
@@ -1357,7 +1362,7 @@ switch _mode do {
 		private _display = _this select 0;
 		private _ctrlList = _this select 1;
 		private _index = _this select 2;
-		private _item = _this select 3;			if(_item isEqualTo "")exitWith{};
+		private _item = _this select 3;			if(_item in ["", "petros_knows_best"])exitWith{};
 		private _amount = _this select 4;
 
 		private _xCfg = switch _index do {
@@ -1434,7 +1439,7 @@ switch _mode do {
 					default {""};
 				};
 				_compatibleItems = compatibleItems _weapon;
-				if not (({_x == _item} count _compatibleItems > 0) || _item isequalto "")exitwith{
+				if not (({_x == _item} count _compatibleItems > 0) || _item in ["", "petros_knows_best"])exitwith{
 					_ctrlList lbSetColor [_lbAdd, [1,1,1,0.25]];
 				};
 				_xCfg call ADDMODICON;
@@ -1461,7 +1466,7 @@ switch _mode do {
 
 
 		//skip empty
-		if(_item isEqualTo "")exitWith{};
+		if(_item in ["", "petros_knows_best"])exitWith{};
 
 		//update name with counters and ammocounters (need to be done after sorting)
 		//TODO change to define
@@ -1513,7 +1518,7 @@ switch _mode do {
 			};
 			_compatibleItems = compatibleItems _weapon;
 
-			!({_x == _item} count _compatibleItems > 0 || _item isEqualTo "")
+			!({_x == _item} count _compatibleItems > 0 || _item in ["", "petros_knows_best"])
 		} else {
 			false
 		};
@@ -1704,6 +1709,7 @@ switch _mode do {
 		private _amount = _data select 1;
 		private _displayName = _data select 2;
 
+		private _overrideLoadout = rebelLoadoutOverrides getOrDefault [currentRebelLoadout, ["","","","","","","",""], true];
 		private _oldItem = "";
 
 		private _ctrlListPrimaryWeapon = _display displayctrl (IDC_RSCDISPLAYARSENAL_LIST + IDC_RSCDISPLAYARSENAL_TAB_PRIMARYWEAPON);
@@ -1711,7 +1717,7 @@ switch _mode do {
 		private _ctrlListHandgun = _display displayctrl (IDC_RSCDISPLAYARSENAL_LIST + IDC_RSCDISPLAYARSENAL_TAB_HANDGUN);
 
 		// Prevent equipping item when there aren't any left
-		if (_amount == 0 and _item != "") exitWith{
+		if (_amount == 0 and {!(_item in ["", "petros_knows_best"])}) exitWith{
 			if(missionnamespace getvariable ["jna_reselect_item",true])then{//prefent loop when unavalable item was worn and a other unavalable item was selected
 				missionnamespace setvariable ["jna_reselect_item",false];
 				["ListSelectCurrent",[_display,_index]] call SCRT_fnc_arsenal_loadoutArsenal;
@@ -1721,7 +1727,7 @@ switch _mode do {
 
 		//check if weapon is unlocked
 		private _min = [_index, _item] call _minItemsMember;
-		if ((_amount <= _min) && {_amount != -1 AND {_item !="" && {!_type}}}) exitWith {
+		if ((_amount <= _min) && {_amount != -1 AND {!(_item in ["", "petros_knows_best"]) && {!_type}}}) exitWith {
 			['showMessage',[_display, (localize "STR_antistasi_dialogs_hq_button_rebel_set_loadout_unlocked_items")]] call SCRT_fnc_arsenal_loadoutArsenal;
 
 			//reset _cursel
@@ -1774,8 +1780,12 @@ switch _mode do {
 
 					[_index, _oldItem] call jn_fnc_arsenal_addItem;
 
-					if (_item != "") then{
+					if (_item == "") exitWith {};
+					if (_item == "petros_knows_best") then {
+						_overrideLoadout set [_index, _item];
+					} else {
 						switch _index do{
+							_overrideLoadout set [_index, ""];
 							case IDC_RSCDISPLAYARSENAL_TAB_UNIFORM:{
 								player forceaddUniform _item;
 							};
@@ -1853,7 +1863,11 @@ switch _mode do {
 				if (_oldItem != _item) then {
 					removeheadgear player;
 					[_index, _oldItem] call jn_fnc_arsenal_addItem;
-					if (_item != "") then{
+					if (_item == "") exitWith {};
+					if (_item == "petros_knows_best") then {
+						_overrideLoadout set [_index, _item];
+					} else {
+						_overrideLoadout set [_index, ""];
 						player addheadgear _item;
 						[_index, _item]call jn_fnc_arsenal_removeItem;
 					};
@@ -1866,7 +1880,11 @@ switch _mode do {
 				if (_oldItem != _item) then {
 					removeGoggles player;
 					[_index, _oldItem] call jn_fnc_arsenal_addItem;
-					if (_item != "") then{
+					if (_item == "") exitWith {};
+					if (_item == "petros_knows_best") then {
+						_overrideLoadout set [_index, _item];
+					} else {
+						_overrideLoadout set [_index, ""];
 						player addGoggles _item;
 						[_index, _item]call jn_fnc_arsenal_removeItem;
 					};
@@ -1938,7 +1956,11 @@ switch _mode do {
 					[_index, _oldItem] call jn_fnc_arsenal_addItem;
 
 					//add new weapon
-					if (_item != "") then {
+					if (_item == "") exitWith {};
+					if (_item == "petros_knows_best") then {
+						_overrideLoadout set [_index, _item];
+					} else {
+						_overrideLoadout set [_index, ""];
 						//give player new weapon
 						[player,_item,0] call bis_fnc_addweapon;
 						[_index, _item]call jn_fnc_arsenal_removeItem;
@@ -2091,7 +2113,7 @@ switch _mode do {
 
 				//prevent selecting grey items, needs to be this complicated because bis_fnc_compatibleItems returns some crap resolts like optic_aco instead of Optic_Aco
 				_compatibleItems = compatibleItems _weapon;
-				if not (({_x == _item} count _compatibleItems > 0) || _item isequalto "")exitwith{
+				if not (({_x == _item} count _compatibleItems > 0) || _item in ["", "petros_knows_best"])exitwith{
 					['TabSelectRight',[_display,_index]] call SCRT_fnc_arsenal_loadoutArsenal;
 				};
 
@@ -2617,7 +2639,7 @@ switch _mode do {
 			_ctrlTab = _display displayctrl(IDC_RSCDISPLAYARSENAL_TAB + _index);
 
 			//check if some item was selected
-			if(_item isEqualTo "")then{
+			if(_item in ["", "petros_knows_best"])then{
 				_ctrlTab ctrlSetTextColor [1,0.3,0.3,1];
 			}else{
 				_ctrlTab ctrlSetTextColor [1,1,1,1];

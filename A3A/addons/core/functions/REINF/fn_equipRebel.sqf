@@ -27,6 +27,7 @@ call A3A_fnc_fetchRebelGear;        // Send current version of rebelGear from se
 // TODO: add types unitAA and unitAT(name?) when UI is ready
 private _unitType = if (_forceClass != "") then {_forceClass} else {_unit getVariable "unitType"};
 private _customLoadout = rebelLoadouts get _unitType;
+private _overrideLoadout = rebelLoadoutOverrides get _unitType;
 
 private _fnc_addSecondary = {
     params ["_unit"];
@@ -246,14 +247,7 @@ private _fnc_addNightEquip = {
 };
 
 if (!isNil "_customLoadout") then {
-    // * remove invalid loadout entries before applying the loadout to the unit
-    private _tempLoadout = _customLoadout;
-    if ("petros_knows_best" in flatten _tempLoadout) then {
-        {
-            if (_x isEqualTo "petros_knows_best") then {_tempLoadout set [_forEachIndex, ""]};
-        } forEach _tempLoadout;
-    };
-    _unit setUnitLoadout _tempLoadout;
+    _unit setUnitLoadout _customLoadout;
     
     private _addToLoadout = [
         "_unit call _fnc_addPrimary;",
@@ -267,12 +261,8 @@ if (!isNil "_customLoadout") then {
     ];
 
     {
-        if (_x select 0 == "petros_knows_best") then { call compile (_addToLoadout select _forEachIndex); };
-    } forEach (_customLoadout select [0,6]);
-
-    {
         if (_x == "petros_knows_best") then { call compile (_addToLoadout select _forEachIndex) };
-    } forEach (_customLoadout select [6,2]);
+    } forEach (_overrideLoadout select [0,8]);
 
     _unit call _fnc_addClassEquip;
     _unit call _fnc_addNightEquip;

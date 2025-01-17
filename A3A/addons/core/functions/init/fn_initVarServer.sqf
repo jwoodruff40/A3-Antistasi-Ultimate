@@ -99,6 +99,8 @@ DECLARE_SERVER_VAR(A3A_unbuiltObjects, []);
 DECLARE_SERVER_VAR(randomizeRebelLoadoutUniforms, true);
 //Stores  custom AI rebel loadouts.
 DECLARE_SERVER_VAR(rebelLoadouts, createHashMap);
+//Stores  custom AI rebel loadout overrides.
+DECLARE_SERVER_VAR(rebelLoadoutOverrides, createHashMap);
 //Players who attend in parachute jumps
 DECLARE_SERVER_VAR(paradropAttendants, []);
 //Trader discount.
