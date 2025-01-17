@@ -94,8 +94,8 @@ private _sharedConfig = [
 	"voices"
 ];
 {
-	if (_x in _sharedConfig) then { _convFaction set [_x, _faction get _y, true] };
-} forEach _faction;
+	if (_x in _sharedConfig) then { _convFaction set [_x, _faction get _x, true] };
+} forEach (keys _faction);
 
 
 // * convert highest enemy faction tier loadouts to rebel faction loadouts
