@@ -1164,6 +1164,62 @@ switch _mode do {
 		}else{
 			lbclear _ctrlList;
 
+			// * Filter primary and secondary weapons available according to unit type / class
+			if (_index == IDC_RSCDISPLAYARSENAL_TAB_PRIMARYWEAPON) then {
+				private _loadoutName = currentRebelLoadout call SCRT_fnc_misc_getLoadoutName;
+				_inventory = switch (_loadoutName) do {
+					case ("MACHINEGUNNER"): {
+						_inventory select { "MachineGuns" in (_x call A3A_fnc_equipmentClassToCategories)} ;
+					};
+					case ("STATICCREW");
+					case ("MEDIC"): {
+						_inventory select { "SMGs" in (_x call A3A_fnc_equipmentClassToCategories) };
+					};
+					case ("GRENADIER"): {
+						_inventory select { "GrenadeLaunchers" in (_x call A3A_fnc_equipmentClassToCategories) };
+					};
+					case ("SNIPER"): {
+						_inventory select { "SniperRifles" in (_x call A3A_fnc_equipmentClassToCategories) };
+					};
+					default {
+						_inventory select {
+							private _categories = _x call A3A_fnc_equipmentClassToCategories;
+							(["GrenadeLaunchers", "MachineGuns", "SniperRifles"] arrayIntersect _categories) isEqualTo [];
+						};
+					};
+				};
+			};
+
+			if (_index == IDC_RSCDISPLAYARSENAL_TAB_SECONDARYWEAPON) then {
+				private _loadoutName = currentRebelLoadout call SCRT_fnc_misc_getLoadoutName;
+				_inventory = switch (_loadoutName) do {
+					case ("RIFLEMAN"): {
+						_inventory select {
+							private _categories = _x call A3A_fnc_equipmentClassToCategories;
+							"RocketLaunchers" in _categories && {"Disposable" in _categories}
+						};
+					};
+					case ("LAT"): {
+						_inventory select { "RocketLaunchers" in (_x call A3A_fnc_equipmentClassToCategories) };
+					};
+					case ("AT"): {
+						_inventory select {
+							private _categories = _x call A3A_fnc_equipmentClassToCategories;
+							"MissileLaunchers" in _categories && {"AT" in _categories}
+						};
+					};
+					case ("AA"): {
+						_inventory select {
+							private _categories = _x call A3A_fnc_equipmentClassToCategories;
+							"MissileLaunchers" in _categories && {"AA" in _categories}
+						};
+					};
+					default {
+						[];
+					};
+				};
+			};
+
 			// add empty item (deliberately choose nothing for this type) and any item ("randomly" (weighted) select an item)
 			if!(
 			_index in [
