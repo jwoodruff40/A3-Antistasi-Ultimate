@@ -2820,11 +2820,7 @@ switch _mode do {
 
 		private _loadout = rebelLoadouts get currentRebelLoadout;
 
-		if (isNil "_loadout") then {
-			[player, 0, currentRebelLoadout] call A3A_fnc_equipRebel;
-		} else {
-			player setUnitLoadout _loadout;
-		};
+		[player, 0, currentRebelLoadout] call A3A_fnc_equipRebel;
 	};
 
 	case "Close": {
