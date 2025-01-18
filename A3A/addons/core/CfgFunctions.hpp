@@ -73,6 +73,7 @@ class CfgFunctions
         class Ammunition {
             file = QPATHTOFOLDER(functions\Ammunition);
             class ACEpvpReDress {};
+            class addPrimaryAndMags {};
             class allMagazines {};
             class ammunitionTransfer {};
             class arsenalManage {};
