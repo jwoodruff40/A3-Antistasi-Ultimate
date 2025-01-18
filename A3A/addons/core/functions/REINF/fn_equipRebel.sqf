@@ -128,7 +128,7 @@ private _fnc_addBackpack = {
 private _fnc_addGrenades = {
     params ["_unit", ["_gType", ""], ["_gAmount", 1]];
 
-    private _types = [[_gType], ["SmokeGrenades", "Grenades"]] select (isNil _gType);
+    private _types = [[_gType], ["SmokeGrenades", "Grenades"]] select (_gType == "");
 
     {
         private _grenades = A3A_rebelGear get _x;
@@ -259,44 +259,65 @@ private _fnc_addNightEquip = {
     };
 };
 
+private _fnc_addUniform = {
+    params ["_unit"];
+
+    _unit forceAddUniform (selectRandom (A3A_faction_reb get 'uniforms'));
+
+    private _uniform = uniformContainer _unit;
+
+    switch (_typeTag) do {
+        case ("Rifleman");
+        case ("Engineer");
+        case ("Grenadier");
+        case ("SquadLeader"): {
+            { _uniform addItemCargo _x; } forEach ((["STANDARD", independent] call A3A_fnc_itemset_medicalSupplies) + ([] call A3A_fnc_itemset_miscEssentials));
+        };
+        /* ! Handled in _fnc_addClasEquip
+        case ("Medic"): {
+            { _uniform addItemCargo _x; } forEach ((["MEDIC", independent] call A3A_fnc_itemset_medicalSupplies) + ([] call A3A_fnc_itemset_miscEssentials));
+        };
+        */
+        default {
+            { _uniform addItemCargo _x; } forEach ((["MINIMAL", independent] call A3A_fnc_itemset_medicalSupplies) + ([] call A3A_fnc_itemset_miscEssentials));
+        };
+    };
+};
+
+private _addToLoadout = [
+    "_unit call _fnc_addPrimary;",
+    "_unit call _fnc_addSecondary;",
+    "hint 'handguns not implemented'",
+    "_unit call _fnc_addUniform;",
+    "_unit call _fnc_addVest;",
+    "_unit call _fnc_addBackpack;",
+    "_unit call _fnc_addHeadgear;",
+    "_unit call _fnc_addFacewear;"
+];
+
 if (!isNil "_customLoadout") then {
+    // * Apply the loadout, then override it
     _unit setUnitLoadout _customLoadout;
     
-    // * If unit loadout does not override a given category, use the same functions as when "randomizing" 
-    private _addToLoadout = [
-        "_unit call _fnc_addPrimary;",
-        "_unit call _fnc_addSecondary;",
-        "hint 'handguns not implemented'",
-        "_unit forceAddUniform (selectRandom (A3A_faction_reb get 'uniforms')); {_unit addItemToUniform _x} forEach (uniformItems _unit);",
-        "_unit call _fnc_addVest; {_unit addItemToVest _x} forEach (vestItems _unit);",
-        "_unit call _fnc_addBackpack; {_unit addItemToBackpack _x} forEach (backpackItems _unit);",
-        "_unit call _fnc_addHeadgear;",
-        "_unit call _fnc_addFacewear;"
-    ];
+    // * Don't cheese allowing launchers with rifleman. If rifleman and launcher added to loadout, still subject to chance whether rifleman will equip it. LAT / AT / AA is guaranteed.
+    if (_typeTag == "Rifleman" && {random 20 > tierWar}) then {
+        _unit removeWeapon (secondaryWeapon _unit)
+    };
 
+    // * If unit loadout does not override a given category, use the same functions as when "randomizing" 
     {
         if (_x == "petros_knows_best") then { call compile (_addToLoadout select _forEachIndex) };
     } forEach (_overrideLoadout select [0,8]);
-
-    _unit call _fnc_addClassEquip;
-    _unit call _fnc_addNightEquip;
-    _unit linkItem (selectRandom (A3A_faction_reb get "compasses"));
-	_unit linkItem (selectRandom (A3A_faction_reb get "maps"));
-	_unit linkItem (selectRandom (A3A_faction_reb get "watches"));
-	if (haveRadio) then {_unit linkItem (selectRandom (A3A_faction_reb get "radios"))};
 } else {
-    _unit call _fnc_addPrimary;
-    _unit call _fnc_addSecondary;
-    //_unit forceAddUniform (selectRandom (A3A_faction_reb get 'uniforms')); {_unit addItemToUniform _x} forEach (uniformItems _unit);
-    _unit call _fnc_addVest;
-    _unit call _fnc_addBackpack;
-    _unit call _fnc_addHeadgear;
-    _unit call _fnc_addFacewear;
-    _unit call _fnc_addRadio; 
-    _unit call _fnc_addGrenades;
-    _unit call _fnc_addClassEquip;
-    _unit call _fnc_addNightEquip; 
+    { call compile _x; } forEach _addToLoadout;
 };
+
+_unit call _fnc_addRadio;
+_unit call _fnc_addClassEquip;
+_unit call _fnc_addNightEquip;
+_unit linkItem (selectRandom (A3A_faction_reb get "compasses"));
+_unit linkItem (selectRandom (A3A_faction_reb get "maps"));
+_unit linkItem (selectRandom (A3A_faction_reb get "watches"));
 
 // remove backpack if empty, otherwise squad troops will throw it on the ground
 if (backpackItems _unit isEqualTo []) then { removeBackpack _unit };
