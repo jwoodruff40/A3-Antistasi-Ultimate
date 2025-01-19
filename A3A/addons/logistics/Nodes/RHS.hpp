@@ -791,6 +791,118 @@ class rhsusf_addons_rhsusf_hmmwv_rhsusf_m998_2dr : TRIPLES(ADDON,Nodes,Base)
     };
 };
 
+class rhsusf_addons_rhsusf_hmmwv_rhsusf_m998_4dr : TRIPLES(ADDON,Nodes,Base)
+{
+	canLoadWeapon = 0;
+    class Nodes
+    {
+        class Node1
+        {
+            offset[] = {0,-1.37,-0.91};
+			seats[] = {3,4};
+        };
+    };
+};
+
+class rhsusf_addons_rhsusf_hmmwv_rhsusf_m1025 : TRIPLES(ADDON,Nodes,Base)
+{
+	canLoadWeapon = 0;
+    class Nodes
+    {
+        class Node1
+        {
+            offset[] = {0,-1.4,-0.93};
+        };
+    };
+};
+class rhsusf_addons_rhsusf_hmmwv_rhsusf_m1025_mk19 : TRIPLES(ADDON,Nodes,Base)
+{
+	canLoadWeapon = 0;
+    class Nodes
+    {
+        class Node1
+        {
+            offset[] = {0,-1.4,-1.01};
+        };
+    };
+};
+class rhsusf_addons_rhsusf_hmmwv_rhsusf_m1025_m2 : TRIPLES(ADDON,Nodes,Base)
+{
+	canLoadWeapon = 0;
+    class Nodes
+    {
+        class Node1
+        {
+            offset[] = {0,-1.4,-1.2};
+        };
+    };
+};
+
+class rhsusf_addons_rhsusf_m11xx_rhsusf_m1151 : TRIPLES(ADDON,Nodes,Base)
+{
+	canLoadWeapon = 0;
+    class Nodes
+    {
+        class Node1
+        {
+            offset[] = {0,-1.3,-0.77};
+        };
+    };
+};
+class rhsusf_addons_rhsusf_m11xx_rhsusf_m1151_m2_v1 : TRIPLES(ADDON,Nodes,Base)
+{
+	canLoadWeapon = 0;
+    class Nodes
+    {
+        class Node1
+        {
+            offset[] = {0,-1.95,-0.77};
+        };
+    };
+};
+class rhsusf_addons_rhsusf_m11xx_rhsusf_m1151_mk19_v1 : rhsusf_addons_rhsusf_m11xx_rhsusf_m1151_m2_v1 {};
+class rhsusf_addons_rhsusf_m11xx_rhsusf_m1151_m240_v1 : rhsusf_addons_rhsusf_m11xx_rhsusf_m1151_m2_v1 {};
+class rhsusf_addons_rhsusf_m11xx_rhssaf_m1151_pkm_saf : TRIPLES(ADDON,Nodes,Base)
+{
+	canLoadWeapon = 0;
+    class Nodes
+    {
+        class Node1
+        {
+            offset[] = {0,-1.31,-0.68};
+        };
+    };
+};
+class rhsusf_addons_rhsusf_m11xx_rhsusf_m1151_m2_v2 : TRIPLES(ADDON,Nodes,Base)
+{
+	canLoadWeapon = 0;
+    class Nodes
+    {
+        class Node1
+        {
+            offset[] = {0,-1.95,-0.77};
+        };
+    };
+};
+class rhsusf_addons_rhsusf_m11xx_rhsusf_m1151_mk19_v2 : rhsusf_addons_rhsusf_m11xx_rhsusf_m1151_m2_v2 {};
+class rhsusf_addons_rhsusf_m11xx_rhsusf_m1151_m240_v2 : rhsusf_addons_rhsusf_m11xx_rhsusf_m1151_m2_v2 {};
+
+class rhsusf_addons_rhsusf_m11xx_rhsusf_m1152 : TRIPLES(ADDON,Nodes,Base)
+{
+	canLoadWeapon = 0;
+    class Nodes
+    {
+        class Node1
+        {
+            offset[] = {0,-0.5,-0.75};
+        };
+        class Node2
+        {
+            offset[] = {0,-1.3,-0.75};
+        };
+    };
+};
+
 class rhsgref_addons_rhsgref_a2port_armor_brdm2_BRDM2_HQ_p3d : TRIPLES(ADDON,Nodes,Base)
 {
     class Nodes
@@ -819,3 +931,4 @@ class rhsafrf_addons_rhs_a2port_car_UAZ_UAZ_p3d : TRIPLES(ADDON,Nodes,Base)
         };
     };
 };
+class rhsafrf_addons_rhs_a2port_car_UAZ_UAZ_open_p3d : rhsafrf_addons_rhs_a2port_car_UAZ_UAZ_p3d {};
