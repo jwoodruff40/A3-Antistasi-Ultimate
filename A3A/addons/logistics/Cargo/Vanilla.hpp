@@ -122,6 +122,12 @@ class A3_Props_F_Orange_Humanitarian_Supplies_PaperBox_01_open_boxes_F_p3d : TRI
     size = 2;
 };
 
+class A3_Props_F_Orange_Humanitarian_Supplies_PaperBox_01_open_water_F_p3d : A3_Props_F_Orange_Humanitarian_Supplies_PaperBox_01_open_boxes_F_p3d {};
+
+class A3_Props_F_Orange_Humanitarian_Supplies_PaperBox_01_small_stacked_F_p3d : A3_Props_F_Orange_Humanitarian_Supplies_PaperBox_01_open_boxes_F_p3d {};
+
+class A3_Props_F_Orange_Humanitarian_Supplies_WaterBottle_01_stack_F_p3d : A3_Props_F_Orange_Humanitarian_Supplies_PaperBox_01_open_boxes_F_p3d {};
+
 class A3_Props_F_Orange_Humanitarian_Supplies_FoodSacks_01_cargonet_F_p3d : TRIPLES(ADDON,Cargo,Base)
 {
     offset[] = {0,0,0.51};
