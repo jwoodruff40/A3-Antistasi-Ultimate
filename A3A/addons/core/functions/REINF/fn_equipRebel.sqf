@@ -18,6 +18,7 @@ assigned items = [map, gps/uav term, radio, compass, watch, nvg]
 */
 
 #include "..\..\script_component.hpp"
+#include "\A3\Ui_f\hpp\defineResinclDesign.inc"
 FIX_LINE_NUMBERS()
 
 params ["_unit", "_recruitType", ["_forceClass", ""]];
@@ -53,8 +54,12 @@ private _fnc_addSecondary = {
         private _weapon = selectRandomWeighted (_launcherPool get _typeTag);
 
         _unit addWeapon _weapon;
-        //private _magazine = (compatibleMagazines _weapon) arrayIntersect (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL) select 0;
-        private _magazine = compatibleMagazines _weapon select 0;
+        private _allMagazines = if (minWeaps > 0) then {
+            flatten ((jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL) select {_x select 1 == -1}) select {typeName _x == "STRING"}
+        } else {
+            flatten ((jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL) select {_x select 1 >= 10}) select {typeName _x == "STRING"} // * No unlocks ITEM_MIN is 10
+        };
+        private _magazine = selectRandom ((compatibleMagazines _weapon) arrayIntersect _allMagazines);
         _unit addSecondaryWeaponItem _magazine;
 
         if ("Disposable" in (_weapon call A3A_fnc_equipmentClassToCategories)) exitWith {};
