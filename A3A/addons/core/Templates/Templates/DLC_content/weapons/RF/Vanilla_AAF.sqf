@@ -1,3 +1,22 @@
+_psrlAttachments = ["", 2, "acc_pointer_IR", 1];
+
+(_loadoutData get "lightATLaunchers") append [
+    ["launch_PSRL1_digi_RF", "", _psrlAttachments, "", ["PSRL1_AT_RF","PSRL1_AT_RF","PSRL1_FRAG_RF"], [], ""], 4,
+    ["launch_PSRL1_digi_RF", "", _psrlAttachments, "", ["PSRL1_AT_RF","PSRL1_AT_RF","PSRL1_HE_RF"], [], ""], 2,
+
+    ["launch_PSRL1_PWS_digi_RF", "", _psrlAttachments, "", ["PSRL1_AT_RF","PSRL1_AT_RF","PSRL1_FRAG_RF"], [], ""], 2,
+    ["launch_PSRL1_PWS_digi_RF", "", _psrlAttachments, "", ["PSRL1_AT_RF","PSRL1_AT_RF","PSRL1_HE_RF"], [], ""], 1
+];
+
+//dedicated AT troops get the heavier AT rockets as well as more common PWS-equipped launchers
+(_loadoutData get "ATLaunchers") append [
+    ["launch_PSRL1_digi_RF", "",_psrlAttachments, "", ["PSRL1_HEAT_RF","PSRL1_HEAT_RF","PSRL1_AT_RF"], [], ""], 2,
+    ["launch_PSRL1_digi_RF", "",_psrlAttachments, "", ["PSRL1_HEAT_RF","PSRL1_AT_RF","PSRL1_HE_RF"], [], ""], 1,
+
+    ["launch_PSRL1_PWS_digi_RF", "", _psrlAttachments, "", ["PSRL1_HEAT_RF","PSRL1_HEAT_RF","PSRL1_AT_RF"], [], ""], 4,
+    ["launch_PSRL1_PWS_digi_RF", "", _psrlAttachments, "", ["PSRL1_HEAT_RF","PSRL1_AT_RF","PSRL1_HE_RF"], [], ""], 2
+];
+
 _sfSMGOptics append ["optic_VRCO_RF", 4];
 (_sfLoadoutData get "SMGs") append [
     ["SMG_01_black_RF","muzzle_snds_acp", "acc_flashlight_smg_01", _sfSMGOptics,["30Rnd_45ACP_Mag_SMG_01","30Rnd_45ACP_Mag_SMG_01","30Rnd_45ACP_Mag_SMG_01","30Rnd_45ACP_Mag_SMG_01_Tracer_Green"], [], ""], 1
@@ -43,6 +62,7 @@ _rfSFDeagleOptics = ["optic_VRCO_pistol_RF", 8, "optic_rds_RF", 2]; // Better th
     ["hgun_DEagle_classic_RF", "", "", _rfSFDeagleOptics, ["7Rnd_50AE_Mag_RF","7Rnd_50AE_Mag_RF","7Rnd_50AE_Mag_RF"], [], ""], 2,
     ["hgun_DEagle_copper_RF", "", "", _rfSFDeagleOptics, ["7Rnd_50AE_Mag_RF","7Rnd_50AE_Mag_RF","7Rnd_50AE_Mag_RF"], [], ""], 0.5,
     ["hgun_DEagle_bronze_RF", "", "", _rfSFDeagleOptics, ["7Rnd_50AE_Mag_RF","7Rnd_50AE_Mag_RF","7Rnd_50AE_Mag_RF"], [], ""], 1,
+    ["hgun_DEagle_camo_RF", "", "", _rfSFDeagleOptics, ["7Rnd_50AE_Mag_RF","7Rnd_50AE_Mag_RF","7Rnd_50AE_Mag_RF"], [], ""], 0.5,
     ["hgun_DEagle_gold_RF", "", "", _rfSFDeagleOptics, ["7Rnd_50AE_Mag_RF","7Rnd_50AE_Mag_RF","7Rnd_50AE_Mag_RF"], [], ""], 0.25
     // SpecOps use the Deagle enough where it appears as frequently as other sidearms.
 ];
@@ -55,7 +75,9 @@ _rfEliteGlockOptics = ["optic_MRD_tan_RF", 3, "", 1];
     ["hgun_DEagle_bronze_RF", "", "", _rfEliteDeagleOptics, ["7Rnd_50AE_Mag_RF","7Rnd_50AE_Mag_RF","7Rnd_50AE_Mag_RF"], [], ""], 0.1,
     ["hgun_DEagle_gold_RF", "", "", _rfEliteDeagleOptics, ["7Rnd_50AE_Mag_RF","7Rnd_50AE_Mag_RF","7Rnd_50AE_Mag_RF"], [], ""], 0.025,
     ["hgun_DEagle_classic_RF", "", "", _rfEliteDeagleOptics, ["7Rnd_50AE_Mag_RF","7Rnd_50AE_Mag_RF","7Rnd_50AE_Mag_RF"], [], ""], 0.25,
+    ["hgun_DEagle_camo_RF", "", "", _rfEliteDeagleOptics, ["7Rnd_50AE_Mag_RF","7Rnd_50AE_Mag_RF","7Rnd_50AE_Mag_RF"], [], ""], 0.1,
     ["hgun_DEagle_copper_RF", "", "", _rfEliteDeagleOptics, ["7Rnd_50AE_Mag_RF","7Rnd_50AE_Mag_RF","7Rnd_50AE_Mag_RF"], [], ""], 0.1
+    
     // Elites carry around the Deagle uncommonly, but enough where you should be able to consistently collect them.
 ];
 

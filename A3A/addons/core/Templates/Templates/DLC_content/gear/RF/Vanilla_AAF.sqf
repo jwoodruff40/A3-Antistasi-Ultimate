@@ -37,3 +37,10 @@
 	"U_C_HeliPilotCoveralls_Green_RF", 2.5
 ];
 
+//Gendarmerie vest w/holster only makes sense to add if Apex also enabled
+if (_hasApex) then {
+	(_policeLoadoutData get "vests") append [
+		"V_TacVest_gen_holster_RF", 4
+	];
+};
+
