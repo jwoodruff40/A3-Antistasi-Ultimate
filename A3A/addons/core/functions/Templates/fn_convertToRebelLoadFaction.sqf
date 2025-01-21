@@ -125,11 +125,50 @@ private _fnc_generateAndSaveUnitsToTemplate = {
 	// * Instead, use the call to this function to populate faction equipment into rebel initial equipment (weapons, mostly)
 	params ["_prefix", "_unitTemplates", "_loadoutData"];
 	private _ire = _dataStore getOrDefault ["initialRebelEquipment", [], true];
-	{
-		private _items = ((flatten _y) select {_x isEqualType ""}) select {_x != ""}; // remove empties
-		_items = _items arrayIntersect _items; // remove duplicates
-		_ire append _items;
-	} forEach _loadoutData;
+	// * We only want to run this once, so we only get the equipment from the highest tier (e.g. if we populate IRE from sfLoadoutData, we don't want to add equipment from eliteLoadoutData, etc)
+	if (_ire isEqualTo []) then {
+		{
+			private _items = ((flatten _y) select {_x isEqualType ""}) select {_x != ""}; // remove empties
+			_items = _items arrayIntersect _items; // remove duplicates
+
+			if (_x == "uniforms") then { dataStore set ["uniforms", _items]};
+			private _unlimitedItemTypes = [
+				"antiInfantryGrenades",
+				"smokeGrenades",
+				"sidearms",
+				"maps",
+				"watches",
+				"compasses",
+				"binoculars",
+				"items_medical_basic",
+				"items_medical_standard",
+				"items_medical_medic",
+				"items_miscEssentials",
+				"items_engineer_extras",
+				"items_marksman_extras"
+			];
+
+			if (_x in _unlimitedItemTypes) then {
+				_ire append _items;
+			} else {
+				{
+					private _categories = _x call A3A_fnc_equipmentClassToCategories;
+
+					switch true do {
+						case ("Weapons" in _categories): { _ire pushback [_x, [3 min minWeaps, 5] select (minWeaps < 0)] };
+						case ("Magazines" in _categories && {!("Explosives" in _categories)}): {
+							private _magCap = getNumber (configFile >> "CfgMagazines" >> _x >> "count");
+							_ire pushback [_x, [20*_magCap min minWeaps*_magCap, 25*_magCap] select (minWeaps < 0)];
+						};
+						case ("Explosives" in _categories): { _ire pushback [_x, [3 min minWeaps, 5] select (minWeaps < 0)] };
+						case ("Vests" in _categories && {!("ArmoredVests" in _categories)}): { _ire pushback _x };
+						case ("Backpacks" in _categories && {!("BackpacksCargo" in _categories)}): { _ire pushback _x };
+						default { _ire pushback [_x, [3 min minWeaps, 5] select (minWeaps < 0)] };
+					};
+				} forEach _items;
+			};
+		} forEach _loadoutData;
+	}
 };
 
 private _fnc_generateAndSaveRebelUnitsToTemplate = {
