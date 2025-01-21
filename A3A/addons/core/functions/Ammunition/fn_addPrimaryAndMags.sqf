@@ -33,22 +33,16 @@ if !(primaryWeapon _unit isEqualTo "") then {
 };
 
 private _categories = _weapon call A3A_fnc_equipmentClassToCategories;
-private _allMagazines = if (minWeaps > 0) then {
-    flatten ((jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL) select {_x select 1 == -1}) select {typeName _x == "STRING"}
-} else {
-    flatten ((jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL) select {_x select 1 >= 10}) select {typeName _x == "STRING"} // * No unlocks ITEM_MIN is 10
-};
-
 if ("GrenadeLaunchers" in _categories && {"Rifles" in _categories} ) then {
     // lookup real underbarrel GL magazine, because not everything is 40mm
     private _config = configFile >> "CfgWeapons" >> _weapon;
     private _glmuzzle = getArray (_config >> "muzzles") select 1;		// guaranteed by category
     _glmuzzle = configName (_config >> _glmuzzle);                      // bad-case fix. compatibleMagazines is case-sensitive as of 2.12
-    private _glmag = ((compatibleMagazines [_weapon, _glmuzzle]) arrayIntersect _allMagazines) select 0;
-    _unit addMagazines [_glmag, 5];
+    private _glmag = (A3A_rebelGear get "Magazines") getOrDefault [_glmuzzle, ""] select 0;
+    if (_glmag != "") then { _unit addMagazines [_glmag, 5] };
 };
 
-private _magazine = selectRandom ((compatibleMagazines _weapon) arrayIntersect _allMagazines);
+private _magazine = selectRandom ((A3A_rebelGear get "Magazines") get _weapon);
 private _magweight = 5 max getNumber (configFile >> "CfgMagazines" >> _magazine >> "mass");
 
 _unit addWeapon _weapon;

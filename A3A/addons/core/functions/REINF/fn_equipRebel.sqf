@@ -51,15 +51,11 @@ private _fnc_addSecondary = {
             ["AA", _mLaunchersAA]
         ];
         
+        if (_launcherPool get _typeTag isEqualTo []) exitWith {};
         private _weapon = selectRandomWeighted (_launcherPool get _typeTag);
 
         _unit addWeapon _weapon;
-        private _allMagazines = if (minWeaps > 0) then {
-            flatten ((jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL) select {_x select 1 == -1}) select {typeName _x == "STRING"}
-        } else {
-            flatten ((jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL) select {_x select 1 >= 10}) select {typeName _x == "STRING"} // * No unlocks ITEM_MIN is 10
-        };
-        private _magazine = selectRandom ((compatibleMagazines _weapon) arrayIntersect _allMagazines);
+        private _magazine = selectRandom ((A3A_rebelGear get "Magazines") get _weapon);
         _unit addSecondaryWeaponItem _magazine;
 
         if ("Disposable" in (_weapon call A3A_fnc_equipmentClassToCategories)) exitWith {};
