@@ -694,7 +694,7 @@ class CfgFunctions
             file = QPATHTOFOLDER(functions\Templates);
             class aceModCompat {};
             class compatibilityLoadFaction {};
-            class convertToRebelFaction {};
+            class convertToRebelLoadFaction {};
             class compileGroups {};
             class compileMissionAssets {};
             class getLoadout {};
