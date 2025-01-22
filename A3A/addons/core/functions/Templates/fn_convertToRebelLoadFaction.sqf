@@ -126,15 +126,17 @@ private _fnc_generateAndSaveUnitsToTemplate = {
 	params ["_prefix", "_unitTemplates", "_loadoutData"];
 	private _ire = _dataStore getOrDefault ["initialRebelEquipment", [], true];
 	// * We only want to run this once, so we only get the equipment from the highest tier (e.g. if we populate IRE from sfLoadoutData, we don't want to add equipment from eliteLoadoutData, etc)
-	if !(_ire isEqualTo []) exitWith {};
+	if (_ire isNotEqualTo []) exitWith {};
 	{
-		private _items = ((flatten _y) select {_x isEqualType ""}) select {_x != ""}; // remove empties
+		private _items = (flatten _y) select {_x isEqualType "" && {_x != ""}}; // remove empties
 		_items = _items arrayIntersect _items; // remove duplicates
 
-		if (_x == "uniforms") then { dataStore set ["uniforms", _items]};
+		if (_x == "uniforms") then { _dataStore set ["uniforms", _items] };
 		private _unlimitedItemTypes = [
 			"antiInfantryGrenades",
 			"smokeGrenades",
+			//"rifles",
+			"sniperRifles", // * petros and rebel recruits need at least *some* unlimited weapon at game start. SMGs / shotguns not defined in all templates, and they don't use handguns (currently)
 			"sidearms",
 			"maps",
 			"watches",
@@ -145,21 +147,35 @@ private _fnc_generateAndSaveUnitsToTemplate = {
 			"items_medical_medic",
 			"items_miscEssentials",
 			"items_engineer_extras",
-			"items_marksman_extras"
+			"items_marksman_extras",
+			"uniforms",
+			"traitorUniforms",
+			"officerUniforms",
+			"glasses",
+			"goggles"
 		];
 
-		if (_x in _unlimitedItemTypes) exitWith { _ire append _items; };
+		if (_x in _unlimitedItemTypes) then { _ire append _items; continue };
+		
 		
 		{
 			private _categories = _x call A3A_fnc_equipmentClassToCategories;
-			if ("Weapons" in _categories) exitWith { _ire pushback [_x, [3 min minWeaps, 5] select (minWeaps < 0)] };
-			if !(["Grenades", "Explosives", "MagMissile", "MagRocket"] arrayIntersect _categories isEqualTo []) exitWith { _ire pushback [_x, [3 min minWeaps, 5] select (minWeaps < 0)] };
-			if ("Magazines" in _categories) exitWith {
-				private _magCap = getNumber (configFile >> "CfgMagazines" >> _x >> "count");
-				_ire pushback [_x, [20*_magCap min minWeaps*_magCap, 25*_magCap] select (minWeaps < 0)];
+
+			switch true do {
+				case ("Weapons" in _categories): { _ire pushback [_x, [3 min minWeaps, 5] select (minWeaps < 0)] };
+				case ("Grenades" in _categories);
+				case ("MagSmokeShell" in _categories);
+				case ("Explosives" in _categories);
+				case ("MagMissile" in _categories);
+				case ("MagRocket" in _categories): { _ire pushback [_x, [3 min minWeaps, 5] select (minWeaps < 0)] };
+				case ("Magazines" in _categories): {
+					private _magCap = getNumber (configFile >> "CfgMagazines" >> _x >> "count");
+					_ire pushback [_x, [20*_magCap min minWeaps*_magCap, 25*_magCap] select (minWeaps < 0)];
+				};
+				case ("Vests" in _categories && {!("ArmoredVests" in _categories)});
+				case ("Backpacks" in _categories && {!("BackpacksCargo" in _categories)}): { _ire pushback _x };
+				default { _ire pushBack [_x, [3 min minWeaps, 5] select (minWeaps < 0)] };
 			};
-			if (!(["Vests", "Backpacks"] arrayIntersect _categories isEqualTo []) && {(["ArmoredVests", "BackpacksCargo"] arrayIntersect _categories isEqualTo [])}) exitWith { _ire pushback _x };
-			_ire pushBack [_x, [3 min minWeaps, 5] select (minWeaps < 0)]; // default case
 		} forEach _items;
 	} forEach _loadoutData;
 };
@@ -187,7 +203,7 @@ private _fnc_saveNames = {
 } forEach _filepaths;
 
 // * overrides
-_dataStore set ["flagMarkerType", "flag_FIA", true];
+_dataStore set ["flagMarkerType", "flag_FIA"];
 
 { _dataStore set [_x, []]; } forEach ["vehiclesCivHeli", "vehiclesCivTruck", "vehiclesCivCar", "vehiclesCivBoat"];
 
@@ -196,8 +212,8 @@ _dataStore set ["flagMarkerType", "flag_FIA", true];
 ///////////////////////.
 
 private _rebelSquadLeaderTemplate = {
-    //! ["uniforms"] call _fnc_setUniform;
-    //! [selectRandomWeighted [[], 1.25, "glasses", 1, "goggles", 0.75, "facemask", 1, "balaclavas", 1, "argoFacemask", 1 , "facewearWS", 0.75, "facewearContact", 0.3, "facewearLawsOfWar", 0.5, "facewearGM", 0.3, "facewearCLSA", 0.2,"facewearSOG", 0.3,"facewearSPE", 0.2]] call _fnc_setFacewear;
+    ["uniforms"] call _fnc_setUniform;
+    [selectRandomWeighted [[], 1.25, "glasses", 1, "goggles", 0.75, "facemask", 1, "balaclavas", 1, "argoFacemask", 1 , "facewearWS", 0.75, "facewearContact", 0.3, "facewearLawsOfWar", 0.5, "facewearGM", 0.3, "facewearCLSA", 0.2,"facewearSOG", 0.3,"facewearSPE", 0.2]] call _fnc_setFacewear;
 
     ["items_medical_standard"] call _fnc_addItemSet;
     ["items_miscEssentials"] call _fnc_addItemSet;
@@ -209,8 +225,8 @@ private _rebelSquadLeaderTemplate = {
 };
 
 private _rebelRiflemanTemplate = {
-    //! ["uniforms"] call _fnc_setUniform;
-    //! [selectRandomWeighted [[], 1.25, "glasses", 1, "goggles", 0.75, "facemask", 1, "balaclavas", 1, "argoFacemask", 1 , "facewearWS", 0.75, "facewearContact", 0.3, "facewearLawsOfWar", 0.5, "facewearGM", 0.3, "facewearCLSA", 0.2, "facewearSOG", 0.3,"facewearSPE", 0.2]] call _fnc_setFacewear;
+    ["uniforms"] call _fnc_setUniform;
+    [selectRandomWeighted [[], 1.25, "glasses", 1, "goggles", 0.75, "facemask", 1, "balaclavas", 1, "argoFacemask", 1 , "facewearWS", 0.75, "facewearContact", 0.3, "facewearLawsOfWar", 0.5, "facewearGM", 0.3, "facewearCLSA", 0.2, "facewearSOG", 0.3,"facewearSPE", 0.2]] call _fnc_setFacewear;
     
     ["items_medical_standard"] call _fnc_addItemSet;
     ["items_miscEssentials"] call _fnc_addItemSet;
