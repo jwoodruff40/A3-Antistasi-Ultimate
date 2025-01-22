@@ -64,7 +64,8 @@ private _fnc_saveToTemplate = {
 	["APMines", "minesAPERS"],
 	["lightExplosives", "breachingExplosivesAPC"],
 	["heavyExplosives", "breachingExplosivesTank"],
-	["vehiclesTransportBoats", "vehiclesBoat"]
+	["vehiclesTransportBoats", "vehiclesBoat"],
+	["vehiclesTrucks", "vehiclesTruck"]
 	];
 
 	if (_name in keys _enemyToRebelConfigMap) then {
@@ -74,7 +75,7 @@ private _fnc_saveToTemplate = {
 			private _attributesVehicles = [];
 			{
 				private _cost = (_x select 1) select 1;
-				_attributesVehicles pushBack [_x select 0, ["rebCost", _cost]];
+				_attributesVehicles pushBack [_x select 0, ["rebCost", _cost*1.5]];
 			} forEach (_data);
 			_data = _attributesVehicles;
 		};
@@ -120,6 +121,30 @@ private _fnc_generateAndSaveUnitToTemplate = {
 	[_name, _loadouts, _traits, _unitProperties] call _fnc_saveUnitToTemplate;
 };
 
+private _fnc_addStartingWeapon = {
+	params ["_ire", "_weapons"];
+
+	private _minWeight = 1000;
+	private ["_weapon", "_weaponMags", "_weaponAtts", "_weaponIndex"];
+	{
+		private _class = _x select 0;
+		private _categories = _class call A3A_fnc_equipmentClassToCategories;
+		private _weight = [_class, _categories] call A3A_fnc_itemArrayWeight;
+		if (_weight < _minWeight) then {
+			_minWeight = _weight;
+			_weapon = _class;
+			_weaponMags = _x select 4;
+			_weaponAtts = [_x select 1, _x select 2, _x select 3, _x select 6] select {_x != ""};
+			_weaponIndex = _forEachIndex;
+		};
+	} forEach _weapons;
+
+	_ire pushBackUnique _weapon;
+	_ire append _weaponMags;
+	{ _ire pushBackUnique [_x, [3 min minWeaps, 5] select (minWeaps < 0)]; } forEach _weaponAtts;
+	_weapons deleteAt _weaponIndex;
+};
+
 private _fnc_generateAndSaveUnitsToTemplate = {
 	// * Overwrite this function because we don't want to pointlessly generate a bunch of loadouts
 	// * Instead, use the call to this function to populate faction equipment into rebel initial equipment (weapons, mostly)
@@ -135,8 +160,6 @@ private _fnc_generateAndSaveUnitsToTemplate = {
 		private _unlimitedItemTypes = [
 			"antiInfantryGrenades",
 			"smokeGrenades",
-			//"rifles",
-			"sniperRifles", // * petros and rebel recruits need at least *some* unlimited weapon at game start. SMGs / shotguns not defined in all templates, and they don't use handguns (currently)
 			"sidearms",
 			"maps",
 			"watches",
@@ -157,24 +180,25 @@ private _fnc_generateAndSaveUnitsToTemplate = {
 
 		if (_x in _unlimitedItemTypes) then { _ire append _items; continue };
 		
-		
+		// * petros and rebel recruits need at least *some* unlimited weapon at game start. SF SMGs / shotguns not defined in all templates, and they don't use handguns (currently)
+		if (_x == "sniperRifles") then { [_ire, _y] call _fnc_addStartingWeapon };
 		{
 			private _categories = _x call A3A_fnc_equipmentClassToCategories;
 
 			switch true do {
-				case ("Weapons" in _categories): { _ire pushback [_x, [3 min minWeaps, 5] select (minWeaps < 0)] };
+				case ("Weapons" in _categories): { _ire pushBackUnique [_x, [3 min minWeaps, 5] select (minWeaps < 0)] };
 				case ("Grenades" in _categories);
 				case ("MagSmokeShell" in _categories);
 				case ("Explosives" in _categories);
 				case ("MagMissile" in _categories);
-				case ("MagRocket" in _categories): { _ire pushback [_x, [3 min minWeaps, 5] select (minWeaps < 0)] };
+				case ("MagRocket" in _categories): { _ire pushBackUnique [_x, [3 min minWeaps, 5] select (minWeaps < 0)] };
 				case ("Magazines" in _categories): {
 					private _magCap = getNumber (configFile >> "CfgMagazines" >> _x >> "count");
-					_ire pushback [_x, [20*_magCap min minWeaps*_magCap, 25*_magCap] select (minWeaps < 0)];
+					_ire pushBackUnique [_x, [20*_magCap min minWeaps*_magCap, 25*_magCap] select (minWeaps < 0)];
 				};
 				case ("Vests" in _categories && {!("ArmoredVests" in _categories)});
-				case ("Backpacks" in _categories && {!("BackpacksCargo" in _categories)}): { _ire pushback _x };
-				default { _ire pushBack [_x, [3 min minWeaps, 5] select (minWeaps < 0)] };
+				case ("Backpacks" in _categories && {!("BackpacksCargo" in _categories)}): { _ire pushBackUnique _x };
+				default { _ire pushBackUnique [_x, [3 min minWeaps, 5] select (minWeaps < 0)] };
 			};
 		} forEach _items;
 	} forEach _loadoutData;
@@ -205,7 +229,7 @@ private _fnc_saveNames = {
 // * overrides
 _dataStore set ["flagMarkerType", "flag_FIA"];
 
-{ _dataStore set [_x, []]; } forEach ["vehiclesCivHeli", "vehiclesCivTruck", "vehiclesCivCar", "vehiclesCivBoat"];
+{ _dataStore set [_x, []]; } forEach ["vehiclesCivHeli", "vehiclesCivPlane", "vehiclesCivTruck", "vehiclesCivCar", "vehiclesCivBoat", "vehiclesPlane", "vehiclesAT", "vehiclesAA"];
 
 ////////////////////////
 //  Rebel Unit Types  //
