@@ -90,6 +90,11 @@ private _fnc_addCharges = {
     };
 };
 
+if (_recruitType isNotEqualTo 0 && {A3A_faction_reb get "convertedToRebel"}) then {
+    _unit forceAddUniform selectRandom (A3A_faction_civ get "uniforms");
+    [_unit, [A3A_faction_civ, ""] call A3A_fnc_createRandomIdentity] call A3A_fnc_setIdentity;
+};
+
 private _radio = selectRandomWeighted (A3A_rebelGear get "Radios");
 if (!isNil "_radio") then {_unit linkItem _radio};
 

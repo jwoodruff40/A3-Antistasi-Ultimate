@@ -153,6 +153,7 @@ private _fnc_generateAndSaveUnitsToTemplate = {
 	// * We only want to run this once, so we only get the equipment from the highest tier (e.g. if we populate IRE from sfLoadoutData, we don't want to add equipment from eliteLoadoutData, etc)
 	if (_ire isNotEqualTo []) exitWith {};
 	{
+		private _headgear = _dataStore getOrDefault ["headgear", [], true];
 		private _items = (flatten _y) select {_x isEqualType "" && {_x != ""}}; // remove empties
 		_items = _items arrayIntersect _items; // remove duplicates
 
@@ -198,6 +199,7 @@ private _fnc_generateAndSaveUnitsToTemplate = {
 				};
 				case ("Vests" in _categories && {!("ArmoredVests" in _categories)});
 				case ("Backpacks" in _categories && {!("BackpacksCargo" in _categories)}): { _ire pushBackUnique _x };
+				case ("Headgear" in _categories && {!("ArmoredHeadgear" in _categories)}): { _ire pushBackUnique _x; _headgear pushBackUnique _x };
 				default { _ire pushBackUnique [_x, [3 min minWeaps, 5] select (minWeaps < 0)] };
 			};
 		} forEach _items;
@@ -228,8 +230,8 @@ private _fnc_saveNames = {
 
 // * overrides
 _dataStore set ["flagMarkerType", "flag_FIA"];
-
-{ _dataStore set [_x, []]; } forEach ["vehiclesCivHeli", "vehiclesCivPlane", "vehiclesCivTruck", "vehiclesCivCar", "vehiclesCivBoat", "vehiclesPlane", "vehiclesAT", "vehiclesAA"];
+_dataStore set ["convertedToRebel", true];
+{ _dataStore set [_x, []]; } forEach ["vehiclesCivHeli", "vehiclesCivPlane", "vehiclesCivTruck", "vehiclesCivCar", "vehiclesCivBoat", "vehiclesMedical", "vehiclesPlane", "vehiclesAT", "vehiclesAA"];
 
 ////////////////////////
 //  Rebel Unit Types  //
