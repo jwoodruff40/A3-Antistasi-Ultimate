@@ -24,10 +24,11 @@ private "_faction";
 
 // * If we're using an Occ or Inv faction as rebels, we need to convert the faction from Occ / Inv to rebel template style
 private _factionSide = getText (configFile >> "A3A" >> "Templates" >> A3A_saveData get "factions" select 2 >> "side");
-if ((_side == teamPlayer) && {_factionSide in ["Occ", "Inv"]}) then {
-    _faction = [[_factionDefaultFile,_file]] call A3A_fnc_convertToRebelLoadFaction;
+private _convertToRebel = (_side == teamPlayer) && {_factionSide in ["Occ", "Inv"]};
+_faction = if (_convertToRebel) then {
+    [[_factionDefaultFile,_file]] call A3A_fnc_convertToRebelLoadFaction;
 } else {
-    _faction = [[_factionDefaultFile,_file]] call A3A_fnc_loadFaction;
+    [[_factionDefaultFile,_file]] call A3A_fnc_loadFaction;
 };
 
 private _factionPrefix = ["occ", "inv", "reb", "civ"] #([west, east, independent, civilian] find _side);
@@ -67,6 +68,15 @@ if (_side in [Occupants, Invaders]) then {
         ([_x, true] call BIS_fnc_crewCount) - ([_x, false] call BIS_fnc_crewCount) >= 4
     };
     _faction set ["vehiclesLightArmedTroop", _lightArmedTroop];
+};
+
+// Add civilian vehicles to rebel faction if using Occ/Inv as rebel
+// Must be run after generating civilian faction hashmap, hence its location here instead of in fn_convertToRebelLoadFaction
+if (_side == civilian && {A3A_faction_reb getOrDefault ["convertedToRebel", false]}) then {
+    {
+        private _rebKey = [_x, "vehiclesCivTruck"] select (_x == "vehiclesCivIndustrial");
+        A3A_faction_reb set [_rebKey, _faction getOrDefault [_x, []] select { _x isEqualType "" }];
+    } forEach ["vehiclesCivCar", "vehiclesCivIndustrial", "vehiclesCivBoat", "vehiclesCivHeli"];
 };
 
 _faction;
