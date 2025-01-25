@@ -99,7 +99,9 @@ private _radio = selectRandomWeighted (A3A_rebelGear get "Radios");
 if (!isNil "_radio") then {_unit linkItem _radio};
 
 private _helmet = selectRandomWeighted (A3A_rebelGear get "ArmoredHeadgear");
-if (_helmet == "") then { _helmet = selectRandom (A3A_faction_reb get "headgear") };
+if (_helmet == "") then { 
+    _helmet = selectRandom ([A3A_faction_reb, A3A_faction_civ] select (_recruitType isNotEqualTo 0 && {A3A_faction_reb getOrDefault ["convertedToRebel", false]}) get "headgear")
+};
 _unit addHeadgear _helmet;
 
 private _vest = selectRandomWeighted (A3A_rebelGear get "ArmoredVests");
