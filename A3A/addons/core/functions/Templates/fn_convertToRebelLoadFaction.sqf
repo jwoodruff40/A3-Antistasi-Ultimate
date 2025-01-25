@@ -174,11 +174,7 @@ private _fnc_generateAndSaveUnitsToTemplate = {
 		private _items = (flatten _y) select {_x isEqualType "" && {_x != ""}}; // remove empties
 		_items = _items arrayIntersect _items; // remove duplicates
 
-		if (_x == "uniforms") then { _dataStore set ["uniforms", _items] };
-		private _unlimitedItemTypes = [
-			"antiInfantryGrenades",
-			"smokeGrenades",
-			"sidearms",
+		private _unlimitedLoadoutItemTypes = [
 			"maps",
 			"watches",
 			"compasses",
@@ -196,7 +192,22 @@ private _fnc_generateAndSaveUnitsToTemplate = {
 			"goggles"
 		];
 
-		if (_x in _unlimitedItemTypes) then { _initialRebelEquipment append _items; continue };
+		private _unlimitedItemTypes = [
+			"antiInfantryGrenades",
+			"smokeGrenades",
+			"sidearms"
+		];
+
+		if (_x in _unlimitedLoadoutItemTypes) then {
+			_dataStore set [_x, _items];
+			_initialRebelEquipment append _items;
+			continue
+		} else {
+			if (_x in _unlimitedItemTypes) then {
+				_initialRebelEquipment append _items;
+				continue
+			};
+		};
 		
 		{
 			private _categories = _x call A3A_fnc_equipmentClassToCategories;
@@ -263,6 +274,19 @@ _dataStore set ["convertedToRebel", true];
 //  Rebel Unit Types  //
 ///////////////////////.
 
+private _petrosTemplate = {
+	["officerUniforms"] call _fnc_setUniform;
+    [selectRandomWeighted [[], 1.25, "glasses", 1, "goggles", 0.75, "facemask", 1, "balaclavas", 1, "argoFacemask", 1 , "facewearWS", 0.75, "facewearContact", 0.3, "facewearLawsOfWar", 0.5, "facewearGM", 0.3, "facewearCLSA", 0.2,"facewearSOG", 0.3,"facewearSPE", 0.2]] call _fnc_setFacewear;
+
+    ["items_medical_standard"] call _fnc_addItemSet;
+    ["items_miscEssentials"] call _fnc_addItemSet;
+
+    ["maps"] call _fnc_addMap;
+    ["watches"] call _fnc_addWatch;
+    ["compasses"] call _fnc_addCompass;
+    ["binoculars"] call _fnc_addBinoculars;
+};
+
 private _rebelSquadLeaderTemplate = {
     ["uniforms"] call _fnc_setUniform;
     [selectRandomWeighted [[], 1.25, "glasses", 1, "goggles", 0.75, "facemask", 1, "balaclavas", 1, "argoFacemask", 1 , "facewearWS", 0.75, "facewearContact", 0.3, "facewearLawsOfWar", 0.5, "facewearGM", 0.3, "facewearCLSA", 0.2,"facewearSOG", 0.3,"facewearSPE", 0.2]] call _fnc_setFacewear;
@@ -290,7 +314,7 @@ private _rebelRiflemanTemplate = {
 
 private _prefix = "militia";
 private _unitTypes = [
-    ["Petros", _rebelSquadLeaderTemplate],
+    ["Petros", _petrosTemplate],
     ["SquadLeader", _rebelSquadLeaderTemplate],
     ["Rifleman", _rebelRiflemanTemplate],
     ["staticCrew", _rebelRiflemanTemplate],

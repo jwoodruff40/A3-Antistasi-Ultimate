@@ -90,8 +90,14 @@ private _fnc_addCharges = {
     };
 };
 
-if (_recruitType isNotEqualTo 0 && {A3A_faction_reb getOrDefault ["convertedToRebel", false]}) then {
+// * Add random 
+private _unitIsGuerilla = _recruitType isNotEqualTo 0 && 
+    {A3A_faction_reb getOrDefault ["convertedToRebel", false] && 
+    {!(A3A_faction_civ getOrDefault ["attributeLowCiv", false] || {A3A_faction_civ getOrDefault ["attributeCivNonHuman", false]})}};
+if (_unitIsGuerilla) then {
+    private _items = uniformItems _unit;
     _unit forceAddUniform selectRandom (A3A_faction_civ get "uniforms");
+    { _unit addItemToUniform _x } forEach _items;
     [_unit, [A3A_faction_civ, ""] call A3A_fnc_createRandomIdentity] call A3A_fnc_setIdentity;
 };
 
@@ -100,7 +106,7 @@ if (!isNil "_radio") then {_unit linkItem _radio};
 
 private _helmet = selectRandomWeighted (A3A_rebelGear get "ArmoredHeadgear");
 if (_helmet == "") then { 
-    _helmet = selectRandom ([A3A_faction_reb, A3A_faction_civ] select (_recruitType isNotEqualTo 0 && {A3A_faction_reb getOrDefault ["convertedToRebel", false]}) get "headgear")
+    _helmet = selectRandom ([A3A_faction_reb, A3A_faction_civ] select (_unitIsGuerilla) get "headgear")
 };
 _unit addHeadgear _helmet;
 
