@@ -160,8 +160,15 @@ private _fnc_generateAndSaveUnitsToTemplate = {
 	// * Instead, use the call to this function to populate faction equipment into rebel initial equipment (weapons, mostly)
 	params ["_prefix", "_unitTemplates", "_loadoutData"];
 	private _initialRebelEquipment = _dataStore getOrDefault ["initialRebelEquipment", [], true];
-	// * We only want to run this once, so we only get the equipment from the highest tier (e.g. if we populate IRE from sfLoadoutData, we don't want to add equipment from eliteLoadoutData, etc)
+	
+	// * We only want to iterate through loadoutdata once, so we only get the equipment from the highest tier (e.g. if we populate IRE from sfLoadoutData, we don't want to add equipment from eliteLoadoutData, etc)
 	if (_initialRebelEquipment isNotEqualTo []) exitWith {};
+
+	// * petros and rebel recruits need at least *some* unlimited weapon at game start. SF SMGs / shotguns not defined in all templates, and they don't use handguns (currently)
+	// * YES, I know it looks ridiculous to have a full squad of level 1 rebels rocking barrets, but giving an unlimited assault rifle at start is just too OP 
+	// * Need to do this before iterating through the rest of the loadoutdata so our selected weapon isn't already added as a limited weapon
+	[_initialRebelEquipment, _loadoutData get "sniperRifles"] call _fnc_addStartingWeapon;
+
 	{
 		private _headgear = _dataStore getOrDefault ["headgear", [], true];
 		private _items = (flatten _y) select {_x isEqualType "" && {_x != ""}}; // remove empties
@@ -191,14 +198,16 @@ private _fnc_generateAndSaveUnitsToTemplate = {
 
 		if (_x in _unlimitedItemTypes) then { _initialRebelEquipment append _items; continue };
 		
-		// * petros and rebel recruits need at least *some* unlimited weapon at game start. SF SMGs / shotguns not defined in all templates, and they don't use handguns (currently)
-		// * YES, I know it looks ridiculous to have a full squad of level 1 rebels rocking barrets, but giving an unlimited assault rifle at start is just too OP 
-		if (_x == "sniperRifles") then { [_initialRebelEquipment, _y] call _fnc_addStartingWeapon };
 		{
 			private _categories = _x call A3A_fnc_equipmentClassToCategories;
 
 			switch true do {
-				case ("Weapons" in _categories): { _initialRebelEquipment pushBackUnique [_x, [3 min minWeaps, 5] select (minWeaps < 0)] };
+				case ("Disposable" in _categories): {
+					private _ammo = getArray (configFile >> "CfgWeapons" >> _x >> "Magazines") select 0;
+					_initialRebelEquipment pushBackUnique [_x, [3 min minWeaps, 5] select (minWeaps < 0)];
+					_initialRebelEquipment pushBackUnique [_ammo, [3 min minWeaps, 5] select (minWeaps < 0)];
+				};
+				case ("Weapons" in _categories);
 				case ("Grenades" in _categories);
 				case ("MagSmokeShell" in _categories);
 				case ("Explosives" in _categories);
