@@ -811,10 +811,11 @@ class rhsusf_addons_rhsusf_hmmwv_rhsusf_m1025 : TRIPLES(ADDON,Nodes,Base)
     {
         class Node1
         {
-            offset[] = {0,-1.4,-0.93};
+            offset[] = {-0.07,-1.42,-0.93};
         };
     };
 };
+class rhsusf_addons_rhsusf_hmmwv_rhsusf_m1043 : rhsusf_addons_rhsusf_hmmwv_rhsusf_m1025 {};
 class rhsusf_addons_rhsusf_hmmwv_rhsusf_m1025_mk19 : TRIPLES(ADDON,Nodes,Base)
 {
 	canLoadWeapon = 0;
@@ -822,10 +823,11 @@ class rhsusf_addons_rhsusf_hmmwv_rhsusf_m1025_mk19 : TRIPLES(ADDON,Nodes,Base)
     {
         class Node1
         {
-            offset[] = {0,-1.4,-1.01};
+            offset[] = {-0.07,-1.42,-1.01};
         };
     };
 };
+class rhsusf_addons_rhsusf_hmmwv_rhsusf_m1043_mk19 : rhsusf_addons_rhsusf_hmmwv_rhsusf_m1025_mk19 {};
 class rhsusf_addons_rhsusf_hmmwv_rhsusf_m1025_m2 : TRIPLES(ADDON,Nodes,Base)
 {
 	canLoadWeapon = 0;
@@ -833,10 +835,11 @@ class rhsusf_addons_rhsusf_hmmwv_rhsusf_m1025_m2 : TRIPLES(ADDON,Nodes,Base)
     {
         class Node1
         {
-            offset[] = {0,-1.4,-1.2};
+            offset[] = {-0.07,-1.42,-1.2};
         };
     };
 };
+class rhsusf_addons_rhsusf_hmmwv_rhsusf_m1043_m2 : rhsusf_addons_rhsusf_hmmwv_rhsusf_m1025_m2 {};
 
 class rhsusf_addons_rhsusf_m11xx_rhsusf_m1151 : TRIPLES(ADDON,Nodes,Base)
 {
@@ -845,7 +848,7 @@ class rhsusf_addons_rhsusf_m11xx_rhsusf_m1151 : TRIPLES(ADDON,Nodes,Base)
     {
         class Node1
         {
-            offset[] = {0,-1.3,-0.77};
+            offset[] = {-0.04,-1.3,-0.77};
         };
     };
 };
@@ -856,7 +859,7 @@ class rhsusf_addons_rhsusf_m11xx_rhsusf_m1151_m2_v1 : TRIPLES(ADDON,Nodes,Base)
     {
         class Node1
         {
-            offset[] = {0,-1.95,-0.77};
+            offset[] = {-0.04,-1.95,-0.77};
         };
     };
 };
@@ -869,10 +872,23 @@ class rhsusf_addons_rhsusf_m11xx_rhssaf_m1151_pkm_saf : TRIPLES(ADDON,Nodes,Base
     {
         class Node1
         {
-            offset[] = {0,-1.31,-0.68};
+            offset[] = {-0.04,-1.31,-0.68};
         };
     };
 };
+class rhsusf_addons_rhsusf_m11xx_rhsusf_m1151_m2crows : TRIPLES(ADDON,Nodes,Base)
+{
+    canLoadWeapon = 0;
+    class Nodes
+    {
+        class Node1
+        {
+            offset[] = {-0.04,-2.1,-0.76};
+        };
+    };
+};
+class rhsusf_addons_rhsusf_m11xx_rhsusf_m1151_mk19crows : rhsusf_addons_rhsusf_m11xx_rhsusf_m1151_m2crows {};
+class rhsusf_addons_rhsusf_m11xx_rhsusf_m1151_m2_lras3_v1 : rhsusf_addons_rhsusf_m11xx_rhsusf_m1151_m2crows {};
 class rhsusf_addons_rhsusf_m11xx_rhsusf_m1151_m2_v2 : TRIPLES(ADDON,Nodes,Base)
 {
 	canLoadWeapon = 0;
@@ -880,7 +896,7 @@ class rhsusf_addons_rhsusf_m11xx_rhsusf_m1151_m2_v2 : TRIPLES(ADDON,Nodes,Base)
     {
         class Node1
         {
-            offset[] = {0,-1.95,-0.77};
+            offset[] = {-0.04,-1.95,-0.77};
         };
     };
 };
@@ -894,14 +910,61 @@ class rhsusf_addons_rhsusf_m11xx_rhsusf_m1152 : TRIPLES(ADDON,Nodes,Base)
     {
         class Node1
         {
-            offset[] = {0,-0.5,-0.75};
+            offset[] = {-0.05,-0.5,-0.75};
         };
         class Node2
         {
-            offset[] = {0,-1.3,-0.75};
+            offset[] = {-0.05,-1.3,-0.75};
         };
     };
 };
+
+class rhsusf_addons_rhsusf_matv_m1240a1 : TRIPLES(ADDON,Nodes,Base)
+{
+    canLoadWeapon = 0;
+    class Nodes
+    {
+        class Node1
+        {
+            offset[] = {-0.04,-2.1,-1.36};
+        };
+    };
+};
+class rhsusf_addons_rhsusf_matv_m1240a1_m2 : TRIPLES(ADDON,Nodes,Base)
+{
+    canLoadWeapon = 0;
+    class Nodes
+    {
+        class Node1
+        {
+            offset[] = {-0.04,-2.75,-1.36};
+        };
+    };
+};
+class rhsusf_addons_rhsusf_matv_m1240a1_mk19 : rhsusf_addons_rhsusf_matv_m1240a1_m2 {};
+class rhsusf_addons_rhsusf_matv_m1240a1_m240 : TRIPLES(ADDON,Nodes,Base)
+{
+    canLoadWeapon = 0;
+    class Nodes
+    {
+        class Node1
+        {
+            offset[] = {-0.04,-2.75,-1.31};
+        };
+    };
+};
+class rhsusf_addons_rhsusf_matv_m1240a1_m2crows : TRIPLES(ADDON,Nodes,Base)
+{
+    canLoadWeapon = 0;
+    class Nodes
+    {
+        class Node1
+        {
+            offset[] = {-0.04,-2.65,-1.36};
+        };
+    };
+};
+class rhsusf_addons_rhsusf_matv_m1240a1_mk19crows : rhsusf_addons_rhsusf_matv_m1240a1_m2crows {};
 
 class rhsgref_addons_rhsgref_a2port_armor_brdm2_BRDM2_HQ_p3d : TRIPLES(ADDON,Nodes,Base)
 {
@@ -922,6 +985,7 @@ class rhsgref_addons_rhsgref_a2port_armor_brdm2_BRDM2_HQ_p3d : TRIPLES(ADDON,Nod
 
 class rhsafrf_addons_rhs_a2port_car_UAZ_UAZ_p3d : TRIPLES(ADDON,Nodes,Base)
 {
+    canLoadWeapon = 0;
     class Nodes
     {
         class Node1
@@ -931,4 +995,15 @@ class rhsafrf_addons_rhs_a2port_car_UAZ_UAZ_p3d : TRIPLES(ADDON,Nodes,Base)
         };
     };
 };
-class rhsafrf_addons_rhs_a2port_car_UAZ_UAZ_open_p3d : rhsafrf_addons_rhs_a2port_car_UAZ_UAZ_p3d {};
+class rhsafrf_addons_rhs_a2port_car_UAZ_UAZ_open_p3d : TRIPLES(ADDON,Nodes,Base)
+{
+    canLoadWeapon = 0;
+    class Nodes
+    {
+        class Node1
+        {
+            offset[] = {-0.06,-1.16,-0.46};
+            seats[] = {2,5};
+        };
+    };
+};
