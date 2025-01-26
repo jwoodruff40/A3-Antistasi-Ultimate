@@ -335,7 +335,7 @@ class Params
         title = $STR_params_ReloadRepackTurretMagazines;
         values[] = {0,1};
         texts[] = {$STR_antistasi_dialogs_generic_button_no_text,$STR_antistasi_dialogs_generic_button_yes_text};
-        default = 1;
+        default = 0;
     };
     class enableSpectrumDevice
     {
