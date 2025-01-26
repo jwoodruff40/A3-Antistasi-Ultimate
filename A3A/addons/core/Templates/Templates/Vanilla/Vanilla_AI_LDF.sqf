@@ -12,6 +12,7 @@ private _hasCSLA = "csla" in A3A_enabledDLC;
 private _hasRF = "rf" in A3A_enabledDLC;
 private _hasSOG = "vn" in A3A_enabledDLC;
 private _hasSPE = "spe" in A3A_enabledDLC;
+private _hasEF = "ef" in A3A_enabledDLC;
 
 //////////////////////////
 //   Side Information   //
@@ -28,7 +29,9 @@ private _hasSPE = "spe" in A3A_enabledDLC;
 //       Vehicles       //
 //////////////////////////
 
-/* ["vehiclesDropPod", ["SpaceshipCapsule_01_F"]] call _fnc_saveToTemplate;  */
+["vehiclesSDV", ["B_SDV_01_F"]] call _fnc_saveToTemplate;
+
+["vehiclesDropPod", ["SpaceshipCapsule_01_F"]] call _fnc_saveToTemplate;
 
 ["ammobox", "B_supplyCrate_F"] call _fnc_saveToTemplate;
 ["surrenderCrate", "Box_IND_Wps_F"] call _fnc_saveToTemplate; //Changeing this from default will require you to define logistics attachement offset for the box type
@@ -57,12 +60,14 @@ private _gunBoat = ["I_Boat_Armed_01_minigun_F"];
 private _planesCAS = ["B_Plane_CAS_01_dynamicLoadout_F","B_UAV_02_dynamicLoadout_F"];
 private _planesAA = ["B_Plane_CAS_01_dynamicLoadout_F","B_UAV_02_dynamicLoadout_F"];
 private _planesTransport = ["B_T_VTOL_01_infantry_F"];
-private _gunship = [];
+private _gunship = ["B_T_VTOL_01_armed_F"];
 
 private _helisLight = ["I_E_Heli_light_03_unarmed_F", "B_Heli_Light_01_F"];
 private _transportHelicopters = ["B_Heli_Transport_01_camo_F"];
 private _helisLightAttack = ["I_E_Heli_light_03_dynamicLoadout_F", "B_Heli_Light_01_armed_F"];
 private _helisAttack = ["B_Heli_Attack_01_dynamicLoadout_F"];
+
+private _airPatrol = ["I_E_Heli_light_03_unarmed_F", "B_Heli_Light_01_F", "I_E_Heli_light_03_dynamicLoadout_F", "B_Heli_Light_01_armed_F"];
 
 private _artillery = ["B_T_MBT_01_arty_F", "I_E_Truck_02_MRL_F"];
 ["magazines", createHashMapFromArray [
@@ -148,6 +153,11 @@ if (_hasSPE) then {
     #include "..\DLC_content\vehicles\SPE\Vanilla_LDF.sqf"
 };
 
+if (_hasEF) then {
+    #include "..\DLC_content\vehicles\EF\Vanilla_NATO_Temparate.sqf"
+};
+
+["vehiclesAirPatrol", _airPatrol] call _fnc_saveToTemplate;
 ["vehiclesPlanesTransport", _planesTransport] call _fnc_saveToTemplate;
 ["vehiclesPlanesGunship", _gunship] call _fnc_saveToTemplate;
 ["vehiclesGunBoats", _gunBoat] call _fnc_saveToTemplate;
@@ -196,7 +206,8 @@ if (_hasSPE) then {
     #include "..\vehicleAnimations\vehicleAnimations_GM.sqf",
     #include "..\vehicleAnimations\vehicleAnimations_CSLA.sqf",
     #include "..\vehicleAnimations\vehicleAnimations_SOG.sqf",
-    #include "..\vehicleAnimations\vehicleAnimations_SPE.sqf"
+    #include "..\vehicleAnimations\vehicleAnimations_SPE.sqf",
+    #include "..\vehicleAnimations\vehicleAnimations_EF.sqf"
 ]] call _fnc_saveToTemplate;
 
 ["variants", [
@@ -239,8 +250,15 @@ if (_hasWS) then {
         #include "..\DLC_content\faces\WS\WS_white.sqf"
     ];
 };
+if (_hasEF) then {
+    _faces append [
+        #include "..\DLC_content\faces\EF\EF_white.sqf" ///probaly need to separate by camos
+    ];
+};
 ["faces", _faces] call _fnc_saveToTemplate;
 ["voices", ["Male01pol","Male02pol","Male03pol"]] call _fnc_saveToTemplate;
+
+"EnochMen" call _fnc_saveNames;
 
 //////////////////////////
 //       Loadouts       //
@@ -710,6 +728,10 @@ if (_hasSOG) then {
 if (_hasSPE) then {
     #include "..\DLC_content\gear\SPE\Vanilla_LDF.sqf"
     #include "..\DLC_content\weapons\SPE\Vanilla_LDF.sqf"
+};
+
+if (_hasEF) then {
+    #include "..\DLC_content\gear\EF\Vanilla_LDF.sqf"
 };
 
 /////////////////////////////////

@@ -46,6 +46,14 @@
         climate[] = {"arctic"};
     };
 
+    class CUP_NATO_Temperate : CUP_Base
+    {
+        side = "Occ";
+        flagTexture = "\A3\Data_F\Flags\Flag_NATO_CO.paa";
+        name = "CUP NATO Temperate";
+        file = "CUP_AI_NATO_Temperate";
+    };
+
     class CUP_BAF_Arid : CUP_Base
     {
         side = "Occ";
@@ -259,10 +267,10 @@
         name = "CUP LDF";
         file = "CUP_AI_LDF";
     };
-
     class HAFM_Base : CUP_Base
     {
-        requiredAddons[] = {"CUP_Creatures_People_Civil_Russia", "CUP_BaseConfigs", "CUP_AirVehicles_Core", "HAFM_Acc"};        // units, weapons, vehicles
+        requiredAddons[] = {"CUP_Creatures_People_Civil_Russia", "CUP_BaseConfigs", "CUP_AirVehicles_Core", "HAFM_Acc"};
+        priority = 61;
 	};
     //CUP NorAF
     class NorAF_Base : CUP_Base
@@ -293,4 +301,18 @@
         name = "CUP NorAF Arctic";
         file = "CUP_AI_NorAF_Arctic";
         climate[] = {"arctic"};
+    };
+
+    class EST_Base : CUP_Base
+    {
+        requiredAddons[] = {"CUP_Creatures_People_Civil_Russia", "CUP_BaseConfigs", "CUP_AirVehicles_Core", "Estraria_Army", "DEGA_Vehicles_V22", "BVC_Facewear"};
+        priority = 61;
+    };
+	
+    class CUP_EST : EST_Base
+    {
+        side = "Occ";
+        flagTexture = "\EST_Markers\Data\Marker_EST.paa";
+        name = "CUP EST";
+        file = "CUP_AI_EST";
     };

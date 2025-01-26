@@ -49,6 +49,8 @@
 ["vehiclesHelisLightAttack", ["CUP_B_AW159_RN_Grey"]] call _fnc_saveToTemplate;
 ["vehiclesHelisAttack", ["CUP_B_AH1_DL_BAF"]] call _fnc_saveToTemplate;
 
+["vehiclesAirPatrol", ["CUP_B_AW159_Unarmed_RN_Blackcat", "CUP_B_AW159_Unarmed_GB", "CUP_B_AW159_Unarmed_RN_Grey", "CUP_B_AW159_RN_Grey"]] call _fnc_saveToTemplate;
+
 ["vehiclesArtillery", ["CUP_B_M270_HE_BAF_DES"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [["CUP_B_M270_HE_BAF_DES", ["CUP_12Rnd_MLRS_HE"]]]] call _fnc_saveToTemplate;
 
@@ -94,6 +96,7 @@
 "WhiteHead_14","WhiteHead_15","WhiteHead_16","WhiteHead_17","WhiteHead_18",
 "WhiteHead_19","WhiteHead_20","WhiteHead_21"]] call _fnc_saveToTemplate;
 ["voices", ["CUP_D_Male01_GB_BAF","CUP_D_Male02_GB_BAF","CUP_D_Male03_GB_BAF","CUP_D_Male04_GB_BAF","CUP_D_Male05_GB_BAF"]] call _fnc_saveToTemplate;
+"EnglishMen" call _fnc_saveNames;
 
 //////////////////////////
 //       Loadouts       //

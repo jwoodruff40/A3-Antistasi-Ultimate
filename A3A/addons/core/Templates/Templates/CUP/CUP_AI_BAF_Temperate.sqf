@@ -33,7 +33,7 @@
 ["vehiclesIFVs", ["CUP_B_FV510_GB_W", "CUP_B_MCV80_GB_W", "CUP_B_FV510_GB_W_SLAT", "CUP_B_MCV80_GB_W_SLAT"]] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["CUP_B_Challenger2_Woodland_BAF"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["CUP_B_M6LineBacker_USA_W", "CUP_B_M163_Vulcan_USA"]] call _fnc_saveToTemplate;
-["vehiclesAirborne", ["CUP_B_Mastiff_HMG_GB_W", "CUP_B_Mastiff_LMG_GB_W", "CUP_B_Mastiff_GMG_GB_W""CUP_B_FV432_Bulldog_GB_W", "CUP_B_FV432_Bulldog_GB_W"]] call _fnc_saveToTemplate;
+["vehiclesAirborne", ["CUP_B_Mastiff_HMG_GB_W", "CUP_B_Mastiff_LMG_GB_W", "CUP_B_Mastiff_GMG_GB_W", "CUP_B_FV432_Bulldog_GB_W", "CUP_B_FV432_Bulldog_GB_W"]] call _fnc_saveToTemplate;
 ["vehiclesLightTanks",  ["CUP_B_FV510_GB_W", "CUP_B_MCV80_GB_W", "CUP_B_FV510_GB_W_SLAT", "CUP_B_MCV80_GB_W_SLAT"]] call _fnc_saveToTemplate;
 
 ["vehiclesTransportBoats", ["B_Boat_Transport_01_F"]] call _fnc_saveToTemplate;
@@ -48,6 +48,8 @@
 ["vehiclesHelisTransport", ["CUP_B_CH47F_GB", "CUP_B_MH47E_GB", "CUP_B_Merlin_HC3_GB", "CUP_B_Merlin_HC3_Armed_GB", "CUP_B_Merlin_HC3A_GB", "CUP_B_Merlin_HC4_GB", "CUP_B_SA330_Puma_HC1_BAF", "CUP_B_SA330_Puma_HC2_BAF"]] call _fnc_saveToTemplate;
 ["vehiclesHelisLightAttack", ["CUP_B_AW159_GB"]] call _fnc_saveToTemplate;
 ["vehiclesHelisAttack", ["CUP_B_AH1_DL_BAF"]] call _fnc_saveToTemplate;
+
+["vehiclesAirPatrol", ["CUP_B_AW159_Unarmed_RN_Blackcat", "CUP_B_AW159_Unarmed_GB", "CUP_B_AW159_Unarmed_RN_Grey", "CUP_B_AW159_GB"]] call _fnc_saveToTemplate;
 
 ["vehiclesArtillery", ["CUP_B_M270_HE_BAF_WOOD"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [["CUP_B_M270_HE_BAF_WOOD", ["CUP_12Rnd_MLRS_HE"]]]] call _fnc_saveToTemplate;
@@ -94,6 +96,7 @@
 "WhiteHead_14","WhiteHead_15","WhiteHead_16","WhiteHead_17","WhiteHead_18",
 "WhiteHead_19","WhiteHead_20","WhiteHead_21"]] call _fnc_saveToTemplate;
 ["voices", ["CUP_D_Male01_GB_BAF","CUP_D_Male02_GB_BAF","CUP_D_Male03_GB_BAF","CUP_D_Male04_GB_BAF","CUP_D_Male05_GB_BAF"]] call _fnc_saveToTemplate;
+"EnglishMen" call _fnc_saveNames;
 
 //////////////////////////
 //       Loadouts       //

@@ -12,6 +12,7 @@ private _hasCSLA = "csla" in A3A_enabledDLC;
 private _hasRF = "rf" in A3A_enabledDLC;
 private _hasSOG = "vn" in A3A_enabledDLC;
 private _hasSPE = "spe" in A3A_enabledDLC;
+private _hasEF = "ef" in A3A_enabledDLC;
 
 //////////////////////////
 //   Side Information   //
@@ -29,6 +30,8 @@ private _hasSPE = "spe" in A3A_enabledDLC;
 //////////////////////////
 //       Vehicles       //
 //////////////////////////
+
+["vehiclesSDV", ["O_SDV_01_F","I_SDV_01_F"]] call _fnc_saveToTemplate;
 
 ["vehiclesDropPod", ["Land_Pod_Heli_Transport_04_covered_F"]] call _fnc_saveToTemplate; 
 
@@ -68,6 +71,8 @@ private _transportHelicopters = ["O_Heli_Light_02_unarmed_F","I_Heli_Transport_0
 
 private _helisLightAttack = ["O_Heli_Light_02_dynamicLoadout_F","I_Heli_light_03_dynamicLoadout_F"];
 private _helisAttack = ["O_Heli_Attack_02_dynamicLoadout_F"];
+
+private _airPatrol = ["O_Heli_Light_02_unarmed_F","I_Heli_light_03_unarmed_F","O_Heli_Light_02_dynamicLoadout_F","I_Heli_light_03_dynamicLoadout_F"];
 
 private _artillery = ["O_MBT_02_arty_F", "I_Truck_02_MRL_F"];
 ["magazines", createHashMapFromArray [
@@ -141,7 +146,7 @@ if (_hasWs) then {
 };
 
 //If GM cdlc + extra AAF mod
-if (_hasGM) then {
+if (isClass (configFile >> "cfgVehicles" >> "gmx_aaf_m113a2dk_wdl") && _hasGM) then {
     #include "..\DLC_content\vehicles\GM\AAF_militia_extramod.sqf"
 };
 
@@ -157,10 +162,15 @@ if (_hasSPE) then {
     #include "..\DLC_content\vehicles\SPE\Vanilla_AAF.sqf"
 };
 
+if (_hasEF) then {
+    #include "..\DLC_content\vehicles\EF\Vanilla_CSAT.sqf"
+};
+
 if (isClass (configFile >> "cfgVehicles" >> "CUP_ZSU23_Base")) then {
     #include "..\MOD_content\CUP\Vanilla_AAF\Vehicles_AAF_militia.sqf"
 };
 
+["vehiclesAirPatrol", _airPatrol] call _fnc_saveToTemplate;
 ["vehiclesPlanesGunship", _gunship] call _fnc_saveToTemplate;
 ["vehiclesGunBoats", _gunBoat] call _fnc_saveToTemplate;
 ["vehiclesTransportBoats", _transportBoat] call _fnc_saveToTemplate;
@@ -212,6 +222,7 @@ if (isClass (configFile >> "cfgVehicles" >> "CUP_ZSU23_Base")) then {
     #include "..\vehicleAnimations\vehicleAnimations_CSLA.sqf",
     #include "..\vehicleAnimations\vehicleAnimations_SOG.sqf",
     #include "..\vehicleAnimations\vehicleAnimations_SPE.sqf",
+    #include "..\vehicleAnimations\vehicleAnimations_EF.sqf",
     #include "..\MOD_content\CUP\Vehicles_Animations.sqf"
 ]] call _fnc_saveToTemplate;
 
@@ -836,6 +847,10 @@ if (_hasSOG) then {
 if (_hasSPE) then {
     #include "..\DLC_content\gear\SPE\Vanilla_AAF.sqf"
     #include "..\DLC_content\weapons\SPE\Vanilla_AAF.sqf"
+};
+
+if (_hasEF) then {
+    #include "..\DLC_content\gear\EF\Vanilla_CSAT&AAF.sqf"
 };
 
 //If CUP

@@ -73,11 +73,13 @@ class cfgHALsStore
 		#include "config\nfts.hpp"
 		#include "config\fow.hpp"
 		#include "config\eaw.hpp"
+		#include "config\ef.hpp"
 		#include "config\cwr.hpp"
 		#include "config\ffp.hpp"
 		#include "config\ylarms.hpp"
 		#include "config\ProjInfAD.hpp"
 		#include "config\JCAArsenal.hpp"
+		#include "config\hafm.hpp"
 	};
 
 	class stores 
@@ -221,6 +223,21 @@ class cfgHALsStore
 				"muzzlesRF", 
 				"opticsRF", 
 				"miscRF"
+			};
+		};
+
+		class ef 
+		{
+			displayName = $STR_ARMS_DEALER_STORE;
+			categories[] = {
+				"riflesEF", 
+				"handgunsEF", 
+				"magazinesEF", 
+				"navigationEF", 
+				"pointersEF", 
+				"muzzlesEF", 
+				"opticsEF", 
+				"miscEF"
 			};
 		};
     
@@ -524,8 +541,8 @@ class cfgHALsStore
 		
 		class optre
 		{
-		  displayName = $STR_ARMS_DEALER_STORE;
-		  categories[] = {
+			displayName = $STR_ARMS_DEALER_STORE;
+			categories[] = {
 			      "handgunshalo",
 			      "smghalo",
 			      "mghalo",
@@ -546,8 +563,8 @@ class cfgHALsStore
 		
 		class ffaastock
 		{
-		  displayName = $STR_ARMS_DEALER_STORE;
-		  categories[] = {
+			displayName = $STR_ARMS_DEALER_STORE;
+			categories[] = {
 			      "handgunsffaa",
 			      "smgffaa",
 			      "mgffaa",
@@ -564,8 +581,8 @@ class cfgHALsStore
 		
 		class italystock
 		{
-		  displayName = $STR_ARMS_DEALER_STORE;
-		  categories[] = {
+			displayName = $STR_ARMS_DEALER_STORE;
+			categories[] = {
 			      "handgunsitaly",
 			      "mgitaly",
 			      "riflesitaly",
@@ -583,8 +600,8 @@ class cfgHALsStore
 		
 		class sfpstock
 		{
-		  displayName = $STR_ARMS_DEALER_STORE;
-		  categories[] = {
+			displayName = $STR_ARMS_DEALER_STORE;
+			categories[] = {
 			      "handgunsswe",
 			      "smgswe",
 			      "mgswe",
@@ -602,8 +619,8 @@ class cfgHALsStore
 		
 		class plastock
 		{
-		  displayName = $STR_ARMS_DEALER_STORE;
-		  categories[] = {
+			displayName = $STR_ARMS_DEALER_STORE;
+			categories[] = {
 			      "mgpla",
 			      "riflespla",
 			      "sniperriflespla",
@@ -615,8 +632,8 @@ class cfgHALsStore
 		
 		class bwastock
 		{
-		  displayName = $STR_ARMS_DEALER_STORE;
-		  categories[] = {
+			displayName = $STR_ARMS_DEALER_STORE;
+			categories[] = {
 			      "handgunsbwa",
 			      "smgbwa",
 			      "mgbwa",
@@ -634,8 +651,8 @@ class cfgHALsStore
 		
 		class 3cbbafstock
 		{
-		  displayName = $STR_ARMS_DEALER_STORE;
-		  categories[] = {
+			displayName = $STR_ARMS_DEALER_STORE;
+			categories[] = {
 			      "handguns3cbbaf",
 			      "smg3cbbaf",
 			      "mg3cbbaf",
@@ -846,8 +863,8 @@ class cfgHALsStore
 				"launchermagazinesffp",
 				"magazinesffp", 
 				"opticsffp"
-        };
-    };
+        	};
+		};
 		class hafmstock		
 		{
 			displayName = $STR_ARMS_DEALER_STORE;
@@ -865,8 +882,8 @@ class cfgHALsStore
 				"specialweaponsHAFM",
 				"opticsHAFM",
 				"underbarrelHAFM"
-        };
-    };
+			};
+		};
 		class ylarmsstock		
 		{
 			displayName = $STR_ARMS_DEALER_STORE;
@@ -882,8 +899,8 @@ class cfgHALsStore
 				"magazinesYLA",
 				"underbarrelYLA",
 				"specialWeaponsYLA"
-        };
-    };
+			};
+		};
 		class projinf_stock
 		{
 			displayName = $STR_ARMS_DEALER_STORE;
@@ -895,8 +912,8 @@ class cfgHALsStore
 				"opticsProjInfAD",
 				"magazinesProjInfAD",
 				"underbarrelProjInfAD"
-        };
-    };
+			};
+		};
 		class jca_stock
 		{
 			displayName = $STR_ARMS_DEALER_STORE;
