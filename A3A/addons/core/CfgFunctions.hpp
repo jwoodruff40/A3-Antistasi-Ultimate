@@ -810,7 +810,7 @@ class CfgFunctions
         
         class reload_repack_turret_magazines {
             file = QPATHTOFOLDER(Scripts\RRTurretMagazines\scripts);
-            class postInit {};
+            //class postInit {};
             class reloadTurret {};
             class monitorMagazines {};
         };

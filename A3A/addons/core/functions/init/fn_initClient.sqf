@@ -118,7 +118,7 @@ if (enableSpectrumDevice) then {
 
 if (RRTurretMagazines) then {
     [] execVM QPATHTOFOLDER(Scripts\RRTurretMagazines\scripts\fn_monitorMagazines.sqf);
-    [] execVM QPATHTOFOLDER(Scripts\RRTurretMagazines\scripts\fn_postInit.sqf);
+    addUserActionEventHandler ["ReloadMagazine", "Activate", A3A_fnc_reloadTurret];
     [] execVM QPATHTOFOLDER(Scripts\RRTurretMagazines\scripts\fn_reloadTurret.sqf);
 };
 
