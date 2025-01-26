@@ -37,15 +37,9 @@ private _fnc_getAvailableMagazines = {
     params ["_class", "_categories", ["_baseClass", ""]];
 
     private _magsCompat = [compatibleMagazines [_baseClass, _class], compatibleMagazines _class] select (_baseClass == "");
-    private _magsAvailable = [];
     {
-        if (_x select 0 in _magsCompat) then { _magsAvailable pushBack _x };
-    } forEach (jna_datalist select IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL);
-
-    if (_magsAvailable isEqualTo []) exitWith { false };
-    {
-        if (_x select 1 == -1 || (minWeaps < 0 && {_x select 1 >= ITEM_MIN})) then { (_rebelGear get "Magazines") getOrDefault [_class, [], true] pushBack (_x select 0); }; 
-    } forEach _magsAvailable;
+        if (_x in _magsCompat) then { (_rebelGear get "Magazines") getOrDefault [_class, [], true] pushBack _x };
+    } forEach (unlockedMagBullet + unlockedMagShotgun + unlockedMagShell + unlockedMagMissile + unlockedMagRocket);
 
     if ("GrenadeLaunchers" in _categories && {"Rifles" in _categories} ) then {
         // lookup real underbarrel GL magazine, because not everything is 40mm
