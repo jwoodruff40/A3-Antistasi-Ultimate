@@ -1296,58 +1296,80 @@ switch _mode do {
 		_type = (ctrltype _ctrlList == 102);
 		if _type then{
 			lnbclear _ctrlList;
+
+			// * filter cargo items to what's unlocked
+			_inventory = switch (_index) do {
+				case (IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG);
+				case (IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL);
+				case (IDC_RSCDISPLAYARSENAL_TAB_CARGOTHROW): {
+					_inventory select { (_x select 0) in unlockedMagazines}
+				};
+				case (IDC_RSCDISPLAYARSENAL_TAB_CARGOPUT): {
+					_inventory select { (_x select 0) in unlockedExplosives}
+				};
+				case (IDC_RSCDISPLAYARSENAL_TAB_CARGOMISC): {
+					_inventory select { (_x select 0) in unlockedItems}
+				};
+			};
 		}else{
 			lbclear _ctrlList;
 
-			// * Filter primary and secondary weapons available according to unit type / class
-			if (_index == IDC_RSCDISPLAYARSENAL_TAB_PRIMARYWEAPON) then {
-				private _loadoutName = currentRebelLoadout call SCRT_fnc_misc_getLoadoutName;
-				_inventory = switch (_loadoutName) do {
-					case ("MACHINEGUNNER"): { 
-						_inventory select { (_x select 0) in (missionNamespace getVariable "unlockedMachineGuns") }
-					};
-					case ("STATICCREW");
-					case ("MEDIC"): {
-						_inventory select { (_x select 0) in (missionNamespace getVariable "unlockedSMGs") }
-					};
-					case ("GRENADIER"): {
-						_inventory select { (_x select 0) in (missionNamespace getVariable "unlockedGrenadeLaunchers") }
-					};
-					case ("SNIPER"): {
-						_inventory select { (_x select 0) in (missionNamespace getVariable "unlockedSniperRifles") }
-					};
-					default {
-						private _excludedWeapons = (missionNamespace getVariable "unlockedMachineGuns") + (missionNamespace getVariable "unlockedGrenadeLaunchers") + (missionNamespace getVariable "unlockedSniperRifles");
-						_inventory select { (_x select 0) in (missionNamespace getVariable "unlockedWeapons") && {!((_x select 0) in _excludedWeapons)}}
+			// * Filter primary and secondary weapons available according to unit type / class, all items to what's unlocked
+			switch (_index) do {
+				case (IDC_RSCDISPLAYARSENAL_TAB_PRIMARYWEAPON): {
+					private _loadoutName = currentRebelLoadout call SCRT_fnc_misc_getLoadoutName;
+					_inventory = switch (_loadoutName) do {
+						case ("MACHINEGUNNER"): { 
+							_inventory select { (_x select 0) in (missionNamespace getVariable "unlockedMachineGuns") }
+						};
+						case ("STATICCREW");
+						case ("MEDIC"): {
+							_inventory select { (_x select 0) in (missionNamespace getVariable "unlockedSMGs") }
+						};
+						case ("GRENADIER"): {
+							_inventory select { (_x select 0) in (missionNamespace getVariable "unlockedGrenadeLaunchers") }
+						};
+						case ("SNIPER"): {
+							_inventory select { (_x select 0) in (missionNamespace getVariable "unlockedSniperRifles") }
+						};
+						default {
+							private _excludedWeapons = (missionNamespace getVariable "unlockedMachineGuns") + (missionNamespace getVariable "unlockedGrenadeLaunchers") + (missionNamespace getVariable "unlockedSniperRifles");
+							_inventory select { (_x select 0) in (missionNamespace getVariable "unlockedWeapons") && {!((_x select 0) in _excludedWeapons)}}
+						};
 					};
 				};
-			};
 
-			if (_index == IDC_RSCDISPLAYARSENAL_TAB_SECONDARYWEAPON) then {
-				private _loadoutName = currentRebelLoadout call SCRT_fnc_misc_getLoadoutName;
-				_inventory = switch (_loadoutName) do {
-					case ("RIFLEMAN"): {
-						_inventory select { (_x select 0) in (missionNamespace getVariable "unlockedAT") && {(_x select 0) in (missionNamespace getVariable "allDisposable")} }
+				case (IDC_RSCDISPLAYARSENAL_TAB_SECONDARYWEAPON): {
+					private _loadoutName = currentRebelLoadout call SCRT_fnc_misc_getLoadoutName;
+					_inventory = switch (_loadoutName) do {
+						case ("RIFLEMAN"): {
+							_inventory select { (_x select 0) in (missionNamespace getVariable "unlockedAT") && {(_x select 0) in (missionNamespace getVariable "allDisposable")} }
+						};
+						case ("LAT"): {
+							_inventory select { (_x select 0) in (missionNamespace getVariable "unlockedAT") && {(_x select 0) in (missionNamespace getVariable "unlockedRocketLaunchers")} }
+						};
+						case ("AT"): {
+							_inventory select { (_x select 0) in (missionNamespace getVariable "unlockedAT") }
+						};
+						case ("AA"): {
+							_inventory select { (_x select 0) in (missionNamespace getVariable "unlockedAA") }
+						};
+						default { [] };
 					};
-					case ("LAT"): {
-						_inventory select { (_x select 0) in (missionNamespace getVariable "unlockedAT") && {(_x select 0) in (missionNamespace getVariable "unlockedRocketLaunchers")} }
-					};
-					case ("AT"): {
-						_inventory select { (_x select 0) in (missionNamespace getVariable "unlockedAT") }
-					};
-					case ("AA"): {
-						_inventory select { (_x select 0) in (missionNamespace getVariable "unlockedAA") }
-					};
-					default { [] };
 				};
-			};
 
-			if (_index == IDC_RSCDISPLAYARSENAL_TAB_HANDGUN) then {
-				_inventory = _inventory select { (_x select 0) in (missionNamespace getVariable "unlockedWeapons")}
-			};
+				case (IDC_RSCDISPLAYARSENAL_TAB_HANDGUN): {
+					_inventory = _inventory select { (_x select 0) in (missionNamespace getVariable "unlockedWeapons")}
+				};
 
-			if (_index in [IDC_RSCDISPLAYARSENAL_TAB_LOADEDMAG, IDC_RSCDISPLAYARSENAL_TAB_LOADEDMAG2]) then {
-				_inventory = _inventory select { (_x select 0) in (unlockedMagBullet + unlockedMagShotgun + unlockedMagShell + unlockedMagMissile + unlockedMagRocket) };
+				case (IDC_RSCDISPLAYARSENAL_TAB_LOADEDMAG);
+				case (IDC_RSCDISPLAYARSENAL_TAB_LOADEDMAG2): {
+					_inventory = _inventory select { (_x select 0) in (unlockedMagBullet + unlockedMagShotgun + unlockedMagShell + unlockedMagMissile + unlockedMagRocket) };
+				};
+
+				default {
+					_inventory = _inventory select { (_x select 0) in unlockedItems}
+				};
 			};
 
 			// add empty item (deliberately choose nothing for this type) and any item ("randomly" (weighted) select an item)
