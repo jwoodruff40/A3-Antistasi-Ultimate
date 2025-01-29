@@ -1312,12 +1312,16 @@ switch _mode do {
 				_emptyItemString = ("           ") + _emptyItemString; //little longer for bigger icons
 				_anyItemString = ("           ") + _anyItemString; //little longer for bigger icons
 			};
-			_lbAddAny = _ctrlList lbAdd _anyItemString;
+
 			_lbAddEmpty = _ctrlList lbAdd _emptyItemString;
-			_anyItemData = str ["petros_knows_best",0,""];
 			_emptyItemData = str ["",0,""];
 			_ctrlList lbSetData [_lbAddEmpty, _emptyItemData];
-			_ctrlList lbSetData [_lbAddAny, _anyItemData];
+
+			if !(_index in [IDCS_RIGHT]) then {
+				_lbAddAny = _ctrlList lbAdd _anyItemString;	
+				_anyItemData = str ["petros_knows_best",0,""];
+				_ctrlList lbSetData [_lbAddAny, _anyItemData];
+			};
 		};
 		
 		// * Filter primary and secondary weapons available according to unit type / class, all items to what's unlocked
