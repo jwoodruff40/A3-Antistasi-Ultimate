@@ -1294,115 +1294,89 @@ switch _mode do {
 		_inventory = _this select 2;
 		_ctrlList = _display displayctrl (IDC_RSCDISPLAYARSENAL_LIST + _index);
 		_type = (ctrltype _ctrlList == 102);
-		if _type then{
-			lnbclear _ctrlList;
-
-			// * filter cargo items to what's unlocked
-			_inventory = switch (_index) do {
-				case (IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG);
-				case (IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL);
-				case (IDC_RSCDISPLAYARSENAL_TAB_CARGOTHROW): {
-					_inventory select { (_x select 0) in unlockedMagazines}
-				};
-				case (IDC_RSCDISPLAYARSENAL_TAB_CARGOPUT): {
-					_inventory select { (_x select 0) in unlockedExplosives}
-				};
-				case (IDC_RSCDISPLAYARSENAL_TAB_CARGOMISC): {
-					_inventory select { (_x select 0) in unlockedItems}
-				};
-			};
-		}else{
-			lbclear _ctrlList;
-
-			// * Filter primary and secondary weapons available according to unit type / class, all items to what's unlocked
-			_inventory = switch (_index) do {
-				// If item is in A3A_rebelGear, it should already be unlocked or its qty should be > jna_minItemMember select _index
-				case (IDC_RSCDISPLAYARSENAL_TAB_PRIMARYWEAPON): {
-					private _loadoutName = currentRebelLoadout call SCRT_fnc_misc_getLoadoutName;
-					switch (_loadoutName) do {
-						case ("MACHINEGUNNER"): { 
-							_inventory select { (_x select 0) in (A3A_rebelGear get "MachineGuns") }
-						};
-						case ("STATICCREW");
-						case ("MEDIC"): {
-							_inventory select { (_x select 0) in (A3A_rebelGear get "SMGs") }
-						};
-						case ("GRENADIER"): {
-							_inventory select { (_x select 0) in (A3A_rebelGear get "GrenadeLaunchers") }
-						};
-						case ("SNIPER"): {
-							_inventory select { (_x select 0) in (A3A_rebelGear get "SniperRifles") }
-						};
-						default {
-							_inventory select { (_x select 0) in ((A3A_rebelGear get "Rifles") + (A3A_rebelGear get "SMGs") + (A3A_rebelGear get "Shotguns")) }
-						};
-					};
-				};
-
-				case (IDC_RSCDISPLAYARSENAL_TAB_SECONDARYWEAPON): {
-					private _loadoutName = currentRebelLoadout call SCRT_fnc_misc_getLoadoutName;
-					switch (_loadoutName) do {
-						case ("RIFLEMAN"): {
-							_inventory select { (_x select 0) in (A3A_rebelGear get "RocketLaunchers") && {(_x select 0) in (missionNamespace getVariable "allDisposable")} }
-						};
-						case ("LAT"): {
-							_inventory select { (_x select 0) in (A3A_rebelGear get "RocketLaunchers") }
-						};
-						case ("AT"): {
-							_inventory select { (_x select 0) in ((A3A_rebelGear get "RocketLaunchers") + (A3A_rebelGear get "MissileLaunchersAT")) }
-						};
-						case ("AA"): {
-							_inventory select { (_x select 0) in (A3A_rebelGear get "MissileLaunchersAA") }
-						};
-						default { [] };
-					};
-				};
-
-				case (IDC_RSCDISPLAYARSENAL_TAB_LOADEDMAG);
-				case (IDC_RSCDISPLAYARSENAL_TAB_LOADEDMAG2);
-				case (IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG);
-				case (IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL): {
-					_inventory select {
-						private _amountCfg = getNumber (configfile >> "CfgMagazines" >> _x select 0 >> "count");
-						(_x select 1) == -1 || {minWeaps < 0 && {(_x select 1) >= ((jna_minItemMember select _index) * _amountCfg)}}
-					}
-				};
-				
-				default {
-					// item unlocked (qty == -1) OR (unlocks disabled AND item qty more than min items)
-					_inventory select { (_x select 1) == -1 || {minWeaps < 0 && {(_x select 1) >= (jna_minItemMember select _index)}} }
-				};
-			};
+		if _type then {
+			lnbClear _ctrlList;
+		} else {
+			lbClear _ctrlList;
 
 			// add empty item (deliberately choose nothing for this type) and any item ("randomly" (weighted) select an item)
-			if!(
-			_index in [
-				IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG,
-				IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL,
-				IDC_RSCDISPLAYARSENAL_TAB_CARGOTHROW,
-				IDC_RSCDISPLAYARSENAL_TAB_CARGOPUT,
-				IDC_RSCDISPLAYARSENAL_TAB_CARGOMISC
-			])then{
-
-				//add empty
-				_anyItemString = ("       Any item (Petros Knows Best)       ");
-				_emptyItemString = ("            Qty:    Name:          <Empty>");
-				if(
-					_index in [
-						IDC_RSCDISPLAYARSENAL_TAB_PRIMARYWEAPON,
-						IDC_RSCDISPLAYARSENAL_TAB_SECONDARYWEAPON,
-						IDC_RSCDISPLAYARSENAL_TAB_HANDGUN
-					]
-				)then{
-					_emptyItemString = ("           ") + _emptyItemString; //little longer for bigger icons
-					_anyItemString = ("           ") + _anyItemString; //little longer for bigger icons
+			_anyItemString = ("       Any item (Petros Knows Best)       ");
+			_emptyItemString = ("            Qty:    Name:          <Empty>");
+			if(
+				_index in [
+					IDC_RSCDISPLAYARSENAL_TAB_PRIMARYWEAPON,
+					IDC_RSCDISPLAYARSENAL_TAB_SECONDARYWEAPON,
+					IDC_RSCDISPLAYARSENAL_TAB_HANDGUN
+				]
+			)then{
+				_emptyItemString = ("           ") + _emptyItemString; //little longer for bigger icons
+				_anyItemString = ("           ") + _anyItemString; //little longer for bigger icons
+			};
+			_lbAddAny = _ctrlList lbAdd _anyItemString;
+			_lbAddEmpty = _ctrlList lbAdd _emptyItemString;
+			_anyItemData = str ["petros_knows_best",0,""];
+			_emptyItemData = str ["",0,""];
+			_ctrlList lbSetData [_lbAddEmpty, _emptyItemData];
+			_ctrlList lbSetData [_lbAddAny, _anyItemData];
+		};
+		
+		// * Filter primary and secondary weapons available according to unit type / class, all items to what's unlocked
+		_inventory = switch (_index) do {
+			// If item is in A3A_rebelGear, it should already be unlocked or its qty should be > jna_minItemMember select _index
+			case (IDC_RSCDISPLAYARSENAL_TAB_PRIMARYWEAPON): {
+				private _loadoutName = currentRebelLoadout call SCRT_fnc_misc_getLoadoutName;
+				switch (_loadoutName) do {
+					case ("MACHINEGUNNER"): { 
+						_inventory select { (_x select 0) in (A3A_rebelGear get "MachineGuns") }
+					};
+					case ("STATICCREW");
+					case ("MEDIC"): {
+						_inventory select { (_x select 0) in (A3A_rebelGear get "SMGs") }
+					};
+					case ("GRENADIER"): {
+						_inventory select { (_x select 0) in (A3A_rebelGear get "GrenadeLaunchers") }
+					};
+					case ("SNIPER"): {
+						_inventory select { (_x select 0) in (A3A_rebelGear get "SniperRifles") }
+					};
+					default {
+						_inventory select { (_x select 0) in ((A3A_rebelGear get "Rifles") + (A3A_rebelGear get "SMGs") + (A3A_rebelGear get "Shotguns")) }
+					};
 				};
-				_lbAddAny = _ctrlList lbAdd _anyItemString;
-				_lbAddEmpty = _ctrlList lbAdd _emptyItemString;
-				_anyItemData = str ["petros_knows_best",0,""];
-				_emptyItemData = str ["",0,""];
-				_ctrlList lbSetData [_lbAddEmpty, _emptyItemData];
-				_ctrlList lbSetData [_lbAddAny, _anyItemData];
+			};
+
+			case (IDC_RSCDISPLAYARSENAL_TAB_SECONDARYWEAPON): {
+				private _loadoutName = currentRebelLoadout call SCRT_fnc_misc_getLoadoutName;
+				switch (_loadoutName) do {
+					case ("RIFLEMAN"): {
+						_inventory select { (_x select 0) in (A3A_rebelGear get "RocketLaunchers") && {(_x select 0) in (missionNamespace getVariable "allDisposable")} }
+					};
+					case ("LAT"): {
+						_inventory select { (_x select 0) in (A3A_rebelGear get "RocketLaunchers") }
+					};
+					case ("AT"): {
+						_inventory select { (_x select 0) in ((A3A_rebelGear get "RocketLaunchers") + (A3A_rebelGear get "MissileLaunchersAT")) }
+					};
+					case ("AA"): {
+						_inventory select { (_x select 0) in (A3A_rebelGear get "MissileLaunchersAA") }
+					};
+					default { [] };
+				};
+			};
+
+			case (IDC_RSCDISPLAYARSENAL_TAB_LOADEDMAG);
+			case (IDC_RSCDISPLAYARSENAL_TAB_LOADEDMAG2);
+			case (IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG);
+			case (IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL): {
+				_inventory select {
+					private _amountCfg = getNumber (configfile >> "CfgMagazines" >> _x select 0 >> "count");
+					(_x select 1) == -1 || {minWeaps < 0 && {(_x select 1) >= ((jna_minItemMember select _index) * _amountCfg)}}
+				}
+			};
+			
+			default {
+				// item unlocked (qty == -1) OR (unlocks disabled AND item qty more than min items)
+				_inventory select { (_x select 1) == -1 || {minWeaps < 0 && {(_x select 1) >= (jna_minItemMember select _index)}} }
 			};
 		};
 
