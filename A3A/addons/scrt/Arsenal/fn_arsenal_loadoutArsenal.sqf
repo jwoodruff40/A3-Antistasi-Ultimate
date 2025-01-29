@@ -132,8 +132,6 @@ FIX_LINE_NUMBERS()
 #define INCOMPATIBLE_ITEM_COLOR [1,1,1,0.25]
 #define DEFAULT_COLOR [1,1,1,1]
 
-#define ITEM_MIN 10
-
 disableserialization;
 
 _arrayContains = {
@@ -1318,7 +1316,7 @@ switch _mode do {
 
 			// * Filter primary and secondary weapons available according to unit type / class, all items to what's unlocked
 			_inventory = switch (_index) do {
-				// If item is in A3A_rebelGear, it should already be unlocked or its qty should be > ITEM_MIN
+				// If item is in A3A_rebelGear, it should already be unlocked or its qty should be > jna_minItemMember select _index
 				case (IDC_RSCDISPLAYARSENAL_TAB_PRIMARYWEAPON): {
 					private _loadoutName = currentRebelLoadout call SCRT_fnc_misc_getLoadoutName;
 					switch (_loadoutName) do {
@@ -1366,13 +1364,13 @@ switch _mode do {
 				case (IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL): {
 					_inventory select {
 						private _amountCfg = getNumber (configfile >> "CfgMagazines" >> _x select 0 >> "count");
-						(_x select 1) == -1 || {minWeaps < 0 && {(_x select 1) >= (ITEM_MIN * _amountCfg)}}
+						(_x select 1) == -1 || {minWeaps < 0 && {(_x select 1) >= ((jna_minItemMember select _index) * _amountCfg)}}
 					}
 				};
 				
 				default {
 					// item unlocked (qty == -1) OR (unlocks disabled AND item qty more than min items)
-					_inventory select { (_x select 1) == -1 || {minWeaps < 0 && {(_x select 1) >= ITEM_MIN}} }
+					_inventory select { (_x select 1) == -1 || {minWeaps < 0 && {(_x select 1) >= (jna_minItemMember select _index)}} }
 				};
 			};
 
