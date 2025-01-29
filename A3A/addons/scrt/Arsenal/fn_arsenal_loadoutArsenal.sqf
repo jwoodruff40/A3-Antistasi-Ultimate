@@ -1360,6 +1360,16 @@ switch _mode do {
 					};
 				};
 
+				case (IDC_RSCDISPLAYARSENAL_TAB_LOADEDMAG);
+				case (IDC_RSCDISPLAYARSENAL_TAB_LOADEDMAG2);
+				case (IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG);
+				case (IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL): {
+					_inventory select {
+						private _amountCfg = getNumber (configfile >> "CfgMagazines" >> _x select 0 >> "count");
+						(_x select 1) == -1 || {minWeaps < 0 && {(_x select 1) >= (ITEM_MIN * _amountCfg)}}
+					}
+				};
+				
 				default {
 					// item unlocked (qty == -1) OR (unlocks disabled AND item qty more than min items)
 					_inventory select { (_x select 1) == -1 || {minWeaps < 0 && {(_x select 1) >= ITEM_MIN}} }
