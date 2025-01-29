@@ -132,6 +132,8 @@ FIX_LINE_NUMBERS()
 #define INCOMPATIBLE_ITEM_COLOR [1,1,1,0.25]
 #define DEFAULT_COLOR [1,1,1,1]
 
+#define ITEM_MIN 10
+
 disableserialization;
 
 _arrayContains = {
@@ -1315,60 +1317,52 @@ switch _mode do {
 			lbclear _ctrlList;
 
 			// * Filter primary and secondary weapons available according to unit type / class, all items to what's unlocked
-			switch (_index) do {
+			_inventory = switch (_index) do {
+				// If item is in A3A_rebelGear, it should already be unlocked or its qty should be > ITEM_MIN
 				case (IDC_RSCDISPLAYARSENAL_TAB_PRIMARYWEAPON): {
 					private _loadoutName = currentRebelLoadout call SCRT_fnc_misc_getLoadoutName;
-					_inventory = switch (_loadoutName) do {
+					switch (_loadoutName) do {
 						case ("MACHINEGUNNER"): { 
-							_inventory select { (_x select 0) in (missionNamespace getVariable "unlockedMachineGuns") }
+							_inventory select { (_x select 0) in (A3A_rebelGear get "MachineGuns") }
 						};
 						case ("STATICCREW");
 						case ("MEDIC"): {
-							_inventory select { (_x select 0) in (missionNamespace getVariable "unlockedSMGs") }
+							_inventory select { (_x select 0) in (A3A_rebelGear get "SMGs") }
 						};
 						case ("GRENADIER"): {
-							_inventory select { (_x select 0) in (missionNamespace getVariable "unlockedGrenadeLaunchers") }
+							_inventory select { (_x select 0) in (A3A_rebelGear get "GrenadeLaunchers") }
 						};
 						case ("SNIPER"): {
-							_inventory select { (_x select 0) in (missionNamespace getVariable "unlockedSniperRifles") }
+							_inventory select { (_x select 0) in (A3A_rebelGear get "SniperRifles") }
 						};
 						default {
-							private _excludedWeapons = (missionNamespace getVariable "unlockedMachineGuns") + (missionNamespace getVariable "unlockedGrenadeLaunchers") + (missionNamespace getVariable "unlockedSniperRifles");
-							_inventory select { (_x select 0) in (missionNamespace getVariable "unlockedWeapons") && {!((_x select 0) in _excludedWeapons)}}
+							_inventory select { (_x select 0) in ((A3A_rebelGear get "Rifles") + (A3A_rebelGear get "SMGs") + (A3A_rebelGear get "Shotguns")) }
 						};
 					};
 				};
 
 				case (IDC_RSCDISPLAYARSENAL_TAB_SECONDARYWEAPON): {
 					private _loadoutName = currentRebelLoadout call SCRT_fnc_misc_getLoadoutName;
-					_inventory = switch (_loadoutName) do {
+					switch (_loadoutName) do {
 						case ("RIFLEMAN"): {
-							_inventory select { (_x select 0) in (missionNamespace getVariable "unlockedAT") && {(_x select 0) in (missionNamespace getVariable "allDisposable")} }
+							_inventory select { (_x select 0) in (A3A_rebelGear get "RocketLaunchers") && {(_x select 0) in (missionNamespace getVariable "allDisposable")} }
 						};
 						case ("LAT"): {
-							_inventory select { (_x select 0) in (missionNamespace getVariable "unlockedAT") && {(_x select 0) in (missionNamespace getVariable "unlockedRocketLaunchers")} }
+							_inventory select { (_x select 0) in (A3A_rebelGear get "RocketLaunchers") }
 						};
 						case ("AT"): {
-							_inventory select { (_x select 0) in (missionNamespace getVariable "unlockedAT") }
+							_inventory select { (_x select 0) in ((A3A_rebelGear get "RocketLaunchers") + (A3A_rebelGear get "MissileLaunchersAT")) }
 						};
 						case ("AA"): {
-							_inventory select { (_x select 0) in (missionNamespace getVariable "unlockedAA") }
+							_inventory select { (_x select 0) in (A3A_rebelGear get "MissileLaunchersAA") }
 						};
 						default { [] };
 					};
 				};
 
-				case (IDC_RSCDISPLAYARSENAL_TAB_HANDGUN): {
-					_inventory = _inventory select { (_x select 0) in (missionNamespace getVariable "unlockedWeapons")}
-				};
-
-				case (IDC_RSCDISPLAYARSENAL_TAB_LOADEDMAG);
-				case (IDC_RSCDISPLAYARSENAL_TAB_LOADEDMAG2): {
-					_inventory = _inventory select { (_x select 0) in (unlockedMagBullet + unlockedMagShotgun + unlockedMagShell + unlockedMagMissile + unlockedMagRocket) };
-				};
-
 				default {
-					_inventory = _inventory select { (_x select 0) in unlockedItems}
+					// item unlocked (qty == -1) OR (unlocks disabled AND item qty more than min items)
+					_inventory select { (_x select 1) == -1 || {minWeaps < 0 && {(_x select 1) >= ITEM_MIN}} }
 				};
 			};
 
