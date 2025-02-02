@@ -56,4 +56,5 @@ class NavGrid {
 	pulau = QPATHTOFOLDER(Antistasi_pulau.pulau\navGrid.sqf);
 	fapovo = QPATHTOFOLDER(Antistasi_fapovo.fapovo\navGrid.sqf);
 	chernarusredux = QPATHTOFOLDER(Antistasi_chernarusredux.chernarusredux\navGrid.sqf);
+	stubbhult = QPATHTOFOLDER(Antistasi_stubbhult.stubbhult\navGrid.sqf);
 };
