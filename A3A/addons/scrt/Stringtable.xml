@@ -4957,6 +4957,10 @@
                 <Korean>안티스타시 플러스 매개변수</Korean>
                 <French>PARAMÈTRES ANTISTASI PLUS</French>
             </Key>
+            <Key ID="STR_params_antistasi_scripts">
+                <Original>SCRIPTS</Original>
+                <Russian>СКРИПТЫ</Russian>
+            </Key>
             <Key ID="STR_params_timeMultiplier">
                 <Original>Time Multiplier</Original>
                 <Russian>Множитель времени</Russian>
@@ -5033,6 +5037,10 @@
                 <Chinesesimp>启用Mag Repack？</Chinesesimp>
                 <Korean>탄약 재포장을 활성화합니까?</Korean>
                 <French>Activer le reconditionnement des chargeurs?</French>
+            </Key>
+            <Key ID="STR_params_ReloadRepackTurretMagazines">
+                <Original>Enable Turret Magazine Repacking?</Original>
+                <Russian>Включить Turret Magazine Repacking?</Russian>
             </Key>
             <Key ID="STR_params_playerIcons">
                 <Original>Show 3D icons above unconscious players?</Original>
