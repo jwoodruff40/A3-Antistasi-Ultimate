@@ -1,4 +1,5 @@
 private _hasSOG = "vn" in A3A_enabledDLC;
+private _hasRHS = count (["@RHSAFRF", "@RHSUSAF", "@RHSGREF"] arrayIntersect (getLoadedModsInfo apply {_x select 1})) == 3;
 
 //////////////////////////
 //   Side Information   //
@@ -72,7 +73,7 @@ _mortarMagazineSmoke = ["8Rnd_82mm_Mo_Smoke_white"];
 _mortarMagazineFlare = ["8Rnd_82mm_Mo_Flare_white"];
 
 if (_hasSOG) then {
-    #include "..\DLC_content\vehicles\SOG\ACM_PD_AI_AAF.sqf"
+    #include "..\..\DLC_content\vehicles\SOG\ACM_PD_AI_AAF.sqf"
 };
 
 if (_hasRHS) then {
@@ -143,8 +144,6 @@ if (_hasRHS) then {
 //Minefield definition
 ["minefieldAT", ["gm_minestatic_at_dm21", "gm_minestatic_at_dm1233"]] call _fnc_saveToTemplate;
 ["minefieldAPERS", ["gm_minestatic_ap_dm31"]] call _fnc_saveToTemplate;
-
-#include "GM_Vehicle_Attributes.sqf"
 
 /////////////////////
 ///  Identities   ///

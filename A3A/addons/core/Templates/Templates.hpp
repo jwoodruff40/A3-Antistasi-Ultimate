@@ -655,4 +655,8 @@ class Templates
 
     #include "Templates\CWR\templates.hpp"
 
+    // ***************************** Anthrax PD & GA *****************************
+
+    #include "Templates\ACM\templates.hpp"
+    
 };

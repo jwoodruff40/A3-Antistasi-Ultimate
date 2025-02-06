@@ -1,0 +1,5 @@
+_vehiclesRivalsLightArmed append ["acm_gm_aaf2015_SOG_fiaIns_opf_v_m274_M40_car", "acm_gm_aaf2015_SOG_fiaIns_opf_v_Boheme_DP27_car", "acm_gm_aaf2015_SOG_fiaIns_opf_v_Z157_MG_01_Car"];
+_vehiclesRivalsTrucks append ["acm_gm_aaf2015_SOG_fiaIns_opf_v_Z157_MG_01_Car", "acm_gm_aaf2015_SOG_fiaIns_opf_v_Z157_transport_Car"];
+_vehiclesRivalsCars append ["acm_gm_aaf2015_fiaIns_opf_v_m274_transport_car"];
+_staticLowWeapons append ["acm_gm_aaf2015_SOG_fiaIns_opf_v_dshkm_low_turret", "acm_gm_aaf2015_SOG_fiaIns_opf_v_m1910_turret", "acm_gm_aaf2015_SOG_fiaIns_opf_v_m1910_armour_turret", "acm_gm_aaf2015_SOG_fiaIns_opf_v_sgm_low_turret", "acm_gm_aaf2015_SOG_fiaIns_opf_v_zgu1_turret"];
+_staticMortars append ["acm_gm_aaf2015_SOG_fiaIns_opf_v_m2_mortar_turret"];

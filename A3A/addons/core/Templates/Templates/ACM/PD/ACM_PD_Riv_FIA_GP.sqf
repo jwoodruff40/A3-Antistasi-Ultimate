@@ -1,3 +1,5 @@
+private _hasSOG = "vn" in A3A_enabledDLC;
+
 ////////////////////////////
 //   Rivals Information   //
 ///////////////////////////
@@ -45,11 +47,7 @@ _vehiclesRivalsUavs = [];
 _staticLowWeapons = ["acm_gm_aaf2015_fiaGP_blu_v_dshkmTripod_turret", "acm_gm_aaf2015_fiaGP_blu_v_spg9Tripod_turret"];
 
 if (_hasSOG) then {
-    #include "..\DLC_content\vehicles\SOG\ACM_PD_Riv_Akh.sqf"
-};
-
-if (_hasRHS) then {
-    #include "..\Mod_content\RHS\ACM_PD_Riv_Akh.sqf"
+    #include "..\..\DLC_content\vehicles\SOG\ACM_PD_Riv_FIA_GP.sqf"
 };
 
 ["vehiclesRivalsLightArmed", _vehiclesRivalsLightArmed] call _fnc_saveToTemplate;
@@ -155,8 +153,8 @@ _loadoutData set ["tunedRifles", [
 	["gm_m16a2_blk", "", "gm_colt4x20_ar15_blk", "", ["gm_20Rnd_556x45mm_B_M193_stanag_gry"], [], ""]
 ]];
 _loadoutData set ["enforcerRifles", [
-    ["CUP_arifle_AK74", "", "", "", ["CUP_30Rnd_TE1_Red_Tracer_545x39_AK74_plum_M"], [], ""],
-    ["CUP_arifle_AKS", "", "", "CUP_optic_PechenegScope", ["CUP_30Rnd_TE1_Red_Tracer_762x39_AK47_bakelite_M"], [], ""]
+    ["gm_mpikms72_brn", "", "gm_pka_dovetail_blk", "", ["gm_75Rnd_762x39mm_AP_7N23_ak47_blk", "gm_75Rnd_762x39mm_B_T_57N231P_ak47_blk"], [], ""],
+	["gm_mpiaks74n_brn", "", "gm_pgo7v_blk", "", ["gm_45Rnd_545x39mm_B_7N6_ak74_prp", "gm_45Rnd_545x39mm_B_T_7T3_ak74_prp"], [], ""]
 ]];
 _loadoutData set ["carbines", [
     ["gm_pm63_blk", "", "", "", ["gm_15Rnd_9x18mm_B_pst_pm63_blk"], [], ""],
