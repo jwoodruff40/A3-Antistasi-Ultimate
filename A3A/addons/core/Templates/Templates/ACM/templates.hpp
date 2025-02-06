@@ -4,7 +4,7 @@
     {
         requiredAddons[] = {"gm_weapons_items", "ACM_GM_AAF2015", "ACM_GM_AAF2015_RHS_AFRF", "ACM_GM_AAF2015_RHS_USAF", "ACM_GM_AAF2015_SOG"};
         basepath = QPATHTOFOLDER(Templates\Templates\ACM\PD);
-        logo = "\gm\gm_core\data\logos\gm_logo_ca.paa";
+        logo = QPATHTOFOLDER(Templates\ACM\PD\modicon_ca.paa); // Copied from Phalanx Downfall (APL-SA). Thanks Anthrax!
         maps[] = {"altis", "malden"};
         climate[] = {"arid"};
         priority = 80;
