@@ -11,7 +11,7 @@ _vehiclesPlanesAA append ["acm_gm_aaf2015_SOG_aaf_v_Mig21_CAP_plane"];
 _staticMortars append ["acm_gm_aaf2015_SOG_aaf_ind_v_m2_mortar_turret", "acm_gm_aaf2015_SOG_aaf_ind_v_m29_mortar_turret"];
 _mortarMagazineHE append ["vn_mortar_m2_mag_he_x8"];
 _mortarMagazineSmoke append ["vn_mortar_m2_mag_wp_x8"];
-_mortarMagazineFlare ["vn_mortar_m2_mag_lume_x8"];
+_mortarMagazineFlare append ["vn_mortar_m2_mag_lume_x8"];
 _staticAA append ["acm_gm_aaf2015_SOG_aaf_ind_v_m40a1_turret"];
 _vehicleRadar append ["acm_gm_aaf2015_SOG_aaf_ind_v_rsna75_turret"];
 _vehicleSAM append ["acm_gm_aaf2015_SOG_aaf_ind_v_SA2_turret"];

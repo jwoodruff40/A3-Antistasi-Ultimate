@@ -170,7 +170,7 @@ private _faces = [
 ];
 if (_hasSOG) then {
     _faces append [
-        #include "..\DLC_content\faces\SOG\SOG_faces_greek.sqf"
+        #include "..\..\DLC_content\faces\SOG\SOG_faces_greek.sqf"
     ];
 };
 ["faces", _faces] call _fnc_saveToTemplate;
@@ -512,7 +512,7 @@ _militiaLoadoutData set ["marksmanRifles", [
 ]];
 _militiaLoadoutData set ["sidearms", [["gm_p1_blk", "", "", "", ["gm_8Rnd_9x19mm_B_DM51_p1_blk", "gm_8Rnd_9x19mm_B_DM11_p1_blk"], [], ""]]];
 _militiaLoadoutData set ["ATLaunchers", [
-    ["gm_pzf44_2_oli", "", "", "gm_feroz2x17_pzf44_2_blk", ["gm_1Rnd_44x537mm_heat_dm32_pzf44_2"], [], ""],
+    ["gm_pzf44_2_oli", "", "", "gm_feroz2x17_pzf44_2_blk", ["gm_1Rnd_44x537mm_heat_dm32_pzf44_2"], [], ""]
 ]];
 if (_hasSOG) then {
     (_militiaLoadoutData get "machineGuns") pushBack ["vn_l4", "", "", "", ["vn_l1a1_30_mag","vn_l1a1_30_t_mag"], [], ""];

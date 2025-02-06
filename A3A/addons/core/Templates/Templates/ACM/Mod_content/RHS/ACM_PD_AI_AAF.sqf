@@ -1,7 +1,7 @@
 _vehiclesIFVs append ["acm_gm_aaf2015_aaf_rhsafrf_v_bmd4m_ifv", "acm_gm_aaf2015_aaf_rhsafrf_v_bmd4ma_ifv"];
 _vehiclesAmphibious append ["acm_gm_aaf2015_aaf_rhsafrf_v_bmd4m_ifv", "acm_gm_aaf2015_aaf_rhsafrf_v_bmd4ma_ifv"];
 _vehiclesArtillery append ["acm_gm_aaf2015_aaf_v_2s1_arty"];
-_magazines append ["acm_gm_aaf2015_aaf_v_2s1_arty", ["rhs_mag_3of56_10"]];
+_magazines append [["acm_gm_aaf2015_aaf_v_2s1_arty", ["rhs_mag_3of56_10"]]];
 _vehiclesMilitiaLightArmed append ["acm_gm_aaf2015_aaf_rhsusf_v_M1117_MRAP"];
 _vehiclesMilitiaAPCs append ["acm_gm_aaf2015_aaf_rhsusf_v_M1117_MRAP"];
 _vehiclesLightUnarmed append ["acm_gm_aaf2015_aaf_rhsusf_v_humvee_cargo_car"];

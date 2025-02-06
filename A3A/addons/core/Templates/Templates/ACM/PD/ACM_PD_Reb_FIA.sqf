@@ -67,6 +67,8 @@ if (_hasRHS) then {
 ["vehiclesCivTruck", _vehiclesCivTruck] call _fnc_saveToTemplate;
 ["vehiclesCivHeli", _vehiclesCivHeli] call _fnc_saveToTemplate;
 ["vehiclesCivBoat", _vehiclesCivBoat] call _fnc_saveToTemplate;
+["vehiclesCivSupply", _vehiclesCivSupply] call _fnc_saveToTemplate;
+["vehiclesCivPlane", []] call _fnc_saveToTemplate;
 
 ["staticMGs", _staticMGs] call _fnc_saveToTemplate;
 ["staticAT", _staticAT] call _fnc_saveToTemplate;
@@ -83,7 +85,7 @@ if (_hasRHS) then {
 ["breachingExplosivesAPC", [["DemoCharge_Remote_Mag", 1]]] call _fnc_saveToTemplate;
 ["breachingExplosivesTank", [["gm_explosive_petn_charge", 1], ["DemoCharge_Remote_Mag", 2]]] call _fnc_saveToTemplate;
 
-#include "ACM_Reb_Vehicle_Attributes.sqf"
+#include "ACM_PD_Reb_Vehicle_Attributes.sqf"
 
 ///////////////////////////
 //  Rebel Starting Gear  //
@@ -101,7 +103,7 @@ private _initialRebelEquipment = [
     "V_TacChestrig_grn_F","V_Chestrig_rgr","gm_df7x40_blk"
 ];
 
-if (_hasSOG) then {_initialRebelEquipment append ["vn_vz54", "vn_m38_mag"]}
+if (_hasSOG) then {_initialRebelEquipment append ["vn_vz54", "vn_m38_mag"]};
 
 if (A3A_hasTFAR) then {_initialRebelEquipment append ["tf_microdagr","tf_anprc154"]};
 if (A3A_hasTFAR && startWithLongRangeRadio) then {_initialRebelEquipment append ["tf_anprc155","tf_anprc155_coyote"]};
