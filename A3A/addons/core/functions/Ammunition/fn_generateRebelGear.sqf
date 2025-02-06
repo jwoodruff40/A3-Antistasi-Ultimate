@@ -75,7 +75,6 @@ private _rebelGear = createHashMapFromArray [
 ];
 
 private _opticsMidCount = 0;
-
 {
     {
         _x params ["_class", "_amount"];
