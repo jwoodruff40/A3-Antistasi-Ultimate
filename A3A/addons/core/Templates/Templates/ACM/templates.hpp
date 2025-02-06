@@ -2,7 +2,7 @@
 
     class ACM_PD_Base
     {
-        requiredAddons[] = {"gm_weapons_items","Phalanx Downfall"};
+        requiredAddons[] = {"gm_weapons_items", "ACM_GM_AAF2015", "ACM_GM_AAF2015_RHS_AFRF", "ACM_GM_AAF2015_RHS_USAF", "ACM_GM_AAF2015_SOG"};
         basepath = QPATHTOFOLDER(Templates\Templates\ACM\PD);
         logo = "\gm\gm_core\data\logos\gm_logo_ca.paa";
         maps[] = {"altis", "malden"};
@@ -32,7 +32,7 @@
     class ACM_PD_Riv_Akh : ACM_PD_Base
     {
         side = "Riv";
-        flagTexture = "x\ACM_AAF_2015_core\factions\akhanterite_flag_co.paa";
+        flagTexture = "\ACM_AAF_2015_core\factions\akhanterite_flag_co.paa";
         name = "[PD] Akhanterites";
         file = "ACM_PD_Riv_Akh";
         description = "A paramilitary structure separate to the AAF only loyal (at least in theory) to their patron, Col. Akhanteros.";
@@ -41,7 +41,7 @@
     class ACM_PD_Riv_FIA_GP : ACM_PD_Base
     {
         side = "Riv";
-        flagTexture = "x\ACM_AAF_2015_core\factions\GoldenPath_flag_co.paa";
+        flagTexture = "\ACM_AAF_2015_core\factions\GoldenPath_flag_co.paa";
         name = "[PD] FIA Golden Path";
         file = "ACM_PD_Riv_FIA_GP";
         description = "Agrarian communists who have singlehandedly delegitimized the Altian Left.";
