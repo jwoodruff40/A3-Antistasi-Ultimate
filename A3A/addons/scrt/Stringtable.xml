@@ -1480,6 +1480,7 @@
             </Key>
             <Key ID="STR_end_mission_modUnautorized_desc">
                 <Original>An incompatible mod or incompatible set of supported mods installed on the server or your PC has been detected. To avoid problems the mission has ended. Please turn off unsupported (ASR AI, aLIVE, MCC or any AI behaviour) mods from your computer (and server when applicable) to be able to play Antistasi. See server .rpt log for more information.</Original>
+                <Russian>Обнаружен несовместимый мод или несовместимый набор модов, установленных на сервере или вашем компьютере. Во избежание проблем миссия завершена. Пожалуйста, отключите неподдерживаемые (ASR AI, aLIVE, MCC или другой мод, который влияет на поведение ИИ) моды на вашем компьютере (и сервере, если применимо), чтобы иметь возможность играть в Antistasi. Дополнительную информацию смотрите в журнале сервера .rpt.</Russian>
             </Key>
             <Key ID="STR_end_mission_noPvP_title">
                 <Original>PvP Disabled</Original>
