@@ -197,13 +197,6 @@ class Params
         texts[] = {$STR_params_afk_enabled, $STR_params_afk_disabled};
         default = 1;
     };
-    class recruitToPlayerSquad
-    {
-        title = $STR_params_recruitToPlayerSquad;
-        values[] = {1,0};
-        texts[] = {$STR_params_afk_enabled, $STR_params_afk_disabled};
-        default = 1;
-    }
     class enablePunishments
     {
         title = $STR_params_enablePunishments;
@@ -557,6 +550,13 @@ class Params
         values[] = {""};
         texts[] = {""};
         default = "";
+    };
+    class recruitToPlayerSquad
+    {
+        title = $STR_params_recruitToPlayerSquad;
+        values[] = {1,0};
+        texts[] = {$STR_params_afk_enabled, $STR_params_afk_disabled};
+        default = 1;
     };
     class enableSpectrumDevice
     {
