@@ -10674,6 +10674,9 @@
                 <Korean>&lt;t size='0.6'&gt;&lt;t color='#800000'&gt;%1&lt;/t&gt;의 은신처가 성공적으로 파괴되었습니다. 이제 그들은 %2 근처에서 비밀 작전을 수행할 수 없을 것입니다.&lt;t&gt;</Korean>
                 <French>&lt;t size='0.6'&gt;&lt;t color='#800000'&gt;%1&lt;/t&gt; la cachette a été détruite avec succès. Ils cesseront leurs opérations secrètes dans les environs de %2.&lt;/t&gt;</French>
             </Key>
+            <Key ID="STR_rivals_destroyed_no_invaders">
+                <Original>&lt;t size='0.6'&gt;Our scouts have reported that the &lt;t color='#800000'&gt;%1&lt;/t&gt; hideout has been abandoned, seemingly due to a lack of &lt;t color='#800000'&gt;%2&lt;/t&gt; logistical support.&lt;/t&gt;</Original>
+            </Key>
             <Key ID="STR_rivals_destroyed_finale">
                 <Original>&lt;t size='0.6'&gt;The story of &lt;t color='#800000'&gt;%1&lt;/t&gt; ends here. Leaderless, with huge manpower and equipment shortage they quickly become too disorganised to maintain any significant presence on %2. It's a great success for %3, congratulations!&lt;/t&gt;</Original>
                 <Russian>&lt;t size='0.6'&gt;На этом история &lt;t color='#800000'&gt;%1&lt;/t&gt; заканчивается. Их силы остались без лидеров, без личного состава и матчасти, они быстро становятся слишком дезорганизованными, чтобы поддерживать какое-либо значительное присутствие на %2. Это большой успех для %3, поздравляем!&lt;/t&gt;</Russian>
