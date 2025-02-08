@@ -786,7 +786,7 @@
                 <Polish>Pojazd Cywilny</Polish>
             </Key>
             <Key ID="STR_antistasi_dialogs_vehicle_purchase_civie_tooltip">
-                <Original>Civilian vehicles will allow you to travel in Undercover mode, if you stay close to roads and don't enter bases, outposts and roadblocks.</Original>
+                <Original>Civilian vehicles will allow you to travel in Undercover mode, if you stay close to roads and don't enter bases, outposts or roadblocks.</Original>
                 <French>Les véhicules civils vous permettent de vous déplacer "Incognito", tant que vous restez près des routes et ne pénétrez pas les bases, avant-postes et barrages routiers.</French>
                 <Russian>Гражданская техника позволяет Вам передвигаться как гражданскому лицу, пока Вы движетесь по дорогам вдалеке от баз, опорных пунктов и блокпостов.</Russian>
                 <German>Zivilfahrzeuge erlaube dir unentdeckt zu reisen, sofern du nahe der Straßen bleibst und in keine Basen, Außenposten oder Straßensperren einfährst.</German>
