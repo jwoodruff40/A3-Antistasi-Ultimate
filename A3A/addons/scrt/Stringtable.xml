@@ -5128,11 +5128,11 @@
                 <French>Autoriser les joueurs à recruter l'IA</French>
             </Key>
             <Key ID="STR_params_recruitToPlayerSquad">
-                <Original>Enable enemy AI recruits to join player's squad</Original>
-                <Russian>Позволяет вражеским новобранцам ИИ присоединиться к отряду игрока</Russian>
-                <Chinesesimp>允许敌方 AI 新兵加入玩家的小队</Chinesesimp>
-                <Korean>적 AI 신병이 플레이어 분대에 합류할 수 있도록 합니다.</Korean>
-                <French>Permettre aux recrues ennemies de l'IA de rejoindre l'équipe du joueur</French>
+                <Original>[Experimental] Enable enemy AI recruits to join player's squad</Original>
+                <Russian>[Экспериментально] Позволяет вражеским новобранцам ИИ присоединиться к отряду игрока</Russian>
+                <Chinesesimp>[实验]允许敌方 AI 新兵加入玩家的小队</Chinesesimp>
+                <Korean>[실험용] 적 AI 신병이 플레이어 분대에 합류할 수 있도록 합니다.</Korean>
+                <French>[Expérimental] Permettre aux recrues ennemies de l'IA de rejoindre l'équipe du joueur</French>
             </Key>
             <Key ID="STR_params_enablePunishments">
                 <Original>Enable invader punishments</Original>
@@ -5269,7 +5269,7 @@
             </Key>
             <Key ID="STR_params_enableSpectrumDevice">
                 <Original>[Experimental] Enable spectrum device hacking capability (Contact DLC)</Original>
-                <Russian>[Experimental] Разрешить возможность взлома с помощью spectrum device (Contact DLC)</Russian>
+                <Russian>[Экспериментально] Разрешить возможность взлома с помощью spectrum device (Contact DLC)</Russian>
             </Key>
             <Key ID="STR_params_disableAutoSmokeCover">
                 <Original>Disable Auto Smoke Cover Script (Helps with performance)</Original>
@@ -5542,11 +5542,11 @@
                 <French>Temps avant qu'un joueur soit considéré comme AFK (en minutes)</French>
             </Key>
             <Key ID="STR_params_afk_uav">
-                <Original>Should player be considered AFK while controlling a UAV?</Original>
-                <Russian>Должен ли игрок считаться AFK, управляя БПЛА?</Russian>
-                <Chinesesimp>玩家在控制无人机时是否应被视为 AFK</Chinesesimp>
-                <Korean>UAV를 조종하는 동안 플레이어가 AFK로 간주되어야 합니까?</Korean>
-                <French>Le joueur doit-il être considéré comme AFK lorsqu'il contrôle un drone?</French>
+                <Original>[Experimental] Should player be considered AFK while controlling a UAV?</Original>
+                <Russian>[Экспериментально] Должен ли игрок считаться AFK, управляя БПЛА?</Russian>
+                <Chinesesimp>[实验]玩家在控制无人机时是否应被视为 AFK</Chinesesimp>
+                <Korean>[실험용] UAV를 조종하는 동안 플레이어가 AFK로 간주되어야 합니까?</Korean>
+                <French>[Expérimental] Le joueur doit-il être considéré comme AFK lorsqu'il contrôle un drone?</French>
             </Key>
             <Key ID="STR_params_afk_disabled">
                 <Original>Disabled</Original>
