@@ -266,7 +266,7 @@ private _fnc_saveNames = {
 } forEach _filepaths;
 
 // * overrides
-_dataStore set ["flagMarkerType", "flag_FIA"];
+// _dataStore set ["flagMarkerType", "flag_FIA"];
 _dataStore set ["convertedToRebel", true];
 { _dataStore set [_x, []]; } forEach ["vehiclesCivHeli", "vehiclesCivPlane", "vehiclesCivTruck", "vehiclesCivCar", "vehiclesCivBoat", "vehiclesMedical", "vehiclesAT", "vehiclesAA"];
 
