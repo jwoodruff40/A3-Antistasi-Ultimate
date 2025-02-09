@@ -84,7 +84,7 @@ switch (_mode) do
         private _shownTypes = switch (lbCurSel A3A_IDC_SETUP_PARAMSTYPE) do {
             case (-1): { [] }; // lbCurSel is -1 until params tab is loaded
             case (0): { ["Basic"] };
-            case (1): { ["Ultimate", "Script", "Plus", "Member", "Balance", "Equipment", "Loot"] };
+            case (1): { ["Ultimate", "Script", "Plus", "Member", "Builder", "Balance", "Equipment", "Loot"] };
             case (2): { ["Experimental"] };
             case (3): { ["Development"] };
         };
