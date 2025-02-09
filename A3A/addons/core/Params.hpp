@@ -151,13 +151,6 @@ class Params
         texts[] = {$STR_antistasi_dialogs_generic_button_no_text, $STR_A3A_Params_selfReviveMethods_withstand};
         default = 0;
     };
-    class A3A_builderPermissions: BasicParams
-    {
-        title = "Player classes permitted to use the building placer";
-        values[] = {1, 2, 3};
-        texts[] = {"Team leaders", "Engineers", "Both"};
-        default = 3;
-    };
 
     class UltimateParams
     {
@@ -176,13 +169,6 @@ class Params
         values[] = {""};
         texts[] = {""};
         default = "";
-    };
-    class totalVictory: UltimateParams //deprecated Dont Use
-    {
-        title = $STR_A3AU_total_victory_deprecated;
-        values[] = {0,1};
-        texts[] = {$STR_antistasi_dialogs_generic_button_no_text,$STR_antistasi_dialogs_generic_button_yes_text};
-        default = 0;
     };
     class victoryCondition: UltimateParams
     {
@@ -219,13 +205,6 @@ class Params
         texts[] = {$STR_params_afk_enabled, $STR_params_afk_disabled};
         default = 1;
     };
-    class recruitToPlayerSquad: UltimateParams
-    {
-        title = $STR_params_recruitToPlayerSquad;
-        values[] = {1,0};
-        texts[] = {$STR_params_afk_enabled, $STR_params_afk_disabled};
-        default = 1;
-    }
     class enablePunishments: UltimateParams
     {
         title = $STR_params_enablePunishments;
@@ -348,13 +327,6 @@ class Params
         title = $STR_params_ReloadRepackTurretMagazines;
         values[] = {0,1};
         texts[] = {$STR_antistasi_dialogs_generic_button_no_text,$STR_antistasi_dialogs_generic_button_yes_text};
-        default = 0;
-    };
-    class enableSpectrumDevice: ScriptParams
-    {
-        title = $STR_params_enableSpectrumDevice;
-        values[] = {0,1};
-        texts[] = {$STR_antistasi_dialogs_generic_button_no_text, $STR_antistasi_dialogs_generic_button_yes_text};
         default = 0;
     };
 
@@ -481,13 +453,6 @@ class Params
         texts[] = {"1","2","3","4","5","6"};
         default = 3;
     };
-    class unconsciousPossessAi: PlusParams
-    {
-        title = $STR_params_unconsciousAiPossess;
-        values[] = {0,1};
-        texts[] = {$STR_antistasi_dialogs_generic_button_no_text, $STR_antistasi_dialogs_generic_button_yes_text};
-        default = 0;
-    };
     class areRandomEventsEnabled: PlusParams
     {
         attr[] = {"server"};
@@ -546,6 +511,109 @@ class Params
     class disableAutoSmokeCover: MemberParams
     {
         title = $STR_params_disableAutoSmokeCover;
+        values[] = {0,1};
+        texts[] = {$STR_antistasi_dialogs_generic_button_no_text, $STR_antistasi_dialogs_generic_button_yes_text};
+        default = 0;
+    };
+
+    class BuilderParams
+    {
+        type = "Builder";
+    };
+    class SpacerBuilder: BuilderParams
+    {
+        title = "";
+        values[] = {""};
+        texts[] = {""};
+        default = "";
+    };
+    class TitleBuilder: BuilderParams
+    {
+        title = $STR_params_builder_header;
+        values[] = {""};
+        texts[] = {""};
+        default = "";
+    };
+    class A3A_builderPermissions: BuilderParams
+    {
+        title = $STR_params_builderPermissions;
+        values[] = {1, 2, 3};
+        texts[] = {"Team leaders", "Engineers", "Both"};
+        default = 3;
+    };
+    class A3A_builderLimit: BuilderParams
+    {
+        title = $STR_params_builderLimit;
+        values[] = {100, 200, 300, 400, 500, 600, 800, 900, 1000, 999999};
+        texts[] = {"100", "200", "300", "400", "500", "600", "800", "900", "1000", "Basically Infinite"};
+        default = 300;
+    };
+    class A3A_builderBuildTime: BuilderParams
+    {
+        title = $STR_params_builderBuildTime;
+        values[] = {0, 4, 5, 6, 7, 8, 9, 10};
+        texts[] = {"DEBUG (Instant)", "0.4x", "0.5x", "0.6x", "0.7x", "0.8x", "0.9x", "1.0x"};
+        default = 5;
+    };
+    class A3A_builderAllowRoads: BuilderParams
+    {
+        title = $STR_params_builderAllowRoads;
+        values[] = {0,1};
+        texts[] = {$STR_antistasi_dialogs_generic_button_no_text, $STR_antistasi_dialogs_generic_button_yes_text};
+        default = 0;
+    };
+
+    class ExperimentalParams
+    {
+        type = "Experimental";
+    };
+    class SpacerExperimental: ExperimentalParams
+    {
+        title = "";
+        values[] = {""};
+        texts[] = {""};
+        default = "";
+    };
+    class TitleExperimental: ExperimentalParams
+    {
+        title = $STR_params_experimental_header;
+        values[] = {""};
+        texts[] = {""};
+        default = "";
+    };
+    class recruitToPlayerSquad: ExperimentalParams
+    {
+        title = $STR_params_recruitToPlayerSquad;
+        values[] = {1,0};
+        texts[] = {$STR_params_afk_enabled, $STR_params_afk_disabled};
+        default = 1;
+    };
+    class enableSpectrumDevice: ExperimentalParams
+    {
+        title = $STR_params_enableSpectrumDevice;
+        values[] = {0,1};
+        texts[] = {$STR_antistasi_dialogs_generic_button_no_text, $STR_antistasi_dialogs_generic_button_yes_text};
+        default = 0;
+    };
+    class unconsciousPossessAi: ExperimentalParams
+    {
+        title = $STR_params_unconsciousAiPossess;
+        values[] = {0,1};
+        texts[] = {$STR_antistasi_dialogs_generic_button_no_text, $STR_antistasi_dialogs_generic_button_yes_text};
+        default = 0;
+    };
+    class allowFuturisticSupports: ExperimentalParams
+    {
+        attr[] = {"server"};
+        title = $STR_params_allowFuturisticSupports;
+        values[] = {0,1};
+        texts[] = {$STR_antistasi_dialogs_generic_button_no_text, $STR_antistasi_dialogs_generic_button_yes_text};
+        default = 0;
+    };
+    class allowFuturisticUnfairSupports: ExperimentalParams
+    {
+        attr[] = {"server"};
+        title = $STR_params_allowFuturisticUnfairSupports;
         values[] = {0,1};
         texts[] = {$STR_antistasi_dialogs_generic_button_no_text, $STR_antistasi_dialogs_generic_button_yes_text};
         default = 0;
@@ -640,22 +708,6 @@ class Params
     {
         attr[] = {"server"};
         title = $STR_params_allowUnfairSupports;
-        values[] = {0,1};
-        texts[] = {$STR_antistasi_dialogs_generic_button_no_text, $STR_antistasi_dialogs_generic_button_yes_text};
-        default = 0;
-    };
-    class allowFuturisticSupports: BalanceParams
-    {
-        attr[] = {"server"};
-        title = $STR_params_allowFuturisticSupports;
-        values[] = {0,1};
-        texts[] = {$STR_antistasi_dialogs_generic_button_no_text, $STR_antistasi_dialogs_generic_button_yes_text};
-        default = 0;
-    };
-    class allowFuturisticUnfairSupports: BalanceParams
-    {
-        attr[] = {"server"};
-        title = $STR_params_allowFuturisticUnfairSupports;
         values[] = {0,1};
         texts[] = {$STR_antistasi_dialogs_generic_button_no_text, $STR_antistasi_dialogs_generic_button_yes_text};
         default = 0;
