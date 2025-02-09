@@ -41,6 +41,7 @@ switch (_mode) do
         {
             private _type = getText (_x/"type");
             private _title = getText (_x/"title");
+            private _tooltip = getText (_x/"tooltip");
             private _texts = getArray (_x/"texts");
             private _vals = getArray (_x/"values");
             private _default = getNumber (_x/"default");
@@ -51,6 +52,9 @@ switch (_mode) do
                 _textCtrl ctrlEnable false;
                 _textCtrl ctrlSetFade 1;
                 _textCtrl ctrlSetText _title;
+                if (_tooltip isNotEqualTo "") then {
+                    _textCtrl ctrlSetTooltip _tooltip;
+                };
                 _textCtrl setVariable ["type", _type];
                 _textCtrl ctrlCommit 0;
             };
