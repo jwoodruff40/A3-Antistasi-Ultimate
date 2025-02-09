@@ -1,5 +1,80 @@
 class Params
 {
+    /* * If adding a new section, you need to add
+
+        class XXXParams
+        {
+            type = "XXX";
+        };
+
+        * params need to inherit from that class,
+        * and you need to add the type string to A3A/addons/gui/functions/SetupGUI/fn_setupParamsTab.sqf
+
+        * Example:
+
+        class SuperDuperCoolParams
+        {
+            type = "SuperDuperCool";
+        };
+        class Spacer101: SuperDuperCoolParams
+        {
+            title = "";
+            values[] = {""};
+            texts[] = {""};
+            default = "";
+        };
+        class Spacer102: SuperDuperCoolParams
+        {
+            title = $STR_SuperDuperCool_params_name;
+            values[] = {""};
+            texts[] = {""};
+            default = "";
+        };
+        class aReallyCoolParam: SuperDuperCoolParams
+        {
+            title = $STR_SuperDuperCool_new_param;
+            values[] = {0, 69, 420};
+            texts[] = {"0","69","420"};
+            default = 69;
+        };
+
+        * and in A3A/addons/gui/functions/SetupGUI/fn_setupParamsTab.sqf (case ("update")):
+
+        private _shownTypes = switch (lbCurSel A3A_IDC_SETUP_PARAMSTYPE) do {
+            case (-1): { [] }; // lbCurSel is -1 until params tab is loaded
+            case (0): { ["Basic"] };
+            case (1): { ["Ultimate", "Script", "Plus", "Member", "Builder", "Balance", "Equipment", "Loot", "SuperDuperCool"] }; // Generally, new sections can probably be added here to show up as a section under "Advanced Params"
+            case (2): { ["Experimental"] };
+            case (3): { ["Development"] };
+        };
+
+        * if you want your section to show up as an entirely new option in the Parameter Types Dropdown ComboBox,
+        * you'll need to add the type to the dropdown under case ("onLoad") like: 
+
+        // * Populate the Parameter Type Dropdown
+        private _basicParamsIndex =  _paramsType lbAdd (localize "STR_antistasi_dialogs_setup_params_basic_label");
+        private _advParamsIndex = _paramsType lbAdd (localize "STR_antistasi_dialogs_setup_params_adv_label");
+        private _expParamsIndex = _paramsType lbAdd (localize "STR_antistasi_dialogs_setup_params_exp_label");
+        private _devParamsIndex = _paramsType lbAdd (localize "STR_antistasi_dialogs_setup_params_dev_label");
+        private _sdcParamsIndex = _paramsType lbAdd (localize "STR_antistasi_dialogs_setup_params_sdc_label"); // give it a text value here
+
+        _paramsType lbSetValue [_basicParamsIndex, 0];
+        _paramsType lbSetValue [_advParamsIndex, 1];
+        _paramsType lbSetValue [_expParamsIndex, 2];
+        _paramsType lbSetValue [_devParamsIndex, 3];
+        _paramsType lbSetValue [_sdcParamsIndex, 4]; // and give it an integer value here
+
+        _paramsType lbSetCurSel _basicParamsIndex;
+
+        * and then add a new case with the above integer value in the _shownTypes switch like:
+
+        private _shownTypes = switch (lbCurSel A3A_IDC_SETUP_PARAMSTYPE) do {
+            ...
+            case (4): { ["SuperDuperCool"] };
+        };
+
+    */
+
     class BasicParams
     {
         type = "Basic";
