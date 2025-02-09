@@ -3109,6 +3109,50 @@
                 <Portuguese>Parametros</Portuguese>
                 <Chinesesimp>参数</Chinesesimp>
             </Key>
+            <Key ID="STR_antistasi_dialogs_setup_params_basic_label">
+                <Original>Basic Parameters</Original>
+                <Czech>Parametry</Czech>
+                <French>Paramètres</French>
+                <Italian>Parametri</Italian>
+                <Korean>매개변수</Korean>
+                <Russian>Параметры</Russian>
+                <Polish>Parametry</Polish>
+                <Portuguese>Parametros</Portuguese>
+                <Chinesesimp>参数</Chinesesimp>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_setup_params_adv_label">
+                <Original>Advanced Parameters</Original>
+                <Czech>Parametry</Czech>
+                <French>Paramètres</French>
+                <Italian>Parametri</Italian>
+                <Korean>매개변수</Korean>
+                <Russian>Параметры</Russian>
+                <Polish>Parametry</Polish>
+                <Portuguese>Parametros</Portuguese>
+                <Chinesesimp>参数</Chinesesimp>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_setup_params_exp_label">
+                <Original>Experimental Parameters</Original>
+                <Czech>Parametry</Czech>
+                <French>Paramètres</French>
+                <Italian>Parametri</Italian>
+                <Korean>매개변수</Korean>
+                <Russian>Параметры</Russian>
+                <Polish>Parametry</Polish>
+                <Portuguese>Parametros</Portuguese>
+                <Chinesesimp>参数</Chinesesimp>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_setup_params_dev_label">
+                <Original>Development Parameters</Original>
+                <Czech>Parametry</Czech>
+                <French>Paramètres</French>
+                <Italian>Parametri</Italian>
+                <Korean>매개변수</Korean>
+                <Russian>Параметры</Russian>
+                <Polish>Parametry</Polish>
+                <Portuguese>Parametros</Portuguese>
+                <Chinesesimp>参数</Chinesesimp>
+            </Key>
             <Key ID="STR_antistasi_dialogs_setup_content_tab_button">
                 <Original>Additional Content</Original>
                 <Czech>Další obsah</Czech>
