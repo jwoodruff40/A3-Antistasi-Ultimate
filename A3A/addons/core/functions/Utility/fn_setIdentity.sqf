@@ -27,7 +27,7 @@ if ((isNil "_firstName" || {_firstName isEqualTo ""}) || (isNil "_lastName" || {
     private _firstNames = configProperties [_nameConfig >> "FirstNames"] apply { getText(_x) };
     private _lastNames = configProperties [_nameConfig >> "LastNames"] apply { getText(_x) };
 
-    private _type = _unit getVariable "unitType";
+    private _type = _unit getVariable ["unitType", ""]; // Why do some units *not* have this set? I will never know!
     private _identity = [Faction(side _unit), _type] call A3A_fnc_createRandomIdentity;
 
     // Choose appropriate faction identity if possible, fallback to default names if unavailable
