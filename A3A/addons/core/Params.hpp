@@ -551,13 +551,6 @@ class Params
         texts[] = {""};
         default = "";
     };
-    class recruitToPlayerSquad
-    {
-        title = $STR_params_recruitToPlayerSquad;
-        values[] = {1,0};
-        texts[] = {$STR_params_afk_enabled, $STR_params_afk_disabled};
-        default = 1;
-    };
     class enableSpectrumDevice
     {
         title = $STR_params_enableSpectrumDevice;
