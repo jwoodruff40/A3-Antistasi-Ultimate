@@ -16,13 +16,6 @@ class Params
         {
             type = "SuperDuperCool";
         };
-        class Spacer101: SuperDuperCoolParams
-        {
-            title = "";
-            values[] = {""};
-            texts[] = {""};
-            default = "";
-        };
         class Spacer102: SuperDuperCoolParams
         {
             title = $STR_SuperDuperCool_params_name;
@@ -231,13 +224,6 @@ class Params
     {
         type = "Ultimate";
     };
-    class Spacer101: UltimateParams
-    {
-        title = "";
-        values[] = {""};
-        texts[] = {""};
-        default = "";
-    };
     class Spacer102: UltimateParams
     {
         title = $STR_A3AU_params_name;
@@ -376,13 +362,6 @@ class Params
     {
         type = "Script";
     };
-    class Spacer66: ScriptParams
-    {
-        title = "";
-        values[] = {""};
-        texts[] = {""};
-        default = "";
-    };
     class Spacer67: ScriptParams
     {
         title = $STR_params_antistasi_scripts;
@@ -408,13 +387,6 @@ class Params
     class PlusParams
     {
         type = "Plus";
-    };
-    class Spacer60: PlusParams
-    {
-        title = "";
-        values[] = {""};
-        texts[] = {""};
-        default = "";
     };
     class Spacer51: PlusParams
     {
@@ -548,13 +520,6 @@ class Params
     {
         type = "Member";
     };
-    class SpacerMembership: MemberParams
-    {
-        title = "";
-        values[] = {""};
-        texts[] = {""};
-        default = "";
-    };
     class TitleMembership: MemberParams
     {
         title = $STR_params_membership_header;
@@ -595,13 +560,6 @@ class Params
     {
         type = "Builder";
     };
-    class SpacerBuilder: BuilderParams
-    {
-        title = "";
-        values[] = {""};
-        texts[] = {""};
-        default = "";
-    };
     class TitleBuilder: BuilderParams
     {
         title = $STR_params_builder_header;
@@ -641,20 +599,6 @@ class Params
     class ExperimentalParams
     {
         type = "Experimental";
-    };
-    class SpacerExperimental: ExperimentalParams
-    {
-        title = "";
-        values[] = {""};
-        texts[] = {""};
-        default = "";
-    };
-    class TitleExperimental: ExperimentalParams
-    {
-        title = $STR_params_experimental_header;
-        values[] = {""};
-        texts[] = {""};
-        default = "";
     };
     class recruitToPlayerSquad: ExperimentalParams
     {
@@ -697,13 +641,6 @@ class Params
     class BalanceParams
     {
         type = "Balance";
-    };
-    class SpacerBalance: BalanceParams
-    {
-        title = "";
-        values[] = {""};
-        texts[] = {""};
-        default = "";
     };
     class TitleBalance: BalanceParams
     {
@@ -800,13 +737,6 @@ class Params
     {
         type = "Equipment";
     };
-    class SpacerEquipment: EquipmentParams
-    {
-        title = "";
-        values[] = {""};
-        texts[] = {""};
-        default = "";
-    };
     class TitleEquipment: EquipmentParams
     {
         title = $STR_params_equipment_header;
@@ -893,13 +823,6 @@ class Params
     class LootParams
     {
         type = "Loot";
-    };
-    class SpacerLoot: LootParams
-    {
-        title = "";
-        values[] = {""};
-        texts[] = {""};
-        default = "";
     };
     class TitleLoot: LootParams
     {
@@ -1038,20 +961,6 @@ class Params
     class DevelopmentParams
     {
         type = "Development";
-    };
-    class SpacerDevelopment: DevelopmentParams
-    {
-        title = "";
-        values[] = {""};
-        texts[] = {""};
-        default = "";
-    };
-    class TitleDevelopment: DevelopmentParams
-    {
-        title = $STR_params_dev_header;
-        values[] = {""};
-        texts[] = {""};
-        default = "";
     };
     class LogLevel: DevelopmentParams
     {

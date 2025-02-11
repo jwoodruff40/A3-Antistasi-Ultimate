@@ -112,16 +112,20 @@ switch (_mode) do
                 };
             } else {
                 _textCtrl ctrlEnable false;
+                _textCtrl ctrlSetPosition [0, 0, 0, 0];
                 _textCtrl ctrlSetFade 1;
 
                 if (!isNil "_valsCtrl") then {
                     _valsCtrl ctrlEnable false;
+                    _valsCtrl ctrlSetPosition [0, 0, 0, 0];
                     _valsCtrl ctrlSetFade 1;
                 };
             };
             _textCtrl ctrlCommit 0;
             if (!isNil "_valsCtrl") then { _valsCtrl ctrlCommit 0 };
         } forEach (_paramsTable getVariable "allTextCtrls");
+
+        _paramsTable ctrlSetScrollValues [0,-1];
     };
 
     case ("fillParams"):
