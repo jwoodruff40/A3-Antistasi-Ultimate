@@ -6,6 +6,6 @@ _vehiclesMilitiaLightArmed append ["acm_gm_aaf2015_aaf_rhsusf_v_M1117_MRAP"];
 _vehiclesMilitiaAPCs append ["acm_gm_aaf2015_aaf_rhsusf_v_M1117_MRAP"];
 _vehiclesLightUnarmed append ["acm_gm_aaf2015_aaf_rhsusf_v_humvee_cargo_car"];
 _vehiclesLightArmed append ["acm_gm_aaf2015_aaf_rhsusf_v_humvee_M2_car", "acm_gm_aaf2015_aaf_rhsusf_v_humvee_GMG_car"];
-_staticMGs append ["acm_gm_aaf2015_aaf_rhsusaf_v_Mk19_Turret"];
+//_staticMGs append ["acm_gm_aaf2015_aaf_rhsusaf_v_Mk19_Turret"];
 _staticAA append ["acm_gm_aaf2015_aaf_rhsusaf_v_Stinger_Turret"];
 _staticAT append ["acm_gm_aaf2015_aaf_rhsafrf_v_9k115_Turret", "acm_gm_aaf2015_aaf_rhsafrf_v_Kornet_Turret"];
