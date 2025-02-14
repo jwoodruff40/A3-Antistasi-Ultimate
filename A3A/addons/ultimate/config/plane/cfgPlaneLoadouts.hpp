@@ -381,14 +381,14 @@ class planeLoadouts
             diveParams[] = {1200, 600, 180, 55, 15, {0,0}};
         };
         // ACM Phalanx Downfall
-        case "acm_gm_aaf2015_SOG_aaf_v_Mig21_CAS_plane":
+        class acm_gm_aaf2015_SOG_aaf_v_Mig21_CAS_plane
         {
             loadout[] = {"vn_rocket_s5_he_x16","vn_rocket_s5_he_x16","vn_gunpod_gsh23l_v_200_mag"};
             mainGun = "vn_gunpod_gsh23l";
             rocketLauncher[] = {"vn_rocket_s5_he_launcher"};
             diveParams[] = {[1000, 600, 170, 55, 15, {0, 0}};
         };
-        case "acm_gm_aaf2015_SOG_aaf_v_Mig21_HBMB_plane":
+        class acm_gm_aaf2015_SOG_aaf_v_Mig21_HBMB_plane
         {
             loadout[] = {"vn_bomb_1000_fab500_he_mag_x1","vn_bomb_1000_fab500_he_mag_x1","vn_fuel_mig21_490_camo_01_mag"};
             bombRacks[] = {"vn_bomb_fab500_he_launcher"};
@@ -810,13 +810,13 @@ class planeLoadouts
             missileLauncher[] = {"CUP_Vmlauncher_AIM9L_veh_1Rnd", "CUP_Vblauncher_GBU12_veh"};
         };
         // ACM Phalanx Downfall
-        case "acm_gm_aaf2015_SOG_aaf_v_Mig21_ATGM_plane":
+        class acm_gm_aaf2015_SOG_aaf_v_Mig21_ATGM_plane
         {
             loadout[] = {"vn_missile_mig21_kh66_mag_x1","vn_missile_mig21_kh66_mag_x1","vn_gunpod_gsh23l_v_200_mag"};
             mainGun = "vn_gunpod_gsh23l";
             missileLauncher[] = {"vn_missile_kh66_launcher"};
         };
-        case "acm_gm_aaf2015_aaf_v_a143_cas_plane":
+        class acm_gm_aaf2015_aaf_v_a143_cas_plane
         {
             loadout[] = {"PylonRack_1Rnd_LG_scalpel","PylonRack_1Rnd_AAA_missiles","PylonMissile_1Rnd_Bomb_04_F","PylonWeapon_300Rnd_20mm_shells","PylonMissile_1Rnd_Bomb_04_F","PylonRack_1Rnd_AAA_missiles","PylonRack_1Rnd_LG_scalpel"};
             mainGun = "Twin_Cannon_20mm_gunpod";
@@ -1128,7 +1128,7 @@ class planeLoadouts
             diveParams[] = {1000, 600, 180, 55, 15, {0,0}};
         };
         // ACM Phalanx Downfall
-        case "acm_gm_aaf2015_SOG_aaf_v_Mig21_CAP_plane":
+        class acm_gm_aaf2015_SOG_aaf_v_Mig21_CAP_plane
         {
             loadout[] = {"vn_missile_mig21_aa2_mag_x1","vn_missile_mig21_aa2_mag_x1","vn_fuel_mig21_490_mag"};
         };
