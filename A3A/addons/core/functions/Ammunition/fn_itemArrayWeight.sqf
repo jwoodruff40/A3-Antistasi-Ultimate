@@ -28,6 +28,7 @@ private _arrayWeight = 1; // in case this function is called with an itemType wi
 
 if (_class in allWeapons) {
 	private _magcfg = getArray (_config >> "Magazines") # 0 call A3A_fnc_itemConfig;
+	if (isNil "_magcfg") then { _magcfg = (compatibleMagazines _class) # 0 call A3A_fnc_itemConfig};
 	private _ammocfg = getText (_magcfg >> "ammo") call A3A_fnc_itemConfig;
 	private _firemode = getArray (_config >> "modes") # 0; // primary firemode ("SINGLE", "FULLAUTO", etc)
 	private _modecfg = [_config >> _firemode, _config] select (_firemode == "this");
