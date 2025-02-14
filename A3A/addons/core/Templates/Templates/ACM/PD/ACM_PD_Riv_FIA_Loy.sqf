@@ -54,7 +54,10 @@ _staticLowWeapons = ["acm_gm_aaf2015_fiaLoyal_blu_v_milan_turret", "acm_gm_aaf20
 _staticMortars = ["acm_gm_aaf2015_fiaLoyal_blu_v_mortar_turret"];
 
 if (_hasSOG) then {
-    #include "..\..\DLC_content\vehicles\SOG\ACM_PD_Riv_FIA_Loy.sqf"
+    _vehiclesRivalsLightArmed append ["acm_gm_aaf2015_fia_loyalist_v_m151A1_M2", "acm_gm_aaf2015_fia_loyalist_v_m151A1_M40A1"];
+	_vehiclesRivalsCars append ["acm_gm_aaf2015_fia_loyalist_v_m151A1", "acm_gm_aaf2015_fia_loyalist_v_m151A1_Cover"];
+	_staticLowWeapons append ["acm_gm_aaf2015_SOG_FIALoyal_blu_v_h12_turret", "acm_gm_aaf2015_SOG_FIALoyal_blu_v_m101_direct_turret", "acm_gm_aaf2015_SOG_FIALoyal_blu_v_M40A1_turret"];
+	_staticMortars append ["acm_gm_aaf2015_SOG_FIALoyal_blu_v_m2_mortar_turret", "acm_gm_aaf2015_SOG_FIALoyal_blu_v_m29_mortar_turret"];
 };
 
 ["vehiclesRivalsLightArmed", _vehiclesRivalsLightArmed] call _fnc_saveToTemplate;

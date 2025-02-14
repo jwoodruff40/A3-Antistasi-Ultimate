@@ -1,2 +1,0 @@
-_vehiclesRivalsTrucks append ["acm_gm_aaf2015_fiaIns_rhsafrf_opf_v_Ural_zu23_car"];
-_staticLowWeapons append ["acm_gm_aaf2015_fiaIns_rhsafrf_opf_v_zu23_turret"];

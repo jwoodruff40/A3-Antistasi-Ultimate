@@ -53,7 +53,9 @@ _vehiclesRivalsUavs = [];
 _staticLowWeapons = ["acm_gm_aaf2015_fiaGP_blu_v_dshkmTripod_turret", "acm_gm_aaf2015_fiaGP_blu_v_spg9Tripod_turret"];
 
 if (_hasSOG) then {
-    #include "..\..\DLC_content\vehicles\SOG\ACM_PD_Riv_FIA_GP.sqf"
+    _vehiclesRivalsLightArmed append ["acm_gm_aaf2015_SOG_fiaGP_blu_v_Z157_MG_01_Car", "acm_gm_aaf2015_SOG_fiaGP_blu_v_Z157_MG_02_Car"];
+	_vehiclesRivalsTrucks append ["acm_gm_aaf2015_SOG_fiaGP_blu_v_Z157_Ammo_Car", "acm_gm_aaf2015_SOG_fiaGP_blu_v_Z157_Transport_Car", "acm_gm_aaf2015_SOG_fiaGP_blu_v_Z157_Fuel_Car"];
+	_staticLowWeapons append ["acm_gm_aaf2015_SOG_fiaGP_blu_v_dshkm_low_turret", "acm_gm_aaf2015_SOG_fiaGP_blu_v_h12_turret", "acm_gm_aaf2015_SOG_fiaGP_blu_v_zpu4_turret"];
 };
 
 ["vehiclesRivalsLightArmed", _vehiclesRivalsLightArmed] call _fnc_saveToTemplate;

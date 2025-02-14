@@ -73,11 +73,37 @@ _mortarMagazineSmoke = ["8Rnd_82mm_Mo_Smoke_white"];
 _mortarMagazineFlare = ["8Rnd_82mm_Mo_Flare_white"];
 
 if (_hasSOG) then {
-    #include "..\..\DLC_content\vehicles\SOG\ACM_PD_AI_AAF.sqf"
+    _vehiclesMilitiaAPCs append ["acm_gm_aaf2015_SOG_aaf_v_m113_m40", "acm_gm_aaf2015_SOG_aaf_v_m132A1_Flamethrower"];
+    _vehiclesAmphibious append ["acm_gm_aaf2015_SOG_aaf_v_m113_m40", "acm_gm_aaf2015_SOG_aaf_v_m132A1_Flamethrower"];
+    _vehiclesArtillery append ["acm_gm_aaf2015_SOG_aaf_v_m125A1_Mortar"];
+    //_magazines append ["acm_gm_aaf2015_SOG_aaf_v_m125A1_Mortar", []];
+    _staticHowitzers append ["acm_gm_aaf2015_SOG_aaf_ind_v_m101_turret", "acm_gm_aaf2015_SOG_aaf_ind_v_m101_direct_turret"];
+    _howitzerMagazineHE append ["vn_cannon_m101_mag_he_x8"];
+    _vehiclesMilitiaLightArmed append ["acm_gm_aaf2015_SOG_aaf_v_m151A1_M2", "acm_gm_aaf2015_SOG_aaf_v_m151A1_M40A1"];
+    _vehiclesMilitiaCars append ["acm_gm_aaf2015_SOG_aaf_v_m151A1", "acm_gm_aaf2015_SOG_aaf_v_m151A1_Cover"];
+    _vehiclesPlanesCAS append ["acm_gm_aaf2015_SOG_aaf_v_Mig21_ATGM_plane", "acm_gm_aaf2015_SOG_aaf_v_Mig21_CAS_plane", "acm_gm_aaf2015_SOG_aaf_v_Mig21_HBMB_plane"];
+    _vehiclesPlanesAA append ["acm_gm_aaf2015_SOG_aaf_v_Mig21_CAP_plane"];
+    _staticMortars append ["acm_gm_aaf2015_SOG_aaf_ind_v_m2_mortar_turret", "acm_gm_aaf2015_SOG_aaf_ind_v_m29_mortar_turret"];
+    _mortarMagazineHE append ["vn_mortar_m2_mag_he_x8"];
+    _mortarMagazineSmoke append ["vn_mortar_m2_mag_wp_x8"];
+    _mortarMagazineFlare append ["vn_mortar_m2_mag_lume_x8"];
+    _staticAA append ["acm_gm_aaf2015_SOG_aaf_ind_v_m40a1_turret"];
+    _vehicleRadar append ["acm_gm_aaf2015_SOG_aaf_ind_v_rsna75_turret"];
+    _vehicleSAM append ["acm_gm_aaf2015_SOG_aaf_ind_v_SA2_turret"];
 };
 
 if (_hasRHS) then {
-    #include "..\Mod_content\RHS\ACM_PD_AI_AAF.sqf"
+    _vehiclesIFVs append ["acm_gm_aaf2015_aaf_rhsafrf_v_bmd4m_ifv", "acm_gm_aaf2015_aaf_rhsafrf_v_bmd4ma_ifv"];
+    _vehiclesAmphibious append ["acm_gm_aaf2015_aaf_rhsafrf_v_bmd4m_ifv", "acm_gm_aaf2015_aaf_rhsafrf_v_bmd4ma_ifv"];
+    _vehiclesArtillery append ["acm_gm_aaf2015_aaf_v_2s1_arty"];
+    _magazines append [["acm_gm_aaf2015_aaf_v_2s1_arty", ["rhs_mag_3of56_10"]]];
+    _vehiclesMilitiaLightArmed append ["acm_gm_aaf2015_aaf_rhsusf_v_M1117_MRAP"];
+    _vehiclesMilitiaAPCs append ["acm_gm_aaf2015_aaf_rhsusf_v_M1117_MRAP"];
+    _vehiclesLightUnarmed append ["acm_gm_aaf2015_aaf_rhsusf_v_humvee_cargo_car"];
+    _vehiclesLightArmed append ["acm_gm_aaf2015_aaf_rhsusf_v_humvee_M2_car", "acm_gm_aaf2015_aaf_rhsusf_v_humvee_GMG_car"];
+    //_staticMGs append ["acm_gm_aaf2015_aaf_rhsusaf_v_Mk19_Turret"];
+    _staticAA append ["acm_gm_aaf2015_aaf_rhsusaf_v_Stinger_Turret"];
+    _staticAT append ["acm_gm_aaf2015_aaf_rhsafrf_v_9k115_Turret", "acm_gm_aaf2015_aaf_rhsafrf_v_Kornet_Turret"];
 };
 
 ["vehiclesBasic", _vehiclesBasic] call _fnc_saveToTemplate;

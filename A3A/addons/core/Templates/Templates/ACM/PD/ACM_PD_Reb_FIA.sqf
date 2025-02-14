@@ -45,11 +45,20 @@ private _staticAA = [];
 private _staticMortars = ["acm_gm_aaf2015_fiaIns_blu_v_mortar_turret"];
 
 if (_hasSOG) then {
-    #include "..\..\DLC_content\vehicles\SOG\ACM_PD_Reb_FIA.sqf"
+    private _vehiclesBasic = ["acm_gm_aaf2015_SOG_fiaIns_blu_v_bike_mule"];
+    private _vehiclesLightUnarmed = ["acm_gm_aaf2015_SOG_fiaIns_blu_v_m274_transport_car"];
+    private _vehiclesLightArmed = ["acm_gm_aaf2015_SOG_fiaIns_blu_v_Boheme_DP27_car", "acm_gm_aaf2015_SOG_fiaIns_blu_v_Z157_MG_01_Car"];
+    private _vehiclesTruck = ["acm_gm_aaf2015_SOG_fiaIns_blu_v_Z157_Transport_Car"];
+    private _vehiclesAT = ["acm_gm_aaf2015_SOG_fiaIns_blu_v_m274_M40_car"];
+    private _staticMGs = ["acm_gm_aaf2015_SOG_fiaIns_blu_v_dshkm_low_turret", "acm_gm_aaf2015_SOG_fiaIns_blu_v_m1910_turret", "acm_gm_aaf2015_SOG_fiaIns_blu_v_sgm_low_turret"];
+    private _staticAA = ["acm_gm_aaf2015_SOG_fiaIns_blu_v_zgu1_turret"];
+    private _staticMortars = ["acm_gm_aaf2015_SOG_fiaIns_blu_v_m2_mortar_turret"];
 };
 
 if (_hasRHS) then {
-    #include "..\Mod_content\RHS\ACM_PD_Reb_FIA.sqf"
+    _vehiclesAA append ["acm_gm_aaf2015_fiaIns_rhsafrf_blu_v_Ural_zu23_car"];
+    _staticAA append ["acm_gm_aaf2015_fiaIns_rhsafrf_blu_v_zu23_turret"];
+    _vehiclesCivHeli append ["RHS_Mi8amt_civilian", "RHS_Mi8t_civilian", "rhs_uh1h_idap"];
 };
 
 ["vehiclesBasic", _vehiclesBasic] call _fnc_saveToTemplate;
