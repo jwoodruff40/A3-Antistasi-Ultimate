@@ -451,12 +451,15 @@ _policeLoadoutData set ["sidearms", [
 
 private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch and shit breaks
 
-_militiaLoadoutData set ["uniforms", ["acm_gm_aaf2028_clothes_1_3", "acm_gm_aaf2028_clothes_1_1", "acm_gm_aaf2028_clothes_1_2", "acm_gm_aaf2028_clothes_4_1"]];
+_militiaLoadoutData set ["uniforms", [
+    "acm_gm_aaf2028_clothes_1_5", "acm_gm_aaf2028_clothes_1_4", "acm_gm_aaf2028_clothes_1_2", "acm_gm_aaf2028_clothes_4_1",
+    "acm_gm_aaf2015_clothes_1_5", "acm_gm_aaf2015_4_1", "acm_gm_aaf2015_clothes_6_1", "acm_gm_aaf2015_clothes_6_2", "acm_gm_aaf2015_clothes_6_3", "acm_gm_aaf2015_clothes_6_4"
+]];
 _militiaLoadoutData set ["vests", ["V_Simc_Alice_lc2", "V_Simc_Alice_mc_lc2", "V_Simc_Alice_lc2_alt"]];
 _militiaLoadoutData set ["medVests", ["V_Simc_56_med", "V_Simc_56_med_side", "V_Simc_56_med_side_ass"]];
 _militiaLoadoutData set ["mgVests", ["V_Simc_Alice_mc_249", "V_Simc_Alice_mc_lc2_60"]];
 _militiaLoadoutData set ["glVests", ["V_Simc_nadevest_67", "V_Simc_nadevest_alice_mc"]];
-_militiaLoadoutData set ["helmets", ["acm_gm_aaf2015_pasgt_1_8"]];
+_militiaLoadoutData set ["helmets", ["acm_gm_aaf2015_pasgt_1_8", "acm_gm_aaf2015_m1c_1_1", "acm_gm_aaf2015_m1c_1_2"]];
 
 _militiaLoadoutData set ["slRifles", [
     ["gm_g3a3a0_oli", "", "gm_feroz24_stanagClaw_blk", "", ["gm_20Rnd_762x51mm_B_DM41_g3_blk", "gm_20Rnd_762x51mm_B_T_DM21A1_g3_blk"], [], "gm_g3_bipod_blk"],
