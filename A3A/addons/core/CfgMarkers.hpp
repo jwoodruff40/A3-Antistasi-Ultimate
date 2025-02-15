@@ -274,4 +274,10 @@ class CfgMarkers
 		icon = QPATHTOFOLDER(Pictures\Markers\marker_freedom_ca.paa);
 		texture = QPATHTOFOLDER(Pictures\Markers\marker_freedom_ca.paa);
 	};
+	class a3u_flag_asdf: flag_NATO
+	{
+		name = "ASDF";
+		icon = "ACM_AAF_2028_core\faction\asdf_flag_ico_ca.paa";
+		texture = "ACM_AAF_2028_core\faction\asdf_flag_co.paa";
+	};
 };
