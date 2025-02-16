@@ -7,9 +7,9 @@ private _hasQAV = "@QAV - Challenger 2" in (getLoadedModsInfo apply {_x select 1
 ["name", "ASDFxAFOR"] call _fnc_saveToTemplate;
 ["spawnMarkerName", format [localize "STR_supportcorridor", "AAF"]] call _fnc_saveToTemplate;
 
-["flag", "Flag_NATO_F"] call _fnc_saveToTemplate;
+["flag", "a3u_flag_afor"] call _fnc_saveToTemplate;
 ["flagTexture", "x\A3A\addons\core\Templates\Templates\ACM\flags\flag_afor&asdf_co.paa"] call _fnc_saveToTemplate;
-["flagMarkerType", "flag_NATO"] call _fnc_saveToTemplate;
+["flagMarkerType", "a3u_flag_afor"] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Vehicles       //
