@@ -204,8 +204,8 @@ _loadoutData set ["marksmanRifles", [
 ]];
 _loadoutData set ["lightATLaunchers", ["gm_m72a3_oli"]];
 _loadoutData set ["ATLaunchers", [
-	["gm_pzf44_2_oli_feroz2x17", "", "", "gm_feroz2x17_pzf44_2_blk", ["gm_1Rnd_44x537mm_heat_dm32_pzf44_2"], [], ""],
-	["gm_pzf84_2_oli_feroz2x17", "", "", "gm_feroz2x17_pzf44_2_blk", ["gm_1Rnd_84x245mm_heat_t_DM22_carlgustaf"], [], ""]
+	["gm_pzf44_2_oli", "", "", "gm_feroz2x17_pzf44_2_blk", ["gm_1Rnd_44x537mm_heat_dm32_pzf44_2"], [], ""],
+	["gm_pzf84_2_oli", "", "", "gm_feroz2x17_pzf44_2_blk", ["gm_1Rnd_84x245mm_heat_t_DM22_carlgustaf"], [], ""]
 ]];
 _loadoutData set ["lightHELaunchers", []];
 _loadoutData set ["AALaunchers", ["gm_fim43_oli"]];
