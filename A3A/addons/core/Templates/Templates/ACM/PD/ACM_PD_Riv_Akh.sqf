@@ -1,3 +1,5 @@
+private _hasSOG = "vn" in A3A_enabledDLC;
+
 ////////////////////////////
 //   Rivals Information   //
 ///////////////////////////
@@ -186,7 +188,7 @@ _loadoutData set ["carbines", [
     ["gm_mpiaks74n_brn", "", "", "gm_zvn64_ak", ["gm_30Rnd_545x39mm_B_7N6_ak74_prp", "gm_30Rnd_545x39mm_B_T_7T3_ak74_prp"], [], ""]
 ]];
 _loadoutData set ["grenadeLaunchers", [
-	["arifle_SPAR_01_GL_blk_F", "", "optic_Aco", "", ["gm_30Rnd_762x39mm_B_57N231_ak47_blk", "gm_30Rnd_762x39mm_B_T_57N231P_ak47_blk"], [], ""],
+	["arifle_SPAR_01_GL_blk_F", "", "optic_Aco", "", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_red"], [], ""],
     ["gm_akm_pallad_wud", "", "", "gm_zvn64_ak", ["gm_30Rnd_762x39mm_B_57N231_ak47_blk", "gm_30Rnd_762x39mm_B_T_57N231P_ak47_blk"], ["1Rnd_HE_Grenade_shell"], ""],
 	["gm_hk69a1_blk", "", "", "", ["1Rnd_HE_Grenade_shell"], ["1Rnd_HE_Grenade_shell"], ""]
 ]];
