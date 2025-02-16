@@ -51,6 +51,7 @@ _vehiclesRivalsTanks = [];
 _vehiclesRivalsHelis = [];
 _vehiclesRivalsUavs = [];
 _staticLowWeapons = ["acm_gm_aaf2028_akhr_Turret_dshkn_tripod", "acm_gm_aaf2028_akhr_Turret_HMG_02", "acm_gm_aaf2028_akhr_Turret_HMG_High_02", "acm_gm_aaf2028_akhr_Turret_MG3_Tripod", "acm_gm_aaf2028_akhr_Turret_spg9_tripod"];
+_staticMortars = ["acm_gm_aaf2028_akhr_Turret_Mortar_01"];
 
 if (_hasSOG) then {
     _staticLowWeapons append ["acm_gm_aaf2015_SOG_akh_opf_v_zgu1_turret"];
@@ -65,7 +66,7 @@ if (_hasSOG) then {
 ["vehiclesRivalsUavs", _vehiclesRivalsUavs] call _fnc_saveToTemplate;			
 
 ["staticLowWeapons", _staticLowWeapons] call _fnc_saveToTemplate;
-["staticMortars", ["CUP_O_2b14_82mm_RU"]] call _fnc_saveToTemplate;
+["staticMortars", _staticMortars] call _fnc_saveToTemplate;
 
 ["mortarMagazineHE", "8Rnd_82mm_Mo_shells"] call _fnc_saveToTemplate;
 
@@ -103,13 +104,14 @@ _loadoutData set ["fullmask", [
 	"G_Balaclava_blk"
 ]];
 
-_loadoutData set ["headgear", [
+_loadoutData set ["headgear", ["acm_gm_aaf2015_boon_1_3"]];
+
+_loadoutData set ["offheadgear", [
 	"acm_gm_aaf2015_sidecap_1_1",
     "acm_gm_aaf2015_sidecap_1_2",
 	"acm_gm_aaf2015_Beret_blk",
-	"acm_gm_aaf2015_Beret_grn",
-	"acm_gm_aaf2015_boon_1_3"
-]];
+	"acm_gm_aaf2015_Beret_grn"
+]]
 
 _loadoutData set ["maps", ["ItemMap"]];
 _loadoutData set ["watches", ["ItemWatch"]];

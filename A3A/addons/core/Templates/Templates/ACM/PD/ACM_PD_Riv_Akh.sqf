@@ -67,9 +67,6 @@ if (_hasSOG) then {
 ["vehiclesRivalsUavs", _vehiclesRivalsUavs] call _fnc_saveToTemplate;			
 
 ["staticLowWeapons", _staticLowWeapons] call _fnc_saveToTemplate;
-["staticMortars", ["CUP_O_2b14_82mm_RU"]] call _fnc_saveToTemplate;
-
-["mortarMagazineHE", "8Rnd_82mm_Mo_shells"] call _fnc_saveToTemplate;
 
 ["handGrenadeAmmo", ["gm_handgrenade_frag_dm51"]] call _fnc_saveToTemplate;
 ["mortarAmmo", ["Sh_82mm_AMOS"]] call _fnc_saveToTemplate;
