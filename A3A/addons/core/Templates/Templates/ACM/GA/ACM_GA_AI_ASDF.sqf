@@ -323,7 +323,9 @@ _sfLoadoutData set ["marksmanRifles", [
 _sfLoadoutData set ["sidearms", [
     ["hgun_Pistol_heavy_01_F", "", "", "", ["11Rnd_45ACP_Mag"], [], ""]
 ]];
-_sfLoadoutData set ["ATLaunchers", ["launch_NLAW_F"]];
+_sfLoadoutData set ["ATLaunchers", [
+    ["launch_NLAW_F","","","",["NLAW_F"],[],""]
+]];
 
 /////////////////////////////////
 //    Elite Loadout Data    //

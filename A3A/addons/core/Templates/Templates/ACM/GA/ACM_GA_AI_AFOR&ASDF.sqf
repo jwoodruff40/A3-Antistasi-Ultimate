@@ -372,7 +372,9 @@ _sfLoadoutData set ["lightATLaunchers", [
     ["launch_MRAWS_sand_rail_F", "", "acc_pointer_IR", "", ["MRAWS_HEAT_F", "MRAWS_HEAT55_F"], [], ""],
     ["launch_MRAWS_sand_rail_F", "", "acc_pointer_IR", "", ["MRAWS_HEAT_F", "MRAWS_HE_F"], [], ""]
 ]];
-_sfLoadoutData set ["ATLaunchers", ["launch_NLAW_F"]];
+_sfLoadoutData set ["ATLaunchers", [
+    ["launch_NLAW_F","","","",["NLAW_F"],[],""]
+]];
 _sfLoadoutData set ["missileATLaunchers", [
     ["launch_B_Titan_short_F", "", "acc_pointer_IR", "", ["Titan_AT"], [], ""]
 ]];
@@ -434,7 +436,9 @@ _eliteLoadoutData set ["sidearms", [
 _eliteLoadoutData set ["lightATLaunchers", [
     ["gm_pzf3_blk", "", "", "", ["gm_1Rnd_60mm_heat_dm12_pzf3", "gm_1Rnd_60mm_heat_dm22_pzf3", "gm_1Rnd_60mm_heat_dm32_pzf3"], [], ""]
 ]];
-_eliteLoadoutData set ["ATLaunchers", ["launch_NLAW_F"]];
+_eliteLoadoutData set ["ATLaunchers", [
+    ["launch_NLAW_F","","","",["NLAW_F"],[],""]
+]];
 _eliteLoadoutData set ["missileATLaunchers", [
     ["launch_B_Titan_short_F", "", "acc_pointer_IR", "", ["Titan_AT"], [], ""]
 ]];
