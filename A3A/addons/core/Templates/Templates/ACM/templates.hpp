@@ -104,7 +104,7 @@
         flagTexture = QPATHTOFOLDER(Templates\Templates\ACM\flags\flag_true_fia_co.paa);
         name = "[GA] True FIA";
         file = "ACM_GA_Reb_TrueFIA";
-        description = "Gun nuts, conspiracy theorists, extremists, sovereign citizens, larpers. Groups proclaiming themselves the \"True FIA\" in the wake of the invasion tend to have this worrying combination, and more...";
+        description = "Gun nuts, conspiracy theorists, extremists, sovereign citizens, larpers. Groups proclaiming themselves the 'True FIA' in the wake of the invasion tend to have this worrying combination, and more...";
     };
 
     class ACM_GA_Riv_AkhRem : ACM_GA_Base
