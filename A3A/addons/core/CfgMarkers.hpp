@@ -285,7 +285,7 @@ class CfgMarkers
 	class a3u_flag_afor: flag_NATO
 	{
 		name = "AFOR";
-		icon = QPATHTOFOLDER(Templates\Templates\ACM\flags\flag_afor&asdf_co.paa);;
-		texture = QPATHTOFOLDER(Templates\Templates\ACM\flags\flag_afor&asdf_co.paa);;
+		icon = QPATHTOFOLDER(Templates\Templates\ACM\flags\flag_afor&asdf_co.paa);
+		texture = QPATHTOFOLDER(Templates\Templates\ACM\flags\flag_afor&asdf_co.paa);
 	};
 };
