@@ -115,3 +115,12 @@
         file = "ACM_GA_Riv_AkhRem";
         description = "Made up of AAF soldiers who didn't surrender and Akhanterites who evaded capture and execution. while not considered a serious threat capable of displacing the new democratic regime, its members still engage in acts of terrorism and banditry, neccesitating direct action at times.";
     };
+
+    class ACM_GA_Riv_NPSF : ACM_GA_Base
+    {
+        side = "Riv";
+        flagTexture = "ACM_AAF_2028_core\faction\npsf_flag_co.paa";
+        name = "[GA] NPSF";
+        file = "ACM_GA_Riv_NPSF";
+        description = "The Nazarene Popular Support Forces (or NPSF) is a Christian nationalist militia founded by the mysterious former head of the now defunct Altian Air Force Intelligence Directorate. The group has the curious organizational descendance from several Akhanterite groups, Junta intelligence officials, and even some right wing FIA groups with anti-western ideologies.";
+    };
