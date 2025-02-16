@@ -92,7 +92,7 @@
     class ACM_GA_AFORandASDF : ACM_GA_Base
     {
         side = "Occ";
-        flagTexture = "x\A3A\addons\core\Pictures\Markers\flag_afor&asdf_co.paa";
+        flagTexture = QPATHTOFOLDER(Templates\Templates\ACM\flags\flag_afor&asdf_co.paa);
         name = "[GA] AFOR & ASDF";
         file = "ACM_GA_AI_AFOR&ASDF";
         description = "Working alongside the Altis and Stratis Defence Force, is AFOR (Altis Force), primarily composed of Danish soldiers, with a small mix of German, American, and British troops. AFOR works to support NATO's support programs to the ASDF and provides capabilities the ASDF lacks like heavy artillery and armour.";
@@ -101,8 +101,17 @@
     class ACM_GA_Reb_TrueFIA : ACM_GA_Base
     {
         side = "Reb";
-        flagTexture = "x\A3A\addons\core\Pictures\Markers\flag_trueFIA_co.paa";
+        flagTexture = QPATHTOFOLDER(Templates\Templates\ACM\flags\flag_true_fia_co.paa);
         name = "[GA] True FIA";
         file = "ACM_GA_Reb_TrueFIA";
         description = "Gun nuts, conspiracy theorists, extremists, sovereign citizens, larpers. Groups proclaiming themselves the \"True FIA\" in the wake of the invasion tend to have this worrying combination, and more...";
+    };
+
+    class ACM_GA_Riv_AkhRem : ACM_GA_Base
+    {
+        side = "Riv";
+        flagTexture = QPATHTOFOLDER(Templates\Templates\ACM\flags\flag_akh_torn_co.paa);
+        name = "[GA] Akhanterite Remnants";
+        file = "ACM_GA_Riv_AkhRem";
+        description = "Made up of AAF soldiers who didn't surrender and Akhanterites who evaded capture and execution. while not considered a serious threat capable of displacing the new democratic regime, its members still engage in acts of terrorism and banditry, neccesitating direct action at times.";
     };

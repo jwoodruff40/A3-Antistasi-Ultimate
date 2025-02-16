@@ -8,7 +8,7 @@ private _hasRHS = count (["@RHSAFRF", "@RHSUSAF", "@RHSGREF"] arrayIntersect (ge
 ["name", "True FIA"] call _fnc_saveToTemplate;
 
 ["flag", "Flag_FIA_F"] call _fnc_saveToTemplate;
-["flagTexture", "x\A3A\addons\core\Pictures\Markers\flag_trueFIA_co.paa"] call _fnc_saveToTemplate;
+["flagTexture", "x\A3A\addons\core\Templates\Templates\ACM\flags\flag_true_fia_co.paa"] call _fnc_saveToTemplate;
 ["flagMarkerType", "flag_FIA"] call _fnc_saveToTemplate;
 
 //////////////////////////
