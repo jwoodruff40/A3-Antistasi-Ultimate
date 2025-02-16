@@ -274,6 +274,8 @@ class CfgMarkers
 		icon = QPATHTOFOLDER(Pictures\Markers\marker_freedom_ca.paa);
 		texture = QPATHTOFOLDER(Pictures\Markers\marker_freedom_ca.paa);
 	};
+	
+	// Griffin's Ascent
 	class a3u_flag_asdf: flag_NATO
 	{
 		name = "ASDF";

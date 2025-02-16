@@ -5,10 +5,10 @@ private _hasRHS = count (["@RHSAFRF", "@RHSUSAF", "@RHSGREF"] arrayIntersect (ge
 //   Rebel Information   //
 ///////////////////////////
 
-["name", "FIA"] call _fnc_saveToTemplate;
+["name", "True FIA"] call _fnc_saveToTemplate;
 
 ["flag", "Flag_FIA_F"] call _fnc_saveToTemplate;
-["flagTexture", "a3\data_f\flags\flag_fia_co.paa"] call _fnc_saveToTemplate;
+["flagTexture", "x\A3A\addons\core\Pictures\Markers\flag_trueFIA_co.paa"] call _fnc_saveToTemplate;
 ["flagMarkerType", "flag_FIA"] call _fnc_saveToTemplate;
 
 //////////////////////////
@@ -27,20 +27,20 @@ private _hasRHS = count (["@RHSAFRF", "@RHSUSAF", "@RHSGREF"] arrayIntersect (ge
 //////////////////////////
 
 private _vehiclesBasic = ["acm_gm_aaf2015_fiaIns_blu_v_k125_car"];
-private _vehiclesLightUnarmed = ["acm_gm_aaf2015_fiaIns_blu_v_uaz469_cargo_car"];
-private _vehiclesLightArmed = ["acm_gm_aaf2015_fiaIns_blu_v_uaz469_dshkm_car"];
-private _vehiclesTruck = ["acm_gm_aaf2015_fiaIns_blu_v_u1300l_car"];
-private _vehiclesAT = ["acm_gm_aaf2015_fiaIns_blu_v_uaz469_spg9_car"];
+private _vehiclesLightUnarmed = ["acm_gm_aaf2028_tfia_wheeled_offroad_01", "acm_gm_aaf2028_tfia_wheeled_uaz469_car_cargo_01"];
+private _vehiclesLightArmed = ["acm_gm_aaf2028_tfia_wheeled_offroad_armed_01", "acm_gm_aaf2028_tfia_wheeled_u1300l_container_01", "acm_gm_aaf2028_tfia_wheeled_uaz469_car_dshkm_01"];
+private _vehiclesTruck = ["acm_gm_aaf2028_tfia_wheeled_van_transport_01", "acm_gm_aaf2028_tfia_wheeled_ural375d_cargo_01"];
+private _vehiclesAT = ["acm_gm_aaf2028_tfia_wheeled_offroad_AT_01", "acm_gm_aaf2028_tfia_wheeled_uaz469_car_spg9_01"];
 private _vehiclesAA = [];
 private _vehiclesBoat = ["I_C_Boat_Transport_02_F"];
 private _vehiclesPlane = ["gm_gc_civ_l410s_passenger"];
-private _vehiclesCivCar = ["acm_gm_aaf2015_fiaIns_blu_v_typ247_car", "acm_gm_aaf2015_fiaIns_blu_v_typ253_car", "acm_gm_aaf2015_fiaIns_blu_v_w123_car"];
-private _vehiclesCivTruck = ["acm_gm_aaf2015_fiaIns_blu_v_ural375d_cargo_car"];
-private _vehiclesCivSupply = ["acm_gm_aaf2015_fiaIns_blu_v_u1300l_container_car", "acm_gm_aaf2015_fiaIns_blu_v_ural375d_cargo_car"]; 
+private _vehiclesCivCar = ["acm_gm_aaf2028_tfia_wheeled_type47_car_01", "acm_gm_aaf2028_tfia_wheeled_type253_car_01"];
+private _vehiclesCivTruck = ["acm_gm_aaf2028_tfia_wheeled_u1300l_car_01"];
+private _vehiclesCivSupply = ["acm_gm_aaf2028_tfia_wheeled_u1300l_car_01"]; 
 private _vehiclesCivHeli = ["gm_ge_adak_bo105m_vbh_noinsignia", "a3a_C_Heli_Light_02_blue_F"];
 private _vehiclesCivBoat = ["C_Rubberboat"];
-private _staticMGs = ["acm_gm_aaf2015_fiaIns_blu_v_dshkm_turret"];
-private _staticAT = ["acm_gm_aaf2015_fiaIns_blu_v_spg9_turret"];
+private _staticMGs = ["acm_gm_aaf2028_tfia_turret_dshkm", "acm_gm_aaf2028_tfia_turret_HMG_02", "acm_gm_aaf2028_tfia_turret_HMG_02_High"];
+private _staticAT = ["acm_gm_aaf2028_tfia_turret_spg9_01"];
 private _staticAA = [];
 private _staticMortars = ["acm_gm_aaf2015_fiaIns_blu_v_mortar_turret"];
 
@@ -101,18 +101,18 @@ if (_hasRHS) then {
 ///////////////////////////
 
 private _initialRebelEquipment = [
-    "gm_p1_blk","gm_pm_blk","gm_p2a1_blk",
-    ["gm_m72a3_oli", 20], "gm_1Rnd_66mm_heat_m72a3",
-    ["IEDUrbanSmall_Remote_Mag", 10], ["IEDLandSmall_Remote_Mag", 10], ["IEDUrbanBig_Remote_Mag", 3], ["IEDLandBig_Remote_Mag", 3],
-    "gm_8Rnd_9x18mm_B_pst_pm_blk", "gm_8Rnd_9x19mm_B_DM11_p1_blk",
+    "hgun_ACPC2_F", "9Rnd_45ACP_Mag",
+    "sgun_HunterShotgun_01_F", "2Rnd_12Gauge_Pellets", "2Rnd_12Gauge_Slug",
+    "gm_g3a3_oli", "gm_5Rnd_762x51mm_B_DM41_g3_blk",
+    ["gm_m72a3_oli", 10], ["gm_1Rnd_66mm_heat_m72a3", 10],
+    ["IEDUrbanSmall_Remote_Mag", 10], ["IEDLandSmall_Remote_Mag", 10], ["IEDUrbanBig_Remote_Mag", 3], ["IEDLandBig_Remote_Mag", 3],    
     "gm_1Rnd_265mm_flare_single_red_gc", "gm_1Rnd_265mm_flare_single_wht_gc", "gm_1Rnd_265mm_flare_single_grn_DM11", 
     "gm_1Rnd_265mm_flare_single_wht_DM15", "gm_1Rnd_265mm_flare_multi_wht_DM25",
     "gm_handgrenade_frag_dm51","gm_smokeshell_wht_dm25", "gm_handgrenade_frag_rgd5",
-    "B_AssaultPack_blk","B_FieldPack_oli",
-    "V_TacChestrig_grn_F","V_Chestrig_rgr","gm_df7x40_blk"
+    "gm_pl_army_backpack_at_80_gry", "gm_ge_backpack_satchel_80_blk",
+    "gm_ge_vest_sov_80_blk","V_Chestrig_oli",
+    "gm_df7x40_blk"
 ];
-
-if (_hasSOG) then {_initialRebelEquipment append ["vn_vz54", "vn_m38_mag"]};
 
 if (A3A_hasTFAR) then {_initialRebelEquipment append ["tf_microdagr","tf_anprc154"]};
 if (A3A_hasTFAR && startWithLongRangeRadio) then {_initialRebelEquipment append ["tf_anprc155","tf_anprc155_coyote"]};
@@ -122,22 +122,27 @@ _initialRebelEquipment append ["Chemlight_blue","Chemlight_green","Chemlight_red
 ["initialRebelEquipment", _initialRebelEquipment] call _fnc_saveToTemplate;
 
 _rebUniforms = [
-    "U_simc_swetr1_leven_trop",
+    "gm_xx_army_uniform_fighter_02_wdl",
+    "gm_xx_army_uniform_fighter_04_wdl",
+    "gm_xx_army_uniform_fighter_01_alp",
+    "U_Simc_bdu_raid_blench_knee_trop",
+    "U_Simc_CDO_bdu",
     "U_Simc_bdu_civ_desu_trop",
-    "U_simc_civ_jean_rot_ligt",
-    "U_simc_bdu_civ_surf",
-    "U_simc_bdu_erla_gas_blench_trop",
-    "U_Simc_bdu_eto_tee",
-    "U_simc_swetr1_amogus",
-    "U_Simc_bdu_civ",
-    "U_simc_civ_jean_blau_tuck_trop",
-    "U_simc_civ_jean_khk_tuck_trop"
+    "U_simc_bdu_veldjas_blench_gas_trop",
+    "U_IG_Guerilla_6_1",
+    "U_Simc_DCU_civ",
+    "U_Simc_DCU_civ_trop",
+    "U_Simc_bdu_civ_desu",
+    "U_Simc_bdu_civ_DT",
+    "U_Simc_bdu_civ_DT_trop",
+    "acm_gm_aaf2028_tweed_acu_summer_ocp_blench_trop_ind",
+    "U_Simc_bdu_civ"
 ];
 
 ["uniforms", _rebUniforms] call _fnc_saveToTemplate;
 
 ["headgear", ["H_ShemagOpen_khk", "H_Shemag_olive", "H_Simc_Boon_m81_1", "H_Cap_headphones", "gm_ge_headgear_hat_boonie_flk", "H_Simc_Boon_m81_2", "gm_ge_headgear_hat_90_flk",
-    "H_Simc_Boon_green_3", "H_ShemagOpen_tan", "H_Simc_Boon_m81_1"]] call _fnc_saveToTemplate;
+    "H_Simc_Boon_green_3", "H_ShemagOpen_tan", "H_Simc_Boon_m81_1", "gm_xx_headgear_headwrap_crew_01_flk", "H_Booniehat_mcamo", "H_Booniehat_mgrn"]] call _fnc_saveToTemplate;
 
 /////////////////////
 ///  Identities   ///
@@ -166,7 +171,7 @@ _loadoutData set ["uniforms", _rebUniforms];
 
 _loadoutData set ["glasses", ["G_Aviator", "G_Spectacles", "G_Spectacles_Tinted", "G_Squares", "G_Squares_Tinted", "gm_ge_facewear_glacierglasses"]];
 _loadoutData set ["goggles", ["gm_gc_army_facewear_dustglasses"]];
-_loadoutData set ["facemask", ["G_Bandanna_aviator", "gm_ge_facewear_stormhood_blk", "gm_xx_facewear_scarf_01_blk", "gm_xx_facewear_scarf_01_grn", "gm_xx_facewear_scarf_01_gry", "gm_xx_facewear_scarf_01_oli", "gm_xx_facewear_scarf_01_str"]];
+_loadoutData set ["facemask", ["G_Bandanna_aviator", "G_Bandanna_CandySkull", "gm_ge_facewear_stormhood_blk", "gm_xx_facewear_scarf_01_blk", "gm_xx_facewear_scarf_01_grn", "gm_xx_facewear_scarf_01_gry", "gm_xx_facewear_scarf_01_oli", "gm_xx_facewear_scarf_01_str", "G_Balaclava_blk"]];
 
 _loadoutData set ["items_medical_basic", ["BASIC"] call A3A_fnc_itemset_medicalSupplies];
 _loadoutData set ["items_medical_standard", ["STANDARD"] call A3A_fnc_itemset_medicalSupplies];
