@@ -88,3 +88,12 @@
         file = "ACM_GA_AI_ASDF";
         description = "After the Treaty of Jerusalem, the loyalist faction of the FIA merged and took over the AAF, reforming it into the Altis and Stratis Defence Force (ASDF).";
     };
+
+    class ACM_GA_AFORandASDF : ACM_GA_Base
+    {
+        side = "Occ";
+        flagTexture = "x\A3A\addons\core\Pictures\Markers\afor&asdf_flag_co.paa"
+        name = "[GA] AFOR & ASDF";
+        file = "ACM_GA_AI_AFOR&ASDF";
+        description = "Working alongside the Altis and Stratis Defence Force, is AFOR (Altis Force), primarily composed of Danish soldiers, with a small mix of German, American, and British troops. AFOR works to support NATO's support programs to the ASDF and provides capabilities the ASDF lacks like heavy artillery and armour.";
+    };
