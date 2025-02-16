@@ -185,9 +185,9 @@ _loadoutData set ["lightATLaunchers", [
 _loadoutData set ["ATLaunchers", [
     ["launch_MRAWS_green_rail_F", "", "", "", ["MRAWS_HEAT_F", "MRAWS_HEAT55_F"], [], ""]
 ]];
-_loadoutData set ["missileATLaunchers",
+_loadoutData set ["missileATLaunchers", [
     ["launch_I_Titan_short_F", "", "", "", ["Titan_AT"], [], ""]
-];
+]];
 _loadoutData set ["AALaunchers", [
     ["gm_fim43_oli", "", "", "", ["gm_1Rnd_70mm_he_m585_fim43"], [], ""]
 ]];
@@ -453,7 +453,7 @@ private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch a
 
 _militiaLoadoutData set ["uniforms", [
     "acm_gm_aaf2028_clothes_1_5", "acm_gm_aaf2028_clothes_1_4", "acm_gm_aaf2028_clothes_1_2", "acm_gm_aaf2028_clothes_4_1",
-    "acm_gm_aaf2015_clothes_1_5", "acm_gm_aaf2015_4_1", "acm_gm_aaf2015_clothes_6_1", "acm_gm_aaf2015_clothes_6_2", "acm_gm_aaf2015_clothes_6_3", "acm_gm_aaf2015_clothes_6_4"
+    "acm_gm_aaf2015_clothes_1_5", "acm_gm_aaf2015_clothes_4_1", "acm_gm_aaf2015_clothes_6_1", "acm_gm_aaf2015_clothes_6_2", "acm_gm_aaf2015_clothes_6_3", "acm_gm_aaf2015_clothes_6_4"
 ]];
 _militiaLoadoutData set ["vests", ["V_Simc_Alice_lc2", "V_Simc_Alice_mc_lc2", "V_Simc_Alice_lc2_alt"]];
 _militiaLoadoutData set ["medVests", ["V_Simc_56_med", "V_Simc_56_med_side", "V_Simc_56_med_side_ass"]];

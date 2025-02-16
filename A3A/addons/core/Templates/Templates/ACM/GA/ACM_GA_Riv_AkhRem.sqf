@@ -130,7 +130,7 @@ _loadoutData set ["vests", ["V_Simc_vest_aws_rig_1", "V_Simc_SF_mk56_3", "V_Simc
 _loadoutData set ["medVests", ["V_Simc_56_med"]];
 _loadoutData set ["heavyVests", ["acm_gm_aaf2015_vest_rba_alice_1", "V_Simc_flak_M56_open_60_belt", "V_TacVest_oli", "V_TacVest_camo", "gm_ge_bgs_vest_type3a1_oli"]];
 _loadoutData set ["glVests", ["acm_gm_aaf2015_vest_rba_alice_nade"]];
-_loadoutDate set ["medBackpacks", ["gm_ge_backpack_satchel_80_san"]];
+_loadoutData set ["medBackpacks", ["gm_ge_backpack_satchel_80_san"]];
 _loadoutData set ["atBackpacks", ["gm_pl_army_backpack_at_80_gry"]];
 _loadoutData set ["backpacks", ["B_simc_pack_frem_8", "gm_ge_army_backpack_90_oli"]];
 _loadoutData set ["helmets", ["acm_gm_aaf2015_Mk5_Scrim", "acm_gm_aaf2015_Mk5_Net", "acm_gm_aaf2015_Mk5_Cover"]];

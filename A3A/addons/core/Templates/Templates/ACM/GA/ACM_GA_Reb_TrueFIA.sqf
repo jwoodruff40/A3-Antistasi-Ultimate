@@ -129,7 +129,7 @@ _rebUniforms = [
     "U_Simc_CDO_bdu",
     "U_Simc_bdu_civ_desu_trop",
     "U_simc_bdu_veldjas_blench_gas_trop",
-    "U_IG_Guerilla_6_1",
+    //"U_IG_Guerilla_6_1",
     "U_Simc_DCU_civ",
     "U_Simc_DCU_civ_trop",
     "U_Simc_bdu_civ_desu",
