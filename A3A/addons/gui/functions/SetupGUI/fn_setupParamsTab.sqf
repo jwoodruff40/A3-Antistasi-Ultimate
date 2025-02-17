@@ -76,6 +76,12 @@ switch (_mode) do
                 _valsCtrl ctrlCommit 0;
                 _allCtrls pushBack _valsCtrl;
 
+                _valsCtrl ctrlAddEventHandler ["LBSelChanged", {
+                    private _display = findDisplay A3A_IDD_SETUPDIALOG;
+                    private _newGame = cbChecked (_display displayCtrl A3A_IDC_SETUP_NEWGAMECHECKBOX);
+                    _display setVariable ["paramsChangedSinceReset", _newGame];
+                }];
+
                 if (configName _x isEqualTo "gameMode") then {
                     _valsCtrl ctrlAddEventHandler ["LBSelChanged", {
                         params ["_thisCtrl", "_index"];
