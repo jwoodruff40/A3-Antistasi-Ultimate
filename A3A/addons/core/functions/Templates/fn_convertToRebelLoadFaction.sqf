@@ -218,7 +218,16 @@ private _fnc_generateAndSaveUnitsToTemplate = {
 					_initialRebelEquipment pushBackUnique [_x, [3 min minWeaps, 5] select (minWeaps < 0)];
 					_initialRebelEquipment pushBackUnique [_ammo, [3 min minWeaps, 5] select (minWeaps < 0)];
 				};
-				case ("Weapons" in _categories);
+				case ("Weapons" in _categories): {
+					// * Add a random compatible mag for this weapon to the items list if one isn't defined (and thus added to IRE) by the faction template
+					private _potentialMags = _items select [_forEachIndex + 1, 4];
+					private _compatMags = compatibleMagazines _x;
+					if (count (_potentialMags arrayIntersect _compatMags) isEqualTo 0) then {
+						_items pushBackUnique (selectRandom _compatMags)
+					};
+
+					_initialRebelEquipment pushBackUnique [_x, [3 min minWeaps, 5] select (minWeaps < 0)]
+				};
 				case ("Grenades" in _categories);
 				case ("MagSmokeShell" in _categories);
 				case ("Explosives" in _categories);
