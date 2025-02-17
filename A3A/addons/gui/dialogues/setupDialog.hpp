@@ -267,7 +267,7 @@ class A3A_SetupDialog : A3A_TabbedDialog
                     text = $STR_antistasi_dialogs_setup_rebels;
                     x = 4 * GRID_W;
                     y = 4 * GRID_H;
-                    w = 34 * GRID_W;
+                    w = 38 * GRID_W;
                     h = 4 * GRID_H;
                 };
                 class RebelsListBox: A3A_Listbox_Small {
@@ -275,76 +275,76 @@ class A3A_SetupDialog : A3A_TabbedDialog
                     onLBSelChanged = "['factionSelected', _this] call A3A_fnc_setupFactionsTab";
                     x = 4 * GRID_W;
                     y = 8 * GRID_H;
-                    w = 34 * GRID_W;
-                    h = 20 * GRID_H;
+                    w = 38 * GRID_W;
+                    h = 40 * GRID_H;
                 };
 
                 class CiviliansLabel: A3A_SectionLabelRight {
                     idc = -1;
                     text = $STR_antistasi_dialogs_setup_civilians;
                     x = 4 * GRID_W;
-                    y = 30 * GRID_H;
-                    w = 34 * GRID_W;
+                    y = 50 * GRID_H;
+                    w = 38 * GRID_W;
                     h = 4 * GRID_H;
                 };
                 class CiviliansListBox: A3A_Listbox_Small {
                     idc = A3A_IDC_SETUP_CIVILIANSLISTBOX;
                     onLBSelChanged = "['factionSelected', _this] call A3A_fnc_setupFactionsTab";
                     x = 4 * GRID_W;
-                    y = 34 * GRID_H;
-                    w = 34 * GRID_W;
-                    h = 20 * GRID_H;
-                };
-
-                class RivalsLabel: A3A_SectionLabelRight {
-                    idc = -1;
-                    text = $STR_antistasi_dialogs_setup_rivals;
-                    x = 4 * GRID_W;
-                    y = 56 * GRID_H;
-                    w = 34 * GRID_W;
-                    h = 4 * GRID_H;
-                };
-                class RivalsListBox: A3A_Listbox_Small {
-                    idc = A3A_IDC_SETUP_RIVALSLISTBOX;
-                    onLBSelChanged = "['factionSelected', _this] call A3A_fnc_setupFactionsTab";
-                    x = 4 * GRID_W;
-                    y = 60 * GRID_H;
-                    w = 34 * GRID_W;
-                    h = 36 * GRID_H;
+                    y = 54 * GRID_H;
+                    w = 38 * GRID_W;
+                    h = 42 * GRID_H;
                 };
 
                 class OccupantsLabel: A3A_SectionLabelRight {
                     idc = -1;
                     text = $STR_antistasi_dialogs_setup_occupants;
-                    x = 40 * GRID_W;
+                    x = 44 * GRID_W;
                     y = 4 * GRID_H;
-                    w = 40 * GRID_W;
+                    w = 38 * GRID_W;
                     h = 4 * GRID_H;
                 };
                 class OccupantsListBox: A3A_Listbox_Small {
                     idc = A3A_IDC_SETUP_OCCUPANTSLISTBOX;
                     onLBSelChanged = "['factionSelected', _this] call A3A_fnc_setupFactionsTab";
-                    x = 40 * GRID_W;
+                    x = 44 * GRID_W;
                     y = 8 * GRID_H;
-                    w = 40 * GRID_W;
+                    w = 38 * GRID_W;
                     h = 88 * GRID_H;
                 };
 
                 class InvadersLabel: A3A_SectionLabelRight {
                     idc = -1;
                     text = $STR_antistasi_dialogs_setup_invaders;
-                    x = 82 * GRID_W;
+                    x = 84 * GRID_W;
                     y = 4 * GRID_H;
-                    w = 40 * GRID_W;
+                    w = 38 * GRID_W;
                     h = 4 * GRID_H;
                 };
                 class InvadersListBox: A3A_Listbox_Small {
                     idc = A3A_IDC_SETUP_INVADERSLISTBOX;
                     onLBSelChanged = "['factionSelected', _this] call A3A_fnc_setupFactionsTab";
-                    x = 82 * GRID_W;
+                    x = 84 * GRID_W;
                     y = 8 * GRID_H;
-                    w = 40 * GRID_W;
-                    h = 88 * GRID_H;
+                    w = 38 * GRID_W;
+                    h = 40 * GRID_H;
+                };
+
+                class RivalsLabel: A3A_SectionLabelRight {
+                    idc = -1;
+                    text = $STR_antistasi_dialogs_setup_rivals;
+                    x = 84 * GRID_W;
+                    y = 50 * GRID_H;
+                    w = 38 * GRID_W;
+                    h = 4 * GRID_H;
+                };
+                class RivalsListBox: A3A_Listbox_Small {
+                    idc = A3A_IDC_SETUP_RIVALSLISTBOX;
+                    onLBSelChanged = "['factionSelected', _this] call A3A_fnc_setupFactionsTab";
+                    x = 84 * GRID_W;
+                    y = 54 * GRID_H;
+                    w = 38 * GRID_W;
+                    h = 42 * GRID_H;
                 };
 
                 class SwitchEnemyCheck: A3A_Checkbox {
