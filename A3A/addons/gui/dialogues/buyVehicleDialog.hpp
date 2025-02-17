@@ -380,6 +380,24 @@ class A3A_BuyVehicleDialog : A3A_TabbedDialog
             };
         };
 
+        class VehicleTabRebTank : A3A_DefaultControlsGroup
+        {
+            idc = A3A_IDC_BUYREBVEHICLETANK;
+            show = false;
+
+            class Controls
+            {
+                class VehiclesControlsGroup : A3A_ControlsGroupNoHScrollbars
+                {
+                    idc = A3A_IDC_REBVEHICLESGROUPTANK;
+                    x = 0;
+                    y = 9 * GRID_H;
+                    w = PX_W(DIALOG_W);
+                    h = PX_H(DIALOG_H) - 9 * GRID_H;
+                };
+            };
+        };
+
         class staticsTab : A3A_DefaultControlsGroup
         {
             idc = A3A_IDC_BUYSTATICMAIN;

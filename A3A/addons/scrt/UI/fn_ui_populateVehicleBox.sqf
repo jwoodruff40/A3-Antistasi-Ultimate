@@ -84,6 +84,12 @@ switch (_category) do {
 			_militaryVehicles append _availableVehs;
 		};
 
+		if (tierWar > 5) then {
+			private _availableVehs = 
+				(A3A_faction_reb get 'vehiclesTank') select {_x isNotEqualTo []};
+			_militaryVehicles append _availableVehs;
+		};
+
 		private _milAircrafts = A3A_faction_reb get "vehiclesPlane";
 		if (_milAircrafts isNotEqualTo [] && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count airportsX > 0}) then {
 			_militaryVehicles append _milAircrafts;
@@ -142,6 +148,15 @@ switch (_category) do {
 		private _milAircrafts = A3A_faction_reb get "vehiclesPlane";
 		if (_milAircrafts isNotEqualTo [] && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count airportsX > 0}) then {
 			_militaryVehicles append _milAircrafts;
+		};
+		_vehicleClasses = _militaryVehicles;
+	};
+	case "militarytank": {
+		private _militaryVehicles =[];
+		if (tierWar > 5) then {
+			private _availableVehs = 
+				(A3A_faction_reb get 'vehiclesTank') select {_x isNotEqualTo []};
+			_militaryVehicles append _availableVehs;
 		};
 		_vehicleClasses = _militaryVehicles;
 	};

@@ -83,9 +83,10 @@ switch (_mode) do
                 localize "STR_antistasi_dialogs_vehicle_tab_reblightarmed",
                 localize "STR_antistasi_dialogs_vehicle_tab_rebat",
                 localize "STR_antistasi_dialogs_vehicle_tab_rebaa",
-                localize "STR_antistasi_dialogs_vehicle_tab_rebplane"
+                localize "STR_antistasi_dialogs_vehicle_tab_rebplane",
+                localize "STR_antistasi_dialogs_vehicle_tab_rebtank"
                 ];
-                private _vals = ["military","militarybasic","militarytrucks","militarylightunarmed","militaryboats","militarymedical","militarylightarmed","militaryat","militaryaa","militaryplane"];
+                private _vals = ["military","militarybasic","militarytrucks","militarylightunarmed","militaryboats","militarymedical","militarylightarmed","militaryat","militaryaa","militaryplane","militarytank"];
                 
                 _valsCtrl ctrlCommit 0;
                 {
@@ -170,6 +171,7 @@ switch (_mode) do
             A3A_IDC_BUYREBVEHICLEAT,
             A3A_IDC_BUYREBVEHICLEAA,
             A3A_IDC_BUYREBVEHICLEPLANE,
+            A3A_IDC_BUYREBVEHICLETANK,
             A3A_IDC_BUYSTATICVEHICLEMG,
             A3A_IDC_BUYSTATICVEHICLEAT,
             A3A_IDC_BUYSTATICVEHICLEAA,
@@ -250,6 +252,9 @@ switch (_mode) do
             case localize "STR_antistasi_dialogs_vehicle_tab_rebplane": {
                 _selectedTabIDC = A3A_IDC_BUYREBVEHICLEPLANE;
             };
+            case localize "STR_antistasi_dialogs_vehicle_tab_rebtank": {
+                _selectedTabIDC = A3A_IDC_BUYREBVEHICLETANK;
+            };
             case localize "STR_antistasi_dialogs_vehicle_tab_statics": {
                 _selectedTabIDC = A3A_IDC_BUYSTATICMAIN;
             };
@@ -285,6 +290,7 @@ switch (_mode) do
             A3A_IDC_BUYREBVEHICLEAT,
             A3A_IDC_BUYREBVEHICLEAA,
             A3A_IDC_BUYREBVEHICLEPLANE,
+            A3A_IDC_BUYREBVEHICLETANK,
             A3A_IDC_BUYSTATICVEHICLEMG,
             A3A_IDC_BUYSTATICVEHICLEAT,
             A3A_IDC_BUYSTATICVEHICLEAA,
@@ -326,6 +332,7 @@ switch (_mode) do
         ["vehicles", [A3A_IDC_BUYREBVEHICLEAT, A3A_IDC_REBVEHICLESGROUPAT, "militaryat"]] call A3A_fnc_buyVehicleTabs;
         ["vehicles", [A3A_IDC_BUYREBVEHICLEAA, A3A_IDC_REBVEHICLESGROUPAA, "militaryaa"]] call A3A_fnc_buyVehicleTabs;
         ["vehicles", [A3A_IDC_BUYREBVEHICLEPLANE, A3A_IDC_REBVEHICLESGROUPPLANE, "militaryplane"]] call A3A_fnc_buyVehicleTabs;
+        ["vehicles", [A3A_IDC_BUYREBVEHICLETANK, A3A_IDC_REBVEHICLESGROUPTANK, "militarytank"]] call A3A_fnc_buyVehicleTabs;
 
         ["vehicles", [A3A_IDC_BUYSTATICVEHICLEMG, A3A_IDC_STATICVEHICLESGROUPMG, "staticMG"]] call A3A_fnc_buyVehicleTabs;
         ["vehicles", [A3A_IDC_BUYSTATICVEHICLEAT, A3A_IDC_STATICVEHICLESGROUPAT, "staticAT"]] call A3A_fnc_buyVehicleTabs;

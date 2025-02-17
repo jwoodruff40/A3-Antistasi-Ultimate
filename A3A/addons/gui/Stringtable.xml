@@ -700,6 +700,9 @@
                 <Original>Rebel Plane</Original>
                 <Russian>Самолёты повстанцев</Russian>
             </Key>
+            <Key ID="STR_antistasi_dialogs_vehicle_tab_rebtank">
+                <Original>Rebel Tank</Original>
+            </Key>
             <Key ID="STR_antistasi_dialogs_vehicle_tab_statics">
                 <Original>All Statics</Original>
                 <Russian>Все турели</Russian>
