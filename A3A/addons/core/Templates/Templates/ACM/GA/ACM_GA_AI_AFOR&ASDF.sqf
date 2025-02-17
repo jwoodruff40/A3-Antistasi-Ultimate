@@ -500,9 +500,9 @@ _militaryLoadoutData set ["sidearms", [
 _militaryLoadoutData set ["lightATLaunchers", [
     ["gm_m72a3_oli", "", "", "", ["gm_1Rnd_66mm_heat_m72a3"], [], ""]
 ]];
-_militaryLoadoutData set ["ATLaunchers",
+_militaryLoadoutData set ["ATLaunchers", [
     ["launch_MRAWS_green_F", "", "", "", ["MRAWS_HE_F", "MRAWS_HEAT55_F"], [], ""]
-];
+]];
 _militaryLoadoutData set ["missileATLaunchers", [
     ["launch_B_Titan_short_F", "", "acc_pointer_IR", "", ["Titan_AT"], [], ""]
 ]];
