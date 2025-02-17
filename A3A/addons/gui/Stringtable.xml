@@ -3469,10 +3469,10 @@
             </Key>
             <Key ID="STR_antistasi_dialogs_setup_confirm_factions">
                 <Original>%1 rebels, %2 civilians, %3 occupants, %4 invaders, and %5 rivals?</Original>
-                <Russian>%1 оккупантами и %2 захватчиками?</Russian>
-                <Chinesesimp>%1 防守方和 %2 入侵者？</Chinesesimp>
-                <Korean>%1이(가) 점령군이고 %2이(가) 침략군입니까?</Korean>
-                <French>%1 occupants et %2 envahisseurs ?</French>
+                <Russian>%1 повстанцы, %2 мирные жители, %3 оккупанты, %4 захватчики и %5 соперники?</Russian>
+                <Chinesesimp>%1 叛军、%2 平民、%3 占领者、%4 侵略者和 %5 对手？</Chinesesimp>
+                <Korean>%1 반란군, %2 민간인, %3 거주자, %4 침략자, %5 라이벌?</Korean>
+                <French>%1 rebelles, %2 civils, %3 occupants, %4 envahisseurs et %5 rivaux?</French>
             </Key>
             <Key ID="STR_antistasi_dialogs_setup_confirm_game_name">
                 <Original>name "%1", </Original>
