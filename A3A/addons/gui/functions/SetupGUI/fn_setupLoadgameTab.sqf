@@ -50,6 +50,8 @@ switch (_mode) do
         _display setVariable ["savedParams", []];
         _listboxCtrl setVariable ["rowIndex", -1];
 
+        _newSaveCtrl cbSetChecked true;
+
         // Do these programmatically so that we can reuse the column data
         private _headerCtrl = _display displayCtrl A3A_IDC_SETUP_SAVESHEADER;
         {
@@ -78,7 +80,6 @@ switch (_mode) do
         _copyGameCtrl ctrlShow _newGame;
         _oldParamsCtrl ctrlShow _newGame;
         _newSaveCtrl ctrlShow _newGame;
-        _newSaveCtrl cbSetChecked true;
         (_display displayCtrl A3A_IDC_SETUP_COPYGAMETEXT) ctrlShow _newGame;
         (_display displayCtrl A3A_IDC_SETUP_OLDPARAMSTEXT) ctrlShow _newGame;
         (_display displayCtrl A3A_IDC_SETUP_NAMESPACETEXT) ctrlShow _newGame;
