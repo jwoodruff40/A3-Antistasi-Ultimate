@@ -3481,6 +3481,17 @@
                 <Korean>"%1"(으)로 명명, </Korean>
                 <French>nom "%1", </French>
             </Key>
+            <Key ID="STR_antistasi_dialogs_setup_param_locked">
+                <Original>This parameter cannot be changed for an existing save.</Original>
+                <Czech>Tento parametr nelze změnit pro existující uloženou pozici.</Czech>
+                <French>Ce paramètre ne peut pas être modifié pour une sauvegarde existante.</French>
+                <Italian>Questo parametro non può essere modificato per un salvataggio esistente.</Italian>
+                <Korean>이 매개변수는 기존 저장에 대해 변경할 수 없습니다.</Korean>
+                <Russian>Этот параметр не может быть изменен для существующего сохранения.</Russian>
+                <Polish>Tego parametru nie można zmienić dla istniejącego zapisu.</Polish>
+                <Portuguese>Este parâmetro não pode ser alterado para um salvamento existente.</Portuguese>
+                <Chinesesimp>无法为现有保存更改此参数。</Chinesesimp>
+            </Key>
         </Container>
         <Container name="setup_dialog_table">
             <Key ID="STR_antistasi_setup_dialog_table_map">

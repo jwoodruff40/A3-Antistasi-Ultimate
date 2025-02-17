@@ -65,7 +65,7 @@ switch (_mode) do
                 _valsCtrl ctrlEnable false;
                 _valsCtrl ctrlSetFade 1;
                 _valsCtrl setVariable ["config", _x];
-                _valsCtrl setVariable ["texts", _texts];
+                _valsCtrl setVariable ["locked", false];
                 {
                     private _index = _valsCtrl lbAdd (_texts select _forEachIndex);
                     _valsCtrl lbSetValue [_index, _x];
@@ -106,7 +106,7 @@ switch (_mode) do
                 _textCtrl ctrlSetFade 0;
 
                 if (!isNil "_valsCtrl") then {
-                    _valsCtrl ctrlEnable true;
+                    _valsCtrl ctrlEnable !(_valsCtrl getVariable "locked");
                     _valsCtrl ctrlSetPosition [GRID_W*116, GRID_H*_rowCount*4, GRID_W*32, GRID_H*4];
                     _valsCtrl ctrlSetFade 0;
                 };
@@ -156,6 +156,15 @@ switch (_mode) do
                 _x lbSetCurSel (_vals find _saved);
             };
 
+            if (_savedParams isNotEqualTo []) then { // we're loading an existing save
+                private _locked = (getNumber (_cfg/"lockOnSave")) isNotEqualTo 0;
+                _x setVariable ["locked", _locked];
+
+                if (_locked) then {
+                    _x ctrlEnable false;
+                    _x ctrlSetTooltip (localize "STR_antistasi_dialogs_setup_param_locked");
+                };
+            };
         } forEach (_paramsTable getVariable "allCtrls");
     };
 
