@@ -3492,6 +3492,17 @@
                 <Portuguese>Este parâmetro não pode ser alterado para um salvamento existente.</Portuguese>
                 <Chinesesimp>无法为现有保存更改此参数。</Chinesesimp>
             </Key>
+            <Key ID="STR_antistasi_dialogs_setup_riv_param_locked">
+                <Original>This parameter cannot be enabled if invaders are disabled.</Original>
+                <Czech>Tento parametr nelze povolit, pokud jsou útočníci zakázáni.</Czech>
+                <French>Ce paramètre ne peut pas être activé si les envahisseurs sont désactivés.</French>
+                <Italian>Questo parametro non può essere abilitato se gli invasori sono disabilitati.</Italian>
+                <Korean>침입자가 비활성화된 경우 이 매개변수를 활성화할 수 없습니다.</Korean>
+                <Russian>Этот параметр нельзя включить, если захватчики отключены.</Russian>
+                <Polish>Tego parametru nie można włączyć, jeśli intruzi są wyłączeni.</Polish>
+                <Portuguese>Este parâmetro não pode ser ativado se os invasores estiverem desativados.</Portuguese>
+                <Chinesesimp>如果 invaders 被禁用，则无法启用此参数。</Chinesesimp>
+            </Key>
         </Container>
         <Container name="setup_dialog_table">
             <Key ID="STR_antistasi_setup_dialog_table_map">

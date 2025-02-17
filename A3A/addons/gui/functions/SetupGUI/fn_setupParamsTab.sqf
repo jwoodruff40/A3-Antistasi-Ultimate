@@ -88,9 +88,11 @@ switch (_mode) do
 
                         if (_invDisabled) then {
                             _rivEnaCtrl lbSetCurSel 0;
+                            _rivEnaCtrl ctrlSetTooltip (localize "STR_antistasi_dialogs_setup_riv_param_locked");
                             _rivEnaCtrl setVariable ["locked", true];
                             _rivEnaCtrl ctrlEnable false;
                         } else {
+                            _rivEnaCtrl ctrlSetTooltip "";
                             _rivEnaCtrl setVariable ["locked", false];
                             _rivEnaCtrl ctrlEnable true;
                         };
