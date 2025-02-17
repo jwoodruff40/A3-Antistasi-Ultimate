@@ -138,6 +138,9 @@ switch (_mode) do
         private _savedParamsHM = createHashMapFromArray _savedParams;
         //diag_log format ["Saved params %1", _savedParamsHM];
 
+        private _newGameCtrl = _display displayCtrl A3A_IDC_SETUP_NEWGAMECHECKBOX;
+        private _copyGameCtrl = _display displayCtrl A3A_IDC_SETUP_COPYGAMECHECKBOX;
+
         {
             private _thisCtrl = _x;
             private _cfg = _x getVariable "config";
@@ -165,7 +168,7 @@ switch (_mode) do
                 _thisCtrl lbSetColor [_forEachIndex, [[0.85, 0.85, 0, 1], [1, 1, 1, 1]] select (_forEachIndex isEqualTo _index)]
             } forEach _vals;
 
-            if (_savedParams isNotEqualTo []) then { // we're loading an existing save
+            if (_savedParams isNotEqualTo [] && {!cbChecked _newGameCtrl || cbChecked _copyGameCtrl}) then { // we're loading an existing save
                 private _locked = (getNumber (_cfg/"lockOnSave")) isNotEqualTo 0;
                 _x setVariable ["locked", _locked];
 
@@ -173,6 +176,11 @@ switch (_mode) do
                     _x ctrlEnable false;
                     _x ctrlSetTooltip (localize "STR_antistasi_dialogs_setup_param_locked");
                 };
+            } else {
+                // reset params to enabled if we're creating a new game or if all we did was load old params (to create a new game)
+                _x setVariable ["locked", false];
+                _x ctrlEnable true;
+                _x ctrlSetTooltip "";
             };
         } forEach (_paramsTable getVariable "allCtrls");
     };

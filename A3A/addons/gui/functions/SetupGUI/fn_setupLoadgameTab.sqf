@@ -102,6 +102,11 @@ switch (_mode) do
                 _display setVariable ["savedParams", _params];
                 ["fillParams"] call A3A_fnc_setupParamsTab;
             };
+        } else {
+            if (cbChecked _newGameCtrl) then {
+                _display setVariable ["savedParams", []];
+                ["fillParams"] call A3A_fnc_setupParamsTab;
+            };
         };
     };
 
