@@ -45,6 +45,7 @@ switch (_mode) do
             private _texts = getArray (_x/"texts");
             private _vals = getArray (_x/"values");
             private _default = getNumber (_x/"default");
+            private _defaultIndex = _vals find _default;
 
             if (!isNil "_title") then {
                 private _textCtrl = _display ctrlCreate ["A3A_Text_Small", A3A_IDC_SETUP_PARAMSTEXT + _forEachIndex, _paramsTable];
@@ -69,8 +70,9 @@ switch (_mode) do
                 {
                     private _index = _valsCtrl lbAdd (_texts select _forEachIndex);
                     _valsCtrl lbSetValue [_index, _x];
+                    if (_index isNotEqualTo _defaultIndex) then { _valsCtrl lbSetColor [_index, [0.85, 0.85, 0, 1]] };
                 } forEach (_vals);
-                _valsCtrl lbSetCurSel (_vals find _default);
+                _valsCtrl lbSetCurSel _defaultIndex;
                 _valsCtrl ctrlCommit 0;
                 _allCtrls pushBack _valsCtrl;
             };
@@ -137,6 +139,7 @@ switch (_mode) do
         //diag_log format ["Saved params %1", _savedParamsHM];
 
         {
+            private _thisCtrl = _x;
             private _cfg = _x getVariable "config";
             private _vals = getArray (_cfg/"values");
             // clear old saved value if not in config options
@@ -147,14 +150,20 @@ switch (_mode) do
             private _saved = _savedParamsHM getOrDefault [configName _cfg, getNumber (_cfg/"default")];
             if (_saved isEqualType true) then { _saved = [0, 1] select _saved };            // bool -> number conversion
 
+            private "_index";
             if !(_saved in _vals) then {
                 // add saved value if not in config options 
-                private _index = _x lbAdd str _saved;
+                _index = _x lbAdd str _saved;
                 _x lbSetValue [_index, _saved];
                 _x lbSetCurSel _index;
             } else {
-                _x lbSetCurSel (_vals find _saved);
+                _index = _vals find _saved; 
+                _x lbSetCurSel _index;
             };
+
+            {
+                _thisCtrl lbSetColor [_forEachIndex, [[0.85, 0.85, 0, 1], [1, 1, 1, 1]] select (_forEachIndex isEqualTo _index)]
+            } forEach _vals;
 
             if (_savedParams isNotEqualTo []) then { // we're loading an existing save
                 private _locked = (getNumber (_cfg/"lockOnSave")) isNotEqualTo 0;
