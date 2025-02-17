@@ -211,9 +211,16 @@ switch (_mode) do
         _saveData set ["addonVics", _contentData#0];
         _saveData set ["DLC", _contentData#1];
 
-        private _occName = getText (A3A_SETUP_CONFIGFILE/"A3A"/"Templates"/_factions#0/"name");
-        private _invName = getText (A3A_SETUP_CONFIGFILE/"A3A"/"Templates"/_factions#1/"name");
-        _confirmText = _confirmText + endl + format [localize "STR_antistasi_dialogs_setup_confirm_occ_inv", _occName, _invName];
+        private _invEnabled = ctrlEnabled A3A_IDC_SETUP_INVADERSLISTBOX;
+        private _rivEnabled = ctrlEnabled A3A_IDC_SETUP_RIVALSLISTBOX;
+        private _factionNames = [
+            getText (A3A_SETUP_CONFIGFILE/"A3A"/"Templates"/_factions#2/"name"),
+            getText (A3A_SETUP_CONFIGFILE/"A3A"/"Templates"/_factions#3/"name"),
+            getText (A3A_SETUP_CONFIGFILE/"A3A"/"Templates"/_factions#0/"name"),
+            [(localize "STR_params_afk_disabled"), getText (A3A_SETUP_CONFIGFILE/"A3A"/"Templates"/_factions#1/"name")] select (_invEnabled),
+            [(localize "STR_params_afk_disabled"), getText (A3A_SETUP_CONFIGFILE/"A3A"/"Templates"/_factions#4/"name")] select (_rivEnabled)
+        ];
+        _confirmText = _confirmText + endl + format [localize "STR_antistasi_dialogs_setup_confirm_factions", _factionNames#0, _factionNames#1, _factionNames#2, _factionNames#3, _factionNames#4];
 
         // Params tab: Array of [name, value]
         private _paramsData = ["getParams"] call A3A_fnc_setupParamsTab;
