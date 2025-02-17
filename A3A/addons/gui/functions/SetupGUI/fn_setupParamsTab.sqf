@@ -75,6 +75,38 @@ switch (_mode) do
                 _valsCtrl lbSetCurSel _defaultIndex;
                 _valsCtrl ctrlCommit 0;
                 _allCtrls pushBack _valsCtrl;
+
+                if (configName _x isEqualTo "gameMode") then {
+                    _valsCtrl ctrlAddEventHandler ["LBSelChanged", {
+                        params ["_thisCtrl", "_index"];
+                        private _display = findDisplay A3A_IDD_SETUPDIALOG;
+                        private _invDisabled = (_thisCtrl lbValue _index) isEqualTo 3;
+                        private _invSelCtrl = _display displayCtrl A3A_IDC_SETUP_INVADERSLISTBOX;
+                        private _rivEnaCtrl = _display displayCtrl (ctrlIDC _thisCtrl + 1);
+
+                        _invSelCtrl ctrlEnable !_invDisabled;
+
+                        if (_invDisabled) then {
+                            _rivEnaCtrl lbSetCurSel 0;
+                            _rivEnaCtrl setVariable ["locked", true];
+                            _rivEnaCtrl ctrlEnable false;
+                        } else {
+                            _rivEnaCtrl setVariable ["locked", false];
+                            _rivEnaCtrl ctrlEnable true;
+                        };
+                    }];
+                };
+
+                if (configName _x isEqualTo "areRivalsEnabled") then {
+                    _valsCtrl ctrlAddEventHandler ["LBSelChanged", {
+                        params ["_thisCtrl", "_index"];
+                        private _display = findDisplay A3A_IDD_SETUPDIALOG;
+                        private _rivDisabled = (_thisCtrl lbValue _index) isEqualTo 0;
+                        private _rivSelCtrl = _display displayCtrl A3A_IDC_SETUP_RIVALSLISTBOX;
+
+                        _rivSelCtrl ctrlEnable !_rivDisabled;
+                    }];
+                };
             };
         } forEach ("true" configClasses (A3A_SETUP_CONFIGFILE/"A3A"/"Params"));
 
