@@ -105,7 +105,7 @@ setVar("vehiclesIFVs", OccAndInv("vehiclesIFVs") );
 setVar("vehiclesUAVs", OccAndInv("uavsAttack")+ OccAndInv("uavsPortable") + Riv("vehiclesRivalsUavs") + ("UAV" call _fnc_extractMarketClasses));
 setVar("vehiclesAA", OccAndInv("vehiclesAA") + ("AA" call _fnc_extractMarketClasses) + Reb("vehiclesAA"));
 setVar("vehiclesArtillery", OccAndInv("vehiclesArtillery") + ("ARTILLERY" call _fnc_extractMarketClasses));
-setVar("vehiclesTanks", OccAndInv("vehiclesTanks") + Riv("vehiclesRivalsTanks") + ("TANK" call _fnc_extractMarketClasses));
+setVar("vehiclesTanks", OccAndInv("vehiclesTanks") + Riv("vehiclesRivalsTanks") + Reb("vehiclesTanks") + ("TANK" call _fnc_extractMarketClasses)); //newcode + Reb("vehiclesTanks")
 setVar("vehiclesTransportAir", OccAndInv("vehiclesHelisLight") + OccAndInv("vehiclesHelisTransport") + OccAndInv("vehiclesPlanesTransport"));
 setVar("vehiclesHelisLight", OccAndInv("vehiclesHelisLight") );
 setVar("vehiclesHelisLightAttack", OccAndInv("vehiclesHelisLightAttack") );
@@ -235,14 +235,18 @@ getVar("vehiclesTanks")
 + getVar("vehiclesIFVs");
 setVar("vehiclesArmor", _vehArmor);
 
-//rebel vehicles
+// rebel vehicles
 private _vehReb = 
     Reb("vehiclesBasic") + Reb("vehiclesTruck") + Reb("vehiclesBoat")
     + Reb("vehiclesAT") + Reb("vehiclesLightArmed") + Reb("vehiclesLightUnarmed")
     + Reb("staticMGs") + Reb("staticAT") + Reb("staticAA") + Reb("staticMortars")
     + Reb("vehiclesHelis") + Reb("vehiclesPlane") + Reb("vehiclesMedical") + Reb("vehiclesAA")
-    + (A3U_blackMarketStock apply {_x select 0});
+    + Reb("vehiclesTank") + Reb("vehiclesDrone") + Reb("vehiclesAPC") + Reb("vehiclesMRAP")
+    + Reb("vehiclesUtilities") + Reb("vehiclesLightTank") + Reb("vehiclesIFV") + Reb("vehiclesMilitaryHeli")
+    + (A3U_blackMarketStock apply {_x select 0}); //newcode
+
 setVar("vehiclesReb", _vehReb);
+
 
 //trucks that can cary logistics cargo
 private _vehCargoTrucks = (_vehTrucks + OccAndInv("vehiclesCargoTrucks")) select { [_x] call A3A_Logistics_fnc_getVehCapacity > 1 };
