@@ -181,9 +181,7 @@ _loadoutData set ["machineGuns", []];
 _loadoutData set ["marksmanRifles", []];
 _loadoutData set ["sniperRifles", []];
 
-_loadoutData set ["lightATLaunchers", [
-    ["gm_m72a3_oli", "", "", "", ["gm_1Rnd_66mm_heat_m72a3"], [], ""]
-]];
+_loadoutData set ["lightATLaunchers", ["gm_m72a3_oli"]];
 _loadoutData set ["ATLaunchers", [
     ["gm_pzf84_oli", "", "", "gm_feroz2x17_pzf84_blk", ["gm_1Rnd_84x245mm_heat_t_DM32_carlgustaf", "gm_1Rnd_84x245mm_heat_t_DM22_carlgustaf", "gm_1Rnd_84x245mm_heat_t_DM12_carlgustaf"], [], ""]
 ]];
@@ -497,9 +495,7 @@ _militaryLoadoutData set ["marksmanRifles", [
 _militaryLoadoutData set ["sidearms", [
     ["hgun_Pistol_heavy_01_F", "", "", "", ["11Rnd_45ACP_Mag"], [], ""]
 ]];
-_militaryLoadoutData set ["lightATLaunchers", [
-    ["gm_m72a3_oli", "", "", "", ["gm_1Rnd_66mm_heat_m72a3"], [], ""]
-]];
+_militaryLoadoutData set ["lightATLaunchers", ["gm_m72a3_oli"]];
 _militaryLoadoutData set ["ATLaunchers", [
     ["launch_MRAWS_green_F", "", "", "", ["MRAWS_HE_F", "MRAWS_HEAT55_F"], [], ""]
 ]];
@@ -582,9 +578,7 @@ _militiaLoadoutData set ["marksmanRifles", [
 _militiaLoadoutData set ["sidearms", [
     ["hgun_ACPC2_F", "", "", "", ["9Rnd_45ACP_Mag"], [], ""]
 ]];
-_militiaLoadoutData set ["lightATLaunchers", [
-    ["gm_m72a3_oli", "", "", "", ["gm_1Rnd_66mm_heat_m72a3"], [], ""]
-]];
+_militiaLoadoutData set ["lightATLaunchers", ["gm_m72a3_oli"]];
 _militiaLoadoutData set ["ATLaunchers", [
     ["launch_MRAWS_green_rail_F", "", "", "", ["MRAWS_HEAT_F", "MRAWS_HEAT55_F"], [], ""]
 ]];

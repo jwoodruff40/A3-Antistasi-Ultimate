@@ -179,9 +179,7 @@ _loadoutData set ["machineGuns", []];
 _loadoutData set ["marksmanRifles", []];
 _loadoutData set ["sniperRifles", []];
 
-_loadoutData set ["lightATLaunchers", [
-    ["gm_m72a3_oli", "", "", "", ["gm_1Rnd_66mm_heat_m72a3"], [], ""]
-]];
+_loadoutData set ["lightATLaunchers", ["gm_m72a3_oli"]];
 _loadoutData set ["ATLaunchers", [
     ["launch_MRAWS_green_rail_F", "", "", "", ["MRAWS_HEAT_F", "MRAWS_HEAT55_F"], [], ""]
 ]];

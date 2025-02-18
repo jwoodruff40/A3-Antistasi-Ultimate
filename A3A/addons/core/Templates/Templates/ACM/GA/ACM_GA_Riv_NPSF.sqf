@@ -205,7 +205,7 @@ _loadoutData set ["marksmanRifles", [
 _loadoutData set ["lightATLaunchers", ["gm_m72a3_oli"]];
 _loadoutData set ["ATLaunchers", [
 	["gm_pzf44_2_oli", "", "", "gm_feroz2x17_pzf44_2_blk", ["gm_1Rnd_44x537mm_heat_dm32_pzf44_2"], [], ""],
-	["gm_pzf84_2_oli", "", "", "gm_feroz2x17_pzf44_2_blk", ["gm_1Rnd_84x245mm_heat_t_DM22_carlgustaf"], [], ""]
+	["gm_pzf84_oli", "", "", "gm_feroz2x17_pzf44_2_blk", ["gm_1Rnd_84x245mm_heat_t_DM22_carlgustaf"], [], ""]
 ]];
 _loadoutData set ["lightHELaunchers", []];
 _loadoutData set ["AALaunchers", ["gm_fim43_oli"]];
@@ -276,9 +276,7 @@ _paraLoadoutData set ["machineGuns", [
 _paraLoadoutData set ["marksmanRifles", [
     ["srifle_DMR_07_blk_F", "", "", "optic_DMS", ["20Rnd_650x39_Cased_Mag_F"], [], ""]
 ]];
-_paraLoadoutData set ["lightATLaunchers", [
-	["gm_rpg18_oli", "", "", "", ["gm_1Rnd_64mm_heat_rpg18"], [], ""]
-]];
+_paraLoadoutData set ["lightATLaunchers", ["gm_rpg18_oli"]];
 _paraLoadoutData set ["ATLaunchers", [
 	["gm_rpg7_prp_pgo7v", "", "", "gm_pgo7v_blk", ["gm_1Rnd_40mm_heat_pg7v_rpg7"], [], ""],
 	["launch_O_Vorona_green_F", "", "", "", ["Vorona_HEAT"], [], ""]
