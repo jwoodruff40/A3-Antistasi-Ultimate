@@ -7,7 +7,7 @@ private _hasSOG = "vn" in A3A_enabledDLC;
 ["name", "ASDF"] call _fnc_saveToTemplate;
 ["spawnMarkerName", format [localize "STR_supportcorridor", "AAF"]] call _fnc_saveToTemplate;
 
-["flag", "a3u_flag_asdf"] call _fnc_saveToTemplate;
+["flag", "flag_NATO_F"] call _fnc_saveToTemplate;
 ["flagTexture", "ACM_AAF_2028_core\faction\asdf_flag_co.paa"] call _fnc_saveToTemplate;
 ["flagMarkerType", "a3u_flag_asdf"] call _fnc_saveToTemplate;
 
