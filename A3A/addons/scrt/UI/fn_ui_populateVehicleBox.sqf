@@ -84,49 +84,49 @@ switch (_category) do {
 			_militaryVehicles append _availableVehs;
 		};
 
-		if (tierWar > 3) then {
+		if (tierWar >= 6) then {
 			private _availableVehs = 
 				(A3A_faction_reb get 'vehiclesTank') select {_x isNotEqualTo []};
 			_militaryVehicles append _availableVehs;
 		};//newcode
 
-		if (tierWar > 3) then {
+		if (tierWar >= 4) then {
 			private _availableVehs = 
 				(A3A_faction_reb get 'vehiclesDrone') select {_x isNotEqualTo []};
 			_militaryVehicles append _availableVehs;
 		};//newcode
 
-		if (tierWar > 3) then {
+		if (tierWar >= 4) then {
 			private _availableVehs = 
 				(A3A_faction_reb get 'vehiclesMRAP') select {_x isNotEqualTo []};
 			_militaryVehicles append _availableVehs;
 		};//newcode
 
-		if (tierWar > 3) then {
+		if (tierWar >= 5) then {
 			private _availableVehs = 
 				(A3A_faction_reb get 'vehiclesAPC') select {_x isNotEqualTo []};
 			_militaryVehicles append _availableVehs;
 		};//newcode
 
-		if (tierWar > 3) then {
+		if (tierWar >= 5) then {
 			private _availableVehs = 
 				(A3A_faction_reb get 'vehiclesUtilities') select {_x isNotEqualTo []};
 			_militaryVehicles append _availableVehs;
 		};//newcode
 
-		if (tierWar > 3) then {
+		if (tierWar >= 5) then {
 			private _availableVehs = 
 				(A3A_faction_reb get 'vehiclesLightTank') select {_x isNotEqualTo []};
 			_militaryVehicles append _availableVehs;
 		};//newcode
 
-		if (tierWar > 3) then {
+		if (tierWar >= 5) then {
 			private _availableVehs = 
 				(A3A_faction_reb get 'vehiclesIFV') select {_x isNotEqualTo []};
 			_militaryVehicles append _availableVehs;
 		};//newcode
 
-		if (tierWar > 3) then {
+		if (tierWar >= 6) then {
 			private _availableVehs = 
 				(A3A_faction_reb get 'vehiclesMilitaryHeli') select {_x isNotEqualTo []};
 			_militaryVehicles append _availableVehs;
@@ -206,7 +206,7 @@ switch (_category) do {
 
 	case "militarytank": {
 		private _militaryVehicles =[];
-		if (tierWar > 3) then {
+		if (tierWar >= 6) then {
 			private _availableVehs = 
 				(A3A_faction_reb get 'vehiclesTank') select {_x isNotEqualTo []};
 			_militaryVehicles append _availableVehs;
@@ -215,7 +215,7 @@ switch (_category) do {
 	};//newcode
 	case "militaryDrone": {
 		private _militaryVehicles =[];
-		if (tierWar > 3) then {
+		if (tierWar >= 4) then {
 			private _availableVehs = 
 				(A3A_faction_reb get 'vehiclesDrone') select {_x isNotEqualTo []};
 			_militaryVehicles append _availableVehs;
@@ -224,7 +224,7 @@ switch (_category) do {
 	};//newcode
 	case "militaryMRAP": {
 		private _militaryVehicles =[];
-		if (tierWar > 3) then {
+		if (tierWar >= 4) then {
 			private _availableVehs = 
 				(A3A_faction_reb get 'vehiclesMRAP') select {_x isNotEqualTo []};
 			_militaryVehicles append _availableVehs;
@@ -233,7 +233,7 @@ switch (_category) do {
 	};//newcode
 	case "militaryAPC": {
 		private _militaryVehicles =[];
-		if (tierWar > 3) then {
+		if (tierWar >= 5) then {
 			private _availableVehs = 
 				(A3A_faction_reb get 'vehiclesAPC') select {_x isNotEqualTo []};
 			_militaryVehicles append _availableVehs;
@@ -242,7 +242,7 @@ switch (_category) do {
 	};//newcode
 	case "militaryUtilities": {
 		private _militaryVehicles =[];
-		if (tierWar > 3) then {
+		if (tierWar >= 5) then {
 			private _availableVehs = 
 				(A3A_faction_reb get 'vehiclesUtilities') select {_x isNotEqualTo []};
 			_militaryVehicles append _availableVehs;
@@ -251,7 +251,7 @@ switch (_category) do {
 	};//newcode
 	case "militaryLighttank": {
 		private _militaryVehicles =[];
-		if (tierWar > 3) then {
+		if (tierWar >= 5) then {
 			private _availableVehs = 
 				(A3A_faction_reb get 'vehiclesLightTank') select {_x isNotEqualTo []};
 			_militaryVehicles append _availableVehs;
@@ -260,7 +260,7 @@ switch (_category) do {
 	};//newcode
 	case "militaryIFV": {
 		private _militaryVehicles =[];
-		if (tierWar > 3) then {
+		if (tierWar >= 5) then {
 			private _availableVehs = 
 				(A3A_faction_reb get 'vehiclesIFV') select {_x isNotEqualTo []};
 			_militaryVehicles append _availableVehs;
@@ -269,7 +269,7 @@ switch (_category) do {
 	};//newcode
 	case "militaryHeli": {
 		private _militaryVehicles =[];
-		if (tierWar > 3) then {
+		if (tierWar >= 6) then {
 			private _availableVehs = 
 				(A3A_faction_reb get 'vehiclesMilitaryHeli') select {_x isNotEqualTo []};
 			_militaryVehicles append _availableVehs;
