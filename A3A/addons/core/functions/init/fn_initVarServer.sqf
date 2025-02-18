@@ -589,6 +589,14 @@ _fnc_setPriceIfValid =
 { [_rebelVehicleCosts, _x, 1200] call _fnc_setPriceIfValid } forEach FactionGet(reb, "vehiclesAT");
 { [_rebelVehicleCosts, _x, 5000] call _fnc_setPriceIfValid } forEach FactionGet(reb, "vehiclesCivHeli");
 { [_rebelVehicleCosts, _x, 5000] call _fnc_setPriceIfValid } forEach FactionGet(reb, "vehiclesPlane") + FactionGet(reb, "vehiclesCivPlane");
+{ [_rebelVehicleCosts, _x, 10000] call _fnc_setPriceIfValid } forEach FactionGet(reb, "vehiclesTank");//newcode
+{ [_rebelVehicleCosts, _x, 5000] call _fnc_setPriceIfValid } forEach FactionGet(reb, "vehiclesDrone");//newcode
+{ [_rebelVehicleCosts, _x, 2500] call _fnc_setPriceIfValid } forEach FactionGet(reb, "vehiclesAPC");//newcode
+{ [_rebelVehicleCosts, _x, 2000] call _fnc_setPriceIfValid } forEach FactionGet(reb, "vehiclesMRAP");//newcode
+{ [_rebelVehicleCosts, _x, 1000] call _fnc_setPriceIfValid } forEach FactionGet(reb, "vehiclesUtilities");//newcode
+{ [_rebelVehicleCosts, _x, 8000] call _fnc_setPriceIfValid } forEach FactionGet(reb, "vehiclesLightTank");//newcode
+{ [_rebelVehicleCosts, _x, 3000] call _fnc_setPriceIfValid } forEach FactionGet(reb, "vehiclesIFV");//newcode
+{ [_rebelVehicleCosts, _x, 11000] call _fnc_setPriceIfValid } forEach FactionGet(reb, "vehiclesMilitaryHeli"); //newcode 
 
 
 // Template overrides

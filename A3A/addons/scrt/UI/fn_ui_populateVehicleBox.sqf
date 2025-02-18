@@ -84,6 +84,62 @@ switch (_category) do {
 			_militaryVehicles append _availableVehs;
 		};
 
+		if (tierWar >= 6) then {
+			private _availableVehs = 
+				(A3A_faction_reb get 'vehiclesTank') select {_x isNotEqualTo []};
+			_militaryVehicles append _availableVehs;
+		};//newcode
+
+		if (tierWar >= 4) then {
+			private _availableVehs = 
+				(A3A_faction_reb get 'vehiclesDrone') select {_x isNotEqualTo []};
+			_militaryVehicles append _availableVehs;
+		};//newcode
+
+		if (tierWar >= 4) then {
+			private _availableVehs = 
+				(A3A_faction_reb get 'vehiclesMRAP') select {_x isNotEqualTo []};
+			_militaryVehicles append _availableVehs;
+		};//newcode
+
+		if (tierWar >= 5) then {
+			private _availableVehs = 
+				(A3A_faction_reb get 'vehiclesAPC') select {_x isNotEqualTo []};
+			_militaryVehicles append _availableVehs;
+		};//newcode
+
+		if (tierWar >= 5) then {
+			private _availableVehs = 
+				(A3A_faction_reb get 'vehiclesUtilities') select {_x isNotEqualTo []};
+			_militaryVehicles append _availableVehs;
+		};//newcode
+
+		if (tierWar >= 5) then {
+			private _availableVehs = 
+				(A3A_faction_reb get 'vehiclesLightTank') select {_x isNotEqualTo []};
+			_militaryVehicles append _availableVehs;
+		};//newcode
+
+		if (tierWar >= 5) then {
+			private _availableVehs = 
+				(A3A_faction_reb get 'vehiclesIFV') select {_x isNotEqualTo []};
+			_militaryVehicles append _availableVehs;
+		};//newcode
+
+		if (tierWar >= 6) then {
+			private _availableVehs = 
+				(A3A_faction_reb get 'vehiclesMilitaryHeli') select {_x isNotEqualTo []};
+			_militaryVehicles append _availableVehs;
+		};//newcode
+
+		
+		
+
+		
+
+		
+		
+
 		private _milAircrafts = A3A_faction_reb get "vehiclesPlane";
 		if (_milAircrafts isNotEqualTo [] && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count airportsX > 0}) then {
 			_militaryVehicles append _milAircrafts;
@@ -145,6 +201,84 @@ switch (_category) do {
 		};
 		_vehicleClasses = _militaryVehicles;
 	};
+
+
+
+	case "militarytank": {
+		private _militaryVehicles =[];
+		if (tierWar >= 6) then {
+			private _availableVehs = 
+				(A3A_faction_reb get 'vehiclesTank') select {_x isNotEqualTo []};
+			_militaryVehicles append _availableVehs;
+		};
+		_vehicleClasses = _militaryVehicles;
+	};//newcode
+	case "militaryDrone": {
+		private _militaryVehicles =[];
+		if (tierWar >= 4) then {
+			private _availableVehs = 
+				(A3A_faction_reb get 'vehiclesDrone') select {_x isNotEqualTo []};
+			_militaryVehicles append _availableVehs;
+		};
+		_vehicleClasses = _militaryVehicles;
+	};//newcode
+	case "militaryMRAP": {
+		private _militaryVehicles =[];
+		if (tierWar >= 4) then {
+			private _availableVehs = 
+				(A3A_faction_reb get 'vehiclesMRAP') select {_x isNotEqualTo []};
+			_militaryVehicles append _availableVehs;
+		};
+		_vehicleClasses = _militaryVehicles;
+	};//newcode
+	case "militaryAPC": {
+		private _militaryVehicles =[];
+		if (tierWar >= 5) then {
+			private _availableVehs = 
+				(A3A_faction_reb get 'vehiclesAPC') select {_x isNotEqualTo []};
+			_militaryVehicles append _availableVehs;
+		};
+		_vehicleClasses = _militaryVehicles;
+	};//newcode
+	case "militaryUtilities": {
+		private _militaryVehicles =[];
+		if (tierWar >= 5) then {
+			private _availableVehs = 
+				(A3A_faction_reb get 'vehiclesUtilities') select {_x isNotEqualTo []};
+			_militaryVehicles append _availableVehs;
+		};
+		_vehicleClasses = _militaryVehicles;
+	};//newcode
+	case "militaryLighttank": {
+		private _militaryVehicles =[];
+		if (tierWar >= 5) then {
+			private _availableVehs = 
+				(A3A_faction_reb get 'vehiclesLightTank') select {_x isNotEqualTo []};
+			_militaryVehicles append _availableVehs;
+		};
+		_vehicleClasses = _militaryVehicles;
+	};//newcode
+	case "militaryIFV": {
+		private _militaryVehicles =[];
+		if (tierWar >= 5) then {
+			private _availableVehs = 
+				(A3A_faction_reb get 'vehiclesIFV') select {_x isNotEqualTo []};
+			_militaryVehicles append _availableVehs;
+		};
+		_vehicleClasses = _militaryVehicles;
+	};//newcode
+	case "militaryHeli": {
+		private _militaryVehicles =[];
+		if (tierWar >= 6) then {
+			private _availableVehs = 
+				(A3A_faction_reb get 'vehiclesMilitaryHeli') select {_x isNotEqualTo []};
+			_militaryVehicles append _availableVehs;
+		};
+		_vehicleClasses = _militaryVehicles;
+	};//newcode
+
+
+
 	case "static": {
 		private _statics = [];
 		
