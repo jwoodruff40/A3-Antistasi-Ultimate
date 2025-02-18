@@ -279,13 +279,13 @@ class CfgMarkers
 	class a3u_flag_asdf: flag_NATO
 	{
 		name = "ASDF";
-		icon = "ACM_AAF_2028_core\faction\asdf_flag_ico_ca.paa";
-		texture = "ACM_AAF_2028_core\faction\asdf_flag_co.paa";
+		icon = QPATHTOFOLDER(Pictures\Markers\marker_asdf_co.paa);
+		texture = QPATHTOFOLDER(Pictures\Markers\marker_asdf_co.paa);
 	};
 	class a3u_flag_afor: flag_NATO
 	{
 		name = "AFOR";
-		icon = QPATHTOFOLDER(Templates\Templates\ACM\flags\flag_afor&asdf_co.paa);
-		texture = QPATHTOFOLDER(Templates\Templates\ACM\flags\flag_afor&asdf_co.paa);
+		icon = QPATHTOFOLDER(Pictures\Markers\marker_afor&asdf_co.paa);
+		texture = QPATHTOFOLDER(Pictures\Markers\marker_afor&asdf_co.paa);
 	};
 };
