@@ -71,6 +71,7 @@ class Params
     class BasicParams
     {
         type = "Basic";
+        multiSelect = 0;
         lockOnSave = 0;
     };
     class gameMode: BasicParams
@@ -229,6 +230,7 @@ class Params
     class UltimateParams
     {
         type = "Ultimate";
+        multiSelect = 0;
         lockOnSave = 0;
     };
     class Spacer102: UltimateParams
@@ -248,9 +250,10 @@ class Params
     class lossCondition: UltimateParams
     {
         title = $STR_A3AU_loss_condition;
-        values[] = {0,1,2,3};
-        texts[] = {$STR_A3AU_loss_condition_pop_death,$STR_A3AU_loss_condition_hr,$STR_A3AU_loss_condition_money,$STR_A3AU_loss_condition_all};
+        values[] = {0,1,2};
+        texts[] = {$STR_A3AU_loss_condition_pop_death,$STR_A3AU_loss_condition_hr,$STR_A3AU_loss_condition_money};
         default = 0;
+        multiSelect = 1;
         lockOnSave = 1;
     };
     class loseHROnDeath: UltimateParams
@@ -370,6 +373,7 @@ class Params
     class ScriptParams
     {
         type = "Script";
+        multiSelect = 0;
         lockOnSave = 0;
     };
     class Spacer67: ScriptParams
@@ -397,6 +401,7 @@ class Params
     class PlusParams
     {
         type = "Plus";
+        multiSelect = 0;
         lockOnSave = 0;
     };
     class Spacer51: PlusParams
@@ -530,6 +535,7 @@ class Params
     class MemberParams
     {
         type = "Member";
+        multiSelect = 0;
         lockOnSave = 0;
     };
     class TitleMembership: MemberParams
@@ -571,6 +577,7 @@ class Params
     class BuilderParams
     {
         type = "Builder";
+        multiSelect = 0;
         lockOnSave = 0;
     };
     class TitleBuilder: BuilderParams
@@ -612,6 +619,7 @@ class Params
     class ExperimentalParams
     {
         type = "Experimental";
+        multiSelect = 0;
         lockOnSave = 0; // ! Nothing in this section should ever have to be locked. We wouldn't want an *experimental* param to bork a save.
     };
     class enableVehicleAutoLock: ExperimentalParams
@@ -718,6 +726,7 @@ class Params
     class BalanceParams
     {
         type = "Balance";
+        multiSelect = 0;
         lockOnSave = 0;
     };
     class TitleBalance: BalanceParams
@@ -814,6 +823,7 @@ class Params
     class EquipmentParams
     {
         type = "Equipment";
+        multiSelect = 0;
         lockOnSave = 0;
     };
     class TitleEquipment: EquipmentParams
@@ -902,6 +912,7 @@ class Params
     class LootParams
     {
         type = "Loot";
+        multiSelect = 0;
         lockOnSave = 0;
     };
     class TitleLoot: LootParams
@@ -1041,6 +1052,7 @@ class Params
     class DevelopmentParams
     {
         type = "Development";
+        multiSelect = 0;
         lockOnSave = 0;
     };
     class LogLevel: DevelopmentParams

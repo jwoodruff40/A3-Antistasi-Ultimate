@@ -1224,3 +1224,13 @@ class A3A_ComboBox_Small_BM : A3A_ComboBox_Small
     colorBackground[] = {0,0,0,1};
     SizeEx = GUI_TEXT_SIZE_MEDIUM;
 };
+
+class A3A_ComboBox_Multi : A3A_ComboBox
+{
+    style = LB_MULTI;
+};
+
+class A3A_ComboBox_Small_Multi : A3A_ComboBox_Small
+{
+    style = LB_MULTI;
+};

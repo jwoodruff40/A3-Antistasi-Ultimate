@@ -46,6 +46,7 @@ switch (_mode) do
             private _vals = getArray (_x/"values");
             private _default = getNumber (_x/"default");
             private _defaultIndex = _vals find _default;
+            private _multiSelect = getNumber (_x/"multiSelect");
 
             if (!isNil "_title") then {
                 private _textCtrl = _display ctrlCreate ["A3A_Text_Small", A3A_IDC_SETUP_PARAMSTEXT + _forEachIndex, _paramsTable];
@@ -61,7 +62,8 @@ switch (_mode) do
             };
 
             if (_title isNotEqualTo "" && {_texts isNotEqualTo [""]}) then {
-                private _valsCtrl = _display ctrlCreate ["A3A_ComboBox_Small", A3A_IDC_SETUP_PARAMSVALS + _forEachIndex, _paramsTable];
+                private _ctrlClass = ["A3A_ComboBox_Small", "A3A_ComboBox_Small_Multi"] select (_multiSelect isEqualTo 1);
+                private _valsCtrl = _display ctrlCreate [_ctrlClass, A3A_IDC_SETUP_PARAMSVALS + _forEachIndex, _paramsTable];
                 _allValsCtrls pushBack [configName _x, _valsCtrl];
                 _valsCtrl ctrlEnable false;
                 _valsCtrl ctrlSetFade 1;
@@ -217,6 +219,7 @@ switch (_mode) do
             private _thisCtrl = _x;
             private _cfg = _x getVariable "config";
             private _vals = getArray (_cfg/"values");
+            private _multiSelect = getNumber (cfg/"multiSelect") isEqualTo 1;
             // clear old saved value if not in config options
             if (lbSize _x > count _vals) then { _x lbDelete (lbSize _x - 1) };
 
@@ -225,14 +228,21 @@ switch (_mode) do
             private _saved = _savedParamsHM getOrDefault [configName _cfg, getNumber (_cfg/"default")];
             if (_saved isEqualType true) then { _saved = [0, 1] select _saved };            // bool -> number conversion
 
-            private "_index";
-            if !(_saved in _vals) then {
-                // add saved value if not in config options 
-                _index = _x lbAdd str _saved;
-                _x lbSetValue [_index, _saved];
-                _x lbSetCurSel _index;
+            if (_multiSelect) then {
+                private _lbCtrl = _x;
+                private _rVals = +_vals; reverse _rVals;
+                private _indices = [];
+                { if (_saved >= (2^_x)) then { _indices pushBack _x; _saved = _saved - (2^_x) } } forEach (_rVals);
+                { _lbCtrl lbSetSelected [_vals, _x in _indices, true] } forEach (_vals);
             } else {
-                _index = _vals find _saved; 
+                private "_index";
+                if !(_saved in _vals) then {
+                    // add saved value if not in config options 
+                    _index = _x lbAdd str _saved;
+                    _x lbSetValue [_index, _saved];
+                } else {
+                    _index = _vals find _saved;
+                };
                 _x lbSetCurSel _index;
             };
 
@@ -261,7 +271,13 @@ switch (_mode) do
     {
         private _params = (_paramsTable getVariable "allCtrls") apply {
             private _cfg = _x getVariable "config";
-            private _val = _x lbValue lbCurSel _x;
+            private _multiSelect = getNumber (cfg/"multiSelect") isEqualTo 1;
+            private _val = 0;
+            if (_multiSelect) then {
+                { _val = _val + (2^(lbValue _x))} forEach (lbSelection _x)
+            } else {
+                _val = _x lbValue lbCurSel _x
+            };
             [configName _cfg, _val];
         };
         _params;

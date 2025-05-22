@@ -26,12 +26,15 @@ private _popMajority = 0;
 
 _popMajority = _popTotal * 0.75;
 
+private _poploss = _popKilled > (_popTotal / 3);
+private _hrLoss = (_hr <= 0) && {_tierWar >= missionNamespace getVariable ["A3U_setting_tierWarHRLoss",3]};
+private _moneyLoss = _factionMoney <= 0;
 switch (lossCondition) do
 {
     //3rd of the pop dead
-    case 0:
+    case 1:
     {
-        if (_popKilled > (_popTotal / 3)) then
+        if (_popLoss) then
         {
             isNil {["ended", true] call A3A_fnc_writebackSaveVar};
             ["destroyedSites",false,true] remoteExec ["BIS_fnc_endMission"];
@@ -39,35 +42,74 @@ switch (lossCondition) do
     };
 
     //no HR left ()
-    case 1:
+    case 2:
     {
-        private _tierWarHRloss = missionNamespace getVariable ["A3U_setting_tierWarHRLoss",3];
-        if (_hr <= 0 && {(tierWar >= _tierWarHRloss)}) then 
+        if (_hrLoss) then 
         {
             isNil {["ended", true] call A3A_fnc_writebackSaveVar};
             ["HRLoss",false,true] remoteExec ["BIS_fnc_endMission"];
         };
     };
 
-    //faction has no money left
-    case 2:
+    //pop death + no HR
+    case 3:
     {
-        if (_factionMoney <= 0) then
+        if (_popLoss && {_hrLoss}) then
+        {
+            isNil {["ended", true] call A3A_fnc_writebackSaveVar};
+            ["hardcoreLoss",false,true] remoteExec ["BIS_fnc_endMission"];
+        };
+    };
+
+    //faction has no money left
+    case 4:
+    {
+        if (_moneyLoss) then
         {
             isNil {["ended", true] call A3A_fnc_writebackSaveVar};
             ["financialLoss",false,true] remoteExec ["BIS_fnc_endMission"];
         };
     };
 
+    //pop death + no money
+    case 5:
+    {
+        if (_popLoss && {_moneyLoss}) then
+        {
+            isNil {["ended", true] call A3A_fnc_writebackSaveVar};
+            ["hardcoreLoss",false,true] remoteExec ["BIS_fnc_endMission"];
+        };
+    };
+
+    //no hr + no money
+    case 6:
+    {
+        if (_hrLoss && {_moneyLoss}) then
+        {
+            isNil {["ended", true] call A3A_fnc_writebackSaveVar};
+            ["hardcoreLoss",false,true] remoteExec ["BIS_fnc_endMission"];
+        };
+    };
+
+    //pop death + no hr + no money
+    case 7:
+    {
+        if (_popLoss && {_hrLoss && {_moneyLoss}}) then
+        {
+            isNil {["ended", true] call A3A_fnc_writebackSaveVar};
+            ["hardcoreLoss",false,true] remoteExec ["BIS_fnc_endMission"];
+        };
+    };
+    
     //hardcore (all loss conditions in one)
-    case 3:
+    /*case 3:
     {
         if ((_factionMoney <= 0) || {_hr <= 0} || {_popKilled > (_popTotal / 3)}) then
         {
             isNil {["ended", true] call A3A_fnc_writebackSaveVar};
             ["hardcoreLoss",false,true] remoteExec ["BIS_fnc_endMission"];
         };
-    };
+    };*/
 
     default {diag_log format["Loss condition was not recognized. Condition given: %1", lossCondition]};
 };
