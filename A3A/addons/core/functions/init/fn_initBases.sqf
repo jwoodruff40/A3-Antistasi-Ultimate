@@ -73,7 +73,11 @@ private _roadblockPositions = controlsX apply { markerPos _x };
 
 [_mrkCSAT, airportsX, "flag_NATO", localize "STR_airbase", true] call _fnc_initMarkerList;
 [_mrkCSAT, resourcesX, "loc_rock", localize "STR_resources"] call _fnc_initMarkerList;
-[_mrkCSAT, factories, "u_installation", localize "STR_factory"] call _fnc_initMarkerList;
+[_mrkCSAT, factoriesLightWeapons, "u_installation", format ["%1 %2", localize "STR_lightWeapons", localize "STR_factory"]] call _fnc_initMarkerList;
+[_mrkCSAT, factoriesHeavyWeapons, "u_installation", format ["%1 %2", localize "STR_heavyWeapons", localize "STR_factory"]] call _fnc_initMarkerList;
+[_mrkCSAT, factoriesCivVehicles, "u_installation", format ["%1 %2", localize "STR_antistasi_dialogs_vehicle_purchase_civie_text", localize "STR_factory"]] call _fnc_initMarkerList;
+[_mrkCSAT, factoriesMilVehicles, "u_installation", format ["%1 %2", localize "STR_antistasi_dialogs_vehicle_purchase_military_text", localize "STR_factory"]] call _fnc_initMarkerList;
+//[_mrkCSAT, factories, "u_installation", localize "STR_factory"] call _fnc_initMarkerList;
 [_mrkCSAT, outposts, "loc_bunker", localize "STR_outpost", true] call _fnc_initMarkerList;
 [_mrkCSAT, milbases, "b_hq", localize "STR_milbase", true] call _fnc_initMarkerList;
 

@@ -6196,6 +6196,12 @@
                 <Korean>공장</Korean>
                 <French>Usine</French>
             </Key>
+            <Key ID="STR_lightWeapons">
+                <Original>Light Weapons</Original>
+            </Key>
+            <Key ID="STR_heavyWeapons">
+                <Original>Heavy Weapons</Original>
+            </Key>
             <Key ID="STR_port_river">
                 <Original>River Port</Original>
                 <Russian>Речной порт</Russian>

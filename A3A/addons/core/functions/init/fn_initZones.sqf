@@ -63,6 +63,20 @@ markersX = airportsX + milbases + resourcesX + factories + outposts + seaports +
 	spawner setVariable [_x, 2, true];
 } forEach markersX;
 
+factoriesLightWeapons = [];
+factoriesHeavyWeapons = [];
+factoriesCivVehicles = [];
+factoriesMilVehicles = [];
+{
+    private _index = switch (_forEachIndex % 4) do { // ? surely there's a better way to equally distribute the factory types
+        case ( 0 ): { 3 };
+        case ( 1 ): { 2 };
+        case ( 2 ): { 1 };
+        default { 0 };
+    };
+    ([factoriesMilVehicles, factoriesHeavyWeapons, factoriesCivVehicles, factoriesLightWeapons] select _index) pushBack _x;
+} forEach factories;
+
 // Set up dummy markers + autogen roadblocks
 call A3A_fnc_initBases;
 
@@ -375,6 +389,10 @@ publicVariable "airportsX";
 publicVariable "milbases";
 publicVariable "resourcesX";
 publicVariable "factories";
+publicVariable "factoriesLightWeapons";
+publicVariable "factoriesHeavyWeapons";
+publicVariable "factoriesCivVehicles";
+publicVariable "factoriesMilVehicles";
 publicVariable "outposts";
 publicVariable "controlsX";
 publicVariable "seaports";

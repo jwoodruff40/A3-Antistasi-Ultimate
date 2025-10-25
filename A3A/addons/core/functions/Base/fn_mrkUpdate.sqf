@@ -38,7 +38,15 @@ private _mrkText = call {
     if (_marker in airportsX) exitWith { format [localize "STR_airbase", _faction get "name"] };
     if (_marker in outposts) exitWith { format [localize "STR_outpost", _faction get "name"] };
     if (_marker in resourcesX) exitWith { localize "STR_resources" };
-    if (_marker in factories) exitWith { localize "STR_factory" };
+    if (_marker in factories) exitWith { 
+        switch (true) do {
+            case (_marker in factoriesLightWeapons): { format ["%1 %2", localize "STR_lightWeapons", localize "STR_factory"] };
+            case (_marker in factoriesHeavyWeapons): { format ["%1 %2", localize "STR_heavyWeapons", localize "STR_factory"] };
+            case (_marker in factoriesCivVehicles): { format ["%1 %2", localize "STR_antistasi_dialogs_vehicle_purchase_civie_text", localize "STR_factory"] };
+            case (_marker in factoriesMilVehicles): { format ["%1 %2", localize "STR_antistasi_dialogs_vehicle_purchase_military_text", localize "STR_factory"] };
+            default { localize "STR_factory" };
+        };
+    };
     if (_marker in milbases) exitWith { format [localize "STR_milbase", _faction get "name"] };
     if (_marker in seaports) exitWith {
         if (toLowerANSI worldName in ["enoch", "vn_khe_sanh", "esseker"]) then {
