@@ -5,14 +5,7 @@ if (!isServer) exitWith {
 };
 
 //declaring variables outside of the loop increases performance
-private _resAdd = nil;
-private _hrAdd = nil;
-private _popReb = nil;
-private _popGov = nil;
-private _popKilled = nil;
-private _popTotal = nil;
-private _suppBoost = nil;
-private _resBoost = nil;
+private ["_resAdd", "_hrAdd", "_popReb", "_popGov", "_popKilled", "_popTotal", "_suppBoost", "_resBoost", "_plyCountMult", "_ltWepMult", "_hvWepMult", "_civVehMult", "_milVehMult"];
 
 private _rivalsTaskChance = 5;
 private _traderTaskChance = 5;
@@ -53,6 +46,7 @@ private _conditions = [
 
 while {true} do {
 	nextTick = time + 600;
+	//nextTick = time + 90; // *** FOR TESTING PURPOSES RUN THIS MUCH MORE OFTEN. NOT SURE HOW LOW WE CAN FEASIBLY GO... ***
 	waitUntil {sleep 15; time >= nextTick};
     waitUntil {sleep 10; A3A_activePlayerCount > 0};
 
@@ -65,6 +59,12 @@ while {true} do {
 
 	_suppBoost = 0.5 * (1+ ({sidesX getVariable [_x,sideUnknown] == teamPlayer} count seaports));
 	_resBoost = 1 + (0.25*({(sidesX getVariable [_x,sideUnknown] == teamPlayer) and !(_x in destroyedSites)} count factories));
+	_ltWepMult = ({(sidesX getVariable [_x,sideUnknown] == teamPlayer) and !(_x in destroyedSites)} count factoriesLightWeapons) / (count factoriesLightWeapons);
+	_hvWepMult = ({(sidesX getVariable [_x,sideUnknown] == teamPlayer) and !(_x in destroyedSites)} count factoriesHeavyWeapons) / (count factoriesHeavyWeapons);
+	_civVehMult = ({(sidesX getVariable [_x,sideUnknown] == teamPlayer) and !(_x in destroyedSites)} count factoriesCivVehicles) / (count factoriesCivVehicles);
+	_milVehMult = ({(sidesX getVariable [_x,sideUnknown] == teamPlayer) and !(_x in destroyedSites)} count factoriesMilVehicles) / (count factoriesMilVehicles);
+
+	diag_log format ["ltWepMult: %1 | hvWepMult: %2 | civVehMult: %3 | milVehMult: %4", _ltWepMult, _hvWepMult, _civVehMult, _milVehMult];
 
 	{
 		private _city = _x;
@@ -176,6 +176,17 @@ while {true} do {
 		private _arsenalTab = _class call jn_fnc_arsenal_itemType;
 		[_arsenalTab, _class, _count] call jn_fnc_arsenal_addItem;
 	} forEach (A3A_faction_reb get "initialRebelEquipment");
+
+	// Captured factory-based income of "unlocked" weapons / magazines
+	if (minWeaps > 0) then {
+		{
+			private _arsenalTab = _x call jn_fnc_arsenal_itemType;
+			private _count = ceil (A3A_balancePlayerScale * _ltWepMult * minWeaps);
+			if (_arsenalTab isEqualTo 26) then { _count = _count * getNumber (configFile >> "CfgMagazines" >> _x >> "count") };
+			diag_log format ["Adding %1x %2 to arsenal", _count, _x];
+			[_arsenalTab, _x, _count] call jn_fnc_arsenal_addItem;
+		} forEach (unlockedWeapons + unlockedMagazines);
+	};
 
 	private _textX = format [localize "STR_comms_mp_taxes_income", _hrAdd, _resAdd, A3A_faction_civ get "currencySymbol"];
 	private _textArsenal = [] call A3A_fnc_arsenalManage;

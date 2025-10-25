@@ -66,7 +66,7 @@ private _categoriesToPublish = createHashMap;
 
 		if (_item in A3U_forbiddenItems && {getNumber (configFile >> "A3U" >> "forbiddenItems" >> _item >> "unlimited") isEqualTo 0}) exitWith {};
 
-		[_item, true] call A3A_fnc_unlockEquipment;
+		[_item, true, (["Weapons", "Magazines"] arrayIntersect _categories) isNotEqualTo []] call A3A_fnc_unlockEquipment;
 		_categoriesToPublish insert [true, _categories, []];
 
 		private _name = switch (true) do {
@@ -79,12 +79,12 @@ private _categoriesToPublish = createHashMap;
 		_updated = format ["%1%2<br/>",_updated,_name];
 
 		//Unlock ammo for guns, if appropriate.
-		if (unlockedUnlimitedAmmo == 1 && ("Weapons" in _categories)) then {
+		if (unlockedUnlimitedAmmo == 1 && {"Weapons" in _categories}) then {
 			private _weaponMagazine = (getArray (configFile / "CfgWeapons" / _item / "magazines") select 0);
 			if (!isNil "_weaponMagazine") then {
 				if (not(_weaponMagazine in unlockedMagazines)) then {
 					_updated = format ["%1%2<br/>",_updated,getText (configFile >> "CfgMagazines" >> _weaponMagazine >> "displayName")];
-					private _categories = [_weaponMagazine, true] call A3A_fnc_unlockEquipment;
+					private _categories = [_weaponMagazine, true, true] call A3A_fnc_unlockEquipment;
 					_categoriesToPublish insert [true, _categories, []];
 				};
 			};
