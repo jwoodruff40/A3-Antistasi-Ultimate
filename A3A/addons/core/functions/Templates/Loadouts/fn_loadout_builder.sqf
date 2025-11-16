@@ -341,9 +341,18 @@ private _fnc_addNVGs = {
 
 //Picks the first non-empty array.
 private _fnc_fallBack = {
-	private _firstValidIndex = _this findIf {!(_loadoutDataForTemplate getOrDefault [_x, []] isEqualTo [])};
-	if (_firstValidIndex < 0) exitWith {_this select 0};
-	_this select _firstValidIndex
+	private _isWeighted = _this isEqualType [] && {count _this > 1} && {(_this select 1) isEqualType 0};
+	if (_isWeighted) then {
+		for "_i" from 0 to (((count _this) / 2) - 1) do {
+			private _key = selectRandomWeighted _this;
+			private _idx = _this find _key;
+			if (!(_loadoutDataForTemplate getOrDefault [_key, []] isEqualTo [])) then { _key } else { _this deleteAt (_idx + 1); _this deleteAt _idx };
+		};
+	} else {
+		private _firstValidIndex = _this findIf {!(_loadoutDataForTemplate getOrDefault [_x, []] isEqualTo [])};
+		if (_firstValidIndex < 0) exitWith {_this select 0};
+		_this select _firstValidIndex
+	};
 };
 
 /////////////////////////////
