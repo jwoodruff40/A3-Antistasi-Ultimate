@@ -626,7 +626,7 @@ private _sharpshooterTemplate = {
 
 private _crewTemplate = {
 	["helmets"] call _fnc_setHelmet;
-	[selectRandomWeighted [[], 1.5, "fullmask", 1.25, "facewear", 1]] call _fnc_setFacewear;
+	[[[], 1.5, "fullmask", 1.25, "facewear", 1] call _fnc_fallback] call _fnc_setFacewear;
 	["vests"] call _fnc_setVest;
 	["uniforms"] call _fnc_setUniform;
 
@@ -651,7 +651,7 @@ private _crewTemplate = {
 
 private _unarmedTemplate = {
 	["vests"] call _fnc_setVest;
-	[selectRandomWeighted [[], 1.5, "facewear", 1, "fullmask", 1]] call _fnc_setFacewear;
+	[[[], 1.5, "facewear", 1, "fullmask", 1] call _fnc_fallback] call _fnc_setFacewear;
 	["uniforms"] call _fnc_setUniform;
 
 	["items_medical_basic"] call _fnc_addItemSet;

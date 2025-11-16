@@ -207,7 +207,7 @@ private _cellLeaderTemplate = {
 		["helmets"] call _fnc_setHelmet;
 	} else {
 		["headgear"] call _fnc_setHelmet;
-		[selectRandomWeighted [[], 1.5, "facewear", 1]] call _fnc_setFacewear;
+		[[[], 1.5, "facewear", 1] call _fnc_fallback] call _fnc_setFacewear;
 	};
 	["vests"] call _fnc_setVest;
 	["uniforms"] call _fnc_setUniform;
@@ -237,7 +237,7 @@ private _mercenaryTemplate = {
 		["helmets"] call _fnc_setHelmet;
 	} else {
 		["headgear"] call _fnc_setHelmet;
-		[selectRandomWeighted [[], 1.5, "facewear", 1]] call _fnc_setFacewear;
+		[[[], 1.5, "facewear", 1] call _fnc_fallback] call _fnc_setFacewear;
 	};
 	["vests"] call _fnc_setVest;
 	["uniforms"] call _fnc_setUniform;
@@ -266,7 +266,7 @@ private _enforcerTemplate = {
 		["helmets"] call _fnc_setHelmet;
 	} else {
 		["headgear"] call _fnc_setHelmet;
-		[selectRandomWeighted [[], 1.5, "facewear", 1]] call _fnc_setFacewear;
+		[[[], 1.5, "facewear", 1] call _fnc_fallback] call _fnc_setFacewear;
 	};
 	["vests"] call _fnc_setVest;
 	["uniforms"] call _fnc_setUniform;
@@ -295,7 +295,7 @@ private _partisanTemplate = {
 		["helmets"] call _fnc_setHelmet;
 	} else {
 		["headgear"] call _fnc_setHelmet;
-		[selectRandomWeighted [[], 1.5, "facewear", 1]] call _fnc_setFacewear;
+		[[[], 1.5, "facewear", 1] call _fnc_fallback] call _fnc_setFacewear;
 	};
 	["vests"] call _fnc_setVest;
 	["uniforms"] call _fnc_setUniform;
@@ -323,7 +323,7 @@ private _minutemanTemplate = {
 		["helmets"] call _fnc_setHelmet;
 	} else {
 		["headgear"] call _fnc_setHelmet;
-		[selectRandomWeighted [[], 1.5, "facewear", 1]] call _fnc_setFacewear;
+		[[[], 1.5, "facewear", 1] call _fnc_fallback] call _fnc_setFacewear;
 	};
 	["vests"] call _fnc_setVest;
 	["uniforms"] call _fnc_setUniform;
@@ -351,7 +351,7 @@ private _medicTemplate = {
 		["helmets"] call _fnc_setHelmet;
 	} else {
 		["headgear"] call _fnc_setHelmet;
-		[selectRandomWeighted [[], 1.5, "facewear", 1]] call _fnc_setFacewear;
+		[[[], 1.5, "facewear", 1] call _fnc_fallback] call _fnc_setFacewear;
 	};
 	["vests"] call _fnc_setVest;
 	["uniforms"] call _fnc_setUniform;
@@ -380,7 +380,7 @@ private _saboteurTemplate = {
 		["helmets"] call _fnc_setHelmet;
 	} else {
 		["headgear"] call _fnc_setHelmet;
-		[selectRandomWeighted [[], 1.5, "facewear", 1]] call _fnc_setFacewear;
+		[[[], 1.5, "facewear", 1] call _fnc_fallback] call _fnc_setFacewear;
 	};
 	["vests"] call _fnc_setVest;
 	["uniforms"] call _fnc_setUniform;
@@ -410,7 +410,7 @@ private _explosivesExpertTemplate = {
 		["helmets"] call _fnc_setHelmet;
 	} else {
 		["headgear"] call _fnc_setHelmet;
-		[selectRandomWeighted [[], 1.5, "facewear", 1]] call _fnc_setFacewear;
+		[[[], 1.5, "facewear", 1] call _fnc_fallback] call _fnc_setFacewear;
 	};
 	["vests"] call _fnc_setVest;
 	["uniforms"] call _fnc_setUniform;
@@ -445,7 +445,7 @@ private _atTemplate = {
 		["helmets"] call _fnc_setHelmet;
 	} else {
 		["headgear"] call _fnc_setHelmet;
-		[selectRandomWeighted [[], 1.5, "facewear", 1]] call _fnc_setFacewear;
+		[[[], 1.5, "facewear", 1] call _fnc_fallback] call _fnc_setFacewear;
 	};
 	["vests"] call _fnc_setVest;
 	["uniforms"] call _fnc_setUniform;
@@ -478,7 +478,7 @@ private _aaTemplate = {
 		["helmets"] call _fnc_setHelmet;
 	} else {
 		["headgear"] call _fnc_setHelmet;
-		[selectRandomWeighted [[], 1.5, "facewear", 1]] call _fnc_setFacewear;
+		[[[], 1.5, "facewear", 1] call _fnc_fallback] call _fnc_setFacewear;
 	};
 	["vests"] call _fnc_setVest;
 	["uniforms"] call _fnc_setUniform;
@@ -511,7 +511,7 @@ private _oppressorTemplate = {
 		["helmets"] call _fnc_setHelmet;
 	} else {
 		["headgear"] call _fnc_setHelmet;
-		[selectRandomWeighted [[], 1.5, "facewear", 1]] call _fnc_setFacewear;
+		[[[], 1.5, "facewear", 1] call _fnc_fallback] call _fnc_setFacewear;
 	};
 	["vests"] call _fnc_setVest;
 	["uniforms"] call _fnc_setUniform;
@@ -540,7 +540,7 @@ private _sharpshooterTemplate = {
 		["helmets"] call _fnc_setHelmet;
 	} else {
 		["headgear"] call _fnc_setHelmet;
-		[selectRandomWeighted [[], 1.5, "facewear", 1]] call _fnc_setFacewear;
+		[[[], 1.5, "facewear", 1] call _fnc_fallback] call _fnc_setFacewear;
 	};
 	["vests"] call _fnc_setVest;
 	["uniforms"] call _fnc_setUniform;
@@ -566,7 +566,7 @@ private _sharpshooterTemplate = {
 
 private _crewTemplate = {
 	["helmets"] call _fnc_setHelmet;
-	[selectRandomWeighted [[], 1.5, "facewear", 1]] call _fnc_setFacewear;
+	[[[], 1.5, "facewear", 1] call _fnc_fallback] call _fnc_setFacewear;
 	["vests"] call _fnc_setVest;
 	["uniforms"] call _fnc_setUniform;
 
@@ -589,7 +589,7 @@ private _crewTemplate = {
 
 private _unarmedTemplate = {
 	["vests"] call _fnc_setVest;
-	[selectRandomWeighted [[], 1.5, "facewear", 1]] call _fnc_setFacewear;
+	[[[], 1.5, "facewear", 1] call _fnc_fallback] call _fnc_setFacewear;
 	["uniforms"] call _fnc_setUniform;
 
 	["items_medical_basic"] call _fnc_addItemSet;
@@ -603,7 +603,7 @@ private _unarmedTemplate = {
 };
 
 private _commanderTemplate = {
-	[selectRandomWeighted ["helmets", 0.3, "headgear", 0.7]] call _fnc_setHelmet;
+	[["helmets", 0.3, "headgear", 0.7] call _fnc_fallback] call _fnc_setHelmet;
 	["sidearms"] call _fnc_setHandgun;
 	["handgun", 2] call _fnc_addMagazines;
 

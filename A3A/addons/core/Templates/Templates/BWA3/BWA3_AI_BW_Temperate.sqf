@@ -658,7 +658,7 @@ private _medicTemplate = {
     [["medBackpacks", "backpacks"] call _fnc_fallback] call _fnc_setBackpack;
     ["facewear"] call _fnc_setFacewear;
 
-    [selectRandomWeighted ["carbines", 0.4, "SMGs", 0.6]] call _fnc_setPrimary;
+    [["carbines", 0.4, "SMGs", 0.6] call _fnc_fallback] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
 
     ["sidearms"] call _fnc_setHandgun;
@@ -743,7 +743,7 @@ private _engineerTemplate = {
     ["backpacks"] call _fnc_setBackpack;
     ["facewear"] call _fnc_setFacewear;
 
-    [selectRandomWeighted ["carbines", 0.4, "SMGs", 0.6]] call _fnc_setPrimary;
+    [["carbines", 0.4, "SMGs", 0.6] call _fnc_fallback] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
 
     ["sidearms"] call _fnc_setHandgun;
@@ -771,7 +771,7 @@ private _latTemplate = {
     ["uniforms"] call _fnc_setUniform;
     ["facewear"] call _fnc_setFacewear;
 
-    [selectRandomWeighted ["rifles", 0.2, "carbines", 0.5, "SMGs", 0.3]] call _fnc_setPrimary;
+    [["rifles", 0.2, "carbines", 0.5, "SMGs", 0.3] call _fnc_fallback] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
 
     ["ATLaunchers"] call _fnc_setLauncher;
@@ -800,7 +800,7 @@ private _atTemplate = {
     ["backpacks"] call _fnc_setBackpack;
     ["facewear"] call _fnc_setFacewear;
 
-    [selectRandomWeighted ["rifles", 0.2, "carbines", 0.5, "SMGs", 0.3]] call _fnc_setPrimary;
+    [["rifles", 0.2, "carbines", 0.5, "SMGs", 0.3] call _fnc_fallback] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
 
     ["lightATLaunchers"] call _fnc_setLauncher;
@@ -828,7 +828,7 @@ private _aaTemplate = {
     ["backpacks"] call _fnc_setBackpack;
     ["facewear"] call _fnc_setFacewear;
 
-    [selectRandomWeighted ["rifles", 0.2, "carbines", 0.5, "SMGs", 0.3]] call _fnc_setPrimary;
+    [["rifles", 0.2, "carbines", 0.5, "SMGs", 0.3] call _fnc_fallback] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
 
     ["AALaunchers"] call _fnc_setLauncher;
@@ -990,7 +990,7 @@ private _unarmedTemplate = {
 /* ANTISTASI PLUS STUFF START */
 private _radiomanTemplate = {
     ["helmets"] call _fnc_setHelmet;
-    [selectRandomWeighted [[], 2, "glasses", 0.75, "goggles", 0.5]] call _fnc_setFacewear;
+    [[[], 2, "glasses", 0.75, "goggles", 0.5] call _fnc_fallback] call _fnc_setFacewear;
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
     ["longRangeRadios"] call _fnc_setBackpack;
@@ -1017,7 +1017,7 @@ private _radiomanTemplate = {
 
 private _traitorTemplate = {
     ["traitorHats"] call _fnc_setHelmet;
-    [selectRandomWeighted [[], 1.25, "glasses", 0.75]] call _fnc_setFacewear;
+    [[[], 1.25, "glasses", 0.75] call _fnc_fallback] call _fnc_setFacewear;
     ["traitorVests"] call _fnc_setVest;
     ["traitorUniforms"] call _fnc_setUniform;
 
@@ -1036,7 +1036,7 @@ private _traitorTemplate = {
 
 private _officerTemplate = {
     ["officerHats"] call _fnc_setHelmet;
-    [selectRandomWeighted [[], 1.25, "glasses", 0.75]] call _fnc_setFacewear;
+    [[[], 1.25, "glasses", 0.75] call _fnc_fallback] call _fnc_setFacewear;
     ["officerVests"] call _fnc_setVest;
     ["officerUniforms"] call _fnc_setUniform;
 
@@ -1058,7 +1058,7 @@ private _officerTemplate = {
 
 private _patrolSniperTemplate = {
     ["sniHats"] call _fnc_setHelmet;
-    [selectRandomWeighted [[], 2, "glasses", 0.75, "goggles", 0.5]] call _fnc_setFacewear;
+    [[[], 2, "glasses", 0.75, "goggles", 0.5] call _fnc_fallback] call _fnc_setFacewear;
     [["cloakVests","vests"] call _fnc_fallback] call _fnc_setVest;
     [["cloakUniforms","uniforms"] call _fnc_fallback] call _fnc_setUniform;
 
@@ -1083,7 +1083,7 @@ private _patrolSniperTemplate = {
 
 private _patrolSpotterTemplate = {
     ["sniHats"] call _fnc_setHelmet;
-    [selectRandomWeighted [[], 2, "glasses", 0.75, "goggles", 0.5]] call _fnc_setFacewear;
+    [[[], 2, "glasses", 0.75, "goggles", 0.5] call _fnc_fallback] call _fnc_setFacewear;
     [["cloakVests","vests"] call _fnc_fallback] call _fnc_setVest;
     [["cloakUniforms","uniforms"] call _fnc_fallback] call _fnc_setUniform;
 

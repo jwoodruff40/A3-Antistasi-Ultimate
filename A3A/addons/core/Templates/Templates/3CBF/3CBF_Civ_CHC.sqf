@@ -162,7 +162,7 @@ _loadoutData set ["compasses", ["ItemCompass"]];
 
 
 private _manTemplate = {
-    [selectRandomWeighted [[], 2, "helmets", 0.75]] call _fnc_setHelmet;
+    [[[], 2, "helmets", 0.75] call _fnc_fallback] call _fnc_setHelmet;
     ["uniforms"] call _fnc_setUniform;
 
     ["items_medical_standard"] call _fnc_addItemSet;
@@ -172,7 +172,7 @@ private _manTemplate = {
     ["compasses"] call _fnc_addCompass;
 };
 private _workerTemplate = {
-    [selectRandomWeighted [[], 2, "helmets", 0.75]] call _fnc_setHelmet;
+    [[[], 2, "helmets", 0.75] call _fnc_fallback] call _fnc_setHelmet;
     ["workerUniforms"] call _fnc_setUniform;
 
     ["items_medical_standard"] call _fnc_addItemSet;
