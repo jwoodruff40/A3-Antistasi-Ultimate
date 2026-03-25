@@ -5,6 +5,10 @@ if (isServer) then {
     Info("Starting Persistent Load.");
 	petros allowdamage false;
 
+	// Tell third party mods we're loading the game. Do this very early in case
+	// they attempt to overwrite stuff we're loading later below.
+	[CBA_EVENT_SERVER_GAME_LOAD, []] call FUNCMAIN(triggerLocalEvent);
+
 	// Set all main markers to occupant control by default, overridden by mrkSDK & mrkCSAT
 	{
 		if (sidesX getVariable _x != Occupants) then { sidesX setVariable [_x, Occupants, true] };
