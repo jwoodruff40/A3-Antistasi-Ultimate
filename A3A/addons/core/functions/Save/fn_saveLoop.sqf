@@ -14,6 +14,10 @@ savingServer = true;
 Info("Starting persistent save");
 [localize "STR_A3A_save_persisent_save",localize "STR_A3A_save_save_game_starting"] remoteExecCall ["A3A_fnc_customHint",0,false];
 
+// Tell third party mods we're saving the game. Do this very early in case
+// they attempt to overwrite stuff we're saving later below.
+[CBA_EVENT_SERVER_GAME_SAVE, []] call FUNCMAIN(triggerLocalEvent);
+
 // Set next autosave time, so that we won't run another shortly after a manual save
 autoSaveTime = time + autoSaveInterval;
 
