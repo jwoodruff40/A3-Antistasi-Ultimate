@@ -4,6 +4,7 @@ Maintainer: DoomMetal
 */
 
 #include "mainDialog.hpp"
+#include "newBattleMenu.hpp" // ! order matters here, as some macros (e.g. DIALOG_X) are re-defined by other dialogs
 #include "hqDialog.hpp"
 #include "requestMissionDialog.hpp"
 #include "recruitDialog.hpp"

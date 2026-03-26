@@ -4440,5 +4440,49 @@
                 <Turkish>Seçilen konum haritanın dışında olamaz</Turkish>
             </Key>
         </Container>
+        <Container name="dialog_new_battle_menu">
+            <Key ID="STR_antistasi_dialogs_new_battle_menu_header">
+                <Original>Rebel Menu</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_new_battle_menu_hq_mgmt_button">
+                <Original>HQ Management</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_new_battle_menu_garrison_mgmt_button">
+                <Original>Garrison Management</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_new_battle_menu_emplacement_mgmt_button">
+                <Original>Emplacement Management</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_new_battle_menu_mission_mgmt_button">
+                <Original>Mission Management</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_new_battle_menu_game_options_button">
+                <Original>Game Options</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_new_battle_menu_settings_button">
+                <Original>⚙</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_new_battle_menu_operations_button">
+                <Original>Operations</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_new_battle_menu_supports_button">
+                <Original>Supports</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_new_battle_menu_personnel_button">
+                <Original>Personnel</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_new_battle_menu_context_tab_button">
+                <Original>Context</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_new_battle_menu_back_button">
+                <Original>◄</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_new_battle_menu_home_button">
+                <Original>●</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_new_battle_menu_menu_button">
+                <Original>■</Original>
+            </Key>
+        </Container>
     </Package>
 </Project>
