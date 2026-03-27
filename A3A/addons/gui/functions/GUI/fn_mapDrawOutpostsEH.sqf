@@ -28,6 +28,11 @@
 
 params ["_map"];
 
+// Guard: mission-root path isn't set until mission init completes.
+// Without it every drawIcon call using A3A_missionRootPath + <icon> would
+// receive a nil texture string and spam errors on every frame.
+if (isNil "A3A_missionRootPath") exitWith {};
+
 // Calculate zoom level dependent transparency
 private _mapScale = ctrlMapScale _map;
 private _fadeStart = 0.5; // Zoom level to start fading out

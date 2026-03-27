@@ -22,6 +22,7 @@ class CfgFunctions {
             class getVehicleCrewCount {};
             class hqDialog {};
             class mainDialog {};
+            class newBattleMenu {};
             class mapDrawHcGroupsEH {};
             class mapDrawOutpostsEH {};
             class mapDrawSelectEH {};

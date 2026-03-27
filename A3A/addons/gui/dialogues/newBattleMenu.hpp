@@ -46,7 +46,7 @@ class A3A_newBattleMenu
             x = DIALOG_X;
             y = DIALOG_Y - 5 * GRID_H;
             w = DIALOG_W * GRID_W;
-            h = 5 * GRID_H;
+            h = 4 * GRID_H;
         };
 
         class Background : A3A_Background
@@ -69,7 +69,7 @@ class A3A_newBattleMenu
             x = DIALOG_X;
             y = DIALOG_Y - 5 * GRID_H;
             w = DIALOG_W * GRID_W;
-            h = 5 * GRID_H;
+            h = 4 * GRID_H;
         };
 
         // -- MAP (y=10..66, x=0..90) -----------------------------------------
@@ -77,14 +77,29 @@ class A3A_newBattleMenu
         class Map : A3A_MapControl
         {
             idc = A3A_IDC_NEWBATTLEMENU_MAP;
-            x = DIALOG_X;
+            x = DIALOG_X + 1 * GRID_W;
             y = DIALOG_Y + 11 * GRID_H;
             w = 88 * GRID_W;
             h = 55 * GRID_H;
         };
 
         // -- TOP-LEFT: PRIMARY NAV TABS (y=0..10, x=0..90) --------------------
-        // Operations / Supports / Personnel / Context.
+        // Clicking a primary tab calls A3A_fnc_newBattleMenu_handleTabSwitch with:
+        //   ['PRIMARY', sectionName]
+        // The handler:
+        //   1. Highlights the active primary tab.
+        //   2. Shows/hides MainTabsContainer vs RightPanelContextContainer.
+        //   3. Relabels the four secondary tab buttons per the section mapping below.
+        //   4. Selects the first secondary tab by default.
+        //
+        // Section → secondary tabs:
+        //   OPERATIONS:   [1]HQ Management, [2]Garrison Mgmt, [3]Emplacement Mgmt, [4]Mission Mgmt
+        //   SUPPORTS:     [1]Offensive,     [2]Defensive,     [3]Reconnaissance,   [4]Supply
+        //   PERSONNEL:    [1]Player,        [2]Commander,     [3]AI Recruitment,   [4]AI Management
+        //   GAME_OPTIONS: [1]Environment,   [2]Performance,   [3]Server Info,      [4]Save
+        //   CONTEXT:      MainTabsContainer hidden; RightPanelContextContainer shown.
+        //   SETTINGS:     Single secondary button visible: 'Default Tab' selector.
+        //
         // Active tab is highlighted by the script.
         class PrimaryTabsContainer : A3A_controlsGroupNoScrollbars
         {
@@ -111,41 +126,33 @@ class A3A_newBattleMenu
                 {
                     idc = A3A_IDC_NEWBATTLEMENU_TAB_OPERATIONS;
                     text = $STR_antistasi_dialogs_new_battle_menu_operations_button;
-                    onButtonClick = "['OPERATIONS'] call A3A_fnc_newBattleMenu_handleTabSwitch;";
+                    onButtonClick = "[""handleTabSwitch"", [""PRIMARY"", ""OPERATIONS""]] call A3A_fnc_newBattleMenu;";
                     x = 3 * GRID_W;
                     y = 1 * GRID_H;
                     w = 18 * GRID_W;
                     h = 8 * GRID_H;
                 };
-                class SupportsTabButton : A3A_Button
+                class SupportsTabButton : OperationsTabButton
                 {
                     idc = A3A_IDC_NEWBATTLEMENU_TAB_SUPPORTS;
                     text = $STR_antistasi_dialogs_new_battle_menu_supports_button;
-                    onButtonClick = "['SUPPORTS'] call A3A_fnc_newBattleMenu_handleTabSwitch;";
+                    onButtonClick = "[""handleTabSwitch"", [""PRIMARY"", ""SUPPORTS""]] call A3A_fnc_newBattleMenu;";
                     x = 25 * GRID_W;
-                    y = 1 * GRID_H;
-                    w = 18 * GRID_W;
-                    h = 8 * GRID_H;
                 };
-                class PersonnelTabButton : A3A_Button
+                class PersonnelTabButton : OperationsTabButton
                 {
                     idc = A3A_IDC_NEWBATTLEMENU_TAB_PERSONNEL;
                     text = $STR_antistasi_dialogs_new_battle_menu_personnel_button;
-                    onButtonClick = "['PERSONNEL'] call A3A_fnc_newBattleMenu_handleTabSwitch;";
+                    onButtonClick = "[""handleTabSwitch"", [""PRIMARY"", ""PERSONNEL""]] call A3A_fnc_newBattleMenu;";
                     x = 47 * GRID_W;
-                    y = 1 * GRID_H;
-                    w = 18 * GRID_W;
-                    h = 8 * GRID_H;
                 };
-                class ContextTabButton : A3A_Button
+                class ContextTabButton : OperationsTabButton
                 {
                     idc = A3A_IDC_NEWBATTLEMENU_TAB_CONTEXT;
                     text = $STR_antistasi_dialogs_new_battle_menu_context_tab_button;
-                    onButtonClick = "['CONTEXT'] call A3A_fnc_newBattleMenu_handleTabSwitch;";
+                    // Hides MainTabsContainer, shows RightPanelContextContainer.
+                    onButtonClick = "[""handleTabSwitch"", [""PRIMARY"", ""CONTEXT""]] call A3A_fnc_newBattleMenu;";
                     x = 69 * GRID_W;
-                    y = 1 * GRID_H;
-                    w = 18 * GRID_W;
-                    h = 8 * GRID_H;
                 };
             };
         };
@@ -174,7 +181,7 @@ class A3A_newBattleMenu
                 {
                     idc = -1;
                     text = $STR_antistasi_dialogs_new_battle_menu_game_options_button;
-                    onButtonClick = "['GAME_OPTIONS'] call A3A_fnc_newBattleMenu_handleTabSwitch;";
+                    onButtonClick = "[""handleTabSwitch"", [""PRIMARY"", ""GAME_OPTIONS""]] call A3A_fnc_newBattleMenu;";
                     x = 1 * GRID_W;
                     y = 1 * GRID_H;
                     w = 18 * GRID_W;
@@ -184,7 +191,8 @@ class A3A_newBattleMenu
                 {
                     idc = A3A_IDC_NEWBATTLEMENU_SETTINGS;
                     text = $STR_antistasi_dialogs_new_battle_menu_settings_button;
-                    onButtonClick = "['DIALOG_SETTINGS'] call A3A_fnc_newBattleMenu_handleTabSwitch;";
+                    // Opens dialog settings (default tab picker); shows single secondary tab.
+                    onButtonClick = "[""handleTabSwitch"", [""PRIMARY"", ""SETTINGS""]] call A3A_fnc_newBattleMenu;";
                     x = 21 * GRID_W;
                     y = 1 * GRID_H;
                     w = 8 * GRID_W;
@@ -194,11 +202,70 @@ class A3A_newBattleMenu
         };
 
         // -- RIGHT PANEL: SECONDARY NAV TABS (y=10..66, x=90..120) -----------
-        // Four stacked buttons. Script changes their text when the primary tab
-        // switches and highlights the active one. Hidden by script in Context mode.
-        // Default labels reflect the Operations primary tab:
-        //   Btn1=HQ Management, Btn2=Garrison Management,
-        //   Btn3=Emplacement Management, Btn4=Mission Management
+        // Four stacked buttons; script relabels them and highlights the active one
+        // whenever the primary tab changes.  Hidden (show=0) when Context or
+        // Settings is the active primary — RightPanelContextContainer overlays instead.
+        //
+        // Clicking a secondary tab calls A3A_fnc_newBattleMenu_handleTabSwitch with:
+        //   ['SECONDARY', buttonIndex]   (buttonIndex = 1..4)
+        // The handler uses the current primary section to determine which sub-section
+        // was selected, then repopulates the context bar action buttons accordingly.
+        //
+        // Context bar actions per primary → secondary combination (from UI spec):
+        //   OPERATIONS / HQ Management:
+        //     Move HQ | Train Rebel Troops | Set Rebel Loadouts | Clear Forest
+        //   OPERATIONS / Garrison Management:
+        //     Disband Units/Post | Recruit Units
+        //     (right panel info shows selected garrison: name, unit breakdown)
+        //   OPERATIONS / Emplacement Management:
+        //     Establish Watchpost | Establish Roadblock | Establish HMG Emplacement |
+        //     Establish AT Emplacement | Establish AA Emplacement |
+        //     Establish AP Minefield | Establish AT Minefield
+        //     (right panel info: 'Establish' title + 'Cost: %1 HR, %2 $')
+        //   OPERATIONS / Mission Management:
+        //     Request Assassination | Request Convoy | Request Destroy |
+        //     Request Logistics | Request Rescue | Request Conquest | Request Supply
+        //     (right panel info: 'Active Missions' title + active mission list)
+        //   SUPPORTS / Offensive:
+        //     HE Bomb Airstrike | Cluster Bomb Airstrike | Chemical Bomb Airstrike |
+        //     Napalm Airstrike | Paradrop Plane Run
+        //   SUPPORTS / Defensive:
+        //     Smoke Barrage | Flare Barrage
+        //   SUPPORTS / Reconnaissance:
+        //     Recon Plane Run
+        //   SUPPORTS / Supply:
+        //     Light Vehicle Airdrop | Supply Crate Airdrop | Loot Helicopter Run
+        //   PERSONNEL / Player:
+        //     Toggle Music | Toggle Paradrop | Toggle Teardown | Donate Money to Player
+        //   PERSONNEL / Commander:
+        //     Check Victory | Reset Arms Dealer | Train Rebel Troops | Set Rebel Loadouts |
+        //     Set Arsenal Limits | Place Rally Point | Remove Rally Point |
+        //     Share Faction Money | Resign / Toggle Eligibility |
+        //     Add Server Member | Remove Server Member
+        //   PERSONNEL / AI Recruitment:
+        //     Infantry Squad | Infantry Team | AT Team | AT Car | Snipers | AA Truck |
+        //     MG Team | Mortar Team | Vehicle Crew | MG Car
+        //   PERSONNEL / AI Management:
+        //     AI Control | HC Transfer | Garrison Unit/Squad | Dismiss Unit/Squad |
+        //     Auto Rearm/Loot | SITREP | Assign Vehicle | (Dis)mount Vehicle
+        //   GAME_OPTIONS / Environment:
+        //     Fog Level | Overcast Level
+        //   GAME_OPTIONS / Performance:
+        //     Garbage Clean
+        //   GAME_OPTIONS / Server Info:
+        //     WorldName | Version | Time since last GC
+        //   GAME_OPTIONS / Save:
+        //     Persistent Save | Edit Save Parameters
+        //   SETTINGS / Default Tab:
+        //     Operations | Supports | Personnel | Context  (sets the default open tab)
+        //   CONTEXT (primary tab active — handled by RightPanelContextContainer):
+        //     Vehicle selected:  Garage Vehicle | Unlock Vehicle | Moveout Vehicle Crew |
+        //                        Flip Vehicle | Sell Vehicle | Add to Air Support |
+        //                        Move Static (static weapons only)
+        //     Unit/group selected: AI Control | HC Transfer | Garrison Unit/Squad |
+        //                        Dismiss Unit/Squad | Auto Rearm/Loot | SITREP |
+        //                        Assign Vehicle | (Dis)mount Vehicle |
+        //                        Donate Money to Player | Add Server Member | Remove Server Member
         class SecondaryTabsContainer : A3A_controlsGroupNoScrollbars
         {
             idc = A3A_IDC_NEWBATTLEMENU_MAINTABS;
@@ -221,42 +288,33 @@ class A3A_newBattleMenu
                 class SecondaryTab1 : A3A_Button
                 {
                     idc = A3A_IDC_NEWBATTLEMENU_MAINTAB_BTN1;
-                    text = $STR_antistasi_dialogs_new_battle_menu_hq_mgmt_button;
-                    onButtonClick = "['SECONDARY_1'] call A3A_fnc_newBattleMenu_handleTabSwitch;";
+                    text = $STR_antistasi_dialogs_new_battle_menu_hq_mgmt_button; // default: Operations
+                    onButtonClick = "[""handleTabSwitch"", [""SECONDARY"", 1]] call A3A_fnc_newBattleMenu;";
                     x = 1 * GRID_W;
                     y = 2 * GRID_H;
                     w = 28 * GRID_W;
                     h = 8 * GRID_H;
                 };
-                class SecondaryTab2 : A3A_Button
+                class SecondaryTab2 : SecondaryTab1
                 {
                     idc = A3A_IDC_NEWBATTLEMENU_MAINTAB_BTN2;
-                    text = $STR_antistasi_dialogs_new_battle_menu_garrison_mgmt_button;
-                    onButtonClick = "['SECONDARY_2'] call A3A_fnc_newBattleMenu_handleTabSwitch;";
-                    x = 1 * GRID_W;
+                    text = $STR_antistasi_dialogs_new_battle_menu_garrison_mgmt_button; // default: Operations
+                    onButtonClick = "[""handleTabSwitch"", [""SECONDARY"", 2]] call A3A_fnc_newBattleMenu;";
                     y = 14 * GRID_H;
-                    w = 28 * GRID_W;
-                    h = 8 * GRID_H;
                 };
-                class SecondaryTab3 : A3A_Button
+                class SecondaryTab3 : SecondaryTab1
                 {
                     idc = A3A_IDC_NEWBATTLEMENU_MAINTAB_BTN3;
-                    text = $STR_antistasi_dialogs_new_battle_menu_emplacement_mgmt_button;
-                    onButtonClick = "['SECONDARY_3'] call A3A_fnc_newBattleMenu_handleTabSwitch;";
-                    x = 1 * GRID_W;
+                    text = $STR_antistasi_dialogs_new_battle_menu_emplacement_mgmt_button; // default: Operations
+                    onButtonClick = "[""handleTabSwitch"", [""SECONDARY"", 3]] call A3A_fnc_newBattleMenu;";
                     y = 26 * GRID_H;
-                    w = 28 * GRID_W;
-                    h = 8 * GRID_H;
                 };
-                class SecondaryTab4 : A3A_Button
+                class SecondaryTab4 : SecondaryTab1
                 {
                     idc = A3A_IDC_NEWBATTLEMENU_MAINTAB_BTN4;
-                    text = $STR_antistasi_dialogs_new_battle_menu_mission_mgmt_button;
-                    onButtonClick = "['SECONDARY_4'] call A3A_fnc_newBattleMenu_handleTabSwitch;";
-                    x = 1 * GRID_W;
+                    text = $STR_antistasi_dialogs_new_battle_menu_mission_mgmt_button; // default: Operations
+                    onButtonClick = "[""handleTabSwitch"", [""SECONDARY"", 4]] call A3A_fnc_newBattleMenu;";
                     y = 37 * GRID_H;
-                    w = 28 * GRID_W;
-                    h = 8 * GRID_H;
                 };
             };
         };
@@ -307,7 +365,7 @@ class A3A_newBattleMenu
             };
         };
 
-        // -- BOTTOM: CONTEXT BAR (y=66..85, full width, always visible) ------
+        // -- BOTTOM: CONTEXT BAR (y=67..85, full width, always visible) ------
         // 12 action button slots in a 6x2 grid spanning the full dialog width.
         //   w=18 per button, gap=2, margin=1; columns at x=1,21,41,61,81,101.
         //   Row 1: y=1,h=8  |  Row 2: y=10,h=8
@@ -316,9 +374,9 @@ class A3A_newBattleMenu
         {
             idc = A3A_IDC_NEWBATTLEMENU_CONTEXT;
             x = DIALOG_X;
-            y = DIALOG_Y + 66 * GRID_H;
+            y = DIALOG_Y + 67 * GRID_H;
             w = DIALOG_W * GRID_W;
-            h = 19 * GRID_H;
+            h = 18 * GRID_H;
 
             class Controls
             {
@@ -329,129 +387,85 @@ class A3A_newBattleMenu
                     x = 0;
                     y = 0;
                     w = 120 * GRID_W;
-                    h = 19 * GRID_H;
+                    h = 18 * GRID_H;
                 };
                 // -- Row 1 (y=1): action buttons 1-6 (w=18, gap=2, margin=1) --
                 class ContextButton1 : A3A_Button
                 {
                     idc = A3A_IDC_NEWBATTLEMENU_CONTEXT_BUTTON1;
                     text = "";
-                    onButtonClick = "['CONTEXT_ACTION_1'] call A3A_fnc_newBattleMenu_handleContextAction;";
+                    onButtonClick = "[""handleContextAction"", [""CONTEXT_ACTION_1""]] call A3A_fnc_newBattleMenu;";
                     x = 1 * GRID_W;
                     y = 1 * GRID_H;
                     w = 18 * GRID_W;
                     h = 8 * GRID_H;
                 };
-                class ContextButton2 : A3A_Button
+                class ContextButton2 : ContextButton1
                 {
                     idc = A3A_IDC_NEWBATTLEMENU_CONTEXT_BUTTON2;
-                    text = "";
-                    onButtonClick = "['CONTEXT_ACTION_2'] call A3A_fnc_newBattleMenu_handleContextAction;";
+                    onButtonClick = "[""handleContextAction"", [""CONTEXT_ACTION_2""]] call A3A_fnc_newBattleMenu;";
                     x = 21 * GRID_W;
-                    y = 1 * GRID_H;
-                    w = 18 * GRID_W;
-                    h = 8 * GRID_H;
                 };
-                class ContextButton3 : A3A_Button
+                class ContextButton3 : ContextButton1
                 {
                     idc = A3A_IDC_NEWBATTLEMENU_CONTEXT_BUTTON3;
-                    text = "";
-                    onButtonClick = "['CONTEXT_ACTION_3'] call A3A_fnc_newBattleMenu_handleContextAction;";
+                    onButtonClick = "[""handleContextAction"", [""CONTEXT_ACTION_3""]] call A3A_fnc_newBattleMenu;";
                     x = 41 * GRID_W;
-                    y = 1 * GRID_H;
-                    w = 18 * GRID_W;
-                    h = 8 * GRID_H;
                 };
-                class ContextButton4 : A3A_Button
+                class ContextButton4 : ContextButton1
                 {
                     idc = A3A_IDC_NEWBATTLEMENU_CONTEXT_BUTTON4;
-                    text = "";
-                    onButtonClick = "['CONTEXT_ACTION_4'] call A3A_fnc_newBattleMenu_handleContextAction;";
+                    onButtonClick = "[""handleContextAction"", [""CONTEXT_ACTION_4""]] call A3A_fnc_newBattleMenu;";
                     x = 61 * GRID_W;
-                    y = 1 * GRID_H;
-                    w = 18 * GRID_W;
-                    h = 8 * GRID_H;
                 };
-                class ContextButton5 : A3A_Button
+                class ContextButton5 : ContextButton1
                 {
                     idc = A3A_IDC_NEWBATTLEMENU_CONTEXT_BUTTON5;
-                    text = "";
-                    onButtonClick = "['CONTEXT_ACTION_5'] call A3A_fnc_newBattleMenu_handleContextAction;";
+                    onButtonClick = "[""handleContextAction"", [""CONTEXT_ACTION_5""]] call A3A_fnc_newBattleMenu;";
                     x = 81 * GRID_W;
-                    y = 1 * GRID_H;
-                    w = 18 * GRID_W;
-                    h = 8 * GRID_H;
                 };
-                class ContextButton6 : A3A_Button
+                class ContextButton6 : ContextButton1
                 {
                     idc = A3A_IDC_NEWBATTLEMENU_CONTEXT_BUTTON6;
-                    text = "";
-                    onButtonClick = "['CONTEXT_ACTION_6'] call A3A_fnc_newBattleMenu_handleContextAction;";
+                    onButtonClick = "[""handleContextAction"", [""CONTEXT_ACTION_6""]] call A3A_fnc_newBattleMenu;";
                     x = 101 * GRID_W;
-                    y = 1 * GRID_H;
-                    w = 18 * GRID_W;
-                    h = 8 * GRID_H;
                 };
                 // -- Row 2 (y=10): action buttons 7-12 --
-                class ContextButton7 : A3A_Button
+                class ContextButton7 : ContextButton1
                 {
                     idc = A3A_IDC_NEWBATTLEMENU_CONTEXT_BUTTON7;
-                    text = "";
-                    onButtonClick = "['CONTEXT_ACTION_7'] call A3A_fnc_newBattleMenu_handleContextAction;";
-                    x = 1 * GRID_W;
+                    onButtonClick = "[""handleContextAction"", [""CONTEXT_ACTION_7""]] call A3A_fnc_newBattleMenu;";
                     y = 10 * GRID_H;
-                    w = 18 * GRID_W;
-                    h = 8 * GRID_H;
                 };
-                class ContextButton8 : A3A_Button
+                class ContextButton8 : ContextButton7
                 {
                     idc = A3A_IDC_NEWBATTLEMENU_CONTEXT_BUTTON8;
-                    text = "";
-                    onButtonClick = "['CONTEXT_ACTION_8'] call A3A_fnc_newBattleMenu_handleContextAction;";
+                    onButtonClick = "[""handleContextAction"", [""CONTEXT_ACTION_8""]] call A3A_fnc_newBattleMenu;";
                     x = 21 * GRID_W;
-                    y = 10 * GRID_H;
-                    w = 18 * GRID_W;
-                    h = 8 * GRID_H;
                 };
-                class ContextButton9 : A3A_Button
+                class ContextButton9 : ContextButton7
                 {
                     idc = A3A_IDC_NEWBATTLEMENU_CONTEXT_BUTTON9;
-                    text = "";
-                    onButtonClick = "['CONTEXT_ACTION_9'] call A3A_fnc_newBattleMenu_handleContextAction;";
+                    onButtonClick = "[""handleContextAction"", [""CONTEXT_ACTION_9""]] call A3A_fnc_newBattleMenu;";
                     x = 41 * GRID_W;
-                    y = 10 * GRID_H;
-                    w = 18 * GRID_W;
-                    h = 8 * GRID_H;
                 };
-                class ContextButton10 : A3A_Button
+                class ContextButton10 : ContextButton7
                 {
                     idc = A3A_IDC_NEWBATTLEMENU_CONTEXT_BUTTON10;
-                    text = "";
-                    onButtonClick = "['CONTEXT_ACTION_10'] call A3A_fnc_newBattleMenu_handleContextAction;";
+                    onButtonClick = "[""handleContextAction"", [""CONTEXT_ACTION_10""]] call A3A_fnc_newBattleMenu;";
                     x = 61 * GRID_W;
-                    y = 10 * GRID_H;
-                    w = 18 * GRID_W;
-                    h = 8 * GRID_H;
                 };
-                class ContextButton11 : A3A_Button
+                class ContextButton11 : ContextButton7
                 {
                     idc = A3A_IDC_NEWBATTLEMENU_CONTEXT_BUTTON11;
-                    text = "";
-                    onButtonClick = "['CONTEXT_ACTION_11'] call A3A_fnc_newBattleMenu_handleContextAction;";
+                    onButtonClick = "[""handleContextAction"", [""CONTEXT_ACTION_11""]] call A3A_fnc_newBattleMenu;";
                     x = 81 * GRID_W;
-                    y = 10 * GRID_H;
-                    w = 18 * GRID_W;
-                    h = 8 * GRID_H;
                 };
-                class ContextButton12 : A3A_Button
+                class ContextButton12 : ContextButton7
                 {
                     idc = A3A_IDC_NEWBATTLEMENU_CONTEXT_BUTTON12;
-                    text = "";
-                    onButtonClick = "['CONTEXT_ACTION_12'] call A3A_fnc_newBattleMenu_handleContextAction;";
+                    onButtonClick = "[""handleContextAction"", [""CONTEXT_ACTION_12""]] call A3A_fnc_newBattleMenu;";
                     x = 101 * GRID_W;
-                    y = 10 * GRID_H;
-                    w = 18 * GRID_W;
-                    h = 8 * GRID_H;
                 };
             };
         };
@@ -462,9 +476,9 @@ class A3A_newBattleMenu
         {
             idc = A3A_IDC_NEWBATTLEMENU_NAVBAR;
             x = DIALOG_X;
-            y = DIALOG_Y + 85 * GRID_H;
+            y = DIALOG_Y + 86 * GRID_H;
             w = DIALOG_W * GRID_W;
-            h = 5 * GRID_H;
+            h = 4 * GRID_H;
 
             class Controls
             {
@@ -474,39 +488,37 @@ class A3A_newBattleMenu
                     x = 0;
                     y = 0;
                     w = 120 * GRID_W;
-                    h = 5 * GRID_H;
+                    h = 4 * GRID_H;
                 };
                 class BackButton : A3A_Button
                 {
                     idc = A3A_IDC_NEWBATTLEMENU_BACKBUTTON;
                     text = $STR_antistasi_dialogs_new_battle_menu_back_button;
-                    onButtonClick = "['NAV_BACK'] call A3A_fnc_newBattleMenu_handleNavigation;";
-                    x = 1 * GRID_W;
-                    y = 1 * GRID_H;
-                    w = 38 * GRID_W;
-                    h = 3 * GRID_H;
+                    onButtonClick = "[""handleNavigation"", [""NAV_BACK""]] call A3A_fnc_newBattleMenu;";
+                    x = 4 * GRID_W;
+                    y = 0;
+                    w = 4 * GRID_W;
+                    h = 4 * GRID_H;
                 };
-                class HomeButton : A3A_Button
+                class HomeButton : BackButton
                 {
                     idc = A3A_IDC_NEWBATTLEMENU_HOMEBUTTON;
                     text = $STR_antistasi_dialogs_new_battle_menu_home_button;
-                    onButtonClick = "['NAV_HOME'] call A3A_fnc_newBattleMenu_handleNavigation;";
-                    x = 41 * GRID_W;
-                    y = 1 * GRID_H;
-                    w = 38 * GRID_W;
-                    h = 3 * GRID_H;
+                    onButtonClick = "[""handleNavigation"", [""NAV_HOME""]] call A3A_fnc_newBattleMenu;";
+                    x = 58 * GRID_W;
                 };
-                class MenuButton : A3A_Button
+                class MenuButton : BackButton
                 {
                     idc = A3A_IDC_NEWBATTLEMENU_MENUBUTTON;
                     text = $STR_antistasi_dialogs_new_battle_menu_menu_button;
-                    onButtonClick = "['NAV_MENU'] call A3A_fnc_newBattleMenu_handleNavigation;";
-                    x = 81 * GRID_W;
-                    y = 1 * GRID_H;
-                    w = 38 * GRID_W;
-                    h = 3 * GRID_H;
+                    onButtonClick = "[""handleNavigation"", [""NAV_MENU""]] call A3A_fnc_newBattleMenu;";
+                    x = 112 * GRID_W;
                 };
             };
         };
     };
 };
+
+// ! Reset dialog dimensions to avoid breaking other UI dialogs
+#define DIALOG_W 160 // Width of dialog in pixelGrid units
+#define DIALOG_H 100 // Height of dialog in pixelGrid units

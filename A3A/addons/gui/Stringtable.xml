@@ -4483,6 +4483,49 @@
             <Key ID="STR_antistasi_dialogs_new_battle_menu_menu_button">
                 <Original>■</Original>
             </Key>
+            <!-- Supports secondary tabs -->
+            <Key ID="STR_antistasi_dialogs_new_battle_menu_offensive_button">
+                <Original>Offensive</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_new_battle_menu_defensive_button">
+                <Original>Defensive</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_new_battle_menu_recon_button">
+                <Original>Reconnaissance</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_new_battle_menu_supply_button">
+                <Original>Supply</Original>
+            </Key>
+            <!-- Personnel secondary tabs -->
+            <Key ID="STR_antistasi_dialogs_new_battle_menu_player_button">
+                <Original>Player</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_new_battle_menu_commander_button">
+                <Original>Commander</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_new_battle_menu_ai_recruit_button">
+                <Original>AI Recruitment</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_new_battle_menu_ai_mgmt_button">
+                <Original>AI Management</Original>
+            </Key>
+            <!-- Game Options secondary tabs -->
+            <Key ID="STR_antistasi_dialogs_new_battle_menu_environment_button">
+                <Original>Environment</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_new_battle_menu_performance_button">
+                <Original>Performance</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_new_battle_menu_server_info_button">
+                <Original>Server Info</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_new_battle_menu_save_button">
+                <Original>Save</Original>
+            </Key>
+            <!-- Settings secondary tab -->
+            <Key ID="STR_antistasi_dialogs_new_battle_menu_default_tab_button">
+                <Original>Default Tab</Original>
+            </Key>
         </Container>
     </Package>
 </Project>
