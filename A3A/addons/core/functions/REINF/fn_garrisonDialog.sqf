@@ -84,7 +84,7 @@ if (_typeX == "rem") then {
 			_costs = round (_costs * 0.75);
 		};
 		case (_roadblockFIA): {
-			_costs = [(A3A_faction_reb get "vehiclesLightArmed") # 0] call A3A_fnc_vehiclePrice; //car with mg
+			_costs = [(FactionGetTiered(reb, "vehiclesLightArmed")) # 0] call A3A_fnc_vehiclePrice; //car with mg
 			_hr = 1; //static gunner
 			{
 				_costs = _costs + (server getVariable [_x,0]);
@@ -93,7 +93,7 @@ if (_typeX == "rem") then {
 			_costs = round (_costs * 0.75);
 		};
 		case (_aapostFIA): {
-			_costs = [(A3A_faction_reb get "staticAA") # 0] call A3A_fnc_vehiclePrice; //AA
+			_costs = [(FactionGetTiered(reb, "staticAA")) # 0] call A3A_fnc_vehiclePrice; //AA
 			_hr = 1; //static gunner
 			{
 				_costs = _costs + (server getVariable [_x,0]);
@@ -102,7 +102,7 @@ if (_typeX == "rem") then {
 			_costs = round (_costs * 0.75);
 		};
 		case (_atpostFIA): {
-			_costs = [(A3A_faction_reb get "staticAT") # 0] call A3A_fnc_vehiclePrice; //AT
+			_costs = [(FactionGetTiered(reb, "staticAT")) # 0] call A3A_fnc_vehiclePrice; //AT
 			_hr = 1; //static gunner
 			{
 				_costs = _costs + (server getVariable [_x,0]);
@@ -111,7 +111,7 @@ if (_typeX == "rem") then {
 			_costs = round (_costs * 0.75);
 		};
 		case (_hmgpostFIA): {
-			_costs = [(A3A_faction_reb get "staticMGs") # 0] call A3A_fnc_vehiclePrice; //HMG
+			_costs = [(FactionGetTiered(reb, "staticMGs")) # 0] call A3A_fnc_vehiclePrice; //HMG
 			_hr = 1; //static gunner
 			{
 				_costs = _costs + (server getVariable [_x,0]);

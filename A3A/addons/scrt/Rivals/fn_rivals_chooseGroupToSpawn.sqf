@@ -39,7 +39,7 @@ private _groupAndVehicleToSpawn = switch (inactivityLevelRivals) do {
 		};
 
 		private _vehicle = if (random 100 < (((100 - 20 * inactivityLevelRivals) - 10) max 0)) then {
-			selectRandom (A3A_faction_riv get "vehiclesRivalsLightArmed");
+			selectRandom (FactionGetTiered(riv, "vehiclesRivalsLightArmed"));
 		} else {
 			""
 		};
@@ -55,12 +55,12 @@ private _groupAndVehicleToSpawn = switch (inactivityLevelRivals) do {
 
 		private _vehicle = switch (true) do {
             case ((random 100) < 25): {
-				selectRandom (A3A_faction_riv get "vehiclesRivalsLightArmed");
+				selectRandom (FactionGetTiered(riv, "vehiclesRivalsLightArmed"));
 			};
 			case ((random 100) < 15): {
-				private _apcs = A3A_faction_riv get "vehiclesRivalsAPCs";
+				private _apcs = FactionGetTiered(riv, "vehiclesRivalsAPCs");
 				if (_apcs isEqualTo []) then {
-					selectRandom (A3A_faction_riv get "vehiclesRivalsLightArmed");
+					selectRandom (FactionGetTiered(riv, "vehiclesRivalsLightArmed"));
 				} else {
 					selectRandom _apcs;
 				};
@@ -76,19 +76,19 @@ private _groupAndVehicleToSpawn = switch (inactivityLevelRivals) do {
 		private _group = selectRandom (A3A_faction_riv get "groupsSquad");
 		private _vehicle = switch (true) do {
 			case ((random 100) < 35): {
-				selectRandom (A3A_faction_riv get "vehiclesRivalsLightArmed");
+				selectRandom (FactionGetTiered(riv, "vehiclesRivalsLightArmed"));
 			};
             case ((random 100) < 25): {
-				private _apcs = A3A_faction_riv get "vehiclesRivalsAPCs";
+				private _apcs = FactionGetTiered(riv, "vehiclesRivalsAPCs");
 				if (_apcs isEqualTo []) then {
-					selectRandom (A3A_faction_riv get "vehiclesRivalsLightArmed");
+					selectRandom (FactionGetTiered(riv, "vehiclesRivalsLightArmed"));
 				} else {
 					selectRandom _apcs;
 				};
 			};
             case ((random 100) < 15): {
-				private _tanks = A3A_faction_riv get "vehiclesRivalsTanks";
-				private _apcs = A3A_faction_riv get "vehiclesRivalsAPCs";
+				private _tanks = FactionGetTiered(riv, "vehiclesRivalsTanks");
+				private _apcs = FactionGetTiered(riv, "vehiclesRivalsAPCs");
 
 				switch (true) do {
 					case (_tanks isNotEqualTo []): {
@@ -98,7 +98,7 @@ private _groupAndVehicleToSpawn = switch (inactivityLevelRivals) do {
 						selectRandom _apcs;
 					};
 					default {
-						selectRandom (A3A_faction_riv get "vehiclesRivalsLightArmed");
+						selectRandom (FactionGetTiered(riv, "vehiclesRivalsLightArmed"));
 					};
 				};
 			};

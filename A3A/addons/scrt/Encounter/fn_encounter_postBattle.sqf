@@ -253,10 +253,10 @@ private _fnc_createVehicleWithEffects = {
     
     // Check for heavy vehicles via faction arrays
     private _isHeavy = _class in (
-        (_faction get "vehiclesAPCs") + 
-        (_faction get "vehiclesIFVs") + 
-        (_faction get "vehiclesLightTanks") + 
-        (_faction get "vehiclesMilitiaAPCs")
+        (GetTiered(_faction, "vehiclesAPCs")) + 
+        (GetTiered(_faction, "vehiclesIFVs")) + 
+        (GetTiered(_faction, "vehiclesLightTanks")) + 
+        (GetTiered(_faction, "vehiclesMilitiaAPCs"))
     );
     
     // Flip for non-heavy vehicles
@@ -280,10 +280,10 @@ private _fnc_createCrew = {
     
     private _crewGroup = createGroup _side;
     private _crewType = if (_class in (
-        (_faction get "vehiclesAPCs") + 
-        (_faction get "vehiclesIFVs") + 
-        (_faction get "vehiclesLightTanks") + 
-        (_faction get "vehiclesMilitiaAPCs")
+        (GetTiered(_faction, "vehiclesAPCs")) + 
+        (GetTiered(_faction, "vehiclesIFVs")) + 
+        (GetTiered(_faction, "vehiclesLightTanks")) + 
+        (GetTiered(_faction, "vehiclesMilitiaAPCs"))
     )) then {
         _faction get "unitCrew"
     } else {
@@ -331,12 +331,12 @@ private _fnc_createCrew = {
 for "_i" from 1 to _vehicleCountWin do {
     private _spawnPos = [_roadPosition, 10, 60, "win"] call _fnc_findPos;
     private _vehicleClass = if (_isFIA) then {
-        selectRandom ((_winFaction get "vehiclesMilitiaLightArmed") + (_winFaction get "vehiclesMilitiaAPCs"))
+        selectRandom ((GetTiered(_winFaction, "vehiclesMilitiaLightArmed")) + (GetTiered(_winFaction, "vehiclesMilitiaAPCs")))
     } else {
-        selectRandom ((_winFaction get "vehiclesAPCs") + 
-                    (_winFaction get "vehiclesIFVs") +
-                    (_winFaction get "vehiclesLightTanks") + 
-                    (_winFaction get "vehiclesLightArmed"))
+        selectRandom ((GetTiered(_winFaction, "vehiclesAPCs")) + 
+                    (GetTiered(_winFaction, "vehiclesIFVs")) +
+                    (GetTiered(_winFaction, "vehiclesLightTanks")) + 
+                    (GetTiered(_winFaction, "vehiclesLightArmed")))
     };
 
     // Direction towards road center with deviation
@@ -362,12 +362,12 @@ for "_i" from 1 to _vehicleCountWin do {
 for "_i" from 1 to _vehicleCountLose do {
     private _spawnPos = [_roadPosition, 5, 60, "lose"] call _fnc_findPos;
     private _vehicleClass = if (_isFIA) then {
-        selectRandom ((_loseFaction get "vehiclesMilitiaLightArmed") + (_loseFaction get "vehiclesMilitiaAPCs"))
+        selectRandom ((GetTiered(_loseFaction, "vehiclesMilitiaLightArmed")) + (GetTiered(_loseFaction, "vehiclesMilitiaAPCs")))
     } else {
-        selectRandom ((_loseFaction get "vehiclesAPCs") + 
-                    (_loseFaction get "vehiclesIFVs") + 
-                    (_loseFaction get "vehiclesLightArmed") +
-                    (_loseFaction get "vehiclesLightTanks"))
+        selectRandom ((GetTiered(_loseFaction, "vehiclesAPCs")) + 
+                    (GetTiered(_loseFaction, "vehiclesIFVs")) + 
+                    (GetTiered(_loseFaction, "vehiclesLightArmed")) +
+                    (GetTiered(_loseFaction, "vehiclesLightTanks")))
     };
 
     // Direction towards road center with deviation

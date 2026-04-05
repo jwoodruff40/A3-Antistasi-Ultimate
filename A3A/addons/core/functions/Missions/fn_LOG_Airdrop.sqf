@@ -55,9 +55,9 @@ waitUntil {sleep 1; (call SCRT_fnc_misc_getRebelPlayers) findIf {_x inArea [_pos
 Info("Setting things in motion...");
 
 private _escortClass = if(_difficultX) then { 
-    selectRandom ((_faction get "vehiclesAPCs") + (_faction get "vehiclesLightAPCs"))
+    selectRandom ((GetTiered(_faction, "vehiclesAPCs")) + (GetTiered(_faction, "vehiclesLightAPCs")))
 } else {
-    selectRandom ((_faction get "vehiclesLightArmed") + (_faction get "vehiclesLightUnarmed"))
+    selectRandom ((GetTiered(_faction, "vehiclesLightArmed")) + (GetTiered(_faction, "vehiclesLightUnarmed")))
 };
 
 if (isNil "_escortClass") exitWith {

@@ -16,7 +16,7 @@ switch (_category) do {
 			(A3A_faction_reb get 'vehiclesCivTruck') +
 			(A3A_faction_reb get 'vehiclesCivBoat') select {_x isNotEqualTo ""};
 		
-		private _civAircrafts = (A3A_faction_reb get "vehiclesCivHeli") + (A3A_faction_reb get 'vehiclesCivPlane');
+		private _civAircrafts = (FactionGetTiered(reb, "vehiclesCivHeli")) + (A3A_faction_reb get 'vehiclesCivPlane');
 		if (_civAircrafts isNotEqualTo [] && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count airportsX > 0}) then {
 			_civilianVehicles append _civAircrafts;
 		};
@@ -44,7 +44,7 @@ switch (_category) do {
     };
 	case "civheli": {
         private _civilianVehicles = [];
-		private _civAircrafts = (A3A_faction_reb get "vehiclesCivHeli");
+		private _civAircrafts = (FactionGetTiered(reb, "vehiclesCivHeli"));
 		if (_civAircrafts isNotEqualTo [] && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count airportsX > 0}) then {
 			_civilianVehicles append _civAircrafts;
 		};
@@ -84,7 +84,7 @@ switch (_category) do {
 			_militaryVehicles append _availableVehs;
 		};
 
-		private _milAircrafts = A3A_faction_reb get "vehiclesPlane";
+		private _milAircrafts = FactionGetTiered(reb, "vehiclesPlane");
 		if (_milAircrafts isNotEqualTo [] && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count airportsX > 0}) then {
 			_militaryVehicles append _milAircrafts;
 		};
@@ -139,7 +139,7 @@ switch (_category) do {
 	};
 	case "militaryplane": {
 		private _militaryVehicles =[];
-		private _milAircrafts = A3A_faction_reb get "vehiclesPlane";
+		private _milAircrafts = FactionGetTiered(reb, "vehiclesPlane");
 		if (_milAircrafts isNotEqualTo [] && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count airportsX > 0}) then {
 			_militaryVehicles append _milAircrafts;
 		};

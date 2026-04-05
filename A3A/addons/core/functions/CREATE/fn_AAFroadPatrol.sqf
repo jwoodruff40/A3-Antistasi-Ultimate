@@ -33,36 +33,36 @@ private _typePatrol = "LAND";
 
 switch (true) do {
 	case (_base in seaports): {
-		_typeCar = selectRandom (_faction get "vehiclesGunBoats");
+		_typeCar = selectRandom (GetTiered(_faction, "vehiclesGunBoats"));
 		_typePatrol = "SEA";
 	};
 
 	case (_base in milbases): {
 		if (random 10 < tierWar + aggressionOccupants/10) then {
-			_typeCar = selectRandom ((_faction get "vehiclesLightArmed") + (_faction get "vehiclesAPCs") + (_faction get "vehiclesIFVs") + (_faction get "vehiclesLightTanks"));
+			_typeCar = selectRandom ((GetTiered(_faction, "vehiclesLightArmed")) + (GetTiered(_faction, "vehiclesAPCs")) + (GetTiered(_faction, "vehiclesIFVs")) + (GetTiered(_faction, "vehiclesLightTanks")));
 		} else {
-			_typeCar = selectRandom ((_faction get "vehiclesLightArmed") + (_faction get "vehiclesLightAPCs") + (_faction get "vehiclesMilitiaAPCs"));
+			_typeCar = selectRandom ((GetTiered(_faction, "vehiclesLightArmed")) + (GetTiered(_faction, "vehiclesLightAPCs")) + (GetTiered(_faction, "vehiclesMilitiaAPCs")));
 		};
 	};
 
 	case (_base in airportsX && {!(_faction getOrDefault ["attributeLowAir", false])}): {
 		if (_sideX isEqualTo Invaders || {random 10 < tierWar + aggressionOccupants/10}) then {
-			_typeCar = selectRandom (_faction get "vehiclesHelisLight");
-			if(count (_faction get "vehiclesAirPatrol") > 0) then 
+			_typeCar = selectRandom (GetTiered(_faction, "vehiclesHelisLight"));
+			if(count (GetTiered(_faction, "vehiclesAirPatrol")) > 0) then 
 			{
-				_typeCar = selectRandom (_faction get "vehiclesAirPatrol");
+				_typeCar = selectRandom (GetTiered(_faction, "vehiclesAirPatrol"));
 			};
 			_typePatrol = "AIR";
 		} else {
-			_typeCar = selectRandom ((_faction get "vehiclesMilitiaLightArmed") + (_faction get "vehiclesMilitiaCars"));	
+			_typeCar = selectRandom ((GetTiered(_faction, "vehiclesMilitiaLightArmed")) + (GetTiered(_faction, "vehiclesMilitiaCars")));	
 		};
 	};
 
 	default {
 		if (_sideX isEqualTo Invaders || {random 10 < tierWar + aggressionOccupants/10}) then {
-			_typeCar = selectRandom ((_faction get "vehiclesLightArmed") + (_faction get "vehiclesLightUnarmed"));
+			_typeCar = selectRandom ((GetTiered(_faction, "vehiclesLightArmed")) + (GetTiered(_faction, "vehiclesLightUnarmed")));
 		} else {
-			_typeCar = selectRandom ((_faction get "vehiclesPolice") + (_faction get "vehiclesMilitiaLightArmed") + (_faction get "vehiclesMilitiaCars") + (_faction get "vehiclesBasic"));
+			_typeCar = selectRandom ((GetTiered(_faction, "vehiclesPolice")) + (GetTiered(_faction, "vehiclesMilitiaLightArmed")) + (GetTiered(_faction, "vehiclesMilitiaCars")) + (GetTiered(_faction, "vehiclesBasic")));
 		};
 	};
 };
@@ -125,19 +125,19 @@ _groups pushBack _groupVeh;
 _vehiclesX pushBack _veh;
 
 switch (true) do {
-	case (_typeCar in (_faction get "vehiclesLightUnarmed")): {
+	case (_typeCar in (GetTiered(_faction, "vehiclesLightUnarmed"))): {
 		sleep 1;
 		private _groupX = [_posbase, _sideX, (selectRandom ([_faction, "groupsTierSmall"] call SCRT_fnc_unit_flattenTier))] call A3A_fnc_spawnGroup;
 		{_x assignAsCargo _veh;_x moveInCargo _veh; _soldiers pushBack _x; [_x] joinSilent _groupVeh; [_x,"",false] call A3A_fnc_NATOinit} forEach units _groupX;
 		deleteGroup _groupX;
 	};
-	case (_typeCar in (_faction get "vehiclesLightAPCs")): {
+	case (_typeCar in (GetTiered(_faction, "vehiclesLightAPCs"))): {
 		sleep 1;
 		private _groupX = [_posbase, _sideX, (selectRandom ([_faction, "groupsTierMedium"] call SCRT_fnc_unit_flattenTier))] call A3A_fnc_spawnGroup;
 		{_x assignAsCargo _veh;_x moveInCargo _veh; _soldiers pushBack _x; [_x] joinSilent _groupVeh; [_x,"",false] call A3A_fnc_NATOinit} forEach units _groupX;
 		deleteGroup _groupX;
 	};
-	case (_typeCar in ((_faction get "vehiclesAPCs") + (_faction get "vehiclesIFVs"))): {
+	case (_typeCar in ((GetTiered(_faction, "vehiclesAPCs")) + (GetTiered(_faction, "vehiclesIFVs")))): {
 		sleep 1;
 		private _groupX = [_posbase, _sideX, (selectRandom ([_faction, "groupsTierSquads"] call SCRT_fnc_unit_flattenTier))] call A3A_fnc_spawnGroup;
 		{_x assignAsCargo _veh;_x moveInCargo _veh; _soldiers pushBack _x; [_x] joinSilent _groupVeh; [_x,"",false] call A3A_fnc_NATOinit} forEach units _groupX;

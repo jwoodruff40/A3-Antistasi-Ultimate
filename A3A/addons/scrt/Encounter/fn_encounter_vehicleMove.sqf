@@ -48,7 +48,7 @@ private _roadcon = roadsConnectedto (_road select 0);
 private _dirveh = if (count _roadcon > 0) then {[_road select 0, _roadcon select 0] call BIS_fnc_dirTo} else {random 360};
 private _roadPosition = getPos (_road select 0);
 
-private _truckClass = selectRandom ((_faction get "vehiclesAmmoTrucks") + (_faction get "vehiclesRepairTrucks") + (_faction get "vehiclesFuelTrucks") + (_faction get "vehiclesMedical"));
+private _truckClass = selectRandom ((GetTiered(_faction, "vehiclesAmmoTrucks")) + (GetTiered(_faction, "vehiclesRepairTrucks")) + (GetTiered(_faction, "vehiclesFuelTrucks")) + (GetTiered(_faction, "vehiclesMedical")));
 
 if (_truckClass == "") exitWith {
     Error("No trucks, problems with template, aborting Vehicle Move Event.");

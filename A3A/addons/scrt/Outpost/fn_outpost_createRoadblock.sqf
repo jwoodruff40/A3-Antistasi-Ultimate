@@ -23,7 +23,7 @@ private _taskId = "outpostTask" + str A3A_taskCount;
 
 private _riflemanType = A3A_faction_reb get "unitRifle";
 private _squadType = A3A_faction_reb get "groupSquad";
-private _truckType = selectRandom (A3A_faction_reb get "vehiclesTruck");
+private _truckType = selectRandom (FactionGetTiered(reb, "vehiclesTruck"));
 
 private _formatX = [_riflemanType] + _squadType;
 private _groupX = [["Synd_HQ"] call A3A_fnc_findAiSpawnPosition, teamPlayer, _formatX] call A3A_fnc_spawnGroup;

@@ -50,10 +50,10 @@ private _fnc_spawngroups = {
 		_wp setWaypointSpeed "NORMAL";
 		_wp setWaypointType "SAD";
 		_InfGroups pushBack _InfGroup;
-		private _vehicles = if (_difficult) then {selectRandom ((_faction get "vehiclesAirborne") + (_faction get "vehiclesLightTanks") + (_faction get "vehiclesTanks") + (_faction get "vehiclesAPCs") + (_faction get "vehiclesIFVs"))
+		private _vehicles = if (_difficult) then {selectRandom ((GetTiered(_faction, "vehiclesAirborne")) + (GetTiered(_faction, "vehiclesLightTanks")) + (GetTiered(_faction, "vehiclesTanks")) + (GetTiered(_faction, "vehiclesAPCs")) + (GetTiered(_faction, "vehiclesIFVs")))
 					} else {selectRandom
-					((_faction get "vehiclesLightUnarmed") + (_faction get "vehiclesLightArmed") + (_faction get "vehiclesAirborne") + (_faction get "vehiclesLightTanks") + (_faction get "vehiclesMilitiaAPCs") + 
-					(_faction get "vehiclesMilitiaLightArmed") + (_faction get "vehiclesMilitiaCars"))
+					((GetTiered(_faction, "vehiclesLightUnarmed")) + (GetTiered(_faction, "vehiclesLightArmed")) + (GetTiered(_faction, "vehiclesAirborne")) + (GetTiered(_faction, "vehiclesLightTanks")) + (GetTiered(_faction, "vehiclesMilitiaAPCs")) + 
+					(GetTiered(_faction, "vehiclesMilitiaLightArmed")) + (GetTiered(_faction, "vehiclesMilitiaCars")))
 		};///add a check for a crew or vehicle type, if met order getout because weak vehicle or unarmed.
 		_skirmishpositionActuallveh = [_skirmishpositionActuall, 10, 50, 10, 0, 5, 0, [], [[0,0,0],[0,0,0]]] call BIS_fnc_findSafePos;
 		_vehicledata = [_skirmishpositionActuallveh, 0, _vehicles, _side] call A3A_fnc_spawnVehicle;
@@ -84,10 +84,10 @@ private _fnc_spawngroups = {
 		_wp setWaypointType "SAD";
 		_InfGroups2 pushBack _InfGroup2;
 
-		private _vehicles2 = if (_difficult2) then {selectRandom ((_faction2 get "vehiclesAirborne") + (_faction2 get "vehiclesLightTanks") + (_faction2 get "vehiclesTanks") + (_faction2 get "vehiclesAPCs") + (_faction2 get "vehiclesIFVs"))
+		private _vehicles2 = if (_difficult2) then {selectRandom ((GetTiered(_faction2, "vehiclesAirborne")) + (GetTiered(_faction2, "vehiclesLightTanks")) + (GetTiered(_faction2, "vehiclesTanks")) + (GetTiered(_faction2, "vehiclesAPCs")) + (GetTiered(_faction2, "vehiclesIFVs")))
 					} else {selectRandom
-					((_faction2 get "vehiclesLightUnarmed") + (_faction2 get "vehiclesLightArmed") + (_faction2 get "vehiclesAirborne") + (_faction2 get "vehiclesLightTanks") + (_faction2 get "vehiclesMilitiaAPCs") + 
-					(_faction2 get "vehiclesMilitiaLightArmed") + (_faction2 get "vehiclesMilitiaCars"))
+					((GetTiered(_faction2, "vehiclesLightUnarmed")) + (GetTiered(_faction2, "vehiclesLightArmed")) + (GetTiered(_faction2, "vehiclesAirborne")) + (GetTiered(_faction2, "vehiclesLightTanks")) + (GetTiered(_faction2, "vehiclesMilitiaAPCs")) + 
+					(GetTiered(_faction2, "vehiclesMilitiaLightArmed")) + (GetTiered(_faction2, "vehiclesMilitiaCars")))
 		};
 		_skirmishpositionActuall2veh = [_skirmishpositionActuall2, 10, 50, 10, 0, 5, 0, [], [[0,0,0],[0,0,0]]] call BIS_fnc_findSafePos;
 		_vehicledata2 = [_skirmishpositionActuall2veh, 0,_vehicles2, _side2] call A3A_fnc_spawnVehicle;

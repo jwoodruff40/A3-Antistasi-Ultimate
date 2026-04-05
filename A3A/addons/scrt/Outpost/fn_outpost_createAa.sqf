@@ -23,7 +23,7 @@ private _taskId = "outpostTask" + str A3A_taskCount;
 
 private _formatX = A3A_faction_reb get "groupAaEmpl";
 private _groupX = [["Synd_HQ"] call A3A_fnc_findAiSpawnPosition, teamPlayer, _formatX] call A3A_fnc_spawnGroup;
-private _vehType = (A3A_faction_reb get "vehiclesLightUnarmed") select 0;
+private _vehType = (FactionGetTiered(reb, "vehiclesLightUnarmed")) select 0;
 private _helperData = ["outpost"] call FUNCMAIN(findSpawnHelperPosition);
 _helperData params["_spawnPos", "_spawnDir"];
 

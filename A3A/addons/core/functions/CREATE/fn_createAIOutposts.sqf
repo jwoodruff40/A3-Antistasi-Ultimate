@@ -92,7 +92,7 @@ if (_patrol) then {
 
 if (_frontierX and {_markerX in outposts} && {!A3U_disableMortars}) then {
 	_typeUnit = [_faction get "unitTierStaticCrew"] call SCRT_fnc_unit_getTiered;
-	_typeVehX = selectRandom (_faction get "staticMortars");
+	_typeVehX = selectRandom (GetTiered(_faction, "staticMortars"));
 	_spawnParameter = [_markerX, "Mortar"] call A3A_fnc_findSpawnPosition;
 	if (_spawnParameter isEqualType []) then {
 		_spawnsUsed pushBack _spawnParameter#2;
@@ -133,7 +133,7 @@ if (!isNil "_ammoBoxSpawn") then { _spawnsUsed pushBack _ammoBoxSpawn };
 _roads = _positionX nearRoads _size;
 
 if (_markerX in seaports) then {
-	_typeVehX = selectRandom (_faction get "vehiclesGunBoats");
+	_typeVehX = selectRandom (GetTiered(_faction, "vehiclesGunBoats"));
 	private _mrkMar = seaSpawn select {getMarkerPos _x inArea _markerX};
 	if(count _mrkMar > 0) then {
 		private _pos = (getMarkerPos (_mrkMar select 0)) findEmptyPosition [0,20,_typeVehX];
@@ -177,7 +177,7 @@ if (_markerX in seaports) then {
 		private _pos = [getPos _road, 7, _dirveh + 270] call BIS_fnc_relPos;
 
 		if (_faction getOrDefault ["noSandbag", false]) then {		
-			private _typeVehX = selectRandom (_faction get "staticAT");
+			private _typeVehX = selectRandom (GetTiered(_faction, "staticAT"));
 			private _veh = _typeVehX createVehicle _positionX;
 			_vehiclesX pushBack _veh;
 			_veh setPos _pos;
@@ -193,7 +193,7 @@ if (_markerX in seaports) then {
 			_vehiclesX pushBack _bunker;
 			_bunker setDir _dirveh;
 			_pos = getPosATL _bunker;
-			private _typeVehX = selectRandom (_faction get "staticAT");
+			private _typeVehX = selectRandom (GetTiered(_faction, "staticAT"));
 			private _veh = _typeVehX createVehicle _positionX;
 			_vehiclesX pushBack _veh;
 			_veh setPos _pos;
@@ -214,22 +214,22 @@ private _veh = nil;
 if (_spawnParameter isEqualType []) then {
 	_spawnsUsed pushBack _spawnParameter#2;
 	private _typeVehX = call {
-		if (FactionGet(civ,"vehiclesCivRepair") isEqualTo [] and random 1 < 0.1) exitWith { selectRandom (_faction get "vehiclesRepairTrucks") };
-		if (FactionGet(civ,"vehiclesCivFuel") isEqualTo [] and random 1 < 0.1) exitWith { selectRandom (_faction get "vehiclesFuelTrucks") };
+		if (FactionGet(civ,"vehiclesCivRepair") isEqualTo [] and random 1 < 0.1) exitWith { selectRandom (GetTiered(_faction, "vehiclesRepairTrucks")) };
+		if (FactionGet(civ,"vehiclesCivFuel") isEqualTo [] and random 1 < 0.1) exitWith { selectRandom (GetTiered(_faction, "vehiclesFuelTrucks")) };
 		private _types = if (!_isFIA) then {
-			(_faction get "vehiclesTrucks") + 
-			(_faction get "vehiclesCargoTrucks") + 
-			(_faction get "vehiclesMedical") + 
-			(_faction get "vehiclesLightUnarmed") + 
-			(_faction get "vehiclesLightArmed")
+			(GetTiered(_faction, "vehiclesTrucks")) + 
+			(GetTiered(_faction, "vehiclesCargoTrucks")) + 
+			(GetTiered(_faction, "vehiclesMedical")) + 
+			(GetTiered(_faction, "vehiclesLightUnarmed")) + 
+			(GetTiered(_faction, "vehiclesLightArmed"))
 		} else {
-			(_faction get "vehiclesMilitiaTrucks") +
-			(_faction get "vehiclesMilitiaLightArmed") +
-			(_faction get "vehiclesMilitiaCars")+
-			(_faction get "vehiclesBasic") //we should use them somewhere at least
+			(GetTiered(_faction, "vehiclesMilitiaTrucks")) +
+			(GetTiered(_faction, "vehiclesMilitiaLightArmed")) +
+			(GetTiered(_faction, "vehiclesMilitiaCars"))+
+			(GetTiered(_faction, "vehiclesBasic")) //we should use them somewhere at least
 		};
 		// _types = _types select { _x in FactionGet(all,"vehiclesCargoTrucks") };
-		if (count _types == 0) then { (_faction get "vehiclesCargoTrucks") } else { _types };
+		if (count _types == 0) then { (GetTiered(_faction, "vehiclesCargoTrucks")) } else { _types };
 		selectRandom _types;
 	};
 	isNil {
@@ -248,8 +248,8 @@ while {_countX < _vehCount} do {
     private _hangar = objNull;
     private _spawnParameter = [_markerX, "Plane"] call A3A_fnc_findSpawnPosition;
     if (_spawnParameter isEqualType []) then {
-        private _vehiclesPlanesCAS = _faction get "vehiclesPlanesCAS";
-        private _vehiclesPlanesAA = _faction get "vehiclesPlanesAA";
+        private _vehiclesPlanesCAS = GetTiered(_faction, "vehiclesPlanesCAS");
+        private _vehiclesPlanesAA = GetTiered(_faction, "vehiclesPlanesAA");
         private _uavsAttack = _faction getOrDefault ["uavsAttack", []];
         private _vehPool = [];
         {

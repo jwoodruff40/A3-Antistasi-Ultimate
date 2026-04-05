@@ -42,7 +42,7 @@ if (_frontierX) then {
 		private _pos = [getPos _road, 7, _dirveh + 270] call BIS_Fnc_relPos;
 
 		if (_faction getOrDefault ["noSandbag", false]) then {		
-			private _typeVehX = selectRandom (_faction get "staticAT");
+			private _typeVehX = selectRandom (GetTiered(_faction, "staticAT"));
 			private _veh = _typeVehX createVehicle _positionX;
 			_vehiclesX pushBack _veh;
 			_veh setPos _pos;
@@ -58,7 +58,7 @@ if (_frontierX) then {
 			_vehiclesX pushBack _bunker;
 			_bunker setDir _dirveh;
 			_pos = getPosATL _bunker;
-			private _typeVehX = selectRandom (_faction get "staticAT");
+			private _typeVehX = selectRandom (GetTiered(_faction, "staticAT"));
 			private _veh = _typeVehX createVehicle _positionX;
 			_vehiclesX pushBack _veh;
 			_veh setPos _pos;
@@ -133,15 +133,15 @@ private _veh = nil;
 if (_spawnParameter isEqualType []) then {
 	_spawnsUsed pushBack _spawnParameter#2;
 	private _typeVehX = call {
-		if (FactionGet(civ,"vehiclesCivRepair") isEqualTo [] and random 1 < 0.1) exitWith { selectRandom (_faction get "vehiclesRepairTrucks") };
-		if (FactionGet(civ,"vehiclesCivFuel") isEqualTo [] and random 1 < 0.1) exitWith { selectRandom (_faction get "vehiclesFuelTrucks") };
+		if (FactionGet(civ,"vehiclesCivRepair") isEqualTo [] and random 1 < 0.1) exitWith { selectRandom (GetTiered(_faction, "vehiclesRepairTrucks")) };
+		if (FactionGet(civ,"vehiclesCivFuel") isEqualTo [] and random 1 < 0.1) exitWith { selectRandom (GetTiered(_faction, "vehiclesFuelTrucks")) };
 		private _types = if (!_isFIA) then {
-			(_faction get "vehiclesTrucks") + (_faction get "vehiclesCargoTrucks")
+			(GetTiered(_faction, "vehiclesTrucks")) + (GetTiered(_faction, "vehiclesCargoTrucks"))
 		} else {
-			_faction get "vehiclesMilitiaTrucks"
+			GetTiered(_faction, "vehiclesMilitiaTrucks")
 		};
 		_types = _types select { _x in FactionGet(all,"vehiclesCargoTrucks") };
-		if (count _types == 0) then { _types = (_faction get "vehiclesCargoTrucks") } else { _types }; // failsafe didn't work?
+		if (count _types == 0) then { _types = (GetTiered(_faction, "vehiclesCargoTrucks")) } else { _types }; // failsafe didn't work?
 		selectRandom _types;
 	};
 	isNil {

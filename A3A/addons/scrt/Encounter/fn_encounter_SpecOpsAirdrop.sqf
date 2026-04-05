@@ -94,7 +94,7 @@ if(count _smokes > 0) then {
     private _height = random [200, 300, 400];
     private _direction = [_initialPlanePosition, _AirDropPosition] call BIS_fnc_DirTo;
 
-    _planeType = selectRandom (_faction get "vehiclesPlanesTransport");
+    _planeType = selectRandom (GetTiered(_faction, "vehiclesPlanesTransport"));
     _planeData = [[_initialPlanePosition select 0, _initialPlanePosition select 1, _height], _direction, _planeType, _side] call A3A_fnc_spawnVehicle;
     _planeVeh = _planeData select 0;
     _planeVeh setPosATL [getPosATL _planeVeh select 0, getPosATL _planeVeh select 1, _height];
@@ -144,7 +144,7 @@ if(alive _planeVeh) then {
         "CargoNet_01_barrels_F",
         "Land_FoodSacks_01_cargo_brown_F",
         "CargoNet_01_box_F",
-        (selectRandom (_faction get "vehiclesLightArmed"))
+        (selectRandom (GetTiered(_faction, "vehiclesLightArmed")))
     ]; //change the boxes
 
     _planeVeh allowDamage false;

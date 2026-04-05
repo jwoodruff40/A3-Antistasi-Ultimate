@@ -115,7 +115,7 @@ if(_plane getVariable ["dropPosReached", false] && {!(_plane getVariable ["plane
 
     private _dir = getDir _plane;
     private _initialPos = (getPos _plane) vectorAdd [0, 0, -6.5];
-    private _apcClass = selectRandom (_faction get "vehiclesAirborne");
+    private _apcClass = selectRandom (GetTiered(_faction, "vehiclesAirborne"));
 
     private _apcData = [_initialPos, _dir, _apcClass, _side] call A3A_fnc_spawnVehicle;
     private _apc = _apcData select 0;

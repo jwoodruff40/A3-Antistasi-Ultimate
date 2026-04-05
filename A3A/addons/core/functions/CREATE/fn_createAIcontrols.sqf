@@ -78,7 +78,7 @@ if (_isControl) then
                 _pos = getPosATL _bunker;
             };
             _vehiclesX pushBack _bunker;
-            _typeVehX = selectRandom (_faction get "staticMGs");
+            _typeVehX = selectRandom (GetTiered(_faction, "staticMGs"));
             _veh = _typeVehX createVehicle _positionX;
             _vehiclesX pushBack _veh;
             _veh setPosATL _pos;
@@ -96,7 +96,7 @@ if (_isControl) then
                 _bunker setDir _dirveh + 180;
                 _pos = _bunker modelToWorld [-0.200684,-0.91333,-0.421184];
                 _vehiclesX pushBack _bunker;
-                _typeVehX = selectRandom (_faction get "staticMGs");
+                _typeVehX = selectRandom (GetTiered(_faction, "staticMGs"));
                 _veh = _typeVehX createVehicle _positionX;
                 _vehiclesX pushBack _veh;
                 _veh setPosATL _pos;
@@ -166,7 +166,7 @@ if (_isControl) then
         ];
 
         private _vehicleCategory = selectRandomWeighted _vehicleCategories;
-        private _fallbackVehicle = selectRandom (_faction get "vehiclesAPCs");
+        private _fallbackVehicle = selectRandom (GetTiered(_faction, "vehiclesAPCs"));
 
         Debug_2("Chosen %1 as vehicle category. tierWar is %2", _vehicleCategory, tierWar);
 

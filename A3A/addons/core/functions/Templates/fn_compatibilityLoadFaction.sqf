@@ -54,7 +54,7 @@ private _allDefinitions = _faction get "loadouts";
 
 if (_side in [Occupants, Invaders]) then {
     // Compile light armed that also have 4+ passenger seats
-    private _lightArmedTroop = (_faction get "vehiclesLightArmed") select {
+    private _lightArmedTroop = (GetTiered(_faction, "vehiclesLightArmed")) select {
         ([_x, true] call BIS_fnc_crewCount) - ([_x, false] call BIS_fnc_crewCount) >= 4
     };
     _faction set ["vehiclesLightArmedTroop", _lightArmedTroop];

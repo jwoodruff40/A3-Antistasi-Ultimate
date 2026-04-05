@@ -70,7 +70,7 @@ switch (true) do
 	};
 };
 
-_mgClass = selectRandom (_faction get "staticMGs");
+_mgClass = selectRandom (GetTiered(_faction, "staticMGs"));
 _mgCrewClass = [_faction get "unitTierStaticCrew"] call SCRT_fnc_unit_getTiered;
 
 if (isNil "_artilleryClass" || {isNil "_artilleryShellClass" || {isNil "_mgClass" || {isNil "_mgCrewClass"}}}) exitWith {

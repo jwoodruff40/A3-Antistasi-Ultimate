@@ -381,9 +381,9 @@ if (_isDifficult) then {
 //  Patrol vehicle 	                        //
 //////////////////////////////////////////////
 private _vehicleClass = if (_isDifficult) then {
-    selectRandom ((A3A_faction_riv get "vehiclesRivalsLightArmed") + (A3A_faction_riv get "vehiclesRivalsAPCs") + (A3A_faction_riv get "vehiclesRivalsTanks"));
+    selectRandom ((FactionGetTiered(riv, "vehiclesRivalsLightArmed")) + (FactionGetTiered(riv, "vehiclesRivalsAPCs")) + (FactionGetTiered(riv, "vehiclesRivalsTanks")));
 } else {
-    selectRandom (A3A_faction_riv get "vehiclesRivalsLightArmed");
+    selectRandom (FactionGetTiered(riv, "vehiclesRivalsLightArmed"));
 };
 
 private _vehiclePosAndDir = [_positionX, _vehicleClass] call SCRT_fnc_common_findSafePositionForVehicle; 
@@ -480,7 +480,7 @@ _lootContainer addEventHandler ["Killed", { [_this#0] spawn { sleep 10; deleteVe
 private _camoNet = createVehicle ["CamoNet_BLUFOR_F", _lootContainerPosition, [], 0 , "CAN_COLLIDE"];
 _camoNet setDir _direction;
 
-private _truckClass = selectRandom (A3A_faction_riv get "vehiclesRivalsTrucks");
+private _truckClass = selectRandom (FactionGetTiered(riv, "vehiclesRivalsTrucks"));
 private _vehiclePosAndDir = [_lootContainerPosition, _truckClass] call SCRT_fnc_common_findSafePositionForVehicle; 
 private _truck = createVehicle [_truckClass, (_vehiclePosAndDir select 0), [], 0 , "CAN_COLLIDE"];
 _truck setDir (_vehiclePosAndDir select 1);

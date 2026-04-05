@@ -82,11 +82,11 @@ if ([_targetPos, _area, _side] call A3A_fnc_artilleryDangerClose) then {
 
 /////// GET ARTILLERY ROUND TYPE FROM TEMPLATES \\\\\\\
 private _faction = Faction(_side);
-if (_batteryClass in (_faction get "vehiclesArtillery")) then {
+if (_batteryClass in (GetTiered(_faction, "vehiclesArtillery"))) then {
     private _shellArray = _faction get "magazines" get _batteryClass;
     _shellType = (_shellArray # 0);
 };
-if (_batteryClass in (_faction get "staticMortars")) then {
+if (_batteryClass in (GetTiered(_faction, "staticMortars"))) then {
     switch (_roundType) do {
         case "HE": {
             _shellType = _faction get "mortarMagazineHE";

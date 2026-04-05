@@ -14,8 +14,8 @@ private _faction = Faction(_side);
 
 Verbose_2("SelectVehicleType: Selecting vehicle now, preferred is %1, side is %2", _preference, _side);
 
-if(_preference == "LAND_AIR") exitWith { selectRandom (_faction get "vehiclesAA") };
-if(_preference == "LAND_TANK") exitWith { selectRandom (_faction get "vehiclesTanks") };
+if(_preference == "LAND_AIR") exitWith { selectRandom (GetTiered(_faction, "vehiclesAA")) };
+if(_preference == "LAND_TANK") exitWith { selectRandom (GetTiered(_faction, "vehiclesTanks")) };
 
 private _possibleVehicles = [];
 if(_preference in ["EMPTY", "LAND_START", "HELI_PATROL", "AIR_DRONE"]) then {
@@ -23,29 +23,29 @@ if(_preference in ["EMPTY", "LAND_START", "HELI_PATROL", "AIR_DRONE"]) then {
 };
 
 if(_preference in ["LAND_START", "LAND_LIGHT", "LAND_DEFAULT"]) then {
-    _possibleVehicles append (_faction get "vehiclesLightArmed");
-    _possibleVehicles append (_faction get "vehiclesLightUnarmed");
+    _possibleVehicles append (GetTiered(_faction, "vehiclesLightArmed"));
+    _possibleVehicles append (GetTiered(_faction, "vehiclesLightUnarmed"));
 };
 
 if(_preference in ["LAND_DEFAULT", "LAND_APC", "LAND_ATTACK"]) then {
-    _possibleVehicles append (_faction get "vehiclesAPCs");
+    _possibleVehicles append (GetTiered(_faction, "vehiclesAPCs"));
 };
 
 if(_preference in ["LAND_ATTACK"]) then {
-    _possibleVehicles append (_faction get "vehiclesTanks");
+    _possibleVehicles append (GetTiered(_faction, "vehiclesTanks"));
 };
 
 if(_preference in ["HELI_PATROL", "HELI_LIGHT"]) then {
-    _possibleVehicles append (_faction get "vehiclesHelisLight");
+    _possibleVehicles append (GetTiered(_faction, "vehiclesHelisLight"));
 };
 
 if(_preference in ["HELI_TRANSPORT", "HELI_DEFAULT"]) then {
-    _possibleVehicles append (_faction get "vehiclesHelisLight");
-    _possibleVehicles append (_faction get "vehiclesHelisTransport");
+    _possibleVehicles append (GetTiered(_faction, "vehiclesHelisLight"));
+    _possibleVehicles append (GetTiered(_faction, "vehiclesHelisTransport"));
 };
 
 if(_preference in ["HELI_DEFAULT", "HELI_ATTACK"]) then {
-    _possibleVehicles append (_faction get "vehiclesHelisAttack");
+    _possibleVehicles append (GetTiered(_faction, "vehiclesHelisAttack"));
 };
 
 if(_preference in ["AIR_DRONE", "AIR_GENERIC"]) then {
@@ -53,9 +53,9 @@ if(_preference in ["AIR_DRONE", "AIR_GENERIC"]) then {
     _possibleVehicles append (_faction get "uavsPortable");
 };
 if(_preference in ["AIR_GENERIC", "AIR_DEFAULT"]) then {
-    _possibleVehicles append (_faction get "vehiclesPlanesCAS");
-    _possibleVehicles append (_faction get "vehiclesPlanesAA");
-    _possibleVehicles append (_faction get "vehiclesPlanesGunship");
+    _possibleVehicles append (GetTiered(_faction, "vehiclesPlanesCAS"));
+    _possibleVehicles append (GetTiered(_faction, "vehiclesPlanesAA"));
+    _possibleVehicles append (GetTiered(_faction, "vehiclesPlanesGunship"));
 };
 
 if(count _possibleVehicles == 0) exitWith

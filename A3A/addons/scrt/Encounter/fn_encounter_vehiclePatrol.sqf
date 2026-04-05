@@ -54,9 +54,9 @@ private _faction = Faction(_side);
 
 private _isFia = if (random 10 > (tierWar + difficultyCoef)) then {true} else {false};
 private _vehicleClass = if (_isFia) then {
-    selectRandom ((_faction get "vehiclesMilitiaLightArmed") +  (_faction get "vehiclesMilitiaAPCs") + (_faction get "vehiclesHelisLight"));
+    selectRandom ((GetTiered(_faction, "vehiclesMilitiaLightArmed")) +  (GetTiered(_faction, "vehiclesMilitiaAPCs")) + (GetTiered(_faction, "vehiclesHelisLight")));
 } else {
-    selectRandom ((_faction get "vehiclesAPCs") +  (_faction get "vehiclesIFVs") + (_faction get "vehiclesLightTanks") + (_faction get "vehiclesAirPatrol") + (_faction get "vehiclesHelisLightAttack"));
+    selectRandom ((GetTiered(_faction, "vehiclesAPCs")) +  (GetTiered(_faction, "vehiclesIFVs")) + (GetTiered(_faction, "vehiclesLightTanks")) + (GetTiered(_faction, "vehiclesAirPatrol")) + (GetTiered(_faction, "vehiclesHelisLightAttack")));
 };
 
 if (_vehicleClass == "") exitWith {

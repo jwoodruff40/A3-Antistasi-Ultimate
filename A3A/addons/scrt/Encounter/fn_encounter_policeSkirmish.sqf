@@ -155,10 +155,10 @@ private _fnc_spawnForces = {
 };
 
 // Spawn police forces (Occupants)
-[Occupants, _cityPos getPos [100, random 360], (A3A_faction_occ get "vehiclesPolice"), (A3A_faction_occ get "groupPolice")] call _fnc_spawnPoliceForces;
+[Occupants, _cityPos getPos [100, random 360], (FactionGetTiered(occ, "vehiclesPolice")), (A3A_faction_occ get "groupPolice")] call _fnc_spawnPoliceForces;
 
 // Spawn invader forces
-[Invaders, _cityPos getPos [300, random 360 + 180], (A3A_faction_inv get "vehiclesMilitiaLightArmed") + (A3A_faction_inv get "vehiclesLightArmed") + (A3A_faction_inv get "vehiclesLightUnarmed") + (A3A_faction_inv get "vehiclesMilitiaCars"), selectRandom ([A3A_faction_inv, "groupsTierSmall"] call SCRT_fnc_unit_flattenTier)] call _fnc_spawnForces;
+[Invaders, _cityPos getPos [300, random 360 + 180], (FactionGetTiered(inv, "vehiclesMilitiaLightArmed")) + (FactionGetTiered(inv, "vehiclesLightArmed")) + (FactionGetTiered(inv, "vehiclesLightUnarmed")) + (FactionGetTiered(inv, "vehiclesMilitiaCars")), selectRandom ([A3A_faction_inv, "groupsTierSmall"] call SCRT_fnc_unit_flattenTier)] call _fnc_spawnForces;
 
 // Set mutual hostility
 {_x setCombatMode "YELLOW"} forEach _groups;

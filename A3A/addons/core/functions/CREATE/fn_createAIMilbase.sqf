@@ -97,7 +97,7 @@ if (_frontierX) then {
 	if (count _roads != 0) then {
 		private _groupX = createGroup _sideX;
 		_groups pushBack _groupX;
-		private _typeVehX = selectRandom (_faction get "staticAT");
+		private _typeVehX = selectRandom (GetTiered(_faction, "staticAT"));
 
 		if (_faction getOrDefault ["noSandbag", false]) then {		
 			private _veh = _typeVehX createVehicle _positionX;
@@ -185,7 +185,7 @@ while {true} do {
 
 	_spawnsUsed pushBack _spawnParameter#2;
 
-	_typeVehX = selectRandom (_faction get "staticMortars");
+	_typeVehX = selectRandom (GetTiered(_faction, "staticMortars"));
 	_veh = _typeVehX createVehicle (_spawnParameter select 0);
 	_veh setDir (_spawnParameter select 1);
 	_unit = [_groupX, _typeUnit, _positionX, [], 0, "CAN_COLLIDE"] call A3A_fnc_createUnit;
@@ -376,7 +376,7 @@ if (random 10 < (tierWar + difficultyCoef)) then {
 
 		private _veh = nil;
 		isNil {
-			_veh = createVehicle [selectRandom (_faction get "vehiclesAA"), (_spawnParameter select 0), [], 0, "CAN_COLLIDE"];
+			_veh = createVehicle [selectRandom (GetTiered(_faction, "vehiclesAA")), (_spawnParameter select 0), [], 0, "CAN_COLLIDE"];
 			_veh setDir (_spawnParameter select 1);
 		};
 
@@ -400,7 +400,7 @@ if (random 10 < (tierWar + difficultyCoef)) then {
   [_x, true] call A3U_fnc_setLock;
 } forEach _vehiclesX;
 
-private _boatType = selectRandom (_faction get "vehiclesGunBoats");
+private _boatType = selectRandom (GetTiered(_faction, "vehiclesGunBoats"));
 private _mrkMar = seaSpawn select {getMarkerPos _x inArea _markerX};
 if (count _mrkMar > 0) then {
 	private _pos = (getMarkerPos (_mrkMar select 0)) findEmptyPosition [0,20,_typeVehX];
@@ -423,7 +423,7 @@ if (count _mrkMar > 0) then {
 ////////////////////////////
 
 if (random 100 < (30 + tierWar * 6)) then {
-	private _heavyVehPool =  (_faction get "vehiclesTanks") + (_faction get "vehiclesAPCs") + (_faction get "vehiclesLightAPCs") + (_faction get "vehiclesIFVs") + (_faction get "vehiclesLightTanks");
+	private _heavyVehPool =  (GetTiered(_faction, "vehiclesTanks")) + (GetTiered(_faction, "vehiclesAPCs")) + (GetTiered(_faction, "vehiclesLightAPCs")) + (GetTiered(_faction, "vehiclesIFVs")) + (GetTiered(_faction, "vehiclesLightTanks"));
 	private _type = selectRandom _heavyVehPool;
 
 	private _road = [_positionX] call A3A_fnc_findNearestGoodRoad;
@@ -440,7 +440,7 @@ if (random 100 < (30 + tierWar * 6)) then {
 	[_heavyVehicle, _sideX] call A3A_fnc_AIVEHinit;
 	{[_x,_markerX] call A3A_fnc_NATOinit} forEach (units _group);
 
-	if (_type in ((_faction get "vehiclesAPCs") + (_faction get "vehiclesIFVs") + (_faction get "vehiclesLightAPCs"))) then {
+	if (_type in ((GetTiered(_faction, "vehiclesAPCs")) + (GetTiered(_faction, "vehiclesIFVs")) + (GetTiered(_faction, "vehiclesLightAPCs")))) then {
 		sleep 1;
 		private _troopGroup = [(position _road), _sideX, (selectRandom ([_faction, "groupsTierMedium"] call SCRT_fnc_unit_flattenTier))] call A3A_fnc_spawnGroup;
 		{_x assignAsCargo _heavyVehicle;_x moveInCargo _heavyVehicle; _soldiers pushBack _x; [_x] joinSilent _group; [_x,"",false] call A3A_fnc_NATOinit} forEach units _troopGroup;

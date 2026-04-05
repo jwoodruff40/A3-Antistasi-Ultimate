@@ -56,10 +56,10 @@ private _fnc_spawngroups = {
 		_wp setWaypointType "SAD";
 		_InfGroups pushBack _InfGroup;
 
-		private _vehicles = if (_difficult) then {selectRandom ((_faction get "vehiclesAirborne") + (_faction get "vehiclesLightTanks") + (_faction get "vehiclesTanks") + (_faction get "vehiclesAPCs") + (_faction get "vehiclesIFVs"))
+		private _vehicles = if (_difficult) then {selectRandom ((GetTiered(_faction, "vehiclesAirborne")) + (GetTiered(_faction, "vehiclesLightTanks")) + (GetTiered(_faction, "vehiclesTanks")) + (GetTiered(_faction, "vehiclesAPCs")) + (GetTiered(_faction, "vehiclesIFVs")))
 					} else {selectRandom
-					((_faction get "vehiclesLightUnarmed") + (_faction get "vehiclesLightArmed") + (_faction get "vehiclesAirborne") + (_faction get "vehiclesLightTanks") + (_faction get "vehiclesMilitiaAPCs") + 
-					(_faction get "vehiclesMilitiaLightArmed") + (_faction get "vehiclesMilitiaCars"))
+					((GetTiered(_faction, "vehiclesLightUnarmed")) + (GetTiered(_faction, "vehiclesLightArmed")) + (GetTiered(_faction, "vehiclesAirborne")) + (GetTiered(_faction, "vehiclesLightTanks")) + (GetTiered(_faction, "vehiclesMilitiaAPCs")) + 
+					(GetTiered(_faction, "vehiclesMilitiaLightArmed")) + (GetTiered(_faction, "vehiclesMilitiaCars")))
 		};///add a check for a crew or vehicle type, if met order getout because weak vehicle or unarmed.
 		_vehicledata = [_skirmishpositionActuall, 0, _vehicles, _side] call A3A_fnc_spawnVehicle;
 		_vehicle = _vehicledata select 0;
@@ -89,8 +89,8 @@ private _fnc_spawngroups = {
 		_wp setWaypointType "SAD";
 		_Rivalsgroups pushBack _Rivalsgroup;
 
-		private _vehicles2 = if (_difficult2) then {selectRandom ((A3A_faction_riv get "vehiclesRivalsAPCs") + (A3A_faction_riv get "vehiclesRivalsTanks"))} else {selectRandom ((A3A_faction_riv get "vehiclesRivalsCars") + 
-		(A3A_faction_riv get "vehiclesRivalsLightArmed") + (A3A_faction_riv get "vehiclesRivalsTrucks"))};
+		private _vehicles2 = if (_difficult2) then {selectRandom ((FactionGetTiered(riv, "vehiclesRivalsAPCs")) + (FactionGetTiered(riv, "vehiclesRivalsTanks")))} else {selectRandom ((FactionGetTiered(riv, "vehiclesRivalsCars")) + 
+		(FactionGetTiered(riv, "vehiclesRivalsLightArmed")) + (FactionGetTiered(riv, "vehiclesRivalsTrucks")))};
 		_vehicledata2 = [_skirmishpositionActuall2, 0,_vehicles2, _side2] call A3A_fnc_RivalsSpawnVehicle;
 		_vehicle2 = _vehicledata2 select 0;
 		_vehiclegroup2 = _vehicledata2 select 2;

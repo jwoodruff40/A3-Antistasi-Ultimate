@@ -25,7 +25,7 @@ if (A3U_disablePATCOMMortars) exitWith {
 };
 
 private _faction = Faction(_side);
-private _vehType = selectRandom (_faction get "vehiclesArtillery");
+private _vehType = selectRandom (GetTiered(_faction, "vehiclesArtillery"));
 private _magPool = (_faction get "magazines") get _vehType;
 private _shellType = selectRandom _magPool;
 ([_vehType, _shellType] call A3A_fnc_getArtilleryRanges) params ["_minRange", "_maxRange"];

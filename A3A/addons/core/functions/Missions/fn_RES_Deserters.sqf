@@ -63,11 +63,11 @@ private _infantrySquadArray = [
 ] select _difficultX;
 private _vehiclePatrol = "";
 private _stolenVehicle = "";
-_vehiclePatrolType = selectRandom ((_faction get "vehiclesLightArmed") + (_faction get "vehiclesMilitiaLightArmed") + (_faction get "vehiclesMilitiaAPCs") + (_faction get "vehiclesMilitiaTrucks"));
+_vehiclePatrolType = selectRandom ((GetTiered(_faction, "vehiclesLightArmed")) + (GetTiered(_faction, "vehiclesMilitiaLightArmed")) + (GetTiered(_faction, "vehiclesMilitiaAPCs")) + (GetTiered(_faction, "vehiclesMilitiaTrucks")));
 _stolenVehicleType = if (_difficultX) then {
-    selectRandom ((_faction get "vehiclesLightAPCs") +(_faction get "vehiclesLightArmed") + (_faction get "vehiclesTrucks"));
+    selectRandom ((GetTiered(_faction, "vehiclesLightAPCs")) +(GetTiered(_faction, "vehiclesLightArmed")) + (GetTiered(_faction, "vehiclesTrucks")));
 } else {
-    selectRandom ((_faction get "vehiclesLightArmed") + (_faction get "vehiclesTrucks") + (_faction get "vehiclesMilitiaLightArmed") + (_faction get "vehiclesMilitiaCars") + (_faction get "vehiclesMilitiaAPCs") + (_faction get "vehiclesMilitiaTrucks"));
+    selectRandom ((GetTiered(_faction, "vehiclesLightArmed")) + (GetTiered(_faction, "vehiclesTrucks")) + (GetTiered(_faction, "vehiclesMilitiaLightArmed")) + (GetTiered(_faction, "vehiclesMilitiaCars")) + (GetTiered(_faction, "vehiclesMilitiaAPCs")) + (GetTiered(_faction, "vehiclesMilitiaTrucks")));
 }; 
 private _nearbyPos = [_spawnPos, 200, 300, 3, 0, 5, 0] call BIS_fnc_findSafePos;
 private _patrolGroup1 = [_nearbyPos, _sideX, _infantrySquadArray] call A3A_fnc_spawnGroup;

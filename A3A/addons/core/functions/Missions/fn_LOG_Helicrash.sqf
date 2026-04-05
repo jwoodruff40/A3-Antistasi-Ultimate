@@ -67,13 +67,13 @@ while {true} do {
 
 // selecting classnames
 private _pilotClass = _faction get "unitPilot";
-private _helicopterClass = selectRandom (_faction get "vehiclesHelisTransport");
+private _helicopterClass = selectRandom (GetTiered(_faction, "vehiclesHelisTransport"));
 private _searchHeliClass =  if (_difficult) then {
-    selectRandom ((_faction get "vehiclesHelisLightAttack") + (_faction get "vehiclesHelisAttack"))
+    selectRandom ((GetTiered(_faction, "vehiclesHelisLightAttack")) + (GetTiered(_faction, "vehiclesHelisAttack")))
 } else {
-    selectRandom ((_faction get "vehiclesHelisLight") + (_faction get "vehiclesHelisLightAttack"))
+    selectRandom ((GetTiered(_faction, "vehiclesHelisLight")) + (GetTiered(_faction, "vehiclesHelisLightAttack")))
 };
-private _cargoTruckClass = selectRandom (_faction get "vehiclesTrucks");
+private _cargoTruckClass = selectRandom (GetTiered(_faction, "vehiclesTrucks"));
 private _boxClass = _faction get "ammobox";
 private _specOpsArray = if (_difficult) then {selectRandom (_faction get "groupSpecOpsRandom")} else {selectRandom ([_faction, "groupsTierSquads"] call SCRT_fnc_unit_flattenTier)};
 
@@ -208,7 +208,7 @@ _searchHeliVeh setCollisionLight true;
 _groups pushBack _heliVehicleGroup;
 _vehicles pushBack _searchHeliVeh;
 
-if(_searchHeliClass in (_faction get "vehiclesHelisLight")) then {
+if(_searchHeliClass in (GetTiered(_faction, "vehiclesHelisLight"))) then {
     _heliLoiterWaypoint = _heliVehicleGroup addWaypoint [_crashPosition, 0];
     _heliLoiterWaypoint setWaypointType "LOITER";
     _heliLoiterWaypoint setWaypointBehaviour "SAFE";

@@ -28,15 +28,15 @@ private _casDiveWeight =   [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10] select _level;
 
 // eventually add dive bombers?
 
-if (_faction get "vehiclesHelisLightAttack" isEqualTo []) then { _AHWeight = _AHWeight + _lightAHWeight };
-if (_faction get "vehiclesHelisAttack" isEqualTo []) then { _casWeight = _casWeight + _AHWeight };
-if (_faction get "vehiclesPlanesCAS" isEqualTo []) then { _AHWeight = _AHWeight + _casWeight };
+if (GetTiered(_faction, "vehiclesHelisLightAttack") isEqualTo []) then { _AHWeight = _AHWeight + _lightAHWeight };
+if (GetTiered(_faction, "vehiclesHelisAttack") isEqualTo []) then { _casWeight = _casWeight + _AHWeight };
+if (GetTiered(_faction, "vehiclesPlanesCAS") isEqualTo []) then { _AHWeight = _AHWeight + _casWeight };
 
-if (_faction get "vehiclesPlanesCAS" isNotEqualTo []) then {
+if (GetTiered(_faction, "vehiclesPlanesCAS") isNotEqualTo []) then {
     _vehWeights append ["CAS", _casWeight];
     _vehWeights append ["CASDIVE", _casDiveWeight];
 };
-[_faction get "vehiclesHelisAttack", _AHWeight] call _fnc_addArrayToWeights;
-[_faction get "vehiclesHelisLightAttack", _lightAHWeight] call _fnc_addArrayToWeights;
+[GetTiered(_faction, "vehiclesHelisAttack"), _AHWeight] call _fnc_addArrayToWeights;
+[GetTiered(_faction, "vehiclesHelisLightAttack"), _lightAHWeight] call _fnc_addArrayToWeights;
 
 _vehWeights;

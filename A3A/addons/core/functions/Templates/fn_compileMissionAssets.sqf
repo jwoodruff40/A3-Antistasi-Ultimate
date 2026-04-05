@@ -19,11 +19,12 @@ License: MIT License
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 
-#define OccAndInv(VAR) (FactionGetOrDefault(occ, VAR, []) + FactionGetOrDefault(inv, VAR, []))
-#define Reb(VAR) FactionGetOrDefault(reb, VAR, [])
-#define Riv(VAR) FactionGetOrDefault(riv, VAR, [])
-#define Occ(VAR) FactionGetOrDefault(occ, VAR, [])
-#define Inv(VAR) FactionGetOrDefault(inv, VAR, [])
+#define Civ(VAR) ((flatten FactionGetOrDefault(civ, VAR, [])) select {_x isEqualType ""})
+#define Reb(VAR) (flatten FactionGetOrDefault(reb, VAR, []))
+#define Riv(VAR) (flatten FactionGetOrDefault(riv, VAR, []))
+#define Occ(VAR) (flatten FactionGetOrDefault(occ, VAR, []))
+#define Inv(VAR) (flatten FactionGetOrDefault(inv, VAR, []))
+#define OccAndInv(VAR) (Occ(VAR) + Inv(VAR))
 
 A3A_faction_all = createHashMap;
 //setVar expects an array
@@ -99,7 +100,7 @@ setVar("vehiclesPolice", OccAndInv("vehiclesPolice"));
 setVar("vehiclesAttack", OccAndInv("vehiclesAttack"));
 setVar("vehiclesAmmoTrucks", OccAndInv("vehiclesAmmoTrucks"));
 setVar("vehiclesLightAPCs", OccAndInv("vehiclesLightAPCs") + OccAndInv("vehiclesMilitiaAPCs") + OccAndInv("vehiclesAirborne"));
-setVar("vehiclesMedical", OccAndInv("vehiclesMedical") + ((A3A_faction_civ get "vehiclesCivMedical") select {_x isEqualType ""}));
+setVar("vehiclesMedical", OccAndInv("vehiclesMedical") + Civ("vehiclesCivMedical"));
 setVar("vehiclesAPCs", OccAndInv("vehiclesAPCs") + Riv("vehiclesRivalsAPCs") + ("APC" call _fnc_extractMarketClasses));
 setVar("vehiclesIFVs", OccAndInv("vehiclesIFVs") );
 setVar("vehiclesUAVs", OccAndInv("uavsAttack")+ OccAndInv("uavsPortable") + Riv("vehiclesRivalsUavs") + ("UAV" call _fnc_extractMarketClasses));
