@@ -121,11 +121,11 @@ switch (_mode) do
                     case "CONTEXT":    { A3A_IDC_NEWBATTLEMENU_TAB_CONTEXT };
                     default            { -1 };
                 };
-                {
+                /*{
                     (_display displayCtrl _x) ctrlSetBackgroundColor (
                         if (_x == _activeTabIDC) then {_colorActive} else {_colorInactive}
                     );
-                } forEach _primaryTabIDCs;
+                } forEach _primaryTabIDCs;*/
 
                 // CONTEXT tab: show RightPanelContextContainer, hide secondary tabs.
                 // All other tabs: show secondary tabs, hide context panel.
@@ -209,11 +209,11 @@ switch (_mode) do
                     A3A_IDC_NEWBATTLEMENU_MAINTAB_BTN3,
                     A3A_IDC_NEWBATTLEMENU_MAINTAB_BTN4
                 ];
-                {
+                /*{
                     (_display displayCtrl _x) ctrlSetBackgroundColor (
                         if (_forEachIndex + 1 == _index) then {_colorActive} else {_colorInactive}
                     );
-                } forEach _secondaryBtnIDCs;
+                } forEach _secondaryBtnIDCs;*/
 
                 // Populate the context bar for this primary/secondary combination.
                 ["updateContextBar", [_activePrimaryTab, _index]] call A3A_fnc_newBattleMenu;

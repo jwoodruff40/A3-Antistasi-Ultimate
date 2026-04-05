@@ -26,6 +26,7 @@
 // IMPORTANT: A3A_MapControl must be a direct child of Controls -- placing it
 // inside a controlsGroup offsets the interactable area from what is drawn.
 // Also ensure no controlsGroup rectangle overlaps the map rectangle.
+
 class A3A_newBattleMenu
 {
     idd = A3A_IDD_NEWBATTLEMENU;
@@ -93,7 +94,7 @@ class A3A_newBattleMenu
         //   4. Selects the first secondary tab by default.
         //
         // Section → secondary tabs:
-        //   OPERATIONS:   [1]HQ Management, [2]Garrison Mgmt, [3]Emplacement Mgmt, [4]Mission Mgmt
+        //   OPERATIONS:   [1]HQ Management, [2]Garrison Mgmt, [3]Outpost Mgmt, [4]Mission Mgmt
         //   SUPPORTS:     [1]Offensive,     [2]Defensive,     [3]Reconnaissance,   [4]Supply
         //   PERSONNEL:    [1]Player,        [2]Commander,     [3]AI Recruitment,   [4]AI Management
         //   GAME_OPTIONS: [1]Environment,   [2]Performance,   [3]Server Info,      [4]Save
@@ -117,7 +118,7 @@ class A3A_newBattleMenu
                     colorBackground[] = {0,0,0,0.8};
                     x = 0;
                     y = 0;
-                    w = 90 * GRID_W;
+                    w = 89 * GRID_W;
                     h = 10 * GRID_H;
                 };
                 // Four buttons: w=18 h=8; m=3, g=4
@@ -217,7 +218,7 @@ class A3A_newBattleMenu
         //   OPERATIONS / Garrison Management:
         //     Disband Units/Post | Recruit Units
         //     (right panel info shows selected garrison: name, unit breakdown)
-        //   OPERATIONS / Emplacement Management:
+        //   OPERATIONS / Outpost Management:
         //     Establish Watchpost | Establish Roadblock | Establish HMG Emplacement |
         //     Establish AT Emplacement | Establish AA Emplacement |
         //     Establish AP Minefield | Establish AT Minefield
@@ -285,36 +286,84 @@ class A3A_newBattleMenu
                     w = 30 * GRID_W;
                     h = 55 * GRID_H;
                 };
-                class SecondaryTab1 : A3A_Button
+                class SecondaryTab1 : A3A_ControlsGroupNoScrollbars
                 {
-                    idc = A3A_IDC_NEWBATTLEMENU_MAINTAB_BTN1;
-                    text = $STR_antistasi_dialogs_new_battle_menu_hq_mgmt_button; // default: Operations
-                    onButtonClick = "[""handleTabSwitch"", [""SECONDARY"", 1]] call A3A_fnc_newBattleMenu;";
                     x = 1 * GRID_W;
                     y = 2 * GRID_H;
                     w = 28 * GRID_W;
                     h = 8 * GRID_H;
+
+                    class Controls
+                    {
+                        class Button : A3A_Button_Transparent
+                        {
+                            idc = -1;
+                            onButtonClick = "[""handleTabSwitch"", [""SECONDARY"", 1]] call A3A_fnc_newBattleMenu;";
+                            w = 28 * GRID_W;
+                            h = 8 * GRID_H;
+                        };
+                        class Label : A3A_Text
+                        {
+                            idc = A3A_IDC_NEWBATTLEMENU_MAINTAB_BTN1;
+                            text = $STR_antistasi_dialogs_new_battle_menu_hq_mgmt_button;
+                            colorBackground[] = A3A_COLOR_BUTTON_BACKGROUND;
+                            colorBackgroundDisabled[] = A3A_COLOR_BUTTON_BACKGROUND_DISABLED;
+                            colorBackgroundActive[] =	A3A_COLOR_BUTTON_ACTIVE;
+                            size = GUI_TEXT_SIZE_SMALL;
+                            sizeEx = GUI_TEXT_SIZE_SMALL;
+                            style = ST_CENTER + ST_MULTI + ST_NO_RECT; // ST_UPPERCASE doesn't work with ST_MULTI :(
+                            w = 28 * GRID_W;
+                            h = 8 * GRID_H;
+                        };
+                    };
                 };
                 class SecondaryTab2 : SecondaryTab1
                 {
-                    idc = A3A_IDC_NEWBATTLEMENU_MAINTAB_BTN2;
-                    text = $STR_antistasi_dialogs_new_battle_menu_garrison_mgmt_button; // default: Operations
-                    onButtonClick = "[""handleTabSwitch"", [""SECONDARY"", 2]] call A3A_fnc_newBattleMenu;";
-                    y = 14 * GRID_H;
+                    y = 13 * GRID_H;
+                    class Controls : Controls
+                    {
+                        class Button : Button
+                        {
+                            onButtonClick = "[""handleTabSwitch"", [""SECONDARY"", 2]] call A3A_fnc_newBattleMenu;";
+                        };
+                        class Label : Label
+                        {
+                            idc = A3A_IDC_NEWBATTLEMENU_MAINTAB_BTN2;
+                            text = $STR_antistasi_dialogs_new_battle_menu_garrison_mgmt_button;
+                        };
+                    };
                 };
                 class SecondaryTab3 : SecondaryTab1
                 {
-                    idc = A3A_IDC_NEWBATTLEMENU_MAINTAB_BTN3;
-                    text = $STR_antistasi_dialogs_new_battle_menu_emplacement_mgmt_button; // default: Operations
-                    onButtonClick = "[""handleTabSwitch"", [""SECONDARY"", 3]] call A3A_fnc_newBattleMenu;";
                     y = 26 * GRID_H;
+                    class Controls : Controls
+                    {
+                        class Button : Button
+                        {
+                            onButtonClick = "[""handleTabSwitch"", [""SECONDARY"", 3]] call A3A_fnc_newBattleMenu;";
+                        };
+                        class Label : Label
+                        {
+                            idc = A3A_IDC_NEWBATTLEMENU_MAINTAB_BTN3;
+                            text = $STR_antistasi_dialogs_new_battle_menu_outpost_mgmt_button;
+                        };
+                    };
                 };
                 class SecondaryTab4 : SecondaryTab1
                 {
-                    idc = A3A_IDC_NEWBATTLEMENU_MAINTAB_BTN4;
-                    text = $STR_antistasi_dialogs_new_battle_menu_mission_mgmt_button; // default: Operations
-                    onButtonClick = "[""handleTabSwitch"", [""SECONDARY"", 4]] call A3A_fnc_newBattleMenu;";
-                    y = 37 * GRID_H;
+                    y = 39 * GRID_H;
+                    class Controls : Controls
+                    {
+                        class Button : Button
+                        {
+                            onButtonClick = "[""handleTabSwitch"", [""SECONDARY"", 4]] call A3A_fnc_newBattleMenu;";
+                        };
+                        class Label : Label
+                        {
+                            idc = A3A_IDC_NEWBATTLEMENU_MAINTAB_BTN4;
+                            text = $STR_antistasi_dialogs_new_battle_menu_mission_mgmt_button;
+                        };
+                    };
                 };
             };
         };
@@ -328,9 +377,9 @@ class A3A_newBattleMenu
             idc = A3A_IDC_NEWBATTLEMENU_RIGHTPANEL_CONTEXT;
             show = 0;
             x = DIALOG_X + 90 * GRID_W;
-            y = DIALOG_Y + 10 * GRID_H;
+            y = DIALOG_Y + 11 * GRID_H;
             w = 30 * GRID_W;
-            h = 56 * GRID_H;
+            h = 55 * GRID_H;
 
             class Controls
             {
@@ -341,7 +390,7 @@ class A3A_newBattleMenu
                     x = 0;
                     y = 0;
                     w = 30 * GRID_W;
-                    h = 56 * GRID_H;
+                    h = 55 * GRID_H;
                 };
                 // Preview image -- script sets texture to entity/vehicle model picture.
                 class PreviewImage : A3A_Picture
@@ -390,82 +439,212 @@ class A3A_newBattleMenu
                     h = 18 * GRID_H;
                 };
                 // -- Row 1 (y=1): action buttons 1-6 (w=18, gap=2, margin=1) --
-                class ContextButton1 : A3A_Button
+                class ContextButton1 : A3A_ControlsGroupNoScrollbars
                 {
-                    idc = A3A_IDC_NEWBATTLEMENU_CONTEXT_BUTTON1;
-                    text = "";
-                    onButtonClick = "[""handleContextAction"", [""CONTEXT_ACTION_1""]] call A3A_fnc_newBattleMenu;";
                     x = 1 * GRID_W;
                     y = 1 * GRID_H;
                     w = 18 * GRID_W;
                     h = 8 * GRID_H;
+
+                    class Controls
+                    {
+                        class Button : A3A_Button_Transparent
+                        {
+                            idc = -1;
+                            onButtonClick = "[""handleContextAction"", [""CONTEXT_ACTION_1""]] call A3A_fnc_newBattleMenu;";
+                            w = 18 * GRID_W;
+                            h = 8 * GRID_H;
+                        };
+                        class Label : A3A_Text
+                        {
+                            idc = A3A_IDC_NEWBATTLEMENU_CONTEXT_BUTTON1;
+                            text = "";
+                            colorBackground[] = A3A_COLOR_BUTTON_BACKGROUND;
+                            colorBackgroundDisabled[] = A3A_COLOR_BUTTON_BACKGROUND_DISABLED;
+                            colorBackgroundActive[] =	A3A_COLOR_BUTTON_ACTIVE;
+                            size = GUI_TEXT_SIZE_SMALL;
+                            sizeEx = GUI_TEXT_SIZE_SMALL;
+                            style = ST_CENTER + ST_MULTI + ST_NO_RECT; // ST_UPPERCASE doesn't work with ST_MULTI :(
+                            w = 18 * GRID_W;
+                            h = 8 * GRID_H;
+                        };
+                    };
                 };
                 class ContextButton2 : ContextButton1
                 {
-                    idc = A3A_IDC_NEWBATTLEMENU_CONTEXT_BUTTON2;
-                    onButtonClick = "[""handleContextAction"", [""CONTEXT_ACTION_2""]] call A3A_fnc_newBattleMenu;";
                     x = 21 * GRID_W;
+
+                    class Controls : Controls
+                    {
+                        class Label : Label
+                        {
+                            idc = A3A_IDC_NEWBATTLEMENU_CONTEXT_BUTTON2;
+                        };
+                        class Button : Button
+                        {
+                            onButtonClick = "[""handleContextAction"", [""CONTEXT_ACTION_2""]] call A3A_fnc_newBattleMenu;";
+                        };
+                    };
                 };
                 class ContextButton3 : ContextButton1
                 {
-                    idc = A3A_IDC_NEWBATTLEMENU_CONTEXT_BUTTON3;
-                    onButtonClick = "[""handleContextAction"", [""CONTEXT_ACTION_3""]] call A3A_fnc_newBattleMenu;";
                     x = 41 * GRID_W;
+
+                    class Controls : Controls
+                    {
+                        class Button : Button
+                        {
+                            onButtonClick = "[""handleContextAction"", [""CONTEXT_ACTION_3""]] call A3A_fnc_newBattleMenu;";
+                        };
+                        class Label : Label
+                        {
+                            idc = A3A_IDC_NEWBATTLEMENU_CONTEXT_BUTTON3;
+                        };
+                    };
                 };
                 class ContextButton4 : ContextButton1
                 {
-                    idc = A3A_IDC_NEWBATTLEMENU_CONTEXT_BUTTON4;
-                    onButtonClick = "[""handleContextAction"", [""CONTEXT_ACTION_4""]] call A3A_fnc_newBattleMenu;";
                     x = 61 * GRID_W;
+
+                    class Controls : Controls
+                    {
+                        class Button : Button
+                        {
+                            onButtonClick = "[""handleContextAction"", [""CONTEXT_ACTION_4""]] call A3A_fnc_newBattleMenu;";
+                        };
+                        class Label : Label
+                        {
+                            idc = A3A_IDC_NEWBATTLEMENU_CONTEXT_BUTTON4;
+                        };
+                    };
                 };
                 class ContextButton5 : ContextButton1
                 {
-                    idc = A3A_IDC_NEWBATTLEMENU_CONTEXT_BUTTON5;
-                    onButtonClick = "[""handleContextAction"", [""CONTEXT_ACTION_5""]] call A3A_fnc_newBattleMenu;";
                     x = 81 * GRID_W;
+
+                    class Controls : Controls
+                    {
+                        class Button : Button
+                        {
+                            onButtonClick = "[""handleContextAction"", [""CONTEXT_ACTION_5""]] call A3A_fnc_newBattleMenu;";
+                        };
+                        class Label : Label
+                        {
+                            idc = A3A_IDC_NEWBATTLEMENU_CONTEXT_BUTTON5;
+                        };
+                    };
                 };
                 class ContextButton6 : ContextButton1
                 {
-                    idc = A3A_IDC_NEWBATTLEMENU_CONTEXT_BUTTON6;
-                    onButtonClick = "[""handleContextAction"", [""CONTEXT_ACTION_6""]] call A3A_fnc_newBattleMenu;";
                     x = 101 * GRID_W;
+
+                    class Controls : Controls
+                    {
+                        class Button : Button
+                        {
+                            onButtonClick = "[""handleContextAction"", [""CONTEXT_ACTION_6""]] call A3A_fnc_newBattleMenu;";
+                        };
+                        class Label : Label
+                        {
+                            idc = A3A_IDC_NEWBATTLEMENU_CONTEXT_BUTTON6;
+                        };
+                    };
                 };
-                // -- Row 2 (y=10): action buttons 7-12 --
                 class ContextButton7 : ContextButton1
                 {
-                    idc = A3A_IDC_NEWBATTLEMENU_CONTEXT_BUTTON7;
-                    onButtonClick = "[""handleContextAction"", [""CONTEXT_ACTION_7""]] call A3A_fnc_newBattleMenu;";
                     y = 10 * GRID_H;
+
+                    class Controls : Controls
+                    {
+                        class Button : Button
+                        {
+                            onButtonClick = "[""handleContextAction"", [""CONTEXT_ACTION_7""]] call A3A_fnc_newBattleMenu;";
+                        };
+                        class Label : Label
+                        {
+                            idc = A3A_IDC_NEWBATTLEMENU_CONTEXT_BUTTON7;
+                        };
+                    };
                 };
                 class ContextButton8 : ContextButton7
                 {
-                    idc = A3A_IDC_NEWBATTLEMENU_CONTEXT_BUTTON8;
-                    onButtonClick = "[""handleContextAction"", [""CONTEXT_ACTION_8""]] call A3A_fnc_newBattleMenu;";
                     x = 21 * GRID_W;
+
+                    class Controls : Controls
+                    {
+                        class Button : Button
+                        {
+                            onButtonClick = "[""handleContextAction"", [""CONTEXT_ACTION_8""]] call A3A_fnc_newBattleMenu;";
+                        };
+                        class Label : Label
+                        {
+                            idc = A3A_IDC_NEWBATTLEMENU_CONTEXT_BUTTON8;
+                        };
+                    };
                 };
                 class ContextButton9 : ContextButton7
                 {
-                    idc = A3A_IDC_NEWBATTLEMENU_CONTEXT_BUTTON9;
-                    onButtonClick = "[""handleContextAction"", [""CONTEXT_ACTION_9""]] call A3A_fnc_newBattleMenu;";
                     x = 41 * GRID_W;
+
+                    class Controls : Controls
+                    {
+                        class Button : Button
+                        {
+                            onButtonClick = "[""handleContextAction"", [""CONTEXT_ACTION_9""]] call A3A_fnc_newBattleMenu;";
+                        };
+                        class Label : Label
+                        {
+                            idc = A3A_IDC_NEWBATTLEMENU_CONTEXT_BUTTON9;
+                        };
+                    };
                 };
                 class ContextButton10 : ContextButton7
                 {
-                    idc = A3A_IDC_NEWBATTLEMENU_CONTEXT_BUTTON10;
-                    onButtonClick = "[""handleContextAction"", [""CONTEXT_ACTION_10""]] call A3A_fnc_newBattleMenu;";
                     x = 61 * GRID_W;
+
+                    class Controls : Controls
+                    {
+                        class Button : Button
+                        {
+                            onButtonClick = "[""handleContextAction"", [""CONTEXT_ACTION_10""]] call A3A_fnc_newBattleMenu;";
+                        };
+                        class Label : Label
+                        {
+                            idc = A3A_IDC_NEWBATTLEMENU_CONTEXT_BUTTON10;
+                        };
+                    };
                 };
                 class ContextButton11 : ContextButton7
                 {
-                    idc = A3A_IDC_NEWBATTLEMENU_CONTEXT_BUTTON11;
-                    onButtonClick = "[""handleContextAction"", [""CONTEXT_ACTION_11""]] call A3A_fnc_newBattleMenu;";
                     x = 81 * GRID_W;
+
+                    class Controls : Controls
+                    {
+                        class Button : Button
+                        {
+                            onButtonClick = "[""handleContextAction"", [""CONTEXT_ACTION_11""]] call A3A_fnc_newBattleMenu;";
+                        };
+                        class Label : Label
+                        {
+                            idc = A3A_IDC_NEWBATTLEMENU_CONTEXT_BUTTON11;
+                        };
+                    };
                 };
                 class ContextButton12 : ContextButton7
                 {
-                    idc = A3A_IDC_NEWBATTLEMENU_CONTEXT_BUTTON12;
-                    onButtonClick = "[""handleContextAction"", [""CONTEXT_ACTION_12""]] call A3A_fnc_newBattleMenu;";
                     x = 101 * GRID_W;
+
+                    class Controls : Controls
+                    {
+                        class Button : Button
+                        {
+                            onButtonClick = "[""handleContextAction"", [""CONTEXT_ACTION_12""]] call A3A_fnc_newBattleMenu;";
+                        };
+                        class Label : Label
+                        {
+                            idc = A3A_IDC_NEWBATTLEMENU_CONTEXT_BUTTON12;
+                        };
+                    };
                 };
             };
         };

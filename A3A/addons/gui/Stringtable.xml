@@ -4442,7 +4442,7 @@
         </Container>
         <Container name="dialog_new_battle_menu">
             <Key ID="STR_antistasi_dialogs_new_battle_menu_header">
-                <Original>Rebel Menu</Original>
+                <Original>REBEL MENU</Original>
             </Key>
             <Key ID="STR_antistasi_dialogs_new_battle_menu_hq_mgmt_button">
                 <Original>HQ Management</Original>
@@ -4450,8 +4450,8 @@
             <Key ID="STR_antistasi_dialogs_new_battle_menu_garrison_mgmt_button">
                 <Original>Garrison Management</Original>
             </Key>
-            <Key ID="STR_antistasi_dialogs_new_battle_menu_emplacement_mgmt_button">
-                <Original>Emplacement Management</Original>
+            <Key ID="STR_antistasi_dialogs_new_battle_menu_outpost_mgmt_button">
+                <Original>Outpost Management</Original>
             </Key>
             <Key ID="STR_antistasi_dialogs_new_battle_menu_mission_mgmt_button">
                 <Original>Mission Management</Original>

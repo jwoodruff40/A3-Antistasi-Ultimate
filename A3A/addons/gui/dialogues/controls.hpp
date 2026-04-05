@@ -310,6 +310,13 @@ class A3A_Button_Left : A3A_Button
     style = ST_LEFT + ST_UPPERCASE;
 };
 
+class A3A_Button_Transparent : A3A_Button
+{
+    colorBackground[] = A3A_COLOR_TRANSPARENT;
+    colorBackgroundDisabled[] = A3A_COLOR_TRANSPARENT;
+    colorBackgroundActive[] = A3A_COLOR_TRANSPARENT;
+};
+
 class A3A_ShortcutButton : A3A_CtrlDefault
 {
     type = CT_SHORTCUTBUTTON;
