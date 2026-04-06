@@ -31,9 +31,9 @@ private _artilleryShellClass = nil;
 private _mgClass = nil;
 private _mgCrewClass = nil;
 
-private _mortarsPool = _faction getOrDefault ["staticMortars", []];
-private _artilleryPool = _faction getOrDefault ["vehiclesArtillery", []];
-private _howitzersPool = _faction getOrDefault ["staticHowitzers", []];
+private _mortarsPool = GetTiered(_faction, "staticMortars");
+private _artilleryPool = GetTiered(_faction, "vehiclesArtillery");
+private _howitzersPool = GetTiered(_faction, "staticHowitzers");
 
 private _mortarMagazine = _faction get "mortarMagazineHE";
 private _artilleryMagazine = _faction get "magazines";

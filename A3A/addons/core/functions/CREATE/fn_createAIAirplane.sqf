@@ -32,8 +32,8 @@ private _faction = Faction(_sideX);
 // SPAWNING SAM SITE	  //
 ////////////////////////////
 
-private _radarType = _faction getOrDefault ["vehicleRadar", ""];
-private _samType = _faction getOrDefault ["vehicleSam", ""];
+private _radarType = GetTiered(_faction, "vehicleRadar");
+private _samType = GetTiered(_faction, "vehicleSam");
 
 // In case of array
 if (_radarType isEqualType [] && {_radarType isNotEqualTo []}) then {_radarType = selectRandom _radarType};
@@ -279,7 +279,7 @@ if (!_busy) then {
 				private _vehiclesPlanesLargeCAS = GetTiered(_faction, "vehiclesPlanesLargeCAS");
 				private _vehiclesPlanesLargeAA = GetTiered(_faction, "vehiclesPlanesLargeAA");
 				private _vehiclesPlanesTransport = GetTiered(_faction, "vehiclesPlanesTransport");
-				private _vehiclesPlanesGunship = _faction getOrDefault ["vehiclesPlanesGunship", []];
+				private _vehiclesPlanesGunship = GetTiered(_faction, "vehiclesPlanesGunship");
 				private _uavsAttack = _faction getOrDefault ["uavsAttack", []];
 				private _vehPool = [];
 				{
@@ -356,7 +356,7 @@ if (!_busy) then
 		];
 
 	{
-		private _vehs = _faction get _x;
+		private _vehs = GetTiered(_faction, _x);
 		if (_vehs isEqualTo []) then {continue};
 		private _weight = (_typeWeight select _forEachIndex) / count _vehs;
 		{
@@ -407,7 +407,7 @@ private _vehTypeWeights = [
 ];
 
 {
-	private _vehs = _faction get _x;
+	private _vehs = GetTiered(_faction, _x);
 	if (_vehs isEqualTo []) then {continue};
 	private _weight = (_vehTypeWeights select _forEachIndex) / count _vehs;
 	{

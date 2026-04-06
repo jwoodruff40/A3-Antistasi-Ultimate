@@ -16,17 +16,16 @@ Example:
 */
 
 #include "..\script_component.hpp"
+FIX_LINE_NUMBERS()
 
 params [
     ["_tieredArray", [], [[]]],
 	["_forceTier", -1, [0]]
 ];
 
-if (isNil "_tieredArray" || {count _tieredArray < 3}) exitWith { [] };
-if ((_tieredArray select 1) isEqualTo []) exitWith { _tieredArray select 0 };
-if (_forceTier != -1) exitWith {
-    _tieredArray select _forceTier
-};
+if (isNil "_tieredArray") exitWith { [] };
+if (count _tieredArray isEqualTo 1) exitWith { _tieredArray select 0 };
+if (_forceTier != -1) exitWith { _tieredArray select _forceTier };
 
 if (plusGarrison) exitWith
 {

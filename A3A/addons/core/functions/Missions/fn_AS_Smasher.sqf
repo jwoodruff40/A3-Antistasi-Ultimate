@@ -75,11 +75,8 @@ if (_difficultX) then {
 	_mutant = [_groupSmasher, "WBK_Goliaph_3", _posTask, [], 0, "NONE"] call A3A_fnc_createUnit; // goliath (OPF)
 
 	// Spawn attack helicopter
-	private _heliType = if (_faction getOrDefault ["vehiclesHelisAttack", []] isNotEqualTo []) then {
-		selectRandom (_faction getOrDefault ["vehiclesHelisAttack", []]);
-	} else {
-		selectRandom (_faction getOrDefault ["vehiclesHelisLightAttack", []]);
-	};
+	private _heliType = selectRandom GetTiered(_faction, "vehiclesHelisAttack");
+	if (isNil "_heliType") then { _heliType = selectRandom GetTiered(_faction, "vehiclesHelisLightAttack") };
 	
 	private _heliPos = _posTask getPos [random [1000, 2000, 3000], random 360]; // replace this with an airbase or outpost, etc
 

@@ -24,7 +24,7 @@ if (_lowCiv || _civNonHuman) exitWith {
     publicVariableServer "isEventInProgress";    
 };
 
-private _civHeli = (A3A_faction_civ getOrDefault ["vehiclesCivHeli", []]);
+private _civHeli = GetTiered(A3A_faction_civ, "vehiclesCivHeli");
 if (_civHeli isEqualTo []) exitWith {
     Error("No civ heli found, rerolling.");
     [CIV_HELI] remoteExecCall ["SCRT_fnc_encounter_selectAndExecuteEvent", 2];

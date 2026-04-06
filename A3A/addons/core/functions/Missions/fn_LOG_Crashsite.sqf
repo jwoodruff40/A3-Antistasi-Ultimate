@@ -71,7 +71,7 @@ while {true} do {
 };
 
 // selecting classnames
-private _reconVehicleDroppod = _faction getOrDefault ["vehiclesDropPod", []];
+private _reconVehicleDroppod = GetTiered(_faction, "vehiclesDropPod");
 
 private _reconVehicleClass = selectRandom ((GetTiered(_faction, "vehiclesPlanesTransport")) + (_faction get "uavsAttack") + _reconVehicleDroppod); //  + _reconVehicleDroppod
 private _pilotClass = _faction get "unitPilot";
@@ -80,9 +80,9 @@ if (_reconVehicleClass in _reconVehicleDroppod) exitWith {
     [_markerX] call A3A_fnc_LOG_Crashsite_Satellite;
 };
 
-private _searchHeliClassLight = _faction getOrDefault ["vehiclesHelisLight", []];
-private _searchHeliClassLightAttack = _faction getOrDefault ["vehiclesHelisLightAttack", []];
-private _searchHeliClassAttack = _faction getOrDefault ["vehiclesHelisAttack", []];
+private _searchHeliClassLight = GetTiered(_faction, "vehiclesHelisLight");
+private _searchHeliClassLightAttack = GetTiered(_faction, "vehiclesHelisLightAttack");
+private _searchHeliClassAttack = GetTiered(_faction, "vehiclesHelisAttack");
 private _searchHeliClass = [];
 
 if (_searchHeliClassLight isEqualTo [] && {_searchHeliClassLightAttack isEqualTo []} && {_searchHeliClassAttack isEqualTo []}) then {

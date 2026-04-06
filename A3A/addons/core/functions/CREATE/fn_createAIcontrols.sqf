@@ -166,11 +166,11 @@ if (_isControl) then
         ];
 
         private _vehicleCategory = selectRandomWeighted _vehicleCategories;
-        private _fallbackVehicle = selectRandom (GetTiered(_faction, "vehiclesAPCs"));
 
         Debug_2("Chosen %1 as vehicle category. tierWar is %2", _vehicleCategory, tierWar);
 
-        _typeVehX = selectRandom (_faction getOrDefault [_vehicleCategory, _fallbackVehicle]);
+        _typeVehX = selectRandom (GetTiered(_faction, _vehicleCategory));
+        if (isNil "_typeVehX") then { _typeVehX = selectRandom (GetTiered(_faction, "vehiclesAPCs")) };
         _veh = _typeVehX createVehicle getPos (_roads select 0);
         _veh setDir _dirveh + 90;
         [_veh, _sideX] call A3A_fnc_AIVEHinit;
