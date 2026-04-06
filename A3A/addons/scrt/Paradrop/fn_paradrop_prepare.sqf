@@ -1,3 +1,4 @@
+#include "..\defines.inc"
 
 private _players = [] call SCRT_fnc_paradrop_getPlayersToParadrop;
 

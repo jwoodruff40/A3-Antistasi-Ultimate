@@ -1,4 +1,6 @@
 #include "\A3\Ui_f\hpp\defineResinclDesign.inc"
+#include "..\defines.inc"
+FIX_LINE_NUMBERS()
 
 disableSerialization;
 

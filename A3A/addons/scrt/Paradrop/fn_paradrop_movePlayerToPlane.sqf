@@ -1,5 +1,6 @@
 #define KEY_ESCAPE 1
 #define TIME_WINDOW 5
+#include "..\defines.inc"
 
 closeDialog 0;
 closeDialog 0;

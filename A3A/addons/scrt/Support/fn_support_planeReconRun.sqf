@@ -1,3 +1,6 @@
+#include "..\defines.inc"
+FIX_LINE_NUMBERS()
+
 private _positionOrigin = getMarkerPos supportMarkerOrigin;
 private _positionDestination = getMarkerPos supportMarkerDestination;
 private _angle = [_positionOrigin, _positionDestination] call BIS_fnc_dirTo;
