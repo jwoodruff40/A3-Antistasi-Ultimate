@@ -13,31 +13,31 @@ params ["_vehicle", "_preference"];
 
 //define list of vehicles as lazy conditions
 #define lightVeh \
-    {_vehicle in FactionGet(occ,"vehiclesLightArmed")} \
-    || {_vehicle in FactionGet(occ,"vehiclesLightUnarmed")} \
-    || {_vehicle in FactionGet(inv,"vehiclesLightArmed")} \
-    || {_vehicle in FactionGet(inv,"vehiclesLightUnarmed")}
+    {_vehicle in FactionGetAll(occ, "vehiclesLightArmed")} \
+    || {_vehicle in FactionGetAll(occ, "vehiclesLightUnarmed")} \
+    || {_vehicle in FactionGetAll(inv, "vehiclesLightArmed")} \
+    || {_vehicle in FactionGetAll(inv, "vehiclesLightUnarmed")}
 
 #define apc \
-    {_vehicle in FactionGet(occ,"vehiclesAPCs")} \
-    || {_vehicle in FactionGet(inv,"vehiclesAPCs")}
+    {_vehicle in FactionGetAll(occ, "vehiclesAPCs")} \
+    || {_vehicle in FactionGetAll(inv, "vehiclesAPCs")}
 
 #define tank \
-    {_vehicle in FactionGet(occ,"vehiclesTanks")} \
-    || {_vehicle in FactionGet(inv,"vehiclesTanks")}
+    {_vehicle in FactionGetAll(occ, "vehiclesTanks")} \
+    || {_vehicle in FactionGetAll(inv, "vehiclesTanks")}
 
 #define patrolHeli \
-    {_vehicle in FactionGet(occ,"vehiclesHelisLight")} \
-    || {_vehicle in FactionGet(inv,"vehiclesHelisLight")}
+    {_vehicle in FactionGetAll(occ, "vehiclesHelisLight")} \
+    || {_vehicle in FactionGetAll(inv, "vehiclesHelisLight")}
 
 #define transportHeli \
     patrolHeli \
-    || {_vehicle in FactionGet(occ,"vehiclesHelisTransport")} \
-    || {_vehicle in FactionGet(inv,"vehiclesHelisTransport")}
+    || {_vehicle in FactionGetAll(occ, "vehiclesHelisTransport")} \
+    || {_vehicle in FactionGetAll(inv, "vehiclesHelisTransport")}
 
 #define attackHeli \
-    {_vehicle in FactionGet(occ,"vehiclesHelisAttack")} \
-    || {_vehicle in FactionGet(inv,"vehiclesHelisAttack")}
+    {_vehicle in FactionGetAll(occ, "vehiclesHelisAttack")} \
+    || {_vehicle in FactionGetAll(inv, "vehiclesHelisAttack")}
 
 #define drone \
     {_vehicle in FactionGet(occ,"uavsAttack")} \
@@ -46,15 +46,15 @@ params ["_vehicle", "_preference"];
     || {_vehicle in FactionGet(inv,"uavsPortable")}
 
 #define plane \
-    {_vehicle in FactionGet(occ,"vehiclesPlanesCAS")} \
-    || {_vehicle in FactionGet(inv,"vehiclesPlanesCAS")} \
-    || {_vehicle in FactionGet(inv,"vehiclesPlanesAA")} \
-    || {_vehicle in FactionGet(occ,"vehiclesPlanesGunship")} \
-	|| {_vehicle in FactionGet(occ,"vehiclesPlanesLargeCAS")} \
-	|| {_vehicle in FactionGet(inv,"vehiclesPlanesLargeAA")} \
-	|| {_vehicle in FactionGet(occ,"vehiclesPlanesLargeAA")} \
-	|| {_vehicle in FactionGet(inv,"vehiclesPlanesLargeCAS")} \
-    || {_vehicle in FactionGet(inv,"vehiclesPlanesGunship")}   
+    {_vehicle in FactionGetAll(occ, "vehiclesPlanesCAS")} \
+    || {_vehicle in FactionGetAll(inv, "vehiclesPlanesCAS")} \
+    || {_vehicle in FactionGetAll(inv, "vehiclesPlanesAA")} \
+    || {_vehicle in FactionGetAll(occ, "vehiclesPlanesGunship")} \
+	|| {_vehicle in FactionGetAll(occ, "vehiclesPlanesLargeCAS")} \
+	|| {_vehicle in FactionGetAll(inv, "vehiclesPlanesLargeAA")} \
+	|| {_vehicle in FactionGetAll(occ, "vehiclesPlanesLargeAA")} \
+	|| {_vehicle in FactionGetAll(inv, "vehiclesPlanesLargeCAS")} \
+    || {_vehicle in FactionGetAll(inv, "vehiclesPlanesGunship")}   
 
 //TODO this does not work properly (maybe even throws errors) as the template files arent
 //unified on how they work, await Pots Templates, then fix this
@@ -91,7 +91,7 @@ switch (_preference) do
     };
     case ("LAND_AIR"):
     {
-      _vehicle in FactionGet(occ,"vehiclesAA") || {_vehicle in FactionGet(inv,"vehiclesAA")};
+      _vehicle in FactionGetAll(occ, "vehiclesAA") || {_vehicle in FactionGetAll(inv, "vehiclesAA")};
     };
     case ("HELI_PATROL"):
     {

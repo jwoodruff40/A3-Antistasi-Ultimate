@@ -83,7 +83,7 @@ private _wp1 = _groupPilot addWaypoint [_exitPos, 0];
 _wp1 setWaypointType "MOVE";
 _wp1 setWaypointSpeed "NORMAL";
 
-[_vehicle, _dropPos, _vehType in FactionGet(all,"vehiclesPlanesTransport")] call A3A_fnc_approachSpeedControl;
+[_vehicle, _dropPos, _vehType in FactionGet(all, "vehiclesPlanesTransport")] call A3A_fnc_approachSpeedControl;
 
 [_vehicle, _dropPos] spawn {
     params ["_vehicle", "_dropPos"];

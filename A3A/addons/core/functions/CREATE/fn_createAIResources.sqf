@@ -133,8 +133,8 @@ private _veh = nil;
 if (_spawnParameter isEqualType []) then {
 	_spawnsUsed pushBack _spawnParameter#2;
 	private _typeVehX = call {
-		if (FactionGet(civ,"vehiclesCivRepair") isEqualTo [] and random 1 < 0.1) exitWith { selectRandom (GetTiered(_faction, "vehiclesRepairTrucks")) };
-		if (FactionGet(civ,"vehiclesCivFuel") isEqualTo [] and random 1 < 0.1) exitWith { selectRandom (GetTiered(_faction, "vehiclesFuelTrucks")) };
+		if (FactionGetAll(civ, "vehiclesCivRepair") isEqualTo [] and random 1 < 0.1) exitWith { selectRandom (GetTiered(_faction, "vehiclesRepairTrucks")) };
+		if (FactionGetAll(civ, "vehiclesCivFuel") isEqualTo [] and random 1 < 0.1) exitWith { selectRandom (GetTiered(_faction, "vehiclesFuelTrucks")) };
 		private _types = if (!_isFIA) then {
 			(GetTiered(_faction, "vehiclesTrucks")) + (GetTiered(_faction, "vehiclesCargoTrucks"))
 		} else {

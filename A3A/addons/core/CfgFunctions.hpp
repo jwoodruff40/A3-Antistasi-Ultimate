@@ -739,6 +739,7 @@ class CfgFunctions
             class compatibilityLoadFaction {};
             class compileGroups {};
             class compileMissionAssets {};
+            class convertFaction {};
             class getLoadout {};
             class loadFaction {};
             class loadRivals {};
@@ -838,6 +839,7 @@ class CfgFunctions
             class localLog {};
             class log {};
             class nearestFriendlyMarker {};
+            class normalizeWeights {};
             class onClientInitDone {};
             class onServerInitDone {};
             class setIdentity {};

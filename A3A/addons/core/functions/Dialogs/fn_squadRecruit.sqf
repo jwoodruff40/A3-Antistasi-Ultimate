@@ -39,7 +39,7 @@ _costHR = 0;
 (_display displayCtrl 107) ctrlSetTooltip format [localize "STR_dialog_cost_hire",_costs,_costHR, A3A_faction_civ get "currencySymbol"];
 
 _costHR = 2;
-_costs = 2*_crewCost + ([(FactionGet(reb, "staticMGs")) # 0] call A3A_fnc_vehiclePrice);
+_costs = 2*_crewCost + ([(FactionGetAll(reb, "staticMGs")) # 0] call A3A_fnc_vehiclePrice);
 (_display displayCtrl 108) ctrlSetTooltip format [localize "STR_dialog_cost_hire",_costs,_costHR, A3A_faction_civ get "currencySymbol"];
 
 _costs = 0;
@@ -48,17 +48,17 @@ _costHR = 0;
 (_display displayCtrl 112) ctrlSetTooltip format [localize "STR_dialog_cost_hire",_costs,_costHR, A3A_faction_civ get "currencySymbol"];
 
 _costHR = 2;
-_costs = 2*_crewCost + ([(FactionGet(reb,"vehiclesAT")) # 0] call A3A_fnc_vehiclePrice);
+_costs = 2*_crewCost + ([(FactionGetAll(reb, "vehiclesAT")) # 0] call A3A_fnc_vehiclePrice);
 (_display displayCtrl 109) ctrlSetTooltip format [localize "STR_dialog_cost_hire",_costs,_costHR, A3A_faction_civ get "currencySymbol"];
 
 _costHR = 2;
-_costs = 2*_crewCost + ([(FactionGet(reb,"vehiclesTruck")) # 0] call A3A_fnc_vehiclePrice) + ([(FactionGet(reb,"staticAA")) # 0] call A3A_fnc_vehiclePrice);
+_costs = 2*_crewCost + ([(FactionGetAll(reb, "vehiclesTruck")) # 0] call A3A_fnc_vehiclePrice) + ([(FactionGetAll(reb, "staticAA")) # 0] call A3A_fnc_vehiclePrice);
 (_display displayCtrl 110) ctrlSetTooltip format [localize "STR_dialog_cost_hire",_costs,_costHR, A3A_faction_civ get "currencySymbol"];
 
 _costHR = 2;
-_costs = 2*_crewCost + ([(FactionGet(reb,"staticMortars")) # 0] call A3A_fnc_vehiclePrice);
+_costs = 2*_crewCost + ([(FactionGetAll(reb, "staticMortars")) # 0] call A3A_fnc_vehiclePrice);
 (_display displayCtrl 111) ctrlSetTooltip format [localize "STR_dialog_cost_hire",_costs,_costHR, A3A_faction_civ get "currencySymbol"];
 
 _costHR = 2;
-_costs = 2*_crewCost + ([FactionGet(reb,"vehiclesLightArmed") # 0] call A3A_fnc_vehiclePrice);
+_costs = 2*_crewCost + ([FactionGetAll(reb, "vehiclesLightArmed") # 0] call A3A_fnc_vehiclePrice);
 (_display displayCtrl 112) ctrlSetTooltip format [localize "STR_dialog_cost_hire",_costs,_costHR, A3A_faction_civ get "currencySymbol"];

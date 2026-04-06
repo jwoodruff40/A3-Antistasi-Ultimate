@@ -38,7 +38,7 @@ private _allVehClassToCrew = [
     [FactionGet(all,"vehiclesRivalsArmor"),[FactionGet(riv,"unitCrew")]],
     [FactionGet(all,"vehiclesRivalsLight"),[FactionGet(riv,"unitRifle")]],
     [FactionGet(all,"vehiclesRivalsStatics"),[FactionGet(riv,"unitRifle")]],
-    [FactionGet(riv,"vehiclesRivalsUavs"), ["O_UAV_AI"]],
+    [FactionGetAll(riv, "vehiclesRivalsUavs"), ["O_UAV_AI"]],
     [FactionGet(all,"vehiclesRivalsAir"),[FactionGet(riv,"unitRifle")]],    ///why FactionGet(all and not riv? why c_man and not  FactionGet(civ,"unitMan")? why no FactionGet(inv ?
     [FactionGet(all,"vehiclesRivals"),[FactionGet(riv,"unitRifle")]]/* ,
 

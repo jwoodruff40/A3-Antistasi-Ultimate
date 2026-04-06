@@ -18,7 +18,7 @@ if (_near isEqualTo []) exitWith {
 	[localize "STR_A3A_reinf_airstrike_header", format [localize "STR_A3A_reinf_airstrike_hq_airp",FactionGet(reb,"name")]] call SCRT_fnc_misc_deniedHint;
 };
 
-private _rebAircraftTypes = FactionGet(reb,"vehiclesPlane") + FactionGet(reb,"vehiclesCivPlane") + FactionGet(reb, "vehiclesCivHeli");
+private _rebAircraftTypes = FactionGetAll(reb, "vehiclesPlane") + FactionGetAll(reb, "vehiclesCivPlane") + FactionGetAll(reb, "vehiclesCivHeli");
 if (typeOf _veh in _rebAircraftTypes) exitWith {
 	[localize "STR_A3A_reinf_airstrike_header", format [localize "STR_A3A_reinf_airstrike_reb_planes",FactionGet(reb,"name")]] call SCRT_fnc_misc_deniedHint;
 };

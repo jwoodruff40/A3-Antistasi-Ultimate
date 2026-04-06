@@ -21,9 +21,9 @@ params ["_target", "_side", "_maxSpend", "_availTypes"];
 // - Fixed wing aircraft
 // TODO: Rework vehicle type system to handle this shit better
 /* if (_side isEqualTo Invaders) then {
-    if (isNull FactionGet(inv,"vehiclesDropPod")) exitwith { 0 };
+    if (isNull FactionGetAll(inv, "vehiclesDropPod")) exitwith { 0 };
 } else {
-    if (isNull FactionGet(occ,"vehiclesDropPod")) exitwith { 0 };
+    if (isNull FactionGetAll(occ, "vehiclesDropPod")) exitwith { 0 };
 }; */
 private _allAA = (FactionGet(all, "vehiclesPlanesAA"));
 if (typeOf _target in _allAA) exitWith { 0 };

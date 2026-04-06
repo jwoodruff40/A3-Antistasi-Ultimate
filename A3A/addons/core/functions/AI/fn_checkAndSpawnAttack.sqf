@@ -26,8 +26,8 @@ private _weaponsturret = count _driverturret + count _gunnerturret;
 
 if (
     alive _vehicle && (
-        _vehType in FactionGet(all,"vehiclesHelisAttack") + FactionGet(all,"vehiclesHelisLightAttack") ||
-        {_vehType in FactionGet(all,"vehiclesTransportAir") && {_weapons > 2 || _weaponsturret > 2}} //assuming first 2 are laserdesignator and flares
+        _vehType in FactionGet(all, "vehiclesHelisAttack") + FactionGet(all, "vehiclesHelisLightAttack") ||
+        {_vehType in FactionGet(all, "vehiclesTransportAir") && {_weapons > 2 || _weaponsturret > 2}} //assuming first 2 are laserdesignator and flares
     )
 ) then {
     [_vehicle, _groupPilot, _targetPos] spawn A3A_fnc_attackHeli;

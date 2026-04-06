@@ -433,19 +433,19 @@ private _fnc_filterAndWeightArray = {
 private _civVehicles = [];
 private _civVehiclesWeighted = [];
 
-_civVehiclesWeighted append ([FactionGet(civ,"vehiclesCivCar"), 4] call _fnc_filterAndWeightArray);
-_civVehiclesWeighted append ([FactionGet(civ,"vehiclesCivIndustrial"), 1] call _fnc_filterAndWeightArray);
-_civVehiclesWeighted append ([FactionGet(civ,"vehiclesCivMedical"), 0.1] call _fnc_filterAndWeightArray);
-_civVehiclesWeighted append ([FactionGet(civ,"vehiclesCivRepair"), 0.1] call _fnc_filterAndWeightArray);
-_civVehiclesWeighted append ([FactionGet(civ,"vehiclesCivFuel"), 0.1] call _fnc_filterAndWeightArray);
+_civVehiclesWeighted append ([FactionGetAll(civ, "vehiclesCivCar"), 4] call _fnc_filterAndWeightArray);
+_civVehiclesWeighted append ([FactionGetAll(civ, "vehiclesCivIndustrial"), 1] call _fnc_filterAndWeightArray);
+_civVehiclesWeighted append ([FactionGetAll(civ, "vehiclesCivMedical"), 0.1] call _fnc_filterAndWeightArray);
+_civVehiclesWeighted append ([FactionGetAll(civ, "vehiclesCivRepair"), 0.1] call _fnc_filterAndWeightArray);
+_civVehiclesWeighted append ([FactionGetAll(civ, "vehiclesCivFuel"), 0.1] call _fnc_filterAndWeightArray);
 
 for "_i" from 0 to (count _civVehiclesWeighted - 2) step 2 do {
 	_civVehicles pushBack (_civVehiclesWeighted select _i);
 };
 
-_civVehicles append FactionGet(reb,"vehiclesCivCar");
-_civVehicles append FactionGet(reb,"vehiclesCivTruck");
-_civVehicles append FactionGet(reb,"vehiclesCivSupply");
+_civVehicles append FactionGetAll(reb, "vehiclesCivCar");
+_civVehicles append FactionGetAll(reb, "vehiclesCivTruck");
+_civVehicles append FactionGetAll(reb, "vehiclesCivSupply");
 
 DECLARE_SERVER_VAR(arrayCivVeh, _civVehicles);
 DECLARE_SERVER_VAR(civVehiclesWeighted, _civVehiclesWeighted);
@@ -455,7 +455,7 @@ private _civBoats = [];
 private _civBoatsWeighted = [];
 
 // Boats don't need any re-weighting, so just copy the data
-private _civBoatData = FactionGet(civ,"vehiclesCivBoat");
+private _civBoatData = FactionGetAll(civ, "vehiclesCivBoat");
 for "_i" from 0 to (count _civBoatData - 2) step 2 do {
 	private _boat = _civBoatData select _i;
 	if (_boat call _fnc_vehicleIsValid) then {
@@ -468,7 +468,7 @@ for "_i" from 0 to (count _civBoatData - 2) step 2 do {
 DECLARE_SERVER_VAR(civBoats, _civBoats);
 DECLARE_SERVER_VAR(civBoatsWeighted, _civBoatsWeighted);
 
-private _undercoverVehicles = (arrayCivVeh - ["C_Quadbike_01_F"]) + FactionGet(reb,"vehiclesCivBoat") + FactionGet(reb,"vehiclesCivHeli") + FactionGet(reb, "vehiclesCivPlane");
+private _undercoverVehicles = (arrayCivVeh - ["C_Quadbike_01_F"]) + FactionGetAll(reb, "vehiclesCivBoat") + FactionGetAll(reb, "vehiclesCivHeli") + FactionGetAll(reb, "vehiclesCivPlane");
 DECLARE_SERVER_VAR(undercoverVehicles, _undercoverVehicles);
 
 //////////////////////////////////////
@@ -552,7 +552,7 @@ private _groundVehicleThreat = createHashMap;
 { _groundVehicleThreat set [_x, 40] } forEach FactionGet(all, "staticMGs");
 { _groundVehicleThreat set [_x, 60] } forEach FactionGet(all, "vehiclesLightArmed");
 { _groundVehicleThreat set [_x, 80] } forEach FactionGet(all, "staticAA") + FactionGet(all, "staticAT") + FactionGet(all, "staticMortars");
-{ _groundVehicleThreat set [_x, 80] } forEach FactionGet(Reb, "vehiclesAA") + FactionGet(Reb, "vehiclesAT");
+{ _groundVehicleThreat set [_x, 80] } forEach FactionGetAll(Reb, "vehiclesAA") + FactionGetAll(Reb, "vehiclesAT");
 { _groundVehicleThreat set [_x, 90] } forEach FactionGet(all, "vehiclesLightAPCs");
 { _groundVehicleThreat set [_x, 120] } forEach FactionGet(all, "vehiclesAPCs");
 { _groundVehicleThreat set [_x, 180] } forEach FactionGet(all, "vehiclesLightTanks");
@@ -572,20 +572,20 @@ _fnc_setPriceIfValid =
 	};
 };
 
-{ [_rebelVehicleCosts, _x, 100] call _fnc_setPriceIfValid } forEach FactionGet(reb, "vehiclesBasic");
-{ [_rebelVehicleCosts, _x, 200] call _fnc_setPriceIfValid } forEach FactionGet(reb, "vehiclesCivCar") + FactionGet(reb, "vehiclesCivBoat");
-{ [_rebelVehicleCosts, _x, 600] call _fnc_setPriceIfValid } forEach FactionGet(reb, "vehiclesCivTruck") + FactionGet(reb, "vehiclesMedical");
-{ [_rebelVehicleCosts, _x, 300] call _fnc_setPriceIfValid } forEach FactionGet(reb, "vehiclesTruck");
-{ [_rebelVehicleCosts, _x, 200] call _fnc_setPriceIfValid } forEach FactionGet(reb, "vehiclesLightUnarmed");
-{ [_rebelVehicleCosts, _x, 800] call _fnc_setPriceIfValid } forEach FactionGet(reb, "vehiclesLightArmed");
-{ [_rebelVehicleCosts, _x, 500] call _fnc_setPriceIfValid } forEach FactionGet(reb, "staticMGs") + FactionGet(reb, "vehiclesBoat");
-{ [_rebelVehicleCosts, _x, 1000] call _fnc_setPriceIfValid } forEach FactionGet(reb, "staticAT");
-{ [_rebelVehicleCosts, _x, 1200] call _fnc_setPriceIfValid } forEach FactionGet(reb, "staticAA");
-{ [_rebelVehicleCosts, _x, 2500] call _fnc_setPriceIfValid } forEach FactionGet(reb, "staticMortars");
-{ [_rebelVehicleCosts, _x, 1500] call _fnc_setPriceIfValid } forEach FactionGet(reb, "vehiclesAA");
-{ [_rebelVehicleCosts, _x, 1200] call _fnc_setPriceIfValid } forEach FactionGet(reb, "vehiclesAT");
-{ [_rebelVehicleCosts, _x, 5000] call _fnc_setPriceIfValid } forEach FactionGet(reb, "vehiclesCivHeli");
-{ [_rebelVehicleCosts, _x, 5000] call _fnc_setPriceIfValid } forEach FactionGet(reb, "vehiclesPlane") + FactionGet(reb, "vehiclesCivPlane");
+{ [_rebelVehicleCosts, _x, 100] call _fnc_setPriceIfValid } forEach FactionGetAll(reb, "vehiclesBasic");
+{ [_rebelVehicleCosts, _x, 200] call _fnc_setPriceIfValid } forEach FactionGetAll(reb, "vehiclesCivCar") + FactionGetAll(reb, "vehiclesCivBoat");
+{ [_rebelVehicleCosts, _x, 600] call _fnc_setPriceIfValid } forEach FactionGetAll(reb, "vehiclesCivTruck") + FactionGetAll(reb, "vehiclesMedical");
+{ [_rebelVehicleCosts, _x, 300] call _fnc_setPriceIfValid } forEach FactionGetAll(reb, "vehiclesTruck");
+{ [_rebelVehicleCosts, _x, 200] call _fnc_setPriceIfValid } forEach FactionGetAll(reb, "vehiclesLightUnarmed");
+{ [_rebelVehicleCosts, _x, 800] call _fnc_setPriceIfValid } forEach FactionGetAll(reb, "vehiclesLightArmed");
+{ [_rebelVehicleCosts, _x, 500] call _fnc_setPriceIfValid } forEach FactionGetAll(reb, "staticMGs") + FactionGetAll(reb, "vehiclesBoat");
+{ [_rebelVehicleCosts, _x, 1000] call _fnc_setPriceIfValid } forEach FactionGetAll(reb, "staticAT");
+{ [_rebelVehicleCosts, _x, 1200] call _fnc_setPriceIfValid } forEach FactionGetAll(reb, "staticAA");
+{ [_rebelVehicleCosts, _x, 2500] call _fnc_setPriceIfValid } forEach FactionGetAll(reb, "staticMortars");
+{ [_rebelVehicleCosts, _x, 1500] call _fnc_setPriceIfValid } forEach FactionGetAll(reb, "vehiclesAA");
+{ [_rebelVehicleCosts, _x, 1200] call _fnc_setPriceIfValid } forEach FactionGetAll(reb, "vehiclesAT");
+{ [_rebelVehicleCosts, _x, 5000] call _fnc_setPriceIfValid } forEach FactionGetAll(reb, "vehiclesCivHeli");
+{ [_rebelVehicleCosts, _x, 5000] call _fnc_setPriceIfValid } forEach FactionGetAll(reb, "vehiclesPlane") + FactionGetAll(reb, "vehiclesCivPlane");
 
 
 // Template overrides

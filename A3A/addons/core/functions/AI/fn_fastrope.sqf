@@ -5,7 +5,7 @@ params ["_veh", "_groupX", "_positionX", "_posOrigin", "_heli", ["_landPos", []]
 
 private _vehType = typeOf _veh;
 
-if (_vehType in FactionGet(all,"vehiclesHelisAttack") + FactionGet(all,"vehiclesHelisLightAttack") + FactionGet(all,"vehiclesPlanesTransport")) then {
+if (_vehType in FactionGet(all, "vehiclesHelisAttack") + FactionGet(all, "vehiclesHelisLightAttack") + FactionGet(all, "vehiclesPlanesTransport")) then {
     _veh setVehicleRadar 1;
 };
 

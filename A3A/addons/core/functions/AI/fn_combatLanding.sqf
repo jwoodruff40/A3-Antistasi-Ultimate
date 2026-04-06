@@ -33,7 +33,7 @@ if (_forceFastrope) exitWith {
     [_helicopter, _cargoGroup, _posDestination, _originPos, _crewGroup, _landPos] spawn _function;
 };
 
-if (_vehType in FactionGet(all,"vehiclesHelisAttack") + FactionGet(all,"vehiclesHelisLightAttack") + FactionGet(all,"vehiclesPlanesTransport")) then {
+if (_vehType in FactionGet(all, "vehiclesHelisAttack") + FactionGet(all, "vehiclesHelisLightAttack") + FactionGet(all, "vehiclesPlanesTransport")) then {
     _helicopter setVehicleRadar 1;
 };
 
@@ -55,7 +55,7 @@ _vehWP0 setWaypointBehaviour "CARELESS";// maybe split driver and gunners, so gu
 private _midHeight = [50, 70] select (A3A_climate isEqualTo "tropical");
 _helicopter flyInHeight _midHeight;
 
-[_helicopter, _landPos, _vehType in FactionGet(all,"vehiclesPlanesTransport")] call A3A_fnc_approachSpeedControl;
+[_helicopter, _landPos, _vehType in FactionGet(all, "vehiclesPlanesTransport")] call A3A_fnc_approachSpeedControl;
 
 waitUntil {sleep 1; (_helicopter distance2D _landPos) < 800};
 while {_helicopter distance2D _landPos > 675} do {
