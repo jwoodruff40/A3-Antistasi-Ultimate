@@ -276,7 +276,7 @@ if (dateToNumber date < _dateLimitNum) then {
 	if (_isDifficult) then {
 		Info("Creating small minefield near ambush.");
 		private _minesCount = round random [3,5,7];
-		private _mines = (_faction get "minefieldAPERS");
+		private _mines = (GetTiered(_faction, "minefieldAPERS"));
 		for "_i" from 1 to _minesCount do {
 			private _mineX = createMine [selectRandom _mines, _startingRoadPosition, [], 25];
 			Rivals revealMine _mineX;

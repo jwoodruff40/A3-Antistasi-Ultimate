@@ -49,7 +49,7 @@ if (_isDifficult) then {
 		(_faction get "unitMilitiaSniper"),
 		(_faction get "unitMilitiaMedic")
 	];
-	_carPool = GetTiered(_faction, "vehiclesMilitiaCars");
+	_carPool = GetTiered(_faction, "vehiclesLightUnarmed");
 } else {
 	_leader = (_faction get "unitPoliceOfficer");
 	_unitPool = [(_faction get "unitPoliceGrunt")];

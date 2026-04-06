@@ -504,7 +504,7 @@
     };
     class GVAR(Invaders_Vehicle_MilitiaCar) : GVAR(Invaders_Vehicle_Basic) {
         displayName = $STR_A3U_Zeus_VehicleType_MilitiaCar;
-        GVAR(vehType) = QUOTE(vehiclesMilitiaCars);
+        GVAR(vehType) = QUOTE(vehiclesLightUnarmed);
     };
     class GVAR(Invaders_Vehicle_Police) : GVAR(Invaders_Vehicle_Basic) {
         displayName = $STR_A3U_Zeus_VehicleType_Police;
@@ -516,7 +516,7 @@
     };
     class GVAR(Invaders_Vehicle_MilitiaLightArmed) : GVAR(Invaders_Vehicle_Basic) {
         displayName = $STR_A3U_Zeus_VehicleType_MilitiaLightArmed;
-        GVAR(vehType) = QUOTE(vehiclesMilitiaLightArmed);
+        GVAR(vehType) = QUOTE(vehiclesLightArmed);
     };
     class GVAR(Invaders_Vehicle_Truck) : GVAR(Invaders_Vehicle_Basic) {
         displayName = $STR_A3U_Zeus_VehicleType_Truck;
@@ -540,7 +540,7 @@
     };
     class GVAR(Invaders_Vehicle_MilitiaTruck) : GVAR(Invaders_Vehicle_Basic) {
         displayName = $STR_A3U_Zeus_VehicleType_MilitiaTruck;
-        GVAR(vehType) = QUOTE(vehiclesMilitiaTrucks);
+        GVAR(vehType) = QUOTE(vehiclesTrucks);
     };
     class GVAR(Invaders_Vehicle_Medical) : GVAR(Invaders_Vehicle_Basic) {
         displayName = $STR_A3U_Zeus_VehicleType_Medical;
@@ -566,7 +566,7 @@
     };
     class GVAR(Invaders_Vehicle_MilitiaAPC) : GVAR(Invaders_Vehicle_APC) {
         displayName = $STR_A3U_Zeus_VehicleType_MilitiaAPC;
-        GVAR(vehType) = QUOTE(vehiclesMilitiaAPCs);
+        GVAR(vehType) = QUOTE(vehiclesAPCs);
     };
     class GVAR(Invaders_Vehicle_IFV) : GVAR(Invaders_Vehicle_APC) {
         displayName = $STR_A3U_Zeus_VehicleType_IFV;

@@ -91,7 +91,7 @@ if (_HeliClass == "O_Heli_Transport_04_F") then {
 	while {_attempts != 0} do {
 		private _csatPods = ["Land_Pod_Heli_Transport_04_covered_F" , "Land_Pod_Heli_Transport_04_bench_F" , "Land_Pod_Heli_Transport_04_medevac_F" , "Land_Pod_Heli_Transport_04_repair_F", "Land_Pod_Heli_Transport_04_fuel_F" , "Land_Pod_Heli_Transport_04_ammo_F" , "Land_Pod_Heli_Transport_04_box_F"];
 		_lootcrateType = selectRandom ((GetTiered(_faction, "vehiclesLightUnarmed")) + (GetTiered(_faction, "vehiclesLightArmed")) + (GetTiered(_faction, "vehiclesAirborne")) + (GetTiered(_faction, "vehiclesAA")) + (GetTiered(_faction, "vehiclesLightTanks")) + 
-		(GetTiered(_faction, "vehiclesMilitiaAPCs")) + (GetTiered(_faction, "vehiclesAPCs")) + (GetTiered(_faction, "vehiclesIFVs")) + _csatPods);
+		(GetTiered(_faction, "vehiclesAPCs")) + (GetTiered(_faction, "vehiclesAPCs")) + (GetTiered(_faction, "vehiclesIFVs")) + _csatPods);
 		_lootCrate = _lootcrateType createVehicle _actualspawnPosition;
 		deleteVehicle _lootCrate;
 		if (_heliVehicle canSlingLoad _lootCrate) exitwith {
@@ -150,7 +150,7 @@ if (_HeliClass == "O_Heli_Transport_04_F") then {
 	while {_attempts != 0 } do {
 		private _regPods = ["B_Slingload_01_Cargo_F", "B_Slingload_01_Ammo_F", "B_Slingload_01_Medevac_F", "B_Slingload_01_Repair_F", "B_Slingload_01_Fuel_F"];
 		_lootcrateType = selectRandom ((GetTiered(_faction, "vehiclesLightUnarmed")) + (GetTiered(_faction, "vehiclesLightArmed")) + (GetTiered(_faction, "vehiclesAirborne")) + 
-		(GetTiered(_faction, "vehiclesAA")) + (GetTiered(_faction, "vehiclesLightTanks")) + (GetTiered(_faction, "vehiclesMilitiaAPCs")) + (GetTiered(_faction, "vehiclesAPCs")) + (GetTiered(_faction, "vehiclesIFVs")) + _regPods);
+		(GetTiered(_faction, "vehiclesAA")) + (GetTiered(_faction, "vehiclesLightTanks")) + (GetTiered(_faction, "vehiclesAPCs")) + (GetTiered(_faction, "vehiclesAPCs")) + (GetTiered(_faction, "vehiclesIFVs")) + _regPods);
 		_lootCrate = _lootcrateType createVehicle _actualspawnPosition;
 		deleteVehicle _lootCrate;
 		if (_heliVehicle canSlingLoad _lootCrate) exitwith {
@@ -250,7 +250,7 @@ if (_outpost in _potentialControl) then {
 	private _wp = _InfGroup addWaypoint [_outpostPosition, 50];
 	_wp setWaypointType "SAD";
 	/* if (_difficult) then {
-		_UAVtype = selectRandom (_faction get "uavsPortable");
+		_UAVtype = selectRandom (GetTiered(_faction, "uavsPortable"));
 		_uav = createVehicle [_UAVtype, _SlingloadPositionActuall, [], 0, "FLY"];
 		[_side, _uav] call A3A_fnc_createVehicleCrew;
 		_vehicles pushBack _uav;

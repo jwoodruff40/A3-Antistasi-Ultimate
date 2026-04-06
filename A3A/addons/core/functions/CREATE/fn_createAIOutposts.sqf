@@ -223,9 +223,9 @@ if (_spawnParameter isEqualType []) then {
 			(GetTiered(_faction, "vehiclesLightUnarmed")) + 
 			(GetTiered(_faction, "vehiclesLightArmed"))
 		} else {
-			(GetTiered(_faction, "vehiclesMilitiaTrucks")) +
-			(GetTiered(_faction, "vehiclesMilitiaLightArmed")) +
-			(GetTiered(_faction, "vehiclesMilitiaCars"))+
+			(GetTiered(_faction, "vehiclesTrucks")) +
+			(GetTiered(_faction, "vehiclesLightArmed")) +
+			(GetTiered(_faction, "vehiclesLightUnarmed"))+
 			(GetTiered(_faction, "vehiclesBasic")) //we should use them somewhere at least
 		};
 		// _types = _types select { _x in FactionGet(all,"vehiclesCargoTrucks") };
@@ -250,7 +250,7 @@ while {_countX < _vehCount} do {
     if (_spawnParameter isEqualType []) then {
         private _vehiclesPlanesCAS = GetTiered(_faction, "vehiclesPlanesCAS");
         private _vehiclesPlanesAA = GetTiered(_faction, "vehiclesPlanesAA");
-        private _uavsAttack = _faction getOrDefault ["uavsAttack", []];
+        private _uavsAttack = GetTiered(_faction, "uavsAttack");
         private _vehPool = [];
         {
             _vehPool pushBack _x;

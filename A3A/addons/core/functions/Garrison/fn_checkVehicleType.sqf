@@ -40,10 +40,10 @@ params ["_vehicle", "_preference"];
     || {_vehicle in FactionGetAll(inv, "vehiclesHelisAttack")}
 
 #define drone \
-    {_vehicle in FactionGet(occ,"uavsAttack")} \
-    || {_vehicle in FactionGet(inv,"uavsAttack")} \
-    || {_vehicle in FactionGet(occ,"uavsPortable")} \
-    || {_vehicle in FactionGet(inv,"uavsPortable")}
+    {_vehicle in FactionGetAll(occ, "uavsAttack")} \
+    || {_vehicle in FactionGetAll(inv, "uavsAttack")} \
+    || {_vehicle in FactionGetAll(occ, "uavsPortable")} \
+    || {_vehicle in FactionGetAll(inv, "uavsPortable")}
 
 #define plane \
     {_vehicle in FactionGetAll(occ, "vehiclesPlanesCAS")} \

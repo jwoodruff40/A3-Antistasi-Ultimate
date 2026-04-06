@@ -122,7 +122,7 @@ private _patrolPosition = [
 ] call BIS_fnc_findSafePos;
 
 private _carPos =  [_spawnPosition, (random [4,6,8]), (random 360)] call BIS_fnc_relPos;
-private _car = (selectRandom (FactionGetTiered(riv, "vehiclesRivalsCars"))) createVehicle _spawnPosition;
+private _car = (selectRandom (FactionGetTiered(riv, "vehiclesLightUnarmed"))) createVehicle _spawnPosition;
 private _dirCar = [_mortar, _car] call BIS_fnc_dirTo;
 _car setDir _dirCar + (random 90);
 [_car, Rivals] call A3A_fnc_AIVEHinit;

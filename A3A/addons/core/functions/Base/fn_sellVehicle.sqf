@@ -98,7 +98,7 @@ private _costs = call {
         (_typeX in FactionGet(all, "vehiclesLight"))
         or (_typeX in OccAndInv("vehiclesTrucks"))
         or (_typeX in OccAndInv("vehiclesCargoTrucks"))
-        or (_typeX in OccAndInv("vehiclesMilitiaTrucks"))
+        or (_typeX in OccAndInv("vehiclesTrucks"))
         or (_typeX in FactionGetAll(reb, "vehiclesTruck"))
     ) exitWith {750};
     if (

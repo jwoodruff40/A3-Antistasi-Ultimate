@@ -6,7 +6,7 @@ params [["_overridePosition", []]];
 
 Info("Helicopter raid random event init.");
 
-if ((FactionGetTiered(riv, "vehiclesRivalsHelis")) isEqualTo []) exitWith {
+if ((FactionGetTiered(riv, "vehiclesHelis")) isEqualTo []) exitWith {
 	Info("No helicopters defined, rerolling another event.");
     [HELIRAID] remoteExecCall ["SCRT_fnc_encounter_selectAndExecuteEvent", 2];
 };
@@ -64,7 +64,7 @@ private _fnc_notifyPlayers = {
 
 	_spawnPosition pushBack ((_spawnPosition select 2) + _height);
 
-	private _heli = createVehicle [selectRandom (FactionGetTiered(riv, "vehiclesRivalsHelis")), _spawnPosition, [], 0, "FLY"];
+	private _heli = createVehicle [selectRandom (FactionGetTiered(riv, "vehiclesHelis")), _spawnPosition, [], 0, "FLY"];
 	private _angle =  [_spawnPosition,_originPosition] call BIS_fnc_dirTo;
 	_heli setDir _angle;
 

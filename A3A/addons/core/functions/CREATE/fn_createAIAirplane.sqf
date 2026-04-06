@@ -236,7 +236,7 @@ if (!_busy) then {
 		if(_spawnParameter isEqualType []) then {
 			private _vehiclesPlanesCAS = GetTiered(_faction, "vehiclesPlanesCAS");
 			private _vehiclesPlanesAA = GetTiered(_faction, "vehiclesPlanesAA");
-			private _uavsAttack = _faction getOrDefault ["uavsAttack", []];
+			private _uavsAttack = GetTiered(_faction, "uavsAttack");
 
 			private _vehPool = [];
 			{
@@ -280,7 +280,7 @@ if (!_busy) then {
 				private _vehiclesPlanesLargeAA = GetTiered(_faction, "vehiclesPlanesLargeAA");
 				private _vehiclesPlanesTransport = GetTiered(_faction, "vehiclesPlanesTransport");
 				private _vehiclesPlanesGunship = GetTiered(_faction, "vehiclesPlanesGunship");
-				private _uavsAttack = _faction getOrDefault ["uavsAttack", []];
+				private _uavsAttack = GetTiered(_faction, "uavsAttack");
 				private _vehPool = [];
 				{
 				    _vehPool pushBack _x;

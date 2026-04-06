@@ -160,7 +160,7 @@ if (_isControl) then
 
         private _vehicleCategories = [ 
             "vehiclesPolice", _weightPolice, 
-            "vehiclesMilitiaLightArmed", _weightMilitia, 
+            "vehiclesLightArmed", _weightMilitia, 
             "vehiclesAPCs", _weightAPC, 
             "vehiclesLightTanks", _weightTank 
         ];
@@ -204,7 +204,7 @@ else
         if ({if (_x inArea _markerX) exitWith {1}} count allMines == 0) then
         {
             Debug_1("Creating a Minefield at %1", _markerX);
-            private _mines = (_faction get "minefieldAPERS");
+            private _mines = (GetTiered(_faction, "minefieldAPERS"));
             for "_i" from 1 to 45 do {
                 _mineX = createMine [ selectRandom _mines ,_positionX,[],_size];
                 _sideX revealMine _mineX;
@@ -215,7 +215,7 @@ else
         [_groupX, "Patrol_Area", 25, 150, 300, false, [], false] call A3A_fnc_patrolLoop;
         _groups pushBack _groupX;
 
-        _typeVehX = selectRandom (_faction get "uavsPortable");
+        _typeVehX = selectRandom (GetTiered(_faction, "uavsPortable"));
         if !(isNil "_typeVehX") then
         {
             sleep 1;

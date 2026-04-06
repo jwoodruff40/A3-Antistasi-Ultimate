@@ -56,7 +56,7 @@ if (_failure) exitWith {
 
 Debug_1("Creating a Minefield at %1", _base);
 
-private _mines = (_faction get "minefieldAT") + (_faction get "minefieldAPERS");
+private _mines = (GetTiered(_faction, "minefieldAT")) + (GetTiered(_faction, "minefieldAPERS"));
 
 for "_i" from 1 to 30 do {
 	_mineX = createMine [ selectRandom _mines ,_pos,[],50];

@@ -73,7 +73,7 @@ while {true} do {
 // selecting classnames
 private _reconVehicleDroppod = GetTiered(_faction, "vehiclesDropPod");
 
-private _reconVehicleClass = selectRandom ((GetTiered(_faction, "vehiclesPlanesTransport")) + (_faction get "uavsAttack") + _reconVehicleDroppod); //  + _reconVehicleDroppod
+private _reconVehicleClass = selectRandom ((GetTiered(_faction, "vehiclesPlanesTransport")) + (GetTiered(_faction, "uavsAttack")) + _reconVehicleDroppod); //  + _reconVehicleDroppod
 private _pilotClass = _faction get "unitPilot";
 
 if (_reconVehicleClass in _reconVehicleDroppod) exitWith { 

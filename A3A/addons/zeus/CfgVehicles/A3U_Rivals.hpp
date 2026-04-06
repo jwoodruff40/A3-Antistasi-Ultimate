@@ -130,15 +130,15 @@
         side = 0;
         displayName = $STR_A3U_Zeus_VehicleType_LightUnarmed;
         GVAR(vehFaction) = QUOTE(riv);
-        GVAR(vehType) = QUOTE(vehiclesRivalsCars);
+        GVAR(vehType) = QUOTE(vehiclesLightUnarmed);
     };
     class GVAR(Rivals_Vehicle_LightArmed) : GVAR(Rivals_Vehicle_LightUnarmed) {
         displayName = $STR_A3U_Zeus_VehicleType_LightArmed;
-        GVAR(vehType) = QUOTE(vehiclesRivalsLightArmed);
+        GVAR(vehType) = QUOTE(vehiclesLightArmed);
     };
     class GVAR(Rivals_Vehicle_Truck) : GVAR(Rivals_Vehicle_LightUnarmed) {
         displayName = $STR_A3U_Zeus_VehicleType_Truck;
-        GVAR(vehType) = QUOTE(vehiclesRivalsTrucks);
+        GVAR(vehType) = QUOTE(vehiclesTrucks);
     };
     class GVAR(Rivals_Vehicle_APC) : GVAR(Vehicle_APC_Base) {
         scope = 2;
@@ -147,7 +147,7 @@
         side = 0;
         displayName = $STR_A3U_Zeus_VehicleType_APC;
         GVAR(vehFaction) = QUOTE(riv);
-        GVAR(vehType) = QUOTE(vehiclesRivalsAPCs);
+        GVAR(vehType) = QUOTE(vehiclesAPCs);
     };
     class GVAR(Rivals_Vehicle_Tank) : GVAR(Vehicle_Tank_Base) {
         scope = 2;
@@ -156,7 +156,7 @@
         side = 0;
         displayName = $STR_A3U_Zeus_VehicleType_Tank;
         GVAR(vehFaction) = QUOTE(riv);
-        GVAR(vehType) = QUOTE(vehiclesRivalsTanks);
+        GVAR(vehType) = QUOTE(vehiclesTanks);
     };
     class GVAR(Rivals_Vehicle_Heli) : GVAR(Vehicle_Heli_Base) {
         scope = 2;
@@ -165,7 +165,7 @@
         side = 0;
         displayName = $STR_A3U_Zeus_VehicleType_Heli;
         GVAR(vehFaction) = QUOTE(riv);
-        GVAR(vehType) = QUOTE(vehiclesRivalsHelis);
+        GVAR(vehType) = QUOTE(vehiclesHelis);
     };
     class GVAR(Rivals_Vehicle_StaticWpn) : GVAR(Vehicle_StaticMG_Base) {
         scope = 2;

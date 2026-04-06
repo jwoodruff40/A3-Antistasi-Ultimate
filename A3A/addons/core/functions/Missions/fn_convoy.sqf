@@ -122,8 +122,8 @@ switch (toLowerANSI _convoyType) do ///why? toLowerANSI
         _taskTitle = localize "STR_A3A_Missions_AS_Convoy_task_header_prisoners";
         _taskIcon = "run";
         _typeVehObj = selectRandom ( switch true do {
-            case (tierWar < 5): { (GetTiered(_milFaction, "vehiclesMilitiaTrucks")) };
-            case (tierWar < 7): { (GetTiered(_milFaction, "vehiclesMilitiaTrucks")) + (GetTiered(_milFaction, "vehiclesTrucks")) };
+            case (tierWar < 5): { (GetTiered(_milFaction, "vehiclesTrucks")) };
+            case (tierWar < 7): { (GetTiered(_milFaction, "vehiclesTrucks")) + (GetTiered(_milFaction, "vehiclesTrucks")) };
             default { (GetTiered(_milFaction, "vehiclesTrucks")) };
         });
     };
@@ -133,8 +133,8 @@ switch (toLowerANSI _convoyType) do ///why? toLowerANSI
         _taskTitle = localize "STR_A3A_Missions_AS_Convoy_task_header_reinf";
         _taskIcon = "meet";
         _typeVehObj = selectRandom ( switch true do {
-            case (tierWar < 5): { (GetTiered(_milFaction, "vehiclesMilitiaTrucks")) };
-            case (tierWar < 7): { (GetTiered(_milFaction, "vehiclesMilitiaTrucks")) + (GetTiered(_milFaction, "vehiclesTrucks")) };
+            case (tierWar < 5): { (GetTiered(_milFaction, "vehiclesTrucks")) };
+            case (tierWar < 7): { (GetTiered(_milFaction, "vehiclesTrucks")) + (GetTiered(_milFaction, "vehiclesTrucks")) };
             default { (GetTiered(_milFaction, "vehiclesTrucks")) };
         });
     };
@@ -143,7 +143,7 @@ switch (toLowerANSI _convoyType) do ///why? toLowerANSI
         _textX = format [localize "STR_A3A_Missions_AS_Convoy_task_dest_money",_nameOrigin,_displayTime,_nameDest];
         _taskTitle = localize "STR_A3A_Missions_AS_Convoy_task_header_money";
         _taskIcon = "takeoff"; ///"truck" icon doesn't exist
-        _vehiclePool = if (_civDisabled) then { GetTiered(_milFaction, "vehiclesMilitiaTrucks") } else { GetTiered(_civFaction, "vehiclesCivIndustrial") } select { _x isEqualType "" }; // * convert weighted list to normal array
+        _vehiclePool = if (_civDisabled) then { GetTiered(_milFaction, "vehiclesTrucks") } else { GetTiered(_civFaction, "vehiclesCivIndustrial") } select { _x isEqualType "" }; // * convert weighted list to normal array
         _typeVehObj = selectRandom GetTiered(_rebFaction, "vehiclesCivSupply");
         if (isNil "_typeVehObj") then { _typeVehObj = selectRandom _vehiclePool };
     };
@@ -152,7 +152,7 @@ switch (toLowerANSI _convoyType) do ///why? toLowerANSI
         _textX = format [localize "STR_A3A_Missions_AS_Convoy_task_dest_supplies",_nameOrigin,_displayTime,_nameDest,FactionGet(reb,"name")];
         _taskTitle = localize "STR_A3A_Missions_AS_Convoy_task_header_supplies";
         _taskIcon = "box";
-        _vehiclePool = if (_civDisabled) then { GetTiered(_milFaction, "vehiclesMilitiaTrucks") } else { GetTiered(_civFaction, "vehiclesCivMedical") };
+        _vehiclePool = if (_civDisabled) then { GetTiered(_milFaction, "vehiclesTrucks") } else { GetTiered(_civFaction, "vehiclesCivMedical") };
         _typeVehObj = selectRandom (GetTiered(_rebFaction, "vehiclesCivSupply"));
         if (isNil "_typeVehObj") then { _typeVehObj = selectRandom _vehiclePool };
     };
@@ -345,8 +345,8 @@ for "_i" from 1 to _countX do
 sleep 2;
 private _typeVehX = selectRandom ( switch true do {
     case (_sideX == Occupants && random 4 < tierWar): { (GetTiered(_milFaction, "vehiclesPolice")) };
-    case (tierWar < 5): { (GetTiered(_milFaction, "vehiclesMilitiaLightArmed")) };
-    case (tierWar < 7): { (GetTiered(_milFaction, "vehiclesLightArmed")) + (GetTiered(_milFaction, "vehiclesMilitiaLightArmed")) };
+    case (tierWar < 5): { (GetTiered(_milFaction, "vehiclesLightArmed")) };
+    case (tierWar < 7): { (GetTiered(_milFaction, "vehiclesLightArmed")) + (GetTiered(_milFaction, "vehiclesLightArmed")) };
     default { (GetTiered(_milFaction, "vehiclesLightArmed")) };
 });
 private _LeadText = localize "STR_marker_convoy_lead_vehicle";

@@ -103,19 +103,19 @@ private _keys_general = [
     "staticLowWeapons"
 ];
 private _keys_militia = createHashMapFromArray [
-    ["vehiclesMilitiaLightArmed", "vehiclesLightArmed"],
-    ["vehiclesMilitiaTrucks", "vehiclesTrucks"],
-    ["vehiclesMilitiaCars", "vehiclesLightUnarmed"],
-    ["vehiclesMilitiaAPCs", "vehiclesAPCs"]
+    ["vehiclesLightArmed", "vehiclesLightArmed"],
+    ["vehiclesTrucks", "vehiclesTrucks"],
+    ["vehiclesLightUnarmed", "vehiclesLightUnarmed"],
+    ["vehiclesAPCs", "vehiclesAPCs"]
 ];
 private _keys_rivals = createHashMapFromArray [
-    ["vehiclesRivalsLightArmed", "vehiclesLightArmed"],
-    ["vehiclesRivalsTrucks", "vehiclesTrucks"],
-    ["vehiclesRivalsCars", "vehiclesLightUnarmed"],
-    ["vehiclesRivalsAPCs", "vehiclesAPCs"],
-    ["vehiclesRivalsTanks", "vehiclesTanks"],
-    ["vehiclesRivalsHelis", "vehiclesHelis"],
-    ["vehiclesRivalsUavs", "vehiclesUAVs"]
+    ["vehiclesLightArmed", "vehiclesLightArmed"],
+    ["vehiclesTrucks", "vehiclesTrucks"],
+    ["vehiclesLightUnarmed", "vehiclesLightUnarmed"],
+    ["vehiclesAPCs", "vehiclesAPCs"],
+    ["vehiclesTanks", "vehiclesTanks"],
+    ["vehiclesHelis", "vehiclesHelis"],
+    ["vehiclesUavs", "vehiclesUAVs"]
 ];
 
 private _convFaction = +_faction;

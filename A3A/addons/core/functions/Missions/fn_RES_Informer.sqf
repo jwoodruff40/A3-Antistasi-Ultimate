@@ -220,7 +220,7 @@ for "_i" from 0 to _roadblockCount do {
     private _typeVehX = if(random 10 < (tierWar + (difficultyCoef / 2))) then {
         selectRandom ((GetTiered(_faction, "vehiclesLightAPCs")) + (GetTiered(_faction, "vehiclesLightArmed")))
     } else {
-        selectRandom (GetTiered(_faction, "vehiclesMilitiaLightArmed"))
+        selectRandom (GetTiered(_faction, "vehiclesLightArmed"))
     };
 
     private _roadblockVehicleData = [_roadblockPosition, 0, _typeVehX, _side] call A3A_fnc_spawnVehicle;

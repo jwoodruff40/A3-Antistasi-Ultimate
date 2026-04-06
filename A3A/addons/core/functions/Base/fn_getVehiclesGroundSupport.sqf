@@ -40,8 +40,8 @@ if (_tanksOnly) exitWith { _vehWeights };
 
 // only occupants use militia vehicles?
 if (_side == Occupants) then {
-    [GetTiered(_faction, "vehiclesMilitiaLightArmed"), _milCarWeight] call _fnc_addArrayToWeights;
-    private _milApc = GetTiered(_faction, "vehiclesMilitiaAPCs");
+    [GetTiered(_faction, "vehiclesLightArmed"), _milCarWeight] call _fnc_addArrayToWeights;
+    private _milApc = GetTiered(_faction, "vehiclesAPCs");
     if (_milApc isNotEqualTo []) then {
         [_milApc, _milApcWeight] call _fnc_addArrayToWeights;
     };

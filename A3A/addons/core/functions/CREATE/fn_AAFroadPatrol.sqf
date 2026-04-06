@@ -41,7 +41,7 @@ switch (true) do {
 		if (random 10 < tierWar + aggressionOccupants/10) then {
 			_typeCar = selectRandom ((GetTiered(_faction, "vehiclesLightArmed")) + (GetTiered(_faction, "vehiclesAPCs")) + (GetTiered(_faction, "vehiclesIFVs")) + (GetTiered(_faction, "vehiclesLightTanks")));
 		} else {
-			_typeCar = selectRandom ((GetTiered(_faction, "vehiclesLightArmed")) + (GetTiered(_faction, "vehiclesLightAPCs")) + (GetTiered(_faction, "vehiclesMilitiaAPCs")));
+			_typeCar = selectRandom ((GetTiered(_faction, "vehiclesLightArmed")) + (GetTiered(_faction, "vehiclesLightAPCs")) + (GetTiered(_faction, "vehiclesAPCs")));
 		};
 	};
 
@@ -54,7 +54,7 @@ switch (true) do {
 			};
 			_typePatrol = "AIR";
 		} else {
-			_typeCar = selectRandom ((GetTiered(_faction, "vehiclesMilitiaLightArmed")) + (GetTiered(_faction, "vehiclesMilitiaCars")));	
+			_typeCar = selectRandom ((GetTiered(_faction, "vehiclesLightArmed")) + (GetTiered(_faction, "vehiclesLightUnarmed")));	
 		};
 	};
 
@@ -62,7 +62,7 @@ switch (true) do {
 		if (_sideX isEqualTo Invaders || {random 10 < tierWar + aggressionOccupants/10}) then {
 			_typeCar = selectRandom ((GetTiered(_faction, "vehiclesLightArmed")) + (GetTiered(_faction, "vehiclesLightUnarmed")));
 		} else {
-			_typeCar = selectRandom ((GetTiered(_faction, "vehiclesPolice")) + (GetTiered(_faction, "vehiclesMilitiaLightArmed")) + (GetTiered(_faction, "vehiclesMilitiaCars")) + (GetTiered(_faction, "vehiclesBasic")));
+			_typeCar = selectRandom ((GetTiered(_faction, "vehiclesPolice")) + (GetTiered(_faction, "vehiclesLightArmed")) + (GetTiered(_faction, "vehiclesLightUnarmed")) + (GetTiered(_faction, "vehiclesBasic")));
 		};
 	};
 };

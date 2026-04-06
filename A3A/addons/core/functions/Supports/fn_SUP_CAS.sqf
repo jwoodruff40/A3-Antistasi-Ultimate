@@ -29,7 +29,7 @@ private _vehType = "";
 if (A3A_UAVSpawnChance < 20) then {
     _vehType = selectRandom ((GetTiered(_faction, "vehiclesPlanesCAS")) + (GetTiered(_faction, "vehiclesPlanesLargeCAS")));
 } else {
-    _vehType = selectRandom ((GetTiered(_faction, "vehiclesPlanesCAS")) + (GetTiered(_faction, "vehiclesPlanesLargeCAS")) + (_faction get "uavsAttack"));
+    _vehType = selectRandom ((GetTiered(_faction, "vehiclesPlanesCAS")) + (GetTiered(_faction, "vehiclesPlanesLargeCAS")) + (GetTiered(_faction, "uavsAttack")));
 };
 
 private _aggro = if(_side == Occupants) then {aggressionOccupants} else {aggressionInvaders};

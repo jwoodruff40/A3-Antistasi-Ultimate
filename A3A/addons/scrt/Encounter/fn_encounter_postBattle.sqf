@@ -256,7 +256,7 @@ private _fnc_createVehicleWithEffects = {
         (GetTiered(_faction, "vehiclesAPCs")) + 
         (GetTiered(_faction, "vehiclesIFVs")) + 
         (GetTiered(_faction, "vehiclesLightTanks")) + 
-        (GetTiered(_faction, "vehiclesMilitiaAPCs"))
+        (GetTiered(_faction, "vehiclesAPCs"))
     );
     
     // Flip for non-heavy vehicles
@@ -283,7 +283,7 @@ private _fnc_createCrew = {
         (GetTiered(_faction, "vehiclesAPCs")) + 
         (GetTiered(_faction, "vehiclesIFVs")) + 
         (GetTiered(_faction, "vehiclesLightTanks")) + 
-        (GetTiered(_faction, "vehiclesMilitiaAPCs"))
+        (GetTiered(_faction, "vehiclesAPCs"))
     )) then {
         _faction get "unitCrew"
     } else {
@@ -331,7 +331,7 @@ private _fnc_createCrew = {
 for "_i" from 1 to _vehicleCountWin do {
     private _spawnPos = [_roadPosition, 10, 60, "win"] call _fnc_findPos;
     private _vehicleClass = if (_isFIA) then {
-        selectRandom ((GetTiered(_winFaction, "vehiclesMilitiaLightArmed")) + (GetTiered(_winFaction, "vehiclesMilitiaAPCs")))
+        selectRandom ((GetTiered(_winFaction, "vehiclesLightArmed")) + (GetTiered(_winFaction, "vehiclesAPCs")))
     } else {
         selectRandom ((GetTiered(_winFaction, "vehiclesAPCs")) + 
                     (GetTiered(_winFaction, "vehiclesIFVs")) +
@@ -362,7 +362,7 @@ for "_i" from 1 to _vehicleCountWin do {
 for "_i" from 1 to _vehicleCountLose do {
     private _spawnPos = [_roadPosition, 5, 60, "lose"] call _fnc_findPos;
     private _vehicleClass = if (_isFIA) then {
-        selectRandom ((GetTiered(_loseFaction, "vehiclesMilitiaLightArmed")) + (GetTiered(_loseFaction, "vehiclesMilitiaAPCs")))
+        selectRandom ((GetTiered(_loseFaction, "vehiclesLightArmed")) + (GetTiered(_loseFaction, "vehiclesAPCs")))
     } else {
         selectRandom ((GetTiered(_loseFaction, "vehiclesAPCs")) + 
                     (GetTiered(_loseFaction, "vehiclesIFVs")) + 

@@ -49,8 +49,8 @@ if(_preference in ["HELI_DEFAULT", "HELI_ATTACK"]) then {
 };
 
 if(_preference in ["AIR_DRONE", "AIR_GENERIC"]) then {
-    _possibleVehicles append (_faction get "uavsAttack");
-    _possibleVehicles append (_faction get "uavsPortable");
+    _possibleVehicles append (GetTiered(_faction, "uavsAttack"));
+    _possibleVehicles append (GetTiered(_faction, "uavsPortable"));
 };
 if(_preference in ["AIR_GENERIC", "AIR_DEFAULT"]) then {
     _possibleVehicles append (GetTiered(_faction, "vehiclesPlanesCAS"));

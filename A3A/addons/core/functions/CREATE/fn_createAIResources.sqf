@@ -138,7 +138,7 @@ if (_spawnParameter isEqualType []) then {
 		private _types = if (!_isFIA) then {
 			(GetTiered(_faction, "vehiclesTrucks")) + (GetTiered(_faction, "vehiclesCargoTrucks"))
 		} else {
-			GetTiered(_faction, "vehiclesMilitiaTrucks")
+			GetTiered(_faction, "vehiclesTrucks")
 		};
 		_types = _types select { _x in FactionGet(all,"vehiclesCargoTrucks") };
 		if (count _types == 0) then { _types = (GetTiered(_faction, "vehiclesCargoTrucks")) } else { _types }; // failsafe didn't work?
