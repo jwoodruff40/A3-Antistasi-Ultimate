@@ -24,7 +24,7 @@ if (_lowCiv || _civNonHuman) exitWith {
     publicVariableServer "isEventInProgress";    
 };
 
-private _civPlane = GetTiered(A3A_faction_civ, "vehiclesCivPlanes");
+private _civPlane = FactionGetTiered(civ, "vehiclesCivPlanes");
 if (_civPlane isEqualTo []) exitWith {
     Error("No civ plane found, rerolling.");
     [CIV_PLANE] remoteExecCall ["SCRT_fnc_encounter_selectAndExecuteEvent", 2];

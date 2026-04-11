@@ -35,7 +35,7 @@ if (tierWar < 4 && {_typeGroup in (FactionGetAll(reb, "staticAT") + FactionGetAl
 	[localize "STR_A3A_reinf_addFIASquadHC_header", localize "STR_A3A_reinf_addFIASquadHC_error_ATAA_restr"] call SCRT_fnc_misc_deniedHint;
 };
 
-if (tierWar < 5 && {_typeGroup in (A3A_faction_reb get 'staticMortars')}) exitWith {
+if (tierWar < 5 && {_typeGroup in (FactionGetTiered(reb, 'staticMortars'))}) exitWith {
 	[localize "STR_A3A_reinf_addFIASquadHC_header", localize "STR_A3A_reinf_addFIASquadHC_error_mortar_restr"] call SCRT_fnc_misc_deniedHint;
 };
 
