@@ -295,6 +295,42 @@
 #define CBA_EVENT_SERVER_ENTITY_POSTMORTEM QUOTE(TRIPLES(PREFIX_CONST,event,serverEntityPostMortem))
 
 /* -------------------------------------------
+    Event: CBA_EVENT_SERVER_GAME_LOAD
+        Triggered when the game is loaded on the server.
+
+    Parameters:
+        None
+
+    Broadcast:
+        No
+
+    Sent by:
+        Server
+    
+    Recipients:
+        Server
+------------------------------------------- */
+#define CBA_EVENT_SERVER_GAME_LOAD QUOTE(TRIPLES(PREFIX_CONST,event,serverGameLoad))
+
+/* -------------------------------------------
+    Event: CBA_EVENT_SERVER_GAME_SAVED
+        Triggered when the game is saved on the server.
+
+    Parameters:
+        None
+
+    Broadcast:
+        No
+
+    Sent by:
+        Server
+    
+    Recipients:
+        Server
+------------------------------------------- */
+#define CBA_EVENT_SERVER_GAME_SAVE QUOTE(TRIPLES(PREFIX_CONST,event,serverGameSave))
+
+/* -------------------------------------------
     Event: CBA_EVENT_SERVER_INIT_AI_UNIT
         Triggered when an AI unit is initialized on the server.
 
@@ -472,5 +508,23 @@
         "locationSpawned" event
 ------------------------------------------- */
 #define CBA_EVENT_SERVER_SPAWN_LOCATION QUOTE(TRIPLES(PREFIX_CONST,event,serverSpawnLocation))
+
+/* -------------------------------------------
+    Event: CBA_EVENT_SERVER_STARTUP
+        Triggered very early in `fn_initServer.sqf` when the server starts up.
+
+    Parameters:
+        None
+
+    Broadcast:
+        No
+
+    Sent by:
+        Server
+    
+    Recipients:
+        Server
+------------------------------------------- */
+#define CBA_EVENT_SERVER_STARTUP QUOTE(TRIPLES(PREFIX_CONST,event,serverStartup))
 
 #endif // __HAVE_CBA_EVENTS_HPP__
