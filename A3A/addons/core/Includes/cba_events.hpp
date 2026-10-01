@@ -313,11 +313,32 @@
 #define CBA_EVENT_SERVER_GAME_LOAD QUOTE(TRIPLES(PREFIX_CONST,event,serverGameLoad))
 
 /* -------------------------------------------
-    Event: CBA_EVENT_SERVER_GAME_SAVED
+    Event: CBA_EVENT_SERVER_GAME_SAVE
         Triggered when the game is saved on the server.
 
+        The hashmap parameter should be written to by any third-party plugins
+        (read: extenders) that need to save their custom data. Refrain from
+        using generic keys like "position" or "object" to avoid conflicts with
+        other plugins, rather, used _tagged_ values.
+
     Parameters:
-        None
+        0: saveData - save data for plugins <HASHMAP>
+
+    See:
+        CBA_EVENT_SERVER_GAME_LOAD
+
+    Example:
+        (begin example)
+        [CBA_EVENT_SERVER_GAME_SAVE, {
+            if !assert(params[
+                ["_saveData", nil, [createHashMap]]
+            ]) exitWith {};
+
+            // _PLEEEASE_ don't use "MYTAG" either; think of something else
+            _saveData setVariable["MYTAG_object", someValue];
+            _saveData setVariable["MYTAG_position", someValue];
+        }] call A3A_fnc_addEventHandler;
+        (end example)
 
     Broadcast:
         No
