@@ -298,8 +298,14 @@
     Event: CBA_EVENT_SERVER_GAME_LOAD
         Triggered when the game is loaded on the server.
 
+        Third-party plugins (i.e., extenders) should retrieve their previously
+        stored save data from this event's hashmap parameter.
+
+    See:
+        CBA_EVENT_SERVER_GAME_SAVE
+
     Parameters:
-        None
+        0: saveData - save data for plugins <HASHMAP>
 
     Broadcast:
         No
