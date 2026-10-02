@@ -358,6 +358,26 @@
 #define CBA_EVENT_SERVER_GAME_SAVE QUOTE(TRIPLES(PREFIX_CONST,event,serverGameSave))
 
 /* -------------------------------------------
+    Event: CBA_EVENT_SERVER_INIT_REBEL_UNIT
+        Triggered when a Rebel unit is initialized on the server.
+
+    Parameters:
+        0: unit - the rebel unit object <OBJECT>
+        1: preserveIdentity - if the unit's identity (name/face/voice) should be left alone instead of re-generated <BOOL>
+        2: equipRebel - if the unit should be equipped with weapons and gear according to their unit type <BOOL>
+
+    Broadcast:
+        No
+
+    Sent by:
+        Server
+    
+    Recipients:
+        Server
+------------------------------------------- */
+#define CBA_EVENT_SERVER_INIT_REBEL_UNIT QUOTE(TRIPLES(PREFIX_CONST,event,serverInitRebelUnit))
+
+/* -------------------------------------------
     Event: CBA_EVENT_SERVER_INIT_AI_UNIT
         Triggered when an AI unit is initialized on the server.
 
@@ -553,5 +573,59 @@
         Server
 ------------------------------------------- */
 #define CBA_EVENT_SERVER_STARTUP QUOTE(TRIPLES(PREFIX_CONST,event,serverStartup))
+
+/* -------------------------------------------
+    Event: CBA_EVENT_SERVER_RESOURCECHECK_DONE
+        Triggered after completion of the server resource check loop (every 10min after server startup).
+
+    Parameters:
+        None
+
+    Broadcast:
+        No
+
+    Sent by:
+        Server
+    
+    Recipients:
+        Server
+------------------------------------------- */
+#define CBA_EVENT_SERVER_RESOURCECHECK_DONE QUOTE(TRIPLES(PREFIX_CONST,event,serverResourcecheckDone))
+
+/* -------------------------------------------
+    Event: CBA_EVENT_SERVER_AGGROUPDATE_DONE
+        Triggered after completion of the server aggression update loop (every 1min after server startup).
+
+    Parameters:
+        None
+
+    Broadcast:
+        No
+
+    Sent by:
+        Server
+    
+    Recipients:
+        Server
+------------------------------------------- */
+#define CBA_EVENT_SERVER_AGGROUPDATE_DONE QUOTE(TRIPLES(PREFIX_CONST,event,serverAggroupdateDone))
+
+/* -------------------------------------------
+    Event: CBA_EVENT_SERVER_GARBAGECLEAN_DONE
+        Triggered after completion of the server garbage clean.
+
+    Parameters:
+        None
+
+    Broadcast:
+        No
+
+    Sent by:
+        Server
+    
+    Recipients:
+        Server
+------------------------------------------- */
+    #define CBA_EVENT_SERVER_GARBAGECLEAN_DONE QUOTE(TRIPLES(PREFIX_CONST,event,serverGarbagecleanDone))
 
 #endif // __HAVE_CBA_EVENTS_HPP__
