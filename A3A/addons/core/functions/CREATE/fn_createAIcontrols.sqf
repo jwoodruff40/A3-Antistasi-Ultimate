@@ -20,8 +20,7 @@ private _groups = [];
 _pilots = [];
 _conquered = false;
 _groupX = grpNull;
-private _useVehicle = false;
-private _spawnRoadblock = false;
+_useVehicle = false;
 _leave = false;
 A3A_hasIFA = false;
 
@@ -33,23 +32,15 @@ if (isClass (configfile >> "CfgPatches" >> "LIB_core")) then {
 
 _isControl = if (isOnRoad _positionX) then {true} else {false};
 
-private _aggrRoadblock = [aggressionOccupants, aggressionInvaders] select (_sideX == Invaders);
-_aggrRoadblock = _aggrRoadblock max A3A_roadBlocksBaseChance;
-
-if (random 100 < _aggrRoadblock) then
-{
-    _spawnRoadblock = true;
-};
-
 if (_isControl) then
 {
-    if (!_spawnRoadblock) exitWith {};
     if (_sideX == Occupants) then
     {
-        if (!([_markerX] call A3A_fnc_isFrontline)) then {
-            _useVehicle = true;
-        }
-    };
+        if (!([_markerX] call A3A_fnc_isFrontline)) then // (random 10 > (tierWar + difficultyCoef)) and 
+            {
+                _useVehicle = true;
+            }
+        };
 
     // Attempt to find nearby road with two connected roads
     _radiusX = 20;
@@ -70,7 +61,7 @@ if (_isControl) then
         private _roadscon = roadsConnectedto (_roads select 0);
         _dirveh = [_roads select 0, _roadscon select 0] call BIS_fnc_DirTo;
     };
-    
+
     if (!_useVehicle) then
     {
         _groupE = grpNull;
@@ -175,30 +166,23 @@ if (_isControl) then
         ];
 
         private _vehicleCategory = selectRandomWeighted _vehicleCategories;
-        private _fallbackVehicles = _faction getOrDefault["vehiclesAPCs", []];
+        private _fallbackVehicle = selectRandom (_faction get "vehiclesAPCs");
 
         Debug_2("Chosen %1 as vehicle category. tierWar is %2", _vehicleCategory, tierWar);
 
-        _typeVehX = selectRandom (_faction getOrDefault [_vehicleCategory, _fallbackVehicles]);
-        if (isNil "_typeVehX" || { !isClass(configFile >> "CfgVehicles" >> _typeVehX) }) exitWith {
-            Warning("Failed to select a valid vehicle type for '%1'; fallback also failed.", _vehicleCategory);
-        };
-
+        _typeVehX = selectRandom (_faction getOrDefault [_vehicleCategory, _fallbackVehicle]);
         _veh = _typeVehX createVehicle getPos (_roads select 0);
         _veh setDir _dirveh + 90;
         [_veh, _sideX] call A3A_fnc_AIVEHinit;
         _vehiclesX pushBack _veh;
         sleep 1;
-        private _unitType = if (_vehicleCategory isEqualTo "vehiclesPolice") then {_faction get "unitPoliceOfficer"} else {
-            [_faction get "unitTierStaticCrew"] call SCRT_fnc_unit_getTiered;
-        };
-        private _typeGroup = if (_vehicleCategory isEqualTo "vehiclesPolice") then {_faction get "groupPoliceOfficers"} else {
+        _typeGroup = if (_vehicleCategory isEqualTo "vehiclesPolice") then {_faction get "groupPoliceOfficers"} else {
             [_faction get "groupTierFireteam"] call SCRT_fnc_unit_getTiered;
         };
         _groupX = [_positionX, _sideX, _typeGroup, true] call A3A_fnc_spawnGroup;
         if !(isNull _groupX) then
         {
-            _unit = [_groupX, _unitType, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
+            _unit = [_groupX, _faction get "unitMilitiaGrunt", _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
             _unit moveInGunner _veh;
             {_soldiers pushBack _x; [_x,"", false] call A3A_fnc_NATOinit} forEach units _groupX;
         };
@@ -297,7 +281,7 @@ while {(spawner getVariable _markerX != 2) and ({[_x,_markerX] call A3A_fnc_canC
     sleep 3;
 };
 
-[CBA_EVENT_SERVER_SPAWN_LOCATION, [_markerX, "Control", true]] call FUNCMAIN(triggerLocalEvent);
+["locationSpawned", [_markerX, "Control", true]] call EFUNC(Events,triggerEvent);
 
 waitUntil {sleep 1;((spawner getVariable _markerX == 2))  or ({[_x,_markerX] call A3A_fnc_canConquer} count _soldiers == 0)};
 
@@ -311,7 +295,7 @@ if (spawner getVariable _markerX != 2) then
     _winner = side _closest;
     _loser = Occupants;
     Debug_3("Control %1 captured by %2. Is Roadblock: %3", _markerX, _winner, _isControl);
-    if (_isControl && _spawnRoadblock) then
+    if (_isControl) then
     {
         ["TaskSucceeded", ["", "Roadblock Destroyed"]] remoteExec ["BIS_fnc_showNotification",_winner];
         ["TaskFailed", ["", "Roadblock Lost"]] remoteExec ["BIS_fnc_showNotification",_sideX];
@@ -390,13 +374,11 @@ if (_conquered) then
             _size = [_markerX] call A3A_fnc_sizeMarker;
             for "_i" from 1 to 60 do
                 {
-                _mineX = createMine ["APERSMine",_positionX,[],_size];
-                if (_loser == Occupants) then {Occupants revealMine _mineX} else {Invaders revealMine _mineX};
+                    private _mines = selectRandom (Faction(_loser) getOrDefault ["minefieldAPERS", ["APERSMine"]]);
+                    private _mineX = createMine [_mines,_positionX,[],_size];
+                    _loser revealMine _mineX;
                 };
             };
     };
 };
-    
-[CBA_EVENT_SERVER_SPAWN_LOCATION, [_markerX, "Control", false]] call FUNCMAIN(triggerLocalEvent);
-
-nil;
+["locationSpawned", [_markerX, "Control", false]] call EFUNC(Events,triggerEvent);
