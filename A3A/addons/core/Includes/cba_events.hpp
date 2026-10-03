@@ -183,6 +183,24 @@
 #define CBA_EVENT_CLIENT_PLAYER_SAVE QUOTE(TRIPLES(PREFIX_CONST,event,clientPlayerSave))
 
 /* -------------------------------------------
+    Event: CBA_EVENT_CLIENT_RESOURCE_CHANGE
+        Triggered when player resources (money) are changed.
+
+    Parameters:
+        0: money - the amount of money the player gained or lost <SCALAR>
+
+    Broadcast:
+        No
+
+    Sent by:
+        Client
+    
+    Recipients:
+        Client
+------------------------------------------- */
+#define CBA_EVENT_CLIENT_RESOURCE_CHANGE QUOTE(TRIPLES(PREFIX_CONST,event,clientResourceChange))
+
+/* -------------------------------------------
     Event: CBA_EVENT_CLIENT_TEARDOWN_MODE_CHANGED
         Triggered when the client changes teardown mode.
 
@@ -569,7 +587,26 @@
 #define CBA_EVENT_SERVER_PLAYER_SAVE QUOTE(TRIPLES(PREFIX_CONST,event,serverPlayerSave))
 
 /* -------------------------------------------
-    Event: CBA_EVENT_SERVER_RESOURCECHECK_DONE
+    Event: CBA_EVENT_SERVER_RESOURCE_CHANGE
+        Triggered when faction resources (HR, money) are changed.
+
+    Parameters:
+        0: hr - the amount of HR changed <SCALAR>
+        1: money - the amount of money changed <SCALAR>
+
+    Broadcast:
+        No
+
+    Sent by:
+        Server
+    
+    Recipients:
+        Server
+------------------------------------------- */
+#define CBA_EVENT_SERVER_RESOURCE_CHANGE QUOTE(TRIPLES(PREFIX_CONST,event,serverResourceChange))
+
+/* -------------------------------------------
+    Event: CBA_EVENT_SERVER_RESOURCE_CHECK_DONE
         Triggered after completion of the server resource check loop (every 10min after server startup).
 
     Parameters:
@@ -584,7 +621,7 @@
     Recipients:
         Server
 ------------------------------------------- */
-#define CBA_EVENT_SERVER_RESOURCECHECK_DONE QUOTE(TRIPLES(PREFIX_CONST,event,serverResourcecheckDone))
+#define CBA_EVENT_SERVER_RESOURCE_CHECK_DONE QUOTE(TRIPLES(PREFIX_CONST,event,serverResourceCheckDone))
 
 /* -------------------------------------------
     Event: CBA_EVENT_SERVER_SPAWN_LOCATION
