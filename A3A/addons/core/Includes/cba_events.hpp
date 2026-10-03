@@ -409,7 +409,7 @@
     Recipients:
         Server
 ------------------------------------------- */
-    #define CBA_EVENT_SERVER_GARBAGECLEAN_DONE QUOTE(TRIPLES(PREFIX_CONST,event,serverGarbagecleanDone))
+#define CBA_EVENT_SERVER_GARBAGECLEAN_DONE QUOTE(TRIPLES(PREFIX_CONST,event,serverGarbagecleanDone))
 
 /* -------------------------------------------
     Event: CBA_EVENT_SERVER_INIT_AI_UNIT
