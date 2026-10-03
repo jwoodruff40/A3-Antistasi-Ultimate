@@ -251,6 +251,24 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 /* -------------------------------------------
+    Event: CBA_EVENT_SERVER_AGGROUPDATE_DONE
+        Triggered after completion of the server aggression update loop (every 1min after server startup).
+
+    Parameters:
+        None
+
+    Broadcast:
+        No
+
+    Sent by:
+        Server
+    
+    Recipients:
+        Server
+------------------------------------------- */
+#define CBA_EVENT_SERVER_AGGROUPDATE_DONE QUOTE(TRIPLES(PREFIX_CONST,event,serverAggroupdateDone))
+
+/* -------------------------------------------
     Event: CBA_EVENT_SERVER_CREATE_REBEL_CONTROL
         Triggered when a rebel control (watchpost, emplacements, etc.) is
         established (i.e.: HC moved to task point and control is built).
@@ -358,13 +376,11 @@
 #define CBA_EVENT_SERVER_GAME_SAVE QUOTE(TRIPLES(PREFIX_CONST,event,serverGameSave))
 
 /* -------------------------------------------
-    Event: CBA_EVENT_SERVER_INIT_REBEL_UNIT
-        Triggered when a Rebel unit is initialized on the server.
+    Event: CBA_EVENT_SERVER_GARBAGECLEAN_DONE
+        Triggered after completion of the server garbage clean.
 
     Parameters:
-        0: unit - the rebel unit object <OBJECT>
-        1: preserveIdentity - if the unit's identity (name/face/voice) should be left alone instead of re-generated <BOOL>
-        2: equipRebel - if the unit should be equipped with weapons and gear according to their unit type <BOOL>
+        None
 
     Broadcast:
         No
@@ -375,7 +391,7 @@
     Recipients:
         Server
 ------------------------------------------- */
-#define CBA_EVENT_SERVER_INIT_REBEL_UNIT QUOTE(TRIPLES(PREFIX_CONST,event,serverInitRebelUnit))
+    #define CBA_EVENT_SERVER_GARBAGECLEAN_DONE QUOTE(TRIPLES(PREFIX_CONST,event,serverGarbagecleanDone))
 
 /* -------------------------------------------
     Event: CBA_EVENT_SERVER_INIT_AI_UNIT
@@ -489,6 +505,26 @@
 #define CBA_EVENT_SERVER_INIT_DONE QUOTE(TRIPLES(PREFIX_CONST,event,serverInitDone))
 
 /* -------------------------------------------
+    Event: CBA_EVENT_SERVER_INIT_REBEL_UNIT
+        Triggered when a Rebel unit is initialized on the server.
+
+    Parameters:
+        0: unit - the rebel unit object <OBJECT>
+        1: preserveIdentity - if the unit's identity (name/face/voice) should be left alone instead of re-generated <BOOL>
+        2: equipRebel - if the unit should be equipped with weapons and gear according to their unit type <BOOL>
+
+    Broadcast:
+        No
+
+    Sent by:
+        Server
+    
+    Recipients:
+        Server
+------------------------------------------- */
+#define CBA_EVENT_SERVER_INIT_REBEL_UNIT QUOTE(TRIPLES(PREFIX_CONST,event,serverInitRebelUnit))
+
+/* -------------------------------------------
     Event: CBA_EVENT_SERVER_MARKER_CHANGE
         Triggered when marker ownership changes on the server.
 
@@ -533,6 +569,24 @@
 #define CBA_EVENT_SERVER_PLAYER_SAVE QUOTE(TRIPLES(PREFIX_CONST,event,serverPlayerSave))
 
 /* -------------------------------------------
+    Event: CBA_EVENT_SERVER_RESOURCECHECK_DONE
+        Triggered after completion of the server resource check loop (every 10min after server startup).
+
+    Parameters:
+        None
+
+    Broadcast:
+        No
+
+    Sent by:
+        Server
+    
+    Recipients:
+        Server
+------------------------------------------- */
+#define CBA_EVENT_SERVER_RESOURCECHECK_DONE QUOTE(TRIPLES(PREFIX_CONST,event,serverResourcecheckDone))
+
+/* -------------------------------------------
     Event: CBA_EVENT_SERVER_SPAWN_LOCATION
         Triggered when a location is spawned on the server.
 
@@ -573,59 +627,5 @@
         Server
 ------------------------------------------- */
 #define CBA_EVENT_SERVER_STARTUP QUOTE(TRIPLES(PREFIX_CONST,event,serverStartup))
-
-/* -------------------------------------------
-    Event: CBA_EVENT_SERVER_RESOURCECHECK_DONE
-        Triggered after completion of the server resource check loop (every 10min after server startup).
-
-    Parameters:
-        None
-
-    Broadcast:
-        No
-
-    Sent by:
-        Server
-    
-    Recipients:
-        Server
-------------------------------------------- */
-#define CBA_EVENT_SERVER_RESOURCECHECK_DONE QUOTE(TRIPLES(PREFIX_CONST,event,serverResourcecheckDone))
-
-/* -------------------------------------------
-    Event: CBA_EVENT_SERVER_AGGROUPDATE_DONE
-        Triggered after completion of the server aggression update loop (every 1min after server startup).
-
-    Parameters:
-        None
-
-    Broadcast:
-        No
-
-    Sent by:
-        Server
-    
-    Recipients:
-        Server
-------------------------------------------- */
-#define CBA_EVENT_SERVER_AGGROUPDATE_DONE QUOTE(TRIPLES(PREFIX_CONST,event,serverAggroupdateDone))
-
-/* -------------------------------------------
-    Event: CBA_EVENT_SERVER_GARBAGECLEAN_DONE
-        Triggered after completion of the server garbage clean.
-
-    Parameters:
-        None
-
-    Broadcast:
-        No
-
-    Sent by:
-        Server
-    
-    Recipients:
-        Server
-------------------------------------------- */
-    #define CBA_EVENT_SERVER_GARBAGECLEAN_DONE QUOTE(TRIPLES(PREFIX_CONST,event,serverGarbagecleanDone))
 
 #endif // __HAVE_CBA_EVENTS_HPP__
