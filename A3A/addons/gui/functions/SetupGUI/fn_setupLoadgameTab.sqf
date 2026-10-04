@@ -319,7 +319,6 @@ switch (_mode) do
         if (_index == -1) exitWith {};
         private _nameBoxCtrl = _display displayCtrl A3A_IDC_SETUP_NAMEEDITBOX;
         private _newName = ctrlText _nameBoxCtrl;
-        private _newName = ctrlText (_display displayCtrl A3A_IDC_SETUP_NAMEEDITBOX);
 
         // Set name in save data
         private _saveData = A3A_setup_saveData select _index;
