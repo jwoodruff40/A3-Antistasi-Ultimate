@@ -62,7 +62,7 @@ switch (_mode) do
         // ! Reset airport marker type and color
         {
             "Dum"+_x setMarkerTypeLocal "";
-            "Dum"+_x setMarkerColor "";
+            "Dum"+_x setMarkerColor "colorUNKNOWN";
         } forEach (airportsX);
 
         // ! Reset enemy zone hiding variables
