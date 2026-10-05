@@ -294,7 +294,6 @@ switch (_mode) do
         createDialog "A3A_SetupHQPosDialog";
     };
 
-    // Map Madness Edit Map Dialog
     case ("editZones"):
     {
         createDialog "A3A_SetupEditZonesDialog";
