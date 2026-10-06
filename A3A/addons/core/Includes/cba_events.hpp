@@ -362,10 +362,13 @@
         Triggered when the game is saved on the server, after successfully saving to the appropriate namespace.
 
     Parameters:
-        0: useMPNamespace - whether to use the missionProfileNamespace (as opposed to legacy ProfileNamespace) <BOOL>
-        1: serverID - the ID of the server that performed the save <BOOL> (false = profileNamespace save) OR <SCALAR> (missionProfileNamespace save)
-        2: campaignID - the ID of the campaign that was active during the save <SCALAR>
+        0: useMPNamespace - whether to use the missionProfileNamespace (as opposed to legacy profileNamespace) <BOOL>
+        1: serverID - the server ID <STRING> (profileNamespace save) or false <BOOL> (missionProfileNamespace save)
+        2: campaignID - the ID of the campaign that was active during the save <STRING> (UUID)
         3: worldName - the name of the world where the save occurred <STRING>
+        
+    Optional:
+        4: oldCampaignID - the ID of the legacy campaign being migrated <STRING> (5-digit numeric ID)
 
     Broadcast:
         No
