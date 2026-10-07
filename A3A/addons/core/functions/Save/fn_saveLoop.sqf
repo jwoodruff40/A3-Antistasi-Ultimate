@@ -605,7 +605,7 @@ _fuelAmountleftArray = [];
 if (_saveToNewNamespace) then { saveMissionProfileNamespace } else { saveProfileNamespace };
 
 // Trigger local (server) event informing listeners that we're done saving the game, allowing them to perform actions with the finalized data
-[CBA_EVENT_SERVER_GAME_SAVED, [_saveToNewNamespace, _serverID, _campaignID, _worldName, _oldCampaignID]] call FUNCMAIN(triggerLocalEvent);
+[CBA_EVENT_SERVER_GAME_SAVED, [_saveToNewNamespace, _serverID, _campaignID, _worldName, RETNIL(_oldCampaignID)]] call FUNCMAIN(triggerLocalEvent);
 
 savingServer = false;
 _saveHintText = [

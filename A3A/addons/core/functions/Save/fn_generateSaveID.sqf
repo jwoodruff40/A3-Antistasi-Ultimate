@@ -26,8 +26,4 @@
         _newID <STRING>
 */
 
-private _allIDs = call A3A_fnc_collectSaveData apply { _x get "gameID" };
-private _newID = [] call CBA_fnc_createUUID;
-while { _newID in _allIDs } do { _newID = [] call CBA_fnc_createUUID };
-
-_newID
+[] call CBA_fnc_createUUID;
