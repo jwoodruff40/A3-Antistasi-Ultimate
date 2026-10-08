@@ -1,6 +1,6 @@
 /*
 function: A3A_fnc_setupImportExportDialog
-    Handles the display and import / export funcionality of saved game data introduced with JSON saves.
+    Handles the display and import / export functionality of saved game data.
     This function should only be called from setupImportExportDialog onLoad and control activation EHs.
 
 Author: Creep'nCrunch / jwoodruff40
@@ -148,7 +148,8 @@ switch (_mode) do
         _saveDataHM set ["campaignID", _newID];
         Info_2("Registering new save: Old campaignID: %1 | New campaignID: %2 | Name: %3", _campaignID, _newID, _name);
 
-        private _namespace = [profileNamespace, missionProfileNamespace] select (_serverID isEqualTo false);
+        private _platformIsWindows = A3A_setup_platform isEqualTo "Windows";
+        private _namespace = [profileNamespace, missionProfileNamespace] select (_platformIsWindows);
         _namespace setVariable [format ["A3A_saveData_%1", _newID], _saveDataHM];
 
         // Update the list of saved games

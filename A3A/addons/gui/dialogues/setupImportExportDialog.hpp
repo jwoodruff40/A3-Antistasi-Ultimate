@@ -94,7 +94,7 @@ class A3A_SetupImportExportDialog
                     idc = A3A_IDC_SETUP_IMPORTEXPORT_IMPORTBUTTON;
                     text = $STR_antistasi_dialogs_setup_ie_import;
                     tooltip = $STR_antistasi_dialogs_setup_ie_import_tooltip;
-                    onButtonClick = "['importData'] call A3A_fnc_setupImportExportDialog";
+                    onButtonClick = "['importData'] remoteExecCall ['A3A_fnc_setupImportExportDialog', 2]";
                     x = 0;
                     y = 0;
                     w = 28 * GRID_W;
