@@ -22,6 +22,7 @@ Return Value:
 */
 
 #include "..\..\dialogues\ids.inc"
+#include "..\..\dialogues\defines.hpp"
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 
@@ -49,6 +50,67 @@ switch (_mode) do
         // ! Stub in case we need to do any cleanup when the dialog is closed
     };
 
+    case ("hashmapToJson"):
+    {
+        // convert data that doesn't cleanly serialize to JSON into JSON-compatible format
+        _params params [["_saveDataHM", nil, [createHashMap]]];
+
+        // convert garage data to JSON-serializable format
+        (_saveDataHM get "HR_Garage") params ["_garage", "_UID", "_sources"];
+        _garage = _garage apply {
+            (toArray _x) params ["_keys", "_values"];
+            (_keys apply {str _x}) createHashMapFromArray _values
+        };
+        _saveDataHM set ["HR_Garage", [_garage, _UID, _sources]];
+
+        // convert mine sides to integers
+        private _arrayMines = _saveDataHM get "minesX";
+        {
+            _x params ["_typeMine", "_posMine", "_detected", "_dirMine"];
+            _detected = _detected apply { switch (_x) do {
+                case (Invaders): { 0 };
+                case (Occupants): { 1 };
+                case (teamPlayer): { 2 };
+            }};
+            _x set [2, _detected];
+        } forEach _arrayMines;
+        _saveDataHM set ["minesX", _arrayMines];
+
+        toJson _saveDataHM;
+    };
+
+    case ("jsonToHashmap"):
+    {
+        // convert JSON-compatible format back into the original data structure
+        _params params [["_saveData", nil, [""]]];
+
+        private _saveDataHM = fromJSON _saveData;
+
+        // convert garage back to original format
+        (_saveDataHM get "HR_Garage") params ["_garage", "_UID", "_sources"];
+        _garage = _garage apply {
+            (toArray _x) params ["_keys", "_values"];
+            (_keys apply {if (_x isEqualType "") then { parseNumber _x } else { _x }}) createHashMapFromArray _values
+        };
+        _saveDataHM set ["HR_Garage", [_garage, _UID, _sources]];
+
+        // convert mine detection back from integers to sides
+        private _minesX = _saveDataHM get "minesX";
+        {
+            _x params ["_typeMine", "_posMine", "_detected", "_dirMine"];
+            _detected = _detected apply { switch (_x) do {
+                case (0): { Invaders };
+                case (1): { Occupants };
+                case (2): { teamPlayer };
+                default { _x }; // loading old variable data, already stored as a SIDE
+            }};
+            _x set [2, _detected];
+        } forEach (_minesX);
+        _saveDataHM set ["minesX", _minesX];
+
+        _saveDataHM;
+    };
+
     case ("importData"):
     {
         Info("Attempting to import new save via import / export dialog.");
@@ -58,7 +120,7 @@ switch (_mode) do
             [localize "STR_antistasi_dialogs_setup_import_export", localize "STR_antistasi_dialogs_setup_ie_import_empty"] call A3A_fnc_customHint;
         };
 
-        private _saveDataHM = fromJSON _saveData;
+        private _saveDataHM = ["jsonToHashmap", [_saveData]] call A3A_fnc_setupImportExportDialog;
         if (isNil "_saveDataHM" || {!(_saveDataHM isEqualType createHashMap)}) exitWith {
             [localize "STR_antistasi_dialogs_setup_import_export", localize "STR_antistasi_dialogs_setup_ie_import_invalid"] call A3A_fnc_customHint;
         };
@@ -120,14 +182,10 @@ switch (_mode) do
         private _allPNSaves = (allVariables profileNamespace) select { (_x find "a3a_savedata_") isNotEqualTo -1 } apply { [false, _x] };
         private _allSaves = _allMPNSaves + _allPNSaves;
         {
-            private _saveData = [profileNamespace, missionProfileNamespace] select (_x select 0) getVariable (_x select 1);
-            private _index = _control lbAdd (_saveData get "name");
-            _control lbSetTooltip [_index, _saveData get "gameID"];
-            /*
-            private _formattedString = ["formatJson", [toJson _saveData]] call A3A_fnc_setupImportExportDialog; // ! commented out because it's slow :/
-            _control lbSetData [_index, _formattedString];
-            */
-            _control lbSetData [_index, toJson _saveData];
+            private _saveDataHM = [profileNamespace, missionProfileNamespace] select (_x select 0) getVariable (_x select 1);
+            private _index = _control lbAdd (_saveDataHM get "name");
+            _control lbSetTooltip [_index, _saveDataHM get "gameID"];
+            _control lbSetData [_index, ["hashmapToJson", [_saveDataHM]] call A3A_fnc_setupImportExportDialog];
         } forEach _allSaves;
 
         // Resize LB to fit its content
