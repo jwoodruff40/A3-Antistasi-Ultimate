@@ -782,7 +782,7 @@ class A3A_SetupConfirmDialog
             x = DIALOG_X;
             y = DIALOG_Y;
             w = 80 * GRID_W;
-            h = 40 * GRID_H;
+            h = 44 * GRID_H;
         };
         class ConfirmText : A3A_TextMultiCenter
         {
@@ -790,7 +790,7 @@ class A3A_SetupConfirmDialog
             x = DIALOG_X + 4 * GRID_W;
             y = DIALOG_Y + 4 * GRID_H;
             w = 72 * GRID_W;
-            h = 20 * GRID_H;
+            h = 24 * GRID_H;
         };
         class CancelButton : A3A_Button
         {
