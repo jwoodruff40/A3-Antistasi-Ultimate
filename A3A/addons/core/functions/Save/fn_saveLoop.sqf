@@ -600,7 +600,7 @@ _fuelAmountleftArray = [];
 ["saveDataPlugins", _saveDataPlugins] call A3A_fnc_setStatVariable;
 
 // Store the entire save data hashmap as a single hashmap in the selected namespace
-["A3A_saveData_", A3A_saveDataHM, true] call A3A_fnc_setStatVariable; // e.g. "A3A_saveData_cdad5c77-4f89-446e-9b6b-46db2bef3b7c" --> save data hashmap
+_namespace setVariable [format ["A3A_saveData_%1", _campaignID], A3A_saveDataHM];
 
 if (_saveToNewNamespace) then { saveMissionProfileNamespace } else { saveProfileNamespace };
 
