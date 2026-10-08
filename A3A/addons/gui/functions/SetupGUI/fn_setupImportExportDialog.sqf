@@ -43,6 +43,8 @@ switch (_mode) do
     {
         // Disable the save data text box to prevent user edits on load until explicitly enabled
         _saveDataBox ctrlEnable false;
+
+        // TODO: trigger event for extenders to initialize their data if needed (e.g. adding to the GUI for other import / export methods, etc)
     };
 
     case ("onUnload"):
@@ -76,6 +78,8 @@ switch (_mode) do
         } forEach _arrayMines;
         _saveDataHM set ["minesX", _arrayMines];
 
+        // TODO: trigger event for extenders to convert their data if needed
+
         toJson _saveDataHM;
     };
 
@@ -107,6 +111,8 @@ switch (_mode) do
             _x set [2, _detected];
         } forEach (_minesX);
         _saveDataHM set ["minesX", _minesX];
+
+        // TODO: trigger event for extenders to convert their data back if needed
 
         _saveDataHM;
     };
@@ -192,6 +198,7 @@ switch (_mode) do
         private _ctrlPos = ctrlPosition _control;
         _ctrlPos set [3, (lbSize _control) * GRID_H * 4];
         _control ctrlSetPosition _ctrlPos;
+        _control ctrlCommit 0;
     };
 
     case ("formatJson"):
