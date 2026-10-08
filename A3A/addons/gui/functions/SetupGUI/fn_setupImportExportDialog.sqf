@@ -143,6 +143,7 @@ switch (_mode) do
         private _campaignID = _saveDataHM get "campaignID";
         private _serverID = _saveDataHM get "serverID";
         private _name = _saveDataHM get "name";
+        private _worldName = _saveDataHM get "worldName";
         private _newID = [] call A3A_fnc_generateSaveID;
         _saveDataHM set ["campaignID", _newID];
         Info_2("Registering new save: Old campaignID: %1 | New campaignID: %2 | Name: %3", _campaignID, _newID, _name);
@@ -152,7 +153,7 @@ switch (_mode) do
 
         // Update the list of saved games
         private _saveList = [_namespace getVariable "antistasiUltimate2SavedGames"] param [0, [], [[]]];
-        _saveList pushBack [_newID, worldName, "Greenfor"]; // * Note: save data does not contain the world name, so the user needs to import the save on the same world in which it was created
+        _saveList pushBack [_newID, _worldName, "Greenfor"];
         _namespace setVariable ["antistasiUltimate2SavedGames", _saveList];
 
         if (_serverID isEqualTo false) then { saveMissionProfileNamespace } else { saveProfileNamespace };
