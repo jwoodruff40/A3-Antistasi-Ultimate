@@ -45,7 +45,7 @@ switch (_mode) do
         // Disable the save data text box to prevent user edits on load until explicitly enabled
         _saveDataBox ctrlEnable false;
 
-        // TODO: trigger event for extenders to initialize their data if needed (e.g. adding to the GUI for other import / export methods, etc)
+        [CBA_EVENT_CLIENT_IMPORTEXPORT_DIALOG_LOADED, [], getPlayerID A3A_setupPlayer] call FUNCMAIN(triggerOwnerEvent);
     };
 
     case ("onUnload"):
@@ -95,7 +95,7 @@ switch (_mode) do
         } forEach _arrayMines;
         _saveDataHM set ["minesX", _arrayMines];
 
-        // TODO: trigger event for extenders to convert their data if needed
+        [CBA_EVENT_CLIENT_IMPORTEXPORT_HASHMAPTOJSON, [_saveDataHM], getPlayerID A3A_setupPlayer] call FUNCMAIN(triggerOwnerEvent);
 
         toJson _saveDataHM;
     };
@@ -129,13 +129,17 @@ switch (_mode) do
         } forEach (_minesX);
         _saveDataHM set ["minesX", _minesX];
 
-        // TODO: trigger event for extenders to convert their data back if needed
+        [CBA_EVENT_CLIENT_IMPORTEXPORT_JSONTOHASHMAP, [_saveDataHM], getPlayerID A3A_setupPlayer] call FUNCMAIN(triggerOwnerEvent);
 
         _saveDataHM;
     };
 
     case ("importData"):
     {
+        // must run on server so data gets saved in server profile (duh),
+        // and in the appropriate namespace, depending on server os (which can be (re: probably is) different from the client)
+        if (!isServer) exitWith { ["importData"] remoteExecCall ["A3A_fnc_setupImportExportDialog", 2] };
+
         Info("Attempting to import new save via import / export dialog.");
         
         private _saveData = ctrlText _saveDataBox;
