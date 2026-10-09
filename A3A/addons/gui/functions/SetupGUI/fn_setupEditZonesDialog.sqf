@@ -46,6 +46,9 @@ switch (_mode) do
         // ! Override airport marker type to force them to show on the map
         { _x setMarkerTypeLocal "A3AU_airport_mrk" } forEach (airportsX apply {"Dum"+_x});
 
+        // ! Force hide fuel stations because they clutter the map way too much
+        { _x setMarkerAlpha 0 } forEach (fuelStationsX);
+
         // ! Force enable enemy zone hiding variables to control marker visibility
         hideEnemyMarkers = true;
         revealedZones = _allEnemyMarkers;
@@ -63,6 +66,9 @@ switch (_mode) do
             _x setMarkerTypeLocal "";
             _x setMarkerColor "colorUNKNOWN";
         } forEach (airportsX apply {"Dum"+_x});
+
+        // ! Reset fuel station marker visibility
+        { _x setMarkerAlpha 1 } forEach (fuelStationsX);
 
         // ! Reset enemy zone hiding variables
         missionNamespace setVariable ["hideEnemyMarkers", nil, true];
