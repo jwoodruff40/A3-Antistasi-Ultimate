@@ -192,7 +192,9 @@ switch (_mode) do
 
         if (_serverID isEqualTo false) then { saveMissionProfileNamespace } else { saveProfileNamespace };
 
-        // TODO: Force the setup dialog to show the newly-added save in the loadgame tab; looks like it may require editing fn_initSetupMonitor.fsm
+        // Rebuild the save list and push it to the setup player so the loadgame tab updates immediately
+        private _newSaveList = call A3A_fnc_collectSaveData;
+        ["refreshSaves", [_newSaveList]] remoteExec ["A3A_fnc_setupDialog", owner A3A_setupPlayer];
 
         // Show success message
         [localize "STR_antistasi_dialogs_setup_import_export", localize "STR_antistasi_dialogs_setup_ie_import_success"] call A3A_fnc_customHint;
