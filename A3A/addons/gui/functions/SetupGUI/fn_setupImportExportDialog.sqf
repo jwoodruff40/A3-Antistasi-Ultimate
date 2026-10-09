@@ -45,7 +45,7 @@ switch (_mode) do
         // Disable the save data text box to prevent user edits on load until explicitly enabled
         _saveDataBox ctrlEnable false;
 
-        [CBA_EVENT_CLIENT_IMPORTEXPORT_DIALOG_LOADED, [], getPlayerID A3A_setupPlayer] call FUNCMAIN(triggerOwnerEvent);
+        [CBA_EVENT_CLIENT_IMPORTEXPORT_DIALOG_LOADED, [], parseNumber getPlayerID A3A_setupPlayer] call FUNCMAIN(triggerOwnerEvent);
     };
 
     case ("onUnload"):
@@ -95,7 +95,7 @@ switch (_mode) do
         } forEach _arrayMines;
         _saveDataHM set ["minesX", _arrayMines];
 
-        [CBA_EVENT_CLIENT_IMPORTEXPORT_HASHMAPTOJSON, [_saveDataHM], getPlayerID A3A_setupPlayer] call FUNCMAIN(triggerOwnerEvent);
+        [CBA_EVENT_CLIENT_IMPORTEXPORT_HASHMAPTOJSON, [_saveDataHM], parseNumber getPlayerID A3A_setupPlayer] call FUNCMAIN(triggerOwnerEvent);
 
         toJson _saveDataHM;
     };
@@ -129,7 +129,7 @@ switch (_mode) do
         } forEach (_minesX);
         _saveDataHM set ["minesX", _minesX];
 
-        [CBA_EVENT_CLIENT_IMPORTEXPORT_JSONTOHASHMAP, [_saveDataHM], getPlayerID A3A_setupPlayer] call FUNCMAIN(triggerOwnerEvent);
+        [CBA_EVENT_CLIENT_IMPORTEXPORT_JSONTOHASHMAP, [_saveDataHM], parseNumber getPlayerID A3A_setupPlayer] call FUNCMAIN(triggerOwnerEvent);
 
         _saveDataHM;
     };
