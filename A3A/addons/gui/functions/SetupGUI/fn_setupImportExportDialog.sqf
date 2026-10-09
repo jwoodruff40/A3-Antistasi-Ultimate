@@ -1,24 +1,28 @@
 /*
-function: A3A_fnc_setupImportExportDialog
-    Handles the display and import / export functionality of saved game data.
-    This function should only be called from setupImportExportDialog onLoad and control activation EHs.
-
-Author: Creep'nCrunch / jwoodruff40
-
-Environment: Scheduled for onLoad and xxxLBSelChanged modes / Unscheduled for everything else unless specified
-
-Arguments:
-    <STRING> Mode, e.g. "onLoad", "importData", etc
-    <ARRAY<ANY>> Array of params for the mode when applicable. Params for specific modes are documented in the modes.
-
-Modes:
-    - onload called on creation to setup dialog
-    - onUnload called on deletion to handle deletion of dialog
-    - formatJson params [<STRING> compact JSON, <SCALAR> indent size (default 4)]; returns <STRING> pretty-printed JSON
-
-Return Value:
-    Nothing
-
+    Author:
+        Creep'nCrunch / jwoodruff40
+    
+    Description:
+        Handles the display and import / export functionality of saved game data.
+        This function should only be called from setupImportExportDialog onLoad and control activation EHs.
+    
+    Params:
+        _params <ARRAY> <Default: None>
+    
+    Dependencies:
+        N/A
+    
+    Scope:
+        Server for XXX mode(s), Client for all other modes
+    
+    Environment:
+        Scheduled for onLoad and xxxLBSelChanged modes, Unscheduled for all other modes unless specified
+    
+    Usage:
+        ["onLoad", []] call A3A_fnc_setupImportExportDialog;
+    
+    Return:
+        None
 */
 
 #include "..\..\dialogues\ids.inc"
