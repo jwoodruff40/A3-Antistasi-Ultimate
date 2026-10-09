@@ -5,7 +5,7 @@ function: A3A_fnc_setupImportExportDialog
 
 Author: Creep'nCrunch / jwoodruff40
 
-Environment: Scheduled for onLoad mode / Unscheduled for everything else unless specified
+Environment: Scheduled for onLoad and saveLBSelChanged mode / Unscheduled for everything else unless specified
 
 Arguments:
     <STRING> Mode, e.g. "onLoad", "importData", etc
@@ -278,7 +278,26 @@ switch (_mode) do
 
         if (_lbCurSel isEqualTo -1) exitWith {};
 
+        // Show AU logo loading animation while waiting for json formatter
+        private _saveDataLoadingHandle = [_saveDataBox] spawn {
+            params ["_saveDataBox"];
+            private _loadingText = localize "STR_antistasi_dialogs_setup_ie_savedata_loading"; 
+            _saveDataBox ctrlSetText (_loadingText + endl);
+
+            private _logoAscii = A3U_LOGO_ASCII;
+            private _index = 0;
+            while { true } do { 
+                sleep 0.1;
+                private _text = ctrlText _saveDataBox;
+                _saveDataBox ctrlSetText format ["%1%2", _text, _logoAscii select [_index, 4]];
+                _index = _index + 4;
+                if (_index >= count _logoAscii) then { _index = 0; _saveDataBox ctrlSetText (_loadingText + endl) };
+            };
+        };
+
         private _saveDataJson = _control lbData _lbCurSel;
-        _saveDataBox ctrlSetText (["formatJson", [_saveDataJson]] call A3A_fnc_setupImportExportDialog);
+        private _formattedJson = ["formatJson", [_saveDataJson]] call A3A_fnc_setupImportExportDialog;
+        terminate _saveDataLoadingHandle;
+        _saveDataBox ctrlSetText _formattedJson;
     };
 };

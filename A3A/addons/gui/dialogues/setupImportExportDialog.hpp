@@ -75,6 +75,8 @@ class A3A_SetupImportExportDialog
                     idc = A3A_IDC_SETUP_IMPORTEXPORT_SAVEDATABOX;
                     style = ST_LEFT + ST_MULTI;
                     colorDisabled[] = A3A_COLOR_TEXT;
+                    font = "EtelkaMonospacePro";
+                    sizeEx = GUI_TEXT_SIZE_EXTRA_SMALL;
                     x = 2 * GRID_W;
                     y = 4 * GRID_H;
                     w = 78 * GRID_W;
@@ -135,7 +137,7 @@ class A3A_SetupImportExportDialog
                     w = 46 * GRID_W;
                     h = 80 * GRID_H;
                     onLoad = "['saveLBPopulate', _this] call A3A_fnc_setupImportExportDialog";
-                    onLBSelChanged = "['saveLBSelChanged', _this] call A3A_fnc_setupImportExportDialog";
+                    onLBSelChanged = "['saveLBSelChanged', _this] spawn A3A_fnc_setupImportExportDialog";
                 };
             };
         };

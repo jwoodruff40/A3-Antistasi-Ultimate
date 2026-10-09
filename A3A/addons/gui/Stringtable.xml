@@ -3958,6 +3958,9 @@
             <Key ID="STR_antistasi_dialogs_setup_ie_savelist_text">
                 <Original>Save List</Original>
             </Key>
+            <Key ID="STR_antistasi_dialogs_setup_ie_savedata_loading">
+                <Original>Loading Save Data.</Original>
+            </Key>
             <Key ID="STR_antistasi_dialogs_setup_rebels">
                 <Original>Rebels</Original>
                 <Czech>Rebelové</Czech>
