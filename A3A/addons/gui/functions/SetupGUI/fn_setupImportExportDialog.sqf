@@ -32,6 +32,7 @@ Debug_1("Setup Import/Export dialog called with mode %1", _mode);
 
 private _display = findDisplay A3A_IDD_SETUP_IMPORTEXPORTDIALOG;
 private _parent = displayParent _display;
+private _saveDataBoxGroup = _display displayCtrl A3A_IDC_SETUP_IMPORTEXPORT_SAVEDATAGROUP;
 private _saveDataBox = _display displayCtrl A3A_IDC_SETUP_IMPORTEXPORT_SAVEDATABOX;
 private _importBtn = _display displayCtrl A3A_IDC_SETUP_IMPORTEXPORT_IMPORTBUTTON;
 private _exportBtn = _display displayCtrl A3A_IDC_SETUP_IMPORTEXPORT_EXPORTBUTTON;
@@ -50,6 +51,22 @@ switch (_mode) do
     case ("onUnload"):
     {
         // ! Stub in case we need to do any cleanup when the dialog is closed
+    };
+
+    case ("fitText"):
+    {
+        // The edit box is not scrollable unless its dimensions extend beyond the controls group containing it,
+        // so we need to resize it to the size of the text it contains to make it scrollable
+        private _saveDataBoxGroup = _display displayCtrl A3A_IDC_SETUP_IMPORTEXPORT_SAVEDATAGROUP;
+        private _viewH = (ctrlPosition _saveDataBoxGroup) select 3;
+        private _textH = ctrlTextHeight _saveDataBox;
+        if (_textH <= 0) then {
+            _textH = (count (ctrlText _saveDataBox splitString toString [10]) + 1) * GUI_TEXT_SIZE_EXTRA_SMALL * 1.2;
+        };
+        private _pos = ctrlPosition _saveDataBox;
+        _pos set [3, (_textH + 2 * GRID_H) max _viewH];
+        _saveDataBox ctrlSetPosition _pos;
+        _saveDataBox ctrlCommit 0;
     };
 
     case ("hashmapToJson"):
@@ -175,11 +192,15 @@ switch (_mode) do
     {
         _saveDataBox ctrlSetText "";
         _saveListBox lbSetCurSel -1;
+        ["fitText"] call A3A_fnc_setupImportExportDialog;
     };
 
     case ("toggleEdit"):
     {
         _saveDataBox ctrlEnable !(ctrlEnabled _saveDataBox);
+        
+        // editing disabled so let's assume user added / removed text and we need to resize the edit box
+        if (!(ctrlEnabled _saveDataBox)) then { ["fitText"] call A3A_fnc_setupImportExportDialog };
     };
 
     case ("saveLBPopulate"):
@@ -299,5 +320,7 @@ switch (_mode) do
         private _formattedJson = ["formatJson", [_saveDataJson]] call A3A_fnc_setupImportExportDialog;
         terminate _saveDataLoadingHandle;
         _saveDataBox ctrlSetText _formattedJson;
+        ["fitText"] call A3A_fnc_setupImportExportDialog;
+        _saveDataBoxGroup ctrlSetScrollValues [0, -1];
     };
 };

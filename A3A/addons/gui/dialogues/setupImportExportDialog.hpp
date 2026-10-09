@@ -71,16 +71,27 @@ class A3A_SetupImportExportDialog
                     onButtonClick = "['clearData'] call A3A_fnc_setupImportExportDialog";
                     x = 70 * GRID_W;
                 };
-                class SaveDataBox : A3A_Edit {
-                    idc = A3A_IDC_SETUP_IMPORTEXPORT_SAVEDATABOX;
-                    style = ST_LEFT + ST_MULTI;
-                    colorDisabled[] = A3A_COLOR_TEXT;
-                    font = "EtelkaMonospacePro";
-                    sizeEx = GUI_TEXT_SIZE_EXTRA_SMALL;
+
+                class SaveDataBoxGroup : A3A_ControlsGroupNoScrollbars {
+                    idc = A3A_IDC_SETUP_IMPORTEXPORT_SAVEDATAGROUP;
                     x = 2 * GRID_W;
                     y = 4 * GRID_H;
                     w = 78 * GRID_W;
                     h = 80 * GRID_H;
+
+                    class Controls {
+                        class SaveDataBox : A3A_Edit {
+                            idc = A3A_IDC_SETUP_IMPORTEXPORT_SAVEDATABOX;
+                            style = ST_LEFT + ST_MULTI;
+                            colorDisabled[] = A3A_COLOR_TEXT;
+                            font = "EtelkaMonospacePro";
+                            sizeEx = GUI_TEXT_SIZE_EXTRA_SMALL;
+                            x = 0;
+                            y = 0;
+                            w = 78 * GRID_W;
+                            h = 80 * GRID_H;
+                        };
+                    };
                 };
             };
         };
