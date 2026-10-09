@@ -3919,8 +3919,23 @@
                 <Chinesesimp>导入/导出游戏</Chinesesimp>
                 <Turkish>Oyunu içe aktar / dışa aktar</Turkish>
             </Key>
+            <Key ID="STR_antistasi_dialogs_setup_import_export_params">
+                <Original>Import / Export Parameter Preset</Original>
+                <Czech>Importovat / exportovat přednastavení parametrů</Czech>
+                <French>Importer / exporter le préréglage des paramètres</French>
+                <Italian>Importa / esporta preset dei parametri</Italian>
+                <Korean>매개변수 프리셋 가져오기 / 내보내기</Korean>
+                <Russian>Импорт / экспорт пресета параметров</Russian>
+                <Polish>Importuj / eksportuj preset parametrów</Polish>
+                <Portuguese>Importar / exportar preset de parâmetros</Portuguese>
+                <Chinesesimp>导入/导出参数预设</Chinesesimp>
+                <Turkish>Parametre Ön Ayarını içe aktar / dışa aktar</Turkish>
+            </Key>
             <Key ID="STR_antistasi_dialogs_setup_ie_savedata">
                 <Original>Save Data</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_setup_ie_paramdata">
+                <Original>Parameter Preset Data</Original>
             </Key>
             <Key ID="STR_antistasi_dialogs_setup_ie_clear">
                 <Original>Clear</Original>
@@ -3940,26 +3955,50 @@
             <Key ID="STR_antistasi_dialogs_setup_ie_copied">
                 <Original>Save data has been copied to your clipboard.</Original>
             </Key>
+            <Key ID="STR_antistasi_dialogs_setup_ie_params_copied">
+                <Original>Parameter preset data has been copied to your clipboard.</Original>
+            </Key>
             <Key ID="STR_antistasi_dialogs_setup_ie_import_empty">
                 <Original>Paste JSON-formatted save data into the save data box to import it.</Original>
             </Key>
             <Key ID="STR_antistasi_dialogs_setup_ie_import_invalid">
                 <Original>The save data is not valid JSON. Check the data and try again.</Original>
             </Key>
+            <Key ID="STR_antistasi_dialogs_setup_ie_import_params_invalid">
+                <Original>The parameter preset data is not valid JSON. Check the data and try again.</Original>
+            </Key>
             <Key ID="STR_antistasi_dialogs_setup_ie_import_success">
                 <Original>Save data imported as a new campaign save.</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_setup_ie_import_param_success">
+                <Original>Parameter preset imported successfully.</Original>
             </Key>
             <Key ID="STR_antistasi_dialogs_setup_ie_import_tooltip">
                 <Original>Import the text in the save data box as a new campaign save.</Original>
             </Key>
+            <Key ID="STR_antistasi_dialogs_setup_ie_import_params_tooltip">
+                <Original>Import the text in the preset data box as a new parameter preset.</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_setup_ie_import_params_empty">
+                <Original>Paste JSON-formatted preset data into the preset data box to import it.</Original>
+            </Key>
             <Key ID="STR_antistasi_dialogs_setup_ie_export_tooltip">
                 <Original>Copy the text in the save data box to your clipboard.</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_setup_ie_export_params_tooltip">
+                <Original>Copy the text in the preset data box to your clipboard.</Original>
             </Key>
             <Key ID="STR_antistasi_dialogs_setup_ie_savelist_text">
                 <Original>Save List</Original>
             </Key>
+            <Key ID="STR_antistasi_dialogs_setup_ie_paramlist_text">
+                <Original>Parameter Preset List</Original>
+            </Key>
             <Key ID="STR_antistasi_dialogs_setup_ie_savedata_loading">
                 <Original>Loading Save Data.</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_setup_ie_paramdata_loading">
+                <Original>Loading Preset Data.</Original>
             </Key>
             <Key ID="STR_antistasi_dialogs_setup_rebels">
                 <Original>Rebels</Original>
@@ -4376,6 +4415,17 @@
                 <Polish>Zmień nazwę ustawienia predefiniowanego</Polish>
                 <Portuguese>Renomear predefinição</Portuguese>
                 <Chinesesimp>重命名预设</Chinesesimp>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_setup_params_presets_import_export">
+                <Original>Import / Export Preset</Original>
+                <Czech>Import / export přednastavení</Czech>
+                <French>Importer / exporter le préréglage</French>
+                <Italian>Importa / esporta preset</Italian>
+                <Korean>매개변수 프리셋 가져오기 / 내보내기</Korean>
+                <Russian>Импорт / экспорт пресета параметров</Russian>
+                <Polish>Importuj / eksportuj preset</Polish>
+                <Portuguese>Importar / exportar preset</Portuguese>
+                <Chinesesimp>导入/导出参数预设</Chinesesimp>
             </Key>
             <Key ID="STR_antistasi_dialogs_setup_params_search">
                 <Original>Parameter Search</Original>

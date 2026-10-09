@@ -154,3 +154,53 @@ class A3A_SetupImportExportDialog
         };
     };
 };
+
+class A3A_SetupImportExportParamsDialog : A3A_SetupImportExportDialog {
+    class Controls : Controls {
+        class Titlebar : Titlebar {
+            text = $STR_antistasi_dialogs_setup_import_export_params;
+        };
+        class CloseButton : CloseButton {};
+        class Background : Background {};
+
+        class ParamDataBoxGroup : SaveDataBoxGroup {
+
+            class Controls : Controls {
+                class ParamDataTitle : SaveDataTitle {
+                    text = $STR_antistasi_dialogs_setup_ie_paramdata;
+                };
+                class EditButton : EditButton {};
+                class ClearButton : ClearButton {};
+
+                class ParamDataBoxGroup : SaveDataBoxGroup {};
+            };
+        };
+        
+        class BasicImportExportGroup : BasicImportExportGroup {
+
+            class Controls : Controls {
+                class ImportButton : ImportButton {
+                    tooltip = $STR_antistasi_dialogs_setup_ie_import_params_tooltip;
+                    onButtonClick = "['importParamData'] remoteExecCall ['A3A_fnc_setupImportExportDialog', 2]";
+                };
+                class ExportButton : ExportButton {
+                    tooltip = $STR_antistasi_dialogs_setup_ie_export_params_tooltip;
+                    onButtonClick = "['exportParamData'] call A3A_fnc_setupImportExportDialog";
+                };
+            };
+        };
+
+        class ParamListGroup : SaveListGroup {
+
+            class Controls : Controls{
+                class ParamListText : SaveListText {
+                    text = $STR_antistasi_dialogs_setup_ie_paramlist_text;
+                };
+                class ParamListBox : SaveListBox {
+                    onLoad = "['paramLBPopulate', _this] call A3A_fnc_setupImportExportDialog";
+                    onLBSelChanged = "['paramLBSelChanged', _this] spawn A3A_fnc_setupImportExportDialog";
+                };
+            };
+        };
+    };
+};

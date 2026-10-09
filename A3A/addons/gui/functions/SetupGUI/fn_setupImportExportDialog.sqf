@@ -5,7 +5,7 @@ function: A3A_fnc_setupImportExportDialog
 
 Author: Creep'nCrunch / jwoodruff40
 
-Environment: Scheduled for onLoad and saveLBSelChanged mode / Unscheduled for everything else unless specified
+Environment: Scheduled for onLoad and xxxLBSelChanged modes / Unscheduled for everything else unless specified
 
 Arguments:
     <STRING> Mode, e.g. "onLoad", "importData", etc
@@ -67,6 +67,18 @@ switch (_mode) do
         _pos set [3, (_textH + 2 * GRID_H) max _viewH];
         _saveDataBox ctrlSetPosition _pos;
         _saveDataBox ctrlCommit 0;
+    };
+
+    case ("fitLB"):
+    {
+        _params params [["_control", nil, [controlNull]]];
+        if (isNil "_control") exitWith {};
+
+        // Resize LB to fit its content
+        private _ctrlPos = ctrlPosition _control;
+        _ctrlPos set [3, (lbSize _control) * GRID_H * 4];
+        _control ctrlSetPosition _ctrlPos;
+        _control ctrlCommit 0;
     };
 
     case ("hashmapToJson"):
@@ -221,11 +233,7 @@ switch (_mode) do
             _control lbSetData [_index, ["hashmapToJson", [_saveDataHM]] call A3A_fnc_setupImportExportDialog];
         } forEach _allSaves;
 
-        // Resize LB to fit its content
-        private _ctrlPos = ctrlPosition _control;
-        _ctrlPos set [3, (lbSize _control) * GRID_H * 4];
-        _control ctrlSetPosition _ctrlPos;
-        _control ctrlCommit 0;
+        ["fitLB", [_control]] call A3A_fnc_setupImportExportDialog;
     };
 
     case ("formatJson"):
@@ -303,11 +311,77 @@ switch (_mode) do
 
         if (_lbCurSel isEqualTo -1) exitWith {};
 
+        private _saveDataLoadingHandle = ["showLoadingAnimation", [localize "STR_antistasi_dialogs_setup_ie_savedata_loading"]] call A3A_fnc_setupImportExportDialog;
+        
+        private _saveDataJson = _control lbData _lbCurSel;
+        private _formattedJson = ["formatJson", [_saveDataJson]] call A3A_fnc_setupImportExportDialog;
+        terminate _saveDataLoadingHandle;
+        _saveDataBox ctrlSetText _formattedJson;
+        ["fitText"] call A3A_fnc_setupImportExportDialog;
+        _saveDataBoxGroup ctrlSetScrollValues [0, -1];
+    };
+
+    case ("paramLBPopulate"):
+    {
+        _params params ["_control", ["_config", configNull]];
+
+        private _allPresets = (profileNamespace getVariable "antistasiUltimateCustomParamPresets") toArray false;
+        {
+            private _index = _control lbAdd (_x select 0);
+            _control lbSetData [_index, toJson  [_x select 0, createHashMapFromArray (_x select 1)]];
+        } forEach _allPresets;
+
+        ["fitLB", [_control]] call A3A_fnc_setupImportExportDialog;
+    };
+
+    case ("paramLBSelChanged"):
+    {
+        _params params ["_control", "_lbCurSel", "_lbSelection"];
+
+        if (_lbCurSel isEqualTo -1) exitWith {};
+
+        private _paramDataLoadingHandle = ["showLoadingAnimation", [localize "STR_antistasi_dialogs_setup_ie_paramdata_loading"]] call A3A_fnc_setupImportExportDialog;
+
+        private _paramDataJson = _control lbData _lbCurSel;
+        private _formattedParamJson = ["formatJson", [_paramDataJson]] call A3A_fnc_setupImportExportDialog;
+        terminate _paramDataLoadingHandle;
+        _saveDataBox ctrlSetText _formattedParamJson;
+        ["fitText"] call A3A_fnc_setupImportExportDialog;
+        _saveDataBoxGroup ctrlSetScrollValues [0, -1];
+    };
+
+    case ("importParamData"):
+    {
+        Info("Attempting to import new parameter preset via import / export dialog.");
+        
+        private _paramData = ctrlText _saveDataBox;
+        if (_paramData isEqualTo "") exitWith {
+            [localize "STR_antistasi_dialogs_setup_import_export", localize "STR_antistasi_dialogs_setup_ie_import_params_empty"] call A3A_fnc_customHint;
+        };
+
+        (fromJson _paramData) params ["_presetName", "_paramDataHM"];
+        if (isNil "_paramDataHM" || {!(_paramDataHM isEqualType createHashMap)}) exitWith {
+            [localize "STR_antistasi_dialogs_setup_import_export", localize "STR_antistasi_dialogs_setup_ie_import_params_invalid"] call A3A_fnc_customHint;
+        };
+
+        ["savePreset", [_presetName, _paramDataHM toArray false]] call A3A_fnc_setupParamsTab;
+        [localize "STR_antistasi_dialogs_setup_import_export", localize "STR_antistasi_dialogs_setup_ie_import_param_success"] call A3A_fnc_customHint;
+    };
+
+    case ("exportParamData"):
+    {
+        copyToClipboard ctrlText _saveDataBox;
+        [localize "STR_antistasi_dialogs_setup_import_export", localize "STR_antistasi_dialogs_setup_ie_params_copied"] call A3A_fnc_customHint;
+    };
+
+    case ("showLoadingAnimation"):
+    {
+        _params params [["_header", nil, [""]]];
+
         // Show AU logo loading animation while waiting for json formatter
-        private _saveDataLoadingHandle = [_saveDataBox] spawn {
-            params ["_saveDataBox"];
-            private _loadingText = localize "STR_antistasi_dialogs_setup_ie_savedata_loading"; 
-            _saveDataBox ctrlSetText (_loadingText + endl);
+        private _saveDataLoadingHandle = [_saveDataBox, _header] spawn {
+            params ["_saveDataBox", "_header"];
+            _saveDataBox ctrlSetText (_header + endl);
 
             private _logoAscii = A3U_LOGO_ASCII;
             private _index = 0;
@@ -316,15 +390,9 @@ switch (_mode) do
                 private _text = ctrlText _saveDataBox;
                 _saveDataBox ctrlSetText format ["%1%2", _text, _logoAscii select [_index, 4]];
                 _index = _index + 4;
-                if (_index >= count _logoAscii) then { _index = 0; _saveDataBox ctrlSetText (_loadingText + endl) };
+                if (_index >= count _logoAscii) then { _index = 0; _saveDataBox ctrlSetText (_header + endl) };
             };
         };
-
-        private _saveDataJson = _control lbData _lbCurSel;
-        private _formattedJson = ["formatJson", [_saveDataJson]] call A3A_fnc_setupImportExportDialog;
-        terminate _saveDataLoadingHandle;
-        _saveDataBox ctrlSetText _formattedJson;
-        ["fitText"] call A3A_fnc_setupImportExportDialog;
-        _saveDataBoxGroup ctrlSetScrollValues [0, -1];
+        _saveDataLoadingHandle;
     };
 };

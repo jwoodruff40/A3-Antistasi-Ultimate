@@ -611,7 +611,7 @@ class A3A_SetupDialog : A3A_TabbedDialog
                     x = 124 * GRID_W;
                     y = 34 * GRID_H;
                     w = 30 * GRID_W;
-                    h = 26 * GRID_H;
+                    h = 32 * GRID_H;
 
                     class controls {
                         class PresetNameLabel: A3A_SectionLabelRight {
@@ -641,23 +641,23 @@ class A3A_SetupDialog : A3A_TabbedDialog
                             w = 30 * GRID_W;
                             h = 4 * GRID_H;
                         };
-                        class PresetRenameButton: A3A_Button {
+                        class PresetRenameButton: PresetSaveButton {
                             idc = A3A_IDC_SETUP_PARAMSPRESETS_CSTM_RENAMEBUTTON;
                             text = $STR_antistasi_dialogs_setup_params_presets_rename_preset;
                             onButtonClick = "['renamePreset', []] call A3A_fnc_setupParamsTab";
-                            x = 0;
                             y = 16 * GRID_H;
-                            w = 30 * GRID_W;
-                            h = 4 * GRID_H;
                         };
-                        class PresetDeleteButton: A3A_Button {
+                        class PresetDeleteButton: PresetSaveButton {
                             idc = A3A_IDC_SETUP_PARAMSPRESETS_CSTM_DELETEBUTTON;
                             text = $STR_antistasi_dialogs_setup_params_presets_delete_preset;
                             onButtonClick = "['deletePreset', []] call A3A_fnc_setupParamsTab";
-                            x = 0;
                             y = 22 * GRID_H;
-                            w = 30 * GRID_W;
-                            h = 4 * GRID_H;
+                        };
+                        class PresetImportExportButton: PresetSaveButton {
+                            idc = A3A_IDC_SETUP_PARAMSPRESETS_CSTM_IMPORTEXPORTBUTTON;
+                            text = $STR_antistasi_dialogs_setup_params_presets_import_export;
+                            onButtonClick = "createDialog 'A3A_SetupImportExportParamsDialog'";
+                            y = 28 * GRID_H;
                         };
                     };
                 };
