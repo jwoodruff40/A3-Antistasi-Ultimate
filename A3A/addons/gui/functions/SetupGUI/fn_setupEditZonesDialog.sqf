@@ -43,11 +43,8 @@ switch (_mode) do
 
         _display setVariable ["dangerZones", _allEnemyMarkers];
 
-        // ! Override airport marker type and color to force them to show on the map
-        {
-            "Dum"+_x setMarkerTypeLocal "A3AU_airport_mrk";
-            "Dum"+_x setMarkerColor ([colorOccupants, colorInvaders] select (sidesX getVariable [_x, Occupants] isEqualTo Invaders));
-        } forEach (airportsX);
+        // ! Override airport marker type to force them to show on the map
+        { _x setMarkerTypeLocal "A3AU_airport_mrk" } forEach (airportsX apply {"Dum"+_x});
 
         // ! Force enable enemy zone hiding variables to control marker visibility
         hideEnemyMarkers = true;
@@ -56,14 +53,16 @@ switch (_mode) do
         publicVariable "hideEnemyMarkers";
         publicVariable "revealedZones";
         publicVariable "markersImmune";
+
+        ["updateZoneVisibility", []] call A3A_fnc_setupEditZonesDialog;
     };
 
     case ("onUnload"): {
         // ! Reset airport marker type and color
         {
-            "Dum"+_x setMarkerTypeLocal "";
-            "Dum"+_x setMarkerColor "colorUNKNOWN";
-        } forEach (airportsX);
+            _x setMarkerTypeLocal "";
+            _x setMarkerColor "colorUNKNOWN";
+        } forEach (airportsX apply {"Dum"+_x});
 
         // ! Reset enemy zone hiding variables
         missionNamespace setVariable ["hideEnemyMarkers", nil, true];
@@ -101,9 +100,7 @@ switch (_mode) do
         sidesX setVariable [_nearMarker, [Invaders, Occupants] select _wasInvader];
         [_nearMarker] call A3A_fnc_mrkUpdate;
 
-        if (_nearMarker in airportsX) then {
-            "Dum"+_nearMarker setMarkerColor ([colorInvaders, colorOccupants] select (_wasInvader));
-        };
+        ["updateZoneVisibility", []] call A3A_fnc_setupEditZonesDialog;
     };
 
     case ("updateZoneVisibility"):
@@ -115,14 +112,12 @@ switch (_mode) do
         private _resourcesCheck = cbChecked (_display displayCtrl A3A_IDC_EDITZONES_RESOURCESCHECKBOX);
         private _factoriesCheck = cbChecked (_display displayCtrl A3A_IDC_EDITZONES_FACTORIESCHECKBOX);
 
-        {
-            _x setMarkerAlphaLocal ([0, 1] select _airportsCheck)
-        } forEach (airportsX apply { "Dum"+_x });
+        //{ _x setMarkerAlphaLocal ([0, 1] select _airportsCheck) } forEach (airportsX apply { "Dum"+_x });
 
         private _revealedZones = [];
         if (_outpostsCheck) then { _revealedZones append outposts };
         if (_milbasesCheck) then { _revealedZones append milbases };
-        // if (_airportsCheck) then { _revealedZones append airportsX };
+        if (_airportsCheck) then { _revealedZones append airportsX };
         if (_resourcesCheck) then { _revealedZones append resourcesX };
         if (_factoriesCheck) then { _revealedZones append factories };
 
