@@ -105,7 +105,7 @@ if (isServer) then {
 		"revealedZones",
 		"roadblocksFIA",
 		"unlockedVehicleTypes",
-		"watchpostsFIA",
+                "watchpostsFIA"
 	];
 
 	//===========================================================================
