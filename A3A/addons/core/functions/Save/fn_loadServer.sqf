@@ -84,7 +84,7 @@ if (isServer) then {
 		"skillFIA",
 		"staticsX",
 		"supportPoints",
-		"tasks"
+		"tasks",
 		"testingTimerIsActive",
 		"traderDiscount",
 		"traderPosition",
