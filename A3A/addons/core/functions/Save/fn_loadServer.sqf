@@ -100,7 +100,7 @@ if (isServer) then {
 		"aapostsFIA",
 		"atpostsFIA",
 		"hmgpostsFIA",
-		"invaderRadioKeys"
+                "invaderRadioKeys",
 		"occupantsRadioKeys",
 		"revealedZones",
 		"roadblocksFIA",
