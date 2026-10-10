@@ -93,7 +93,7 @@ if (isServer) then {
 		"version",
 		"watchpostsFIA",
 		"weather",
-		"wurzelGarrison",
+		"wurzelGarrison"
 	];
 
 	{ publicVariable _x } forEach [
