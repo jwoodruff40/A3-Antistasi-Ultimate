@@ -185,7 +185,7 @@ switch (_mode) do
         private _campaignID = _saveDataHM get "campaignID";
         private _serverID = _saveDataHM get "serverID";
         private _name = _saveDataHM get "name";
-        private _worldName = _saveDataHM get "worldName";
+        private _worldName = _saveDataHM get "map";
         private _newID = [] call A3A_fnc_generateSaveID;
         _saveDataHM set ["campaignID", _newID];
         Info_2("Registering new save: Old campaignID: %1 | New campaignID: %2 | Name: %3", _campaignID, _newID, _name);
