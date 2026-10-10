@@ -13,10 +13,12 @@
         N/A
     
     Scope:
-        Server for XXX mode(s), Client for all other modes
+        Server for registerSaveData, getSavesFromServer modes
+        Client for all other modes
     
     Environment:
-        Scheduled for onLoad and xxxLBSelChanged modes, Unscheduled for all other modes unless specified
+        Scheduled for onLoad and xxxLBSelChanged modes
+        Unscheduled for all other modes unless specified
     
     Usage:
         ["onLoad", []] call A3A_fnc_setupImportExportDialog;
@@ -35,10 +37,8 @@ params ["_mode", "_params"];
 Debug_1("Setup Import/Export dialog called with mode %1", _mode);
 
 private _display = findDisplay A3A_IDD_SETUP_IMPORTEXPORTDIALOG;
-private _parent = displayParent _display;
 private _saveDataBoxGroup = _display displayCtrl A3A_IDC_SETUP_IMPORTEXPORT_SAVEDATAGROUP;
 private _saveDataBox = _display displayCtrl A3A_IDC_SETUP_IMPORTEXPORT_SAVEDATABOX;
-private _importBtn = _display displayCtrl A3A_IDC_SETUP_IMPORTEXPORT_IMPORTBUTTON;
 private _exportBtn = _display displayCtrl A3A_IDC_SETUP_IMPORTEXPORT_EXPORTBUTTON;
 private _saveListBox = _display displayCtrl A3A_IDC_SETUP_IMPORTEXPORT_SAVELB;
 
@@ -48,6 +48,12 @@ switch (_mode) do
     {
         // Disable the save data text box to prevent user edits on load until explicitly enabled
         _saveDataBox ctrlEnable false;
+
+        // Disable the export button if we're connected to a dedicated server, because copyToClipboard is server execution only
+        if (!isServer) then {
+            _exportBtn ctrlEnable false;
+            _exportBtn ctrlSetTooltip localize "STR_antistasi_dialogs_setup_ie_export_button_disabled";
+        };
 
         [CBA_EVENT_CLIENT_IMPORTEXPORT_DIALOG_LOADED, []] call FUNCMAIN(triggerLocalEvent);
     };
@@ -61,7 +67,6 @@ switch (_mode) do
     {
         // The edit box is not scrollable unless its dimensions extend beyond the controls group containing it,
         // so we need to resize it to the size of the text it contains to make it scrollable
-        private _saveDataBoxGroup = _display displayCtrl A3A_IDC_SETUP_IMPORTEXPORT_SAVEDATAGROUP;
         private _viewH = (ctrlPosition _saveDataBoxGroup) select 3;
         private _textH = ctrlTextHeight _saveDataBox;
         if (_textH <= 0) then {
@@ -152,10 +157,6 @@ switch (_mode) do
 
     case ("importData"):
     {
-        // must run on server so data gets saved in server profile (duh),
-        // and in the appropriate namespace, depending on server os (which can be (re: probably is) different from the client)
-        if (!isServer) exitWith { ["importData"] remoteExecCall ["A3A_fnc_setupImportExportDialog", 2] };
-
         Info("Attempting to import new save via import / export dialog.");
         
         private _saveData = ctrlText _saveDataBox;
@@ -170,11 +171,15 @@ switch (_mode) do
 
         // TODO: Validate required keys in the imported save data (e.g., "campaignID", "name", etc)
 
-        ["registerSaveData", [_saveDataHM]] call A3A_fnc_setupImportExportDialog;
+        ["registerSaveData", [_saveDataHM]] remoteExec ["A3A_fnc_setupImportExportDialog", 2];
     };
 
     case ("registerSaveData"):
     {
+        // must run on server so data gets saved in server profile (duh),
+        // and in the appropriate namespace, depending on server os (which can be (re: probably is) different from the client)
+        if (!isServer) exitWith { _this remoteExecCall ["A3A_fnc_setupImportExportDialog", 2] };
+
         _params params ["_saveDataHM"];
         
         private _campaignID = _saveDataHM get "campaignID";
@@ -185,8 +190,7 @@ switch (_mode) do
         _saveDataHM set ["campaignID", _newID];
         Info_2("Registering new save: Old campaignID: %1 | New campaignID: %2 | Name: %3", _campaignID, _newID, _name);
 
-        private _platformIsWindows = A3A_setup_platform isEqualTo "Windows";
-        private _namespace = [profileNamespace, missionProfileNamespace] select (_platformIsWindows);
+        private _namespace = [profileNamespace, missionProfileNamespace] select ((productVersion select 6) isEqualTo "Windows");
         _namespace setVariable [format ["A3A_saveData_%1", _newID], _saveDataHM];
 
         // Update the list of saved games
@@ -198,10 +202,10 @@ switch (_mode) do
 
         // Rebuild the save list and push it to the setup player so the loadgame tab updates immediately
         private _newSaveList = call A3A_fnc_collectSaveData;
-        ["refreshSaves", [_newSaveList]] remoteExec ["A3A_fnc_setupDialog", owner A3A_setupPlayer];
+        ["refreshSaves", [_newSaveList]] remoteExec ["A3A_fnc_setupDialog", A3A_setupPlayer];
 
         // Show success message
-        [localize "STR_antistasi_dialogs_setup_import_export", localize "STR_antistasi_dialogs_setup_ie_import_success"] call A3A_fnc_customHint;
+        [localize "STR_antistasi_dialogs_setup_import_export", localize "STR_antistasi_dialogs_setup_ie_import_success"] remoteExec ["A3A_fnc_customHint", A3A_setupPlayer];
     };
 
     case ("exportData"):
@@ -225,21 +229,26 @@ switch (_mode) do
         if (!(ctrlEnabled _saveDataBox)) then { ["fitText"] call A3A_fnc_setupImportExportDialog };
     };
 
+    case ("getSavesFromServer"):
+    {
+        private _allMPNSaves = (allVariables missionProfileNamespace) select { (_x find "a3a_savedata_") isNotEqualTo -1 } apply { missionProfileNamespace getVariable _x };
+        private _allPNSaves = (allVariables profileNamespace) select { (_x find "a3a_savedata_") isNotEqualTo -1 } apply { profileNamespace getVariable _x };
+        private _allSaves = _allMPNSaves + _allPNSaves;
+
+        ["saveLBPopulate", [_allSaves]] remoteExec ["A3A_fnc_setupImportExportDialog", A3A_setupPlayer];
+    };
+
     case ("saveLBPopulate"):
     {
-        _params params ["_control", ["_config", configNull]];
+        _params params [["_allSaves", [], [[]]]];
 
-        private _allMPNSaves = (allVariables missionProfileNamespace) select { (_x find "a3a_savedata_") isNotEqualTo -1 } apply { [true, _x] };
-        private _allPNSaves = (allVariables profileNamespace) select { (_x find "a3a_savedata_") isNotEqualTo -1 } apply { [false, _x] };
-        private _allSaves = _allMPNSaves + _allPNSaves;
         {
-            private _saveDataHM = [profileNamespace, missionProfileNamespace] select (_x select 0) getVariable (_x select 1);
-            private _index = _control lbAdd (_saveDataHM get "name");
-            _control lbSetTooltip [_index, _saveDataHM get "gameID"];
-            _control lbSetData [_index, ["hashmapToJson", [_saveDataHM]] call A3A_fnc_setupImportExportDialog];
+            private _index = _saveListBox lbAdd (_x get "name");
+            _saveListBox lbSetTooltip [_index, _x get "gameID"];
+            _saveListBox lbSetData [_index, ["hashmapToJson", [_x]] call A3A_fnc_setupImportExportDialog];
         } forEach _allSaves;
 
-        ["fitLB", [_control]] call A3A_fnc_setupImportExportDialog;
+        ["fitLB", [_saveListBox]] call A3A_fnc_setupImportExportDialog;
     };
 
     case ("formatJson"):

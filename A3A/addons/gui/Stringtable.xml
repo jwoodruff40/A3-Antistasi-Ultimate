@@ -3988,6 +3988,9 @@
             <Key ID="STR_antistasi_dialogs_setup_ie_export_params_tooltip">
                 <Original>Copy the text in the preset data box to your clipboard.</Original>
             </Key>
+            <Key ID="STR_antistasi_dialogs_setup_ie_export_button_disabled">
+                <Original>This button does not work when using a dedicated server due to Arma 3 security restrictions.<br/>Please copy the data manually.</Original>
+            </Key>
             <Key ID="STR_antistasi_dialogs_setup_ie_savelist_text">
                 <Original>Save List</Original>
             </Key>

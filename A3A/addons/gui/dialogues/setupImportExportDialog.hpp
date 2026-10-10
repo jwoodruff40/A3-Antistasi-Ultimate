@@ -107,7 +107,7 @@ class A3A_SetupImportExportDialog
                     idc = A3A_IDC_SETUP_IMPORTEXPORT_IMPORTBUTTON;
                     text = $STR_antistasi_dialogs_setup_ie_import;
                     tooltip = $STR_antistasi_dialogs_setup_ie_import_tooltip;
-                    onButtonClick = "['importData'] remoteExecCall ['A3A_fnc_setupImportExportDialog', 2]";
+                    onButtonClick = "['importData'] call A3A_fnc_setupImportExportDialog";
                     x = 0;
                     y = 0;
                     w = 28 * GRID_W;
@@ -147,7 +147,7 @@ class A3A_SetupImportExportDialog
                     y = 8 * GRID_H;
                     w = 46 * GRID_W;
                     h = 80 * GRID_H;
-                    onLoad = "['saveLBPopulate', _this] call A3A_fnc_setupImportExportDialog";
+                    onLoad = "['getSavesFromServer', []] remoteExec ['A3A_fnc_setupImportExportDialog', 2]";
                     onLBSelChanged = "['saveLBSelChanged', _this] spawn A3A_fnc_setupImportExportDialog";
                 };
             };
