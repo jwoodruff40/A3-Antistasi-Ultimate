@@ -10,13 +10,13 @@
 ["flagTexture", QPATHTOFOLDER(Templates\Templates\TKE\images\flag_wu_co.paa)] call _fnc_saveToTemplate; // Texture path applied to the physical flag. Can point to external files.
 ["flagMarkerType", "a3u_flag_tke_wu"] call _fnc_saveToTemplate; // Marker from CfgMarkers.
 
-// ["petrosIdentity", createHashMapFromArray [
-//   ["face", "X"],
-//   ["speaker", "Male01ENGB"],
-//   ["pitch", 1.1],
-//   ["firstName", "X"],
-//   ["lastName", ":)"]
-// ]] call _fnc_saveToTemplate;
+["petrosIdentity", createHashMapFromArray [
+  ["face", "WhiteHead_12"],
+  ["speaker", "Male04ENGB"],
+  ["pitch", 0.9],
+  ["firstName", "Charles"],
+  ["lastName", "Morris"]
+]] call _fnc_saveToTemplate;
 
 ["petrosPrimary", ["TKE_ARX12KMC", 3]] call _fnc_saveToTemplate;
 ["petrosHandgun", ["WRS_Weapon_Revolver_Black", 2]] call _fnc_saveToTemplate;

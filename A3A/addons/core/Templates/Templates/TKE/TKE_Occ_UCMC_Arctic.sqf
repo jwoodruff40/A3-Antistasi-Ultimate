@@ -51,13 +51,13 @@ private _vehiclesGunBoats = ["B_T_Boat_Armed_01_minigun_F"];
 /* Air Vehicles */
 private _vehiclesPlanesCAS = ["TKE_Ext_GUSA_UCMC"]; // CAS = Close Air Support, CfgPlaneLoadouts >> CAS and CASDIVE
 private _vehiclesPlanesAA = ["TKE_Ext_GUSM_UCMC"]; // AA = Anti-Air, CfgPlaneLoadouts >> AA
-private _vehiclesPlanesTransport = ["TKE_Ext_GUSM_UCMC", "VVE_VTOL_03_unarmed_QAV"]; // Troop carriers for paradrop OR VTOL landing
+private _vehiclesPlanesTransport = ["TKE_Ext_GUSM_UCMC"]; // Troop carriers for paradrop OR VTOL landing
 private _vehiclesPlanesGunship = ["TKE_Ext_Destroyer_BLU"]; // Self explanatory
 private _vehiclesPlanesLargeCAS = ["TKE_Ext_Destroyer_BLU"]; // Used for planes that need to spawn on the runway.
 private _vehiclesPlanesLargeAA = ["TKE_Ext_Frigate_BLU"]; // Used for planes that need to spawn on the runway.
 
 private _vehiclesHelisLight = ["TKE_Ext_Dragonfly_T_UCMC"]; // A light transport helicopter.
-private _vehiclesHelisTransport = ["TKE_Ext_Dragonfly_T_UCMC", "VVE_VTOL_03_unarmed_QAV"]; // A transport helicopter.
+private _vehiclesHelisTransport = ["TKE_Ext_Dragonfly_T_UCMC"]; // A transport helicopter.
 private _vehiclesHelisLightAttack = ["TKE_Ext_Dragonfly_S_UCMC"]; // A light attack helicopter.
 private _vehiclesHelisAttack = ["TKE_Ext_Dragonfly_A_UCMC"]; // An attack helicopter.
 private _vehiclesAirPatrol = _vehiclesHelisLightAttack + _vehiclesHelisAttack; // A helicopter that is used to patrol areas.

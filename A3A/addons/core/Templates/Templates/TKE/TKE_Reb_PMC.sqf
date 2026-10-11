@@ -4,19 +4,19 @@
 
 #include "..\..\script_template_common.hpp" // Do NOT remove or else you will not be able to use any macros such as QPATH
 
-["name", "ION PMC"] call _fnc_saveToTemplate;
+["name", "Meridian Frontier"] call _fnc_saveToTemplate;
 
 ["flag", DEFAULT_FLAG] call _fnc_saveToTemplate; // Physical flag object classname. Rarely needs to change.
-["flagTexture", "\A3\Data_F\Flags\flag_ion_CO.paa"] call _fnc_saveToTemplate; // Texture path applied to the physical flag. Can point to external files.
-["flagMarkerType", "flag_Spetsnaz"] call _fnc_saveToTemplate; // Marker from CfgMarkers.
+["flagTexture", QPATHTOFOLDER(Templates\Templates\TKE\images\flag_mf_co.paa)] call _fnc_saveToTemplate; // Texture path applied to the physical flag. Can point to external files.
+["flagMarkerType", "a3u_flag_tke_mf"] call _fnc_saveToTemplate; // Marker from CfgMarkers.
 
-// ["petrosIdentity", createHashMapFromArray [
-//   ["face", "X"],
-//   ["speaker", "Male01ENGB"],
-//   ["pitch", 1.1],
-//   ["firstName", "X"],
-//   ["lastName", ":)"]
-// ]] call _fnc_saveToTemplate;
+["petrosIdentity", createHashMapFromArray [
+  ["face", "GreekHead_A3_02"],
+  ["speaker", "Male01ENGFRE"],
+  ["pitch", 0.9],
+  ["firstName", "Liam"],
+  ["lastName", "Hughes"]
+]] call _fnc_saveToTemplate;
 
 ["petrosPrimary", ["TKE_ARX12", 3]] call _fnc_saveToTemplate;
 ["petrosHandgun", ["WRS_Weapon_Revolver_Gold", 2]] call _fnc_saveToTemplate;
@@ -83,7 +83,7 @@ private _initialRebelEquipment = [
   "TKE_MRCOSight",
   "WRS_Revolver_Magazine",
   "TKE_ATRecoilless1",
-  ["MRAWS_HEAT55_F", 10],
+  "MRAWS_HEAT55_F",
   "TKE_FRAG_mag","TKE_SMOKE_mag",
   ["IEDUrbanSmall_Remote_Mag", 10], ["IEDLandSmall_Remote_Mag", 10], ["IEDUrbanBig_Remote_Mag", 3], ["IEDLandBig_Remote_Mag", 3],
   "TKE_AlicePackUCN","TKE_CamelBakUCN","TKE_CamelBakV2UCN","TKE_RuckSack",
@@ -99,14 +99,11 @@ if (A3A_hasTFARBeta && startWithLongRangeRadio) then {_initialRebelEquipment app
 _initialRebelEquipment append ["Chemlight_blue","Chemlight_green","Chemlight_red","Chemlight_yellow"];
 ["initialRebelEquipment", _initialRebelEquipment] call _fnc_saveToTemplate;
 
-private _uniformsPlayer = ["TKE_MercOutfit_U_B", "TKE_CombatUniRolledV1Merc_U_B", "TKE_CombatUniRolledV2Merc_U_B", "TKE_FCFSweaterMerc_U_B"];
+private _uniformsPlayer = ["TKE_MercOutfit_U_B", "TKE_CombatUniRolledV1Merc_U_B", "TKE_CombatUniRolledV2Merc_U_B", "TKE_FCFSweaterMerc_U_B", "TKE_VoidSuitMerc_U_B"];
 
 private _uniformsReb = _uniformsPlayer;
 
-private _headgear = [
-  "TKE_MercHelm_BASE",
-  "TKE_MercHelmV2"
-];
+private _headgear = ["TKE_MercHelm_BASE", "TKE_MercHelmV2"];
 
 ["headgear", _headgear] call _fnc_saveToTemplate;
 ["uniforms", _uniformsPlayer] call _fnc_saveToTemplate;

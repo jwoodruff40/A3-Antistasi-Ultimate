@@ -6,7 +6,6 @@
             "TKE_Ext_Heli", // Scifi Vehicles Pack
             "TKE_Ext_Ships", // Scifi Spaceship Pack
             "WBK_WRS_Mechs", // Weapon Research and Security: Autonomous systems 
-            "QAV_MV35", // QAV - Vanilla Vehicle Expansion
             "PHEN_TurretPack" // Sci-fi Turret Pack
         }; 
         logo = QPATHTOFOLDER(Templates\Templates\TKE\images\mod_tke_ucn_ca.paa);
@@ -25,47 +24,11 @@
         priority = 100;
     };
 
+    // Red Dwarf (RD) Related
+    #include "templates_rd.hpp"
+
     // KMC Related
-    class TKE_Occ_KMC : TKE_KMC_Base
-    {
-        side = "Occ";
-        name = "KMC";
-        file = "TKE_Occ_KMC";
-        description = "";
-        flagTexture = QPATHTOFOLDER(Templates\Templates\TKE\images\flag_kmc_co.paa);
-    };
-
-    class TKE_Civ_KMC : TKE_KMC_Base
-    {
-        side = "Civ";
-        name = "KMC Civilians";
-        file = "TKE_Civ_KMC";
-        description = "";
-        flagTexture = QPATHTOFOLDER(Templates\Templates\TKE\images\flag_kmc_co.paa);
-    };
-    class TKE_Civ_KMC_Void : TKE_Civ_KMC
-    {
-        name = "KMC Civilians (Voidborne)";
-        file = "TKE_Civ_KMC_Void";
-    };
-
-    class TKE_Reb_WU : TKE_KMC_Base
-    {
-        side = "Reb";
-        name = "KMC Workers Union";
-        file = "TKE_Reb_WU";
-        description = "";
-        flagTexture = QPATHTOFOLDER(Templates\Templates\TKE\images\flag_wu_co.paa);
-    };
-
-    class TKE_Riv_WU : TKE_KMC_Base
-    {
-        side = "Riv";
-        name = "KMC Workers Union";
-        file = "TKE_Riv_WU";
-        description = "";
-        flagTexture = QPATHTOFOLDER(Templates\Templates\TKE\images\flag_wu_co.paa);
-    };
+    #include "templates_kmc.hpp"
 
     // Base TKE
     class TKE_Occ_UCN_Arid : TKE_Base
@@ -73,7 +36,7 @@
         side = "Occ";
         name = "UCN (Arid)";
         file = "TKE_Occ_UCN_Arid";
-        description = "";
+        description = "The United Coalition of Nations is the largest and most populated human government.\n\nThough a democracy which in theory rules by the consent of those it governs, the UCN possesses a large and capable military by which it maintains cohesion by force.\n\nThrough 2026-2060, the UCN consolidated Earth.";
         priority = 120;
         climate[] = {"arid"};
         flagTexture = QPATHTOFOLDER(Templates\Templates\TKE\images\flag_ucn_co.paa);
@@ -112,7 +75,7 @@
         side = "Inv";
         name = "MD (Arid)";
         file = "TKE_Inv_MD_Arid";
-        description = "";
+        description = "The Mars Dominion is the second largest state in human space.\n\nIn the late 22nd century, separatists on Mars conspired to break free of UCN control by secretly expanding asteroid mining efforts, building Mars' own military, and developing new technology to rival the UCN.\n\nIn 2213, the first UCN-Martian War broke out.";
         priority = 120;
         climate[] = {"arid"};
         flagTexture = QPATHTOFOLDER(Templates\Templates\TKE\images\flag_md_co.paa);
@@ -144,7 +107,7 @@
         side = "Civ";
         name = "UCN Civilians";
         file = "TKE_Civ_UCN";
-        description = "";
+        description = "The UCN economy is markedly more free-market and deregulated compared to the Mars Dominion's economic system, with private enterprise flourishing on Earth and in the frontier colonies.\n\nMega-corporations dominate industries like technology, finance, manufacturing, and resource extraction.";
         priority = 120;
         flagTexture = QPATHTOFOLDER(Templates\Templates\TKE\images\flag_ucn_co.paa);
         climate[] = {"temperate", "tropical"};
@@ -176,16 +139,17 @@
         side = "Reb";
         name = "FCF";
         file = "TKE_Reb_FCF";
-        description = "";
+        description = "The Free Arcadian Rangers are an elite unit of FCF fighters who hail from Arcadia.\n\nArcadian Ranger units operate in small squad-sized forces deep behind enemy lines, and they specialize in deep reconnaissance, sabotage, and psychological warfare.";
         priority = 120;
         flagTexture = QPATHTOFOLDER(Templates\Templates\TKE\images\flag_fcf_co.paa);
     };
     class TKE_Reb_PMC : TKE_Reb_FCF
     {
-        name = "ION PMC";
+        name = "Meridian Frontier";
         file = "TKE_Reb_PMC";
+        description = "The Ceres based Meridian Frontier Group specialises in clandestine operations, even having been contracted to train both the UCN CSTR and MD OMOR.\n\nBy 2234, they had become the go-to mercenary for anything that required discretion and plausible deniability.";
         priority = 119;
-        flagTexture = "\A3\Data_F\Flags\flag_ion_CO.paa";
+        flagTexture = QPATHTOFOLDER(Templates\Templates\TKE\images\flag_mf_co.paa);
     };
 
     class TKE_Riv_FCF : TKE_Base
@@ -193,14 +157,15 @@
         side = "Riv";
         name = "FCF";
         file = "TKE_Riv_FCF";
-        description = "";
+        description = "The Free Arcadian Rangers are an elite unit of FCF fighters who hail from Arcadia.\n\nArcadian Ranger units operate in small squad-sized forces deep behind enemy lines, and they specialize in deep reconnaissance, sabotage, and psychological warfare.";
         priority = 120;
         flagTexture = QPATHTOFOLDER(Templates\Templates\TKE\images\flag_fcf_co.paa);
     };
     class TKE_Riv_PMC : TKE_Riv_FCF
     {
-        name = "ION PMC";
+        name = "Meridian Frontier";
         file = "TKE_Riv_PMC";
+        description = "The Ceres based Meridian Frontier Group specialises in clandestine operations, even having been contracted to train both the UCN CSTR and MD OMOR.\n\nBy 2234, they had become the go-to mercenary for anything that required discretion and plausible deniability.";
         priority = 119;
-        flagTexture = "\A3\Data_F\Flags\flag_ion_CO.paa";
+        flagTexture = QPATHTOFOLDER(Templates\Templates\TKE\images\flag_mf_co.paa);
     };

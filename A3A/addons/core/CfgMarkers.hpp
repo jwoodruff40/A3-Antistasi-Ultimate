@@ -347,4 +347,40 @@ class CfgMarkers
 		icon = QPATHTOFOLDER(Pictures\Markers\marker_tke_fcf_ca.paa);
 		texture = QPATHTOFOLDER(Pictures\Markers\marker_tke_fcf_ca.paa);
 	};
+	class a3u_flag_tke_mf : flag_NATO 
+	{
+		name = "Meridian Frontier";
+		icon = QPATHTOFOLDER(Pictures\Markers\marker_tke_mf_ca.paa);
+		texture = QPATHTOFOLDER(Pictures\Markers\marker_tke_mf_ca.paa);
+	};
+	class a3u_flag_tke_mb : flag_NATO 
+	{
+		name = "Mercantile Bastion";
+		icon = QPATHTOFOLDER(Pictures\Markers\marker_tke_mb_ca.paa);
+		texture = QPATHTOFOLDER(Pictures\Markers\marker_tke_mb_ca.paa);
+	};
+	class a3u_flag_tke_echelon : flag_NATO 
+	{
+		name = "9th Echelon";
+		icon = QPATHTOFOLDER(Pictures\Markers\marker_tke_echelon_ca.paa);
+		texture = QPATHTOFOLDER(Pictures\Markers\marker_tke_echelon_ca.paa);
+	};
+	class a3u_flag_tke_hc : flag_NATO 
+	{
+		name = "Hyperion Corsairs";
+		icon = QPATHTOFOLDER(Pictures\Markers\marker_tke_hc_ca.paa);
+		texture = QPATHTOFOLDER(Pictures\Markers\marker_tke_hc_ca.paa);
+	};
+	class a3u_flag_tke_nakamura : flag_NATO 
+	{
+		name = "Nakamura";
+		icon = QPATHTOFOLDER(Pictures\Markers\marker_tke_nakamura_ca.paa);
+		texture = QPATHTOFOLDER(Pictures\Markers\marker_tke_nakamura_ca.paa);
+	};
+	class a3u_flag_tke_ita : flag_NATO 
+	{
+		name = "ITA";
+		icon = QPATHTOFOLDER(Pictures\Markers\marker_tke_ita_ca.paa);
+		texture = QPATHTOFOLDER(Pictures\Markers\marker_tke_ita_ca.paa);
+	};
 };
