@@ -4243,6 +4243,18 @@
                 <Chinesesimp>存档列表</Chinesesimp>
                 <Turkish>Kayıt Listesi</Turkish>
             </Key>
+            <Key ID="STR_antistasi_dialogs_setup_ie_savelist_tooltip">
+                <Original>Don't see your save in this list?<br/>Make sure it's been persistently saved on A3U version 12.2.0 or later first.</Original>
+                <Czech>Nevidíte svůj uložený soubor v tomto seznamu?<br/>Ujistěte se, že byl trvale uložen ve verzi A3U 12.2.0 nebo novější.</Czech>
+                <French>Vous ne voyez pas votre sauvegarde dans cette liste ?<br/>Assurez-vous qu'elle a été sauvegardée de manière persistante sur la version 12.2.0 ou ultérieure d'A3U.</French>
+                <Italian>Non vedi il tuo salvataggio in questo elenco?<br/>Assicurati che sia stato salvato in modo persistente sulla versione 12.2.0 o successiva di A3U.</Italian>
+                <Korean>이 목록에서 저장된 항목이 보이지 않나요?<br/>A3U 버전 12.2.0 이상에서 지속적으로 저장되었는지 확인하세요.</Korean>
+                <Russian>Не видите своё сохранение в этом списке?<br/>Убедитесь, что оно было сохранено в версии A3U 12.2.0 или новее.</Russian>
+                <Polish>Nie widzisz swojego zapisu na tej liście?<br/>Upewnij się, że został trwale zapisany w wersji A3U 12.2.0 lub nowszej.</Polish>
+                <Portuguese>Não vê o seu save nesta lista?<br/>Certifique-se de que foi salvo de forma persistente na versão 12.2.0 ou posterior do A3U.</Portuguese>
+                <Chinesesimp>在此列表中看不到您的存档？<br/>请确保它已在 A3U 12.2.0 或更高版本中持久保存。</Chinesesimp>
+                <Turkish>Bu listede kaydınızı görmüyor musunuz?<br/>Öncelikle A3U sürüm 12.2.0 veya daha yenisinde kalıcı olarak kaydedildiğinden emin olun.</Turkish>
+            </Key>
             <Key ID="STR_antistasi_dialogs_setup_ie_paramlist_text">
                 <Original>Parameter Preset List</Original>
                 <Czech>Seznam přednastavení parametrů</Czech>

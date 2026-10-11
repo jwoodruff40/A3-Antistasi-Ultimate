@@ -133,6 +133,7 @@ class A3A_SetupImportExportDialog
                 class SaveListText : A3A_Text {
                     idc = -1;
                     text = $STR_antistasi_dialogs_setup_ie_savelist_text;
+                    tooltip = $STR_antistasi_dialogs_setup_ie_savelist_tooltip;
                     colorBackground[] = A3A_COLOR_BLACK;
                     style = ST_CENTER + ST_UPPERCASE;
                     font = A3A_BUTTON_FONT;
