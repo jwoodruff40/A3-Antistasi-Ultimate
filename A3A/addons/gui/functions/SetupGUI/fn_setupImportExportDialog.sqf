@@ -263,7 +263,7 @@ switch (_mode) do
                 [true, format [localize "STR_antistasi_dialogs_setup_ie_import_type_mismatch", _key, typeName _value, (_validTypes apply { typeName _x }) joinString "/"]]
             };
 
-            if (!(_allowEmpty) && { count _value == 0 }) exitWith { // key exists and value is correct type, but value cannot be an empty string/array/hashmap; save data is malformed
+            if (!(_allowEmpty) && { _value isEqualTo [] }) exitWith { // key exists and value is correct type, but value cannot be an empty string/array/hashmap; save data is malformed
                 [true, format [localize "STR_antistasi_dialogs_setup_ie_import_empty_key", _key]]
             };
             
