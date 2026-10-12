@@ -44,7 +44,7 @@ if (isNil QGVAR(gameParameters)) then {
             getArray(_x >> "values") isNotEqualTo [""];
         } apply {
             [configName _x, [getNumber(_x >> "default"), getArray(_x >> "values") isEqualTo [0, 1]]];
-        };
+        }
     );
 };
 
