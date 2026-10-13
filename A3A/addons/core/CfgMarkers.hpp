@@ -382,5 +382,11 @@ class CfgMarkers
 		name = "ITA";
 		icon = QPATHTOFOLDER(Pictures\Markers\marker_tke_ita_ca.paa);
 		texture = QPATHTOFOLDER(Pictures\Markers\marker_tke_ita_ca.paa);
+  };
+	class a3u_flag_kal : flag_NATO
+	{
+		name = "KOR";
+		icon = QPATHTOFOLDER(Pictures\Markers\marker_kor_co.paa);
+		texture = QPATHTOFOLDER(Pictures\Markers\marker_kor_co.paa);
 	};
 };
