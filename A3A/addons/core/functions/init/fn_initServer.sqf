@@ -79,7 +79,7 @@ waitUntil {sleep 0.1; !isNil "A3A_saveData"};
 A3A_startupState = "starting"; publicVariable "A3A_startupState";
 
 // Use true params list in case we're loading an autosave from a different version
-private _savedParamsHM = createHashMapFromArray(A3A_saveData get "params");
+private _savedParamsHM = A3A_saveData get "params";
 [_savedParamsHM, true] call FUNCMAIN(setGameParameters);
 
 // Tell third party mods we're starting up

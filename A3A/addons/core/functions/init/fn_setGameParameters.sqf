@@ -70,10 +70,9 @@ _updateParams apply {
     };
 };
 
-// WHY do we keep parameters as an array
-private _savedParams = createHashMapFromArray(A3A_saveData get "params");
+// Merge updates into saved parameters
+private _savedParams = A3A_saveData get "params";
 _savedParams merge[_updates, true];
-A3A_saveData set["params", _savedParams toArray false];
 
 _updates apply {
     missionNamespace setVariable[_x, _y, true];
