@@ -23,3 +23,16 @@
 ]
 
 #define TKE_NAMES "NATOMen"
+
+// Asian identities
+
+#define TKE_FACES_ASIA [\
+    "AsianHead_A3_01","AsianHead_A3_02","AsianHead_A3_03","AsianHead_A3_04",\
+    "AsianHead_A3_05","AsianHead_A3_06","AsianHead_A3_07"\
+]
+
+#define TKE_VOICES_ASIA [\
+    "Male01CHI","Male02CHI","Male03CHI"\
+]
+
+#define TKE_NAMES_ASIA "AsianMen"

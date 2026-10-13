@@ -15,6 +15,8 @@
 //       Vehicles       //
 /////////////////////////
 
+// The KMC vehicles are actually black, so ignore the classname
+
 /* 
     Reference script_template_common.hpp for these. Change the classes here if you want to use different classes.
     Always ensure that whatever classname you use for these has an A3A_logistics_Cargo entry, otherwise they will not be loadable.
@@ -25,24 +27,24 @@
 
 /* Ground Vehicles */
 private _vehiclesBasic = ["A3U_UCN_BL_Nomad_Rollcage"]; // Absolute basic vehicle. Quadbike, LSV, etc.
-private _vehiclesLightUnarmed = ["UCMC_M_APC_U", "A3U_UCN_BL_Nomad_Rollcage"]; // Fundamental vehicle. Think an unarmoured humvee.
+private _vehiclesLightUnarmed = ["A3U_KMC_APC_U", "A3U_UCN_BL_Nomad_Rollcage"]; // Fundamental vehicle. Think an unarmoured humvee.
 private _vehiclesLightArmed = ["A3U_UCN_BL_Nomad_Armed", "A3U_UCN_BL_Nomad_Cabin_Armed", "A3U_UCN_BL_Nomad_Rollcage_Armed"]; // Fundamental vehicle. Think a lightly armoured humvee with an M240.
 
-private _vehiclesTrucks = ["UCMC_M_APC_U", "TKE_Ext_Bearcat_Unarmed_UCMC"]; // Used for troop carrying.
+private _vehiclesTrucks = ["A3U_KMC_APC_U", "TKE_Ext_Bearcat_Unarmed_UCMC"]; // Used for troop carrying.
 private _vehiclesCargoTrucks = _vehiclesTrucks; // Used for cargo carrying. Must have logistics nodes.
 private _vehiclesAmmoTrucks = ["A3U_UCNFA_BL_APC_U_Ammo"];
 private _vehiclesRepairTrucks = ["A3U_UCNFA_BL_APC_U_Repair"];
 private _vehiclesFuelTrucks = ["A3U_UCNFA_BL_APC_U_Fuel"];
-private _vehiclesMedicalTrucks = ["UCMC_M_APC_U"];
+private _vehiclesMedicalTrucks = ["A3U_KMC_APC_U"];
 
-private _vehiclesLightAPCs = ["UCMC_M_APC_U", "TKE_Ext_Bearcat_Autocannon_UCMC"]; // A light APC is an Armoured Personnel Carrier. Generally, light armoured vehicle + light gun.
-private _vehiclesAPCs = ["UCMC_M_APC_A", "TKE_Ext_Bearcat_Autocannon_UCMC"]; // An APC is a light APC but bigger. Generally, armoured vehicle + medium gun.
-private _vehiclesIFVs = ["UCMC_M_APC_AX", "TKE_Ext_Bearcat_Autocannon_UCMC"]; // An IFV is an Infantry Fighting Vehicle. Generally, armoured vehicle + big gun.
-private _vehiclesAirborne = ["UCMC_M_APC_AX", "TKE_Ext_Bearcat_Cannon_UCMC", "a3a_MBT_02_cannon_grey_F"]; // Vehicles that can be "paradropped". Not *too* strict, but use common sense.
-private _vehiclesAA = ["UCMC_M_APC_AA", "TKE_Ext_Bearcat_AA_UCMC"]; // Vehicles that AI crew can use to shoot down aircraft. If they can, it's an AA vehicle!
+private _vehiclesLightAPCs = ["A3U_KMC_APC_U", "TKE_Ext_Bearcat_Autocannon_UCMC"]; // A light APC is an Armoured Personnel Carrier. Generally, light armoured vehicle + light gun.
+private _vehiclesAPCs = ["A3U_KMC_APC_A", "TKE_Ext_Bearcat_Autocannon_UCMC"]; // An APC is a light APC but bigger. Generally, armoured vehicle + medium gun.
+private _vehiclesIFVs = ["A3U_KMC_APC_AX", "TKE_Ext_Bearcat_Autocannon_UCMC"]; // An IFV is an Infantry Fighting Vehicle. Generally, armoured vehicle + big gun.
+private _vehiclesAirborne = ["A3U_KMC_APC_AX", "TKE_Ext_Bearcat_Cannon_UCMC", "a3a_MBT_02_cannon_grey_F"]; // Vehicles that can be "paradropped". Not *too* strict, but use common sense.
+private _vehiclesAA = ["A3U_KMC_APC_AA", "TKE_Ext_Bearcat_AA_UCMC"]; // Vehicles that AI crew can use to shoot down aircraft. If they can, it's an AA vehicle!
 
-private _vehiclesLightTanks = ["UCMC_M_APC_AX", "TKE_Ext_Bearcat_Cannon_UCMC"]; // A light tank is a tank that is light... Think an american M60 (the tank).
-private _vehiclesTanks = ["UCMC_M_APC_Art", "a3a_MBT_02_cannon_grey_F"]; // A tank is a tank. Shocker. Think an M1 Abrams.
+private _vehiclesLightTanks = ["A3U_KMC_APC_AX", "TKE_Ext_Bearcat_Cannon_UCMC"]; // A light tank is a tank that is light... Think an american M60 (the tank).
+private _vehiclesTanks = ["A3U_KMC_APC_Art", "a3a_MBT_02_cannon_grey_F"]; // A tank is a tank. Shocker. Think an M1 Abrams.
 
 /* Sea Vehicles */
 private _vehiclesTransportBoats = ["I_C_Boat_Transport_02_F"];
@@ -63,16 +65,16 @@ private _vehiclesHelisAttack = ["TKE_Ext_Dragonfly_A_UCMC"]; // An attack helico
 private _vehiclesAirPatrol = _vehiclesHelisLightAttack + _vehiclesHelisAttack; // A helicopter that is used to patrol areas.
 
 /* Special Vehicles */
-private _vehiclesArtillery = ["UCMC_M_APC_Art"]; // If it has an artillery computer and moves, it's probably vehicular artillery.
+private _vehiclesArtillery = ["A3U_KMC_APC_Art"]; // If it has an artillery computer and moves, it's probably vehicular artillery.
 ["magazines", createHashMapFromArray [
-    ["UCMC_M_APC_Art", ["8Rnd_82mm_Mo_shells"]] // ["vehicle", ["magazine1", "magazine2"]]. You can add multiple vehicles.
+    ["A3U_KMC_APC_Art", ["8Rnd_82mm_Mo_shells"]] // ["vehicle", ["magazine1", "magazine2"]]. You can add multiple vehicles.
 ]] call _fnc_saveToTemplate;
 
 /* Militia Vehicles */
 private _vehiclesMilitiaLightArmed = ["A3U_UCN_BL_Nomad_Rollcage_Armed"]; // Think: What would a hastily formed militia use?
-private _vehiclesMilitiaTrucks = ["UCMC_M_APC_U"];
+private _vehiclesMilitiaTrucks = ["A3U_KMC_APC_U"];
 private _vehiclesMilitiaCars = ["A3U_UCN_BL_Nomad_Rollcage"];
-private _vehiclesMilitiaAPCs = ["UCMC_M_APC_A"];
+private _vehiclesMilitiaAPCs = ["A3U_KMC_APC_A"];
 
 /* Police Vehicles */
 private _vehiclesPolice = ["UCPD_APC_U"];

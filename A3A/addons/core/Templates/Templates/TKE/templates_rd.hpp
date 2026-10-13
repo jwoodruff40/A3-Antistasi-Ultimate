@@ -3,9 +3,56 @@
         side = "Occ";
         name = "ITA";
         file = "TKE_Occ_ITA";
-        description = "The Interplanetary Trade Authority (ITA) is an agency of the United Coalition of Nations (UCN) that has authority over the security of transportation systems within, and connecting to, the UC stellar bodies and Gateways.\n\nIt was created as a response to the increase in civilian travel and terror attacks.";
+        description = "The Interplanetary Trade Authority (ITA) was established following the end of the Martian-Earth War and the signing of the Treaty of Olympus.\n\nOne of the key provisions of the Treaty was the creation of a neutral and independent body to regulate interplanetary trade, protect shipping lanes, and ensure that parties could engage in commerce without the interference of military power or piracy.";
         priority = 110;
         flagTexture = QPATHTOFOLDER(Templates\Templates\TKE\images\flag_ita_co.paa);
+    };
+
+    class TKE_Inv_MB : TKE_RD_Base
+    {
+        side = "Inv";
+        name = "Mercantile Bastion";
+        file = "TKE_Inv_MB";
+        description = "The Mercantile Bastion (MB) is a heavily militaristic Private Military Company renowned for its formidable ground and space combat capabilities.\n\nOperated by a coalition of former high-ranking officers and financial experts, MB provides its services to the highest bidder, influencing the landscape of the Sol System.";
+        priority = 110;
+        flagTexture = QPATHTOFOLDER(Templates\Templates\TKE\images\flag_mb_co.paa);
+    };
+    class TKE_Inv_MB_Arid : TKE_Inv_MB
+    {
+        name = "Mercantile (Arid)";
+        file = "TKE_Inv_MB_Arid";
+        priority = 109;
+        climate[] = {"arid"};
+    };
+    class TKE_Inv_MB_Arctic : TKE_Inv_MB
+    {
+        name = "Mercantile (Arctic)";
+        file = "TKE_Inv_MB_Arctic";
+        priority = 108;
+        climate[] = {"arctic"};
+    };
+    class TKE_Inv_MB_Temperate : TKE_Inv_MB
+    {
+        name = "Mercantile (Temperate)";
+        file = "TKE_Inv_MB_Temperate";
+        priority = 107;
+        climate[] = {"temperate"};
+    };
+    class TKE_Inv_MB_Void : TKE_Inv_MB
+    {
+        name = "Mercantile (Voidborne)";
+        file = "TKE_Inv_MB_Void";
+        priority = 106;
+    };
+
+    class TKE_Inv_Nakamura : TKE_RD_Base
+    {
+        side = "Inv";
+        name = "Nakamura Industries";
+        file = "TKE_Inv_Nakamura";
+        description = "Nakamura Heavy Industries (中村重工業, NHI) stands as a titan among megacorporations, deeply entrenched in both the legacy of ancient Japan and the relentless drive of modern militaristic ambition.";
+        priority = 111;
+        flagTexture = QPATHTOFOLDER(Templates\Templates\TKE\images\flag_nakamura_co.paa);
     };
     
     class TKE_Reb_RF : TKE_RD_Base
@@ -13,7 +60,7 @@
         side = "Reb";
         name = "Restorationist Front";
         file = "TKE_Reb_RF";
-        description = "The Restoration Front (TRF) is a radical paramilitary organization operating primarily within the American Trade Zone (ATZ).\n\nThey claim allegiance to the 'ideals of Old America,' espousing anti-UCN rhetoric and advocating for the dissolution of the Coalition in favor of a return to nationalistic governance.";
+        description = "The Restoration Front (TRF) is a radical paramilitary organization operating primarily within the Federal States of North America (FSNA).\n\nThey claim allegiance to the 'ideals of Old America,' espousing anti-UCN rhetoric and advocating for the dissolution of the Coalition in favor of a return to nationalistic governance.";
         priority = 105;
         flagTexture = "\A3\Data_F\Flags\flag_US_CO.paa";
     };
@@ -63,7 +110,7 @@
         side = "Riv";
         name = "Restorationist Front";
         file = "TKE_Riv_RF";
-        description = "The Restoration Front (TRF) is a radical paramilitary organization operating primarily within the American Trade Zone (ATZ).\n\nThey claim allegiance to the 'ideals of Old America,' espousing anti-UCN rhetoric and advocating for the dissolution of the Coalition in favor of a return to nationalistic governance.";
+        description = "The Restoration Front (TRF) is a radical paramilitary organization operating primarily within the Federal States of North America (FSNA).\n\nThey claim allegiance to the 'ideals of Old America,' espousing anti-UCN rhetoric and advocating for the dissolution of the Coalition in favor of a return to nationalistic governance.";
         priority = 105;
         flagTexture = "\A3\Data_F\Flags\flag_US_CO.paa";
     };

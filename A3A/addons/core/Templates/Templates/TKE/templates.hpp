@@ -114,21 +114,21 @@
     };
     class TKE_Civ_UCN_Arctic : TKE_Civ_UCN
     {
-        name = "UCN Civilians (Arctic)";
+        name = "UCN (Arctic)";
         file = "TKE_Civ_UCN_Arctic";
         priority = 119;
         climate[] = {"arctic"};
     };
     class TKE_Civ_UCN_Arid : TKE_Civ_UCN
     {
-        name = "UCN Civilians (Arid)";
+        name = "UCN (Arid)";
         file = "TKE_Civ_UCN_Arid";
         priority = 118;
         climate[] = {"arid"};
     };
     class TKE_Civ_UCN_Void : TKE_Civ_UCN
     {
-        name = "UCN Civilians (Voidborne)";
+        name = "UCN (Voidborne)";
         file = "TKE_Civ_UCN_Void";
         priority = 117;
         climate[] = {"temperate", "tropical", "arid", "arctic"};
@@ -139,7 +139,7 @@
         side = "Reb";
         name = "FCF";
         file = "TKE_Reb_FCF";
-        description = "The Free Arcadian Rangers are an elite unit of FCF fighters who hail from Arcadia.\n\nArcadian Ranger units operate in small squad-sized forces deep behind enemy lines, and they specialize in deep reconnaissance, sabotage, and psychological warfare.";
+        description = "Over the past decade, the FCF has conducted several high-profile and organized attacks against UCN security vessels and personnel.\n\nThe FCF has particularly targeted various habitats on or near planetary bodies under UCN control.\n\nIntelligence services of the UCN have harbored long-standing suspicions that the FCF may be receiving covert support from the Mars Dominion.";
         priority = 120;
         flagTexture = QPATHTOFOLDER(Templates\Templates\TKE\images\flag_fcf_co.paa);
     };
@@ -157,7 +157,7 @@
         side = "Riv";
         name = "FCF";
         file = "TKE_Riv_FCF";
-        description = "The Free Arcadian Rangers are an elite unit of FCF fighters who hail from Arcadia.\n\nArcadian Ranger units operate in small squad-sized forces deep behind enemy lines, and they specialize in deep reconnaissance, sabotage, and psychological warfare.";
+        description = "Over the past decade, the FCF has conducted several high-profile and organized attacks against UCN security vessels and personnel.\n\nThe FCF has particularly targeted various habitats on or near planetary bodies under UCN control.\n\nIntelligence services of the UCN have harbored long-standing suspicions that the FCF may be receiving covert support from the Mars Dominion.";
         priority = 120;
         flagTexture = QPATHTOFOLDER(Templates\Templates\TKE\images\flag_fcf_co.paa);
     };

@@ -17,7 +17,7 @@
     };
     class TKE_Civ_KMC_Void : TKE_Civ_KMC
     {
-        name = "KMC Civilians (Voidborne)";
+        name = "KMC (Voidborne)";
         file = "TKE_Civ_KMC_Void";
     };
 
