@@ -506,7 +506,22 @@ switch (_mode) do
             params ["_saveDataBox", "_header"];
             _saveDataBox ctrlSetText (_header + endl);
 
-            private _logoAscii = A3U_LOGO_ASCII;
+            // Attempt to pad logo appropriately on different resolutions
+            // Works best on 16x9 aspect ratio, 1080p or higher resolution displays but is at least ok on smaller resolutions
+            private _ctrlWidth = ctrlPosition _saveDataBox select 2;
+            private _charWidth = " " getTextWidth ["EtelkaMonospacePro", GUI_TEXT_SIZE_EXTRA_SMALL];
+            private _logoAsciiLines = A3U_LOGO_ASCII;
+            private _logoAscii = [];
+            {
+                private _lineWidth = _x getTextWidth ["EtelkaMonospacePro", GUI_TEXT_SIZE_EXTRA_SMALL];
+                private _linePadding = ((_ctrlWidth - _lineWidth) / 2 / _charWidth);
+                private _lineArray = _x splitString "";
+                private _padArrayLeft = [];
+                _padArrayLeft resize [floor _linePadding, " "];
+                _logoAscii = _logoAscii + _padArrayLeft + _lineArray + [format ["%1", endl]];
+            } forEach _logoAsciiLines;
+            _logoAscii = _logoAscii joinString "";
+
             private _index = 0;
             while { true } do { 
                 sleep 0.1;
