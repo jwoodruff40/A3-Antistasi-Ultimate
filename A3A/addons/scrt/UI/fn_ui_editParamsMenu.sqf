@@ -10,7 +10,7 @@ switch (_mode) do {
 		createDialog "A3A_SetupDialog_InGame";
 
 		private _display = findDisplay A3A_IDD_SETUPDIALOG;
-		private _params = ([missionNamespace, "A3A_saveData", createHashMap] call BIS_fnc_getServerVariable) getOrDefault["params", []];
+		private _params = ([missionNamespace, "A3A_saveData", createHashMap] call BIS_fnc_getServerVariable) getOrDefault["params", createHashMap];
 		_display setVariable ["savedParams", _params];
 
 		["switchTab", ["params"]] call A3A_fnc_setupDialog;
@@ -22,9 +22,8 @@ switch (_mode) do {
 		["fillParams"] call A3A_fnc_setupParamsTab;
 	};
 	case ("SaveParams"): {
-		private _params = ['getParams'] call A3A_fnc_setupParamsTab;
-		private _savedParamsHM = createHashMapFromArray _params;
-		[_savedParamsHM] remoteExec[QFUNCMAIN(setGameParameters), 2];
+		private _savedParams = ["getParams"] call A3A_fnc_setupParamsTab;
+		[_savedParams] remoteExec[QFUNCMAIN(setGameParameters), 2];
 
 		closeDialog 0;
 	};

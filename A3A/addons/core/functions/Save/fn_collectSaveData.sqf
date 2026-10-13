@@ -23,6 +23,11 @@ private _saveList = [profileNamespace getVariable "antistasiUltimate2SavedGames"
 
     private _game = createHashMapFromArray [["serverID", _serverID], ["gameID", _cid], ["map", _map]];
     { _game set [_x, _x call A3A_fnc_returnSavedStat] } forEach _optionalVars;
+
+    // backwards compatibility for older "new" save formats
+    if (_game getOrDefault["params", createHashMap, true] isEqualType []) then {
+        _game set["params", createHashMapFromArray(_game get "params")];
+    };
     _saveData pushBack _game;
 
 } forEach _saveList;
