@@ -5,7 +5,6 @@
             "WBK_SciFiWeaponary", // Weapon Research and Security: Firearms 
             "TKE_Ext_Heli", // Scifi Vehicles Pack
             "TKE_Ext_Ships", // Scifi Spaceship Pack
-            "WBK_WRS_Mechs", // Weapon Research and Security: Autonomous systems 
             "PHEN_TurretPack" // Sci-fi Turret Pack
         }; 
         logo = QPATHTOFOLDER(Templates\Templates\TKE\images\mod_tke_ucn_ca.paa);
