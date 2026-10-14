@@ -194,7 +194,7 @@ switch (_mode) do
             ["map", [""], false],
             ["membersX", [[]], true], // ! save list treats a missing membersX as "no game"
             ["name", [""], true],
-            ["params", [[]], false],
+            ["params", [[], createHashMap], false], // ! array on versions <= 12.1.1, hashmap on 12.2.0 and later
             ["saveTime", [[]], false],
             ["serverID", ["", false], true],
             ["version", [""], false]
@@ -450,8 +450,10 @@ switch (_mode) do
 
         private _allPresets = (profileNamespace getVariable "antistasiUltimateCustomParamPresets") toArray false;
         {
-            private _index = _control lbAdd (_x select 0);
-            _control lbSetData [_index, toJson  [_x select 0, createHashMapFromArray (_x select 1)]];
+            _x params ["_presetName", "_paramDataHM"];
+            if (_paramDataHM isEqualType []) then { _paramDataHM = createHashMapFromArray _paramDataHM };
+            private _index = _control lbAdd _presetName;
+            _control lbSetData [_index, toJson  [_presetName, _paramDataHM]];
         } forEach _allPresets;
 
         ["fitLB", [_control]] call A3A_fnc_setupImportExportDialog;
@@ -487,8 +489,13 @@ switch (_mode) do
             [localize "STR_antistasi_dialogs_setup_import_export", localize "STR_antistasi_dialogs_setup_ie_import_params_invalid"] call A3A_fnc_customHint;
         };
 
-        ["savePreset", [_presetName, _paramDataHM toArray false]] call A3A_fnc_setupParamsTab;
-        [localize "STR_antistasi_dialogs_setup_import_export", localize "STR_antistasi_dialogs_setup_ie_import_param_success"] call A3A_fnc_customHint;
+        // ! need to close the import / export dialog and wait until we have the param preset controls back so we can use the save preset code tied to those controls
+        closeDialog 0;
+        [_presetName, _paramDataHM] spawn {
+            waitUntil { sleep 0.1; !isNull ((findDisplay A3A_IDD_SETUPDIALOG) displayCtrl A3A_IDC_SETUP_PARAMSPRESETS_CSTM) };
+            ["savePreset", _this] call A3A_fnc_setupParamsTab;
+            [localize "STR_antistasi_dialogs_setup_import_export", localize "STR_antistasi_dialogs_setup_ie_import_param_success"] call A3A_fnc_customHint;
+        };
     };
 
     case ("exportParamData"):
