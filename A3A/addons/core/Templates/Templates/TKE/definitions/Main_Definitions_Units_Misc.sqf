@@ -7,14 +7,14 @@
 ["other", [["Pilot", _crewTemplate, [], ["other"]]], _pilotLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
 
 // "Kill the Official"
-["other", [["Official", _officerTemplate, [], ["other"]]], _militaryLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
+if (["WBK_WRS_Mechs"] call A3U_fnc_hasAddon) then { // Weapon Research and Security: Autonomous systems
+	["other", [["Official", _officerTemplate, [["baseClass", "WBK_WRS_WGP1_Ver1", true]], ["other"]]], _militaryLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
+} else {
+	["other", [["Official", _officerTemplate, [], ["other"]]], _militaryLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
+};
 
 // "Kill the Traitor"
-if (["WBK_WRS_Mechs"] call A3U_fnc_hasAddon) then { // Weapon Research and Security: Autonomous systems
-	["other", [["Traitor", _traitorTemplate, [["baseClass", "WBK_WRS_WGP1_Ver1", true]], ["other"]]], _militiaLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
-} else {
-	["other", [["Traitor", _traitorTemplate, [], ["other"]]], _militiaLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
-};
+["other", [["Traitor", _traitorTemplate, [], ["other"]]], _militiaLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
 
 // "Invader Punishment" Civilians
 ["other", [["Unarmed", _UnarmedTemplate, [], ["other"]]], _militaryLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
