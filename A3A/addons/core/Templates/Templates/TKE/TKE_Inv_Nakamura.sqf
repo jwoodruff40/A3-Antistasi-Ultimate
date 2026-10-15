@@ -58,8 +58,8 @@ private _vehiclesPlanesGunship = []; // Self explanatory
 private _vehiclesPlanesLargeCAS = []; // Used for planes that need to spawn on the runway.
 private _vehiclesPlanesLargeAA = []; // Used for planes that need to spawn on the runway.
 
-private _vehiclesHelisLight = ["MB_DF_Heli_U", "MB_VTOL"]; // A light transport helicopter.
-private _vehiclesHelisTransport = ["MB_DF_Heli_U", "MB_VTOL"]; // A transport helicopter.
+private _vehiclesHelisLight = ["MB_DF_Heli_U"]; // A light transport helicopter.
+private _vehiclesHelisTransport = ["MB_DF_Heli_U"]; // A transport helicopter.
 private _vehiclesHelisLightAttack = ["MB_DF_Heli_U"]; // A light attack helicopter.
 private _vehiclesHelisAttack = ["MB_DF_Heli_U"]; // An attack helicopter.
 private _vehiclesAirPatrol = _vehiclesHelisLightAttack + _vehiclesHelisAttack; // A helicopter that is used to patrol areas.
