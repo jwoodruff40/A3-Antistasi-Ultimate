@@ -265,8 +265,8 @@ while {_countX < _vehCount} do {
 // Hangar plane replacement if destroyed on spawn by collision with hangar (presumably)
 // Call it once here for all planes spawned in hangar instead of per plane as before,
 // and run it in the background instead of blocking the main garrison spawn script
-if (_hangarPlanes isNotEqualTo []) then { [_hangarPlanes] spawn {
-	params ["_hangarPlanes"];
+if (_hangarPlanes isNotEqualTo []) then { [_sideX, _vehiclesX, _hangarPlanes] spawn {
+	params ["_sideX", "_vehiclesX", "_hangarPlanes"];
 	sleep 0.5;
 	private _fixedPlanes = [];
 	{
