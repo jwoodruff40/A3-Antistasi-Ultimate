@@ -67,7 +67,7 @@ private _fnc_generateAndSaveUnitsToTemplate = {
 	params ["_prefix", "_unitTemplates", "_loadoutData"];
 	
 	private _unitTemplatesHM = createHashMapFromArray _unitTemplates;
-	if (A3U_Zombies && {"Man" in keys _unitTemplatesHM}) then { // zombies enabled and this is a civilian template
+	if (A3U_Zombies && {"Man" in _unitTemplatesHM}) then { // zombies enabled and this is a civilian template
 		_dataStore set ["attributeCivNonHuman", true];
 
 		private _specialUnits = [
