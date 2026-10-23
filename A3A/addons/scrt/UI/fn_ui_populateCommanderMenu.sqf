@@ -153,7 +153,7 @@ if (napalmEnabled) then {
 		if (lootCratesEnabled) then {
 			lbAdd [A3A_IDC_COMMANDER_MENU_SUPPORT_TYPE_COMBOBOX, localize "STR_commander_menu_loot_heli_title"];
 			lbSetData [A3A_IDC_COMMANDER_MENU_SUPPORT_TYPE_COMBOBOX, 8, "LOOTHELI"];
-			lbSetTooltip [A3A_IDC_COMMANDER_MENU_SUPPORT_TYPE_COMBOBOX, 98, localize "STR_commander_menu_loot_heli_tooltip"];
+			lbSetTooltip [A3A_IDC_COMMANDER_MENU_SUPPORT_TYPE_COMBOBOX, 9, localize "STR_commander_menu_loot_heli_tooltip"];
 		};
 	};
 };
