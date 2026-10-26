@@ -383,6 +383,12 @@ class CfgMarkers
 		icon = QPATHTOFOLDER(Pictures\Markers\marker_tke_ita_ca.paa);
 		texture = QPATHTOFOLDER(Pictures\Markers\marker_tke_ita_ca.paa);
   };
+	class a3u_flag_NFtSCW_fssr : flag_NATO 
+	{
+		name = "FSSR";
+		icon = QPATHTOFOLDER(Pictures\Markers\marker_FSSR_ca.paa);
+		texture = QPATHTOFOLDER(Pictures\Markers\marker_FSSR_ca.paa);
+	};
 	class a3u_flag_kal : flag_NATO
 	{
 		name = "KOR";

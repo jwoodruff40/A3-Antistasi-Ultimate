@@ -730,4 +730,8 @@ class Templates
     // ***************************** TKE *****************************
 
     #include "Templates\TKE\templates.hpp"
+
+	  // ***************************** NFtSCW *****************************
+
+    #include "Templates\NFtSCW\templates.hpp"
 };
