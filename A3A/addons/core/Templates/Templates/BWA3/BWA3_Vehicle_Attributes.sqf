@@ -1,3 +1,5 @@
+#pragma hemtt ignore_variables ["_fnc_saveToTemplate"]
+
 private _ReddnTanks = [];
 private _CUPVehicles = [];
 private _BWA3Vehicles = [];
