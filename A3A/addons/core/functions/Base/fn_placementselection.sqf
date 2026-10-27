@@ -6,9 +6,9 @@ private _disabledPlayerDamage = false;
 player allowDamage false;
 format [localize "STR_hints_new_game_petros_dead_header",name petros] hintC format [localize "STR_hints_new_game_petros_dead_text",name petros];
 
-hintC_arr_EH = findDisplay 72 displayAddEventHandler ["unload",{
+hintC_arr_EH = findDisplay 72 displayAddEventHandler ["Unload",{
 	_nul = _this spawn {
-		_this select 0 displayRemoveEventHandler ["unload", hintC_arr_EH];
+		_this select 0 displayRemoveEventHandler ["Unload", hintC_arr_EH];
 		hintSilent "";
 	};
 }];

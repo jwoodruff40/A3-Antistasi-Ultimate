@@ -83,7 +83,7 @@ _Unit setVariable ["VisualA", _VisualA];
 
 
 if !(_Unit getVariable ["DEBUGSET", false]) then {
-    _Unit addEventHandler ["killed",
+    _Unit addEventHandler ["Killed",
         {
             params ["_unit", "_killer", "_instigator", "_useEffects"];	
 

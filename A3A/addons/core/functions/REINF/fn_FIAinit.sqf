@@ -87,7 +87,7 @@ if (player == leader _unit) then {
 		};
 	};
 } else {
-	_unit addEventHandler ["killed", {
+	_unit addEventHandler ["Killed", {
 		params ["_victim", "_killer"];
 		call FUNCMAIN(postmortem);
 		if ((isPlayer _killer) and (side _killer == teamPlayer)) then {

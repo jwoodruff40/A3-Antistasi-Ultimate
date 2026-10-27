@@ -488,65 +488,65 @@ switch _mode do {
 		_display = _this select 0;
 
 		//Keys
-		_display displayRemoveAllEventHandlers "keydown";
-		_display displayRemoveAllEventHandlers "keyup";
-		_display displayAddEventHandler ["keydown",{['KeyDown',_this] call SCRT_fnc_arsenal_loadoutArsenal;}];
-		_display displayAddEventHandler ["keyup",{['KeyUp',_this] call SCRT_fnc_arsenal_loadoutArsenal;}];
+		_display displayRemoveAllEventHandlers "KeyDown";
+		_display displayRemoveAllEventHandlers "KeyUp";
+		_display displayAddEventHandler ["KeyDown",{['KeyDown',_this] call SCRT_fnc_arsenal_loadoutArsenal;}];
+		_display displayAddEventHandler ["KeyUp",{['KeyUp',_this] call SCRT_fnc_arsenal_loadoutArsenal;}];
 		//--- UI event handlers
 		_ctrlButtonClose = _display displayCtrl (getNumber (configFile >> "RscDisplayArsenal" >> "Controls" >> "ControlBar" >> "controls" >> "ButtonClose" >> "idc"));
-		_ctrlButtonClose ctrlRemoveAllEventHandlers "buttonclick";
-		_ctrlButtonClose ctrlAddEventHandler ["buttonclick",{["buttonClose",[ctrlParent (_this select 0)]] call SCRT_fnc_arsenal_loadoutArsenal;}];
+		_ctrlButtonClose ctrlRemoveAllEventHandlers "ButtonClick";
+		_ctrlButtonClose ctrlAddEventHandler ["ButtonClick",{["buttonClose",[ctrlParent (_this select 0)]] call SCRT_fnc_arsenal_loadoutArsenal;}];
 
 		_ctrlButtonLoad = _display displayCtrl IDC_RSCDISPLAYARSENAL_CONTROLSBAR_BUTTONLOAD;
-		_ctrlButtonLoad ctrlRemoveAllEventHandlers "buttonclick";
+		_ctrlButtonLoad ctrlRemoveAllEventHandlers "ButtonClick";
 		_ctrlButtonLoad ctrlSetText "";
 		_ctrlButtonLoad ctrlSetTooltip "";
 
 		_ctrlTemplateButtonOK = _display displayCtrl IDC_RSCDISPLAYARSENAL_TEMPLATE_BUTTONOK;
-		_ctrlTemplateButtonOK ctrlRemoveAllEventHandlers "buttonclick";
+		_ctrlTemplateButtonOK ctrlRemoveAllEventHandlers "ButtonClick";
 
 		_ctrlTemplateButtonDelete = _display displayCtrl IDC_RSCDISPLAYARSENAL_TEMPLATE_BUTTONDELETE;
-		_ctrlTemplateButtonDelete ctrlRemoveAllEventHandlers "buttonclick";
+		_ctrlTemplateButtonDelete ctrlRemoveAllEventHandlers "ButtonClick";
 
 		_ctrlButtonSetLoadout = _display displayCtrl IDC_RSCDISPLAYARSENAL_CONTROLSBAR_BUTTONIMPORT;
-		_ctrlButtonSetLoadout ctrlRemoveAllEventHandlers "buttonclick";
+		_ctrlButtonSetLoadout ctrlRemoveAllEventHandlers "ButtonClick";
 		_ctrlButtonSetLoadout ctrlSetText localize "STR_antistasi_dialogs_hq_button_rebel_set_loadout_button";
 		_ctrlButtonSetLoadout ctrlEnable true;
 		_ctrlButtonSetLoadout ctrlSetTooltip localize "STR_antistasi_dialogs_hq_button_rebel_set_loadout_tooltip";
-		_ctrlButtonSetLoadout ctrlAddEventHandler ["buttonclick",{["buttonSetLoadoutMenu",[ctrlParent (_this select 0)]] call SCRT_fnc_arsenal_loadoutArsenal;}];
+		_ctrlButtonSetLoadout ctrlAddEventHandler ["ButtonClick",{["buttonSetLoadoutMenu",[ctrlParent (_this select 0)]] call SCRT_fnc_arsenal_loadoutArsenal;}];
 
 		_ctrlButtonImport = _display displayCtrl IDC_RSCDISPLAYARSENAL_CONTROLSBAR_BUTTONEXPORT;
-		_ctrlButtonImport ctrlRemoveAllEventHandlers "buttonclick";
+		_ctrlButtonImport ctrlRemoveAllEventHandlers "ButtonClick";
 		_ctrlButtonImport ctrlSetText "";
 		_ctrlButtonImport ctrlSetTooltip "";
 
 		_ctrlButtonSave = _display displayCtrl IDC_RSCDISPLAYARSENAL_CONTROLSBAR_BUTTONSAVE;
-		_ctrlButtonSave ctrlRemoveAllEventHandlers "buttonclick";
+		_ctrlButtonSave ctrlRemoveAllEventHandlers "ButtonClick";
 		_ctrlButtonSave ctrlSetText "";
 		_ctrlButtonSave ctrlSetTooltip "";
 
 		_ctrlButtonRandom = _display displayCtrl IDC_RSCDISPLAYARSENAL_CONTROLSBAR_BUTTONRANDOM;
-		_ctrlButtonRandom ctrlRemoveAllEventHandlers "buttonclick";
+		_ctrlButtonRandom ctrlRemoveAllEventHandlers "ButtonClick";
 		_ctrlButtonRandom ctrlSetText "";
 		_ctrlButtonRandom ctrlSetTooltip "";
 
 		_ctrlArrowLeft = _display displayCtrl IDC_RSCDISPLAYARSENAL_ARROWLEFT;
-		_ctrlArrowLeft ctrlRemoveAllEventHandlers "buttonclick";
-		_ctrlArrowLeft ctrlAddEventHandler ["buttonclick",{["buttonCargo",[ctrlParent (_this select 0),-1]] call SCRT_fnc_arsenal_loadoutArsenal;}];
+		_ctrlArrowLeft ctrlRemoveAllEventHandlers "ButtonClick";
+		_ctrlArrowLeft ctrlAddEventHandler ["ButtonClick",{["buttonCargo",[ctrlParent (_this select 0),-1]] call SCRT_fnc_arsenal_loadoutArsenal;}];
 
 		_ctrlArrowRight = _display displayCtrl IDC_RSCDISPLAYARSENAL_ARROWRIGHT;
-		_ctrlArrowRight ctrlRemoveAllEventHandlers "buttonclick";
-		_ctrlArrowRight ctrlAddEventHandler ["buttonclick",{["buttonCargo",[ctrlParent (_this select 0),+1]] call SCRT_fnc_arsenal_loadoutArsenal;}];
+		_ctrlArrowRight ctrlRemoveAllEventHandlers "ButtonClick";
+		_ctrlArrowRight ctrlAddEventHandler ["ButtonClick",{["buttonCargo",[ctrlParent (_this select 0),+1]] call SCRT_fnc_arsenal_loadoutArsenal;}];
 
 		_ctrlTemplateValue = _display displayCtrl IDC_RSCDISPLAYARSENAL_TEMPLATE_VALUENAME;
-		_ctrlTemplateValue ctrlRemoveAllEventHandlers "lbdblclick";
+		_ctrlTemplateValue ctrlRemoveAllEventHandlers "LBDblClick";
 
 		//disable annoying deselecting of tabs when you misclick
 		_ctrlMouseArea = _display displayCtrl IDC_RSCDISPLAYARSENAL_MOUSEAREA;
-		_ctrlMouseArea ctrlRemoveEventHandler ["mousebuttonclick",0];
+		_ctrlMouseArea ctrlRemoveEventHandler ["MouseButtonClick",0];
 
 		_ctrlButtonInterface = _display displayCtrl IDC_RSCDISPLAYARSENAL_CONTROLSBAR_BUTTONINTERFACE;
-		_ctrlButtonInterface ctrlRemoveAllEventHandlers "buttonclick";
+		_ctrlButtonInterface ctrlRemoveAllEventHandlers "ButtonClick";
 
 		//--- Menus
 		_sortValues = uiNamespace getVariable ["jn_fnc_arsenal_sort",[]];
@@ -569,24 +569,24 @@ switch _mode do {
 			_ctrlList = _display displayCtrl (IDC_RSCDISPLAYARSENAL_LIST + _idc);
 			
 			if !(_idc in IDCS_CARGO) then {
-				_ctrlList ctrlAddEventHandler ["lbdblclick","['OverrideTab', _this select 0] call SCRT_fnc_arsenal_loadoutArsenal"];
+				_ctrlList ctrlAddEventHandler ["LBDblClick","['OverrideTab', _this select 0] call SCRT_fnc_arsenal_loadoutArsenal"];
 				_ctrlTab ctrlSetTooltip ([localize "STR_JNA_OVERRIDE", localize "STR_JNA_OVERRIDE_CARGO"] select (_idc in [IDC_RSCDISPLAYARSENAL_TAB_UNIFORM, IDC_RSCDISPLAYARSENAL_TAB_VEST, IDC_RSCDISPLAYARSENAL_TAB_BACKPACK]));
 			};
 
 			{
-				_x ctrlRemoveAllEventHandlers "buttonclick";
+				_x ctrlRemoveAllEventHandlers "ButtonClick";
 				if (_idc in [IDCS_LEFT]) then {
-					_x ctrlAddEventHandler ["buttonclick",format ["['TabSelectLeft',[ctrlparent (_this select 0),%1],true] call SCRT_fnc_arsenal_loadoutArsenal;",_idc]];
+					_x ctrlAddEventHandler ["ButtonClick",format ["['TabSelectLeft',[ctrlparent (_this select 0),%1],true] call SCRT_fnc_arsenal_loadoutArsenal;",_idc]];
 				} else {
-					_x ctrlAddEventHandler ["buttonclick",format ["['TabSelectRight',[ctrlparent (_this select 0),%1],true] call SCRT_fnc_arsenal_loadoutArsenal;",_idc]];
+					_x ctrlAddEventHandler ["ButtonClick",format ["['TabSelectRight',[ctrlparent (_this select 0),%1],true] call SCRT_fnc_arsenal_loadoutArsenal;",_idc]];
 				};
 			} forEach [_ctrlIcon,_ctrlTab];
 
 			//sort
 			_sort = _sortValues param [_idc, SORT_DEFAULT];
 			_ctrlSort = _display displayCtrl (IDC_RSCDISPLAYARSENAL_SORT + _idc);
-			_ctrlSort ctrlRemoveAllEventHandlers "lbselchanged";
-			_ctrlSort ctrlAddEventHandler ["lbselchanged",format ["['SortBy',[_this,%1]] call SCRT_fnc_arsenal_loadoutArsenal;",_idc]];
+			_ctrlSort ctrlRemoveAllEventHandlers "LBSelChanged";
+			_ctrlSort ctrlAddEventHandler ["LBSelChanged",format ["['SortBy',[_this,%1]] call SCRT_fnc_arsenal_loadoutArsenal;",_idc]];
 
 			//Delete "Sort by mod" as it doesn't work currently.
 			if (lbSize _ctrlSort > 1) then {

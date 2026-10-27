@@ -437,65 +437,65 @@ switch _mode do {
 		_display = _this select 0;
 
 		//Keys
-		_display displayRemoveAllEventHandlers "keydown";
-		_display displayRemoveAllEventHandlers "keyup";
-		_display displayAddEventHandler ["keydown",{['KeyDown',_this] call jn_fnc_arsenal;}];
-		_display displayAddEventHandler ["keyup",{['KeyUp',_this] call jn_fnc_arsenal;}];
+		_display displayRemoveAllEventHandlers "KeyDown";
+		_display displayRemoveAllEventHandlers "KeyUp";
+		_display displayAddEventHandler ["KeyDown",{['KeyDown',_this] call jn_fnc_arsenal;}];
+		_display displayAddEventHandler ["KeyUp",{['KeyUp',_this] call jn_fnc_arsenal;}];
 		//--- UI event handlers
 		_ctrlButtonClose = _display displayCtrl (getNumber (configFile >> "RscDisplayArsenal" >> "Controls" >> "ControlBar" >> "controls" >> "ButtonClose" >> "idc"));
-		_ctrlButtonClose ctrlRemoveAllEventHandlers "buttonclick";
-		_ctrlButtonClose ctrlAddEventHandler ["buttonclick",{["buttonClose",[ctrlParent (_this select 0)]] call jn_fnc_arsenal;}];
+		_ctrlButtonClose ctrlRemoveAllEventHandlers "ButtonClick";
+		_ctrlButtonClose ctrlAddEventHandler ["ButtonClick",{["buttonClose",[ctrlParent (_this select 0)]] call jn_fnc_arsenal;}];
 
 		_ctrlButtonLoad = _display displayCtrl IDC_RSCDISPLAYARSENAL_CONTROLSBAR_BUTTONLOAD;
-		_ctrlButtonLoad ctrlRemoveAllEventHandlers "buttonclick";
-		_ctrlButtonLoad ctrlAddEventHandler ["buttonclick",{["buttonLoad",[ctrlParent (_this select 0)]] call jn_fnc_arsenal;}];
+		_ctrlButtonLoad ctrlRemoveAllEventHandlers "ButtonClick";
+		_ctrlButtonLoad ctrlAddEventHandler ["ButtonClick",{["buttonLoad",[ctrlParent (_this select 0)]] call jn_fnc_arsenal;}];
 
 		_ctrlTemplateButtonOK = _display displayCtrl IDC_RSCDISPLAYARSENAL_TEMPLATE_BUTTONOK;
-		_ctrlTemplateButtonOK ctrlRemoveAllEventHandlers "buttonclick";
-		_ctrlTemplateButtonOK ctrlAddEventHandler ["buttonclick",{["buttonTemplateOK",[ctrlParent (_this select 0)]] call jn_fnc_arsenal;}];//todo remove
+		_ctrlTemplateButtonOK ctrlRemoveAllEventHandlers "ButtonClick";
+		_ctrlTemplateButtonOK ctrlAddEventHandler ["ButtonClick",{["buttonTemplateOK",[ctrlParent (_this select 0)]] call jn_fnc_arsenal;}];//todo remove
 
 		_ctrlTemplateButtonDelete = _display displayCtrl IDC_RSCDISPLAYARSENAL_TEMPLATE_BUTTONDELETE;
-		_ctrlTemplateButtonDelete ctrlRemoveAllEventHandlers "buttonclick";
-		_ctrlTemplateButtonDelete ctrlAddEventHandler ["buttonclick",{["buttonTemplateDelete",[ctrlParent (_this select 0)]] call jn_fnc_arsenal;}];
+		_ctrlTemplateButtonDelete ctrlRemoveAllEventHandlers "ButtonClick";
+		_ctrlTemplateButtonDelete ctrlAddEventHandler ["ButtonClick",{["buttonTemplateDelete",[ctrlParent (_this select 0)]] call jn_fnc_arsenal;}];
 
 		_ctrlButtonExport = _display displayCtrl IDC_RSCDISPLAYARSENAL_CONTROLSBAR_BUTTONEXPORT;
-		_ctrlButtonExport ctrlRemoveAllEventHandlers "buttonclick";
+		_ctrlButtonExport ctrlRemoveAllEventHandlers "ButtonClick";
 		_ctrlButtonExport ctrlSetText "TODO";
 
 		_ctrlButtonImport = _display displayCtrl IDC_RSCDISPLAYARSENAL_CONTROLSBAR_BUTTONIMPORT;
-		_ctrlButtonImport ctrlRemoveAllEventHandlers "buttonclick";
+		_ctrlButtonImport ctrlRemoveAllEventHandlers "ButtonClick";
 		_ctrlButtonImport ctrlSetText localize "STR_JNA_ACT_DEF_GEAR_BUTTON";
 		_ctrlButtonImport ctrlSetTooltip localize "STR_JNA_ACT_DEF_GEAR";
-		_ctrlButtonImport ctrlAddEventHandler ["buttonclick",{["buttonDefaultGear",[ctrlParent (_this select 0)]] call jn_fnc_arsenal;}];
+		_ctrlButtonImport ctrlAddEventHandler ["ButtonClick",{["buttonDefaultGear",[ctrlParent (_this select 0)]] call jn_fnc_arsenal;}];
 
 		_ctrlButtonSave = _display displayCtrl IDC_RSCDISPLAYARSENAL_CONTROLSBAR_BUTTONSAVE;
-		_ctrlButtonSave ctrlRemoveAllEventHandlers "buttonclick";
-		_ctrlButtonSave ctrlAddEventHandler ["buttonclick",{["buttonSave",[ctrlParent (_this select 0)]] call jn_fnc_arsenal;}];
+		_ctrlButtonSave ctrlRemoveAllEventHandlers "ButtonClick";
+		_ctrlButtonSave ctrlAddEventHandler ["ButtonClick",{["buttonSave",[ctrlParent (_this select 0)]] call jn_fnc_arsenal;}];
 
 		_ctrlButtonRandom = _display displayCtrl IDC_RSCDISPLAYARSENAL_CONTROLSBAR_BUTTONRANDOM;
-		_ctrlButtonRandom ctrlRemoveAllEventHandlers "buttonclick";
-		_ctrlButtonRandom ctrlAddEventHandler ["buttonclick",{["buttonInvToJNA",[ctrlParent (_this select 0)]] call jn_fnc_arsenal;}];
+		_ctrlButtonRandom ctrlRemoveAllEventHandlers "ButtonClick";
+		_ctrlButtonRandom ctrlAddEventHandler ["ButtonClick",{["buttonInvToJNA",[ctrlParent (_this select 0)]] call jn_fnc_arsenal;}];
 		_ctrlButtonRandom ctrlSetText localize "STR_JNA_ACT_MOVE_FROM_CRATE_TO_ARSENAL_BUTTON";
 		_ctrlButtonRandom ctrlSetTooltip localize "STR_JNA_ACT_MOVE_FROM_CRATE_TO_ARSENAL";
 
 		_ctrlArrowLeft = _display displayCtrl IDC_RSCDISPLAYARSENAL_ARROWLEFT;
-		_ctrlArrowLeft ctrlRemoveAllEventHandlers "buttonclick";
-		_ctrlArrowLeft ctrlAddEventHandler ["buttonclick",{["buttonCargo",[ctrlParent (_this select 0),-1]] call jn_fnc_arsenal;}];
+		_ctrlArrowLeft ctrlRemoveAllEventHandlers "ButtonClick";
+		_ctrlArrowLeft ctrlAddEventHandler ["ButtonClick",{["buttonCargo",[ctrlParent (_this select 0),-1]] call jn_fnc_arsenal;}];
 
 		_ctrlArrowRight = _display displayCtrl IDC_RSCDISPLAYARSENAL_ARROWRIGHT;
-		_ctrlArrowRight ctrlRemoveAllEventHandlers "buttonclick";
-		_ctrlArrowRight ctrlAddEventHandler ["buttonclick",{["buttonCargo",[ctrlParent (_this select 0),+1]] call jn_fnc_arsenal;}];
+		_ctrlArrowRight ctrlRemoveAllEventHandlers "ButtonClick";
+		_ctrlArrowRight ctrlAddEventHandler ["ButtonClick",{["buttonCargo",[ctrlParent (_this select 0),+1]] call jn_fnc_arsenal;}];
 
 		_ctrlTemplateValue = _display displayCtrl IDC_RSCDISPLAYARSENAL_TEMPLATE_VALUENAME;
-		_ctrlTemplateValue ctrlRemoveAllEventHandlers "lbdblclick";
-		_ctrlTemplateValue ctrlAddEventHandler ["lbdblclick",{["buttonTemplateOK",[ctrlParent (_this select 0)]] call jn_fnc_arsenal;}];//todo remove
+		_ctrlTemplateValue ctrlRemoveAllEventHandlers "LBDblClick";
+		_ctrlTemplateValue ctrlAddEventHandler ["LBDblClick",{["buttonTemplateOK",[ctrlParent (_this select 0)]] call jn_fnc_arsenal;}];//todo remove
 
 		//disable annoying deselecting of tabs when you misclick
 		_ctrlMouseArea = _display displayCtrl IDC_RSCDISPLAYARSENAL_MOUSEAREA;
-		_ctrlMouseArea ctrlRemoveEventHandler ["mousebuttonclick",0];
+		_ctrlMouseArea ctrlRemoveEventHandler ["MouseButtonClick",0];
 
 		_ctrlButtonInterface = _display displayCtrl IDC_RSCDISPLAYARSENAL_CONTROLSBAR_BUTTONINTERFACE;
-		_ctrlButtonInterface ctrlRemoveAllEventHandlers "buttonclick";
+		_ctrlButtonInterface ctrlRemoveAllEventHandlers "ButtonClick";
 
 		//--- Menus
 		_sortValues = uiNamespace getVariable ["jn_fnc_arsenal_sort",[]];
@@ -516,19 +516,19 @@ switch _mode do {
 			_ctrlIcon = _display displayCtrl (IDC_RSCDISPLAYARSENAL_ICON + _idc);
 			_ctrlTab = _display displayCtrl (IDC_RSCDISPLAYARSENAL_TAB + _idc);
 			{
-				_x ctrlRemoveAllEventHandlers "buttonclick";
+				_x ctrlRemoveAllEventHandlers "ButtonClick";
 				if (_idc in [IDCS_LEFT]) then {
-					_x ctrlAddEventHandler ["buttonclick",format ["['TabSelectLeft',[ctrlparent (_this select 0),%1],true] call jn_fnc_arsenal;",_idc]];
+					_x ctrlAddEventHandler ["ButtonClick",format ["['TabSelectLeft',[ctrlparent (_this select 0),%1],true] call jn_fnc_arsenal;",_idc]];
 				} else {
-					_x ctrlAddEventHandler ["buttonclick",format ["['TabSelectRight',[ctrlparent (_this select 0),%1],true] call jn_fnc_arsenal;",_idc]];
+					_x ctrlAddEventHandler ["ButtonClick",format ["['TabSelectRight',[ctrlparent (_this select 0),%1],true] call jn_fnc_arsenal;",_idc]];
 				};
 			} forEach [_ctrlIcon,_ctrlTab];
 
 			//sort
 			_sort = _sortValues param [_idc, SORT_DEFAULT];
 			_ctrlSort = _display displayCtrl (IDC_RSCDISPLAYARSENAL_SORT + _idc);
-			_ctrlSort ctrlRemoveAllEventHandlers "lbselchanged";
-			_ctrlSort ctrlAddEventHandler ["lbselchanged",format ["['SortBy',[_this,%1]] call jn_fnc_arsenal;",_idc]];
+			_ctrlSort ctrlRemoveAllEventHandlers "LBSelChanged";
+			_ctrlSort ctrlAddEventHandler ["LBSelChanged",format ["['SortBy',[_this,%1]] call jn_fnc_arsenal;",_idc]];
 
 			//Delete "Sort by mod" as it doesn't work currently.
 			if (lbSize _ctrlSort > 1) then {

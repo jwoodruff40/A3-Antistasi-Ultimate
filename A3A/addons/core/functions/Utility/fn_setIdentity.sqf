@@ -44,5 +44,5 @@ private _JIPID = "identity_" + netId _unit;
 
 // This won't be 100% reliable because it's only installed locally, but it'll avoid remoteExec spam on connection
 _unit addEventHandler ["Deleted", {
-    remoteExec ["", "identity_" + netId _unit];
+    remoteExec ["", "identity_" + netId (_this select 0)];
 }];

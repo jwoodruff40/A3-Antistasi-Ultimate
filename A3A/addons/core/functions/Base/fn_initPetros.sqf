@@ -123,7 +123,7 @@ petros addEventHandler
     }
 ];
 
-petros addMPEventHandler ["mpkilled",
+petros addMPEventHandler ["MPKilled",
 {
     removeAllActions petros;
     if (!isServer) exitWith {};

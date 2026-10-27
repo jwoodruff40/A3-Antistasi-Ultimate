@@ -1,4 +1,4 @@
-#pragma hemtt ignore_variables ["_fnc_saveNames","_fnc_createLoadoutData","_fnc_copyLoadoutData","_fnc_generateAndSaveUnitsToTemplate","_fnc_saveToTemplate"]
+#pragma hemtt ignore_variables ["_crewTemplate", "_pilotTemplate", "_officerTemplate", "_traitorTemplate", "_UnarmedTemplate", "_policeTemplate", "_crewLoadoutData", "_pilotLoadoutData", "_militaryLoadoutData", "_militiaLoadoutData", "_policeLoadoutData", "_fnc_generateAndSaveUnitsToTemplate"]
 
 ///////////////////////
 //    Misc Units    //

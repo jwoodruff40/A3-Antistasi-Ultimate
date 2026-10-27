@@ -138,7 +138,7 @@ switch (_mode) do
             params ["_control", "_selectedIndex"];
             private _categoryIndex = lbCurSel _control;
             if (_categoryIndex isEqualTo -1) exitWith {};
-            ["switchTab", [_vehicleType]] call A3A_fnc_blackMarketDialog;
+            ["switchTab", []] call A3A_fnc_blackMarketDialog;
         }];
     };
 

@@ -132,7 +132,7 @@ if (side group _newUnit == teamPlayer) then
 	[(selectRandom unlockedmaps),"","",(selectRandom unlockedCompasses),(selectRandom unlockedwatches),""]];
 
 	if (!isPlayer (leader group _newUnit)) then {(group _newUnit) selectLeader _newUnit};
-	_newUnit addEventHandler ["FIRED", 
+	_newUnit addEventHandler ["Fired", 
 	{
 		_player = _this select 0;
 		if (captive _player) then {

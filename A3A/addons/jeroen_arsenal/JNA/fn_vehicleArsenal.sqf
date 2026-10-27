@@ -232,10 +232,10 @@ switch _mode do {
 				_ctrl = _display displayCtrl (_tab + _x);
 				_ctrl ctrlShow false;
 				_ctrl ctrlEnable false;
-				_ctrl ctrlRemoveAllEventHandlers "buttonclick";
-				_ctrl ctrlRemoveAllEventHandlers "mousezchanged";
-				_ctrl ctrlRemoveAllEventHandlers "lbselchanged";
-				_ctrl ctrlRemoveAllEventHandlers "lbdblclick";
+				_ctrl ctrlRemoveAllEventHandlers "ButtonClick";
+				_ctrl ctrlRemoveAllEventHandlers "MouseZChanged";
+				_ctrl ctrlRemoveAllEventHandlers "LBSelChanged";
+				_ctrl ctrlRemoveAllEventHandlers "LBDblClick";
 				_ctrl ctrlSetPosition [0,0,0,0];
 				_ctrl ctrlCommit 0;
 			} forEach [IDC_RSCDISPLAYARSENAL_ICON,IDC_RSCDISPLAYARSENAL_ICONBACKGROUND];
@@ -263,50 +263,50 @@ switch _mode do {
 
 
 		//Keys
-		_display displayRemoveAllEventHandlers "keydown";
-		_display displayRemoveAllEventHandlers "keyup";
-		_display displayAddEventHandler ["keydown",{['KeyDown',_this] call jn_fnc_arsenal;}];
-		_display displayAddEventHandler ["keyup",{['KeyUp',_this] call jn_fnc_arsenal;}];
+		_display displayRemoveAllEventHandlers "KeyDown";
+		_display displayRemoveAllEventHandlers "KeyUp";
+		_display displayAddEventHandler ["KeyDown",{['KeyDown',_this] call jn_fnc_arsenal;}];
+		_display displayAddEventHandler ["KeyUp",{['KeyUp',_this] call jn_fnc_arsenal;}];
 
 		//--- UI event handlers
 		_ctrlButtonRandom = _display displayCtrl IDC_RSCDISPLAYARSENAL_CONTROLSBAR_BUTTONRANDOM;
-		_ctrlButtonRandom ctrlRemoveAllEventHandlers "buttonclick";
-		_ctrlButtonRandom ctrlAddEventHandler ["buttonclick",{["Unload",[ctrlParent (_this select 0)]] call jn_fnc_vehicleArsenal;}];
+		_ctrlButtonRandom ctrlRemoveAllEventHandlers "ButtonClick";
+		_ctrlButtonRandom ctrlAddEventHandler ["ButtonClick",{["Unload",[ctrlParent (_this select 0)]] call jn_fnc_vehicleArsenal;}];
 		_ctrlButtonRandom ctrlSetText localize "STR_JNA_ACT_MOVE_FROM_VEHICLE_TO_ARSENAL_BUTTON";
 		_ctrlButtonRandom ctrlSetTooltip localize "STR_JNA_ACT_MOVE_FROM_VEHICLE_TO_ARSENAL";
 
 		_ctrlButtonExport = _display displayCtrl IDC_RSCDISPLAYARSENAL_CONTROLSBAR_BUTTONEXPORT;
-		_ctrlButtonExport ctrlRemoveAllEventHandlers "buttonclick";
+		_ctrlButtonExport ctrlRemoveAllEventHandlers "ButtonClick";
 		_ctrlButtonExport ctrlSetText "";
 
 		_ctrlButtonImport = _display displayCtrl IDC_RSCDISPLAYARSENAL_CONTROLSBAR_BUTTONIMPORT;
-		_ctrlButtonImport ctrlRemoveAllEventHandlers "buttonclick";
+		_ctrlButtonImport ctrlRemoveAllEventHandlers "ButtonClick";
 		_ctrlButtonImport ctrlSetText "";
 
 		_ctrlArrowLeft = _display displayCtrl IDC_RSCDISPLAYARSENAL_ARROWLEFT;
-		_ctrlArrowLeft ctrlRemoveAllEventHandlers "buttonclick";
-		_ctrlArrowLeft ctrlAddEventHandler ["buttonclick",{["buttonCargo",[ctrlParent (_this select 0),-1]] call jn_fnc_vehicleArsenal;}];
+		_ctrlArrowLeft ctrlRemoveAllEventHandlers "ButtonClick";
+		_ctrlArrowLeft ctrlAddEventHandler ["ButtonClick",{["buttonCargo",[ctrlParent (_this select 0),-1]] call jn_fnc_vehicleArsenal;}];
 
 		_ctrlArrowRight = _display displayCtrl IDC_RSCDISPLAYARSENAL_ARROWRIGHT;
-		_ctrlArrowRight ctrlRemoveAllEventHandlers "buttonclick";
-		_ctrlArrowRight ctrlAddEventHandler ["buttonclick",{["buttonCargo",[ctrlParent (_this select 0),+1]] call jn_fnc_vehicleArsenal;}];
+		_ctrlArrowRight ctrlRemoveAllEventHandlers "ButtonClick";
+		_ctrlArrowRight ctrlAddEventHandler ["ButtonClick",{["buttonCargo",[ctrlParent (_this select 0),+1]] call jn_fnc_vehicleArsenal;}];
 
 		_ctrlButtonLoad = _display displayCtrl IDC_RSCDISPLAYARSENAL_CONTROLSBAR_BUTTONLOAD;
-		_ctrlButtonLoad ctrlRemoveAllEventHandlers "buttonclick";
+		_ctrlButtonLoad ctrlRemoveAllEventHandlers "ButtonClick";
 		_ctrlButtonLoad ctrlSetTextColor [1,0,0,1];
 		//_ctrlButtonLoad ctrladdeventhandler ["buttonclick",{["buttonLoad",[ctrlparent (_this select 0)]] call jn_fnc_vehicleArsenal;}];
 
 		_ctrlButtonSave = _display displayCtrl IDC_RSCDISPLAYARSENAL_CONTROLSBAR_BUTTONSAVE;
-		_ctrlButtonSave ctrlRemoveAllEventHandlers "buttonclick";
+		_ctrlButtonSave ctrlRemoveAllEventHandlers "ButtonClick";
 		_ctrlButtonSave ctrlSetTextColor [1,0,0,1];
 		//_ctrlButtonSave ctrladdeventhandler ["buttonclick",{["buttonSave",[ctrlparent (_this select 0)]] call jn_fnc_vehicleArsenal;}];
 
 		//disable annoying deselecting of tabs when you misclick
 		_ctrlMouseArea = _display displayCtrl IDC_RSCDISPLAYARSENAL_MOUSEAREA;
-		_ctrlMouseArea ctrlRemoveEventHandler ["mousebuttonclick",0];
+		_ctrlMouseArea ctrlRemoveEventHandler ["MouseButtonClick",0];
 
 		_ctrlButtonInterface = _display displayCtrl IDC_RSCDISPLAYARSENAL_CONTROLSBAR_BUTTONINTERFACE;
-		_ctrlButtonInterface ctrlRemoveAllEventHandlers "buttonclick";
+		_ctrlButtonInterface ctrlRemoveAllEventHandlers "ButtonClick";
 
 		{
 			_idc = _x;
@@ -323,8 +323,8 @@ switch _mode do {
 
 
 			_ctrlTab = _display displayCtrl (IDC_RSCDISPLAYARSENAL_TAB + _idc);
-			_ctrlTab ctrlRemoveAllEventHandlers "buttonclick";
-			_ctrlTab ctrlAddEventHandler ["buttonclick",format ["['TabSelect',[ctrlparent (_this select 0),%1],true] call jn_fnc_vehicleArsenal;",_idc]];
+			_ctrlTab ctrlRemoveAllEventHandlers "ButtonClick";
+			_ctrlTab ctrlAddEventHandler ["ButtonClick",format ["['TabSelect',[ctrlparent (_this select 0),%1],true] call jn_fnc_vehicleArsenal;",_idc]];
 
 
 		} forEach IDCS;
