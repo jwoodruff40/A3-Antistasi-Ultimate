@@ -2,7 +2,7 @@
 FIX_LINE_NUMBERS()
 params ["_units", "_roadblockMarker"];
 
-_nightTimeBonus = if (daytime < 6 || {daytime > 22}) then {0.25} else {0};
+_nightTimeBonus = if (dayTime < 6 || {dayTime > 22}) then {0.25} else {0};
 
 _defenderBonus = 1 + _nightTimeBonus + (random 0.5);
 _attackerBonus = 1;

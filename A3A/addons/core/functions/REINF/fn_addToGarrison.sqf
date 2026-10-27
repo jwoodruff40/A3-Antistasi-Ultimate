@@ -11,7 +11,7 @@ onMapSingleClick "positionTel = _pos; true";
 
 [localize "STR_A3A_garrison_header", localize "STR_A3A_garrison_select_zone"] call A3A_fnc_customHint;
 
-waitUntil {sleep 0.5; positionTel isNotEqualTo [] or {!visiblemap}};
+waitUntil {sleep 0.5; positionTel isNotEqualTo [] or {!visibleMap}};
 onMapSingleClick "";
 
 if (!visibleMap) exitWith {};
@@ -51,7 +51,7 @@ if _alreadyInGarrison exitWith {
     [localize "STR_A3A_garrison_header", localize "STR_A3A_garrison_fail_already_in_garrison"] call SCRT_fnc_misc_deniedHint
 };
 
-if ((groupID _groupX in ["MineF", "Watch", "Post", "Road"]) or {(isPlayer(leader _groupX))}) exitWith {
+if ((groupId _groupX in ["MineF", "Watch", "Post", "Road"]) or {(isPlayer(leader _groupX))}) exitWith {
     [localize "STR_garrison_garrison_header", localize "STR_garrison_error_no_specific_squads"] call SCRT_fnc_misc_deniedHint;
 };
 
@@ -116,7 +116,7 @@ if (isNull _groupX) then {
     _unitsX joinSilent _groupX;
     [localize "STR_A3A_garrison_header", localize "STR_A3A_garrison_adding_to_garrison"] call A3A_fnc_customHint;
 } else {
-    [localize "STR_A3A_garrison_header", format [localize "STR_A3A_garrison_adding_to_garrison_hc", groupID _groupX]] call A3A_fnc_customHint;
+    [localize "STR_A3A_garrison_header", format [localize "STR_A3A_garrison_adding_to_garrison_hc", groupId _groupX]] call A3A_fnc_customHint;
     theBoss hcRemoveGroup _groupX;
 };
 
@@ -172,7 +172,7 @@ if (!_noDeletion) then {
             params ["_victim", "_killer"];
             call FUNCMAIN(postmortem);
             if ((isPlayer _killer) and (side _killer == teamPlayer)) then {
-                if (!isMultiPlayer) then {
+                if (!isMultiplayer) then {
                     _nul = [0,20] remoteExec ["A3A_fnc_resourcesFIA",2];
                     _killer addRating 1000;
                 };
@@ -188,5 +188,5 @@ if (!_noDeletion) then {
         }];
     } forEach (_unitsX select {alive _x});
     theBoss hcSetGroup [_groupX];
-    [localize "STR_A3A_garrison_header", format [localize "STR_A3A_garrison_fail_zone_lost", groupID _groupX]] call A3A_fnc_customHint;
+    [localize "STR_A3A_garrison_header", format [localize "STR_A3A_garrison_fail_zone_lost", groupId _groupX]] call A3A_fnc_customHint;
 };

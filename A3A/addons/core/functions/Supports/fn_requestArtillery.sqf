@@ -44,7 +44,7 @@ private _actSuppHM = createHashMap;
 {
     _x params ["_suppName", "_suppSide", "_suppType", "_center", "_radius", "_suppTarg", ["_minRadius", 0]];
     if (_suppSide != _side or _suppType in _actSuppHM) then { continue };         // only use first one found
-    private _dist = _targpos distance2d _center;
+    private _dist = _targpos distance2D _center;
     if (_suppTarg isNotEqualTo [] or _dist > _radius or _dist < _minRadius) then { continue };        // ready for new target + in range
     _actSuppHM set [_suppType, _x];
 } forEach A3A_activeSupports;

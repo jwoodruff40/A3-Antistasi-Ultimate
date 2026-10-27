@@ -26,7 +26,7 @@ private _hcGroupData = [];
 {
     private _groupData = [_x] call A3A_fnc_getGroupInfo;
     _hcGroupData pushBack _groupData;
-} forEach hcallGroups player; // TODO UI-update: Replace with commander?
+} forEach hcAllGroups player; // TODO UI-update: Replace with commander?
 _map setVariable ["hcGroupData", _hcGroupData];
 
 // TODO UI-update: Move to A3A_fnc_commanderTab

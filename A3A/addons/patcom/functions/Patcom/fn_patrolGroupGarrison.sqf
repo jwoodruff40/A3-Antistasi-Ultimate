@@ -30,7 +30,7 @@ private _units = units _group;
 private _buildings = [];
 private _newGroups = [];
 
-if (count _units == 0) exitwith {};
+if (count _units == 0) exitWith {};
 
 _group lockWP true;
 _buildings = nearestObjects [_position, keys PATCOM_Garrison_Positions, _radius];
@@ -64,15 +64,15 @@ _buildings = _buildings call BIS_fnc_arrayShuffle;
         if (count _units == 0) exitWith {};
         private _unit = _units select 0;
         private _position = _x;
-        _unit setposATL _position;
-        _unit setdir ((_unit getRelDir _building)-180);
+        _unit setPosATL _position;
+        _unit setDir ((_unit getRelDir _building)-180);
         _unit disableAI "PATH";
         _unit setUnitPos "UP";
 
-        dostop _unit;
+        doStop _unit;
 
         _units deleteAt 0;
-    } foreach _buildingPositions;
+    } forEach _buildingPositions;
 } forEach _buildings;
 
 // Splits Garrison AI into an additional defense group if not enough buildings/positions were found.

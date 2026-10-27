@@ -37,7 +37,7 @@ if (_group isEqualTo grpNull) exitWith {
   Error("No group specified");
 };
 
-private _groupID = groupID _group;
+private _groupID = groupId _group;
 private _groupLeader = leader _group;
 private _units = units _group;
 private _aliveUnits = {alive _x} count _units;

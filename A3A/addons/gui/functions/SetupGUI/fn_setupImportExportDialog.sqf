@@ -118,7 +118,7 @@ switch (_mode) do
 
         [CBA_EVENT_CLIENT_IMPORTEXPORT_HASHMAPTOJSON, [_saveDataHM]] call FUNCMAIN(triggerLocalEvent);
 
-        toJson _saveDataHM;
+        toJSON _saveDataHM;
     };
 
     case ("jsonToHashmap"):
@@ -453,7 +453,7 @@ switch (_mode) do
             _x params ["_presetName", "_paramDataHM"];
             if (_paramDataHM isEqualType []) then { _paramDataHM = createHashMapFromArray _paramDataHM };
             private _index = _control lbAdd _presetName;
-            _control lbSetData [_index, toJson  [_presetName, _paramDataHM]];
+            _control lbSetData [_index, toJSON  [_presetName, _paramDataHM]];
         } forEach _allPresets;
 
         ["fitLB", [_control]] call A3A_fnc_setupImportExportDialog;
@@ -484,7 +484,7 @@ switch (_mode) do
             [localize "STR_antistasi_dialogs_setup_import_export", localize "STR_antistasi_dialogs_setup_ie_import_params_empty"] call A3A_fnc_customHint;
         };
 
-        (fromJson _paramData) params ["_presetName", "_paramDataHM"];
+        (fromJSON _paramData) params ["_presetName", "_paramDataHM"];
         if (isNil "_paramDataHM" || {!(_paramDataHM isEqualType createHashMap)}) exitWith {
             [localize "STR_antistasi_dialogs_setup_import_export", localize "STR_antistasi_dialogs_setup_ie_import_params_invalid"] call A3A_fnc_customHint;
         };

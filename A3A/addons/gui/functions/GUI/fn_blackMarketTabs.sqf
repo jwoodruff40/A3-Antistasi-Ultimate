@@ -80,9 +80,9 @@ _bmData apply {
         };
 
         private _dlc = "";
-        private _addons = configsourceaddonlist _configClass;
+        private _addons = configSourceAddonList _configClass;
         if (count _addons > 0) then {
-            private _mods = configsourcemodlist (configfile >> "CfgPatches" >> (_addons select 0));
+            private _mods = configSourceModList (configFile >> "CfgPatches" >> (_addons select 0));
             if (count _mods > 0) then {
                 _dlc = _mods select 0;
             };
@@ -137,13 +137,13 @@ _bmData apply {
         private _dlcParams = modParams [_dlc, ["logo", "logoOver"]];
         _dlcMetadata = createHashMapFromArray [
             ["logo", _dlcParams param [0, ""]],
-            ["fieldManualTopicAndHint", getArray (configfile >> "CfgMods" >> _dlc >> "fieldManualTopicAndHint")]
+            ["fieldManualTopicAndHint", getArray (configFile >> "CfgMods" >> _dlc >> "fieldManualTopicAndHint")]
         ];
         _dlcMetadataCache set [_dlc, _dlcMetadata];
     };
     private _logo = _dlcMetadata get "logo";
     private _fieldManualTopicAndHint = _dlcMetadata get "fieldManualTopicAndHint";
-    _label ctrlseteventhandler ["buttonclick",format ["if (count %1 > 0) then {(%1 + [ctrlparent (_this select 0)]) call bis_fnc_openFieldManual;};",_fieldManualTopicAndHint]];
+    _label ctrlSetEventHandler ["buttonclick",format ["if (count %1 > 0) then {(%1 + [ctrlparent (_this select 0)]) call bis_fnc_openFieldManual;};",_fieldManualTopicAndHint]];
     private _OriginsText = composeText [
         _displayName," ",image _logo
     ];

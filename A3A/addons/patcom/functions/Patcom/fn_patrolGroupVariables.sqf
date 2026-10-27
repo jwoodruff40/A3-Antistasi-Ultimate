@@ -38,7 +38,7 @@ if (_group getVariable "PATCOM_Controlled") exitWith {
     };
 };
 
-If (PATCOM_DEBUG) then {
+if (PATCOM_DEBUG) then {
     ServerDebug_2("PATCOM | Setting up Variables on group: %1 - side: %2",_group,side (leader _group));
 };
 
@@ -81,6 +81,6 @@ if ((side leader _group) == civilian) then {
             private _PathEH = _x addEventHandler ["PathCalculated", {
                 _this spawn A3A_fnc_debug3DPath;
             }];
-        } foreach (units _group);
+        } forEach (units _group);
     };
 };

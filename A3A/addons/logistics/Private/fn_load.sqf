@@ -108,7 +108,7 @@ if (_weapon && !_instant) then {
 _vectorUp = if (_cargo isKindOf "CAManBase") then {[0,0,0]} else {[0,0,1]};
 _location set [1, _yStart];
 _cargo hideObjectGlobal true;
-_cargo attachto [_vehicle,_location];
+_cargo attachTo [_vehicle,_location];
 [_cargo, [(_offsetAndDir#1),[0,0,1]]] remoteExecCall ["setVectorDirAndUp", owner _cargo]; //need to be done where cargo is local, command broadcast updated vector dir and up
 _cargo hideObjectGlobal false;
 
@@ -116,13 +116,13 @@ _vehicle animateDoor ["Door_rear", 1];
 //slideing attachment
 if (_instant) then {
     _location set [1, _yEnd+0.1];
-    _cargo attachto [_vehicle,_location];
+    _cargo attachTo [_vehicle,_location];
 } else {
     private _prevTime = time;
     while {(_location#1) < _yEnd} do {
         uiSleep 0.01;
         _location = _location vectorAdd [0,time-_prevTime,0];
-        _cargo attachto [_vehicle,_location];
+        _cargo attachTo [_vehicle,_location];
         _prevTime = time;
     };
 };

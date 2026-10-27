@@ -466,7 +466,7 @@ switch (_mode) do
             private _veh = vehicle _x;
             if ((_veh != _x) and (not(_veh in _checkedVehicles))) then
             {
-                if (( "Artillery" in (getArray (configfile >> "CfgVehicles" >> typeOf _veh >> "availableForSupportTypes")))) then
+                if (( "Artillery" in (getArray (configFile >> "CfgVehicles" >> typeOf _veh >> "availableForSupportTypes")))) then
                 {
                     if ((canFire _veh) and (alive _veh)) then
                     {
@@ -939,7 +939,7 @@ switch (_mode) do
 
     case ("garbageCleanMapButtonClicked"):
     {
-        closedialog 1;
+        closeDialog 1;
         if (player == theBoss) then
         {
             [] remoteExec ["A3A_fnc_garbageCleaner",2];

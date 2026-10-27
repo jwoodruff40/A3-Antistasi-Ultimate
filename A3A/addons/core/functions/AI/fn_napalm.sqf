@@ -70,7 +70,7 @@ playSound3D ["a3\sounds_f\weapons\explosion\expl_big_3.wss", objNull, false, AGL
     };
 };
 
-{ _x hideObjectGlobal true } foreach (nearestTerrainObjects [_pos,["tree","bush","small tree"],_napalmRadius]);
+{ _x hideObjectGlobal true } forEach (nearestTerrainObjects [_pos,["tree","bush","small tree"],_napalmRadius]);
 
 private _fnc_cancelRequested = { false; };// Future provisioning for implementation of cancellationTokens.
 while {_endTime > serverTime && !([_cancellationTokenUUID] call _fnc_cancelRequested)} do {

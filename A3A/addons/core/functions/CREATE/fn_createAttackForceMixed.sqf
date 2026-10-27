@@ -111,7 +111,7 @@ if (!isNil "_attackType") then {
 
 // Now we delay to synchronize with ground vehicle arrival
 if (_delay > 0 && !(_isPolice)) then {
-    private _airTime = (markerPos _airbase distance2d _targPos) / 70;
+    private _airTime = (markerPos _airbase distance2D _targPos) / 70;
     ServerDebug_2("Remaining delay %1 and air travel time %2",_delay,_airTime);
     sleep (0 max (_delay - _airTime));
 };

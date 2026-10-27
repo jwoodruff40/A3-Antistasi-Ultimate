@@ -48,7 +48,7 @@ switch (_mode) do
         if !((isServer && hasInterface) || admin owner player > 0) then {
             private _adminTabButton = _display displayCtrl A3A_IDC_ADMINTABBUTTON;
             _adminTabButton ctrlEnable false;
-            _adminTabButton ctrlshow false;
+            _adminTabButton ctrlShow false;
         };
 
         // Hide HC group icons to stop them from interfering with map controls
@@ -69,7 +69,7 @@ switch (_mode) do
             {
                 private _groupData = [_x] call A3A_fnc_getGroupInfo;
                 _hcGroupData pushBack _groupData;
-            } forEach hcallGroups player;
+            } forEach hcAllGroups player;
         };
         _commanderMap setVariable ["hcGroupData", _hcGroupData];
         Debug_1("%1 Groups cached",count (_commanderMap getVariable "hcGroupData"));

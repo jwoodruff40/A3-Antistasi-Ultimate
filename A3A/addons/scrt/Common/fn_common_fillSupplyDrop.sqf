@@ -40,7 +40,7 @@ Debug("Getting possible magazine with arsenal check.");
 {
     private _unit = _x;
 
-    private _primaryMagazines = getArray(configfile >> "CfgWeapons" >> primaryWeapon _unit >> "magazines");
+    private _primaryMagazines = getArray(configFile >> "CfgWeapons" >> primaryWeapon _unit >> "magazines");
     if(count _primaryMagazines > 0) then {
         _mag = _primaryMagazines select 0;
         if(_mag in _unlockedMagazines) then {
@@ -48,7 +48,7 @@ Debug("Getting possible magazine with arsenal check.");
         };
     };
 
-    private _secondaryMagazines = getArray(configfile >> "CfgWeapons" >> secondaryWeapon _unit >> "magazines");
+    private _secondaryMagazines = getArray(configFile >> "CfgWeapons" >> secondaryWeapon _unit >> "magazines");
     if(count _secondaryMagazines > 0) then {
         _mag = _secondaryMagazines select 0;
         if(_mag in _unlockedMagazines) then {
@@ -56,7 +56,7 @@ Debug("Getting possible magazine with arsenal check.");
         };
     };
 
-    private _handgunMagazines = getArray(configfile >> "CfgWeapons" >> handgunWeapon _unit >> "magazines");
+    private _handgunMagazines = getArray(configFile >> "CfgWeapons" >> handgunWeapon _unit >> "magazines");
     if(count _handgunMagazines > 0) then {
         _mag = _handgunMagazines select 0;
         if(_mag in _unlockedMagazines) then {

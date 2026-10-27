@@ -67,7 +67,7 @@ switch (_mode) do
         private _titleStr = localize "STR_antistasi_dialogs_hqpos_feedback_title";
 
         private _nearMarker = [_display getVariable "dangerZones", _posClicked] call BIS_fnc_nearestPosition;
-        if (markerPos _nearMarker distance2d _posClicked < 500) exitWith {
+        if (markerPos _nearMarker distance2D _posClicked < 500) exitWith {
             [_titleStr, localize "STR_antistasi_dialogs_hqpos_feedback_nearenemy"] call A3A_fnc_customHint;
         };
 

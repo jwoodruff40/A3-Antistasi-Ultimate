@@ -67,7 +67,7 @@ if (canMove _plane && {driver _plane call A3A_fnc_canFight}) then
     _wpBase setWaypointBehaviour "CARELESS";
     _group setCurrentWaypoint _wpBase;
 
-    private _timeout = time + (getPos _plane distance2d _spawnPos) / 20;
+    private _timeout = time + (getPos _plane distance2D _spawnPos) / 20;
     waitUntil { sleep 2; (currentWaypoint _group != 0) or (time > _timeout) };
     if (time > _timeout) exitWith {};
     { deleteVehicle _x } forEach (units _group);

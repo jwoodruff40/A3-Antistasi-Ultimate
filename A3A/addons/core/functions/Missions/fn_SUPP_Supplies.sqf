@@ -186,7 +186,7 @@ if ((dateToNumber date > _dateLimitNum) or {isNull _truckX}) then {
 missionNamespace setVariable ["A3A_supplyMissionActive", nil, true];
 
 deleteVehicle _truckX;
-private _emptybox = "Land_Pallet_F" createVehicle (getpos _truckX);
+private _emptybox = "Land_Pallet_F" createVehicle (getPos _truckX);
 [_emptybox, true] remoteExec[QFUNCMAIN(despawnQueueEntity), 2];
 
 [_taskId, "SUPP", 900] spawn A3A_fnc_taskDelete;

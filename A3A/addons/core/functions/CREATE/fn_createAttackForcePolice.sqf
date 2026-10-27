@@ -50,11 +50,11 @@ private _route = [getMarkerPos (_base), _targpos];
 // private _routeClean = [];
 // {_routeClean pushBack (_x#0)} forEach _route; // lazy but works
 
-private _leadVehicle = ObjNull;
-private _lastVehicle = ObjNull;
+private _leadVehicle = objNull;
+private _lastVehicle = objNull;
 
 for "_i" from 1 to _vehCount do {
-    private _vehType = ObjNull;
+    private _vehType = objNull;
 
     // Attempt to grab veh types
     _vehType = selectRandom _transportPool;

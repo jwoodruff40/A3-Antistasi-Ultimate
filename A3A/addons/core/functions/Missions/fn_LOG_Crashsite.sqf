@@ -204,8 +204,8 @@ private _crashsiteActual = getPosATL _quad;
 _bomb2 = "ammo_Missile_Cruise_01" createVehicle [(_crashsiteActual  select 0),(_crashsiteActual  select 1),0];
 
 private _crater = "CraterLong_02_F" createVehicle _crashsiteActual;
-deletevehicle _reconVehicleDummy;
-deletevehicle _quad;
+deleteVehicle _reconVehicleDummy;
+deleteVehicle _quad;
 
 private _reconVehicle = createVehicle [_reconVehicleClass, [_crashsiteActual select 0, _crashsiteActual select 1, 1], [], 0, "CAN_COLLIDE"];
 _reconVehicle allowDamage false;

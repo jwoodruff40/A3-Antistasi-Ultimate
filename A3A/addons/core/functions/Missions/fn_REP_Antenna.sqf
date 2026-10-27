@@ -35,7 +35,7 @@ if (spawner getVariable _markerX != 2) then {
 	private _pos = position _road;
 	_pos = _pos findEmptyPosition [1,60,"B_T_Truck_01_repair_F"];
 	private _veh = createVehicle [selectRandom (FactionGet(occ,"vehiclesRepairTrucks")), _pos, [], 0, "NONE"];
-	_veh allowdamage false;
+	_veh allowDamage false;
 	_veh setDir (getDir _road);
 	[_veh, Occupants] call A3A_fnc_AIVEHinit;
 	private _groupX = createGroup Occupants;

@@ -5,7 +5,7 @@ private _isPlayer = false;
 private _playersX = false;
 private _inPlayerGroup = false;
 private _handlerCountdown = 0;
-_unit setBleedingremaining 300;
+_unit setBleedingRemaining 300;
 
 private _fnc_applyPostEffect = {
 	"colorCorrections" ppEffectAdjust [1,1,0, [0.1,0.2,0.3,-0.5], [1,1,1,0.4], [0.5,0.2,0,1]]; 

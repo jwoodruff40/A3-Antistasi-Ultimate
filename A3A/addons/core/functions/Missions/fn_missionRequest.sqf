@@ -38,7 +38,7 @@ switch (_type) do {
 		};
 		_nearbyFriendlyMarkers deleteAt (_nearbyFriendlyMarkers find "Synd_HQ");
 		{
-			private _pos = getmarkerPos _x;
+			private _pos = getMarkerPos _x;
 			if !(isOnRoad _pos) then {
 				if (_nearbyFriendlyMarkers findIf {getMarkerPos _x distance _pos < distanceSPWN} != -1) then {_possibleMarkers pushBack _x};
 			};
@@ -119,7 +119,7 @@ switch (_type) do {
 		};
 		_nearbyFriendlyMarkers deleteAt (_nearbyFriendlyMarkers find "Synd_HQ");
 		{
-			private _pos = getmarkerPos _x;
+			private _pos = getMarkerPos _x;
 			if (_nearbyFriendlyMarkers findIf {getMarkerPos _x distance _pos < distanceSPWN} != -1) then {
 				_possibleMarkers pushBack _x
 			};

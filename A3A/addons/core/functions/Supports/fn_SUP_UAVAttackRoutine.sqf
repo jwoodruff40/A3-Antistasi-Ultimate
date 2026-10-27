@@ -57,7 +57,7 @@ _uav addEventHandler ["Fired", {
 		};
 #endif
 
-_wp = _groupVeh addWayPoint [_suppCenter, 0];
+_wp = _groupVeh addWaypoint [_suppCenter, 0];
 _wp setWaypointBehaviour "AWARE";
 _wp setWaypointType "LOITER";
 _wp setWaypointLoiterType "CIRCLE_L";
@@ -90,7 +90,7 @@ _uav addEventHandler
             private _speed = (speed _projectile)/3.6;
             while {!(isNull _projectile) && {alive _projectile}} do
             {   
-                if ((getPos _projectile) select 2 < 10) exitwith {};
+                if ((getPos _projectile) select 2 < 10) exitWith {};
                 sleep 0.1;
                 private _dir = vectorNormalized (_target vectorDiff (getPosASL _projectile));
                 _projectile setVelocity (_dir vectorMultiply _speed);
@@ -102,7 +102,7 @@ _uav addEventHandler
 
 while {time < _timeout && canMove _uav} do
 {
-    waitUntil { sleep 5; _uav distance2d _suppCenter < 1200 || !alive _uav};
+    waitUntil { sleep 5; _uav distance2D _suppCenter < 1200 || !alive _uav};
     // check if launcher/crew are intact
     if !(canFire _uav and gunner _uav call A3A_fnc_canFight || alive _uav) exitWith {
         Info_1("%1 has been destroyed or disabled, aborting routine",_supportName);
@@ -181,7 +181,7 @@ if (canMove _uav) then
     _wpBase setWaypointBehaviour "CARELESS";
     _groupVeh setCurrentWaypoint _wpBase;
 
-    private _timeout = time + (_uav distance2d _spawnPos) / 20;
+    private _timeout = time + (_uav distance2D _spawnPos) / 20;
     waitUntil { sleep 2; (currentWaypoint _groupVeh != 0) or (time > _timeout) };
     if (time > _timeout) exitWith {};
     { deleteVehicle _x } forEach (units _groupVeh);

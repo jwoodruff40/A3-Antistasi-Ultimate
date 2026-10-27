@@ -53,7 +53,7 @@ while {true} do {
 };
 
 private _road = selectRandom _roads;
-private _roadcon = roadsConnectedto _road;
+private _roadcon = roadsConnectedTo _road;
 private _dirveh = if (count _roadcon != 0) then {[_road, _roadcon select 0] call BIS_fnc_dirTo} else {random 360};
 private _roadPosition = getPos _road;
 

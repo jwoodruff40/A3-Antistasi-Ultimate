@@ -31,7 +31,7 @@
 FIX_LINE_NUMBERS()
 
 private _fnc_endMission = {
-    params ["_taskId", "_mrkDest", "_closestAdminMarker", ["_vip", ObjNull]];
+    params ["_taskId", "_mrkDest", "_closestAdminMarker", ["_vip", objNull]];
 
     [_taskId, "townBattle", "FAILED"] call A3A_fnc_taskSetState;
 
@@ -47,7 +47,7 @@ private _fnc_endMission = {
 private _fnc_adjustNearCities = {
     params ["_position", "_maxSupport", "_maxDist"];
     {
-        private _dist = getMarkerPos _x distance2d _position;
+        private _dist = getMarkerPos _x distance2D _position;
         if (_dist > _maxDist) then { continue };
         private _suppChange = linearConversion [0, _maxDist, _dist, _maxSupport, 0, true];
         [0,_suppChange,_x,false] spawn A3A_fnc_citySupportChange;		// don't scale this by pop
@@ -107,7 +107,7 @@ private _civWeapons = unlockedRifles + unlockedSniperRifles + unlockedShotguns +
 // Spawn "vip" vehicle
 private _pos = [_posDest, 1, (_sizeSpawn / 2), 3, 0, 20, 0, [], [_posDest, _posDest]] call BIS_fnc_findSafePos;
 private _nearestRoad = getPosATL ([_pos, _sizeSpawn] call BIS_fnc_nearestRoad);
-if (_nearestRoad isEqualTo ObjNull) then {_nearestRoad = _pos};
+if (_nearestRoad isEqualTo objNull) then {_nearestRoad = _pos};
 
 private _vehicleClass = selectRandom ["vehiclesLightArmed", "vehiclesLightUnarmed", "vehiclesAT", "vehiclesCivCar", "vehiclesCivSupply"];
 private _vipVehicleClass = selectRandom (A3A_faction_reb getOrDefault [_vehicleClass, A3A_faction_reb get "vehiclesBasic"]);

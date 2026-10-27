@@ -58,8 +58,8 @@ if !(isServer) then {
         call A3A_fnc_addNodesNearMarkers;
     };
 
-    if ((isClass (configfile >> "CBA_Extended_EventHandlers")) && (
-        isClass (configfile >> "CfgPatches" >> "lambs_danger"))) then {
+    if ((isClass (configFile >> "CBA_Extended_EventHandlers")) && (
+        isClass (configFile >> "CfgPatches" >> "lambs_danger"))) then {
         // disable lambs danger fsm entrypoint
         ["CAManBase", "InitPost", {
             params ["_unit"];
@@ -194,7 +194,7 @@ if (!A3A_hasACE) then {
 };
 
 
-stragglers = creategroup teamPlayer;
+stragglers = createGroup teamPlayer;
 (group player) enableAttack false;
 
 if (isNil "ace_noradio_enabled" or {!ace_noradio_enabled}) then {
@@ -203,7 +203,7 @@ if (isNil "ace_noradio_enabled" or {!ace_noradio_enabled}) then {
 //Give the player the base loadout.
 [player] call A3A_fnc_dress;
 
-player setvariable ["compromised",0];
+player setVariable ["compromised",0];
 player addEventHandler ["FiredMan", {
     _player = _this select 0;
     if (captive _player) then {
@@ -484,7 +484,7 @@ if (isServer || (!isNil "theBoss" && {player isEqualTo theBoss}) || (call BIS_fn
 };
 
 // uh, what's this for exactly? What are we doing that needs the main display?
-waituntil {!isnull (finddisplay 46)};
+waitUntil {!isNull (findDisplay 46)};
 GVAR(keys_battleMenu) = false; //initilize key flags to false
 
 

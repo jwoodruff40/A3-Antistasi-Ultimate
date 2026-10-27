@@ -66,12 +66,12 @@ private _cargoMass = _newMass - _defaultMass;
 private _msg = "";
 if (!_removeObject) then{
     if (_availableNodes == 0) then {
-        _msg = Format [localize "STR_A3A_Logistics_addOrRemoveObjectMass_1", _objectName, _vehicleName, _availableNodes];
+        _msg = format [localize "STR_A3A_Logistics_addOrRemoveObjectMass_1", _objectName, _vehicleName, _availableNodes];
     } else {
-        _msg = Format [localize "STR_A3A_Logistics_addOrRemoveObjectMass_2", _objectName, _vehicleName, _availableNodes];
+        _msg = format [localize "STR_A3A_Logistics_addOrRemoveObjectMass_2", _objectName, _vehicleName, _availableNodes];
     };
 } else {
-    _msg = Format [localize "STR_A3A_Logistics_addOrRemoveObjectMass_3", _objectName, _vehicleName, _availableNodes];
+    _msg = format [localize "STR_A3A_Logistics_addOrRemoveObjectMass_3", _objectName, _vehicleName, _availableNodes];
 };
 
 private _text = format [

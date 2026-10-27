@@ -13,7 +13,7 @@ Info_2("Dropping cargo at %1 (near %2)",getPos _planeVehicle,text _nearestLocati
 if (alive _planeVehicle) then {
 
     private _supplyDrop = createVehicle [_payload, [getPos _planeVehicle select 0, getPos _planeVehicle select 1, (getPos _planeVehicle select 2)- 5], [], 0, "NONE"];
-    waituntil {!isnull _supplyDrop};
+    waitUntil {!isNull _supplyDrop};
     sleep 1.5;
 
     private _paraPos = nil;

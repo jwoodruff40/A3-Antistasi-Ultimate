@@ -13,9 +13,9 @@ private _hardCodedPopulation = _townPopulations isNotEqualTo [];
 
 private _cityConfigs = "(toLower getText (_x >> ""type"") in [""namecitycapital"",""namecity"",""namevillage"",""citycenter""]) &&
 !(getText (_x >> ""Name"") isEqualTo """") && !((configName _x) in _disabledTowns)"
-configClasses (configfile >> "CfgWorlds" >> worldName >> "Names");
+configClasses (configFile >> "CfgWorlds" >> worldName >> "Names");
 if (toLowerANSI worldName isEqualTo "blud_vidda") then {
-	private _rv133 = ("configName _x == 'DefaultKeyPoint32'" configClasses (configfile >> "CfgWorlds" >> worldName >> "Names")) select 0;
+	private _rv133 = ("configName _x == 'DefaultKeyPoint32'" configClasses (configFile >> "CfgWorlds" >> worldName >> "Names")) select 0;
 	_cityConfigs pushBack _rv133; //RV-133, big city without city marker
 };
 

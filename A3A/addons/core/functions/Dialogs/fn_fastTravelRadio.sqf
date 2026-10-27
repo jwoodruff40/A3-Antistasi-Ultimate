@@ -81,7 +81,7 @@ if !(_quickMarker == "") then {
 	onMapSingleClick "positionTel = _pos; true";
 };
 
-waitUntil {sleep 1; (count positionTel > 0) or {not visiblemap}};
+waitUntil {sleep 1; (count positionTel > 0) or {not visibleMap}};
 onMapSingleClick "";
 
 private _positionTel = positionTel;
@@ -171,7 +171,7 @@ if (!_esHC) then {
 	disableUserInput true; 
 	cutText [format [localize "STR_hints_FT_timer", _distanceX],"BLACK",1]; 
 } else {
-	[localize "STR_A3A_Dialogs_fast_travel_header", format [localize "STR_A3A_Dialogs_fast_travel_moving_hc_group",groupID _groupX]] call A3A_fnc_customHint; 
+	[localize "STR_A3A_Dialogs_fast_travel_header", format [localize "STR_A3A_Dialogs_fast_travel_moving_hc_group",groupId _groupX]] call A3A_fnc_customHint; 
 	sleep _distanceX;
 };
 
@@ -191,7 +191,7 @@ if (limitedFT == 1 or limitedFT == 2) then {
 };
 
 if (_checkForPlayer and !_isValidTargetLocation) exitWith {
-	[localize "STR_A3A_Dialogs_fast_travel_header", format [localize "STR_A3A_Dialogs_fast_travel_cancel",groupID _groupX]] call A3A_fnc_customHint;
+	[localize "STR_A3A_Dialogs_fast_travel_header", format [localize "STR_A3A_Dialogs_fast_travel_cancel",groupId _groupX]] call A3A_fnc_customHint;
 };
 
 private _movedUnits = units _groupX;
@@ -240,7 +240,7 @@ if (!_esHC) then {
 	cutText["","BLACK IN",0.1];
 	[localize "STR_A3A_Dialogs_fast_travel_header", localize "STR_hints_FT_dest"] call A3A_fnc_customHint;
 } else {
-	[localize "STR_A3A_Dialogs_fast_travel_header", format [localize "STR_A3A_Dialogs_fast_travel_arrived_hc",groupID _groupX]] call A3A_fnc_customHint;
+	[localize "STR_A3A_Dialogs_fast_travel_header", format [localize "STR_A3A_Dialogs_fast_travel_arrived_hc",groupId _groupX]] call A3A_fnc_customHint;
 };
 
 if (_forcedX) then {

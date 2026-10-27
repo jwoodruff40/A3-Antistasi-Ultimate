@@ -7,10 +7,10 @@
 
 params ["_vehicle"];
 
-private _lootActionID = _vehicle getVariable ["lootActionID", Nil];
+private _lootActionID = _vehicle getVariable ["lootActionID", nil];
 
 //Check if action exists already
-if(!isnil "_lootActionID") then
+if(!isNil "_lootActionID") then
 {
 	_vehicle removeAction _lootActionID;
 };

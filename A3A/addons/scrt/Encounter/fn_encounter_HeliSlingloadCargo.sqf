@@ -73,7 +73,7 @@ private _heliVehicleData = [_actualspawnPosition, 90, _HeliClass, _side] call A3
 
 private _heliVehicle = _heliVehicleData select 0;
 private _lootCrateTest = [_ammoBoxType, _actualspawnPosition, 20, 5, true] call A3A_fnc_safeVehicleSpawn;
-if !(_heliVehicle canSlingLoad _lootCrateTest) exitwith {
+if !(_heliVehicle canSlingLoad _lootCrateTest) exitWith {
     Info("Your heli can't do shit, rerolling.");
     [VEH_SLINGLOADTRANSPORT] remoteExecCall ["SCRT_fnc_encounter_selectAndExecuteEvent", 2];
 };
@@ -94,7 +94,7 @@ if (_HeliClass == "O_Heli_Transport_04_F") then {
 		(_faction get "vehiclesMilitiaAPCs") + (_faction get "vehiclesAPCs") + (_faction get "vehiclesIFVs") + _csatPods);
 		_lootCrate = _lootcrateType createVehicle _actualspawnPosition;
 		deleteVehicle _lootCrate;
-		if (_heliVehicle canSlingLoad _lootCrate) exitwith {
+		if (_heliVehicle canSlingLoad _lootCrate) exitWith {
 			deleteVehicle _lootCrate;
 		};
 		deleteVehicle _lootCrate;
@@ -153,7 +153,7 @@ if (_HeliClass == "O_Heli_Transport_04_F") then {
 		(_faction get "vehiclesAA") + (_faction get "vehiclesLightTanks") + (_faction get "vehiclesMilitiaAPCs") + (_faction get "vehiclesAPCs") + (_faction get "vehiclesIFVs") + _regPods);
 		_lootCrate = _lootcrateType createVehicle _actualspawnPosition;
 		deleteVehicle _lootCrate;
-		if (_heliVehicle canSlingLoad _lootCrate) exitwith {
+		if (_heliVehicle canSlingLoad _lootCrate) exitWith {
 			deleteVehicle _lootCrate;
 		};
 		deleteVehicle _lootCrate;

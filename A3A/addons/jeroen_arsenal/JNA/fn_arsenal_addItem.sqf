@@ -6,7 +6,7 @@ private _array = [[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]
 if(typeName (_this select 0) isEqualTo "SCALAR")then{//[_index, _item] and [_index, _item, _amount];
 	params["_index","_item",["_amount",1]];
 	if(_index < 0)exitWith{
-		ERROR_JN_2("Failed to addItem: ", _this);
+		ERROR_JN_2("Failed to addItem: ",_this);
 		};
 	_array set [_index,[[_item,_amount]]];
 }else{
@@ -26,19 +26,19 @@ if(typeName (_this select 0) isEqualTo "SCALAR")then{//[_index, _item] and [_ind
 				if(_index == IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG)then{_index = IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL};
 
 				//TFAR fix
-				private _radioName = getText(configfile >> "CfgWeapons" >> _item >> "tf_parent");
+				private _radioName = getText(configFile >> "CfgWeapons" >> _item >> "tf_parent");
 				if!(_radioName isEqualTo "")then{_item = _radioName};
 
 				//Weapon Stack fix
-				private _weaponname = getText(configfile >> "CfgWeapons" >> _item >> "baseWeapon");
+				private _weaponname = getText(configFile >> "CfgWeapons" >> _item >> "baseWeapon");
 				if!(_weaponname isEqualTo "")then{_item = _weaponname};
 
 				//RHS Sight Stack fix
-				private _sightname = getText(configfile >> "CfgWeapons" >> _item >> "rhs_optic_base");
+				private _sightname = getText(configFile >> "CfgWeapons" >> _item >> "rhs_optic_base");
 				if!(_sightname isEqualTo "")then{_item = _sightname};
 				
 				//ACRE fix
-				private _radioName = getText(configfile >> "CfgVehicles" >> _item >> "acre_baseClass");
+				private _radioName = getText(configFile >> "CfgVehicles" >> _item >> "acre_baseClass");
 				if!(_radioName isEqualTo "")then{_item = _radioName};
 
 				// Update server immediately if local. Avoids lag after unlockEquipment
@@ -53,5 +53,5 @@ if(typeName (_this select 0) isEqualTo "SCALAR")then{//[_index, _item] and [_ind
 			};
 		};
 	} forEach _x;
-}foreach _array;
+}forEach _array;
 

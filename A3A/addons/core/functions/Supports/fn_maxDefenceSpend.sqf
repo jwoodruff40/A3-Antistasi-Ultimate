@@ -82,7 +82,7 @@ private _threatBalance = 1;
 if (_callPos isEqualType "") then
 {
     // If target is a marker, just return the location's maximum
-    private _mrkIndex = A3A_supportMarkerTypes findif { _callPos == _x#0 };     // lookup marker name
+    private _mrkIndex = A3A_supportMarkerTypes findIf { _callPos == _x#0 };     // lookup marker name
     _callPos = markerPos _callPos;
     if (_mrkIndex == -1) exitWith {
         Error_1("Unknown support marker: %1",_target);
@@ -104,10 +104,10 @@ else
     {
         private _mrkType = A3A_supportMarkerTypes select (_x#2);
         if (sidesX getVariable (_mrkType#0) != _side) then {        // enemy marker
-            private _dist = _x distance2d _targPos;
+            private _dist = _x distance2D _targPos;
             _defSub = _defSub max (_mrkType#3 * (1 - _dist / 500));
         } else {                                                      // friendly marker
-            private _dist = _x distance2d _callPos;
+            private _dist = _x distance2D _callPos;
             _defMul = _defMul max (_mrkType#3 * (1 - _dist / 1000));
         };
     } forEach _closeMrk;
@@ -168,11 +168,11 @@ private _targPosSpend = 0;
     private _res = linearConversion [_spTime, (_spTime)+3600, time, _spRes, 0, true];
 
     // Falloff resource spend to 0 at 500m distance
-    private _callDist = _spCallPos distance2d _callPos;
+    private _callDist = _spCallPos distance2D _callPos;
     _callPosSpend = _callPosSpend + linearConversion [0, 500, _callDist, _res, 0, true];
 
     if (_target isEqualType west) then { continue };
-    private _targDist = _spTargPos distance2d _target;
+    private _targDist = _spTargPos distance2D _target;
     _targPosSpend = _targPosSpend + linearConversion [0, 500, _targDist, _res, 0, true];
 
 } forEach A3A_supportSpends;

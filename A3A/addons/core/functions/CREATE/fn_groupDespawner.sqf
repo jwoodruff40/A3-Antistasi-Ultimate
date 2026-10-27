@@ -42,7 +42,7 @@ while {count units _group > 0} do
 	{
 		private _pos = position _leader;
 		{
-			if (_x distance2d _pos < 100) then {
+			if (_x distance2D _pos < 100) then {
 				if (vehicle _x != _x) then { deleteVehicle (vehicle _x) };
 				deleteVehicle _x;
 			};

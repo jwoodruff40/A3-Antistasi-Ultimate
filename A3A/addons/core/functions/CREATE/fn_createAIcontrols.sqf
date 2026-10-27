@@ -26,7 +26,7 @@ _leave = false;
 A3A_hasIFA = false;
 
 //IFA Detection
-if (isClass (configfile >> "CfgPatches" >> "LIB_core")) then {
+if (isClass (configFile >> "CfgPatches" >> "LIB_core")) then {
     A3A_hasIFA = true;
     [2,"Iront Front Detected.",_fnc_scriptName] call A3A_fnc_log;
 };
@@ -67,7 +67,7 @@ if (_isControl) then
         _roads = _positionX nearRoads 20;		// guaranteed due to isOnRoad check
         _dirveh = random 360;
     } else {
-        private _roadscon = roadsConnectedto (_roads select 0);
+        private _roadscon = roadsConnectedTo (_roads select 0);
         _dirveh = [_roads select 0, _roadscon select 0] call BIS_fnc_DirTo;
     };
     
@@ -77,7 +77,7 @@ if (_isControl) then
         if !(A3A_hasIFA) then
         {
             _pos = [getPos (_roads select 0), 7, _dirveh + 270] call BIS_Fnc_relPos;
-            if (worldname == "SPE_Normandy") then {
+            if (worldName == "SPE_Normandy") then {
                 _bunker = "Land_SPE_Sandbag_Nest" createVehicle _pos;
                 _bunker setDir _dirveh;
                 _pos = _bunker modelToWorld [-0.200684,-0.91333,-0.421184];
@@ -100,7 +100,7 @@ if (_isControl) then
             _soldiers pushBack _unit;
             sleep 1;
             _pos = [getPos (_roads select 0), 7, _dirveh + 90] call BIS_Fnc_relPos;
-            if (worldname == "SPE_Normandy") then {
+            if (worldName == "SPE_Normandy") then {
                 _bunker = "Land_SPE_Sandbag_Nest" createVehicle _pos;
                 _bunker setDir _dirveh + 180;
                 _pos = _bunker modelToWorld [-0.200684,-0.91333,-0.421184];
@@ -355,7 +355,7 @@ waitUntil {sleep 1;(spawner getVariable _markerX == 2)};
 {
     // delete all vehicles that haven't been captured
     if (_x getVariable ["ownerSide", _sideX] == _sideX) then {
-        if (_x distance2d (_x getVariable "originalPos") < 100) then { deleteVehicle _x }
+        if (_x distance2D (_x getVariable "originalPos") < 100) then { deleteVehicle _x }
         else { if !(_x isKindOf "StaticWeapon") then { [_x] spawn A3A_fnc_VEHdespawner } };
     };
 } forEach _vehiclesX;

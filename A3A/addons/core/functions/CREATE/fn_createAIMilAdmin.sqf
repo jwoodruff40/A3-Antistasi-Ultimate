@@ -114,7 +114,7 @@ for "_i" from 0 to _soilderCount do {
 	};
 	private _soldier = [_garrisonGroup, (selectRandom _unitPool), _buildingPosition, [], 0, "NONE"] call A3A_fnc_createUnit;
 	_soldier allowDamage false;
-	_soldier setunitpos "UP";
+	_soldier setUnitPos "UP";
 	_soldier disableAI "PATH";
 	[_soldier] call A3A_fnc_NATOinit;
 	sleep 0.5;
@@ -178,7 +178,7 @@ while {true} do {
 	_radiusX = _radiusX + 5;
 };
 
-private _roadcon = roadsConnectedto (_road select 0);
+private _roadcon = roadsConnectedTo (_road select 0);
 private _dirveh = if(count _roadcon > 0) then {[_road select 0, _roadcon select 0] call BIS_fnc_DirTo} else {random 360};
 private _roadPosition = getPos (_road select 0);
 
@@ -210,7 +210,7 @@ private _buildingPosition = _buildingPositions select _buildingPosIndex;
 
 private _collaborant = [_groupCollaborant, (_faction get "unitOfficial"), _buildingPosition, [], 0, "NONE"] call A3A_fnc_createUnit;
 _collaborant setPosATL _buildingPosition;
-_collaborant setunitpos "UP";
+_collaborant setUnitPos "UP";
 _collaborant disableAI "PATH";
 [_collaborant] call A3A_fnc_NATOinit;
 
@@ -279,14 +279,14 @@ waitUntil {sleep 1; (spawner getVariable _marker == 2)};
 {
 	// delete all vehicles that haven't been stolen
 	if (_x getVariable ["ownerSide", _side] == _side) then {
-		if (_x distance2d (_x getVariable "originalPos") < 100) then { deleteVehicle _x }
+		if (_x distance2D (_x getVariable "originalPos") < 100) then { deleteVehicle _x }
 		else { if !(_x isKindOf "StaticWeapon") then { [_x] spawn A3A_fnc_VEHdespawner } };
 	};
 } forEach _vehicles;
 
 // If loot crate was stolen, set the cooldown
 if (!isNil "_ammoBox") then {
-	if ((alive _ammoBox) and (_ammoBox distance2d _milAdministrationPos < 100)) exitWith { deleteVehicle _ammoBox };
+	if ((alive _ammoBox) and (_ammoBox distance2D _milAdministrationPos < 100)) exitWith { deleteVehicle _ammoBox };
 	if (alive _ammoBox) then { [_ammoBox] spawn A3A_fnc_VEHdespawner };
 	private _lootCD = 120*16 / ([_marker] call A3A_fnc_garrisonSize);
 	garrison setVariable [_marker + "_lootCD", _lootCD, true];

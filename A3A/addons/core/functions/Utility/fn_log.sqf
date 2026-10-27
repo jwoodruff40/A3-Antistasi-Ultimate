@@ -18,7 +18,7 @@ private _toServer = param [3, !(hasInterface && _level > 1)];
 private _filename = "fn_log";
 
 //This ignores the log event if it's above the global threshold
-if (_level > LogLevel) exitwith {};
+if (_level > LogLevel) exitWith {};
 
 // Sets up the actual log event.
 private _logLine = if (1 <= _level && _level <= 4) then {

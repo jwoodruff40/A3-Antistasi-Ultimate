@@ -48,7 +48,7 @@ if (count _road == 0) exitWith {
 };
 
 private _selectedRoad = _road select 0;
-private _roadcon = roadsConnectedto _selectedRoad;
+private _roadcon = roadsConnectedTo _selectedRoad;
 
 private _dirveh = if (count _roadcon > 0) then {
     [_selectedRoad, _roadcon select 0] call BIS_fnc_dirTo
@@ -164,7 +164,7 @@ while {true} do {
     if (count _roadMedical > 0 && {_roadMedical findIf {(position _x) distance2D _originPosition > 500 && (position _x) distance2D _roadPosition > 500} != -1}) exitWith {}; //should find position 500 away from player and 300 meters away from damaged vehicle
     _radiusX = _radiusX + 5;
 };
-private _roadconMedical = roadsConnectedto ((_roadMedical select {(position _x) distance2D _originPosition > 500 && (position _x) distance2D _roadPosition > 500}) select 0); //guaranteed due to top condition on road search
+private _roadconMedical = roadsConnectedTo ((_roadMedical select {(position _x) distance2D _originPosition > 500 && (position _x) distance2D _roadPosition > 500}) select 0); //guaranteed due to top condition on road search
 private _dirvehMedical = if (count _roadconMedical > 0) then {[_roadMedical select 0, _roadconMedical select 0] call BIS_fnc_dirTo} else {random 360};
 private _roadPositionMedical = getPos (_roadMedical select 0);
 

@@ -82,7 +82,7 @@ _radioMan setVariable ["timeToCall", nil];
 
 {_radioMan enableAI _x} forEach ["ANIM","AUTOTARGET","FSM","MOVE","TARGET"];
 
-ServerDebug_4("Radioman of %1 (side %2) is starting to request support against %3 (type %4)",_group,_side,_target,typeof _target);
+ServerDebug_4("Radioman of %1 (side %2) is starting to request support against %3 (type %4)",_group,_side,_target,typeOf _target);
 
 if(_radioMan getVariable ["callSuccess",true]) then {
     // why here? Are we intercepting the radio traffic?

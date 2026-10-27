@@ -44,7 +44,7 @@ while {true} do {
     _roadRadius = _roadRadius + 5;
 };
 
-private _roadcon = roadsConnectedto (selectRandom _road);
+private _roadcon = roadsConnectedTo (selectRandom _road);
 private _dirveh = if(count _roadcon > 0) then {[_road select 0, _roadcon select 0] call BIS_fnc_dirTo} else {random 360};
 private _roadPosition = getPos (_road select 0);
 
@@ -388,7 +388,7 @@ while {true} do {
     _roadRadius = _roadRadius + 5;
 };
 
-_roadcon = roadsConnectedto (selectRandom _road);
+_roadcon = roadsConnectedTo (selectRandom _road);
 _dirveh = if(count _roadcon > 0) then {[_road select 0, _roadcon select 0] call BIS_fnc_DirTo} else {random 360};
 _roadPosition = getPos (_road select 0);
 

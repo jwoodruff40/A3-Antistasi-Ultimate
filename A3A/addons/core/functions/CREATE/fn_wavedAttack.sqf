@@ -70,7 +70,7 @@ while {_wave <= _maxWaves and !_victory} do
     call {
         {
             _x params ["_supportName", "_suppSide", "_suppType", "_suppCenter", "_suppRadius", "_suppTarget"];
-            if (_suppSide != _side or _suppCenter distance2d _targpos > _suppRadius) then { continue };
+            if (_suppSide != _side or _suppCenter distance2D _targpos > _suppRadius) then { continue };
             if (_suppType in ["UAV", "CAS", "CASDIVE", "ASF"]) then { _airSupports pushBack _suppType };
         } forEach A3A_activeSupports;
 
@@ -126,7 +126,7 @@ while {_wave <= _maxWaves and !_victory} do
 
         [-(_data#0), _side, "attack"] remoteExec ["A3A_fnc_addEnemyResources", 2];
 
-        ServerInfo_1("Spawn performed: Attack helis %1",(_data#1) apply {typeof _x});
+        ServerInfo_1("Spawn performed: Attack helis %1",(_data#1) apply {typeOf _x});
     };
 
     // Request some artillery

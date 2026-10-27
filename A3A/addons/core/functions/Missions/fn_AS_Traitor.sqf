@@ -95,7 +95,7 @@ while {count _roads == 0} do {
 
 private _road = _roads select 0;
 private _posroad = getPos _road;
-_roadcon = roadsConnectedto _road;
+_roadcon = roadsConnectedTo _road;
 if (count _roadCon == 0) then {
     Error_1("Road has no connection :%1.",position _road);
 };
@@ -142,7 +142,7 @@ waitUntil {
 if ({_traitor knowsAbout _x > 1.4} count ([500,0,_traitor,teamPlayer] call A3A_fnc_distanceUnits) > 0) then {
 	{_x enableAI "MOVE"} forEach units _groupTraitor;
 	_traitor assignAsDriver _veh;
-	[_traitor] orderGetin true;
+	[_traitor] orderGetIn true;
 	_wp0 = _groupTraitor addWaypoint [_posVeh, 0];
 	_wp0 setWaypointType "GETIN";
 	_wp1 = _groupTraitor addWaypoint [_posBase,1];

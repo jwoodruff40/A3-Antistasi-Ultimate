@@ -67,7 +67,7 @@ if (side group _newUnit == teamPlayer) then
     	_newUnit addOwnedMine _x;
     } count (getAllOwnedMines (_oldUnit));
 	{
-		if (_x getVariable ["owner", ObjNull] == _oldUnit) then {
+		if (_x getVariable ["owner", objNull] == _oldUnit) then {
 			_x setVariable ["owner", _newUnit, true];
 		};
 	} forEach (units group _newUnit);
@@ -108,13 +108,13 @@ if (side group _newUnit == teamPlayer) then
 				if(((server getVariable ["hr",0]) <= 10) && (tierWar >= 2)) then
 				{
 					_warningText = "<t font ='PuristaBold' align = 'center' size='0.8' color='#bd0000'>" + localize "STR_A3AU_respawn_warning" +"</t>"+"<br />"+"<t font ='PuristaSemibold' align = 'center' size='0.55' color='#ebebeb'>" + format [localize "STR_A3AU_respawn_warning_info", (A3A_faction_reb get "name"), ((server getVariable ["hr",0])-1)]+"</t>"+"<br />"+"<t font ='PuristaSemibold' align = 'center' size='0.4' color='#ebebeb'>" + format [localize "STR_chats_player_kia", _deathPenaltyNum]+"</t>";
-					[_warningText,0,safezoneY+0.05] spawn BIS_fnc_dynamicText;
+					[_warningText,0,safeZoneY+0.05] spawn BIS_fnc_dynamicText;
 				};
 
 				if(((server getVariable ["hr",0]) > 10) && (tierWar >= 2)) then
 				{
 					_warningText = "<t font ='PuristaSemibold' align = 'center' size='0.5' color='#ebebeb'>" + format [localize "STR_chats_player_kia", _deathPenaltyNum]+"</t>";
-					[_warningText,0,safezoneY+0.05] remoteExec ["BIS_fnc_dynamicText"];
+					[_warningText,0,safeZoneY+0.05] remoteExec ["BIS_fnc_dynamicText"];
 				};
 			};
         };

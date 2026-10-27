@@ -205,11 +205,11 @@ private _fnc_spawnConvoyVehicle = {
     _pathState = [_route, [20, 0] select (count _pathState == 0), _pathState] call A3A_fnc_findPosOnRoute;
     while {true} do {
         // make sure there are no other vehicles within 10m
-        if (count (ASLtoAGL (_pathState#0) nearEntities 10) == 0) exitWith {};
+        if (count (ASLToAGL (_pathState#0) nearEntities 10) == 0) exitWith {};
         _pathState = [_route, 10, _pathState] call A3A_fnc_findPosOnRoute;
     };
 
-    private _veh = createVehicle [_vehType, ASLtoAGL (_pathState#0) vectorAdd [0,0,0.5]];               // Give it a little air
+    private _veh = createVehicle [_vehType, ASLToAGL (_pathState#0) vectorAdd [0,0,0.5]];               // Give it a little air
     private _vecUp = (_pathState#1) vectorCrossProduct [0,0,1] vectorCrossProduct (_pathState#1);       // correct pitch angle
     _veh setVectorDirAndUp [_pathState#1, _vecUp];
     _veh allowDamage false;
@@ -501,7 +501,7 @@ if (_convoyType isEqualTo "Prisoners") then
     };
     if (side group driver _vehObj != _sideX) then
     {
-        {_x enableAI "MOVE"; [_x] orderGetin false} forEach _POWs;
+        {_x enableAI "MOVE"; [_x] orderGetIn false} forEach _POWs;
         waitUntil {sleep 2; ({alive _x} count _POWs == 0) or ({(alive _x) and (_x distance _posHQ < 50)} count _POWs > 0) or (time > _timeout)};
 
         if (({alive _x} count _POWs == 0) or (time > _timeout)) then

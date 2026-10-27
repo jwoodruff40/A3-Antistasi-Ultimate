@@ -12,12 +12,12 @@ private _skill = (0.1 + 0.1*A3A_rebelSkillMul + 0.015 * skillFIA);
 _unit setSkill _skill;
 
 if (_typeX isEqualTo FactionGet(reb,"unitSL")) then {
-	_unit setskill ["courage",_skill + 0.2];
-	_unit setskill ["commanding",_skill + 0.2];
+	_unit setSkill ["courage",_skill + 0.2];
+	_unit setSkill ["commanding",_skill + 0.2];
 };
 if (_typeX isEqualTo FactionGet(reb,"unitSniper")) then {
-	_unit setskill ["aimingAccuracy",_skill + 0.2];
-	_unit setskill ["aimingShake",_skill + 0.2];
+	_unit setSkill ["aimingAccuracy",_skill + 0.2];
+	_unit setSkill ["aimingShake",_skill + 0.2];
 };
 
 _unit setUnitTrait ["camouflageCoef",0.8];

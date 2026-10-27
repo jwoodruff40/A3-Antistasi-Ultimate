@@ -71,7 +71,7 @@ _numCiv = 15 * sqrt _numCiv * (1 - tierWar / 20);
 private _numParked = _numCiv * (1/60) * civTraffic;
 private _numTraffic = _numCiv * (1/300) * civTraffic;
 
-if ((daytime < 8) or (daytime > 21)) then {
+if ((dayTime < 8) or (dayTime > 21)) then {
     _numParked = _numParked * 1.5; 
     _numTraffic = _numTraffic / 4 ;
 };
@@ -166,7 +166,7 @@ if ([_markerX,false] call A3A_fnc_fogCheck > 0.2) then {
                     _groupsPatrol = _groupsPatrol + [_groupP];
 
                     // Get connected road and direction for use with facing the vehicle.
-                    private _roadcon = roadsConnectedto _road;
+                    private _roadcon = roadsConnectedTo _road;
                     private _p2 = getPosATL (_roadcon select 0);
 
                     // Face Vehicle to road direction.
@@ -237,7 +237,7 @@ waitUntil {sleep 1; (spawner getVariable _spawnKey == 2)};
 {
     // delete all parked vehicles that haven't been stolen
     if (_x getVariable "ownerSide" == civilian) then {
-        if (_x distance2d (_x getVariable "originalPos") < 100) then { deleteVehicle _x }
+        if (_x distance2D (_x getVariable "originalPos") < 100) then { deleteVehicle _x }
         else { [_x] spawn A3A_fnc_VEHdespawner };
     };
 } forEach _vehiclesX;

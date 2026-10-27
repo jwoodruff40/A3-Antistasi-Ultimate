@@ -3,7 +3,7 @@ FIX_LINE_NUMBERS()
 Info("loadServer Starting.");
 if (isServer) then {
     Info("Starting Persistent Load.");
-	petros allowdamage false;
+	petros allowDamage false;
 
 	// Tell third party mods we're loading the game. Do this very early in case
 	// they attempt to overwrite stuff we're loading later below.
@@ -201,7 +201,7 @@ if (isServer) then {
 	[CBA_EVENT_SERVER_SPAWN_LOCATION, LINKFUNCMAIN(crewLocationStatics)] call FUNCMAIN(addEventHandler);
 
 	statsLoaded = 0; publicVariable "statsLoaded";
-	petros allowdamage true;
+	petros allowDamage true;
 
 	{specialVarLoads deleteAt _x;} forEach (keys specialVarLoads);
 	specialVarLoads = nil;

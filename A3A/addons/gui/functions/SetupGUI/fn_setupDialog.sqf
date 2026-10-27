@@ -38,7 +38,7 @@ private _fnc_getTimeDiffString = {
     };
 
     // now find first non-zero
-    private _nzi = _diffTime findif {_x!=0};
+    private _nzi = _diffTime findIf {_x!=0};
     if (_nzi == -1) exitWith { "0min" };									// zero time diff
     if (_diffTime#_nzi < 0) exitWith { "???" };							// negative time diff
     if (_nzi == 4) exitWith { format ["%1min", _diffTime#4] };		// just minutes

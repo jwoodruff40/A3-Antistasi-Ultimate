@@ -44,7 +44,7 @@ while {true} do {
     _plane flyInHeight _startAlt;
     _group setCurrentWaypoint _waypoint;
 
-    private _horizDist = _plane distance2d _targetPos;
+    private _horizDist = _plane distance2D _targetPos;
     private _diveDist = (getPosATL _plane#2) / tan _diveAngle;      //_cpHorizDist + 
     private _remDist = _horizDist - _diveDist;
 

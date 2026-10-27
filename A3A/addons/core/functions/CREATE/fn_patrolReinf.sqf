@@ -117,13 +117,13 @@ ServerInfo_2("Spawn performed: Vehicle type %1 with %2 troops",_vehicleType,coun
 private _timeout = if (_isLand) then {
 	time + ([_mrkDest, _mrkOrigin] call A3A_fnc_findNavDistance) / 6 + 300;
 } else {
-	time + (_posOrigin distance2d _posDest) / 30 + 600;
+	time + (_posOrigin distance2D _posDest) / 30 + 600;
 };
 
 // termination conditions:
 // - everyone dead or timeout exceeded
 // - group leader out of vehicle and within 200m of target
-waituntil {
+waitUntil {
 	sleep 10;
 	private _leader = leader _cargoGroup;
 	{ alive _x } count (units _cargoGroup) == 0 || time > _timeout

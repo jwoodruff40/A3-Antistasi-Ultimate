@@ -52,7 +52,7 @@ private _prevPos = _path deleteAt 0;
 private _culledPath = [_prevPos];
 private _distToPrev = 0;
 {
-    _distToPrev = _distToPrev + (_prevPos distance2d _x);
+    _distToPrev = _distToPrev + (_prevPos distance2D _x);
     if (_distToPrev >= 400) then {
         _culledPath pushBack _x;
         _distToPrev = 0;
@@ -62,7 +62,7 @@ private _distToPrev = 0;
 _path = _culledPath;
 reverse _path;
 
-private _waypoints = _path apply {_group addWaypoint [ATLtoASL _x, -1]};
+private _waypoints = _path apply {_group addWaypoint [ATLToASL _x, -1]};
 {_x setWaypointBehaviour "SAFE"} forEach _waypoints;
 {_x setWaypointSpeed "FULL"} forEach _waypoints;
 _group setCurrentWaypoint (_waypoints select 0);

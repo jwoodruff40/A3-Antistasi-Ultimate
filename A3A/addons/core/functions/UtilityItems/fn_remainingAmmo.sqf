@@ -23,7 +23,7 @@ private _vehCfg = configFile/"CfgVehicles"/typeOf _vehicle;
 
 if(A3A_hasACE) then {
     private _vehicleMaxAmmo = getNumber (_vehCfg >> "ace_rearm_defaultSupply");
-    if(_vehicleMaxAmmo == 0) exitwith {0};
+    if(_vehicleMaxAmmo == 0) exitWith {0};
     private _currentAmmoCargo = [_vehicle] call ace_rearm_fnc_getSupplyCount;
     (_currentAmmoCargo / _vehicleMaxAmmo);
 } else {

@@ -53,7 +53,7 @@ _groupPOW = createGroup teamPlayer;
 for "_i" from 1 to (((count _posHouse) - 1) min 6) do {
 	_unit = [_groupPOW, FactionGet(reb,"unitUnarmed"), _posHouse select _i, [], 0, "NONE"] call A3A_fnc_createUnit;
 	[_unit, createHashMapFromArray [["face", selectRandom (A3A_faction_reb get "faces")], ["speaker", selectRandom (A3A_faction_reb get "voices")]]] call A3A_fnc_setIdentity;
-	_unit allowdamage false;
+	_unit allowDamage false;
 	_unit disableAI "MOVE";
 	_unit disableAI "AUTOTARGET";
 	_unit disableAI "TARGET";
@@ -99,7 +99,7 @@ if (_sideX == Invaders) then {
 		};
 	_road = _roads select 0;
 	_posroad = getPos _road;
-	_roadcon = roadsConnectedto _road; if (count _roadCon == 0) then {
+	_roadcon = roadsConnectedTo _road; if (count _roadCon == 0) then {
         Error_1("Road has no connection :%1.",position _road);
 		};
 	if (count _roadCon > 0) then
@@ -164,7 +164,7 @@ if (_sideX == Occupants) then {
 		private _bonusAmount = round (_countX*_bonus/2);
 		[_bonusAmount,theBoss] call A3A_fnc_addScorePlayer;
 		[(_bonusAmount*10),theBoss, true] call A3A_fnc_addMoneyPlayer;
-		{[_x] join _groupPOW; [_x] orderGetin false} forEach _POWs;
+		{[_x] join _groupPOW; [_x] orderGetIn false} forEach _POWs;
 	} else {
 		[_taskId, "RES", "FAILED"] call A3A_fnc_taskSetState;
 		[-10*_bonus,theBoss] call A3A_fnc_addScorePlayer;
@@ -188,7 +188,7 @@ if (_sideX == Occupants) then {
 		private _bonusAmount = round (_countX*_bonus/2);
 		[_bonusAmount,theBoss] call A3A_fnc_addScorePlayer;
 		[(_bonusAmount*10),theBoss, true] call A3A_fnc_addMoneyPlayer;
-		{[_x] join _groupPOW; [_x] orderGetin false} forEach _POWs;
+		{[_x] join _groupPOW; [_x] orderGetIn false} forEach _POWs;
 	};
 };
 

@@ -255,7 +255,7 @@ everyEquipmentRelatedArrayName = allEquipmentArrayNames + unlockedEquipmentArray
 
 //Initialise them all as empty arrays.
 {
-	DECLARE_SERVER_VAR_FROM_VARIABLE(_x, []);
+	DECLARE_SERVER_VAR_FROM_VARIABLE(_x,[]);
 } forEach everyEquipmentRelatedArrayName;
 
 //Create a global namespace for custom unit types.
@@ -306,11 +306,11 @@ Info("Setting up faction and DLC equipment flags");
 
 // Arma bug: Need to hardcode CDLC because arma3.cfg mod loading method doesn't register CDLC as "official"
 private _loadedDLC = getLoadedModsInfo select { (_x#2) and !(_x#1 in ["A3","curator","argo","tacops"]) };
-_loadedDLC append (getLoadedModsInfo select { tolower (_x#1) in ["ef", "gm", "rf", "spe", "vn", "ws", "csla"] });
-_loadedDLC = _loadedDLC apply { tolower (_x#1) };
+_loadedDLC append (getLoadedModsInfo select { toLower (_x#1) in ["ef", "gm", "rf", "spe", "vn", "ws", "csla"] });
+_loadedDLC = _loadedDLC apply { toLower (_x#1) };
 
 // Set enabled & disabled DLC/CDLC arrays for faction/equipment modification
-A3A_enabledDLC = (_saveData get "DLC") apply {tolower _x};                 // should be pre-checked against _loadedDLC
+A3A_enabledDLC = (_saveData get "DLC") apply {toLower _x};                 // should be pre-checked against _loadedDLC
 {
 	A3A_enabledDLC insert [0, getArray (configFile/"A3A"/"Templates"/_x/"forceDLC"), true];		// add unique elements only
 } forEach (_saveData get "factions");
@@ -318,7 +318,7 @@ A3A_disabledDLC = _loadedDLC - A3A_enabledDLC;
 A3A_disabledMods = A3A_disabledDLC;                 // Split to allow CUP civilians with GM
 
 // Everything that counts as vanilla: Official DLC plus various junk tags
-A3A_vanillaMods = (getLoadedModsInfo select {_x#2 and _x#3} apply {tolower (_x#1)}) + ["", "officialmod"];
+A3A_vanillaMods = (getLoadedModsInfo select {_x#2 and _x#3} apply {toLower (_x#1)}) + ["", "officialmod"];
 
 Debug_4("DLC loaded: %1 Enabled: %2 Disabled: %3 Vanilla: %4",_loadedDLC,A3A_enabledDLC,A3A_disabledDLC,A3A_vanillaMods);
 
@@ -393,8 +393,8 @@ call A3A_fnc_compileMissionAssets;
 flagX setFlagTexture FactionGet(reb,"flagTexture");                 // HQ flag, should be local here
 "NATO_carrier" setMarkerText FactionGet(occ,"spawnMarkerName");
 "CSAT_carrier" setMarkerText FactionGet(inv,"spawnMarkerName");
-"NATO_carrier" setMarkertype FactionGet(occ,"flagMarkerType");
-"CSAT_carrier" setMarkertype FactionGet(inv,"flagMarkerType");
+"NATO_carrier" setMarkerType FactionGet(occ,"flagMarkerType");
+"CSAT_carrier" setMarkerType FactionGet(inv,"flagMarkerType");
 
 ////////////////////////////////////
 //      CIVILIAN VEHICLES       ///

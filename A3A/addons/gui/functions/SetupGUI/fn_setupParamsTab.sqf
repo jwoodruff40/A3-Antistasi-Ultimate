@@ -397,7 +397,7 @@ switch (_mode) do
         private _newPreset = true;
         if (isNil "_presetName") then {
             _presetName = trim (ctrlText A3A_IDC_SETUP_PARAMSPRESETS_CSTM_NAME);
-            if (_presetName isEqualTo "" && {lbcursel _presetCstmCtrl isNotEqualTo -1}) then {
+            if (_presetName isEqualTo "" && {lbCurSel _presetCstmCtrl isNotEqualTo -1}) then {
                 _presetName = (parseSimpleArray (lbData [A3A_IDC_SETUP_PARAMSPRESETS_CSTM, lbCurSel _presetCstmCtrl])) select 0;
                 _newPreset = false;
             };

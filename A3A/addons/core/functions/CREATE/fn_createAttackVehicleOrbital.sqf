@@ -61,6 +61,6 @@ private _cargoGroup = grpNull;
 //};
 
 _landPosBlacklist = [_vehicle, _crewGroup, _cargoGroup, _posDestination, _markerOrigin, _landPosBlacklist, _isAirdrop, _resPool] call A3A_fnc_createVehicleQRFBehaviour;
-ServerDebug_5("Spawn Performed: Created vehicle %1 with %2 crew (%3) and %4 cargo (%5)",typeof _vehicle,count units _crewGroup,_crewGroup,count units _cargoGroup,_cargoGroup);
+ServerDebug_5("Spawn Performed: Created vehicle %1 with %2 crew (%3) and %4 cargo (%5)",typeOf _vehicle,count units _crewGroup,_crewGroup,count units _cargoGroup,_cargoGroup);
 
 [_vehicle, _crewGroup, _cargoGroup, _landPosBlacklist];

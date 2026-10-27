@@ -197,11 +197,11 @@ switch (_mode) do
         _occupantsFlag ctrlSetText NATOFlagTexture;
         _occupantsAggroText ctrlSetText ([aggressionLevelOccupants] call A3A_fnc_getAggroLevelString);
         _aggressionStr = localize "STR_antistasi_dialogs_generic_aggression";
-        _occupantsFlag ctrlSetToolTip (A3A_faction_occ get "name" + " " + _aggressionStr);
+        _occupantsFlag ctrlSetTooltip (A3A_faction_occ get "name" + " " + _aggressionStr);
         _occupantsAggroText ctrlSetTooltip (A3A_faction_occ get "name" + " " + _aggressionStr);
         _invadersFlag ctrlSetText CSATFlagTexture;
         _invadersAggroText ctrlSetText ([aggressionLevelInvaders] call A3A_fnc_getAggroLevelString);
-        _invadersFlag ctrlSetToolTip (A3A_faction_inv get "name" + " " + _aggressionStr);
+        _invadersFlag ctrlSetTooltip (A3A_faction_inv get "name" + " " + _aggressionStr);
         _invadersAggroText ctrlSetTooltip (A3A_faction_inv + " " + _aggressionStr);
 
         // Get location data
@@ -521,7 +521,7 @@ switch (_mode) do
         private _restText = _display displayCtrl A3A_IDC_RESTTEXT;
         private _time = sliderPosition _restSlider;
         private _restTimeString = [_time, "HM", true] call A3A_fnc_formatTime;
-        private _postRestTime = daytime + _time;
+        private _postRestTime = dayTime + _time;
         if (_postRestTime > 24) then {_postRestTime = _postRestTime - 24};
         private _postRestTimeString = [_postRestTime, "HH:MM"] call BIS_fnc_timeToString;
         private _message = format [localize "STR_antistasi_dialogs_hq_rest_text" + "<br />" + localize "STR_antistasi_dialogs_hq_wakeup_text", _restTimeString, _postRestTimeString];

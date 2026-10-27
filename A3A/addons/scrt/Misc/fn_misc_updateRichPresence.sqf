@@ -19,5 +19,5 @@ params [
 if (!isDiscordRichPresenceActive) exitWith {};
 
 Debug_1("Updating rich presence with these parameters: %1",str _updateArray);
-[_updateArray] call (missionNameSpace getVariable ["DiscordRichPresence_fnc_update",{}]);
+[_updateArray] call (missionNamespace getVariable ["DiscordRichPresence_fnc_update",{}]);
 

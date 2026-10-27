@@ -28,7 +28,7 @@ _unit disableAI "TARGET";
 _unit disableAI "ANIM";
 _unit setSkill 0;
 unassignVehicle _unit;			// stop them getting back into vehicles
-[_unit] orderGetin false;
+[_unit] orderGetIn false;
 _unit setUnitPos "UP";
 _unit playMoveNow "AmovPercMstpSnonWnonDnon_AmovPercMstpSsurWnonDnon";		// hands up?
 _unit setVariable ["A3U_PoW_unitType", _unit getVariable "unitType", true]; // in case the original unitType is needed for something else in the future

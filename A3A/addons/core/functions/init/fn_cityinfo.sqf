@@ -26,7 +26,7 @@ private _prestigeBLUFOR = nil;
 _popFIA = round _popFIA;
 _popAAF = round _popAAF;
 
-[localize "STR_A3A_cityinfo_header", format [localize "STR_A3A_cityinfo_general_info",_pop, _popFIA, _popAAF, _popCSAT,FactionGet(occ,"name"),FactionGet(reb,"name"),getText (configfile >> "CfgWorlds" >> worldname >> "description")]] call A3A_fnc_customHint;
+[localize "STR_A3A_cityinfo_header", format [localize "STR_A3A_cityinfo_general_info",_pop, _popFIA, _popAAF, _popCSAT,FactionGet(occ,"name"),FactionGet(reb,"name"),getText (configFile >> "CfgWorlds" >> worldName >> "description")]] call A3A_fnc_customHint;
 
 if (!visibleMap) then {openMap true};
 

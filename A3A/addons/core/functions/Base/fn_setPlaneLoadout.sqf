@@ -19,7 +19,7 @@ private _missileLauncher = [];
 private _bombRacks = [];
 private _diveParams = [];
 
-private _cfgPath = (configfile >> "A3U" >> "planeLoadouts");
+private _cfgPath = (configFile >> "A3U" >> "planeLoadouts");
 private _cfgAA = (_cfgPath >> "AA");
 private _cfgCASDIVE = (_cfgPath >> "CASDIVE");
 private _cfgCAS = (_cfgPath >> "CAS");

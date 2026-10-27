@@ -23,7 +23,7 @@ _unit disableAI "AUTOTARGET";
 _unit disableAI "TARGET";
 _unit setSkill 0;
 unassignVehicle _unit;			// stop them getting back into vehicles
-[_unit] orderGetin false;
+[_unit] orderGetIn false;
 _unit setUnitPos "UP";
 _unit setSpeaker "NoVoice";
 

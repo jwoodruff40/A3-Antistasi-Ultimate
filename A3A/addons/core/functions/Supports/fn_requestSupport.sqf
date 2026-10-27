@@ -32,7 +32,7 @@ A3A_activeSupports = A3A_activeSupports select { _x#4 > 0 };                // r
 
 // HQ knowledge update
 call {
-    private _hqDist = _target distance2d markerPos "Synd_HQ";
+    private _hqDist = _target distance2D markerPos "Synd_HQ";
     private _bunker = markerPos "Synd_HQ" nearObjects ["Land_Bunker_01_tall_F", 50] isNotEqualTo [];
     private _maxSpot = (500 + random 1000) * ([0.5, 1] select _bunker);
     _hqSpot = (1 + random 1) * linearConversion [0, _maxSpot, _hqDist, 1, 0, true]; 
@@ -81,13 +81,13 @@ private _classWeightsHM = call {
         if (_sside != _side or time >= _endtime) then { continue };
         switch (_btype) do {
             case "AREA": {
-                private _dist = _starg distance2d _targpos;
+                private _dist = _starg distance2D _targpos;
                 if (_dist > _pow) exitWith {};
                 private _reduce = (_pow/100) * (1 - _dist/_pow) * ((_endtime - time)/_dur);
                 _weightArea = _weightArea / (1 + _reduce);
             };
             case "TROOPS": {
-                private _dist = _starg distance2d _targpos;
+                private _dist = _starg distance2D _targpos;
                 if (_dist > 600) exitWith {};
                 private _reduce = (_pow/200) * (1 - _dist/600) * ((_endtime - time)/_dur);
                 _weightTroops = _weightTroops / (1 + _reduce);
@@ -122,7 +122,7 @@ private _actSuppHM = createHashMap;
 {
     _x params ["_suppName", "_suppSide", "_suppType", "_center", "_radius", "_suppTarg", ["_minRadius", 0]];
     if (_suppSide != _side or _suppType in _actSuppHM) then { continue };         // only use first one found
-    private _dist = _targpos distance2d _center;
+    private _dist = _targpos distance2D _center;
     if (_suppTarg isNotEqualTo [] or _dist > _radius or _dist < _minRadius) then { continue };
     _actSuppHM set [_suppType, _x];
 } forEach A3A_activeSupports;

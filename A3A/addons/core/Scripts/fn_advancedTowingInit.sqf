@@ -40,11 +40,11 @@ if(_canFloat && (_returnSurfaceASL select 2) < 0) then { \
 }; \
 
 #define SA_Find_Surface_ASL_Under_Model(_object,_modelOffset,_returnSurfaceASL,_canFloat) \
-SA_Find_Surface_ASL_Under_Position(_object, (_object modelToWorldVisual _modelOffset), _returnSurfaceASL,_canFloat);
+SA_Find_Surface_ASL_Under_Position(_object,(_object modelToWorldVisual _modelOffset),_returnSurfaceASL,_canFloat);
 
 #define SA_Find_Surface_AGL_Under_Model(_object,_modelOffset,_returnSurfaceAGL,_canFloat) \
 SA_Find_Surface_ASL_Under_Model(_object,_modelOffset,_returnSurfaceAGL,_canFloat); \
-_returnSurfaceAGL = ASLtoAGL _returnSurfaceAGL;
+_returnSurfaceAGL = ASLToAGL _returnSurfaceAGL;
 
 #define SA_Get_Cargo(_vehicle,_cargo) \
 if( count (ropeAttachedObjects _vehicle) == 0 ) then { \
@@ -233,7 +233,7 @@ SA_Simulate_Towing = {
 			};
 
 			// Calculate adjusted surface height based on surface normal (prevents vehicle from clipping into ground)
-			_cargoCenterASL = AGLtoASL (_cargo modelToWorldVisual [0,0,0]);
+			_cargoCenterASL = AGLToASL (_cargo modelToWorldVisual [0,0,0]);
 			_cargoCenterASL set [2,0];
 			_surfaceHeight = ((_cargoCorner1ASL vectorAdd ( _cargoCenterASL vectorMultiply -1)) vectorDotProduct _surfaceNormal1) /  ([0,0,1] vectorDotProduct _surfaceNormal1);
 			_surfaceHeight2 = ((_cargoCorner1ASL vectorAdd ( _cargoCenterASL vectorMultiply -1)) vectorDotProduct _surfaceNormal2) /  ([0,0,1] vectorDotProduct _surfaceNormal2);
@@ -317,10 +317,10 @@ SA_Get_Corner_Points = {
 			sa_tow_debug_arrow_3 = "Sign_Arrow_F" createVehicleLocal [0,0,0];
 			sa_tow_debug_arrow_4 = "Sign_Arrow_F" createVehicleLocal [0,0,0];
 		};
-		sa_tow_debug_arrow_1 setPosASL  AGLtoASL (_vehicle modelToWorldVisual _rearCorner);
-		sa_tow_debug_arrow_2 setPosASL  AGLtoASL (_vehicle modelToWorldVisual _rearCorner2);
-		sa_tow_debug_arrow_3 setPosASL  AGLtoASL (_vehicle modelToWorldVisual _frontCorner);
-		sa_tow_debug_arrow_4 setPosASL  AGLtoASL (_vehicle modelToWorldVisual _frontCorner2);
+		sa_tow_debug_arrow_1 setPosASL  AGLToASL (_vehicle modelToWorldVisual _rearCorner);
+		sa_tow_debug_arrow_2 setPosASL  AGLToASL (_vehicle modelToWorldVisual _rearCorner2);
+		sa_tow_debug_arrow_3 setPosASL  AGLToASL (_vehicle modelToWorldVisual _frontCorner);
+		sa_tow_debug_arrow_4 setPosASL  AGLToASL (_vehicle modelToWorldVisual _frontCorner2);
 	};
 
 	[_rearCorner,_rearCorner2,_frontCorner,_frontCorner2];

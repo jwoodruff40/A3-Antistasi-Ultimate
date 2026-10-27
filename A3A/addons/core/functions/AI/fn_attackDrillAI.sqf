@@ -220,7 +220,7 @@ while {true} do
 										} else {
 											{
 												[_x,_nearX] call A3A_fnc_suppressingFire;
-											} forEach _baseOfFire select {(_x getVariable ["typeOfSoldier",""] == "Normal") and (count (getArray (configfile >> "CfgWeapons" >> primaryWeapon _x >> "muzzles")) == 2)};
+											} forEach _baseOfFire select {(_x getVariable ["typeOfSoldier",""] == "Normal") and (count (getArray (configFile >> "CfgWeapons" >> primaryWeapon _x >> "muzzles")) == 2)};
 										};
 									};
 								};

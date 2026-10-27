@@ -153,7 +153,7 @@ A3A_SR_addplayerWinchActions = {
 [] spawn {
     private _missionComplete = false;
     while {!_missionComplete} do {
-        if (!isNull player && isplayer player) then {
+        if (!isNull player && isPlayer player) then {
             if !(player getVariable ["SalvageRopeAction",false]) then {
                 [] call A3A_SR_addplayerWinchActions;
                 player setVariable ["SalvageRopeAction",true];

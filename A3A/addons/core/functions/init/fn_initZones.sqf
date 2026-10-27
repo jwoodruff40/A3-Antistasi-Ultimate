@@ -22,7 +22,7 @@ if ((toLower worldName) in ["altis", "chernarus_summer"]) then {
 	"((getText (_x >> ""type"")) == ""Hill"") &&
 	!((getText (_x >> ""name"")) isEqualTo """") &&
 	!(configName _x isEqualTo ""Magos"")"
-	configClasses (configfile >> "CfgWorlds" >> worldName >> "Names") apply {
+	configClasses (configFile >> "CfgWorlds" >> worldName >> "Names") apply {
 
 		_name = configName _x;
 		_sizeX = getNumber (_x >> "radiusA");
@@ -30,7 +30,7 @@ if ((toLower worldName) in ["altis", "chernarus_summer"]) then {
 		_size = [_sizeX, _sizeY] select (_sizeX <= _sizeY);
 		_pos = getArray (_x >> "position");
 		_size = [_size, 50] select (_size < 10);
-		_mrk = createmarker [format ["%1", _name], _pos];
+		_mrk = createMarker [format ["%1", _name], _pos];
 		_mrk setMarkerSizeLocal [_size, _size];
 		_mrk setMarkerShapeLocal "ELLIPSE";
 		_mrk setMarkerBrushLocal "SOLID";
@@ -40,7 +40,7 @@ if ((toLower worldName) in ["altis", "chernarus_summer"]) then {
 	};
 };  //this only for Altis and Cherno
 if (debug) then {
-    Debug_1("Setting Spawn Points for %1.",worldname);
+    Debug_1("Setting Spawn Points for %1.",worldName);
 };
 //We're doing it this way, because Dedicated servers world name changes case, depending on how the file is named.
 //And weirdly, == is not case sensitive.
@@ -101,9 +101,9 @@ if ( _posBank isEqualTo []) then {banks = nearestObjects [[worldSize/2, worldSiz
 // This causes issues with persistent load and rebuild scripts, so we replace those with antennas that work properly.
 private _replaceBadAntenna = {
 	params ["_antenna"];
-	if ((typeof _antenna) in ["Land_Communication_F", "Land_Vysilac_FM", "Land_A_TVTower_Base"]) then {
+	if ((typeOf _antenna) in ["Land_Communication_F", "Land_Vysilac_FM", "Land_A_TVTower_Base"]) then {
 		hideObjectGlobal _antenna;
-		if (typeof _antenna == "Land_A_TVTower_Base") then {
+		if (typeOf _antenna == "Land_A_TVTower_Base") then {
 			// The TV tower is composed of 3 sections - need to hide them all
 			private _otherSections = nearestObjects [_antenna, ["Land_A_TVTower_Mid", "Land_A_TVTower_Top"], 200];
 			{ hideObjectGlobal _x; } forEach _otherSections;
@@ -172,7 +172,7 @@ if (count _posAntennas > 0) then {
 			_antenna = _antennaProv select 0;
 
 			if (_i in _blacklistIndex) then {
-				_antenna setdamage 1;
+				_antenna setDamage 1;
 			} else {
 				_antenna = ([_antenna] call _replaceBadAntenna);
 				antennas pushBack _antenna;
@@ -363,11 +363,11 @@ publicVariable "seaSpawn";
 publicVariable "seaAttackSpawn";
 publicVariable "defaultControlIndex";
 publicVariable "detectionAreas";
-publicvariable "A3A_fuelStations";
-publicvariable "A3A_fuelStationTypes";
+publicVariable "A3A_fuelStations";
+publicVariable "A3A_fuelStationTypes";
 publicVariable "milAdministrationsX";
-publicvariable "A3A_milAdministrations";
-publicvariable "A3A_destroyedMilAdministrations";
+publicVariable "A3A_milAdministrations";
+publicVariable "A3A_destroyedMilAdministrations";
 publicVariable "fuelStationsX";
 
 initZonesDone = true;				// signal headless clients that they can start nav init

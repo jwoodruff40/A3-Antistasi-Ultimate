@@ -1,4 +1,3 @@
-#ifdef __A3_DEBUG__
 #include "script_component.hpp"
 
 class CfgPatches {
@@ -11,5 +10,6 @@ class CfgPatches {
     };
 };
 
+#ifdef __A3_DEBUG__
 #include "CfgParams.hpp"
 #endif // __A3_DEBUG__

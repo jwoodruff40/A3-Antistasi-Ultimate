@@ -53,7 +53,7 @@ if (_roads isEqualTo []) then {
 	] call BIS_fnc_findSafePos;
 } else {
 	private _road = selectRandom _roads;
-	private _roadCon = roadsConnectedto _road;
+	private _roadCon = roadsConnectedTo _road;
 	_dirVeh = if(count _roadcon > 0) then {[_road, _roadCon select 0] call BIS_fnc_DirTo} else {random 360};
 	_vehicleSpawnPosition = getPos _road;
 };

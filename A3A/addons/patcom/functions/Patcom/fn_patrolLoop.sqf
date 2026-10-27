@@ -70,6 +70,6 @@ params [
             [_group] call A3A_fnc_patrolCommander;
         };
 
-        sleep (round (((count allunits) / 2) * 1.2));
+        sleep (round (((count allUnits) / 2) * 1.2));
     };
 };

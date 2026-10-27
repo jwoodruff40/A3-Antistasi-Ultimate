@@ -1,6 +1,6 @@
 params ["_structureType", "_posASL", "_dir"];
 
-private _positionX = ASLtoATL _posASL;
+private _positionX = ASLToATL _posASL;
 
 private _isPlayer = if (player == construction_selectedEngineer) then {true} else {false};
 private _timeOut = time + 30;

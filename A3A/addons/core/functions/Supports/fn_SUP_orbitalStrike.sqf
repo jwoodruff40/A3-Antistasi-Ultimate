@@ -27,7 +27,7 @@ if (_delay < 0) then { _delay = (0.5 + random 1) * (350 - 15*tierWar - 1*_aggroV
 // ["_side", "_basetype", "_target", "_endtime", "_duration", "_power"]
 A3A_supportStrikes pushBack [_side, "AREA", _targPos, time + 1200, 1200, 500];
 
-[_supportName, _side, _delay, ATLtoASL _targPos, _reveal] spawn A3A_fnc_SUP_orbitalStrikeRoutine;
+[_supportName, _side, _delay, ATLToASL _targPos, _reveal] spawn A3A_fnc_SUP_orbitalStrikeRoutine;
 
 [_reveal, _side, "ORBITALSTRIKE", _targPos, _delay] spawn A3A_fnc_showInterceptedSetupCall;
 

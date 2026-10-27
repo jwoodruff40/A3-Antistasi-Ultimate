@@ -37,7 +37,7 @@ while {true} do {
     _radiusX = _radiusX + 5;
 };
 
-private _roadcon = roadsConnectedto ((_road select {(position _x) distance2D _originPosition > 500}) select 0); // Guaranteed by road search condition
+private _roadcon = roadsConnectedTo ((_road select {(position _x) distance2D _originPosition > 500}) select 0); // Guaranteed by road search condition
 private _dirveh = if (count _roadcon > 0) then {[_road select 0, _roadcon select 0] call BIS_fnc_dirTo} else {random 360};
 private _roadPosition = getPos (_road select 0);
 
@@ -148,7 +148,7 @@ while {true} do {
     _radiusX = _radiusX + 5;
 };
 
-private _roadconRepair = roadsConnectedto ((_roadRepair select {
+private _roadconRepair = roadsConnectedTo ((_roadRepair select {
     (position _x) distance2D _originPosition > 500 && 
     (position _x) distance2D _roadPosition > 500 &&
     (position _x) distance2D (getPos _crashedVehicle) > 100

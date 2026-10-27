@@ -26,9 +26,9 @@
 */
 
 #include "..\..\script_component.hpp"
-params [["_unit", ObjNull], ["_caller", ObjNull]];
+params [["_unit", objNull], ["_caller", objNull]];
 
-if (_unit isEqualTo ObjNull || _caller isEqualTo ObjNull) exitWith {nil};
+if (_unit isEqualTo objNull || _caller isEqualTo objNull) exitWith {nil};
 
 // Check if the caller is inside a vehicle
 if !(isNull objectParent _caller) exitWith {

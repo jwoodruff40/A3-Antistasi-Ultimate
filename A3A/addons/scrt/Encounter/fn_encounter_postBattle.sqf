@@ -71,7 +71,7 @@ if (count _road == 0) exitWith {
 };
 
 private _selectedRoad = _road select 0;
-private _roadcon = roadsConnectedto _selectedRoad;
+private _roadcon = roadsConnectedTo _selectedRoad;
 
 private _dirveh = if (count _roadcon > 0) then {
     [_selectedRoad, _roadcon select 0] call BIS_fnc_dirTo

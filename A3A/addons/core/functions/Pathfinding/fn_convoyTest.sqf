@@ -56,4 +56,4 @@ if(_path isEqualTo []) exitWith
 private _vehicles = [["B_MRAP_01_F", ["B_W_Crew_F"], []], ["B_APC_Tracked_01_rcws_F", ["B_W_Crew_F","B_W_Crew_F","B_W_Crew_F"], []]];
 
 
-[69420, _vehicles, _startPos, _endPos, [], "ATTACK", WEST] spawn A3A_fnc_createConvoy;
+[69420, _vehicles, _startPos, _endPos, [], "ATTACK", west] spawn A3A_fnc_createConvoy;

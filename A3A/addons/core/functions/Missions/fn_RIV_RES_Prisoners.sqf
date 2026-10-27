@@ -176,7 +176,7 @@ if ({alive _x} count _POWs == 0) then {
 	[_bonusAmount,theBoss] call A3A_fnc_addScorePlayer;
     [(_bonusAmount*10),theBoss, true] call A3A_fnc_addMoneyPlayer;
 
-	{[_x] join _grpPOW; [_x] orderGetin false} forEach _POWs;
+	{[_x] join _grpPOW; [_x] orderGetIn false} forEach _POWs;
 
 	[15*_bonus, (100/baseRivalsDecay)] remoteExec ["SCRT_fnc_rivals_reduceActivity",2];
 	[5*_bonus] remoteExecCall ["SCRT_fnc_rivals_addProgressToRivalsLocationReveal", 2];

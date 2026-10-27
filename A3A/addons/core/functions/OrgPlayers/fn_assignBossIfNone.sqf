@@ -9,7 +9,7 @@ A3A_electionInProgress = true;
 
 // Don't run if a Boss exists and is still eligible & active
 private _electionReason = call {
-    if (isNull theBoss || {theBoss isEqualTo ObjNull}) exitWith { "there is no boss" }; // second check is probably unnecessary but better to be safe
+    if (isNull theBoss || {theBoss isEqualTo objNull}) exitWith { "there is no boss" }; // second check is probably unnecessary but better to be safe
     if (_memberForced && !([theBoss] call A3A_fnc_isMember)) exitWith { "the boss is a guest" };
     if !(theBoss getVariable ["eligible", true]) exitWith { "the boss is not eligible" };
     if (theBoss getVariable ["isAFK", false]) exitWith { "the boss is AFK" };
@@ -53,7 +53,7 @@ else
 };
 
 if (isNil "theBoss" || {isNull theBoss}) then {
-    theBoss = ObjNull;
+    theBoss = objNull;
     publicVariable "theBoss";
 };
 

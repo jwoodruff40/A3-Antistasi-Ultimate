@@ -26,7 +26,7 @@ _CUPVehicles = [
     ["CUP_B_M163_Vulcan_USA", ["cost", 100]],
     ["CUP_I_M163_Vulcan_RACS", ["cost", 100]]
 ]};
-if (isClass (configfile >> "CfgPatches" >> "Redd_Marder_1A5")) then {
+if (isClass (configFile >> "CfgPatches" >> "Redd_Marder_1A5")) then {
 _ReddnTanks = [
     //Redd n Tanks Vehicles
     //Marder IFV 20mm Autocannon with Milan ATGMs

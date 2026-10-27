@@ -25,7 +25,7 @@ private _state = if (count A3A_InfoBarRegistre isEqualTo 0) then {true} else {fa
 #ifdef UseDoomGUI
     ERROR("Disabled due to UseDoomGUI Switch.")
 #else
-    private _display = uiNameSpace getVariable "H8erHUD";
+    private _display = uiNamespace getVariable "H8erHUD";
 #endif
 private _control = _display displayCtrl 1001;
 _control ctrlShow _state;

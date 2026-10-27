@@ -49,7 +49,7 @@ while {true} do {
     _radiusX = _radiusX + 5;
 };
 
-private _roadcon = roadsConnectedto (_road select 0);
+private _roadcon = roadsConnectedTo (_road select 0);
 private _dirveh = if (count _roadcon > 0) then {[_road select 0, _roadcon select 0] call BIS_fnc_dirTo} else {random 360};
 private _roadPosition = getPos (_road select 0);
 
@@ -79,11 +79,11 @@ private _fnc_spawnConvoyVehicle = {
     _pathState = [_route, [10, 0] select (count _pathState == 0), _pathState] call A3A_fnc_findPosOnRoute;
     while {true} do {
         // make sure there are no other vehicles within 10m
-        if (count (ASLtoAGL (_pathState#0) nearEntities 10) == 0) exitWith {};
+        if (count (ASLToAGL (_pathState#0) nearEntities 10) == 0) exitWith {};
         _pathState = [_route, 10, _pathState] call A3A_fnc_findPosOnRoute;
     };
 
-    private _veh = createVehicle [_vehType, ASLtoAGL (_pathState#0) vectorAdd [0,0,0.5]];               // Give it a little air
+    private _veh = createVehicle [_vehType, ASLToAGL (_pathState#0) vectorAdd [0,0,0.5]];               // Give it a little air
     private _vecUp = (_pathState#1) vectorCrossProduct [0,0,1] vectorCrossProduct (_pathState#1);       // correct pitch angle
     _veh setVectorDirAndUp [_pathState#1, _vecUp];
     _veh allowDamage false;

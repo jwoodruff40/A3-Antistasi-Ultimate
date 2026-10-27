@@ -36,7 +36,7 @@ if (vehicle _player != _player) then {
 
 private _isHQ = _item in [petros, mapX, vehicleBox, flagX, boxX];
 private _posHQ = markerPos "Synd_HQ"; 
-if (_isHQ and {_item distance2d _posHQ > 50}) then {
+if (_isHQ and {_item distance2D _posHQ > 50}) then {
     // Drag object back into HQ area if moved out
     private _objdir = _posHQ vectorFromTo getPosATL _item;
     private _edgepos = _posHQ vectorAdd (_objdir vectorMultiply 49);

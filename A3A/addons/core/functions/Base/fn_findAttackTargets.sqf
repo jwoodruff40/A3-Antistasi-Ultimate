@@ -116,7 +116,7 @@ private _finalWeights = [];
     private _nonLocalMarkers = _markersXYT - _localMarkers;
     private _localThreat = 0;
     {
-        private _dist = _x distance2d _targpos;
+        private _dist = _x distance2D _targpos;
         private _threat = (_x#2) * linearConversion [500, 1500, _dist, 1, 0, true];
         _localThreat = _localThreat + _threat;
         if (_dist > 500) then { _nonLocalMarkers pushBack [_x#0, _x#1, (_x#2) - _threat] };
@@ -153,7 +153,7 @@ private _finalWeights = [];
     private _maxWeight = 0;
     {
         private _basePos = markerPos _x;
-        private _dist = _basePos distance2d _targPos;
+        private _dist = _basePos distance2D _targPos;
         if (_dist > distanceForAirAttack) then { continue };
         private _midpoint = (_basePos vectorAdd _targPos) vectorMultiply 0.5;
         private _targDir = _basePos getDir _targPos;

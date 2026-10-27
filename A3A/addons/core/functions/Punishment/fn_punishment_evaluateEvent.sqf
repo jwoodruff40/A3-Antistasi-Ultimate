@@ -68,8 +68,8 @@ Info(_dmgLog);
 //////Cool down prevents multi-hit spam/////
     // Doesn't log to avoid RPT spam.
     // Doesn't use hash table to be as quick as possible.
-if (_instigator getVariable ["A3A_FFPun_CD", 0] > servertime) exitWith {"PUNISHMENT COOL-DOWN ACTIVE"};
-_instigator setVariable ["A3A_FFPun_CD", servertime + 1, false]; // Local Exec faster
+if (_instigator getVariable ["A3A_FFPun_CD", 0] > serverTime) exitWith {"PUNISHMENT COOL-DOWN ACTIVE"};
+_instigator setVariable ["A3A_FFPun_CD", serverTime + 1, false]; // Local Exec faster
 
 /////////////////Definitions////////////////
 private _victimStats = ["damaged ",["systemPunished",name _victim] select (_victim isKindOf "Man")," "] joinString "";

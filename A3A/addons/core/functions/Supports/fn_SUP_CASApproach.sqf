@@ -228,11 +228,11 @@ while {true} do
     switch (_state) do
     {
         case STATE_PICK_TARGET: {
-            if (_plane distance2d _suppCenter > 1.5 * DIST_REPOS) exitWith { sleep 5 };
+            if (_plane distance2D _suppCenter > 1.5 * DIST_REPOS) exitWith { sleep 5 };
             if (_suppTarget isEqualTo []) exitWith { sleep 5 };
             
             _targetObj = _suppTarget select 0;
-            _lastKnownPos = ATLtoASL (_suppTarget select 1);
+            _lastKnownPos = ATLToASL (_suppTarget select 1);
             if !(_targetObj call A3A_fnc_canFight) exitWith {
                 _suppTarget resize 0;
                 Debug_1("%1 skips target, as it is already dead",_supportName);
@@ -244,7 +244,7 @@ while {true} do
             _timeout = _timeout + 300;
             _loiterWP setWaypointPosition [_suppTarget select 1, 0];
             private _heavy = true;          // TODO: improve this?
-            private _fireMatrix = [typeof _targetObj, _heavy] call _fnc_getFireMatrix;
+            private _fireMatrix = [typeOf _targetObj, _heavy] call _fnc_getFireMatrix;
             _plane setVariable ["fireParams", _fireMatrix];
 
             _acquired = false;
@@ -253,7 +253,7 @@ while {true} do
 
         case STATE_APPROACH: {
             if (!_acquired) then {
-                if (_targetObj isKindOf "Man" and _lastKnownPos distance2d _targetObj > 100) then {
+                if (_targetObj isKindOf "Man" and _lastKnownPos distance2D _targetObj > 100) then {
                     // Switch to any man-sized target near the target zone
                     private _nearTarget = selectRandom (units side _targetObj inAreaArray [_lastKnownPos, 100, 100]);
                     if (!isNil "_nearTarget" and {_nearTarget call A3A_fnc_canFight} ) then { _targetObj = _nearTarget };
@@ -271,8 +271,8 @@ while {true} do
                 };
 
                 private _vis = 1 max getNumber (configFile >> "CfgVehicles" >> typeOf _targetObj >> "camouflage");
-                private _knownDist = _targetPos distance2d _lastKnownPos;
-                private _dist = _targetPos distance2d _planePos;
+                private _knownDist = _targetPos distance2D _lastKnownPos;
+                private _dist = _targetPos distance2D _planePos;
                 private _chance = _baseSpotChance * _vis * exp (_knownDist / -500) * exp (_dist / -3000);
                 if (_chance > random 1) then { _acquired = true };
 
@@ -280,7 +280,7 @@ while {true} do
             };
             if (_acquired) then { _lastKnownPos = eyePos _targetObj };
 
-            private _dist = _plane distance2d _lastKnownPos;
+            private _dist = _plane distance2D _lastKnownPos;
             if (_dist < [300, 800] select _acquired) exitWith {
                 // If we're too close then break off and try again
                 Debug_2("%1 approach failed with %2 acquisition",_supportName,_acquired);
@@ -322,7 +322,7 @@ while {true} do
 
         case STATE_REPOSITION: {
             // if we're around 3km away and facing <100 degrees from the target, switch to approach
-            private _dist = _plane distance2d _lastKnownPos;
+            private _dist = _plane distance2D _lastKnownPos;
             private _targVector = _lastKnownPos vectorDiff (getPosASL _plane);
             private _dotdir = vectorNormalized _targVector vectorDotProduct vectorDir _plane;
             if (_dist < DIST_REPOS*1.1 and _dist > DIST_REPOS*0.9 and _dotdir > -0.3) exitWith {

@@ -24,7 +24,7 @@ _limit params ["_dateLimitNum", "_displayTime"];
 
 private _spawnPosition = [_positionX, 600, 1500, 0, 0] call BIS_fnc_findSafePos;
 private _bases = citiesX + airportsX + milbases + outposts + seaports + factories + resourcesX + ["Synd_HQ"];
-private _isTooCloseToOutposts = _bases findIf { _spawnPosition distance2d (getMarkerPos _x) < 600 || {_spawnPosition inArea _x} } != -1;
+private _isTooCloseToOutposts = _bases findIf { _spawnPosition distance2D (getMarkerPos _x) < 600 || {_spawnPosition inArea _x} } != -1;
 private _nearRoads = _spawnPosition nearRoads 100;
 
 if (_isTooCloseToOutposts || _nearRoads isEqualTo []) then {
@@ -42,7 +42,7 @@ if (_isTooCloseToOutposts || _nearRoads isEqualTo []) then {
             [_spawnPosition, _spawnPosition] //default position
         ] call BIS_fnc_findSafePos;
 		_nearRoads = _spawnPosition nearRoads 100;
-        _isTooCloseToOutposts = _bases findIf { _spawnPosition distance2d (getMarkerPos _x) < 600 || {_spawnPosition inArea _x} } != -1;
+        _isTooCloseToOutposts = _bases findIf { _spawnPosition distance2D (getMarkerPos _x) < 600 || {_spawnPosition inArea _x} } != -1;
         if (_isTooCloseToOutposts && {_nearRoads isNotEqualTo []}) exitWith {};
         _radiusX = _radiusX + 1;
     };
@@ -242,7 +242,7 @@ if (dateToNumber date < _dateLimitNum) then {
 	Info("Spawning barricade and static weapon...");
 
 	private _barricadePos = position _nextRoad;
-	private _roadcon = roadsConnectedto _nextRoad;
+	private _roadcon = roadsConnectedTo _nextRoad;
 	private _dirBarricade = if (count _roadcon > 0) then {[_nextRoad, _roadcon select 0] call BIS_fnc_dirTo} else {random 360};
 	private _barricadeTypes = [
 		"Land_Barricade_01_10m_F", 
@@ -357,7 +357,7 @@ sleep 30;
 {deleteVehicle _x} forEach _others;
 
 deleteVehicle _foodSacks;
-private _emptybox = "Land_Pallet_F" createVehicle (getpos _foodSacks);
+private _emptybox = "Land_Pallet_F" createVehicle (getPos _foodSacks);
 [_emptybox, true] remoteExec[QFUNCMAIN(despawnQueueEntity), 2];
 
 [_taskId, "SUPP", 900] spawn A3A_fnc_taskDelete;

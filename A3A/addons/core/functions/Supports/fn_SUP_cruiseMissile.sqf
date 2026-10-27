@@ -28,7 +28,7 @@ private _weights = [];
 	
     if (_target isEqualType objNull and {!isNull _target}) then {
         private _targDir = _pos getDir _targPos;
-        private _intersectPoint = (ATLtoASL _pos) getPos [250, _targDir] vectorAdd [0,0,300];
+        private _intersectPoint = (ATLToASL _pos) getPos [250, _targDir] vectorAdd [0,0,300];
         if (terrainIntersectASL [_intersectPoint, getPosASL _target]) then {continue};
     };
 

@@ -17,7 +17,7 @@ params [
 private _hintTitle = localize "STR_A3A_builder_title";
 
 // Already in the placer
-if(!isNil "A3A_building_EHDB") exitwith {};
+if(!isNil "A3A_building_EHDB") exitWith {};
 
 // Check enemy proximity
 if ([getPosATL _centerObject] call A3A_fnc_enemyNearCheck) exitWith {

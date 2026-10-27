@@ -32,7 +32,7 @@ params ["_group"];
 
 // We exit here if the group is empty. It's a waste of performance to handle empty groups.
 if (count units _group == 0) exitWith {
-    If (PATCOM_DEBUG) then {
+    if (PATCOM_DEBUG) then {
         ServerDebug_1("PATCOM | Group Eliminated, Exiting PATCOM Group: %1",_group);
     };
 };
@@ -55,7 +55,7 @@ if (count _knownEnemies > 0) then {
         };
 };
 
-If (PATCOM_DEBUG) then {
+if (PATCOM_DEBUG) then {
     ServerDebug_3("PATCOM | Group: %1 | Current Orders: %2 | Group State: %3",_group,_currentOrders,_group getVariable "PATCOM_Group_State");
 };
 

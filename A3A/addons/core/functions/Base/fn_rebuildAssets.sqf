@@ -254,7 +254,7 @@ if (random 100 <= 75) then {
         [
             localize "STR_notifiers_fail_type",
             localize "STR_notifiers_rebuild_assets_header",
-            parsetext format [localize _message, _name],
+            parseText format [localize _message, _name],
             30
         ] spawn SCRT_fnc_ui_showMessage;
     };

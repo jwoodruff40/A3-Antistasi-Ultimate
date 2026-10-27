@@ -12,7 +12,7 @@
 FIX_LINE_NUMBERS()
 params ["_veh", "_sideEnemy", ["_captured", false], ["_killer", objNull]];
 
-private _type = typeof _veh;
+private _type = typeOf _veh;
 private _side = _veh getVariable ["ownerSide", teamPlayer];			// default because Zeus
 
 if (_captured && (_side == _sideEnemy)) exitWith {};

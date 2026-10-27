@@ -41,7 +41,7 @@ if (spawner getVariable _markerX == 0) then
 	_pos = [];
 	if (_size > 40) then {_pos = [_positionX, 10, _size, 10, 0, 0.3, 0] call BIS_Fnc_findSafePos} else {_pos = _positionX findEmptyPosition [10,60,_typeVehX]};
 	_veh = createVehicle [_typeVehX, _pos, [], 0, "NONE"];
-	_veh allowdamage false;
+	_veh allowDamage false;
 	_veh setDir random 360;
 	[_veh, _sideX] call A3A_fnc_AIVEHinit;
 

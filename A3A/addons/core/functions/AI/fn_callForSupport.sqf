@@ -41,7 +41,7 @@ if((_group getVariable ["A3A_canCallSupportAt", -1]) > time) exitWith {};
 private _timeToCallSupport = (10 + random 5) / A3A_balancePlayerScale;
 _group setVariable ["A3A_canCallSupportAt", time + 15*_timeToCallSupport];
 
-ServerDebug_4("Leader of %1 (side %2) is starting to request support against %3 (type %4)",_group,_side,_target,typeof _target);
+ServerDebug_4("Leader of %1 (side %2) is starting to request support against %3 (type %4)",_group,_side,_target,typeOf _target);
 
 //Lower skill of group leader to simulate radio communication (!!!Barbolanis idea!!!)
 // Maintain differential leader skills (see NATOinit)
@@ -53,8 +53,8 @@ sleep _timeToCallSupport;
 
 //Reset leader skill
 _groupLeader setSkill _oldSkill;
-_groupLeader setskill ["courage", _oldCourage];
-_groupLeader setskill ["commanding", _oldCourage];
+_groupLeader setSkill ["courage", _oldCourage];
+_groupLeader setSkill ["commanding", _oldCourage];
 
 //If the group leader survived the call, proceed
 if(_groupLeader call A3A_fnc_canFight) then

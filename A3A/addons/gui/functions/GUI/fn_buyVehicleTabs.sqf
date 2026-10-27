@@ -90,9 +90,9 @@ if (_tab isEqualTo "vehicles") then
         private _label = _display ctrlCreate ["A3A_SectionStructuredLabelLeftHQstore", -1, _itemControlsGroup]; ///A3A_PictureStroke
         _label ctrlSetPosition [36 * GRID_W, 0.55 * GRID_H, 8 * GRID_W, 8 * GRID_H];
         private _dlc = "";
-        private _addons = configsourceaddonlist _configClass;
+        private _addons = configSourceAddonList _configClass;
         if (count _addons > 0) then {
-        	private _mods = configsourcemodlist (configfile >> "CfgPatches" >> _addons select 0);
+        	private _mods = configSourceModList (configFile >> "CfgPatches" >> _addons select 0);
         	if (count _mods > 0) then {
         		_dlc = _mods select 0;
         	};
@@ -100,8 +100,8 @@ if (_tab isEqualTo "vehicles") then
         private _dlcParams = modParams [_dlc,["logo","logoOver"]];
         private _logo = _dlcParams param [0,""];
         private _logoOver = _dlcParams param [1,""];
-        private _fieldManualTopicAndHint = getarray (configfile >> "cfgMods" >> _dlc >> "fieldManualTopicAndHint");
-        _label ctrlseteventhandler ["buttonclick",format ["if (count %1 > 0) then {(%1 + [ctrlparent (_this select 0)]) call bis_fnc_openFieldManual;};",_fieldManualTopicAndHint]];
+        private _fieldManualTopicAndHint = getArray (configFile >> "cfgMods" >> _dlc >> "fieldManualTopicAndHint");
+        _label ctrlSetEventHandler ["buttonclick",format ["if (count %1 > 0) then {(%1 + [ctrlparent (_this select 0)]) call bis_fnc_openFieldManual;};",_fieldManualTopicAndHint]];
         private _OriginsText = composeText [
             "",image _logo
         ];

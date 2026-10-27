@@ -47,7 +47,7 @@ private _airVehicles = [];
 private _landVehicles = [];
 
 Info_1("Spawning in convoy %1",_convoyID);
-VerboseArray("Convoy Units", _units);
+VerboseArray("Convoy Units",_units);
 
 for "_i" from 0 to ((count _units) - 1) do
 {
@@ -80,7 +80,7 @@ for "_i" from 0 to ((count _units) - 1) do
 
 		// lastSpawn time check will try anyway if a vehicle gets stuck
 		private _lastSpawn = time;
-		waituntil {sleep 1; ((_vehicle distance2d _pos) > 15) or ((time - _lastSpawn) > 20)};
+		waitUntil {sleep 1; ((_vehicle distance2D _pos) > 15) or ((time - _lastSpawn) > 20)};
 	}
 	else {
         Debug("Convoy line has no vehicle, unhandled");

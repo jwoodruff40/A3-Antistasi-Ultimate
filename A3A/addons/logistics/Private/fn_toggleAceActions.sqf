@@ -36,14 +36,14 @@ if (_removeAction) then {
     //disable ACE dragging
     _object setVariable ["ace_dragging_canDrag",false, true];
     _object setVariable ["ace_dragging_canCarry",false, true];
-    _object setvariable ["ace_cargo_canLoad",false, true];
+    _object setVariable ["ace_cargo_canLoad",false, true];
 } else {
     _actions params ["_canDrag","_canCarry","_canLoad"];
 
     //set actions to the state it was before load
     _object setVariable ["ace_dragging_canDrag",_canDrag, true];
     _object setVariable ["ace_dragging_canCarry",_canCarry, true];
-    _object setvariable ["ace_cargo_canLoad",_canLoad, true];
+    _object setVariable ["ace_cargo_canLoad",_canLoad, true];
 
     _object setVariable ["LogisticsAceToggle", nil, true];
 };

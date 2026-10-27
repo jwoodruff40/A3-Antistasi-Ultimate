@@ -70,7 +70,7 @@ Info_1("City size: %1.",str _size);
 //////////////////////
 //Informer position
 /////////////////////
-private _buildings = _positionX nearobjects ["house",_size];
+private _buildings = _positionX nearObjects ["house",_size];
 
 if (isNil "_buildings" || {count _buildings < 0}) exitWith {
     Error("Problems with city buildings, rerequesting new rescue mission.");
@@ -206,7 +206,7 @@ for "_i" from 0 to _roadblockCount do {
         _radiusX = 0;
 		continue;
 	} else {
-        private _roadscon = roadsConnectedto (_roads select 0);
+        private _roadscon = roadsConnectedTo (_roads select 0);
 	    _dirveh = [_roads select 0, _roadscon select 0] call BIS_fnc_DirTo;
     };
 

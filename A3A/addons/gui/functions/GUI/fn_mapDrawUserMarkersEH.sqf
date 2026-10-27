@@ -35,17 +35,17 @@ params ["_map"];
     if !(_channel in [0,1,2]) then {continue};
 
     // Get marker color and covert to RGBA array
-    _markerColor = (configFile >> "CfgmarkerColors" >> getmarkerColor _x >> "color") call BIS_fnc_colorConfigToRGBA;
+    _markerColor = (configFile >> "CfgmarkerColors" >> getMarkerColor _x >> "color") call BIS_fnc_colorConfigToRGBA;
 
     // Check for line markers
     private _markerPolyline = markerPolyline _x;
-    if (_markerPolyline isEqualto []) then
+    if (_markerPolyline isEqualTo []) then
     {
         // not a line marker
         // Get marker data
-        _markerTexture = (getmarkertype _x) call BIS_fnc_textureMarker;
-        _markerPos = getmarkerPos _x;
-        _markertext = markertext _x;
+        _markerTexture = (getMarkerType _x) call BIS_fnc_textureMarker;
+        _markerPos = getMarkerPos _x;
+        _markertext = markerText _x;
 
         // Draw marker
         _map drawIcon [

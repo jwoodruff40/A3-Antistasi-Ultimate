@@ -28,7 +28,7 @@ private _rebWeightMul = call {
     private _hqPos = markerPos "Synd_HQ";
     {
         _totalW = _totalW + _x; 
-        private _dist = markerPos (_targets#_forEachIndex#0) distance2d _hqPos;
+        private _dist = markerPos (_targets#_forEachIndex#0) distance2D _hqPos;
         private _weightMul = linearConversion [3000, 8000, _dist, A3A_attackHQProximityMul, 1, true];
         _distW = _distW + _x * _weightMul;
         _weights set [_forEachIndex, _x * _weightMul];
@@ -71,7 +71,7 @@ Debug("Final target choice list:");
 private _arePunishmentsAllowed = ((enablePunishments isEqualTo 1) && (tierWar >= A3U_setting_tierWarPunishments));
 
 Info("Logging available targets: Original, Culled");
-InfoArray("Original Targets:", _targets);
+InfoArray("Original Targets:",_targets);
 
 private _minWeight = selectMax _weights / 10;
 private _culledTargets = [];
@@ -80,7 +80,7 @@ private _culledTargets = [];
     if (_weight > _minWeight) then { _culledTargets append [_x, _weight] };
 } forEach _targets;
 
-InfoArray("Culled Targets:", _culledTargets);
+InfoArray("Culled Targets:",_culledTargets);
 
 // Now we just pick a target
 private _target = selectRandomWeighted _culledTargets;

@@ -159,7 +159,7 @@ while {alive _veh} do {
 	_Vwp0 setWaypointSpeed "LIMITED";
 	_veh setFuel 1;
 
-	private _timeout = time + (_veh distance2d _posDestination) / 6 + 300;			// stuck detection
+	private _timeout = time + (_veh distance2D _posDestination) / 6 + 300;			// stuck detection
 	waitUntil {sleep 60; _veh distance _posDestination < _distanceX or {time > _timeout or {{[_x] call A3A_fnc_canFight} count _soldiers == 0 or {!canMove _veh}}}};
 	if !(_veh distance _posDestination < _distanceX) exitWith {};
 

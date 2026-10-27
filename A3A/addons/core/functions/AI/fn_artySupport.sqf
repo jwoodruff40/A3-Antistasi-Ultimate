@@ -24,7 +24,7 @@ _areAlive = false;
 	_veh = vehicle _soldierX;
 	if ((_veh != _soldierX) and (not(_veh in _artyArray))) then
 	{
-		if (( "Artillery" in (getArray (configfile >> "CfgVehicles" >> typeOf _veh >> "availableForSupportTypes")))) then
+		if (( "Artillery" in (getArray (configFile >> "CfgVehicles" >> typeOf _veh >> "availableForSupportTypes")))) then
 		{
 			_hasArtillery = true;
 			if ((canFire _veh) and (alive _veh) and (isNil "typeAmmunition")) then
@@ -74,7 +74,7 @@ hcShowBar true;
 
 if (_typeAmmunition != "2Rnd_155mm_Mo_LG") then
 	{
-	closedialog 0;
+	closeDialog 0;
 #ifdef UseDoomGUI
 	ERROR("Disabled due to UseDoomGUI Switch.")
 #else
@@ -151,7 +151,7 @@ if (_typeArty != "BARRAGE") then
 	{
 	if (_typeAmmunition != "2Rnd_155mm_Mo_LG") then
 		{
-		closedialog 0;
+		closeDialog 0;
 #ifdef UseDoomGUI
 	ERROR("Disabled due to UseDoomGUI Switch.")
 #else

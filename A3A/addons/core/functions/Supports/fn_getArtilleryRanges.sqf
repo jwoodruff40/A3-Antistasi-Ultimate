@@ -35,7 +35,7 @@ private _turretCfg = call {
 };
 
 // Try mags for pylon weapons, otherwise assume the turret weapon is valid
-private _weapon = getText (configfile >> "CfgMagazines" >> _shellType >> "pylonWeapon");
+private _weapon = getText (configFile >> "CfgMagazines" >> _shellType >> "pylonWeapon");
 if (_weapon == "") then { _weapon = getArray (_turretCfg >> "Weapons") # 0 };
 private _weaponCfg = configFile >> "CfgWeapons" >> _weapon;
 

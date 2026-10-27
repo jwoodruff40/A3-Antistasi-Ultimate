@@ -28,4 +28,4 @@ if(typeName (_this select 0) isEqualTo "SCALAR")then{//[_index, _item] or [_inde
 			["UpdateItemRemove",[_index, _item, _amount,true]] remoteExecCall ["jn_fnc_arsenal",_playersInArsenal];
 		};
 	} forEach _x;
-}foreach _array;
+}forEach _array;

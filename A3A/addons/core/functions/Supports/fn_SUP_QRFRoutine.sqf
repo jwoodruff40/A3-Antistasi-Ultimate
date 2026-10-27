@@ -51,7 +51,7 @@ ServerInfo_1("Spawn performed: Vehicles %1",_vehicles apply { typeOf _x });
 private _nearMrk = call {
     private _potentials = outposts + airportsX + resourcesX + factories + seaports + milbases;
     private _nearMrk = [_potentials, _targPos] call BIS_fnc_nearestPosition;       // might be nil
-    [nil, _nearMrk] select (markerPos _nearMrk distance2d _targPos < 500);
+    [nil, _nearMrk] select (markerPos _nearMrk distance2D _targPos < 500);
 };
 
 private _timeOut = time + 1800;
@@ -71,7 +71,7 @@ while {true} do
         ServerInfo_1("QRF %1 has timed out, starting retreat",_supportName);
     };
 
-    if (_travelling and {-1 != _cargoGroups findif { leader _x distance2d _targPos < 300 }}) then {
+    if (_travelling and {-1 != _cargoGroups findIf { leader _x distance2D _targPos < 300 }}) then {
         _travelling = false;
         _searchTime = time + 600;           // give it 10 minutes to find a target
         ServerDebug_1("%1 is approaching its objective",_supportName);
@@ -79,7 +79,7 @@ while {true} do
 
     if (!_travelling and {time > _searchTime}) then {
         // objNull distance2d [anything] is 1e10
-        if (-1 == _cargoGroups findIf { (leader _x findNearestEnemy _targPos) distance2d _targPos < 500 }) then {
+        if (-1 == _cargoGroups findIf { (leader _x findNearestEnemy _targPos) distance2D _targPos < 500 }) then {
             ServerInfo_1("%1 has no nearby targets, returning",_supportName);
             break;
         };

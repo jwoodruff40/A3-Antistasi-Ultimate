@@ -32,7 +32,7 @@ if (_frontierX) then {
 		private _dist = 0;
 		private _road = objNull;
 		{if ((position _x) distance _positionX > _dist) then {_road = _x;_dist = position _x distance _positionX}} forEach _roads;
-		private _roadscon = roadsConnectedto _road;
+		private _roadscon = roadsConnectedTo _road;
 		private _roadcon = objNull;
 		{if ((position _x) distance _positionX > _dist) then {_roadcon = _x}} forEach _roadscon;
 		private _dirveh = [_roadcon, _road] call BIS_fnc_DirTo;
@@ -204,7 +204,7 @@ deleteMarker _mrk;
 {
 	// delete all vehicles that haven't been captured
 	if (_x getVariable ["ownerSide", _sideX] == _sideX) then {
-		if (_x distance2d (_x getVariable "originalPos") < 100) then { deleteVehicle _x }
+		if (_x distance2D (_x getVariable "originalPos") < 100) then { deleteVehicle _x }
 		else { if !(_x isKindOf "StaticWeapon") then { [_x] spawn A3A_fnc_VEHdespawner } };
 	};
 } forEach _vehiclesX;

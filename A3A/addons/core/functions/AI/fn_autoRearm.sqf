@@ -213,8 +213,8 @@ if (_secondaryWeapon != "") then {
 		waitUntil {sleep 1; !([_unit] call A3A_fnc_canFight) || (isNull _selectedContainer) || (_unit distance _selectedContainer < 3) || (_timeOut < time) || (unitReady _unit)};
 		if ((unitReady _unit) && ([_unit] call A3A_fnc_canFight) && (_unit distance _selectedContainer > 3) && (_selectedContainer isKindOf "ReammoBox_F") && (!isNull _selectedContainer)) then {_unit setPos position _selectedContainer};
 		if (_unit distance _selectedContainer < 3) then {
-			if ((backpack _unit == "") && (backPack _selectedContainer != "")) then {
-				_unit addBackPackGlobal ((backpack _selectedContainer) call A3A_fnc_basicBackpack);
+			if ((backpack _unit == "") && (backpack _selectedContainer != "")) then {
+				_unit addBackpackGlobal ((backpack _selectedContainer) call A3A_fnc_basicBackpack);
 				_unit action ["rearm",_selectedContainer];
 				sleep 3;
 				{_unit addItemToBackpack _x} forEach (backpackItems _selectedContainer);
@@ -357,11 +357,11 @@ if ({_x == "FirstAidKit"} count (items _unit) < _targetFAKs) then {
 };
 
 _foundItem = false;
-_numberX = getNumber (configfile >> "CfgWeapons" >> vest cursortarget >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Chest" >> "armor");
+_numberX = getNumber (configFile >> "CfgWeapons" >> vest cursorTarget >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Chest" >> "armor");
 _deadBodies = allDead select {(_x distance _unit < _maxDistance) && (!(_x getVariable ["busy",false]))};
 {
 	_selectedBody = _x;
-	if ((getNumber (configfile >> "CfgWeapons" >> vest _selectedBody >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Chest" >> "armor") > _numberX) && (_unit distance _selectedBody < _maxDistance)) then {
+	if ((getNumber (configFile >> "CfgWeapons" >> vest _selectedBody >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Chest" >> "armor") > _numberX) && (_unit distance _selectedBody < _maxDistance)) then {
 		_selectedContainer = _selectedBody;
 		_foundItem = true;
 	};
@@ -407,7 +407,7 @@ if (backpack _unit == "") then {
 		_timeOut = time + 60;
 		waitUntil {sleep 1; !([_unit] call A3A_fnc_canFight) || (isNull _selectedContainer) || (_unit distance _selectedContainer < 3) || (_timeOut < time) || (unitReady _unit)};
 		if (_unit distance _selectedContainer < 3) then {
-			_unit addBackPackGlobal ((backpack _selectedContainer) call A3A_fnc_basicBackpack);
+			_unit addBackpackGlobal ((backpack _selectedContainer) call A3A_fnc_basicBackpack);
 			_unit action ["rearm",_selectedContainer];
 			_bodyEquipment = nearestObjects [_selectedContainer, ["WeaponHolderSimulated", "GroundWeaponHolder", "WeaponHolder"], 5];
 			if (count _bodyEquipment > 0) then {

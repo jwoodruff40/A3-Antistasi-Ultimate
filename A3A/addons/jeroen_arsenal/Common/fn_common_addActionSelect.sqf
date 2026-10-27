@@ -36,7 +36,7 @@ _id = player addAction [
 		
 		_object call _removeScript;
 		
-		if(isNil "_object")exitwith{hint localize "STR_JNC_ACT_SELECT_NO_OBJECT"};
+		if(isNil "_object")exitWith{hint localize "STR_JNC_ACT_SELECT_NO_OBJECT"};
 		hint ""; //remove select hint if it was still there
 		
 		_object call _script;

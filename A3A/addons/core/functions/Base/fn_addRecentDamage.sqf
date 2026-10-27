@@ -19,7 +19,7 @@ if (!isServer) exitWith { Error("Server-only function miscalled") };
 params ["_side", "_pos", "_value", "_killer"];
 
 if (_killer isKindOf "Air") exitWith {
-    Debug_2("Adding %1 threat to vehicle %2",_value,typeof _killer);
+    Debug_2("Adding %1 threat to vehicle %2",_value,typeOf _killer);
     private _extraThreat = _killer getVariable ["A3A_airKills", 0];
     _killer setVariable ["A3A_airKills", _extraThreat + _value];
 };

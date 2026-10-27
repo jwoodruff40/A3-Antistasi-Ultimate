@@ -55,7 +55,7 @@ if (vehicle leader _group != leader _group) exitWith
     { _x disableAI "AUTOCOMBAT" } forEach units _group;
     _group setBehaviourStrong "AWARE";
     private _wp = _group addWaypoint [markerPos _marker, 50];
-    ServerDebug_2("Group %1 with vehicle %2 returning to base",_group,typeof vehicle leader _group);
+    ServerDebug_2("Group %1 with vehicle %2 returning to base",_group,typeOf vehicle leader _group);
     _group setCurrentWaypoint _wp;
 };
 
@@ -65,7 +65,7 @@ if (vehicle leader _group != leader _group) exitWith
 if (_marker != "") then {
     if (([_marker] call A3A_fnc_garrisonSize) - count (garrison getVariable [_marker, []]) <= 0) exitWith { _marker = "" };
     if (sidesX getVariable _marker != side _group) exitWith { _marker = "" }; 
-    if (markerPos _marker distance2d leader _group >= 500) exitWith { _marker = "" };
+    if (markerPos _marker distance2D leader _group >= 500) exitWith { _marker = "" };
 };
 if (_marker != "") exitWith { [_group, _marker] call A3A_fnc_enemyGarrison };
 

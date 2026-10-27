@@ -97,7 +97,7 @@ private _fnc_pickSquadType = {
 			_source = selectRandom _sourceAirports;
 			private _killZones = killzones getVariable [_source, []];
 			_targIndex = _reinfTargets findIf {
-				(markerPos (_x#2) distance2d markerPos _source < distanceForAirAttack)
+				(markerPos (_x#2) distance2D markerPos _source < distanceForAirAttack)
 				and !((_x#2) in _killZones)
 			};
 			if (_targIndex == -1) then {

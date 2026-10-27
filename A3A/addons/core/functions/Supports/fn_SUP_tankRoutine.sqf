@@ -71,7 +71,7 @@ while {true} do
             Debug_2("Next target for %2 is %1",_suppTarget,_supportName);
 
             private _lastKnownPos = _suppTarget select 1;
-            private _knownDist = _lastKnownPos distance2d getPosATL _targetObj;
+            private _knownDist = _lastKnownPos distance2D getPosATL _targetObj;
             private _knowledge = random 0.3 + _knownDist / _suppRadius;
 
             {

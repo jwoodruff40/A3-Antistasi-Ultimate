@@ -40,7 +40,7 @@ while {alive _veh} do
 			if (isTouchingGround _veh) then
 				{
 				{
-				unAssignVehicle _x;
+				unassignVehicle _x;
 	   			moveOut _x;
 	   			sleep 1.5;
 				} forEach assignedCargo _veh;
@@ -69,7 +69,7 @@ while {alive _veh} do
 						_veh setPos getPos _road;
 						{
 							[_x,true] remoteExec ["hideObjectGlobal",2]
-						} foreach (nearestTerrainObjects [position _road,["tree","bush"],15]);
+						} forEach (nearestTerrainObjects [position _road,["tree","bush"],15]);
 					};
 				};
 			};

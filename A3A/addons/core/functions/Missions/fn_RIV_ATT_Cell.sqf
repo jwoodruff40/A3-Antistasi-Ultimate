@@ -83,7 +83,7 @@ if (count _damagedBuildings > 0) then {
         private _damagedBuildingCollision = 2 boundingBoxReal _damagedBuilding;
         private _p1 = _damagedBuildingCollision select 0;
         private _p2 = _damagedBuildingCollision select 1;
-        _blacklistPos pushback [_p1, _p2];
+        _blacklistPos pushBack [_p1, _p2];
         private _maxHeight = abs ((_p2 select 2) - (_p1 select 2));
 
         private _bAtlPos = (getPosATL _damagedBuilding);
@@ -237,7 +237,7 @@ for "_i" from 0 to (count _cardinalDirections) - 1 do {
         _radiusX = 0;
 		continue;
 	} else {
-        private _roadscon = roadsConnectedto (_roads select 0);
+        private _roadscon = roadsConnectedTo (_roads select 0);
 	    _dirveh = [_roads select 0, _roadscon select 0] call BIS_fnc_DirTo;
     };
 

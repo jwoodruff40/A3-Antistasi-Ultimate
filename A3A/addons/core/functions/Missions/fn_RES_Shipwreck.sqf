@@ -388,7 +388,7 @@ if ({alive _x} count _POWs == 0) then {
 
 	{
         [_x] join _grpPOW; 
-        [_x] orderGetin false
+        [_x] orderGetIn false
     } forEach _POWs;
 
     private _ammoBox = (_faction get "ammobox") createVehicle (getMarkerPos "Synd_HQ");

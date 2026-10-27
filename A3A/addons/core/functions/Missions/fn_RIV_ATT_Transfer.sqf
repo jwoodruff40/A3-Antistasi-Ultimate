@@ -18,9 +18,9 @@ private _hideoutPosition = [
 private _radGrad = [_hideoutPosition, 0] call BIS_fnc_terrainGradAngle;
 private _outOfBounds = _hideoutPosition findIf { (_x < 0) || {_x > worldSize}} != -1;
 private _InvBases = (airportsX + milbases + outposts + seaports + factories + resourcesX) select {sidesX getVariable [_x, sideUnknown] == Invaders};
-private _isTooCloseToOutposts = _InvBases findIf { _hideoutPosition distance2d (getMarkerPos _x) < 500 || _hideoutPosition inArea _x } != -1;
-private _CloseToOutposts = _InvBases findIf { _hideoutPosition distance2d (getMarkerPos _x) < 1000 || _hideoutPosition inArea _x } != -1;
-private _transferConvoyPossibleSpawnMarkers = _InvBases select {_hideoutPosition distance2d (getMarkerPos _x) < 4000}; //
+private _isTooCloseToOutposts = _InvBases findIf { _hideoutPosition distance2D (getMarkerPos _x) < 500 || _hideoutPosition inArea _x } != -1;
+private _CloseToOutposts = _InvBases findIf { _hideoutPosition distance2D (getMarkerPos _x) < 1000 || _hideoutPosition inArea _x } != -1;
+private _transferConvoyPossibleSpawnMarkers = _InvBases select {_hideoutPosition distance2D (getMarkerPos _x) < 4000}; //
 if (_transferConvoyPossibleSpawnMarkers isEqualTo []) exitWith {
     [[_marker],"A3A_fnc_RIV_ATT_Hideout"] remoteExec ["A3A_fnc_scheduler",2];
 };
@@ -64,7 +64,7 @@ if(!(_radGrad > -0.25 && _radGrad < 0.25) || {isOnRoad _hideoutPosition || {surf
         ] call BIS_fnc_findSafePos;
         _radGrad = [_hideoutPosition, 0] call BIS_fnc_terrainGradAngle;
         _outOfBounds = _hideoutPosition findIf { (_x < 0) || {_x > worldSize}} != -1;
-        _isTooCloseToOutposts = _InvBases findIf { _hideoutPosition distance2d (getMarkerPos _x) < 300 || _hideoutPosition inArea _x } != -1;
+        _isTooCloseToOutposts = _InvBases findIf { _hideoutPosition distance2D (getMarkerPos _x) < 300 || _hideoutPosition inArea _x } != -1;
         if ((_radGrad > -0.25 && _radGrad < 0.25) && {!(isOnRoad _hideoutPosition) && {!(surfaceIsWater _hideoutPosition) && {!_outOfBounds && {!_isTooCloseToOutposts}}}}) exitWith {};
         _radiusX = _radiusX + 5;
     };
@@ -85,10 +85,10 @@ private _fnc_spawnConvoyVehicle = {
     _pathState = [_route, [20, 0] select (count _pathState == 0), _pathState] call A3A_fnc_findPosOnRoute;
     while {true} do {
         // make sure there are no other vehicles within 10m
-        if (count (ASLtoAGL (_pathState#0) nearEntities 10) == 0) exitWith {};
+        if (count (ASLToAGL (_pathState#0) nearEntities 10) == 0) exitWith {};
         _pathState = [_route, 10, _pathState] call A3A_fnc_findPosOnRoute;
     };
-    private _veh = createVehicle [_vehType, ASLtoAGL (_pathState#0) vectorAdd [0,0,0.5]];               // Give it a little air
+    private _veh = createVehicle [_vehType, ASLToAGL (_pathState#0) vectorAdd [0,0,0.5]];               // Give it a little air
     private _vecUp = (_pathState#1) vectorCrossProduct [0,0,1] vectorCrossProduct (_pathState#1);       // correct pitch angle
     _veh setVectorDirAndUp [_pathState#1, _vecUp];
     _veh allowDamage false;

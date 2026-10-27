@@ -43,7 +43,7 @@ private _taskId = "invaderPunish" + str A3A_taskCount;
 
 
 if (isNil "_delay") then {
-    _delay = 300 + 60 * (markerPos "Synd_HQ" distance2d _posDest) / 2000;            // +1 min per 2km
+    _delay = 300 + 60 * (markerPos "Synd_HQ" distance2D _posDest) / 2000;            // +1 min per 2km
 };
 
 // Create the attacking force
@@ -112,7 +112,7 @@ waitUntil {
 private _fnc_adjustNearCities = {
     params ["_position", "_maxSupport", "_maxDist"];
     {
-        private _dist = getMarkerPos _x distance2d _position;
+        private _dist = getMarkerPos _x distance2D _position;
         if (_dist > _maxDist) then { continue };
         private _suppChange = linearConversion [0, _maxDist, _dist, _maxSupport, 0, true];
         [0,_suppChange,_x,false] spawn A3A_fnc_citySupportChange;		// don't scale this by pop

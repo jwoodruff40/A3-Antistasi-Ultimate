@@ -137,7 +137,7 @@ _vehicleSpawns = [];
     _height = (_size select 1) * 2;
     if(_width < (4 + 2 * SPACING)) then
     {
-      Error_2("InitSpawnPlaces: Marker %1 is not wide enough for vehicles, required are %2 meters!",_x ,(4 + 2 * SPACING));
+      Error_2("InitSpawnPlaces: Marker %1 is not wide enough for vehicles, required are %2 meters!",_x,(4 + 2 * SPACING));
     }
     else
     {
@@ -156,7 +156,7 @@ _vehicleSpawns = [];
             {
               _x hideObject true;
             };
-          } foreach (nearestTerrainObjects [getMarkerPos _markerX, ["Tree","Bush", "Hide", "Rock", "Fence"], _radius, true]);
+          } forEach (nearestTerrainObjects [getMarkerPos _markerX, ["Tree","Bush", "Hide", "Rock", "Fence"], _radius, true]);
         }
         else
         {
@@ -165,7 +165,7 @@ _vehicleSpawns = [];
             {
               [_x,true] remoteExec ["hideObjectGlobal",2];
             }
-          } foreach (nearestTerrainObjects [getMarkerPos _markerX, ["Tree","Bush", "Hide", "Rock", "Fence"], _radius, true]);
+          } forEach (nearestTerrainObjects [getMarkerPos _markerX, ["Tree","Bush", "Hide", "Rock", "Fence"], _radius, true]);
         };
 
         //Create the places
@@ -192,13 +192,13 @@ _heliSpawns = [];
     {
       {
         _x hideObject true;
-      } foreach (nearestTerrainObjects [_pos, ["Tree","Bush", "Hide", "Rock"], 5, true]);
+      } forEach (nearestTerrainObjects [_pos, ["Tree","Bush", "Hide", "Rock"], 5, true]);
     }
     else
     {
       {
         [_x,true] remoteExec ["hideObjectGlobal",2];
-      } foreach (nearestTerrainObjects [_pos, ["Tree","Bush", "Hide", "Rock"], 5, true]);
+      } forEach (nearestTerrainObjects [_pos, ["Tree","Bush", "Hide", "Rock"], 5, true]);
     };
     _dir = direction _x;
     _heliSpawns pushBack [_pos, _dir];

@@ -204,7 +204,7 @@ if ({alive _x} count _Deserters == 0) then {
 	private _bonusAmount = round (_countX*_bonus/2);
 	[_bonusAmount,theBoss] call A3A_fnc_addScorePlayer;
     [(_bonusAmount*10),theBoss, true] call A3A_fnc_addMoneyPlayer;
-	{[_x] join _grpDeserters; [_x] orderGetin false} forEach _Deserters;
+	{[_x] join _grpDeserters; [_x] orderGetIn false} forEach _Deserters;
 };
 sleep 60;
 private _items = [];

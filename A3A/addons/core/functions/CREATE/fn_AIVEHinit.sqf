@@ -20,7 +20,7 @@ if (isNil "_veh") exitWith {};
 // Not a crewed vehicle, nothing to do here
 if (fullCrew [_veh, "", true] isEqualTo []) exitWith {
 	// buyable item, use initObject. Happens on game loading at the moment
-	if (typeof _veh in A3A_utilityItemHM) then { _veh call A3A_fnc_initObject };
+	if (typeOf _veh in A3A_utilityItemHM) then { _veh call A3A_fnc_initObject };
 };
 
 _veh setVehicleRadar ([0, 1] select (getNumber(configOf _veh >> "radarType") in [2, 4]));
@@ -172,7 +172,7 @@ if (_side == Invaders || _side == Occupants) then {
 		if (_veh getVariable "ownerSide" != _veh getVariable "originalSide") exitWith { nil };
 
 		// Add 1/3 cost to recent casualties list on server
-		private _vehCost = A3A_vehicleResourceCosts getOrDefault [typeof _veh, 0];
+		private _vehCost = A3A_vehicleResourceCosts getOrDefault [typeOf _veh, 0];
 		[_veh getVariable "ownerSide", getPos _veh, _vehCost/3, _source] remoteExec ["A3A_fnc_addRecentDamage", 2];
 
 		// Attempt to call for support if there's a crew. Assume local, should be true
@@ -234,7 +234,7 @@ if (_side != teamPlayer) then
 		private _oldside = _veh getVariable ["ownerSide", teamPlayer];
 		if (_oldside != teamPlayer) then
 		{
-			ServerDebug_2("%1 switching side from %2 to rebels",typeof _veh,_oldside);
+			ServerDebug_2("%1 switching side from %2 to rebels",typeOf _veh,_oldside);
 			[_veh, teamPlayer, true] call A3A_fnc_vehKilledOrCaptured;
 		};
 		_veh removeEventHandler ["GetIn", _thisEventHandler];
@@ -275,7 +275,7 @@ if(([_veh] call A3A_Logistics_fnc_getVehCapacity) > 1) then {
 };
 
 // Handler for refunding vehicles after cleanup
-if (A3A_vehicleResourceCosts getOrDefault [typeof _veh, 0] > 0) then {
+if (A3A_vehicleResourceCosts getOrDefault [typeOf _veh, 0] > 0) then {
 	_veh addEventHandler ["Deleted", A3A_fnc_vehicleDeletedEH];
 };
 

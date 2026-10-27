@@ -19,7 +19,7 @@ _dummy forceWalk true;
 _dummy switchMove "AmovPknlMstpSlowWnonDnon";       // Basic no-weapon kneel pose. Otherwise the dummy does a slow weapon-stow animation on spawn which delays the drag.
 _dummy setSkill 0;
 [_dummy,true] remoteExec ["hideObjectGlobal",2];
-_dummy allowdammage false;
+_dummy allowDammage false;
 _dummy setBehaviour "CARELESS";
 _dummy disableAI "FSM";
 _dummy disableAI "SUPPRESSION";

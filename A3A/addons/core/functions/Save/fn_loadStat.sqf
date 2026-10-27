@@ -54,7 +54,7 @@ if (_varName in specialVarLoads) then {
             if (count _s < 2) exitWith {
                 Error_1("Bad version string: %1",_varValue);
             };
-            A3A_saveVersion = 10000*parsenumber(_s#0) + 100*parseNumber(_s#1);
+            A3A_saveVersion = 10000*parseNumber(_s#0) + 100*parseNumber(_s#1);
             if (count _s == 3) then {
                 A3A_saveVersion = A3A_saveVersion + parseNumber(_s#2);
             };
@@ -347,7 +347,7 @@ if (_varName in specialVarLoads) then {
             petros setPos _posHQ;
             "Synd_HQ" setMarkerPos _posHQ;
             if (chopForest) then {
-                { _x hideObjectGlobal true } foreach (nearestTerrainObjects [position petros,["tree","bush"],70]);
+                { _x hideObjectGlobal true } forEach (nearestTerrainObjects [position petros,["tree","bush"],70]);
             };
             if (count _varValue == 3) then {
                 [] spawn A3A_fnc_buildHQ;

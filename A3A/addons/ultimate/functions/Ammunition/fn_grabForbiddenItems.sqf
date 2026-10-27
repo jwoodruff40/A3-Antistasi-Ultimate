@@ -17,7 +17,7 @@ FIX_LINE_NUMBERS()
 private _forbiddenItems = [];
 private _inheritedForbiddenItems = [];
 
-private _cfg = (configfile >> "A3U" >> "forbiddenItems") call BIS_fnc_getCfgSubClasses;
+private _cfg = (configFile >> "A3U" >> "forbiddenItems") call BIS_fnc_getCfgSubClasses;
 
 {
 	// if (getNumber (configFile "A3U" >> "forbiddenItems" >> _configClass >> "inheritedPath") isNotEqualTo "") exitWith {
@@ -28,7 +28,7 @@ private _cfg = (configfile >> "A3U" >> "forbiddenItems") call BIS_fnc_getCfgSubC
         continue
     };
     
-    private _addons = getArray (configfile >> "A3U" >> "forbiddenItems" >> _x >> "addons");
+    private _addons = getArray (configFile >> "A3U" >> "forbiddenItems" >> _x >> "addons");
     
     if (count _addons == 0 || { (isClass (configFile >> "CfgPatches" >> _x)) } count _addons == count _addons) then {
         _forbiddenItems pushBack _x;

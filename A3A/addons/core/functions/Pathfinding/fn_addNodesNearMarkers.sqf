@@ -31,7 +31,7 @@ _straddlePoints = [];
     // find nearest nav point in case that's actually the closest point
     private _nearDist = 1e6;
     {
-        private _distance = _x distance2d _mpos;
+        private _distance = _x distance2D _mpos;
         if (_nearDist > _distance) then { _nearDist = _distance };
     } forEach _navPoints;
 
@@ -59,22 +59,22 @@ _straddlePoints = [];
     } forEach _navPoints;
 
     if (_nearData isEqualType false) then { Debug_1("No suitable pairs found near %1",_x); continue };     // no suitable pairs
-    if (NavGrid#(_nearData#0)#0 distance2d _nearData#2 < 30 or NavGrid#(_nearData#1)#0 distance2d _nearData#2 < 30) then {
+    if (NavGrid#(_nearData#0)#0 distance2D _nearData#2 < 30 or NavGrid#(_nearData#1)#0 distance2D _nearData#2 < 30) then {
         Debug_1("New nav point near %1 would be too close",_x); continue;
     };
 
-    Debug_3("Found straddle point for %1 at distance %2 (check %3)",_x,_nearDist,_nearData#2 distance2d _mpos);
+    Debug_3("Found straddle point for %1 at distance %2 (check %3)",_x,_nearDist,_nearData#2 distance2D _mpos);
 
     // first find nearest road segment to position
     private _nearRoad = objNull;
     private _nearDist = 1e4;
     {
-        private _dist = _nearData#2 distance2d _x;
+        private _dist = _nearData#2 distance2D _x;
         if (_dist < _nearDist) then { _nearDist = _dist; _nearRoad = _x };
     } forEach (_nearData#2 nearRoads 50);       // is this enough? allegedly
 
     if (isNull _nearRoad) then { Error_2("No road on path near %1 at %2",_x,_nearData#2); continue }; 
-    Debug_2("Road found for %1 at distance %2 from point",_x,_nearRoad distance2d _nearData#2);
+    Debug_2("Road found for %1 at distance %2 from point",_x,_nearRoad distance2D _nearData#2);
 
     // Build a new node between the pair
     private _node1 = NavGrid#(_nearData#0);
@@ -87,12 +87,12 @@ _straddlePoints = [];
     _straddlePoints append [_nearData#0, _nearData#1, _newIndex];
 
     // relink node 1
-    private _n1dist = _node1#0 distance2d _newPos;
+    private _n1dist = _node1#0 distance2D _newPos;
     _node1#3 apply { if (_x#0 == _nearData#1) then { _x set [0, _newIndex]; _x set [2, _n1dist]; _roadType = _x#1 } };
     _newNode#3 pushBack [_nearData#0, _roadType, _n1dist];
 
     // relink node 2
-    private _n2dist = _node2#0 distance2d _newPos;
+    private _n2dist = _node2#0 distance2D _newPos;
     _node2#3 apply { if (_x#0 == _nearData#0) then { _x set [0, _newIndex]; _x set [2, _n2dist] } };
     _newNode#3 pushBack [_nearData#1, _roadType, _n2dist];
 

@@ -40,7 +40,7 @@ private _headerSystem = "
 ";
 
 //--- Compose headers based on current debug mode
-private _debug = uinamespace getvariable ["bis_fnc_initFunctions_debugMode", 0];
+private _debug = uiNamespace getVariable ["bis_fnc_initFunctions_debugMode", 0];
 private _headerDefault = switch _debug do {
 
     //--- 0 - Debug mode off

@@ -23,7 +23,7 @@ if (_vehType in vehFastRope) then {
         // * Force convert the combatLanding behavior to fastrope behavior if terrain objects (trees, buildings, etc) in the landing position are taller than 3m
         // * visiblePosition isn't perfect (especially with large boulder / cliff objects), but the best option without a ton of bounding box / vertex math
         if ((visiblePosition _x) select 2 > 3) exitWith { _forceFastrope = true };
-    } forEach (nearestTerrainObjects [_landPos, [], (sizeof _vehType)]);
+    } forEach (nearestTerrainObjects [_landPos, [], (sizeOf _vehType)]);
 };
 if (_forceFastrope) exitWith {
     private _functionName = ["A3A_fnc_fastrope", "A3A_fnc_fastropeVTOL"] select (_vehType in FactionGet(all,"vehiclesPlanesTransport"));
@@ -148,7 +148,7 @@ while {_interval < 0.9999} do
 
     if(!canMove _helicopter || !alive _driver) exitWith {};
     _dam = damage _helicopter;
-    if ((getPos _helicopter select 2) < 0.25 ) exitwith{_helicopter setdamage 0; sleep 1; _helicopter setdamage _dam;};
+    if ((getPos _helicopter select 2) < 0.25 ) exitWith{_helicopter setDamage 0; sleep 1; _helicopter setDamage _dam;};
 };
 sleep 0.1;
 

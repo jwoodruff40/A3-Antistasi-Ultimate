@@ -427,7 +427,7 @@ if (_prefix isEqualTo "reb") exitWith {
         , _faction get "unitCrew"
         , _faction get "unitCrew"
     ]];
-    _faction set ["groupSniper", double( _faction get "unitSniper" )];
+    _faction set ["groupSniper", double(_faction get "unitSniper")];
     _faction set ["groupSentry", [_faction get "unitGL", _faction get "unitRifle"]];
 
     _faction set ["unitsSoldiers", (_faction get "groupSquadEng") + [_faction get "unitSniper", _faction get "unitCrew", _faction get "unitAA", _faction get "unitAT"]];

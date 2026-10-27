@@ -74,11 +74,11 @@ while {true} do
     switch (_state) do
     {
         case STATE_PICK_TARGET: {
-            if (_plane distance2d _suppCenter > 1.5 * DIST_REPOS) exitWith { sleep 5 };
+            if (_plane distance2D _suppCenter > 1.5 * DIST_REPOS) exitWith { sleep 5 };
             if (_suppTarget isEqualTo []) exitWith { _group setCurrentWaypoint _loiterWP; sleep 5 };
             
             _targetObj = _suppTarget select 0;
-            _lastKnownPos = ATLtoASL (_suppTarget select 1);
+            _lastKnownPos = ATLToASL (_suppTarget select 1);
             if !(_targetObj call A3A_fnc_canFight) exitWith {
                 _suppTarget resize 0;
                 Debug_1("%1 skips target, as it is already dead",_supportName);
@@ -95,7 +95,7 @@ while {true} do
         };
 
         case STATE_APPROACH: {
-            if (_plane distance2d _lastKnownPos < 200) exitWith {
+            if (_plane distance2D _lastKnownPos < 200) exitWith {
                 Debug_1("%1 approach overshot before acquisition",_supportName);
                 _state = STATE_REPOSITION;
             };
@@ -110,8 +110,8 @@ while {true} do
                 };
 
                 private _vis = 1 max getNumber (configFile >> "CfgVehicles" >> typeOf _targetObj >> "camouflage");
-                private _knownDist = _targetPos distance2d _lastKnownPos;
-                private _dist = _targetPos distance2d _planePos;
+                private _knownDist = _targetPos distance2D _lastKnownPos;
+                private _dist = _targetPos distance2D _planePos;
                 private _chance = _baseSpotChance * _vis * exp (_knownDist / -500) * exp (_dist / -3000);
                 if (_chance > random 1) then { _acquired = true };
 
@@ -143,7 +143,7 @@ while {true} do
 
         case STATE_REPOSITION: {
             // if we're around 3km away and facing <100 degrees from the target, switch to approach
-            private _dist = _plane distance2d _lastKnownPos;
+            private _dist = _plane distance2D _lastKnownPos;
             private _targVector = _lastKnownPos vectorDiff (getPosASL _plane);
             private _dotdir = vectorNormalized _targVector vectorDotProduct vectorDir _plane;
             if (_dist < DIST_REPOS*1.1 and _dist > DIST_REPOS*0.9 and _dotdir > -0.3) exitWith {

@@ -114,7 +114,7 @@ private _npcUnits = _units select {
     // No air units, no dead or unconscious
     !(vehicle _x isKindOf "Air") && { _x call A3A_fnc_canFight }
 } select {
-    private _value = linearConversion[_radius / 2, _radius, _position distance2d _x, 1, 0, true];
+    private _value = linearConversion[_radius / 2, _radius, _position distance2D _x, 1, 0, true];
     _sidesCount set[side _x, (_sidesCount get side _x) + _value];
 
     Verbose_4("unit=%1; side=%2; value=%3; sidesCount=%4",_x,side _x,_value,_sidesCount);
@@ -135,7 +135,7 @@ if !(isNil "_npcCallback") then {
 };
 
 // In case we picked up any game logic...
-_sidesCount deleteAT sideLogic;
+_sidesCount deleteAt sideLogic;
 
 #ifdef __A3A_DEBUG__
 if !assert(count keys _sidesCount == 4) then {

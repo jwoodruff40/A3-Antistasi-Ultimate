@@ -63,7 +63,7 @@ if (dateToNumber date > _dateLimitNum) exitWith {
 	[_taskId, "AS", "FAILED", true] call A3A_fnc_taskSetState;
 };
 
-private _mutant = ObjNull;
+private _mutant = objNull;
 private _groupSmasher = createGroup Invaders;
 
 private _groupSFHash = A3A_faction_occ;
@@ -71,7 +71,7 @@ private _groupSFSide = Occupants;
 
 private _groupsSF = [];
 
-private _attackHeliVehicle = ObjNull;
+private _attackHeliVehicle = objNull;
 
 if (_difficultX) then {
 	_mutant = [_groupSmasher, "WBK_Goliaph_3", _posTask, [], 0, "NONE"] call A3A_fnc_createUnit; // goliath (OPF)

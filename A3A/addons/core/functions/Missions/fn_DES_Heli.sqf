@@ -57,7 +57,7 @@ private _isAttackHeli = _typeVehH in ((_faction get "vehiclesHelisAttack") + (_f
 private _flatPos = [_posCrashOrigin, 0, 1000, 0, 0, 0.1] call BIS_fnc_findSafePos;
 private _posCrash = _flatPos findEmptyPosition [0,100,_typeVehH];
 if (count _posCrash == 0) then {_posCrash = _posCrashOrigin};//if no pos use _posCrashOrigin
-{[_x,true] remoteExec ["hideObjectGlobal",2]} foreach (nearestTerrainObjects [_posCrash,["tree","bush", "ROCKS"],50]);
+{[_x,true] remoteExec ["hideObjectGlobal",2]} forEach (nearestTerrainObjects [_posCrash,["tree","bush", "ROCKS"],50]);
 Debug_2("Crash Location: %1, Aircraft: %2",_posCrash,_typeVehH);
 
 //creating array for cleanup

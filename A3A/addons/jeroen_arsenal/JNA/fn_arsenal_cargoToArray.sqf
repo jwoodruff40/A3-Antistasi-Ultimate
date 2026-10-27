@@ -68,7 +68,7 @@ _unloadContainer = {
 	{
 		{
 			private["_index","_item","_amount"];
-			if(typename _x  isEqualTo "ARRAY")then{
+			if(typeName _x  isEqualTo "ARRAY")then{
 				if(count _x > 0)then{
 					_item = _x select 0;
 					_amount = _x select 1;
@@ -91,8 +91,8 @@ _unloadContainer = {
 					};
 				};
 			};
-		}foreach _x;
-	}foreach _attItems;
+		}forEach _x;
+	}forEach _attItems;
 
 
 
@@ -108,7 +108,7 @@ _unloadContainer = {
 	} else {
 		{
 			_x select 1 call _unloadContainer;
-		} foreach (everyContainer _container_sub);
+		} forEach (everyContainer _container_sub);
 	};
 };
 

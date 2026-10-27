@@ -48,7 +48,7 @@ _gunship addEventHandler
             _projectile setVectorDir _dir;
             while {!(isNull _projectile) && {alive _projectile}} do
             {
-                if ((getPos _projectile) select 2 < 10) exitwith {};
+                if ((getPos _projectile) select 2 < 10) exitWith {};
                 sleep 0.15;
                 private _dir = vectorNormalized (_target vectorDiff (getPosASL _projectile));
                 _projectile setVelocity (_dir vectorMultiply _speed);

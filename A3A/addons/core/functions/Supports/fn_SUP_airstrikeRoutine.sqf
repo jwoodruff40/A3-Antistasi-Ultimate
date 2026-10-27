@@ -79,7 +79,7 @@ _wp2 setWaypointBehaviour "CARELESS";
     params ["_pos", "_pilot", "_bombParams"];
     waitUntil {sleep 1; ((_pos distance2D _pilot) < 500) || {isNull (objectParent _pilot)}};
     if(isNull (objectParent _pilot)) exitWith {};
-    sleep (((_pos distance2d _pilot) - 250) / (speed vehicle _pilot / 3.6));
+    sleep (((_pos distance2D _pilot) - 250) / (speed vehicle _pilot / 3.6));
     if(isNull (objectParent _pilot)) exitWith {};
     _bombParams spawn A3A_fnc_airbomb;
 };

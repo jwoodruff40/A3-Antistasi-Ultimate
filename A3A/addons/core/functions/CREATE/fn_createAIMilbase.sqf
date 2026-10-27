@@ -465,7 +465,7 @@ _spawnsUsed call A3A_fnc_freeSpawnPositions;
 {
 	// delete all vehicles that haven't been stolen
 	if (_x getVariable ["ownerSide", _sideX] == _sideX) then {
-		if (_x distance2d (_x getVariable "originalPos") < 100) then { deleteVehicle _x }
+		if (_x distance2D (_x getVariable "originalPos") < 100) then { deleteVehicle _x }
 		else { if !(_x isKindOf "StaticWeapon") then { [_x] spawn A3A_fnc_VEHdespawner } };
 	};
 } forEach _vehiclesX;
@@ -480,13 +480,13 @@ _spawnsUsed call A3A_fnc_freeSpawnPositions;
 
 // If loot crate was stolen, set the cooldown
 if (!isNil "_ammoBox1") then {
-	if ((alive _ammoBox1) and (_ammoBox1 distance2d _positionX < 100)) exitWith { deleteVehicle _ammoBox1 };
+	if ((alive _ammoBox1) and (_ammoBox1 distance2D _positionX < 100)) exitWith { deleteVehicle _ammoBox1 };
 	if (alive _ammoBox1) then { [_ammoBox1] spawn A3A_fnc_VEHdespawner };
 	private _lootCD = 120*16 / ([_markerX] call A3A_fnc_garrisonSize);
 	garrison setVariable [_markerX + "_lootCD", _lootCD, true];
 };
 if (!isNil "_ammoBox2") then {
-	if ((alive _ammoBox2) and (_ammoBox2 distance2d _positionX < 100)) exitWith { deleteVehicle _ammoBox2 };
+	if ((alive _ammoBox2) and (_ammoBox2 distance2D _positionX < 100)) exitWith { deleteVehicle _ammoBox2 };
 	if (alive _ammoBox2) then { [_ammoBox2] spawn A3A_fnc_VEHdespawner };
 	private _lootCD = 120*16 / ([_markerX] call A3A_fnc_garrisonSize);
 	garrison setVariable [_markerX + "_lootCD", _lootCD, true];

@@ -128,7 +128,7 @@ if ({alive _x} count _POWs == 0) then {
 	[_bonusAmount,theBoss] call A3A_fnc_addScorePlayer;
     [(_bonusAmount*10),theBoss, true] call A3A_fnc_addMoneyPlayer;
 
-	{[_x] join _grpPOW; [_x] orderGetin false} forEach _POWs;
+	{[_x] join _grpPOW; [_x] orderGetIn false} forEach _POWs;
 };
 
 sleep 60;

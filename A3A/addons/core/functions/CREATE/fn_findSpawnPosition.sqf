@@ -22,7 +22,7 @@ params ["_marker", "_type"];
 
 // check marker lockout?
 
-private _varName = format ["%1_%2", _marker, tolower _type];
+private _varName = format ["%1_%2", _marker, toLower _type];
 private _varNameUsed = _varName + "_used";
 private _used = spawner getVariable [_varNameUsed, []];
 private _index = _used find false;

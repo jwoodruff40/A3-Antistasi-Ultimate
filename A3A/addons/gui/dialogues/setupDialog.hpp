@@ -772,8 +772,10 @@ class A3A_SetupConfirmDialog
 
     #undef DIALOG_X
     #undef DIALOG_Y
-    #define DIALOG_X CENTER_X(80) // Global x pos of dialog
-    #define DIALOG_Y CENTER_Y(40) // Global y pos of dialog
+    // Global x pos of dialog
+    #define DIALOG_X CENTER_X(80)
+    // Global y pos of dialog
+    #define DIALOG_Y CENTER_Y(40)
 
     class Controls
     {

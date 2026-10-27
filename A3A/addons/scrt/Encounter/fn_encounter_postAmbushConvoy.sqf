@@ -39,7 +39,7 @@ while {true} do {
 };
 
 private _mainRoad = (_road select {(position _x) distance2D _originPosition > 500}) select 0;
-private _roadcon = roadsConnectedto _mainRoad;
+private _roadcon = roadsConnectedTo _mainRoad;
 private _dirveh = if (count _roadcon > 0) then {
     [_mainRoad, _roadcon select 0] call BIS_fnc_dirTo; // Direction from main segment to first connected road
 } else {
@@ -53,7 +53,7 @@ while {count _roadSegments < 3 && count _connectedRoads > 0} do {
     private _nextSegment = _connectedRoads select 0;
     if (!(_nextSegment in _roadSegments)) then {
         _roadSegments pushBack _nextSegment;
-        _connectedRoads = roadsConnectedto _nextSegment;
+        _connectedRoads = roadsConnectedTo _nextSegment;
     };
 };
 
@@ -87,7 +87,7 @@ private _convoySpacing = 15;
         private _nearestRoad = [_roadPosition, 50, []] call BIS_fnc_nearestRoad;
         if (!isNull _nearestRoad) then {
             _roadPosition = getPos _nearestRoad;
-            private _newRoadcon = roadsConnectedto _nearestRoad;
+            private _newRoadcon = roadsConnectedTo _nearestRoad;
             if (count _newRoadcon > 0) then {
                 // Update direction from new segment
                 _roadDir = [_nearestRoad, _newRoadcon select 0] call BIS_fnc_dirTo;

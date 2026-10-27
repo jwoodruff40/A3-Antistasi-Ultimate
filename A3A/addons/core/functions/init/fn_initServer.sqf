@@ -25,7 +25,7 @@ GVAR(despawnQueue) = [];
     _x hideObjectGlobal true;
 } forEach [boxX, flagX, vehicleBox, mapX, petros];
 
-switch (toLower worldname) do {
+switch (toLower worldName) do {
 	case "cam_lao_nam": {};
 	case "vn_khe_sanh": {mapX setObjectTextureGlobal [0,"Pictures\Mission\whiteboard.paa"];};
 	default {mapX setObjectTextureGlobal [0,"Pictures\Mission\whiteboard.jpg"];};
@@ -153,7 +153,7 @@ else
             { (missionNamespace getVariable ("unlocked" + _x)) pushBack _class } forEach _categories;
             _categoriesToPublish insert [true, _categories, []];
         };
-    } foreach FactionGet(reb,"initialRebelEquipment");
+    } forEach FactionGet(reb,"initialRebelEquipment");
 
     if (pistolStart) then {
         private _magsToKeep = [];
@@ -294,13 +294,13 @@ addMissionEventHandler ["BuildingChanged", {
 
 addMissionEventHandler ["EntityKilled", {
     params ["_victim", "_killer", "_instigator"];
-    if (typeof _victim == "") exitWith {};
+    if (typeOf _victim == "") exitWith {};
     private _killerSide = side group (if (isNull _instigator) then {_killer} else {_instigator});
     if (isPlayer _killer) then {
         private _killerUID = getPlayerUID _killer;
-        Debug_3("%1 killed by %2. Killer UID: %3",typeof _victim,_killerSide,_killerUID);
+        Debug_3("%1 killed by %2. Killer UID: %3",typeOf _victim,_killerSide,_killerUID);
     } else {
-        Debug_2("%1 killed by %2",typeof _victim,_killerSide);
+        Debug_2("%1 killed by %2",typeOf _victim,_killerSide);
     };
 
     if !(isNil {_victim getVariable "ownerSide"}) then {
@@ -367,8 +367,8 @@ savingServer = false;           // enable saving
     };
 };
 
-if ((isClass (configfile >> "CBA_Extended_EventHandlers")) && (
-    isClass (configfile >> "CfgPatches" >> "lambs_danger"))) then {
+if ((isClass (configFile >> "CBA_Extended_EventHandlers")) && (
+    isClass (configFile >> "CfgPatches" >> "lambs_danger"))) then {
     // disable lambs danger fsm entrypoint
     ["CAManBase", "InitPost", {
         params ["_unit"];

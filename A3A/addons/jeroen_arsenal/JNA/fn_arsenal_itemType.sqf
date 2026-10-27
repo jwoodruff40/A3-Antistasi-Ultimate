@@ -139,7 +139,7 @@ private _itemCategory = switch true do {
 				"MiscItem";
 			};
 			default {
-				ERROR_JN_2("Unknown item in item type script: ", _item);
+				ERROR_JN_2("Unknown item in item type script: ",_item);
 				"MiscItem";
 			};
 		};
@@ -202,18 +202,18 @@ if (_itemCategory == "Junk") exitWith {-1};
 INITTYPES
 
 {
-	if (_itemCategory in _x) exitwith {_return = _foreachindex;};
-} foreach _types;
+	if (_itemCategory in _x) exitWith {_return = _foreachindex;};
+} forEach _types;
 
 
 if(_return == -1)then{
-	private _data = (missionnamespace getvariable "bis_fnc_arsenal_data");
+	private _data = (missionNamespace getVariable "bis_fnc_arsenal_data");
 	{
 		private _index = _x;
 		private _dataSet = _data select _index;
 
 		{
-			if((tolower _item)isEqualTo (tolower _x))exitWith{_return = _index};
+			if((toLower _item)isEqualTo (toLower _x))exitWith{_return = _index};
 		} forEach _dataSet;
 
 		if(_return != -1)exitWith{};

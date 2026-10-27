@@ -158,8 +158,8 @@ if (!isNil "_insignia" && {_insignia isNotEqualTo ""}) then {
 
 //Adjusts squadleaders with improved skill
 if (_type in FactionGet(all,"SquadLeaders")) then {
-    _unit setskill ["courage",_skill + 0.2];
-    _unit setskill ["commanding",_skill + 0.2];
+    _unit setSkill ["courage",_skill + 0.2];
+    _unit setSkill ["commanding",_skill + 0.2];
 
     [_unit, 10] call SCRT_fnc_common_addRandomMoneyMagazine;
     [_unit, _type, _isRival] call SCRT_fnc_common_selectAndApplyLeaderIntel;
@@ -249,8 +249,8 @@ if (sunOrMoon < 1) then { // Night time conditions
             _unit enableGunLights "AUTO";
         };
         // Reduce their magical night-time spotting powers
-        _unit setskill ["spotDistance", _skill * 0.7];
-        _unit setskill ["spotTime", _skill * 0.5];
+        _unit setSkill ["spotDistance", _skill * 0.7];
+        _unit setSkill ["spotTime", _skill * 0.5];
     };
 } else { // Day time conditions
     if (_unitPrefix isNotEqualTo "SF" && {_unitPrefix isNotEqualTo "elite"}) then { // Regular units

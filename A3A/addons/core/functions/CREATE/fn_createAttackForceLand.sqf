@@ -53,7 +53,7 @@ private _isTransport = _vehAttackCount < _vehCount;            // normal case, f
 private _landPosBlacklist = [];
 
 for "_i" from 1 to _vehCount do {
-    private _vehType = ObjNull;
+    private _vehType = objNull;
 
     // Attempt to grab veh types
     _vehType = selectRandomWeighted ([_supportPool, _transportPool] select _isTransport);
