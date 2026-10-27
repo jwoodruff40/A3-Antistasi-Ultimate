@@ -184,17 +184,23 @@ if (_hasWS) then {
 #include "Vanilla_Vehicle_Attributes.sqf"
 
 ["animations", [
-    #include "..\vehicleAnimations\vehicleAnimations_Vanilla.sqf",
-    #include "..\vehicleAnimations\vehicleAnimations_WS.sqf",
-    #include "..\vehicleAnimations\vehicleAnimations_RF.sqf",
-    #include "..\vehicleAnimations\vehicleAnimations_EF.sqf"
+    #include "..\vehicleAnimations\vehicleAnimations_Vanilla.inc"
+    ,
+    #include "..\vehicleAnimations\vehicleAnimations_WS.inc"
+    ,
+    #include "..\vehicleAnimations\vehicleAnimations_RF.inc"
+    ,
+    #include "..\vehicleAnimations\vehicleAnimations_EF.inc"
 ]] call _fnc_saveToTemplate;
 
 ["variants", [
-    #include "..\vehicleVariants\Vanilla_NATO_Tropical\RF_NATO_Tropical.sqf",
-    #include "..\vehicleVariants\Vanilla_NATO_Tropical\Vanilla_NATO_Tropical.sqf",
-    #include "..\vehicleVariants\Vanilla_NATO_Tropical\WS_NATO_Tropical.sqf",
-    #include "..\vehicleVariants\Vanilla_NATO_Tropical\EF_NATO_Tropical.sqf"
+    #include "..\vehicleVariants\Vanilla_NATO_Tropical\RF_NATO_Tropical.inc"
+    ,
+    #include "..\vehicleVariants\Vanilla_NATO_Tropical\Vanilla_NATO_Tropical.inc"
+    ,
+    #include "..\vehicleVariants\Vanilla_NATO_Tropical\WS_NATO_Tropical.inc"
+    ,
+    #include "..\vehicleVariants\Vanilla_NATO_Tropical\EF_NATO_Tropical.inc"
 ]] call _fnc_saveToTemplate;
 
 /////////////////////

@@ -28,7 +28,7 @@ if !assert(isText(_cbaEvent >> "CBA_Event")) exitWith {};
 
 _cbaEvent = getText(_cbaEvent >> "CBA_Event");
 
-Warning_1("backwards compatibility to remove all ""%1"" events invoked (will remove all ""%2"" events).",_event,_cbaEvent);
+Warning_2("backwards compatibility to remove all ""%1"" events invoked (will remove all ""%2"" events).",_event,_cbaEvent);
 Warning("please update your event system implementation. The old event system WILL be removed.");
 
 if (isNil QGVAR(cbaEventIdMapper)) exitWith {};

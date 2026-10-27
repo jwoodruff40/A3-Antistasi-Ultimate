@@ -149,15 +149,19 @@ if (_hasWS) then {
 #include "Vanilla_Vehicle_Attributes.sqf"
 
 ["animations", [
-    #include "..\vehicleAnimations\vehicleAnimations_Vanilla.sqf",
-    #include "..\vehicleAnimations\vehicleAnimations_WS.sqf",
-    #include "..\vehicleAnimations\vehicleAnimations_RF.sqf",
-    #include "..\vehicleAnimations\vehicleAnimations_EF.sqf"
+    #include "..\vehicleAnimations\vehicleAnimations_Vanilla.inc"
+    ,
+    #include "..\vehicleAnimations\vehicleAnimations_WS.inc"
+    ,
+    #include "..\vehicleAnimations\vehicleAnimations_RF.inc"
+    ,
+    #include "..\vehicleAnimations\vehicleAnimations_EF.inc"
 ]] call _fnc_saveToTemplate;
 
 ["variants", [
-    #include "..\vehicleVariants\Vanilla_CSAT_Temparate\Vanilla_CSAT_Temparate.sqf",
-    #include "..\vehicleVariants\Vanilla_CSAT_Temparate\WS_CSAT_Temparate.sqf"
+    #include "..\vehicleVariants\Vanilla_CSAT_Temparate\Vanilla_CSAT_Temparate.inc"
+    ,
+    #include "..\vehicleVariants\Vanilla_CSAT_Temparate\WS_CSAT_Temparate.inc"
 ]] call _fnc_saveToTemplate;
 
 /////////////////////

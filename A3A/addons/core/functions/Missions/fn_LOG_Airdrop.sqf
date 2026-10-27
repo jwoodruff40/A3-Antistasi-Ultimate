@@ -6,7 +6,7 @@ if (!isServer and hasInterface) exitWith{};
 
 params ["_markerX"];
 
-Info ("Airdrop mission init.");
+Info("Airdrop mission init.");
 
 private _vehicles = [];
 private _groups = [];

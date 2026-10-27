@@ -882,6 +882,7 @@
             <ChineseSimplified>消灭指挥官即可摧毁该管理区。&lt;br /&gt;内部有一只小型补给箱可供搜刮，还有可营救的囚犯，获救后将加入你的阵营。</ChineseSimplified>
             <Japanese>指揮官を排除すると施設を破壊できます。&lt;br /&gt;中には少量の補給箱があり、救出できる捕虜もいて、救出後はあなたの勢力に加わります。</Japanese>
         </Key>
+    </Package>
     <Package name="CBA-settings">
         <Key ID="STR_A3U_setting_enableInitMessages">
             <Original>Enable Init Messages</Original>

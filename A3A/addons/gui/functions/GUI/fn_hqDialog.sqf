@@ -56,12 +56,12 @@ switch (_mode) do
         if (_canMoveHQ # 0) then {
             _moveHqButton ctrlEnable true;
             _moveHqButton ctrlSetTooltip "";
-            _moveHqIcon ctrlSetTextColor ([A3A_COLOR_WHITE] call A3A_fnc_configColorToArray);
+            _moveHqIcon ctrlSetTextColor ([QUOTE(A3A_COLOR_WHITE)] call A3A_fnc_configColorToArray);
             _moveHqIcon ctrlSetTooltip "";
         } else {
             _moveHqButton ctrlEnable false;
             _moveHqButton ctrlSetTooltip _canMoveHQ # 1;
-            _moveHqIcon ctrlSetTextColor ([A3A_COLOR_BUTTON_BACKGROUND_DISABLED] call A3A_fnc_configColorToArray);
+            _moveHqIcon ctrlSetTextColor ([QUOTE(A3A_COLOR_BUTTON_BACKGROUND_DISABLED)] call A3A_fnc_configColorToArray);
             _moveHqIcon ctrlSetTooltip _canMoveHQ # 1;
         };
 

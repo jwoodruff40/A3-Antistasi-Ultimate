@@ -117,11 +117,11 @@ switch (_mode) do
         {
             _aiControlButton ctrlEnable true;
             _aiControlButton ctrlSetTooltip "";
-            _aiControlIcon ctrlSetTextColor ([A3A_COLOR_WHITE] call A3A_fnc_configColorToArray);
+            _aiControlIcon ctrlSetTextColor ([QUOTE(A3A_COLOR_WHITE)] call A3A_fnc_configColorToArray);
         } else {
             _aiControlButton ctrlEnable false;
             _aiControlButton ctrlSetTooltip localize "STR_antistasi_dialogs_main_ai_management_no_ai_control_tooltip";
-            _aiControlIcon ctrlSetTextColor ([A3A_COLOR_BUTTON_BACKGROUND_DISABLED] call A3A_fnc_configColorToArray);
+            _aiControlIcon ctrlSetTextColor ([QUOTE(A3A_COLOR_BUTTON_BACKGROUND_DISABLED)] call A3A_fnc_configColorToArray);
         };
 
         // If none are selected, disable all the other buttons
@@ -134,23 +134,23 @@ switch (_mode) do
         if (count _lbSelection > 0) then {
             _aiDismissButton ctrlEnable true;
             _aiDismissButton ctrlSetTooltip "";
-            _aiDismissIcon ctrlSetTextColor ([A3A_COLOR_WHITE] call A3A_fnc_configColorToArray);
+            _aiDismissIcon ctrlSetTextColor ([QUOTE(A3A_COLOR_WHITE)] call A3A_fnc_configColorToArray);
             _aiAutoLootButton ctrlEnable true;
             _aiAutoLootButton ctrlSetTooltip "";
-            _aiAutoLootIcon ctrlSetTextColor ([A3A_COLOR_WHITE] call A3A_fnc_configColorToArray);
+            _aiAutoLootIcon ctrlSetTextColor ([QUOTE(A3A_COLOR_WHITE)] call A3A_fnc_configColorToArray);
             _aiAutoHealButton ctrlEnable true;
             _aiAutoHealButton ctrlSetTooltip "";
-            _aiAutoHealIcon ctrlSetTextColor ([A3A_COLOR_WHITE] call A3A_fnc_configColorToArray);
+            _aiAutoHealIcon ctrlSetTextColor ([QUOTE(A3A_COLOR_WHITE)] call A3A_fnc_configColorToArray);
         } else {
             _aiDismissButton ctrlEnable false;
             _aiDismissButton ctrlSetTooltip localize "STR_antistasi_dialogs_main_ai_management_select_ai_tooltip";
-            _aiDismissIcon ctrlSetTextColor ([A3A_COLOR_BUTTON_BACKGROUND_DISABLED] call A3A_fnc_configColorToArray);
+            _aiDismissIcon ctrlSetTextColor ([QUOTE(A3A_COLOR_BUTTON_BACKGROUND_DISABLED)] call A3A_fnc_configColorToArray);
             _aiAutoLootButton ctrlEnable false;
             _aiAutoLootButton ctrlSetTooltip localize "STR_antistasi_dialogs_main_ai_management_select_ai_tooltip";
-            _aiAutoLootIcon ctrlSetTextColor ([A3A_COLOR_BUTTON_BACKGROUND_DISABLED] call A3A_fnc_configColorToArray);
+            _aiAutoLootIcon ctrlSetTextColor ([QUOTE(A3A_COLOR_BUTTON_BACKGROUND_DISABLED)] call A3A_fnc_configColorToArray);
             _aiAutoHealButton ctrlEnable false;
             _aiAutoHealButton ctrlSetTooltip localize "STR_antistasi_dialogs_main_ai_management_select_ai_tooltip";
-            _aiAutoHealIcon ctrlSetTextColor ([A3A_COLOR_BUTTON_BACKGROUND_DISABLED] call A3A_fnc_configColorToArray);
+            _aiAutoHealIcon ctrlSetTextColor ([QUOTE(A3A_COLOR_BUTTON_BACKGROUND_DISABLED)] call A3A_fnc_configColorToArray);
         };
     };
 

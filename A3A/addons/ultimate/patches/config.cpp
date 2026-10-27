@@ -77,20 +77,20 @@ class scr536_radio_dialog
         idc = 100100;
         text = "x\A3A\addons\ultimate\patches\data\radio_ca.paa";
         moving = 1;
-        x = 0.0978125 * safezoneW + safezoneX;
-        y = -0.00599999 * safezoneH + safezoneY;
-        w = 0.252656 * safezoneW;
-        h = 0.891 * safezoneH;
+        x = QUOTE(0.0978125 * safezoneW + safezoneX);
+        y = QUOTE(-0.00599999 * safezoneH + safezoneY);
+        w = QUOTE(0.252656 * safezoneW);
+        h = QUOTE(0.891 * safezoneH);
     };
     class image: RscBackPicture
     {
         idc = 100200;
         text = "x\A3A\addons\ultimate\patches\data\radio_paper_background_ca.paa";
         moving = 1;
-        x = 0.304062 * safezoneW + safezoneX;
-        y = 0.225 * safezoneH + safezoneY;
-        w = 0.175313 * safezoneW;
-        h = 0.154 * safezoneH;
+        x = QUOTE(0.304062 * safezoneW + safezoneX);
+        y = QUOTE(0.225 * safezoneH + safezoneY);
+        w = QUOTE(0.175313 * safezoneW);
+        h = QUOTE(0.154 * safezoneH);
     };
     class edit: RscEditLCD
     {
@@ -98,10 +98,10 @@ class scr536_radio_dialog
         canModify = 1;
         onKeyUp = "if (_this select 1 in [28,156]) then { [((ctrlParent (_this select 0))) displayCtrl 100500] call TFAR_handhelds_fnc_onButtonClick_Enter; };";
 
-        x = 0.365937 * safezoneW + safezoneX;
-        y = 0.247 * safezoneH + safezoneY;
-        w = 0.0979687 * safezoneW;
-        h = 0.033 * safezoneH;
+        x = QUOTE(0.365937 * safezoneW + safezoneX);
+        y = QUOTE(0.247 * safezoneH + safezoneY);
+        w = QUOTE(0.0979687 * safezoneW);
+        h = QUOTE(0.033 * safezoneH);
         tooltip = "Current frequency";
     };
     // class channel_edit: RscEditLCD
@@ -121,10 +121,10 @@ class scr536_radio_dialog
         onButtonClick = "[((ctrlParent (_this select 0))) displayCtrl 100500] call TFAR_handhelds_fnc_onButtonClick_Enter;";
         action = "";
 
-        x = 0.438125 * safezoneW + safezoneX;
-        y = 0.335 * safezoneH + safezoneY;
-        w = 0.020625 * safezoneW;
-        h = 0.022 * safezoneH;
+        x = QUOTE(0.438125 * safezoneW + safezoneX);
+        y = QUOTE(0.335 * safezoneH + safezoneY);
+        w = QUOTE(0.020625 * safezoneW);
+        h = QUOTE(0.022 * safezoneH);
         tooltip = "Set frequency";
     };
     class clear: HiddenButton
@@ -132,10 +132,10 @@ class scr536_radio_dialog
         idc = 100400;
         action = "ctrlSetText [100500,'']; ctrlSetFocus ((findDisplay 100400) displayCtrl 100500);";
 
-        x = 0.324687 * safezoneW + safezoneX;
-        y = 0.335 * safezoneH + safezoneY;
-        w = 0.0309375 * safezoneW;
-        h = 0.022 * safezoneH;
+        x = QUOTE(0.324687 * safezoneW + safezoneX);
+        y = QUOTE(0.335 * safezoneH + safezoneY);
+        w = QUOTE(0.0309375 * safezoneW);
+        h = QUOTE(0.022 * safezoneH);
         tooltip = "Clear frequency";
     };
     class channel_up: HiddenButton
@@ -143,10 +143,10 @@ class scr536_radio_dialog
         idc = 100700;
         action = "[1, false] call TFAR_fnc_setChannelViaDialog;";
 
-        x = 0.396875 * safezoneW + safezoneX;
-        y = 0.335 * safezoneH + safezoneY;
-        w = 0.020625 * safezoneW;
-        h = 0.022 * safezoneH;
+        x = QUOTE(0.396875 * safezoneW + safezoneX);
+        y = QUOTE(0.335 * safezoneH + safezoneY);
+        w = QUOTE(0.020625 * safezoneW);
+        h = QUOTE(0.022 * safezoneH);
         tooltip = "Next channel";
     };
     class channel_down: HiddenButton
@@ -154,10 +154,10 @@ class scr536_radio_dialog
         idc = 100800;
         action = "[0, false] call TFAR_fnc_setChannelViaDialog;";
 
-        x = 0.371094 * safezoneW + safezoneX;
-        y = 0.335 * safezoneH + safezoneY;
-        w = 0.020625 * safezoneW;
-        h = 0.022 * safezoneH;
+        x = QUOTE(0.371094 * safezoneW + safezoneX);
+        y = QUOTE(0.335 * safezoneH + safezoneY);
+        w = QUOTE(0.020625 * safezoneW);
+        h = QUOTE(0.022 * safezoneH);
         tooltip = "Previous channel";
     };
 };

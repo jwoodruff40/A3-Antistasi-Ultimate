@@ -75,7 +75,7 @@ class A3AU_RebHelipad_CircleNC_F: A3AU_RebHelipad_base_F
 
 class A3AU_RebHelipad_Circle_F: A3AU_RebHelipad_CircleNC_F
 {
-    displayName = $STR_A3_CFGVEHICLES_LAND_HELIPADCIRCLE_F0;
+    displayName = "$STR_A3_CFGVEHICLES_LAND_HELIPADCIRCLE_F0";
 
     class EGVAR(core,Properties): EGVAR(core,Properties)
     {
@@ -97,7 +97,7 @@ class A3AU_RebHelipad_SquareNC_F: A3AU_RebHelipad_base_F
 
 class A3AU_RebHelipad_Square_F: A3AU_RebHelipad_SquareNC_F 
 {
-    displayName = $STR_A3_CFGVEHICLES_LAND_HELIPADSQUARE_F0;
+    displayName = "$STR_A3_CFGVEHICLES_LAND_HELIPADSQUARE_F0";
 
     class EGVAR(core,Properties): EGVAR(core,Properties)
     {

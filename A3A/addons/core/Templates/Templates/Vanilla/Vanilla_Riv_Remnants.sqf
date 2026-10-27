@@ -83,14 +83,17 @@ private _staticMortars = ["I_G_Mortar_01_F"];
 ["vehiclesRivalsUavs", _uav] call _fnc_saveToTemplate;			
 
 ["animations", [
-    #include "..\vehicleAnimations\vehicleAnimations_Vanilla.sqf",
-    #include "..\vehicleAnimations\vehicleAnimations_WS.sqf",
-    #include "..\vehicleAnimations\vehicleAnimations_RF.sqf"
+    #include "..\vehicleAnimations\vehicleAnimations_Vanilla.inc"
+    ,
+    #include "..\vehicleAnimations\vehicleAnimations_WS.inc"
+    ,
+    #include "..\vehicleAnimations\vehicleAnimations_RF.inc"
 ]] call _fnc_saveToTemplate;
 
 ["variants", [
-	#include "..\vehicleVariants\Vanilla_Riv_Remnants\RF_Remnants.sqf",
-	#include "..\vehicleVariants\Vanilla_Riv_Remnants\Vanilla_Remnants.sqf"
+	#include "..\vehicleVariants\Vanilla_Riv_Remnants\RF_Remnants.inc"
+	,
+	#include "..\vehicleVariants\Vanilla_Riv_Remnants\Vanilla_Remnants.inc"
 ]] call _fnc_saveToTemplate;
 
 //////////////////////////

@@ -159,15 +159,19 @@ private _howitzers = [];
 #include "WS_Vehicle_Attributes.sqf"
 
 ["animations", [
-    #include "..\vehicleAnimations\vehicleAnimations_Vanilla.sqf",
-    #include "..\vehicleAnimations\vehicleAnimations_WS.sqf",
-    #include "..\vehicleAnimations\vehicleAnimations_RF.sqf"
+    #include "..\vehicleAnimations\vehicleAnimations_Vanilla.inc"
+    ,
+    #include "..\vehicleAnimations\vehicleAnimations_WS.inc"
+    ,
+    #include "..\vehicleAnimations\vehicleAnimations_RF.inc"
 ]] call _fnc_saveToTemplate;
 
 ["variants", [
-    #include "..\vehicleVariants\Vanilla_NATO_Arid\Vanilla_NATO_Arid.sqf",
-    #include "..\vehicleVariants\WS_NATO_UNA\WS_NATO_UNA.sqf",
-    #include "..\vehicleVariants\Vanilla_NATO_Arid\EF_NATO_Arid.sqf"
+    #include "..\vehicleVariants\Vanilla_NATO_Arid\Vanilla_NATO_Arid.inc"
+    ,
+    #include "..\vehicleVariants\WS_NATO_UNA\WS_NATO_UNA.inc"
+    ,
+    #include "..\vehicleVariants\Vanilla_NATO_Arid\EF_NATO_Arid.inc"
 ]] call _fnc_saveToTemplate;
 
 /////////////////////

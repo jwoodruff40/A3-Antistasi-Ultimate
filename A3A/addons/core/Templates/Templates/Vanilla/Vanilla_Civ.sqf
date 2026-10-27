@@ -73,9 +73,11 @@ if (_hasRF) then {
 ["vehiclesCivPlanes", _civPlanes] call _fnc_saveToTemplate;
 
 ["animations", [
-  #include "..\vehicleAnimations\vehicleAnimations_RF.sqf",
-  #include "..\vehicleAnimations\vehicleAnimations_WS.sqf",
-  #include "..\vehicleAnimations\vehicleAnimations_Vanilla.sqf"
+  #include "..\vehicleAnimations\vehicleAnimations_RF.inc"
+  ,
+  #include "..\vehicleAnimations\vehicleAnimations_WS.inc"
+  ,
+  #include "..\vehicleAnimations\vehicleAnimations_Vanilla.inc"
 ]] call _fnc_saveToTemplate;
 
 //////////////////////////

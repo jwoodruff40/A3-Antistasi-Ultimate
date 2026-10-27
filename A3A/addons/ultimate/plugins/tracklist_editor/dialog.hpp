@@ -93,7 +93,7 @@ class GVAR(dialog) {
 			type = CT_LISTNBOX;
 			idcLeft = -1;
 			idcRight = -1;
-			drawSideArrows = false;
+			drawSideArrows = 0;
 
 			font = "PuristaMedium";
 

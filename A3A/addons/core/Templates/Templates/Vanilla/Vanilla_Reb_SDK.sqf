@@ -101,7 +101,7 @@ private _staticMortars = ["I_G_Mortar_01_F"];
 //////////////////////////////////////
 
 ["variants", [
-  #include "..\vehicleVariants\Vanilla_FIA.sqf"
+  #include "..\vehicleVariants\Vanilla_FIA.inc"
 ]] call _fnc_saveToTemplate;
 
 #include "Vanilla_Reb_Vehicle_Attributes.sqf"

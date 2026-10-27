@@ -168,10 +168,10 @@ class GVAR(sellDialog) {
 		class ListContainerContent: RscListbox
 		{
 			type = CT_LISTNBOX;
-			drawSideArrows = true;
+			drawSideArrows = 1;
 			idcLeft = -1;
 			idcRight = -1;
-			tooltipPerColumn = true;
+			tooltipPerColumn = 1;
 			sizeEx = QUOTE(0.08);
 
 			idc = IDC_RSCA3USPCMSTORESELLDIALOG_LISTCONTAINERCONTENT;

@@ -20,7 +20,7 @@ class A3A {
 };
 
 
-#define A3A_Mission(MAPNAME, BRIEFINGLOCSTRING) class Antistasi_##MAPNAME { briefingName = BRIEFINGLOCSTRING; directory = x\A3A\addons\maps\Antistasi_##MAPNAME##.##MAPNAME; };
+#define A3A_Mission(MAPNAME, BRIEFINGLOCSTRING) class Antistasi_##MAPNAME { briefingName = BRIEFINGLOCSTRING; directory = QUOTE(x\A3A\addons\maps\Antistasi_##MAPNAME##.##MAPNAME); };
 
 class CfgMissions
 {

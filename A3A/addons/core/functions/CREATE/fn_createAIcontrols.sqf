@@ -181,7 +181,7 @@ if (_isControl) then
 
         _typeVehX = selectRandom (_faction getOrDefault [_vehicleCategory, _fallbackVehicles]);
         if (isNil "_typeVehX" || { !isClass(configFile >> "CfgVehicles" >> _typeVehX) }) exitWith {
-            Warning("Failed to select a valid vehicle type for '%1'; fallback also failed.", _vehicleCategory);
+            Warning_1("Failed to select a valid vehicle type for '%1'; fallback also failed.", _vehicleCategory);
         };
 
         _veh = _typeVehX createVehicle getPos (_roads select 0);

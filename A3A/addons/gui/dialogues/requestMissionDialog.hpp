@@ -7,11 +7,11 @@ class A3A_RequestMissionDialog : A3A_DefaultDialog
     class TitlebarText : A3A_TitlebarText
     {
       idc = -1;
-      text = $STR_antistasi_dialogs_mission_request_titlebar;
-      x = DIALOG_X;
-      y = DIALOG_Y - 5 * GRID_H;
-      w = DIALOG_W * GRID_W;
-      h = 5 * GRID_H;
+      text = "$STR_antistasi_dialogs_mission_request_titlebar";
+      x = QUOTE(DIALOG_X);
+      y = QUOTE(DIALOG_Y - 5 * GRID_H);
+      w = QUOTE(DIALOG_W * GRID_W);
+      h = QUOTE(5 * GRID_H);
     };
 
     // Main content
@@ -27,22 +27,22 @@ class A3A_RequestMissionDialog : A3A_DefaultDialog
           idc = -1;
           colorBackground[] = A3A_COLOR_TRANSPARENT;
           text = A3A_Icon_Conquest;
-          x = 15 * GRID_W;
-          y = 14 * GRID_H;
-          w = 16 * GRID_W;
-          h = 16 * GRID_H;
+          x = QUOTE(15 * GRID_W);
+          y = QUOTE(14 * GRID_H);
+          w = QUOTE(16 * GRID_W);
+          h = QUOTE(16 * GRID_H);
         };
 
         class ConquestButton : A3A_Button
         {
           idc = -1;
-          text = $STR_antistasi_dialogs_mission_request_conquest;
+          text = "$STR_antistasi_dialogs_mission_request_conquest";
           onButtonClick = "closeDialog 0; [""missionButtonClicked"", [""CON""]] call A3A_fnc_requestMissionDialog;";
-          sizeEx = GUI_TEXT_SIZE_LARGE;
-          x = 7 * GRID_W;
-          y = 34 * GRID_H;
-          w = 32 * GRID_W;
-          h = 12 * GRID_H;
+          sizeEx = QUOTE(GUI_TEXT_SIZE_LARGE);
+          x = QUOTE(7 * GRID_W);
+          y = QUOTE(34 * GRID_H);
+          w = QUOTE(32 * GRID_W);
+          h = QUOTE(12 * GRID_H);
         };
 
         // Destroy
@@ -51,22 +51,22 @@ class A3A_RequestMissionDialog : A3A_DefaultDialog
           idc = -1;
           colorBackground[] = A3A_COLOR_TRANSPARENT;
           text = A3A_Icon_Destroy;
-          x = 53 * GRID_W;
-          y = 14 * GRID_H;
-          w = 16 * GRID_W;
-          h = 16 * GRID_H;
+          x = QUOTE(53 * GRID_W);
+          y = QUOTE(14 * GRID_H);
+          w = QUOTE(16 * GRID_W);
+          h = QUOTE(16 * GRID_H);
         };
 
         class DestroyButton : A3A_Button
         {
           idc = -1;
-          text = $STR_antistasi_dialogs_mission_request_destroy;
+          text = "$STR_antistasi_dialogs_mission_request_destroy";
           onButtonClick = "closeDialog 0; [""missionButtonClicked"", [""DES""]] call A3A_fnc_requestMissionDialog;";
-          sizeEx = GUI_TEXT_SIZE_LARGE;
-          x = 45 * GRID_W;
-          y = 34 * GRID_H;
-          w = 32 * GRID_W;
-          h = 12 * GRID_H;
+          sizeEx = QUOTE(GUI_TEXT_SIZE_LARGE);
+          x = QUOTE(45 * GRID_W);
+          y = QUOTE(34 * GRID_H);
+          w = QUOTE(32 * GRID_W);
+          h = QUOTE(12 * GRID_H);
         };
 
         // Assasination
@@ -74,22 +74,22 @@ class A3A_RequestMissionDialog : A3A_DefaultDialog
         {
           idc = -1;
           text = A3A_Icon_Assassination;
-          x = 91 * GRID_W;
-          y = 14 * GRID_H;
-          w = 16 * GRID_W;
-          h = 16 * GRID_H;
+          x = QUOTE(91 * GRID_W);
+          y = QUOTE(14 * GRID_H);
+          w = QUOTE(16 * GRID_W);
+          h = QUOTE(16 * GRID_H);
         };
 
         class AssassinationButton : A3A_Button
         {
           idc = -1;
-          text = $STR_antistasi_dialogs_mission_request_assassination;
+          text = "$STR_antistasi_dialogs_mission_request_assassination";
           onButtonClick = "closeDialog 0; [""missionButtonClicked"", [""AS""]] call A3A_fnc_requestMissionDialog;";
-          sizeEx = GUI_TEXT_SIZE_LARGE;
-          x = 83 * GRID_W;
-          y = 34 * GRID_H;
-          w = 32 * GRID_W;
-          h = 12 * GRID_H;
+          sizeEx = QUOTE(GUI_TEXT_SIZE_LARGE);
+          x = QUOTE(83 * GRID_W);
+          y = QUOTE(34 * GRID_H);
+          w = QUOTE(32 * GRID_W);
+          h = QUOTE(12 * GRID_H);
         };
 
         // Convoy
@@ -98,22 +98,22 @@ class A3A_RequestMissionDialog : A3A_DefaultDialog
           idc = -1;
           colorBackground[] = A3A_COLOR_TRANSPARENT;
           text = A3A_Icon_Convoy_Ambush;
-          x = 129 * GRID_W;
-          y = 14 * GRID_H;
-          w = 16 * GRID_W;
-          h = 16 * GRID_H;
+          x = QUOTE(129 * GRID_W);
+          y = QUOTE(14 * GRID_H);
+          w = QUOTE(16 * GRID_W);
+          h = QUOTE(16 * GRID_H);
         };
 
         class ConvoyButton : A3A_Button
         {
           idc = -1;
-          text = $STR_antistasi_dialogs_mission_request_convoy;
+          text = "$STR_antistasi_dialogs_mission_request_convoy";
           onButtonClick = "closeDialog 0; [""missionButtonClicked"", [""CONVOY""]] call A3A_fnc_requestMissionDialog;";
-          sizeEx = GUI_TEXT_SIZE_LARGE;
-          x = 121 * GRID_W;
-          y = 34 * GRID_H;
-          w = 32 * GRID_W;
-          h = 12 * GRID_H;
+          sizeEx = QUOTE(GUI_TEXT_SIZE_LARGE);
+          x = QUOTE(121 * GRID_W);
+          y = QUOTE(34 * GRID_H);
+          w = QUOTE(32 * GRID_W);
+          h = QUOTE(12 * GRID_H);
         };
 
         // Rescue
@@ -122,22 +122,22 @@ class A3A_RequestMissionDialog : A3A_DefaultDialog
           idc = -1;
           colorBackground[] = A3A_COLOR_TRANSPARENT;
           text = A3A_Icon_Rescue;
-          x = 34 * GRID_W;
-          y = 56 * GRID_H;
-          w = 16 * GRID_W;
-          h = 16 * GRID_H;
+          x = QUOTE(34 * GRID_W);
+          y = QUOTE(56 * GRID_H);
+          w = QUOTE(16 * GRID_W);
+          h = QUOTE(16 * GRID_H);
         };
 
         class RescueButton : A3A_Button
         {
           idc = -1;
-          text = $STR_antistasi_dialogs_mission_request_rescue;
+          text = "$STR_antistasi_dialogs_mission_request_rescue";
           onButtonClick = "closeDialog 0; [""missionButtonClicked"", [""RES""]] call A3A_fnc_requestMissionDialog;";
-          sizeEx = GUI_TEXT_SIZE_LARGE;
-          x = 26 * GRID_W;
-          y = 76 * GRID_H;
-          w = 32 * GRID_W;
-          h = 12 * GRID_H;
+          sizeEx = QUOTE(GUI_TEXT_SIZE_LARGE);
+          x = QUOTE(26 * GRID_W);
+          y = QUOTE(76 * GRID_H);
+          w = QUOTE(32 * GRID_W);
+          h = QUOTE(12 * GRID_H);
         };
 
         // Logistics
@@ -146,22 +146,22 @@ class A3A_RequestMissionDialog : A3A_DefaultDialog
           idc = -1;
           colorBackground[] = A3A_COLOR_TRANSPARENT;
           text = A3A_Icon_Logistics;
-          x = 72 * GRID_W;
-          y = 56 * GRID_H;
-          w = 16 * GRID_W;
-          h = 16 * GRID_H;
+          x = QUOTE(72 * GRID_W);
+          y = QUOTE(56 * GRID_H);
+          w = QUOTE(16 * GRID_W);
+          h = QUOTE(16 * GRID_H);
         };
 
         class LogisticsButton : A3A_Button
         {
           idc = -1;
-          text = $STR_antistasi_dialogs_mission_request_logistics;
+          text = "$STR_antistasi_dialogs_mission_request_logistics";
           onButtonClick = "closeDialog 0; [""missionButtonClicked"", [""LOG""]] call A3A_fnc_requestMissionDialog;";
-          sizeEx = GUI_TEXT_SIZE_LARGE;
-          x = 64 * GRID_W;
-          y = 76 * GRID_H;
-          w = 32 * GRID_W;
-          h = 12 * GRID_H;
+          sizeEx = QUOTE(GUI_TEXT_SIZE_LARGE);
+          x = QUOTE(64 * GRID_W);
+          y = QUOTE(76 * GRID_H);
+          w = QUOTE(32 * GRID_W);
+          h = QUOTE(12 * GRID_H);
         };
 
         // Support
@@ -170,22 +170,22 @@ class A3A_RequestMissionDialog : A3A_DefaultDialog
           idc = -1;
           colorBackground[] = A3A_COLOR_TRANSPARENT;
           text = A3A_Icon_Support;
-          x = 110 * GRID_W;
-          y = 56 * GRID_H;
-          w = 16 * GRID_W;
-          h = 16 * GRID_H;
+          x = QUOTE(110 * GRID_W);
+          y = QUOTE(56 * GRID_H);
+          w = QUOTE(16 * GRID_W);
+          h = QUOTE(16 * GRID_H);
         };
 
         class SupportButton : A3A_Button
         {
           idc = -1;
-          text = $STR_antistasi_dialogs_mission_request_support;
+          text = "$STR_antistasi_dialogs_mission_request_support";
           onButtonClick = "closeDialog 0; [""missionButtonClicked"", [""SUPP""]] call A3A_fnc_requestMissionDialog;";
-          sizeEx = GUI_TEXT_SIZE_LARGE;
-          x = 102 * GRID_W;
-          y = 76 * GRID_H;
-          w = 32 * GRID_W;
-          h = 12 * GRID_H;
+          sizeEx = QUOTE(GUI_TEXT_SIZE_LARGE);
+          x = QUOTE(102 * GRID_W);
+          y = QUOTE(76 * GRID_H);
+          w = QUOTE(32 * GRID_W);
+          h = QUOTE(12 * GRID_H);
         };
 
         // Random
@@ -194,22 +194,22 @@ class A3A_RequestMissionDialog : A3A_DefaultDialog
           idc = -1;
           colorBackground[] = A3A_COLOR_TRANSPARENT;
           text = A3A_Icon_Random;
-          x = 148 * GRID_W;
-          y = 56 * GRID_H;
-          w = 16 * GRID_W;
-          h = 16 * GRID_H;
+          x = QUOTE(148 * GRID_W);
+          y = QUOTE(56 * GRID_H);
+          w = QUOTE(16 * GRID_W);
+          h = QUOTE(16 * GRID_H);
         };
 
         class RandomButton : A3A_Button
         {
           idc = -1;
-          text = $STR_antistasi_dialogs_mission_request_random;
+          text = "$STR_antistasi_dialogs_mission_request_random";
           onButtonClick = "closeDialog 0; [""missionButtonClicked"", [""RAN""]] call A3A_fnc_requestMissionDialog;";
-          sizeEx = GUI_TEXT_SIZE_LARGE;
-          x = 140 * GRID_W;
-          y = 76 * GRID_H;
-          w = 32 * GRID_W;
-          h = 12 * GRID_H;
+          sizeEx = QUOTE(GUI_TEXT_SIZE_LARGE);
+          x = QUOTE(140 * GRID_W);
+          y = QUOTE(76 * GRID_H);
+          w = QUOTE(32 * GRID_W);
+          h = QUOTE(12 * GRID_H);
         };
 
       };
@@ -218,8 +218,8 @@ class A3A_RequestMissionDialog : A3A_DefaultDialog
     class CloseButton : A3A_CloseButton
     {
       idc = -1;
-      x = DIALOG_X + DIALOG_W * GRID_W - 5 * GRID_W;
-      y = DIALOG_Y - 5 * GRID_H;
+      x = QUOTE(DIALOG_X + DIALOG_W * GRID_W - 5 * GRID_W);
+      y = QUOTE(DIALOG_Y - 5 * GRID_H);
     };
   };
 };

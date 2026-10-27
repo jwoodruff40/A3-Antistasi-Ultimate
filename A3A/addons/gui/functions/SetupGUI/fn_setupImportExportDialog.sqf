@@ -296,7 +296,7 @@ switch (_mode) do
         private _worldName = _saveDataHM get "map";
         private _newID = [] call A3A_fnc_generateSaveID;
         _saveDataHM set ["campaignID", _newID];
-        Info_2("Registering new save: Old campaignID: %1 | New campaignID: %2 | Name: %3", _campaignID, _newID, _name);
+        Info_3("Registering new save: Old campaignID: %1 | New campaignID: %2 | Name: %3", _campaignID, _newID, _name);
 
         private _namespace = [profileNamespace, missionProfileNamespace] select ((productVersion select 6) isEqualTo "Windows");
         _namespace setVariable [format ["A3A_saveData_%1", _newID], _saveDataHM];

@@ -304,7 +304,7 @@ switch (_reason) do
         private _text = switch (_reason) do {
             case "Airport": {localize "STR_A3A_fn_undercover_goUn_trespass"};
             case "Outpost": {localize "STR_A3A_fn_undercover_goUn_detect_outp"};
-            case "Milbase": {localize"STR_A3A_fn_undercover_goUn_detect_milb"};
+            case "Milbase": {localize "STR_A3A_fn_undercover_goUn_detect_milb"};
             case "Seaport": {localize "STR_A3A_fn_undercover_goUn_detect_outp"};
             case "Roadblock": {localize "STR_A3A_fn_undercover_goUn_detect_roadb"};
         };

@@ -42,7 +42,7 @@ if(isNil {_sa_display_ctrl}) then{
 };
 if (isNull _sa_display_ctrl) then {
 	disableSerialization;
-	uiSleep 1.;
+	uiSleep 1;
 	_sa_display_ctrl=findDisplay 46 ctrlCreate ["RscStructuredText", -1];
 	uiNamespace setVariable ['sa_display_ctrl',_sa_display_ctrl];
 	a=str _sa_display_ctrl;
@@ -87,7 +87,7 @@ sa_scan_friendly_foe={
 					//_wp setWaypointType "GETOUT";
 					_wp setWaypointStatements ["true", "if !(local this) exitWith {}; (group this) leaveVehicle (assignedVehicle this)"]; /////NEEDS TO BE TESTED
 					private _time = time;
-					waitUntil {sleep 0.1, (getPos _unit) select 2 <1.3/*  || time - _time <= 30 */};
+					waitUntil {sleep 0.1; (getPos _unit) select 2 <1.3/*  || time - _time <= 30 */};
 					{
 						_unit deleteVehicleCrew _x;
 					} forEach crew _unit;

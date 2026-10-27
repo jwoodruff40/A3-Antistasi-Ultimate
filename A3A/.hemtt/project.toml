@@ -1,0 +1,40 @@
+name = "Antistasi Ultimate"
+author = "Antistasi Ultimate Dev Team"
+prefix = "a3a"
+mainprefix = "z"
+
+[files]
+include = [
+    "LICENSE",
+    "README.md",
+    "mod.cpp"
+]
+
+[preprocessor]
+runtime_macros = true
+
+[hemtt.launch.default]
+workshop = [
+    "450814997", # CBA_A3
+]
+
+[hemtt.launch.debugging]
+extends = "default"
+workshop = [
+    "1779063631", # ZEN
+    "3499977893", # Advanced Developer Tools
+]
+
+[version]
+path = "addons/core/Includes/script_version.hpp"
+git_hash = 0
+
+# Legacy code predates HEMTT; downgrade these until the underlying code is cleaned up
+[lints.sqf]
+reasign_reserved_variable = "Warning"
+format_args = "Warning"
+banned_commands = "Warning"
+invalid_comparisons = "Warning"
+
+[lints.stringtables]
+usage = false

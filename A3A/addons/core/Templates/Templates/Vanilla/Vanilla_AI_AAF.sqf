@@ -179,16 +179,21 @@ if (_hasWS) then {
 #include "Vanilla_Vehicle_Attributes.sqf"
 
 ["animations", [
-    #include "..\vehicleAnimations\vehicleAnimations_Vanilla.sqf",
-    #include "..\vehicleAnimations\vehicleAnimations_WS.sqf",
-    #include "..\vehicleAnimations\vehicleAnimations_RF.sqf",
-    #include "..\vehicleAnimations\vehicleAnimations_EF.sqf"
+    #include "..\vehicleAnimations\vehicleAnimations_Vanilla.inc"
+    ,
+    #include "..\vehicleAnimations\vehicleAnimations_WS.inc"
+    ,
+    #include "..\vehicleAnimations\vehicleAnimations_RF.inc"
+    ,
+    #include "..\vehicleAnimations\vehicleAnimations_EF.inc"
 ]] call _fnc_saveToTemplate;
 
 ["variants", [
-    #include "..\vehicleVariants\Vanilla_AAF\RF_AAF.sqf",
-    #include "..\vehicleVariants\Vanilla_AAF\Vanilla_AAF.sqf",
-    #include "..\vehicleVariants\Vanilla_AAF\WS_AAF.sqf"
+    #include "..\vehicleVariants\Vanilla_AAF\RF_AAF.inc"
+    ,
+    #include "..\vehicleVariants\Vanilla_AAF\Vanilla_AAF.inc"
+    ,
+    #include "..\vehicleVariants\Vanilla_AAF\WS_AAF.inc"
 ]] call _fnc_saveToTemplate;
 
 /////////////////////

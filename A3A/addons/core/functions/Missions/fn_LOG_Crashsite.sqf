@@ -9,7 +9,7 @@ if (!isServer and hasInterface) exitWith {};
 
 params ["_markerX"];
 
-Info ("Crashsite");
+Info("Crashsite");
 
 private _missionOriginPos = getMarkerPos _markerX;
 private _difficult = random 10 < tierWar;

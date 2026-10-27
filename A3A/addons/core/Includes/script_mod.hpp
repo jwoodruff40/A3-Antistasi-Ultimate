@@ -15,6 +15,9 @@
 #define VERSION_FULL MAJOR.MINOR.PATCHLVL.BUILD
 #define VERSION_AR_FULL MAJOR,MINOR,PATCHLVL,BUILD
 
+// CfgPatches `version` must be a valid number for HEMTT, so only use MAJOR.MINOR
+#define VERSION_CONFIG version = MAJOR.MINOR; versionStr = QUOTE(VERSION); versionAr[] = {VERSION_AR}
+
 // probably should move to script_version.hpp?
 #define MINIMUM_MISSION_VERSION_AR 10,0,0
 

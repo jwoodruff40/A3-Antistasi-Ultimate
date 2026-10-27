@@ -63,15 +63,15 @@ switch (_mode) do
         if (_airSupportPoints < 1) then
         {
             Debug("No air support points, disabling buttons");
-            _heIcon ctrlSetTextColor ([A3A_COLOR_BUTTON_BACKGROUND_DISABLED] call A3A_fnc_configColorToArray);
+            _heIcon ctrlSetTextColor ([QUOTE(A3A_COLOR_BUTTON_BACKGROUND_DISABLED)] call A3A_fnc_configColorToArray);
             _heIcon ctrlSetTooltip localize "STR_antistasi_dialogs_main_air_support_no_points_tooltip";
             _heButton ctrlEnable false;
             _heButton ctrlSetTooltip localize "STR_antistasi_dialogs_main_air_support_no_points_tooltip";
-            _carpetIcon ctrlSetTextColor ([A3A_COLOR_BUTTON_BACKGROUND_DISABLED] call A3A_fnc_configColorToArray);
+            _carpetIcon ctrlSetTextColor ([QUOTE(A3A_COLOR_BUTTON_BACKGROUND_DISABLED)] call A3A_fnc_configColorToArray);
             _carpetIcon ctrlSetTooltip localize "STR_antistasi_dialogs_main_air_support_no_points_tooltip";
             _carpetButton ctrlEnable false;
             _carpetButton ctrlSetTooltip localize "STR_antistasi_dialogs_main_air_support_no_points_tooltip";
-            _napalmIcon ctrlSetTextColor ([A3A_COLOR_BUTTON_BACKGROUND_DISABLED] call A3A_fnc_configColorToArray);
+            _napalmIcon ctrlSetTextColor ([QUOTE(A3A_COLOR_BUTTON_BACKGROUND_DISABLED)] call A3A_fnc_configColorToArray);
             _napalmIcon ctrlSetTooltip localize "STR_antistasi_dialogs_main_air_support_no_points_tooltip";
             _napalmButton ctrlEnable false;
             _napalmButton ctrlSetTooltip localize "STR_antistasi_dialogs_main_air_support_no_points_tooltip";
