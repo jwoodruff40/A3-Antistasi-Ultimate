@@ -28,7 +28,7 @@ private _turretCfg = call {
     private _allTurrets = configProperties [configFile >> "CfgVehicles" >> _vehType >> "Turrets"];
     private _idx = _allTurrets findIf { getNumber (_x >> "elevationMode") != 0 };       // no idea if this is a valid check
     if (_idx == -1) exitWith {
-        Error_1("Artillery turret not found on %1", _vehType);
+        Error_1("Artillery turret not found on %1",_vehType);
         configFile >> "CfgVehicles" >> _vehType >> "Turrets" >> "MainTurret";
     };
     _allTurrets # _idx;
@@ -53,7 +53,7 @@ private _maxCharge = 0;
     _maxCharge = _charge max _maxCharge;
 } forEach getArray (_weaponCfg >> "modes");
 
-if (_maxCharge == 0) then { Error_1("Artillery charge lookup failed for %1", _vehType); _minCharge = 1; _maxCharge = 1; };
+if (_maxCharge == 0) then { Error_1("Artillery charge lookup failed for %1",_vehType); _minCharge = 1; _maxCharge = 1; };
 
 // Now for the horror. There should be a saner way to do this but I couldn't find one.
 private _baseElev = 45;

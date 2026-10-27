@@ -5,7 +5,7 @@ params ["_markerX"];
 
 if (!isServer and hasInterface) exitWith{};
 
-Info_1("Salvage Ambushed Truck Init, marker: %1", _markerX);
+Info_1("Salvage Ambushed Truck Init, marker: %1",_markerX);
 
 private _vehicles = [];
 private _groups = [];
@@ -48,13 +48,13 @@ if (_isTooCloseToOutposts || _nearRoads isEqualTo []) then {
     };
 };
 
-Info_1("Initial position: %1", _spawnPosition);
+Info_1("Initial position: %1",_spawnPosition);
 
 
 private _routeNodes = ([_spawnPosition, _positionX] call A3A_fnc_findPath) apply {_x select 0};
 
 if (_routeNodes isEqualTo []) exitWith {
-	Error_1("Couldn't find path from starting position to %1, aborting and rerolling ordinary supplies mission.", _markerX);
+	Error_1("Couldn't find path from starting position to %1, aborting and rerolling ordinary supplies mission.",_markerX);
 	["SUPP"] remoteExec ["A3A_fnc_missionRequest", 2];
 };
 #if __A3_DEBUG__
@@ -81,7 +81,7 @@ while {true} do {
 
 private _startingRoad = _roads select 0;
 
-Info_1("Road position: %1", _startingRoad);
+Info_1("Road position: %1",_startingRoad);
 
 private _startingRoadPosition = getPos _startingRoad;
 
@@ -118,7 +118,7 @@ _crater setVectorUp surfaceNormal getPos _crater;
 _others pushBack _crater;
 
 
-Info_1("Crater pos: %1", _startingRoadPosition);
+Info_1("Crater pos: %1",_startingRoadPosition);
 
 Info("Spawning truck...");
 
@@ -144,7 +144,7 @@ _truck setHit ["wheel_1_1_steering", 0.5];
 _vehicles pushBack _truck;
 
 
-Info_2("Truck classname: %1, truck position: %2", _truckClass, getPos _truck);
+Info_2("Truck classname: %1, truck position: %2",_truckClass,getPos _truck);
 
 Info("Adding food sacks to cargo...");
 
@@ -157,7 +157,7 @@ if !(_return isEqualType 0) then {
 	_return set [4, true];
 	_return remoteExec ["A3A_Logistics_fnc_load", 2]; 
 } else {
-	Error_3("For some reason no autologistics load. Vehicle: %1, Cargo: %2, Return: %3", (typeOf _truck), (typeOf _foodSacks), (str _return));
+	Error_3("For some reason no autologistics load. Vehicle: %1, Cargo: %2, Return: %3",(typeOf _truck),(typeOf _foodSacks),(str _return));
 };
 
 
@@ -271,7 +271,7 @@ if (dateToNumber date < _dateLimitNum) then {
 	_gunner moveInGunner _weapon;
 	_groups pushBack _groupGunner;
 
-	Info_2("Static weapon class: %1, postion: %2", _staticWeaponClass, _weaponPos);
+	Info_2("Static weapon class: %1, postion: %2",_staticWeaponClass,_weaponPos);
 
 	if (_isDifficult) then {
 		Info("Creating small minefield near ambush.");

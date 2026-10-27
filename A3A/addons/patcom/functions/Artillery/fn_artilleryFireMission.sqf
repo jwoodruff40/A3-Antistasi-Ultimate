@@ -107,7 +107,7 @@ if (_batteryClass in (_faction get "staticMortars")) then {
 };
 
 if (_shellType == "") exitWith {
-    ServerDebug_1("Unable to find ammoType for Classname - %1", _batteryClass);
+    ServerDebug_1("Unable to find ammoType for Classname - %1",_batteryClass);
 };
 
 /////// FINAL ARTILLERY RANGE CHECK \\\\\\\

@@ -30,7 +30,7 @@ private _convoyMarker = format ["convoy%1", _convoyID];
 
 if(!(_maxSpeed > 0)) exitWith
 {
-    Debug_1("ConvoyMovement[%1]: Max speed is 0 or lower, can't simulate convoy with it!", _convoyID);
+    Debug_1("ConvoyMovement[%1]: Max speed is 0 or lower, can't simulate convoy with it!",_convoyID);
   deleteMarker _convoyMarker;
 };
 
@@ -38,7 +38,7 @@ _maxSpeed = _maxSpeed * 0.8; //Only drive with 80% of max speed
 
 if(count _route == 0 || {count (_route select 0) != 2}) exitWith
 {
-    Debug_1("Input was %1", str _this);
+    Debug_1("Input was %1",str _this);
     Debug("Path is broken");
 };
 
@@ -126,7 +126,7 @@ for "_i" from 1 to (_pointsCount - 1) do
 if(_isDestroyed) exitWith {deleteMarker _convoyMarker};
 if(!_isSimulated) exitWith {};
 
-Debug_1("ConvoyMovement[%1]: Convoy arrived at destination!", _convoyID);
+Debug_1("ConvoyMovement[%1]: Convoy arrived at destination!",_convoyID);
 
 [_convoyID, (_route select 0) select 0, (_route select (_pointsCount - 1) select 0) , _units, _convoySide, _convoyType] spawn A3A_fnc_onConvoyArrival;
 

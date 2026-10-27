@@ -35,7 +35,7 @@ private _vehicleType = if (_isLand) then {
 
 private _vehicle = [_mrkOrigin, _vehicleType] call A3A_fnc_spawnVehicleAtMarker;
 if (isNull _vehicle) exitWith {
-	Error_2("Failed to spawn vehicle type %1 at %2", _vehicleType, _mrkOrigin);
+	Error_2("Failed to spawn vehicle type %1 at %2",_vehicleType,_mrkOrigin);
 };
 private _crewGroup = [_side, _vehicle] call A3A_fnc_createVehicleCrew;
 { [_x, nil, false, "legacy"] call A3A_fnc_NATOinit } forEach (units _crewGroup);
@@ -56,7 +56,7 @@ private _cargoGroup = [_posOrigin, _side, _groupType, true, false] call A3A_fnc_
 private _landPad = objNull;
 if (_isLand) then {
 	private _landPos = [_posDest, getPosATL _vehicle, true, []] call A3A_fnc_findSafeRoadToUnload;		// should actually be safe...
-	Debug_1("Landpos veh = %1", _landPos);
+	Debug_1("Landpos veh = %1",_landPos);
 	[getPosATL _vehicle, _landPos, _crewGroup] call A3A_fnc_WPCreate;
 
 	//Turn final waypoint into disembark. Should still be behaviour SAFE...
@@ -79,7 +79,7 @@ if (_isLand) then {
 else
 {
 	_landPos = if (_vehicleType isKindOf "Helicopter") then {[_posDest, 0, 300, 10, 0, 0.20, 0,[],[[0,0,0],[0,0,0]]] call BIS_fnc_findSafePos} else {[0,0,0]};
-	Debug_1("Landpos air = %1", _landPos);
+	Debug_1("Landpos air = %1",_landPos);
 	if !(_landPos isEqualTo [0,0,0]) then
 	{
 		_landPos set [2, 0];
@@ -110,7 +110,7 @@ else
 	};
 };
 
-ServerInfo_2("Spawn performed: Vehicle type %1 with %2 troops", _vehicleType, count units _cargoGroup);
+ServerInfo_2("Spawn performed: Vehicle type %1 with %2 troops",_vehicleType,count units _cargoGroup);
 
 
 // Allow the convoy a generous time to arrive
@@ -140,7 +140,7 @@ if !(isNull _landpad) then { deleteVehicle _landpad };
 private _units = (units _cargoGroup) select { alive _x };
 if (count _units == 0 || time > _timeout || _side != (sidesX getVariable _mrkDest)) exitWith
 {
-	Debug_2("patrolReinf failure: time %1, units %2", _timeout - time, count _units);
+	Debug_2("patrolReinf failure: time %1, units %2",_timeout - time,count _units);
 
 	// Failure case, RTB and add to killzones
 	[_cargoGroup] spawn A3A_fnc_enemyReturnToBase;
@@ -152,9 +152,9 @@ if (count _units == 0 || time > _timeout || _side != (sidesX getVariable _mrkDes
 		killZones setVariable [_mrkOrigin,_killzones,true];
 	};
 
-    ServerInfo_2("Reinf on %1 failed, returning with %2 units", _mrkDest, count units _cargoGroup);
+    ServerInfo_2("Reinf on %1 failed, returning with %2 units",_mrkDest,count units _cargoGroup);
 };
 
-ServerInfo_2("Reinf on %1 successful, adding %2 units", _mrkDest, count units _cargoGroup);
+ServerInfo_2("Reinf on %1 successful, adding %2 units",_mrkDest,count units _cargoGroup);
 
 [_cargoGroup, _mrkDest] call A3A_fnc_enemyGarrison;

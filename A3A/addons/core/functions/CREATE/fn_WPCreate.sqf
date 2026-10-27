@@ -29,7 +29,7 @@ params
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 
-Debug_3("Creating waypoints for group %1 from %2 to %3", _group, _origin, _destination);
+Debug_3("Creating waypoints for group %1 from %2 to %3",_group,_origin,_destination);
 
 private _posOrigin = if(_origin isEqualType "") then {getMarkerPos _origin} else {_origin};
 private _posDestination = if(_destination isEqualType "") then {getMarkerPos _destination} else {_destination};

@@ -36,8 +36,8 @@ private _header = nil;
 private _posTsk = nil;
 
 if (_sideX == Occupants) then {
-	_text = format [localize "STR_A3A_Missions_RES_Refugees_task_desc_1",FactionGet(reb, "name"), _nameDest,_displayTime];
-	_header = format [localize "STR_A3A_Missions_RES_Refugees_task_header_1",FactionGet(reb, "name")];
+	_text = format [localize "STR_A3A_Missions_RES_Refugees_task_desc_1",FactionGet(reb,"name"), _nameDest,_displayTime];
+	_header = format [localize "STR_A3A_Missions_RES_Refugees_task_header_1",FactionGet(reb,"name")];
 	_posTsk = (position _houseX) getPos [random 100, random 360];
 } else {
 	_text = format [localize "STR_A3A_Missions_RES_Refugees_task_desc_2",_nameDest, _faction get "name",_displayTime];

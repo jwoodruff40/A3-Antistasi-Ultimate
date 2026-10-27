@@ -42,7 +42,7 @@ private _detainee = _varspace getVariable ["player",objNull];
 private _playerPos = [0,0,0];
 
 if (!isPlayer _detainee) then { // Prevents punishing AI
-    Info_1("DETAINEE MIA | UID:%1 matches no in-game player. Cleaning up.", _UID);
+    Info_1("DETAINEE MIA | UID:%1 matches no in-game player. Cleaning up.",_UID);
 	_operation = "remove";
 } else {
 	_playerPos = getPosASL _detainee;
@@ -100,7 +100,7 @@ switch (toLower _operation) do {
 		true;
 	};
 	default {
-        Error_1("INVALID PARAMS | _operation=""%1""", _operation);
+        Error_1("INVALID PARAMS | _operation=""%1""",_operation);
 		false;
 	};
 };

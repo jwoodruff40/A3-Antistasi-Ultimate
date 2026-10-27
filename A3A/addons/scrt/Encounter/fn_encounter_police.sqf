@@ -2,7 +2,7 @@
 #include "..\defines.inc"
 FIX_LINE_NUMBERS()
 
-Info( "Police Car Event Init.");
+Info("Police Car Event Init.");
 
 private _vehicles = [];
 private _groups = [];

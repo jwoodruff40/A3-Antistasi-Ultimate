@@ -329,7 +329,7 @@ switch (_reason) do
     };
     default
     {
-        Error_1("Unknown reason given, was %1", _reason);
+        Error_1("Unknown reason given, was %1",_reason);
         ["Undercover", "STR_A3A_fn_undercover_goUn_Error"] call A3A_fnc_customHint;
     };
 };

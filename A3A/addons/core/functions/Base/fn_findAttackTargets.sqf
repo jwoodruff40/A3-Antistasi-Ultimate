@@ -32,7 +32,7 @@ if (_targetSide == teamPlayer and _hqInfo >= 1) then { _possibleTargets pushBack
 if (count _possibleTargets == 0 || count _possibleStartBases == 0) exitWith {
     Info("Attack found no suitable targets or no suitable start bases, aborting!"); [[], []];
 };
-Debug_2("%1 possible targets for attack found, possible start points are %2", count _possibleTargets, _possibleStartBases);
+Debug_2("%1 possible targets for attack found, possible start points are %2",count _possibleTargets,_possibleStartBases);
 
 
 //**************** Data preparation *************************************************************
@@ -201,7 +201,7 @@ private _finalWeights = [];
 // Multiply up for readability
 _finalWeights = _finalWeights apply { _x * 10 };
 {
-    Debug_2("Target: weight %1, %2", (_finalWeights#_forEachIndex) toFixed 3, _x);
+    Debug_2("Target: weight %1, %2",(_finalWeights#_forEachIndex) toFixed 3,_x);
 } forEach _finalTargets;
 
 [_finalTargets, _finalWeights];

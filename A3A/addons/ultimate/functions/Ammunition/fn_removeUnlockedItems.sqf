@@ -44,7 +44,7 @@ private _unlocks = (unlockedHeadgear + unlockedVests + unlockedNVGs + unlockedOp
         {
             if (_item in _indexed) exitWith {}; // element is already indexed, ignore
             if (_item in _x) then {
-                Verbose_1("%1 is already unlocked", _item);
+                Verbose_1("%1 is already unlocked",_item);
                 _indexed pushBack _item;
             };
         } forEach _unlocks;
@@ -56,7 +56,7 @@ private _unlocks = (unlockedHeadgear + unlockedVests + unlockedNVGs + unlockedOp
                 private _hasAttachments = if (_itemAttachments findIf {_x != ""} != -1) then {true} else {false};
 
                 if (!_hasAttachments) then {
-                    Verbose_1("%1 is already unlocked as a weapon", _item);
+                    Verbose_1("%1 is already unlocked as a weapon",_item);
                     _indexed pushBack _originalItem;
                 };
             };

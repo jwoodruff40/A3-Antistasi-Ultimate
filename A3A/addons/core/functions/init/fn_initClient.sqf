@@ -7,7 +7,7 @@ if (isNil "logLevel") then { logLevel = 2; A3A_logDebugConsole = 1 };
 
 Info("initClient started");
 A3A_clientVersion = QUOTE(VERSION);
-Info_1("Client version: %1", QUOTE(VERSION_FULL));
+Info_1("Client version: %1",QUOTE(VERSION_FULL));
 
 // *************************** Client pre-setup init *******************************
 
@@ -31,7 +31,7 @@ hasHeadlessClients = false;     //check if has headless clients
 private _richPresenceFunc = missionNamespace getVariable "DiscordRichPresence_fnc_update";
 private _isEnglish = ((localize "STR_antistasi_dialogs_generic_button_yes_text") isEqualTo "Yes");
 isDiscordRichPresenceActive = if (isNil "_richPresenceFunc") then {false} else {true};
-Info_1("Discord Rich Presence: %1", str isDiscordRichPresenceActive);
+Info_1("Discord Rich Presence: %1",str isDiscordRichPresenceActive);
 
 //Disables rabbits and snakes, because they cause the log to be filled with "20:06:39 Ref to nonnetwork object Agent 0xf3b4a0c0"
 //Can re-enable them if we find the source of the bug.

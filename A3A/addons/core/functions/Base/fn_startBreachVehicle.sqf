@@ -84,7 +84,7 @@ private _fn_selectExplosive =
 
 _index = -1;
 
-private _needed = FactionGet(reb, (if(_isTank) then {"breachingExplosivesTank"} else {"breachingExplosivesAPC"}));
+private _needed = FactionGet(reb,(if(_isTank) then {"breachingExplosivesTank"} else {"breachingExplosivesAPC"}));
 private _explo = [_needed, _magazineArray] call _fn_selectExplosive;
 if(!(_explo isEqualTo [])) then
 {

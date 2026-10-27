@@ -81,7 +81,7 @@ private _fn_sendSupport =
     params ["_vehicle", "_marker", "_threat"];
     private _markerSide = sidesX getVariable [_marker, sideUnknown];
 
-    ServerDebug_2("Vehicle %1 violated airspace of marker %2", typeof _vehicle, _marker);
+    ServerDebug_2("Vehicle %1 violated airspace of marker %2",typeof _vehicle,_marker);
 
     // Add threat to vehicle on server side. Hopefully faster than the requestSupport call
     [_markerSide, false, _threat, _vehicle] remoteExecCall ["A3A_fnc_addRecentDamage", 2];

@@ -61,7 +61,7 @@ _roads = _roads select { !(getRoadInfo _x # 8) and (count roadsConnectedTo [_x, 
 
 if (count _roads == 0) exitWith
 {
-    Error_1("Roads not found for marker %1", _markerX);
+    Error_1("Roads not found for marker %1",_markerX);
 };
 _roads = _roads call BIS_fnc_arrayShuffle;
 
@@ -130,7 +130,7 @@ if (count _mrkMar > 0) then {
             private _spawnPosition = [];
             _spawnPosition = [(getMarkerPos (_mrkMar select 0)), 5, 50, 5, 2, 0, 0] call A3A_fnc_getSafePos;
             if (_spawnPosition isEqualTo [0,0]) then {
-                Debug_1("%1 could not be spawned because no valid spawn position was found.", _typeVehX);
+                Debug_1("%1 could not be spawned because no valid spawn position was found.",_typeVehX);
                 continue;
             };
 
@@ -188,7 +188,7 @@ if ([_markerX,false] call A3A_fnc_fogCheck > 0.2) then {
                     _vehPatrol = _vehPatrol + [_veh];
 
                     // Creat AI Unit to add into Civilian Vehicle
-                    private _civ = [_groupP, FactionGet(civ, "unitMan"), (getPosATL _p1), [],0, "NONE"] call A3A_fnc_createUnit;
+                    private _civ = [_groupP, FactionGet(civ,"unitMan"), (getPosATL _p1), [],0, "NONE"] call A3A_fnc_createUnit;
 
                     // Add Event Handlers to Civilian inside vehicle
                     [_civ] spawn A3A_fnc_civilianInitEH;

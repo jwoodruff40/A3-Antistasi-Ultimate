@@ -32,7 +32,7 @@ _vehicle setVariable ["lastLooted", _time, true];
 private _position = if (!(_overridePosition isEqualTo [])) then {_overridePosition} else {position _vehicle};
 private _supplies = (_position nearSupplies _radius) select {
     ((_x isKindOf "Man" && !(alive _x)) || 
-    {(typeOf _x) in ([FactionGet(inv, "surrenderCrate"), FactionGet(occ, "surrenderCrate"), FactionGet(riv, "surrenderCrate"), "WeaponHolderSimulated", "GroundWeaponHolder", "WeaponHolder"])}) &&
+    {(typeOf _x) in ([FactionGet(inv,"surrenderCrate"), FactionGet(occ,"surrenderCrate"), FactionGet(riv,"surrenderCrate"), "WeaponHolderSimulated", "GroundWeaponHolder", "WeaponHolder"])}) &&
     !(_x getVariable ["isLooted", false])
 };
 

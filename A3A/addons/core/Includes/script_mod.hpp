@@ -1,3 +1,5 @@
+#ifndef A3A_SCRIPT_MOD_HPP
+#define A3A_SCRIPT_MOD_HPP
 #define MAINPREFIX x
 #ifndef PREFIX
     #define PREFIX A3A
@@ -49,3 +51,4 @@
 
 #include "script_macros.hpp"
 #include "common.inc"
+#endif

@@ -48,7 +48,7 @@ _updateList = {
     params ["_vehicle", "_node"];
     private _list = _vehicle getVariable [QGVAR(Nodes),[]];
     private _index = _list find _node;
-    if (_index < 0) exitWith { Error_3("Bad _updateList call | Vehicle: %1 | Vehicle Nodes: %2 | Node: %3", _vehicle, _list, _node) };
+    if (_index < 0) exitWith { Error_3("Bad _updateList call | Vehicle: %1 | Vehicle Nodes: %2 | Node: %3",_vehicle,_list,_node) };
     _node set [0,1];
     _list set [_index, _node];
     _vehicle setVariable [QGVAR(Nodes), _list];

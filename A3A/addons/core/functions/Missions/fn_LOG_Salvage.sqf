@@ -30,7 +30,7 @@ private _mrk3 = createMarker ["salvageLocation3", _mrk3Pos];
 _mrk3 setMarkerShape "ELLIPSE";
 _mrk3 setMarkerSize [25, 25];
 
-Debug_3("Salvage Mission Positions: %1, %2, %3", _mrk1Pos, _mrk2Pos, _mrk3Pos);
+Debug_3("Salvage Mission Positions: %1, %2, %3",_mrk1Pos,_mrk2Pos,_mrk3Pos);
 
 private _difficultX = if (random 10 < tierWar) then {true} else {false};
 private _sideX = if (sidesX getVariable [_markerX,sideUnknown] == Occupants) then {Occupants} else {Invaders};

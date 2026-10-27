@@ -405,8 +405,8 @@
             </Key>
             <Key ID="STR_A3AP_setupFactionsTab_fia">
                 <Original>Freedom and Independence Army (FIA).\nStandard issue guerilla faction. Smoothbore rifles and a little bit of courage will pave your way to freedom.</Original>
-                <Russian>Армия свободы и независимости (FIA).\nСтандартная партизанская фракция. Гладкоствольные ружья и немного отваги проложат путь к свободе. </Russian>
-                <Chinesesimp>自由独立军 (FIA)\n标准游击队派系。滑膛枪和一点点的勇气将为你铺平通往自由的道路。 </Chinesesimp>
+                <Russian>Армия свободы и независимости (FIA).\nСтандартная партизанская фракция. Гладкоствольные ружья и немного отваги проложат путь к свободе.</Russian>
+                <Chinesesimp>自由独立军 (FIA)\n标准游击队派系。滑膛枪和一点点的勇气将为你铺平通往自由的道路。</Chinesesimp>
                 <Korean>자유독립군(FIA).\n표준 게릴라 팩션. 무강선총과 약간의 용기가 당신의 자유를 위한 길을 열어줄 것입니다.</Korean>
                 <French>Armée de la liberté et de l'indépendance (FIA).\nFaction de guérilla standard. Des fusils à canon lisse et un peu de courage vous permettront d'accéder à la liberté.</French>
                 <Turkish>Özgürlük ve Bağımsızlık Ordusu (FIA).\nStandart bir gerilla grubu. Yivsiz tüfekler ve bir parça cesaret, özgürlüğe giden yolunuzu açacaktır.</Turkish>
@@ -723,12 +723,12 @@
                 <Turkish>Şarjör Birleştirme Başlatıldı.</Turkish>
             </Key>
             <Key ID="STR_magRepack_keybind">
-                <Original>Keybinding: </Original>
-                <Russian>Связка клавиш: </Russian>
-                <Chinesesimp>按键绑定: </Chinesesimp>
-                <Korean>키 설정: </Korean>
-                <French>Raccourcis clavier: </French>
-                <Turkish>Tuş Ataması: </Turkish>
+                <Original>Keybinding:</Original>
+                <Russian>Связка клавиш:</Russian>
+                <Chinesesimp>按键绑定:</Chinesesimp>
+                <Korean>키 설정:</Korean>
+                <French>Raccourcis clavier:</French>
+                <Turkish>Tuş Ataması:</Turkish>
             </Key>
             <Key ID="STR_magRepack_about">
                 <Original>Mag Repack: About</Original>
@@ -760,7 +760,7 @@
                 <Chinesesimp>版本：</Chinesesimp>
                 <Korean>버전:</Korean>
                 <French>Version :</French>
-                <Turkish>Sürüm: </Turkish>
+                <Turkish>Sürüm:</Turkish>
             </Key>
             <Key ID="STR_magRepack_updated">
                 <Original>Updated:</Original>
@@ -819,20 +819,20 @@
                 <Turkish>Tüm Şarjörler</Turkish>
             </Key>
             <Key ID="STR_magRepack_source">
-                <Original> Source</Original>
-                <Russian> Источник</Russian>
-                <Chinesesimp> 来源</Chinesesimp>
-                <Korean> 원본</Korean>
-                <French> Source</French>
-                <Turkish> Kaynak</Turkish>
+                <Original>Source</Original>
+                <Russian>Источник</Russian>
+                <Chinesesimp>来源</Chinesesimp>
+                <Korean>원본</Korean>
+                <French>Source</French>
+                <Turkish>Kaynak</Turkish>
             </Key>
             <Key ID="STR_magRepack_target">
-                <Original>Target </Original>
-                <Russian>Цель </Russian>
-                <Chinesesimp>目标 </Chinesesimp>
-                <Korean>대상 </Korean>
-                <French>Cible </French>
-                <Turkish>Hedef </Turkish>
+                <Original>Target</Original>
+                <Russian>Цель</Russian>
+                <Chinesesimp>目标</Chinesesimp>
+                <Korean>대상</Korean>
+                <French>Cible</French>
+                <Turkish>Hedef</Turkish>
             </Key>
             <Key ID="STR_magRepack_options">
                 <Original>Options</Original>
@@ -891,20 +891,20 @@
                 <Turkish>Gizle</Turkish>
             </Key>
             <Key ID="STR_magRepack_keybind_reset">
-                <Original>Mag Repack keybinding has been reset to </Original>
-                <Russian>Назначение клавиш Mag Repack'а было сброшено на </Russian>
-                <Chinesesimp>Mag Repack 按键绑定已重置为 </Chinesesimp>
-                <Korean>탄약 재포장 키 설정이 다음 키로 초기화 되었습니다: </Korean>
+                <Original>Mag Repack keybinding has been reset to</Original>
+                <Russian>Назначение клавиш Mag Repack'а было сброшено на</Russian>
+                <Chinesesimp>Mag Repack 按键绑定已重置为</Chinesesimp>
+                <Korean>탄약 재포장 키 설정이 다음 키로 초기화 되었습니다:</Korean>
                 <French>Le raccourci clavier de la réorganisation des chargeurs a été réinitialisé</French>
-                <Turkish>Şarjör Birleştirme tuş ataması şuna sıfırlandı: </Turkish>
+                <Turkish>Şarjör Birleştirme tuş ataması şuna sıfırlandı:</Turkish>
             </Key>
             <Key ID="STR_magRepack_keybind_update">
-                <Original>Mag Repack keybinding has been updated to </Original>
-                <Russian>Назначение клавиш Mag Repack'а было обновлено на </Russian>
-                <Chinesesimp>Mag Repack 按键绑定已更新为 </Chinesesimp>
-                <Korean>탄약 재포장 키 설정이 다음 키로 업데이트되었습니다: </Korean>
+                <Original>Mag Repack keybinding has been updated to</Original>
+                <Russian>Назначение клавиш Mag Repack'а было обновлено на</Russian>
+                <Chinesesimp>Mag Repack 按键绑定已更新为</Chinesesimp>
+                <Korean>탄약 재포장 키 설정이 다음 키로 업데이트되었습니다:</Korean>
                 <French>Le raccourci clavier de la réorganisation des chargeurs a été mis à jour</French>
-                <Turkish>Şarjör Birleştirme tuş ataması şuna güncellendi: </Turkish>
+                <Turkish>Şarjör Birleştirme tuş ataması şuna güncellendi:</Turkish>
             </Key>
             <Key ID="STR_magRepack_all_ammo">
                 <Original>All Ammo Types</Original>
@@ -2350,7 +2350,7 @@
             <Key ID="STR_marker_minefield">
                 <Original>%1 Minefield</Original>
                 <Russian>Минное поле %1</Russian>
-                <Chinesesimp> %1 雷区</Chinesesimp>
+                <Chinesesimp>%1 雷区</Chinesesimp>
                 <Korean>%1 지뢰지대</Korean>
                 <French>%1 Champ de mines</French>
                 <Turkish>%1 Mayın Tarlası</Turkish>
@@ -2435,26 +2435,26 @@
                 <Turkish>Konvoy Hedefi</Turkish>
             </Key>
             <Key ID="STR_marker_convoy_objective_space">
-                <Original> Convoy Objective</Original>
-                <Russian> Конвой (цель)</Russian>
-                <Chinesesimp> 车队目标</Chinesesimp>
-                <Korean> 호송대 목표</Korean>
-                <French> Objectif du convoi</French>
-                <Turkish> Konvoy Hedefi</Turkish>
+                <Original>Convoy Objective</Original>
+                <Russian>Конвой (цель)</Russian>
+                <Chinesesimp>车队目标</Chinesesimp>
+                <Korean>호송대 목표</Korean>
+                <French>Objectif du convoi</French>
+                <Turkish>Konvoy Hedefi</Turkish>
             </Key>
             <Key ID="STR_marker_convoy_escort_vehicle">
-                <Original> Convoy Escort</Original>
-                <Russian> Конвой (эскорт)</Russian>
+                <Original>Convoy Escort</Original>
+                <Russian>Конвой (эскорт)</Russian>
                 <Chinesesimp>车队护卫</Chinesesimp>
-                <Korean> 호송대 호위</Korean>
-                <Turkish> Konvoy Eskortu</Turkish>
+                <Korean>호송대 호위</Korean>
+                <Turkish>Konvoy Eskortu</Turkish>
             </Key>
             <Key ID="STR_marker_convoy_lead_vehicle">
-                <Original> Convoy Lead</Original>
-                <Russian> Конвой (ведущий)</Russian>
+                <Original>Convoy Lead</Original>
+                <Russian>Конвой (ведущий)</Russian>
                 <Chinesesimp>车队头车</Chinesesimp>
-                <Korean> 호송대 선두</Korean>
-                <Turkish> Konvoy Öncüsü</Turkish>
+                <Korean>호송대 선두</Korean>
+                <Turkish>Konvoy Öncüsü</Turkish>
             </Key>
             <Key ID="STR_marker_mission_vehicle">
                 <Original>Mission Vehicle</Original>
@@ -2661,7 +2661,7 @@
             <Key ID="STR_localizar_seaport">
                 <Original>Seaport near %1</Original>
                 <Russian>Морской порт недалеко от %1</Russian>
-                <Chinesesimp> %1 附近的海港</Chinesesimp>
+                <Chinesesimp>%1 附近的海港</Chinesesimp>
                 <Korean>%1 인근 항구</Korean>
                 <French>Port maritime à proximité de %1</French>
                 <Turkish>%1 yakınındaki deniz limanı</Turkish>
@@ -2669,7 +2669,7 @@
             <Key ID="STR_localizar_riverport">
                 <Original>River port near %1</Original>
                 <Russian>Речной порт недалеко от %1</Russian>
-                <Chinesesimp> %1 附近的河港</Chinesesimp>
+                <Chinesesimp>%1 附近的河港</Chinesesimp>
                 <Korean>%1 인근 강항</Korean>
                 <French>Port fluvial à proximité de %1</French>
                 <Turkish>%1 yakınındaki nehir limanı</Turkish>
@@ -2677,7 +2677,7 @@
             <Key ID="STR_localizar_roadblock">
                 <Original>Roadblock near %1</Original>
                 <Russian>Блокпост возле %1</Russian>
-                <Chinesesimp> %1 附近的路障</Chinesesimp>
+                <Chinesesimp>%1 附近的路障</Chinesesimp>
                 <Korean>%1 인근 검문소</Korean>
                 <French>Barrage routier à proximité de %1</French>
                 <Turkish>%1 yakınındaki yol barikatı</Turkish>
@@ -3109,7 +3109,7 @@
             <Key ID="STR_hints_hc_transfer_success">
                 <Original>Group %1 has been transfered to your command.&lt;br/&gt;&lt;br/&gt;Groups are managed from the High Command bar (Default: CTRL+SPACE)&lt;br/&gt;&lt;br/&gt;</Original>
                 <Russian>Группа %1 была переведена под ваше командование.&lt;br/&gt;&lt;br/&gt;Группами можно управлять в режиме главнокомандующего (Ctrl + Пробел)&lt;br/&gt;&lt;br/&gt;</Russian>
-                <Chinesesimp> %1 组已转移到您的指挥下。&lt;br/&gt;&lt;br/&gt;从高级命令栏管理（默认：CTRL+SPACE）&lt;br/&gt;&lt;br/&gt;</Chinesesimp>
+                <Chinesesimp>%1 组已转移到您的指挥下。&lt;br/&gt;&lt;br/&gt;从高级命令栏管理（默认：CTRL+SPACE）&lt;br/&gt;&lt;br/&gt;</Chinesesimp>
                 <Korean>%1 그룹이 당신 지휘 하에 들어갔습니다.&lt;br/&gt;&lt;br/&gt;그룹은 하이 커맨드 표시줄(기본값: 컨트롤 + 스페이스)에서 관리됩니다.&lt;br/&gt;&lt;br/&gt;</Korean>
                 <French>Le groupe %1 a été transféré sous votre commandement.&lt;br/&gt;&lt;br/&gt;Les groupes sont gérés à partir de la barre de commande supérieure (par défaut : CTRL+ESPACE)&lt;br/&gt;&lt;br/&gt;</French>
                 <Turkish>%1 Grubu komutanıza devredildi.&lt;br/&gt;&lt;br/&gt;Gruplar, Yüksek Komuta çubuğundan yönetilir (Varsayılan: CTRL+SPACE)&lt;br/&gt;&lt;br/&gt;</Turkish>
@@ -3262,7 +3262,7 @@
             </Key>
             <Key ID="STR_chats_radiocheck">
                 <Original>This is %1, radiocheck OK.</Original>
-                <Russian>Это %1, проверка связи, как слышно? Приём. </Russian>
+                <Russian>Это %1, проверка связи, как слышно? Приём.</Russian>
                 <Chinesesimp>这是%1，无线电检查正常。</Chinesesimp>
                 <Korean>여기는 %1, 무전 체크 양호.</Korean>
                 <French>Il s'agit de %1, contrôle radio OK.</French>
@@ -5998,7 +5998,7 @@
             </Key>
             <Key ID="STR_params_startWithLongRangeRadio">
                 <Original>[TFAR] Start with Long Range Radio</Original>
-                <Russian>[TFAR] Начинать с рюкзаком ДВ-радиосвязи </Russian>
+                <Russian>[TFAR] Начинать с рюкзаком ДВ-радиосвязи</Russian>
                 <Chinesesimp>(TFAR)从远程无线电开始</Chinesesimp>
                 <Korean>[TFAR] 장파 무전기 기본 지급</Korean>
                 <French>[TFAR] Commencer avec la radio longue portée</French>
@@ -8866,20 +8866,20 @@
                 <Turkish>&lt;t color='#43A047'&gt;Konuşlandırıldı&lt;/t&gt;</Turkish>
             </Key>
             <Key ID="STR_info_bar_rivals_activity">
-                <Original> %1 Act.: %2 |</Original>
-                <Russian> Акт. %1: %2 |</Russian>
-                <Chinesesimp> %1 活动水平: %2 |</Chinesesimp>
-                <Korean> %1 활동: %2 |</Korean>
-                <French> %1 Acte: %2 |</French>
-                <Turkish> %1 Etk.: %2 |</Turkish>
+                <Original>%1 Act.: %2 |</Original>
+                <Russian>Акт. %1: %2 |</Russian>
+                <Chinesesimp>%1 活动水平: %2 |</Chinesesimp>
+                <Korean>%1 활동: %2 |</Korean>
+                <French>%1 Acte: %2 |</French>
+                <Turkish>%1 Etk.: %2 |</Turkish>
             </Key>
             <Key ID="STR_info_bar_aggr">
-                <Original>| %1 Aggr: %2 | </Original>
-                <Russian>| Агр. %1: %2 | </Russian>
-                <Chinesesimp>| %1 侵略性: %2 | </Chinesesimp>
-                <Korean>| %1 어그로: %2 | </Korean>
+                <Original>| %1 Aggr: %2 |</Original>
+                <Russian>| Агр. %1: %2 |</Russian>
+                <Chinesesimp>| %1 侵略性: %2 |</Chinesesimp>
+                <Korean>| %1 어그로: %2 |</Korean>
                 <French>| %1 Aggr : %2</French>
-                <Turkish>| %1 Agres.: %2 | </Turkish>
+                <Turkish>| %1 Agres.: %2 |</Turkish>
             </Key>
             <Key ID="STR_info_bar_aggr_double">
                 <Original>| %1 Aggr: %2 | %3 Aggr: %4 |</Original>
@@ -10828,28 +10828,28 @@
                 <Turkish>Maliyetler</Turkish>
             </Key>
             <Key ID="STR_commander_menu_abilities_available_supports">
-                <Original>Available Support Points: </Original>
-                <Russian>Доступные очки поддержки: </Russian>
+                <Original>Available Support Points:</Original>
+                <Russian>Доступные очки поддержки:</Russian>
                 <Chinesesimp>可用的支援点：</Chinesesimp>
-                <Korean>사용 가능한 지원 포인트: </Korean>
+                <Korean>사용 가능한 지원 포인트:</Korean>
                 <French>Points d'appui disponibles:</French>
-                <Turkish>Mevcut Destek Puanları: </Turkish>
+                <Turkish>Mevcut Destek Puanları:</Turkish>
             </Key>
             <Key ID="STR_commander_menu_abilities_available_airstrikes">
                 <Original>Available Airstrikes:</Original>
                 <Russian>Доступные авиаудары:</Russian>
                 <Chinesesimp>可用空袭：</Chinesesimp>
-                <Korean>사용 가능한 공습 포인트: </Korean>
+                <Korean>사용 가능한 공습 포인트:</Korean>
                 <French>Frappes aériennes disponibles:</French>
                 <Turkish>Mevcut Hava Saldırıları:</Turkish>
             </Key>
             <Key ID="STR_commander_menu_abilities_captured_airports">
-                <Original>Captured Airbases: </Original>
-                <Russian>Захваченные авиабазы: </Russian>
+                <Original>Captured Airbases:</Original>
+                <Russian>Захваченные авиабазы:</Russian>
                 <Chinesesimp>占领的空军基地：</Chinesesimp>
-                <Korean>점령한 공군 기지: </Korean>
+                <Korean>점령한 공군 기지:</Korean>
                 <French>Bases aériennes capturées:</French>
-                <Turkish>Ele Geçirilen Hava Üsleri: </Turkish>
+                <Turkish>Ele Geçirilen Hava Üsleri:</Turkish>
             </Key>
             <Key ID="STR_commander_menu_abilities_reset_button">
                 <Original>Reset</Original>
@@ -11122,7 +11122,7 @@
             <Key ID="STR_antistasi_dialogs_mount_veh_tooltip">
                 <Original>Mount / Dismount</Original>
                 <Russian>Сесть / Вылезти</Russian>
-                <Chinesesimp>上 / 下 </Chinesesimp>
+                <Chinesesimp>上 / 下</Chinesesimp>
                 <Korean>차량에 고정화기를 고정/해제합니다.</Korean>
                 <French>Monter / Descendre</French>
                 <Turkish>Bin / İn</Turkish>
@@ -11237,7 +11237,7 @@
             </Key>
             <Key ID="STR_antistasi_dialogs_hq_button_rebel_set_loadout_loadout_saved">
                 <Original>loadout has been saved.</Original>
-                <Russian>снаряжение было сохранено. </Russian>
+                <Russian>снаряжение было сохранено.</Russian>
                 <Chinesesimp>以保存装载</Chinesesimp>
                 <Korean>로드아웃이 저장되었습니다.</Korean>
                 <French>l'équipement a été sauvegardé</French>
@@ -11498,7 +11498,7 @@
                 <Russian>&lt;t size='0.6'&gt;Наши усилия дали результат - мы теперь знаем где находится ещё одна ячейка &lt;t size='0.6' color='#800000'&gt;%1&lt;/t&gt; - это в %2. Мы можем начать атаку на него в любой момент.&lt;/t&gt;</Russian>
                 <Chinesesimp>&lt;t size='0.6'&gt;我们的努力得到了回报 - 我们现在知道另一个 &lt;t size='0.6' color='#800000'&gt;%1&lt;/t&gt; 密室已找到 - 它在 %2 中。 我们随时可以对其发起攻击。&lt;/t&gt;</Chinesesimp>
                 <Korean>&lt;t size='0.6'&gt;우리들의 노력이 결실을 맺었으며, 이제 우리는 또 다른 &lt;t size='0.6' color='#800000'&gt;%1&lt;/t&gt;의 셀이 어디에 있는지 알게 되었고, 현재 %2에 있습니다. 언제든지 공격할 수 있습니다.&lt;/t&gt;</Korean>
-                <French> &lt;t size='0.6'&gt;Nos efforts ont porté leurs fruits - nous savons maintenant où se trouve une autre &lt;t size='0.6' color='#800000'&gt;cellule %1&lt;/t&gt; elle se trouve dans le %2. Nous pouvons l'attaquer à tout moment.&lt;/t&gt;</French>
+                <French>&lt;t size='0.6'&gt;Nos efforts ont porté leurs fruits - nous savons maintenant où se trouve une autre &lt;t size='0.6' color='#800000'&gt;cellule %1&lt;/t&gt; elle se trouve dans le %2. Nous pouvons l'attaquer à tout moment.&lt;/t&gt;</French>
                 <Turkish>&lt;t size='0.6'&gt;Çabalarımız sonuç verdi - artık başka bir &lt;t size='0.6' color='#800000'&gt;%1&lt;/t&gt; hücresinin nerede olduğunu biliyoruz - %2 bölgesinde. Her an oraya bir saldırı başlatabiliriz.&lt;/t&gt;</Turkish>
             </Key>
             <Key ID="STR_antistasi_rivals_destroy_hideoutcell_header">
@@ -12837,7 +12837,7 @@
             <Key ID="STR_A3A_Missions_AS_Official_task_header">
                 <Original>Kill %1 Officer</Original>
                 <Russian>Убейте офицера %1</Russian>
-                <Chinesesimp>杀死 %1 军官 </Chinesesimp>
+                <Chinesesimp>杀死 %1 军官</Chinesesimp>
                 <Korean>%1 장교 사살</Korean>
                 <French>Tuer %1 Officier</French>
                 <Turkish>%1 Subayını Öldür</Turkish>
@@ -13461,7 +13461,7 @@
             </Key>
             <Key ID="STR_A3A_Missions_RES_Prisoners_task_desc">
                 <Original>A group of POWs is awaiting execution at the %1. We must rescue them before %2. Bring them to HQ.</Original>
-                <Russian>Группа наших пленников ожидает казни в %1. Мы должны спасти их до %2. Привезите их в штаб. </Russian>
+                <Russian>Группа наших пленников ожидает казни в %1. Мы должны спасти их до %2. Привезите их в штаб.</Russian>
                 <Chinesesimp>我们的一群战俘在 %1 等待处决。 我们必须在 %2 之前营救他们。 把他们带到总部。</Chinesesimp>
                 <Korean>%1에서 처형 대기 중인 포로가 있습니다. %2 이전까지 그들을 구출해야 합니다. 그들을 본부로 데려오십시오.</Korean>
                 <French>Un groupe de prisonniers de guerre attend d'être exécuté à %1. Nous devons les sauver avant %2. Amenez-les au QG.</French>
@@ -13476,7 +13476,7 @@
             </Key>
             <Key ID="STR_A3A_Missions_RES_Deserters_task_desc">
                 <Original>A group of enemy deserters is hiding at the %1, they are hunted by enemy group. We must rescue them before %2. Bring them to HQ.</Original>
-                <Russian>Группа вражеских дезертиров прячется в %1, их преследует вражеская группа. Мы должны спасти их до %2. Привезите их в штаб. </Russian>
+                <Russian>Группа вражеских дезертиров прячется в %1, их преследует вражеская группа. Мы должны спасти их до %2. Привезите их в штаб.</Russian>
                 <Chinesesimp>一群敌方逃兵躲藏在 %1，他们正在被敌方追捕。我们必须在 %2 之前救出他们。将他们带到总部。</Chinesesimp>
                 <Korean>탈주자 구조적의 탈영병 무리가 %1에 숨어 있고, 적 부대에게 쫓기고 있습니다. %2 이전에 구출해야 합니다. 본부로 데려오십시오.</Korean>
                 <Turkish>Bir grup düşman firarisi %1 mevkisinde saklanıyor ve düşman grubu tarafından avlanıyorlar. Onları %2 vaktinden önce kurtarmalıyız. Onları karargaha getirin.</Turkish>
@@ -13829,7 +13829,7 @@
                 <Russian>Поднять ящик</Russian>
                 <Chinesesimp>搬箱子</Chinesesimp>
                 <Korean>상자 옮기기</Korean>
-                <French>Porter la caisse </French>
+                <French>Porter la caisse</French>
                 <Turkish>Kasayı taşı</Turkish>
             </Key>
             <Key ID="STR_antistasi_actions_towing_hint_header">
@@ -14153,11 +14153,11 @@
                 <Turkish>Teslimat bilgilerini görüntüle</Turkish>
             </Key>
             <Key ID="STR_antistasi_actions_ff_forgive">
-                <Original>[Forgive Friendly Fire] </Original>
-                <Russian>[Простить дружественный огонь] </Russian>
+                <Original>[Forgive Friendly Fire]</Original>
+                <Russian>[Простить дружественный огонь]</Russian>
                 <Chinesesimp>[原谅友军伤害]</Chinesesimp>
-                <Korean>[아군오사 용서] </Korean>
-                <French>[Pardonnez les tirs amis] </French>
+                <Korean>[아군오사 용서]</Korean>
+                <French>[Pardonnez les tirs amis]</French>
                 <Turkish>[Dost Ateşini Affet]</Turkish>
             </Key>
             <Key ID="STR_antistasi_actions_unload_cargo">
@@ -15906,20 +15906,20 @@
                 <Turkish>Kalıcı Kayıt</Turkish>
             </Key>
             <Key ID="STR_A3A_save_persisent_save_0">
-                <Original> Assets:&lt;br/&gt;&lt;t color='#f0d498'&gt;HR: </Original>
-                <Russian> Имущество:&lt;br/&gt;&lt;t color='#f0d498'&gt;ЛР: </Russian>
-                <Chinesesimp>资产:&lt;br/&gt;&lt;t color='#f0d498'&gt;人力: </Chinesesimp>
-                <Korean> 자산:&lt;br/&gt;&lt;t color='#f0d498'&gt;인력: </Korean>
-                <French> Actifs:&lt;br/&gt;&lt;t color='#f0d498'&gt;HR:</French>
-                <Turkish> Varlıklar:&lt;br/&gt;&lt;t color='#f0d498'&gt;İK: </Turkish>
+                <Original>Assets:&lt;br/&gt;&lt;t color='#f0d498'&gt;HR:</Original>
+                <Russian>Имущество:&lt;br/&gt;&lt;t color='#f0d498'&gt;ЛР:</Russian>
+                <Chinesesimp>资产:&lt;br/&gt;&lt;t color='#f0d498'&gt;人力:</Chinesesimp>
+                <Korean>자산:&lt;br/&gt;&lt;t color='#f0d498'&gt;인력:</Korean>
+                <French>Actifs:&lt;br/&gt;&lt;t color='#f0d498'&gt;HR:</French>
+                <Turkish>Varlıklar:&lt;br/&gt;&lt;t color='#f0d498'&gt;İK:</Turkish>
             </Key>
             <Key ID="STR_A3A_save_persisent_save_1">
-                <Original>&lt;br/&gt;Money: </Original>
-                <Russian>&lt;br/&gt;Деньги: </Russian>
-                <Chinesesimp>&lt;br/&gt;钱: </Chinesesimp>
-                <Korean>&lt;br/&gt;자금: </Korean>
+                <Original>&lt;br/&gt;Money:</Original>
+                <Russian>&lt;br/&gt;Деньги:</Russian>
+                <Chinesesimp>&lt;br/&gt;钱:</Chinesesimp>
+                <Korean>&lt;br/&gt;자금:</Korean>
                 <French>&lt;br/&gt;Argent :</French>
-                <Turkish>&lt;br/&gt;Para: </Turkish>
+                <Turkish>&lt;br/&gt;Para:</Turkish>
             </Key>
             <Key ID="STR_A3A_save_save_game_header">
                 <Original>Save Game</Original>
@@ -17354,12 +17354,12 @@
                 <Turkish>Lütfen takım arkadaşlarınızı öldürmeyin. %1 saniye daha kaplumbağaları seyredin.</Turkish>
             </Key>
             <Key ID="STR_A3A_punishment_guilty">
-                <Original> has been found guilty of FF (3+ Strikes).&lt;br/&gt;&lt;br/&gt;If you believe this is a mistake, you can forgive him with the corresponding scroll-menu action.</Original>
-                <Russian> был признан виновным в дружественном огне (3+ случая).&lt;br/&gt;&lt;br/&gt;Если вы думаете, что это ошибка правосудия, вы можете простить его соответствующим действием в контекстном меню на колёсико мыши.</Russian>
+                <Original>has been found guilty of FF (3+ Strikes).&lt;br/&gt;&lt;br/&gt;If you believe this is a mistake, you can forgive him with the corresponding scroll-menu action.</Original>
+                <Russian>был признан виновным в дружественном огне (3+ случая).&lt;br/&gt;&lt;br/&gt;Если вы думаете, что это ошибка правосудия, вы можете простить его соответствующим действием в контекстном меню на колёсико мыши.</Russian>
                 <Chinesesimp>已被判误伤（3次以上）。&lt;br/&gt;&lt;br/&gt;如果您认为这是误判，您可以通过鼠标滚轮菜单中的适当操作来原谅它。</Chinesesimp>
                 <Korean>이(가) 아군오사(3회 이상 공격)에 대해 유죄 판결을 받았습니다.&lt;br/&gt;&lt;br/&gt;실수인 것 같다고 생각한다면 그에 대한 스크롤 메뉴 행동으로 그를 용서할 수 있습니다.</Korean>
-                <French> a été reconnu coupable de tirs amis (plus de trois incidents)..&lt;br/&gt;&lt;br/&gt;Si vous pensez qu'il s'agit d'une erreur, vous pouvez lui pardonner avec l'action correspondante du menu déroulant.</French>
-                <Turkish> dost ateşinden (3+ İhlal) suçlu bulundu.&lt;br/&gt;&lt;br/&gt;Bunun bir hata olduğunu düşünüyorsanız, ilgili kaydırma menüsü (scroll-menu) eylemiyle onu affedebilirsiniz.</Turkish>
+                <French>a été reconnu coupable de tirs amis (plus de trois incidents)..&lt;br/&gt;&lt;br/&gt;Si vous pensez qu'il s'agit d'une erreur, vous pouvez lui pardonner avec l'action correspondante du menu déroulant.</French>
+                <Turkish>dost ateşinden (3+ İhlal) suçlu bulundu.&lt;br/&gt;&lt;br/&gt;Bunun bir hata olduğunu düşünüyorsanız, ilgili kaydırma menüsü (scroll-menu) eylemiyle onu affedebilirsiniz.</Turkish>
             </Key>
             <Key ID="STR_A3A_punishment_damaged_driver">
                 <Original>You damaged a friendly as a driver.</Original>
@@ -17410,20 +17410,20 @@
                 <Turkish>%1 size hasar verdi!</Turkish>
             </Key>
             <Key ID="STR_A3A_punishment_injured_comrade">
-                <Original>Injured comrade: </Original>
-                <Russian>Раненый товарищ: </Russian>
-                <Chinesesimp>受伤的同志： </Chinesesimp>
-                <Korean>부상당한 아군: </Korean>
+                <Original>Injured comrade:</Original>
+                <Russian>Раненый товарищ:</Russian>
+                <Chinesesimp>受伤的同志：</Chinesesimp>
+                <Korean>부상당한 아군:</Korean>
                 <French>Camarade blessé:</French>
-                <Turkish>Yaralı yoldaş: </Turkish>
+                <Turkish>Yaralı yoldaş:</Turkish>
             </Key>
             <Key ID="STR_A3A_punishment_hurt_you">
-                <Original>  hurt you!</Original>
-                <Russian>  нанёс вам урон!</Russian>
-                <Chinesesimp>  伤害你！</Chinesesimp>
-                <Korean>  이(가) 당신을 다치게 했습니다!</Korean>
-                <French> a fait des dégâts!</French>
-                <Turkish>  size hasar verdi!</Turkish>
+                <Original>hurt you!</Original>
+                <Russian>нанёс вам урон!</Russian>
+                <Chinesesimp>伤害你！</Chinesesimp>
+                <Korean>이(가) 당신을 다치게 했습니다!</Korean>
+                <French>a fait des dégâts!</French>
+                <Turkish>size hasar verdi!</Turkish>
             </Key>
             <Key ID="STR_A3A_punishment_watch_your_fire">
                 <Original>Watch your fire!</Original>

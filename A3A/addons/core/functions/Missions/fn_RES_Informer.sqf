@@ -27,7 +27,7 @@ _limit params ["_dateLimitNum", "_displayTime"];
 
 private _destinationName = [_markerX] call A3A_fnc_localizar;
 
-Info_2("Side: %1, difficulty: %2.", str _side, str _difficulty);
+Info_2("Side: %1, difficulty: %2.",str _side,str _difficulty);
 
 //////////////////////
 //City setMagazineTurretAmmo
@@ -65,7 +65,7 @@ while {true} do {
     _searchIterations = _searchIterations + 1;
 };
 
-Info_1("City size: %1.", str _size);
+Info_1("City size: %1.",str _size);
 
 //////////////////////
 //Informer position
@@ -181,7 +181,7 @@ private _roadblockCount = ceil (random [1,2,4]);
 private _previousRoadblockPositions = [];
 private _cardinalDirections = [0,90,180,270];
 
-Info_1("Roadblocks count: %1.", str _roadblockCount);
+Info_1("Roadblocks count: %1.",str _roadblockCount);
 
 private _earlyEscape = false;
 
@@ -269,7 +269,7 @@ deleteMarkerLocal _marker1;
 deleteMarkerLocal _marker2;
 
 if (_earlyEscape) exitWith {
-    Error( "Problems with road positions, rerequesting new rescue mission.");
+    Error("Problems with road positions, rerequesting new rescue mission.");
     ["RES"] remoteExec ["A3A_fnc_missionRequest",2];
 };
 

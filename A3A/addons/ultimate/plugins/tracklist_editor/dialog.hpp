@@ -88,7 +88,7 @@ class GVAR(dialog) {
 			w = QUOTE(0.33 * safezoneW);
 			h = QUOTE(0.528 * safezoneH);
 		};
-		class ListAllTracks: RscListbox
+		class ListAllTracks: RscListBox
 		{
 			type = CT_LISTNBOX;
 			idcLeft = -1;

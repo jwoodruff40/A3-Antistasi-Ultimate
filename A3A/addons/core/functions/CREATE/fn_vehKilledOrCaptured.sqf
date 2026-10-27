@@ -18,7 +18,7 @@ private _side = _veh getVariable ["ownerSide", teamPlayer];			// default because
 if (_captured && (_side == _sideEnemy)) exitWith {};
 
 private _act = if (_captured) then {"captured"} else {"destroyed"};
-ServerDebug_4("%1 of %2 %3 by %4", _type, _side, _act, _sideEnemy);
+ServerDebug_4("%1 of %2 %3 by %4",_type,_side,_act,_sideEnemy);
 
 // Kick units out of vehicles when destroyed & touching ground
 if (!_captured and count crew _veh > 0) then {

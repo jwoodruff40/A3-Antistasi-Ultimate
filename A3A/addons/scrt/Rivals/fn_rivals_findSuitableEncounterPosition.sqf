@@ -75,7 +75,7 @@ switch (inactivityLevelRivals) do {
 		_encounterPosition = position (selectRandom _players);
     };
 	default {
-		Error_1("Bad level recieved, cannot generate string, was %1", inactivityLevelRivals);
+		Error_1("Bad level recieved, cannot generate string, was %1",inactivityLevelRivals);
 		[]
 	};
 };

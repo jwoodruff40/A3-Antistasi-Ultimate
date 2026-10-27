@@ -11,7 +11,7 @@ Arguments:
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 
-Debug_1("CASRoutine called with %1", _this);
+Debug_1("CASRoutine called with %1",_this);
 
 params ["_suppData", "_resPool", "_airport", "_planeType", "_sleepTime", "_reveal"];
 _suppData params ["_supportName", "_side", "_suppType", "_suppCenter", "_suppRadius", "_suppTarget"];

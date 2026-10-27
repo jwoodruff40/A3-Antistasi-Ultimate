@@ -2,7 +2,7 @@
 #include "..\defines.inc"
 FIX_LINE_NUMBERS()
 
-Info( "Vehicle Move Event Init.");
+Info("Vehicle Move Event Init.");
 
 private _vehicles = [];
 private _groups = [];
@@ -26,7 +26,7 @@ if (_lowCiv || _civNonHuman) exitWith {
 
 private _originPosition = position _player;
 
-Info_2("%1 will be used as center of the event at %2 position.", name _player, str _originPosition);
+Info_2("%1 will be used as center of the event at %2 position.",name _player,str _originPosition);
 
 private _city = if (_originPosition isEqualType "") then {_originPosition} else {[citiesX, _originPosition] call BIS_fnc_nearestPosition};
 
@@ -73,7 +73,7 @@ if (_route isEqualTo []) then { _route = [_posOrigin, _posDest] };
 
 private _fnc_spawnConvoyVehicle = {
     params ["_vehType", "_markName"];
-    ServerDebug_1("Spawning vehicle type %1", _vehType);
+    ServerDebug_1("Spawning vehicle type %1",_vehType);
 
     // Find location down route
     _pathState = [_route, [10, 0] select (count _pathState == 0), _pathState] call A3A_fnc_findPosOnRoute;

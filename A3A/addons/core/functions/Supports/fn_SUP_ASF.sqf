@@ -22,7 +22,7 @@ FIX_LINE_NUMBERS()
 params ["_supportName", "_side", "_resPool", "_maxSpend", "_target", "_targPos", "_reveal", "_delay"];
 
 private _airport = [_side, _targPos] call A3A_fnc_availableBasesAir;
-if (isNil "_airport") exitWith { Debug_1("No airport found for %1 support", _supportName); -1; };
+if (isNil "_airport") exitWith { Debug_1("No airport found for %1 support",_supportName); -1; };
 
 private _faction = Faction(_side);
 private _vehType = selectRandom ((_faction get "vehiclesPlanesAA") + (_faction get "vehiclesPlanesLargeAA"));

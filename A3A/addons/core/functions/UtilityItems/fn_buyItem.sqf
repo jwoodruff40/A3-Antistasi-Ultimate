@@ -19,8 +19,8 @@ FIX_LINE_NUMBERS()
 params ["_unit", "_itemClass"];
 
 if (isNull _unit) exitwith { Error("Unit is null") };
-if (!isClass (configFile/"CfgVehicles"/_itemClass)) exitwith { Error_1("Class %1 does not exist", _itemClass) };
-if !(_itemClass in A3A_utilityItemsHM) exitWith { Error_1("Class %1 is not a buyable item", _itemClass) };
+if (!isClass (configFile/"CfgVehicles"/_itemClass)) exitwith { Error_1("Class %1 does not exist",_itemClass) };
+if !(_itemClass in A3A_utilityItemsHM) exitWith { Error_1("Class %1 is not a buyable item",_itemClass) };
 
 private _fnc_placed = {
     params ["_item", "_unit", "_price", "_flags"];

@@ -18,7 +18,7 @@ params ["_mortar", "_crewGroup", "_supportName", "_sleepTime"];
 #include "..\defines.inc"
 FIX_LINE_NUMBERS()
 
-Info_1("Sleep time: %1", str _sleepTime);
+Info_1("Sleep time: %1",str _sleepTime);
 
 //Sleep to simulate the time it would need to set the support up
 sleep _sleepTime;
@@ -50,7 +50,7 @@ switch (inactivityLevelRivals) do {
 };
 _mortar setVariable ["Callsign", _supportName, true];
 
-Info_1("Number of rounds: %1", str _numberOfRounds);
+Info_1("Number of rounds: %1",str _numberOfRounds);
 
 //A function to repeatedly fire onto a target without loops by using an EH
 _fn_executeMortarFire =
@@ -128,7 +128,7 @@ while {_timeAlive > 0} do
             private _target = _targetList deleteAt 0;
             server setVariable [format ["%1_targets", _supportName], _targetList, true];
 
-            Info_1("Next target is %1", _target);
+            Info_1("Next target is %1",_target);
 
             //Parse targets
             private _targetParams = _target select 0;
@@ -185,7 +185,7 @@ while {_timeAlive > 0} do
     if (!(_mortar getVariable "CurrentlyFiring") && (_numberOfRounds <= 0)) exitWith
     {
         sleep _sleepTime;
-        Info_1("%1 has no more rounds left to fire, aborting routine", _supportName);
+        Info_1("%1 has no more rounds left to fire, aborting routine",_supportName);
     };
 
     sleep 5;
@@ -218,4 +218,4 @@ server setVariable [format ["%1_targets", _supportName], nil, true];
 deleteMarker (format ["%1_targetMarker", _supportName]);
 deleteMarker (format ["%1_text", _supportName]);
 
-Info_1("Ended roving mortar and deleted data for %1", _supportName);
+Info_1("Ended roving mortar and deleted data for %1",_supportName);

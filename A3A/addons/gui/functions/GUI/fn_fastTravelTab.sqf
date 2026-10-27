@@ -155,7 +155,7 @@ switch (_mode) do
 
     case ("mapClicked"):
     {
-        Debug_1("Fast Travel map clicked: %1", _params);
+        Debug_1("Fast Travel map clicked: %1",_params);
         private _display = findDisplay A3A_IDD_MAINDIALOG;
         private _fastTravelMap = _display displayCtrl A3A_IDC_FASTTRAVELMAP;
         // Find closest marker to the clicked position
@@ -163,7 +163,7 @@ switch (_mode) do
         private _clickedWorldPosition = _fastTravelMap ctrlMapScreenToWorld _clickedPosition;
         private _locations = airportsX + resourcesX + milbases + factories + outposts + seaports + citiesX + ["Synd_HQ"];
         private _selectedMarker = [_locations, _clickedWorldPosition] call BIS_fnc_nearestPosition;
-        Debug_1("Selected marker: %1", _selectedMarker);
+        Debug_1("Selected marker: %1",_selectedMarker);
 
         _markerMapPosition = _fastTravelMap ctrlMapWorldToScreen (getMarkerPos _selectedMarker);
         private _maxDistance = 8 * GRID_W; // TODO UI-update: Move somewhere else?
@@ -195,7 +195,7 @@ switch (_mode) do
         _params params [["_enableHcMode", false], ["_hcGroup", grpNull]];
         private _display = findDisplay A3A_IDD_MAINDIALOG;
         private _fastTravelMap = _display displayCtrl A3A_IDC_FASTTRAVELMAP;
-        Debug_2("Set high command mode: %1, group: %2", _enableHcMode, _hcGroup);
+        Debug_2("Set high command mode: %1, group: %2",_enableHcMode,_hcGroup);
         _fastTravelMap setVariable ["hcMode", _enableHcMode];
         _fastTravelMap setVariable ["hcGroup", _hcGroup];
     };
@@ -218,6 +218,6 @@ switch (_mode) do
 
     default {
         // Log error if attempting to call a mode that doesn't exist
-        Error_1("Fast Travel tab mode does not exist: %1", _mode);
+        Error_1("Fast Travel tab mode does not exist: %1",_mode);
     };
 };

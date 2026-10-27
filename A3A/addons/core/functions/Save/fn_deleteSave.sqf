@@ -4,7 +4,7 @@ FIX_LINE_NUMBERS()
 
 params ["_serverID", "_campaignID", "_worldname", ["_gametype", "Greenfor"]];
 
-Info_1("Deleting saved game with parameters %1", _this);
+Info_1("Deleting saved game with parameters %1",_this);
 
 private _namespace = [profileNamespace, missionProfileNamespace] select (_serverID isEqualType false);
 

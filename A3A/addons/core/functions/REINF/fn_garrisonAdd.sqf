@@ -19,7 +19,7 @@ if (_costs > _resourcesFIA) exitWith {
 	[localize "STR_garrison_garrison_header",  format [localize "STR_garrison_error_no_money", _costs, A3A_faction_civ get "currencySymbol"], localize "STR_notifiers_fail_type"] call SCRT_fnc_ui_showDynamicTextMessage;
 };
 
-if (_unitType == FactionGet(reb, "unitCrew") && _markerX in (watchpostsFIA + roadblocksFIA + aapostsFIA + atpostsFIA + hmgpostsFIA)) exitWith {
+if (_unitType == FactionGet(reb,"unitCrew") && _markerX in (watchpostsFIA + roadblocksFIA + aapostsFIA + atpostsFIA + hmgpostsFIA)) exitWith {
 	[localize "STR_garrison_garrison_header", localize "STR_garrison_error_no_mortar", localize "STR_notifiers_fail_type"] call SCRT_fnc_ui_showDynamicTextMessage;
 };
 

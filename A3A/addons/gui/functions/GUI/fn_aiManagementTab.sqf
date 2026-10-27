@@ -62,7 +62,7 @@ switch (_mode) do
             {
                 _index = _aiListBox lbAdd name _x;
                 _netId = _x call BIS_fnc_netId; // TODO UI-update: can be only netId command instead of function in MP-only
-                Debug_1("Adding unit: %1", _netId);
+                Debug_1("Adding unit: %1",_netId);
                 _aiListBox lbSetData [_index, _netId];
             } forEach _aisInGroup;
         };
@@ -70,12 +70,12 @@ switch (_mode) do
         // If any units are selected on the command bar select those in the list
         {
             _netId = _x call BIS_fnc_netId; // TODO UI-update: can be only netId command instead of function in MP-only
-            Debug_1("Selecting unit: %1", _netId);
+            Debug_1("Selecting unit: %1",_netId);
             _lbSize = lbSize _aiListBox;
             for "_i" from 0 to (_lbSize - 1) do
             {
                 _listNetId = _aiListBox lbData _i;
-                Debug_2("LB netID: %1, Sel netId: %2", _listNetId, _netId);
+                Debug_2("LB netID: %1, Sel netId: %2",_listNetId,_netId);
                 if (_listNetId isEqualTo _netId) then
                 {
                     _aiListBox lbSetSelected [_i, true];
@@ -111,7 +111,7 @@ switch (_mode) do
         private _aiControlButton = _display displayCtrl A3A_IDC_AICONTROLBUTTON;
         private _aiControlIcon = _display displayCtrl A3A_IDC_AICONTROLICON;
         _lbSelection = lbSelection _aiListBox;
-        Debug_1("AI LB selection changed: %1", _lbSelection);
+        Debug_1("AI LB selection changed: %1",_lbSelection);
         // TODO UI-update: disable AI control button when petros is selected
         if (count _lbSelection == 1) then
         {
@@ -193,6 +193,6 @@ switch (_mode) do
     default
     {
         // Log error if attempting to call a mode that doesn't exist
-        Error_1("AI Management tab mode does not exist: %1", _mode);
+        Error_1("AI Management tab mode does not exist: %1",_mode);
     };
 };

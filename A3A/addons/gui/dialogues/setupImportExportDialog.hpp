@@ -4,6 +4,8 @@ class A3A_SetupImportExportDialog
     onLoad = "['onLoad'] spawn A3A_fnc_setupImportExportDialog";
     onUnload = "['onUnload'] call A3A_fnc_setupImportExportDialog";
 
+    #undef DIALOG_X
+    #undef DIALOG_Y
     #define DIALOG_X CENTER_X(160)
     #define DIALOG_Y CENTER_Y(92)
 

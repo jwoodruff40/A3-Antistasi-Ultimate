@@ -8,7 +8,7 @@ private _planeVehicle = vehicle _plane;
 sleep random 5;
 
 private _nearestLocation = nearestLocation [getPos _planeVehicle, "NameCity"];
-Info_2("Dropping cargo at %1 (near %2)", getPos _planeVehicle, text _nearestLocation);
+Info_2("Dropping cargo at %1 (near %2)",getPos _planeVehicle,text _nearestLocation);
 
 if (alive _planeVehicle) then {
 

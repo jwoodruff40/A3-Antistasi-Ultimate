@@ -64,7 +64,7 @@ waitUntil {_heli distance2D _positionDestination < 250 || {!alive _heli || !(can
 if (!alive _heli || !(canMove _heli) || {!([(driver _heli)] call A3A_fnc_canFight)}) exitWith {
     deleteMarker _areaMarker;
     deleteMarker "LootHeliAreaGlobalMarker";
-	Info_2("Helicopter is unable to loot area. Positions: %1, %2", str _positionOrigin, str _positionDestination);
+	Info_2("Helicopter is unable to loot area. Positions: %1, %2",str _positionOrigin,str _positionDestination);
 
 	if (isSupportMarkerPlacingLocked) then {
 		isSupportMarkerPlacingLocked = false;
@@ -83,7 +83,7 @@ waitUntil {time > _timeOut};
 if (!alive _heli || !(canMove _heli) || {!([(driver _heli)] call A3A_fnc_canFight)}) exitWith {
     deleteMarker _areaMarker;
     deleteMarker "LootHeliAreaGlobalMarker";
-	Info_2("Helicopter is unable to loot area. Positions: %1, %2", str _positionOrigin, str _positionDestination);
+	Info_2("Helicopter is unable to loot area. Positions: %1, %2",str _positionOrigin,str _positionDestination);
 
 	if (isSupportMarkerPlacingLocked) then {
 		isSupportMarkerPlacingLocked = false;

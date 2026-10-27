@@ -16,7 +16,7 @@ FIX_LINE_NUMBERS()
 
 params ["_mrkDest", "_mrkOrigin", "_maxWaves"];
 
-Info_3("Creating waved attack against %1 from %2 with %3 waves", _mrkDest, _mrkOrigin, _maxWaves);
+Info_3("Creating waved attack against %1 from %2 with %3 waves",_mrkDest,_mrkOrigin,_maxWaves);
 
 // TODO: move this to chooseAttack?
 forcedSpawn pushBack _mrkDest; publicVariable "forcedSpawn";
@@ -81,7 +81,7 @@ while {_wave <= _maxWaves and !_victory} do
         private _reqSupports = round (_vehCount * (0.1 + random 0.1 + (5 + tierWar) * 0.025) * ([1, 0.4] select _lowAir));
         _countNewSupport = 1 max (_reqSupports - _remSupports);
 
-        ServerDebug_3("Remaining air supports %1, plus %2 attack helis. Adding %3 air supports", _airSupports, count _attackHelis, _countNewSupport);
+        ServerDebug_3("Remaining air supports %1, plus %2 attack helis. Adding %3 air supports",_airSupports,count _attackHelis,_countNewSupport);
     };
     _vehCount = _vehCount - _countNewSupport;
 
@@ -126,7 +126,7 @@ while {_wave <= _maxWaves and !_victory} do
 
         [-(_data#0), _side, "attack"] remoteExec ["A3A_fnc_addEnemyResources", 2];
 
-        ServerInfo_1("Spawn performed: Attack helis %1", (_data#1) apply {typeof _x});
+        ServerInfo_1("Spawn performed: Attack helis %1",(_data#1) apply {typeof _x});
     };
 
     // Request some artillery
@@ -155,17 +155,17 @@ while {_wave <= _maxWaves and !_victory} do
 //    if (sidesX getVariable [_mrkDestination,sideUnknown] != teamPlayer) then {_soldiers spawn A3A_fnc_remoteBattle};
         private _markerSide = sidesX getVariable _mrkDest;
         if(_markerSide == _side) exitWith {
-            ServerInfo_2("Wave %1 has captured %2", _wave, _mrkDest);
+            ServerInfo_2("Wave %1 has captured %2",_wave,_mrkDest);
             _victory = true;
         };
 
         private _curSoldiers = { !fleeing _x and _x call A3A_fnc_canFight } count _soldiers;
-        Debug_2("%1 soldiers remaining out of %2", _curSoldiers, count _soldiers);
+        Debug_2("%1 soldiers remaining out of %2",_curSoldiers,count _soldiers);
         if (_curSoldiers < count _soldiers * 0.25) exitWith {
-            ServerInfo_2("Wave %1 against %2 has been defeated", _wave, _mrkDest);
+            ServerInfo_2("Wave %1 against %2 has been defeated",_wave,_mrkDest);
         };
         if(_timeout < time) exitWith {
-            ServerInfo_2("Wave %1 against %2 has timed out", _wave, _mrkDest);
+            ServerInfo_2("Wave %1 against %2 has timed out",_wave,_mrkDest);
         };
 
         // Attempt to flip marker

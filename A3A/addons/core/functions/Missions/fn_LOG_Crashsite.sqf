@@ -16,7 +16,7 @@ private _difficult = random 10 < tierWar;
 private _bonus = if (_difficult) then {2} else {1};
 private _sideX = if (sidesX getVariable [_markerX,sideUnknown] == Occupants) then {Occupants} else {Invaders};
 private _faction = Faction(_sideX);
-Info_3("Origin: %1, Hardmode: %2, Controlling Side: %3", _markerX, _difficult, _sideX);
+Info_3("Origin: %1, Hardmode: %2, Controlling Side: %3",_markerX,_difficult,_sideX);
 
 private _limit = if (_difficult) then {
 	45 call SCRT_fnc_misc_getTimeLimit
@@ -45,7 +45,7 @@ if (count _potentialSites > 0) then {
     _deliverySite = getMarkerPos _randomEnemySite;
 };
 
-Info_3("Difficulty: %1, Side: %2, Destination: %3", str _difficult, str _sideX, _destinationName);
+Info_3("Difficulty: %1, Side: %2, Destination: %3",str _difficult,str _sideX,_destinationName);
 
 //finding crash position
 private _angle = random 360;
@@ -122,8 +122,8 @@ while {_iterations < 30} do {
 };
 if (count _crashPosition == 0) then {_crashPosition = _posCrashOrigin};
 
-Debug_1("Crashsite position has been found after %1 iterations.", str _iterations);
-Info_1("Crashsite position: %1", str _crashPosition);
+Debug_1("Crashsite position has been found after %1 iterations.",str _iterations);
+Info_1("Crashsite position: %1",str _crashPosition);
 
 //creating mission marker near crash site
 private _reconVehiclePlaceholder = createVehicle ["Land_Can_V2_F", [_crashPosition select 0, _crashPosition select 1, 0.9], [], 0, "CAN_COLLIDE"];
@@ -232,7 +232,7 @@ _effectsAndProps pushBack _smokeEffect;
 
 _effectsAndProps pushBack _crater;
 
-Info_2("Crash Location: %1, Aircraft: %2", _crashsiteActual, _reconVehicle);
+Info_2("Crash Location: %1, Aircraft: %2",_crashsiteActual,_reconVehicle);
 
 _groupPilot = createGroup _sideX;
 _pilot = "";
@@ -283,7 +283,7 @@ sleep 1;
 _reconVehicle allowDamage true;
 _box allowDamage true;
 
-Info_1("Box position: %1", position _box);
+Info_1("Box position: %1",position _box);
 
 private _smokeGrenade = selectRandom allSmokeGrenades; //notife player where box is
 private _smoke = _smokeGrenade createVehicle (getPosATL _box);

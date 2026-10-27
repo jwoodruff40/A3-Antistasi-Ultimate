@@ -32,9 +32,9 @@ private _minClearance = 10 max (sizeOf _vehType);
 private _vtol = (getNumber (configOf _vehicle >> "vtol") > 0 && _vehType in FactionGet(all,"vehiclesTransportAir"));
 if (_vtol) then { _vehicle setVehicleRadar 1 };
 
-if (_vehicle isKindOf "Air" || _vehType in FactionGet(all, "vehiclesDropPod")) then
+if (_vehicle isKindOf "Air" || _vehType in FactionGet(all,"vehiclesDropPod")) then
 {
-    if (_vehType in FactionGet(all,"vehiclesHelisTransport") + FactionGet(all,"vehiclesHelisLight") + FactionGet(all, "vehiclesDropPod") || _vtol) exitWith
+    if (_vehType in FactionGet(all,"vehiclesHelisTransport") + FactionGet(all,"vehiclesHelisLight") + FactionGet(all,"vehiclesDropPod") || _vtol) exitWith
     {
         // Transport helicopter or VTOL
         if (_vtol && _isAirdrop) then {
@@ -48,7 +48,7 @@ if (_vehicle isKindOf "Air" || _vehType in FactionGet(all, "vehiclesDropPod")) t
                 if(_x distance2D _landPos < _minClearance) exitWith { _landPos = [0, 0, 0] };
             } forEach _landPosBlacklist;
 
-            if (_vehType in FactionGet(all, "vehiclesDropPod")) exitWith {
+            if (_vehType in FactionGet(all,"vehiclesDropPod")) exitWith {
                 [_vehicle, _cargoGroup, _posDestination, _posOrigin] spawn A3A_fnc_OrbitalLanding;
             };
 
@@ -120,7 +120,7 @@ if (_vehicle isKindOf "Air" || _vehType in FactionGet(all, "vehiclesDropPod")) t
         [_vehicle, _cargoGroup, _posDestination, _markerOrigin, false] spawn A3A_fnc_paradrop;
     };
 
-    Error_1("Obsolete/unidentified vehicle type %1", _vehType);
+    Error_1("Obsolete/unidentified vehicle type %1",_vehType);
     //Attack plane or drone - should be unused now?
     private _vehWP0 = _crewGroup addWaypoint [_posDestination, 0];
     _vehWP0 setWaypointBehaviour "COMBAT";

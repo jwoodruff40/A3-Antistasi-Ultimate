@@ -1,7 +1,7 @@
 params ["_base", "_target"];
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
-Verbose_2("Checking if %1 should reinforce %2", _base, _target);
+Verbose_2("Checking if %1 should reinforce %2",_base,_target);
 
 //Bases cannot reinforce themselves
 if(_base isEqualTo _target) exitWith {false};

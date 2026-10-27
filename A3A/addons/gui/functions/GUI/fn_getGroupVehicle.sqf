@@ -28,7 +28,7 @@ params [["_groupX",grpNull]];
 
 if !((typeName _groupX) isEqualTo "GROUP") exitWith
 {
-    Error_1("%1 is not a group", _groupX);
+    Error_1("%1 is not a group",_groupX);
     objNull;
 };
 

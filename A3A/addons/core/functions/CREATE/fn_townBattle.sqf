@@ -214,7 +214,7 @@ if ((_vip distance2D _posDest > _sizeFail) || !([_vip] call A3A_fnc_canFight)) e
 
 [1, _side, "QRFLAND", getPosATL player, 300] call A3A_fnc_showInterceptedSetupCall;
 
-ServerInfo_3("Launching %1 Battle Against %2 from %3", _side, _mrkDest, _mrkOrigin);
+ServerInfo_3("Launching %1 Battle Against %2 from %3",_side,_mrkDest,_mrkOrigin);
 
 bigAttackInProgress = true; publicVariable "bigAttackInProgress";
 
@@ -259,7 +259,7 @@ waitUntil {
 
 private _canSucceed = (({_x call A3A_fnc_canFight} count _soldiers <= _soldiersWin) || time > _missionMinTime);
 if (_canSucceed) then {
-    Info_2("Rebels defeated a town attack against %1, %2", _side, _mrkDest);
+    Info_2("Rebels defeated a town attack against %1, %2",_side,_mrkDest);
     [_taskId, "townBattle", "SUCCEEDED"] call A3A_fnc_taskSetState;
     [_posDest, 10, 3000] call _fnc_adjustNearCities;
     [_mrkDest, true] call A3A_fnc_cityChangeSide;
@@ -280,7 +280,7 @@ if (_canSucceed) then {
     private _resourcesFIA = round (100 * _baseBattleReward);
     [_hrAdd,_resourcesFIA] remoteExec ["A3A_fnc_resourcesFIA",2];
 } else {
-    Info_2("Rebels lost a town attack against %1, %2", _side, _mrkDest);
+    Info_2("Rebels lost a town attack against %1, %2",_side,_mrkDest);
     [_taskId, "townBattle", "FAILED"] call A3A_fnc_taskSetState;
     [_posDest, -20, 3000] call _fnc_adjustNearCities;
     [0,-20,_mrkDest,false] spawn A3A_fnc_citySupportChange;

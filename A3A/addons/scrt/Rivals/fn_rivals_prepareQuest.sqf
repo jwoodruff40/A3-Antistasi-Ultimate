@@ -16,7 +16,7 @@ if (count _sites == 0) then {
 
 private _missionSite = selectRandom _sites;
 
-Info_1("Using %1 as rivals site", _missionSite);
+Info_1("Using %1 as rivals site",_missionSite);
 
 isRivalsDiscoveryQuestAssigned = true;
 publicVariable "isRivalsDiscoveryQuestAssigned";

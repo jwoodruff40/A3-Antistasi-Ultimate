@@ -34,7 +34,7 @@ if (_site in outposts || {_site in mrkAntennas}) then {
 if ((_site in factories || _site in resourcesX) && _site in destroyedSites) then {
     _economyDead = _site;
     _cost = 5000; // Economy specific cost
-    Debug_1("Rebuilding Economic Site %1", _economyDead);
+    Debug_1("Rebuilding Economic Site %1",_economyDead);
 };
 
 // -----------------------------------------------------------------------------

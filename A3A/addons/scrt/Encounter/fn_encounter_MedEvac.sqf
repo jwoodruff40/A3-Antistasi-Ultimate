@@ -18,7 +18,7 @@ if (isNil "_player") exitWith {
 
 private _originPosition = position _player;
 
-Info_2("%1 will be used as center of the event at %2 position.", name _player, str _originPosition);
+Info_2("%1 will be used as center of the event at %2 position.",name _player,str _originPosition);
 
 private _spawnPosition = [_originPosition, 900, distanceSPWN, 0, 0] call BIS_fnc_findSafePos;
 private _road = objNull;

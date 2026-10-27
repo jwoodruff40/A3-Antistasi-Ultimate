@@ -68,7 +68,7 @@ while {time < _timeout && canMove _uav} do
     waitUntil { sleep 5; _uav distance2d _suppCenter < 1200 || !alive _uav};
     // check if launcher/crew are intact
     if !(canFire _uav and gunner _uav call A3A_fnc_canFight || alive _uav) exitWith {
-        Info_1("%1 has been destroyed or disabled, aborting routine", _supportName);
+        Info_1("%1 has been destroyed or disabled, aborting routine",_supportName);
     };
 
     private _friends = units _side inAreaArray [_suppCenter, 1000, 1000];
@@ -91,7 +91,7 @@ while {time < _timeout && canMove _uav} do
 
     // check if we're past the active time/missiles
     if (time > _timeout) exitWith {
-        Info_1("%1 has timed out, aborting", _supportName);
+        Info_1("%1 has timed out, aborting",_supportName);
     };
 
     sleep 10;

@@ -28,7 +28,7 @@ if !(_type in _suppTypeHM) exitWith { "" };
 waitUntil { isNil "A3A_supportCallInProgress" };
 A3A_supportCallInProgress = true;
 
-Debug_5("Attempting to create %1 support with side %2, pool %3, target %4 and reveal %5", _type, _side, _resPool, _target, _reveal);
+Debug_5("Attempting to create %1 support with side %2, pool %3, target %4 and reveal %5",_type,_side,_resPool,_target,_reveal);
 
 // Attempt to use active support if there's a valid one
 private _supportIndex = A3A_activeSupports findIf {
@@ -75,7 +75,7 @@ try {
     _supportName = "";
 
     if (_exception isEqualType "") then {
-        Error_3("Failed to create %1 support %2: %3", _side, _type, _exception);
+        Error_3("Failed to create %1 support %2: %3",_side,_type,_exception);
     };
 };
 

@@ -63,9 +63,9 @@ if (_earlyEscape) exitWith {
     [localize "STR_A3A_garrison_header", localize "STR_A3A_garrison_fail_dead_units"] call SCRT_fnc_misc_deniedHint;
 };
 
-private _bannedTypes = FactionGet(civ, "unitMan") +
-    FactionGet(civ, "unitPress") +
-    FactionGet(civ, "unitWorker") +
+private _bannedTypes = FactionGet(civ,"unitMan") +
+    FactionGet(civ,"unitPress") +
+    FactionGet(civ,"unitWorker") +
     FactionGet(reb,"unitCrew") +
     FactionGet(reb,"unitUnarmed") +
     FactionGet(reb,"unitPetros");

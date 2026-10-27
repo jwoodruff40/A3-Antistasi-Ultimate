@@ -13,7 +13,7 @@ Arguments:
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 
-Debug_1("CASApproach called with %1", _this);
+Debug_1("CASApproach called with %1",_this);
 
 params ["_suppData", "_plane", "_group", "_reveal"];
 _suppData params ["_supportName", "_side", "_suppType", "_suppCenter", "_suppRadius", "_suppTarget"];
@@ -34,7 +34,7 @@ private _weapons = [] + (_plane getVariable ["rocketLauncher", []]) + (_plane ge
     _ammoHM set [_weapon, _ammo];
 } forEach _weapons;
 _plane setVariable ["ammoCount", _ammoHM];
-Debug_1("Starting ammo: %1", _ammoHM);
+Debug_1("Starting ammo: %1",_ammoHM);
 
 
 // Function to calculate ammo types/quantities to use against different vehicle types
@@ -43,13 +43,13 @@ private _fnc_getFireMatrix =
     params ["_targetType", "_allowHeavyWeapon"];
     if (_targetType in FactionGet(all,"vehiclesTanks")) exitWith
     {
-        Debug_1("%1 target is tank", _supportName);
+        Debug_1("%1 target is tank",_supportName);
         if(_allowHeavyWeapon) exitWith { [[true, 25, 3, 1], [true, 25, 3, 1], [true, 35, 3, 1]] };
         [[true, 20, 3, 1], [true, 20, 3, 1], [true, 30, 3, 0]];
     };
     if (_targetType in FactionGet(all,"vehiclesArmor")) exitWith
     {
-        Debug_1("%1 target is APC", _supportName);
+        Debug_1("%1 target is APC",_supportName);
         if(_allowHeavyWeapon) exitWith { [[true, 30, 3, 1], [true, 30, 3, 1], [true, 30, 3, 0]] };
         [[true, 25, 3, 1], [true, 25, 3, 0], [true, 25, 3, 0]];
     };
@@ -209,12 +209,12 @@ while {true} do
 {
     //Plane somehow destroyed or disabled
     if !(canFire _plane && canMove _plane && side _plane == _side) exitWith {
-        Info_1("%1 has been destroyed or disabled, aborting routine", _supportName);
+        Info_1("%1 has been destroyed or disabled, aborting routine",_supportName);
     };
 
     // Target no longer valid (canFight isn't ideal for vehicles but it works)
     if (_state != STATE_PICK_TARGET && !(_targetObj call A3A_fnc_canFight)) then {
-        Debug_1("%1 target lost or destroyed, returning to loiter", _supportName);
+        Debug_1("%1 target lost or destroyed, returning to loiter",_supportName);
         _suppTarget resize 0;
         _group setCurrentWaypoint _loiterWP;
         _state = STATE_PICK_TARGET;
@@ -222,7 +222,7 @@ while {true} do
     };
 
     if (time > _timeout) exitWith {
-        Info_1("%1 has timed out, returning to base", _supportName);
+        Info_1("%1 has timed out, returning to base",_supportName);
     };
 
     switch (_state) do
@@ -235,9 +235,9 @@ while {true} do
             _lastKnownPos = ATLtoASL (_suppTarget select 1);
             if !(_targetObj call A3A_fnc_canFight) exitWith {
                 _suppTarget resize 0;
-                Debug_1("%1 skips target, as it is already dead", _supportName);
+                Debug_1("%1 skips target, as it is already dead",_supportName);
             };
-            Debug_2("Next target for %2 is %1", _suppTarget, _supportName);
+            Debug_2("Next target for %2 is %1",_suppTarget,_supportName);
 
             [_reveal, getPosATL _targetObj, _side, "CAS", _targetObj, 60] spawn A3A_fnc_showInterceptedSupportCall;
             
@@ -276,14 +276,14 @@ while {true} do
                 private _chance = _baseSpotChance * _vis * exp (_knownDist / -500) * exp (_dist / -3000);
                 if (_chance > random 1) then { _acquired = true };
 
-                Verbose_4("Acquisition: vis %1, knowndist %2, dist %3, chance %4", _vis, _knownDist, _dist, _chance); 
+                Verbose_4("Acquisition: vis %1, knowndist %2, dist %3, chance %4",_vis,_knownDist,_dist,_chance); 
             };
             if (_acquired) then { _lastKnownPos = eyePos _targetObj };
 
             private _dist = _plane distance2d _lastKnownPos;
             if (_dist < [300, 800] select _acquired) exitWith {
                 // If we're too close then break off and try again
-                Debug_2("%1 approach failed with %2 acquisition", _supportName, _acquired);
+                Debug_2("%1 approach failed with %2 acquisition",_supportName,_acquired);
                 _state = STATE_REPOSITION;
             };
 
@@ -299,14 +299,14 @@ while {true} do
                 waitUntil { sleep 2; scriptDone _runHandle };
 
                 // Run complete
-                Debug_1("Ammo at end of run: %1", _ammoHM);
+                Debug_1("Ammo at end of run: %1",_ammoHM);
                 if (-1 == values _ammoHM findIf { _x > 0 }) exitWith {
-                    Info_1("%1 out of ammo, returning to base", _supportName);
+                    Info_1("%1 out of ammo, returning to base",_supportName);
                     break;
                 };
                 _numRuns = _numRuns + 1;
                 if (_numRuns >= 3) exitWith {
-                    Info_2("%1 has completed %2 attack runs, returning to base", _supportName, _numRuns);
+                    Info_2("%1 has completed %2 attack runs, returning to base",_supportName,_numRuns);
                     break;
                 };
                 _state = STATE_REPOSITION;
@@ -326,7 +326,7 @@ while {true} do
             private _targVector = _lastKnownPos vectorDiff (getPosASL _plane);
             private _dotdir = vectorNormalized _targVector vectorDotProduct vectorDir _plane;
             if (_dist < DIST_REPOS*1.1 and _dist > DIST_REPOS*0.9 and _dotdir > -0.3) exitWith {
-                Debug_1("%1 switching to approach", _supportName);
+                Debug_1("%1 switching to approach",_supportName);
                 _state = STATE_APPROACH;
                 _acquired = false;
             };

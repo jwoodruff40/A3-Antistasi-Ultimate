@@ -121,7 +121,7 @@ switch(_constructionType) do {
         construction_buildTime = 25;
     };
     default { 
-        Error_1("Bad Construction Type - %1 ", _constructionType);
+        Error_1("Bad Construction Type - %1 ",_constructionType);
     };
 };
 

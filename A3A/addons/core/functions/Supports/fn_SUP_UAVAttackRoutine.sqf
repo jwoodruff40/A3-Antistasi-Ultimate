@@ -105,7 +105,7 @@ while {time < _timeout && canMove _uav} do
     waitUntil { sleep 5; _uav distance2d _suppCenter < 1200 || !alive _uav};
     // check if launcher/crew are intact
     if !(canFire _uav and gunner _uav call A3A_fnc_canFight || alive _uav) exitWith {
-        Info_1("%1 has been destroyed or disabled, aborting routine", _supportName);
+        Info_1("%1 has been destroyed or disabled, aborting routine",_supportName);
     };
 
     private _friends = units _side inAreaArray [_suppCenter, 1000, 1000];
@@ -128,7 +128,7 @@ while {time < _timeout && canMove _uav} do
 
     // check if we're past the active time/missiles
     if (time > _timeout) exitWith {
-        Info_1("%1 has timed out, aborting", _supportName);
+        Info_1("%1 has timed out, aborting",_supportName);
     };
 
     sleep 10;
@@ -137,7 +137,7 @@ while {time < _timeout && canMove _uav} do
         private _currentTarget = selectRandom _spottedEnemies;
         //Creates the laser target to mark the target
         _laser = createVehicle ["LaserTargetE", (getPos _currentTarget), [], 0, "CAN_COLLIDE"];
-        Info_1("Trying to attack laser to %1", _currentTarget);
+        Info_1("Trying to attack laser to %1",_currentTarget);
         _uav setVariable ["currentTarget", _currentTarget];
         _laser attachTo [_currentTarget, [0,0,0]];
         _uav doWatch _laser;
@@ -154,7 +154,7 @@ while {time < _timeout && canMove _uav} do
             _uav setVariable ["currentTarget", nil];
             _suppTarget resize 0;
 	    deleteVehicle _laser;
-            Debug_1("%1 skips target, as it is already dead", _supportName);
+            Debug_1("%1 skips target, as it is already dead",_supportName);
             continue;
         };
     };

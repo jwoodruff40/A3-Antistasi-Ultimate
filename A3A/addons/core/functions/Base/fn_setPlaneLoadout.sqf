@@ -92,14 +92,14 @@ if ((typeOf _plane) in _cfg) exitWith
         } forEach _loadout;
     } else {
         _loadout = getPylonMagazines _plane; // hacky fix, but better than the alternative
-        Debug_1("Selected default loadout for %1, now equiping plane with it. Consider giving it an actual loadout in ultimate\config\plane\cfgPlaneLoadouts.hpp", typeOf _plane);
+        Debug_1("Selected default loadout for %1, now equiping plane with it. Consider giving it an actual loadout in ultimate\config\plane\cfgPlaneLoadouts.hpp",typeOf _plane);
         {
             _plane setPylonLoadout [_forEachIndex + 1, _x, true];
             _plane setVariable ["loadout", _loadout];
         } forEach _loadout;
     };
 
-    Debug_2("Given plane class %1 a loadout of %2, from config", typeOf _plane, _loadout);
+    Debug_2("Given plane class %1 a loadout of %2, from config",typeOf _plane,_loadout);
 };
 
 if (_type == "CASDIVE") then
@@ -618,7 +618,7 @@ if (_type == "CASDIVE") then
         };
         default
         {
-            Error_1("Plane type %1 currently not supported for CASDIVE, please add the case!", typeOf _plane);
+            Error_1("Plane type %1 currently not supported for CASDIVE, please add the case!",typeOf _plane);
         };
     };
 };
@@ -1311,7 +1311,7 @@ if (_type == "CAS") then
         };
         default
         {
-            Error_1("Plane type %1 currently not supported for CAS, please add the case!", typeOf _plane);
+            Error_1("Plane type %1 currently not supported for CAS, please add the case!",typeOf _plane);
         };
     };
 };
@@ -1807,7 +1807,7 @@ if (_type == "AA") then
         };
         default
         {
-            Error_1("Plane type %1 currently not supported for AA, please add the case!", typeOf _plane);
+            Error_1("Plane type %1 currently not supported for AA, please add the case!",typeOf _plane);
         };
     };
 };
@@ -1821,11 +1821,11 @@ if !(_loadout isEqualTo []) then
     } forEach _loadout;
 } else {
     _loadout = getPylonMagazines _plane; // hacky fix, but better than the alternative
-    Debug_1("Selected default loadout for %1, now equiping plane with it. Consider giving it an actual loadout in ultimate\config\plane\cfgPlaneLoadouts.hpp", typeOf _plane);
+    Debug_1("Selected default loadout for %1, now equiping plane with it. Consider giving it an actual loadout in ultimate\config\plane\cfgPlaneLoadouts.hpp",typeOf _plane);
     {
         _plane setPylonLoadout [_forEachIndex + 1, _x, true];
         _plane setVariable ["loadout", _loadout];
     } forEach _loadout;
 };
 
-Debug_2("Given plane class %1 a loadout of %2", typeOf _plane, _loadout);
+Debug_2("Given plane class %1 a loadout of %2",typeOf _plane,_loadout);

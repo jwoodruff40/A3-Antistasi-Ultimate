@@ -1,3 +1,5 @@
+#ifndef A3A_GUI_IDS_INC
+#define A3A_GUI_IDS_INC
 /*
 Maintainer: DoomMetal
     Contains IDDs and IDCs for the GUI.
@@ -559,3 +561,4 @@ Maintainer: DoomMetal
 #define A3A_IDC_EDITZONES_AIRPORTSCHECKBOX 9903
 #define A3A_IDC_EDITZONES_RESOURCESCHECKBOX 9904
 #define A3A_IDC_EDITZONES_FACTORIESCHECKBOX 9905
+#endif

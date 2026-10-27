@@ -1,4 +1,5 @@
 //SPE_IFA3
+#pragma hemtt suppress pw3_padded_arg file
 
 		class handgunsspe{
 			displayName = __EVAL(formatText ["%1 %2", localize "STR_A3AU_spearhead", localize "STR_A3AU_handguns"]);

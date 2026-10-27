@@ -41,7 +41,7 @@ private _weights = [];
 } forEach (airportsX + milbases);
 
 if (_airports isEqualTo []) exitWith {
-    Error_1("No suitable airport found for %1", _supportName); -1;
+    Error_1("No suitable airport found for %1",_supportName); -1;
 };
 
 private _airport = _airports selectRandomWeighted _weights;

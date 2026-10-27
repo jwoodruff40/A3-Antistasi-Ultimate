@@ -5,7 +5,7 @@
 params ["_plane", "_bombType", "_bombCount", "_bombRunLength", ["_isRivals", false]];
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
-Debug_1("Executing on: %1", clientOwner);
+Debug_1("Executing on: %1",clientOwner);
 
 //Ensure reasonable bomb run lenght
 if(_bombRunLength < 100) then {_bombRunLength = 100};
@@ -43,7 +43,7 @@ switch (_bombType) do {
     };
 	default
     {
-		Error_1("Invalid bomb type, given was %1", _bombType);
+		Error_1("Invalid bomb type, given was %1",_bombType);
 	};
 };
 

@@ -349,7 +349,7 @@ private _fnc_handleUniqueCases = { //handles unique name cases that the stored v
 //=======================|
 // Process template data |
 //=======================|
-Info_2("Template validation for side: %1 | Template: %2",_side, _templatePath);
+Info_2("Template validation for side: %1 | Template: %2",_side,_templatePath);
 private _invalidReasons = [];
 {
     _x params ["_entry"];

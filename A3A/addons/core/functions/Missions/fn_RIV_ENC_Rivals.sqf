@@ -414,7 +414,7 @@ waitUntil  {
 	sleep 5;
 	_aliveCount = {alive _x} count ((units _group1) + (units _group2));
 	_isEveryoneDead = (call SCRT_fnc_misc_getRebelPlayers) findIf {alive _x && {_x distance2D _intelLeaderPosition < 1000}} == -1;
-	Info_2("%1 Group Alive: %2", A3A_faction_riv get "name", str _aliveCount);
+	Info_2("%1 Group Alive: %2",A3A_faction_riv get "name",str _aliveCount);
 	(dateToNumber date > _dateLimitNum) || {_aliveCount < 2 || {_isEveryoneDead}} 
 };
 

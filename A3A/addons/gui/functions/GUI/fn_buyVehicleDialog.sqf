@@ -34,7 +34,7 @@ switch (_mode) do
         private _selectedTab = _params select 0;
         lnbClear A3A_IDC_SETUP_CVTABLE;
 
-        Debug_1("MainDialog switching tab to %1.", _selectedTab);
+        Debug_1("MainDialog switching tab to %1.",_selectedTab);
 
         private _selectedTabIDC = -1;
         switch (_selectedTab) do 
@@ -151,7 +151,7 @@ switch (_mode) do
         };
 
         if (_selectedTabIDC == -1) exitWith {
-            Error_1("Attempted to access tab without permission : %1", _selectedTab);
+            Error_1("Attempted to access tab without permission : %1",_selectedTab);
         };
 
         private _allTabs = [
@@ -374,6 +374,6 @@ switch (_mode) do
     default
     {
         // Log error if attempting to call a mode that doesn't exist
-        Error_1("BuyVehicleDialog mode does not exist: %1", _mode);
+        Error_1("BuyVehicleDialog mode does not exist: %1",_mode);
     };
 };

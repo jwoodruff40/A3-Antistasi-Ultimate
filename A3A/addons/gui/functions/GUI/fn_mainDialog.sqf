@@ -72,7 +72,7 @@ switch (_mode) do
             } forEach hcallGroups player;
         };
         _commanderMap setVariable ["hcGroupData", _hcGroupData];
-        Debug_1("%1 Groups cached", count (_commanderMap getVariable "hcGroupData"));
+        Debug_1("%1 Groups cached",count (_commanderMap getVariable "hcGroupData"));
 
         // Init selected group
         private _selectedGroup = grpNull;
@@ -86,19 +86,19 @@ switch (_mode) do
         // Commander map Draw EHs
         // Fire mission markers
         private _fireMissionEH = _commanderMap ctrlAddEventHandler ["Draw","call A3A_fnc_fireMissionEH"];
-        Debug_1("Adding Fire Mission Draw EH to commander map: %1", _fireMissionEH);
+        Debug_1("Adding Fire Mission Draw EH to commander map: %1",_fireMissionEH);
         // Select marker
         private _commanderHcSelectEH = _commanderMap ctrlAddEventHandler ["Draw","_this call A3A_fnc_mapDrawSelectEH"];
-        Debug_1("Adding HC group selection Draw EH to commander map: %1", _commanderHcSelectEH);
+        Debug_1("Adding HC group selection Draw EH to commander map: %1",_commanderHcSelectEH);
         // High command groups
         private _commanderHcGroupsEH = _commanderMap ctrlAddEventHandler ["Draw","_this call A3A_fnc_mapDrawHcGroupsEH"];
-        Debug_1("Adding HC group marker Draw EH to commander map: %1", _commanderHcGroupsEH);
+        Debug_1("Adding HC group marker Draw EH to commander map: %1",_commanderHcGroupsEH);
         // Outposts
         private _commanderOutpostsEH = _commanderMap ctrlAddEventHandler ["Draw","_this call A3A_fnc_mapDrawOutpostsEH"];
-        Debug_1("Adding outposts Draw EH to commander map: %1", _commanderOutpostsEH);
+        Debug_1("Adding outposts Draw EH to commander map: %1",_commanderOutpostsEH);
         // User Markers
         private _commanderUserMarkersEH = _commanderMap ctrlAddEventHandler ["Draw","_this call A3A_fnc_mapDrawUserMarkersEH"];
-        Debug_1("Adding user markers Draw EH to commander map: %1", _commanderUserMarkersEH);
+        Debug_1("Adding user markers Draw EH to commander map: %1",_commanderUserMarkersEH);
 
 
 
@@ -107,10 +107,10 @@ switch (_mode) do
         private _fastTravelMap = _display displayCtrl A3A_IDC_FASTTRAVELMAP;
         // Select marker
         private _fastTravelSelectEH = _fastTravelMap ctrlAddEventHandler ["Draw","_this call A3A_fnc_mapDrawSelectEH"];
-        Debug_1("Adding destination select marker Draw EH to Fast Travel map: %1", _fastTravelSelectEH);
+        Debug_1("Adding destination select marker Draw EH to Fast Travel map: %1",_fastTravelSelectEH);
         // Outposts
         private _fastTravelOutpostsEH = _fastTravelMap ctrlAddEventHandler ["Draw","_this call A3A_fnc_mapDrawOutpostsEH"];
-        Debug_1("Adding outposts Draw EH to Fast Travel map: %1", _fastTravelOutpostsEH);
+        Debug_1("Adding outposts Draw EH to Fast Travel map: %1",_fastTravelOutpostsEH);
 
 
         Debug("MainDialog onLoad complete.");
@@ -121,7 +121,7 @@ switch (_mode) do
                 _display = findDisplay 7000;
                 _commanderMap = _display displayCtrl 7201;
                 _mapScale = ctrlMapScale _commanderMap;
-                Verbose_1("MAP SCALE: %1", _mapScale);
+                Verbose_1("MAP SCALE: %1",_mapScale);
                 sleep 1;
             };
         };
@@ -149,7 +149,7 @@ switch (_mode) do
         // Get selected tab
         private _selectedTab = _params select 0;
 
-        Debug_1("MainDialog switching tab to %1.", _selectedTab);
+        Debug_1("MainDialog switching tab to %1.",_selectedTab);
 
         // Get IDC for selected tab if user has permission to use it
         private _selectedTabIDC = -1;
@@ -208,7 +208,7 @@ switch (_mode) do
 
         // Log attempt at accessing tab without permission
         if (_selectedTabIDC == -1) exitWith {
-            Error_1("Attempted to access tab without permission : %1", _selectedTab);
+            Error_1("Attempted to access tab without permission : %1",_selectedTab);
         };
 
         // Array of IDCs for all the tabs, including subtabs (like AI & player management)
@@ -297,6 +297,6 @@ switch (_mode) do
 
     default {
     // Log error if attempting to call a mode that doesn't exist
-    Error_1("Main Dialog mode does not exist: %1", _mode);
+    Error_1("Main Dialog mode does not exist: %1",_mode);
     };
 };

@@ -5,7 +5,7 @@ if (!isServer) exitWith {};
 FIX_LINE_NUMBERS()
 
 
-Debug_2("Changing side of %1 to %2", _markerX, _winner);
+Debug_2("Changing side of %1 to %2",_markerX,_winner);
 if ((_winner == teamPlayer) and (_markerX in airportsX) and (tierWar < 3)) exitWith {};
 if ((_winner == teamPlayer) and (_markerX in milbases) and (tierWar < 3)) exitWith {};
 if ((_winner == teamPlayer) and (sidesX getVariable [_markerX,sideUnknown] == teamPlayer)) exitWith {};
@@ -41,14 +41,14 @@ switch (_loser) do {
 		_textX = format ["%1 ",FactionGet(inv,"name")];
 	};
 	default {
-		Error_2("Not supported side of %1 marker - %2", _markerX, str _loser);
+		Error_2("Not supported side of %1 marker - %2",_markerX,str _loser);
 	};
 };
 
 garrison setVariable [_markerX,[],true];
 sidesX setVariable [_markerX,_winner,true];
 
-Debug_1("Side changed for %1", _markerX);
+Debug_1("Side changed for %1",_markerX);
 
 //New garrison update ==========================================================
 garrison setVariable [format ["%1_garrison", _markerX], [], true];
@@ -70,7 +70,7 @@ if (_winner == teamPlayer) then
 	// Don't send anything if it'd be too small
 	private _minAttack = (1 + random 0.5) * A3A_balanceResourceRate;
 	if (_resources < _minAttack) exitWith {
-		Info_2("Available resources (%1) below minimum attack (%2), sending no counterattack", _resources, _minAttack);
+		Info_2("Available resources (%1) below minimum attack (%2), sending no counterattack",_resources,_minAttack);
 	};
 
 	private _vehCount = round (random 0.5 + _resources / A3A_balanceVehicleCost);
@@ -115,7 +115,7 @@ else
 };
 
 [_markerX, [_loser, _winner]] call A3A_fnc_updateReinfState;
-Debug_1("Garrison set for %1", _markerX);
+Debug_1("Garrison set for %1",_markerX);
 
 if !(_markerX in airportsX) then
 {
@@ -307,7 +307,7 @@ switch (true) do {
 	};
 };
 
-Debug_1("Notification and points done for marker change at %1", _markerX);
+Debug_1("Notification and points done for marker change at %1",_markerX);
 
 {[_markerX,_x] spawn A3A_fnc_deleteControls} forEach controlsX;
 
@@ -405,4 +405,4 @@ if (_winner == teamPlayer) then {
 	[_loser] call SCRT_fnc_common_defeatFactionIfPossible;
 };
 
-Debug_1("Finished marker change at %1", _markerX);
+Debug_1("Finished marker change at %1",_markerX);

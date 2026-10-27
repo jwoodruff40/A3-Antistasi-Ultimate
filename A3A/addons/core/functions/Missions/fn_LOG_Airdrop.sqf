@@ -83,7 +83,7 @@ private _escortVeh = _escortVehicleData select 0;
 
 private _infantrySquadArray  = [_escortClass, _sideX] call A3A_fnc_cargoSeats;
 
-Info_2("Vehicle: %1, infantry array: %2", _escortClass, str _infantrySquadArray);
+Info_2("Vehicle: %1, infantry array: %2",_escortClass,str _infantrySquadArray);
 
 private _vehCrew = crew _escortVeh;
 {[_x] call A3A_fnc_NATOinit} forEach _vehCrew;
@@ -132,7 +132,7 @@ if(_difficultX) then {
     _infGroup2Wp setWaypointType "MOVE";
     _infGroup2Wp setWaypointBehaviour "AWARE";
     _infGroup2Wp setWaypointSpeed "FULL";
-    Info_1("Additional Group: %1", _infGroup2);
+    Info_1("Additional Group: %1",_infGroup2);
 };
 
 //moving to airdrop location
@@ -140,13 +140,13 @@ private _escortWP = _escortVehicleGroup addWaypoint [_positionX, 0];
 _escortWP setWaypointType "MOVE";
 _escortWP setWaypointBehaviour "AWARE";
 _escortWP setWaypointSpeed "FULL";
-Info_2("Placed Group: %1 in Lite Vehicle and set waypoint %2", _typeGroup, _positionX);
+Info_2("Placed Group: %1 in Lite Vehicle and set waypoint %2",_typeGroup,_positionX);
 
 _infGroup1Wp = _infGroup1 addWaypoint [_positionX, 1];
 _infGroup1Wp setWaypointType "MOVE";
 _infGroup1Wp setWaypointBehaviour "AWARE";
 _infGroup1Wp setWaypointSpeed "FULL";
-Info_1("Group: %1", _infGroup1);
+Info_1("Group: %1",_infGroup1);
 
 waitUntil {
     sleep 1;
@@ -176,7 +176,7 @@ if(count _smokes > 0) then {
     private _height = random [500, 1000, 1300];
     private _direction = [_initialPlanePosition, _positionX] call BIS_fnc_DirTo;
 
-    _planeType = selectRandom (FactionGet(reb, "vehiclesPlane"));
+    _planeType = selectRandom (FactionGet(reb,"vehiclesPlane"));
     _planeData = [[_initialPlanePosition select 0, _initialPlanePosition select 1, _height], _direction, _planeType, teamPlayer] call A3A_fnc_spawnVehicle;
     _planeVeh = _planeData select 0;
     _planeVeh setPosATL [getPosATL _planeVeh select 0, getPosATL _planeVeh select 1, _height];

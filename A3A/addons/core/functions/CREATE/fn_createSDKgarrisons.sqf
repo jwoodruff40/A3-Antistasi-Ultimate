@@ -22,7 +22,7 @@ if (_markerX != "Synd_HQ" && {!(_markerX in milAdministrationsX)}) then {  ///ma
 			_veh = createVehicle [FactionGet(reb,"flag"), (_spawnParameter select 0), [], 0, "NONE"];
 			_veh setDir (_spawnParameter select 1); // this probably doesn't matter, but eh why not?
 		} else {
-			Warning_1("Could not find flag placement marker for garrison %1; falling back to marker center.", _markerX);
+			Warning_1("Could not find flag placement marker for garrison %1; falling back to marker center.",_markerX);
 			_veh = createVehicle [FactionGet(reb,"flag"), _positionX, [],0, "NONE"];
 		};
 		_veh setFlagTexture FactionGet(reb,"flagTexture");

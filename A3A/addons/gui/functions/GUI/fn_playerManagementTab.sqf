@@ -70,14 +70,14 @@ switch (_mode) do
         private _listBox = _display displayCtrl A3A_IDC_ADMINPLAYERLIST;
         private _index = lnbCurSelRow _listBox;
         private _playerUID = _listBox lnbText [_index, 2];
-        Debug_1("_playerUID: %1", _playerUID);
+        Debug_1("_playerUID: %1",_playerUID);
         private _addButton = _display displayCtrl A3A_IDC_ADDMEMBERBUTTON;
         private _removeButton = _display displayCtrl A3A_IDC_REMOVEMEMBERBUTTON;
 
         // TODO UI-update: this probably needs some changes to work properly
         // private _player = allPlayers select _index;
         private _player = (str _playerUID) call BIS_fnc_getUnitByUID;
-        Debug_1("_player: %1", _player);
+        Debug_1("_player: %1",_player);
         if ([_player] call A3A_fnc_isMember) then {
             _addButton ctrlShow false;
             _removeButton ctrlShow true;
@@ -111,6 +111,6 @@ switch (_mode) do
     default
     {
         // Log error if attempting to call a mode that doesn't exist
-        Error_1("Player management tab mode does not exist: %1", _mode);
+        Error_1("Player management tab mode does not exist: %1",_mode);
     };
 };

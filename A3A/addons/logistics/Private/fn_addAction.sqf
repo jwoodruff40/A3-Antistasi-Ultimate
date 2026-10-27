@@ -29,7 +29,7 @@ if (isNull _object) exitWith {
 private _actionNames = (actionIDs _object) apply {(_object actionParams _x)#0};
 private _vehicleName = nil;
 
-if ((typeOf _object) isEqualTo FactionGet(reb, "lootCrate")) then {
+if ((typeOf _object) isEqualTo FactionGet(reb,"lootCrate")) then {
     _vehicleName = localize "STR_antistasi_actions_loot_crate";
 } else {
     _vehicleName = getText (configFile >> "CfgVehicles" >> typeOf _object >> "displayName");

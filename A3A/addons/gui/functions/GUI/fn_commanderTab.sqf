@@ -687,7 +687,7 @@ switch (_mode) do
             _fireMissionControlsGroup setVariable ["startPos", _clickedWorldPosition];
             _commanderMap setVariable ["selectFireMissionPos", false];
             ["updateFireMissionView"] call A3A_fnc_commanderTab;
-            Debug_1("Set fire mission startPos: %1", _clickedWorldPosition);
+            Debug_1("Set fire mission startPos: %1",_clickedWorldPosition);
         };
 
         private _selectFireMissionEndPos = _commanderMap getVariable ["selectFireMissionEndPos", false];
@@ -698,7 +698,7 @@ switch (_mode) do
             _fireMissionControlsGroup setVariable ["endPos", _clickedWorldPosition];
             _commanderMap setVariable ["selectFireMissionEndPos", false];
             ["updateFireMissionView"] call A3A_fnc_commanderTab;
-            Debug_1("Set fire mission endPos: %1", _clickedWorldPosition);
+            Debug_1("Set fire mission endPos: %1",_clickedWorldPosition);
         };
 
         if (count hcAllGroups player < 1) exitWith {
@@ -709,11 +709,11 @@ switch (_mode) do
         // Find closest HC squad to the clicked position
         Debug("Selecting HC group");
         private _selectedGroup = [hcAllGroups player, _clickedWorldPosition] call BIS_fnc_nearestPosition;
-        Debug_1("_selectedGroup: %1", groupId _selectedGroup);
+        Debug_1("_selectedGroup: %1",groupId _selectedGroup);
         private _selectedGroupMapPos = _commanderMap ctrlMapWorldToScreen getPos leader _selectedGroup;
         private _maxDistance = 6 * GRID_W; // TODO UI-update: Move somewhere else?
         private _distance = _selectedGroupMapPos distance _clickedPosition;
-        Debug_4("_selectedGroupMapPos %1, _clickedPosition %2, _maxDistance %3, _distance %4", _selectedGroupMapPos, _clickedPosition, _maxDistance, _distance);
+        Debug_4("_selectedGroupMapPos %1, _clickedPosition %2, _maxDistance %3, _distance %4",_selectedGroupMapPos,_clickedPosition,_maxDistance,_distance);
 
         // If clicked position is nowhere near any hc groups, deselect all units
         // and show list view
@@ -773,7 +773,7 @@ switch (_mode) do
     case ("fireMissionSelectionChanged"):
     {
         private _selection = _params select 0;
-        Debug_1("Fire Mission selection changed: %1", _selection);
+        Debug_1("Fire Mission selection changed: %1",_selection);
 
         private _display = findDisplay A3A_IDD_MAINDIALOG;
         private _fireMissionControlsGroup = _display displayCtrl A3A_IDC_FIREMISSONCONTROLSGROUP;
@@ -829,7 +829,7 @@ switch (_mode) do
                     _availableAmmo = _fireMissionControlsGroup getVariable ["availableSmokeRounds", 0];
                 };
 
-                Debug_1("Available ammo: %1", _availableAmmo);
+                Debug_1("Available ammo: %1",_availableAmmo);
 
                 // Add 1
                 private _previousNumber = _fireMissionControlsGroup getVariable ["roundsNumber", 1];
@@ -841,7 +841,7 @@ switch (_mode) do
                 // Set new rounds count
                 _fireMissionControlsGroup setVariable ["roundsNumber", _newNumber];
 
-                Debug_1("Rounds count now at %1", _newNumber);
+                Debug_1("Rounds count now at %1",_newNumber);
             };
 
             case ("subround"):
@@ -857,7 +857,7 @@ switch (_mode) do
                 // Set new rounds count
                 _fireMissionControlsGroup setVariable ["roundsNumber", _newNumber];
 
-                Debug_1("Rounds count now at %1", _newNumber);
+                Debug_1("Rounds count now at %1",_newNumber);
             };
 
             case ("setstart"):
@@ -899,7 +899,7 @@ switch (_mode) do
         // Debug(_debugStr);
 
         // Set the necessary global variables
-        Debug_1("_heSelected: %1", _heSelected);
+        Debug_1("_heSelected: %1",_heSelected);
         if (_heSelected) then
         {
             typeAmmunition = SDKMortarHEMag;
@@ -957,6 +957,6 @@ switch (_mode) do
     default
     {
         // Log error if attempting to call a mode that doesn't exist
-        Error_1("Commander tab mode does not exist: %1", _mode);
+        Error_1("Commander tab mode does not exist: %1",_mode);
     };
 };

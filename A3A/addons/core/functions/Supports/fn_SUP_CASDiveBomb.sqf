@@ -13,7 +13,7 @@ Arguments:
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 
-Debug_1("Dive bomb approach called with %1", _this);
+Debug_1("Dive bomb approach called with %1",_this);
 
 params ["_suppData", "_plane", "_group", "_reveal"];
 _suppData params ["_supportName", "_side", "_suppType", "_suppCenter", "_suppRadius", "_suppTarget"];
@@ -55,12 +55,12 @@ while {true} do
 {
     //Plane somehow destroyed or disabled
     if !(canFire _plane && canMove _plane && side _plane == _side) exitWith {
-        Info_1("%1 has been destroyed or disabled, aborting routine", _supportName);
+        Info_1("%1 has been destroyed or disabled, aborting routine",_supportName);
     };
 
     // Target no longer valid (canFight isn't ideal for vehicles but it works)
     if (_state != STATE_PICK_TARGET && !(_targetObj call A3A_fnc_canFight)) then {
-        Debug_1("%1 target lost or destroyed, returning to loiter", _supportName);
+        Debug_1("%1 target lost or destroyed, returning to loiter",_supportName);
         _suppTarget resize 0;
         _group setCurrentWaypoint _loiterWP;
         _state = STATE_PICK_TARGET;
@@ -68,7 +68,7 @@ while {true} do
     };
 
     if (time > _timeout) exitWith {
-        Info_1("%1 has timed out, returning to base", _supportName);
+        Info_1("%1 has timed out, returning to base",_supportName);
     };
 
     switch (_state) do
@@ -81,9 +81,9 @@ while {true} do
             _lastKnownPos = ATLtoASL (_suppTarget select 1);
             if !(_targetObj call A3A_fnc_canFight) exitWith {
                 _suppTarget resize 0;
-                Debug_1("%1 skips target, as it is already dead", _supportName);
+                Debug_1("%1 skips target, as it is already dead",_supportName);
             };
-            Debug_2("Next target for %2 is %1", _suppTarget, _supportName);
+            Debug_2("Next target for %2 is %1",_suppTarget,_supportName);
 
             [_reveal, getPosATL _targetObj, _side, "CAS", _targetObj, 60] spawn A3A_fnc_showInterceptedSupportCall;
             
@@ -96,7 +96,7 @@ while {true} do
 
         case STATE_APPROACH: {
             if (_plane distance2d _lastKnownPos < 200) exitWith {
-                Debug_1("%1 approach overshot before acquisition", _supportName);
+                Debug_1("%1 approach overshot before acquisition",_supportName);
                 _state = STATE_REPOSITION;
             };
             if (!_acquired) then {
@@ -115,19 +115,19 @@ while {true} do
                 private _chance = _baseSpotChance * _vis * exp (_knownDist / -500) * exp (_dist / -3000);
                 if (_chance > random 1) then { _acquired = true };
 
-                Verbose_4("Acquisition: vis %1, knowndist %2, dist %3, chance %4", _vis, _knownDist, _dist, _chance);
+                Verbose_4("Acquisition: vis %1, knowndist %2, dist %3, chance %4",_vis,_knownDist,_dist,_chance);
             };
             if (_acquired and getPosATL _plane#2 > (_startAlt-100)) then {
-                Debug_1("%1 starting dive bomb run", _supportName);
+                Debug_1("%1 starting dive bomb run",_supportName);
                 _lastKnownPos = eyePos _targetObj;
                 // Attempt to start the dive bomb run
                 private _rval = [_plane, _targetObj, _supportName, _setupWP] call A3A_fnc_SUP_CASDiveBombRun;
                 _group setCurrentWaypoint _loiterWP;
                 if (_rval) then {
-                    Info_1("%1 dive bomb run completed", _supportName);
+                    Info_1("%1 dive bomb run completed",_supportName);
                     break;
                 };
-                Debug_1("%1 dive bomb run failed", _supportName);
+                Debug_1("%1 dive bomb run failed",_supportName);
                 _state = STATE_REPOSITION;
                 continue;           // plane might be dead or target missing at this point
             };
@@ -147,7 +147,7 @@ while {true} do
             private _targVector = _lastKnownPos vectorDiff (getPosASL _plane);
             private _dotdir = vectorNormalized _targVector vectorDotProduct vectorDir _plane;
             if (_dist < DIST_REPOS*1.1 and _dist > DIST_REPOS*0.9 and _dotdir > -0.3) exitWith {
-                Debug_1("%1 switching to approach", _supportName);
+                Debug_1("%1 switching to approach",_supportName);
                 _state = STATE_APPROACH;
                 _acquired = false;
             };

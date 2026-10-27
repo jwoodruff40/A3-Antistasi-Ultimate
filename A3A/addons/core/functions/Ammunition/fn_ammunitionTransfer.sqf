@@ -86,7 +86,7 @@ if (count _weaponsFinal > 0) then {
 _ammunitionFinal = [];
 _ammunitionFinalCount = [];
 if (isNil "_ammunition") then {
-	Error_4("Ammunition transmission error. I had this: %1 and these containers: %2, the originX was a %3 and the objectX is defined as: %4", magazineCargo _originX, everyContainer _originX,typeOf _originX,_originX);
+	Error_4("Ammunition transmission error. I had this: %1 and these containers: %2, the originX was a %3 and the objectX is defined as: %4",magazineCargo _originX,everyContainer _originX,typeOf _originX,_originX);
 } else {
 	{
 		_weaponX = _x;

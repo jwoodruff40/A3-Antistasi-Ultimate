@@ -82,7 +82,7 @@ waitUntil
 sleep 20; //maybe more to get plane in to the position
 if !(_gunship getVariable ["InArea", false]) exitWith
 {
-    Debug_1("%1 has been destroyed before reaching the area", _supportName);
+    Debug_1("%1 has been destroyed before reaching the area",_supportName);
     //Gunship destroyed before reaching the area
     [_gunship] spawn A3A_fnc_vehDespawner;
 };
@@ -108,7 +108,7 @@ private _heavyGunnerList = [];
 
     private _fnc_executeFireOrder =
     {
-        Debug_1("Fireorder %1 recieved", _this);
+        Debug_1("Fireorder %1 recieved",_this);
         params ["_gunner", "_target", "_gunshots", "_belt"];
         private _gunship = vehicle _gunner;
 
@@ -223,7 +223,7 @@ private _heavyGunnerList = [];
 
     private _fnc_executeFireOrder =
     {
-        Debug_1("Fireorder %1 recieved", _this);
+        Debug_1("Fireorder %1 recieved",_this);
         params ["_gunner", "_target", "_minigunShots", "_howitzerShots"];
         private _gunship = vehicle _gunner;
 
@@ -369,7 +369,7 @@ while {_lifeTime > 0} do
                 (alive _x) && {(_x getVariable ["ownerSide", sideUnknown]) in [teamPlayer, _oppositeSide] || {(side group driver _x) in [teamPlayer, _oppositeSide]}} ////don't forget to change it to _oppositeSide or something
             }
         };
-        Debug_2("%1 found %2 targets in its area", _supportName, count _targets);
+        Debug_2("%1 found %2 targets in its area",_supportName,count _targets);
 
         if(count _targets > 0) then
         {
@@ -442,7 +442,7 @@ while {_lifeTime > 0} do
     //No ammo left
     if(_gunship getVariable ["OutOfAmmo", false]) exitWith
     {
-        Info_1("%1 run out of ammo, returning to base", _supportName);
+        Info_1("%1 run out of ammo, returning to base",_supportName);
         _gunship setVariable ["currentTargetMainGunner", objNull];
         _gunship setVariable ["currentTargetHeavyGunner", objNull];
     };
@@ -450,7 +450,7 @@ while {_lifeTime > 0} do
     //Retreating
     if(_gunship getVariable ["Retreat", false]) exitWith
     {
-        Info_1("%1 met heavy resistance, retreating", _supportName);
+        Info_1("%1 met heavy resistance, retreating",_supportName);
         _gunship setVariable ["currentTargetMainGunner", objNull];
         _gunship setVariable ["currentTargetHeavyGunner", objNull];
     };
@@ -458,7 +458,7 @@ while {_lifeTime > 0} do
     //Gunship died
     if !(alive _gunship) then
     {
-        Info_1("%1 has been destroyed while in the area", _supportName);
+        Info_1("%1 has been destroyed while in the area",_supportName);
         _gunship setVariable ["currentTargetMainGunner", objNull];
         _gunship setVariable ["currentTargetHeavyGunner", objNull];
     };
@@ -472,7 +472,7 @@ _gunship setVariable ["IsActive", false];
 //Have the plane fly back home
 if (alive _gunship) then
 {
-    Info_1("%1 support has ended, returns to base now", _supportName);
+    Info_1("%1 support has ended, returns to base now",_supportName);
     private _wpBase = _strikeGroup addWaypoint [(getMarkerPos _airport) vectorAdd [0, 0, 1000], 0];
     _wpBase setWaypointType "MOVE";
     _wpBase setWaypointBehaviour "CARELESS";

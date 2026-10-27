@@ -39,7 +39,7 @@ switch (_mode) do
         };
 
         // Check param count
-        if (count _params != 1) exitWith {Error_1("Invalid parameter count for missionButtonClicked. Got %1, expected 1", count _params)};
+        if (count _params != 1) exitWith {Error_1("Invalid parameter count for missionButtonClicked. Got %1, expected 1",count _params)};
         private _missionType = _params select 0;
 
         // Check if mission type exists
@@ -60,7 +60,7 @@ switch (_mode) do
 
         if !(_missionType in _missionTypes) exitWith
         {
-            Error_1("Mission type does not exist: %1", _missionType);
+            Error_1("Mission type does not exist: %1",_missionType);
             closeDialog 2;
         };
 
@@ -74,6 +74,6 @@ switch (_mode) do
     default
     {
         // Log error if attempting to call a mode that doesn't exist
-        Error_1("Request Mission dialog mode does not exist: %1", _mode);
+        Error_1("Request Mission dialog mode does not exist: %1",_mode);
     };
 };

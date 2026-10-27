@@ -27,7 +27,7 @@ FIX_LINE_NUMBERS()
 
 params ["_mode", "_params"];
 
-Debug_1("HQ pos dialog called with mode %1", _mode);
+Debug_1("HQ pos dialog called with mode %1",_mode);
 
 private _display = findDisplay A3A_IDD_SETUPHQPOSDIALOG;
 private _parent = displayParent _display;

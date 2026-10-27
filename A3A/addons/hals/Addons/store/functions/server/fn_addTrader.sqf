@@ -35,7 +35,7 @@ try {
 	{
 		if (!isClass (configFile >> "cfgHALsAddons" >> "cfgHALsStore" >> "stores" >> _x)) then {
 			throw ["Invalid Trader type", __LINE__];
-			Error_2("Broken Entry: %1. Full Entry: %2", _x, _traderType);
+			Error_2("Broken Entry: %1. Full Entry: %2",_x,_traderType);
 		};
 	} forEach _traderType;
 
@@ -54,7 +54,7 @@ try {
 		_categories = _categories + _categoryAdd;
 	} forEach _traderType;
 
-	Verbose_1("_categories:\n%1", _categories);
+	Verbose_1("_categories:\n%1",_categories);
 
 	private _classes = [];
 	private _stocks = [];

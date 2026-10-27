@@ -1,8 +1,12 @@
 #include "ids.inc"
 
 
+#ifndef SCREEN_RIGHT
 #define SCREEN_RIGHT (safeZoneX + safeZoneW)
+#endif
+#ifndef SCREEN_BOTTOM
 #define SCREEN_BOTTOM (safeZoneY + safeZoneH)
+#endif
 
 class A3A_PlacerHints {
     idd = IDD_PLACERHINT;

@@ -24,7 +24,7 @@ private _cfg = (configfile >> "A3U" >> "forbiddenItems") call BIS_fnc_getCfgSubC
 	// 	_inheritedForbiddenItems pushBack _x;
 	// };
     if (["_unlimited_base", _x] call BIS_fnc_inString || ["_limited_base", _x] call BIS_fnc_inString) then {
-        Verbose_1("Skipped adding %1 to the forbiddenItems list.", _x);
+        Verbose_1("Skipped adding %1 to the forbiddenItems list.",_x);
         continue
     };
     
@@ -32,10 +32,10 @@ private _cfg = (configfile >> "A3U" >> "forbiddenItems") call BIS_fnc_getCfgSubC
     
     if (count _addons == 0 || { (isClass (configFile >> "CfgPatches" >> _x)) } count _addons == count _addons) then {
         _forbiddenItems pushBack _x;
-        Verbose_1("Added %1 to the forbiddenItems list.", _x);
+        Verbose_1("Added %1 to the forbiddenItems list.",_x);
     };
 } forEach _cfg;
 
 A3U_forbiddenItems = _forbiddenItems;
 
-Verbose_1("Final forbiddenItems list: %1", A3U_forbiddenItems);
+Verbose_1("Final forbiddenItems list: %1",A3U_forbiddenItems);

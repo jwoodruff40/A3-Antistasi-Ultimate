@@ -770,6 +770,8 @@ class A3A_SetupConfirmDialog
     onLoad = "['onLoad'] spawn A3A_fnc_setupConfirmDialog";
     //onUnload = "['onUnload'] call A3A_fnc_setupConfirmDialog";        // nothing to do on cancel?
 
+    #undef DIALOG_X
+    #undef DIALOG_Y
     #define DIALOG_X CENTER_X(80) // Global x pos of dialog
     #define DIALOG_Y CENTER_Y(40) // Global y pos of dialog
 

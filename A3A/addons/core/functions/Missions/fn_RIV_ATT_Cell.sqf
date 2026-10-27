@@ -18,7 +18,7 @@ private _fnc_createLight = {
     _light
 };
 
-Info_1("Kill Cell Leader task initialization started, marker: %1.", _marker);
+Info_1("Kill Cell Leader task initialization started, marker: %1.",_marker);
 
 private _vehicles = [];
 private _groups = [];
@@ -30,7 +30,7 @@ private _props = [];
 private _isDifficult = random 10 < tierWar && ([] call SCRT_fnc_rivals_rollProbability);
 private _positionX = getMarkerPos _marker;
 
-Info_1("Is difficult: %1.", str _isDifficult);
+Info_1("Is difficult: %1.",str _isDifficult);
 
 ///////////////////////////////
 //  Calculating city size	 //
@@ -66,7 +66,7 @@ while {true} do {
     _searchIterations = _searchIterations + 1;
 };
 
-Info_1("City size: %1.", str _size);
+Info_1("City size: %1.",str _size);
 
 //////////////////////////////////////////////
 //  Damaged buildings	                    //
@@ -116,11 +116,11 @@ if ((random 100) < 30) then {
 private ["_buildings", "_capableBuildings", "_targetBuilding", "_targetPos"];
 
 _buildings = nearestTerrainObjects [_positionX, ["BUILDING", "BUNKER", "FUELSTATION", "HOSPITAL", "HOUSE", "LIGHTHOUSE", "RUIN"], _size, false, true];
-Debug_1("Buildings found: %1", _buildings);
+Debug_1("Buildings found: %1",_buildings);
 
 if (!isNil "_buildings" && {_buildings isNotEqualTo []}) then {
     _capableBuildings = _buildings select { !(isObjectHidden _x) && { _x buildingPos -1 isNotEqualTo []}};
-    Debug_1("Capable buildings found: %1", _capableBuildings);
+    Debug_1("Capable buildings found: %1",_capableBuildings);
 
     if (!isNil "_capableBuildings" && {_capableBuildings isNotEqualTo []}) then {
         _targetBuilding = selectRandom _capableBuildings;
@@ -488,7 +488,7 @@ _truck setDir (_vehiclePosAndDir select 1);
 
 _vehicles append [_camoNet, _truck, _lootContainer];
 
-Info_1("Loot container on %1 position.", str (position _lootContainer));
+Info_1("Loot container on %1 position.",str (position _lootContainer));
 
 waitUntil {
     sleep 2;
@@ -521,7 +521,7 @@ _lootContainer allowDamage true;
 // Eradicate BLUFOR for better performance and feeling of previous firefight  	          //
 ////////////////////////////////////////////////////////////////////////////////////////////
 if (sidesX getVariable [_marker, sideUnknown] == Occupants) then {
-    Info_1("Killing some of the BLUFOR units in the %1.", _marker);
+    Info_1("Killing some of the BLUFOR units in the %1.",_marker);
     [_positionX, _size] spawn {
         params ["_positionX", "_size"];
 
@@ -548,7 +548,7 @@ if (sidesX getVariable [_marker, sideUnknown] == Occupants) then {
 //////////////////////////////
 private _carCount = if (_isDifficult) then {round (random [2,3,3])} else {round (random [1,2,4])};
 
-Info_1("Car Demos count: %1", str _carCount);
+Info_1("Car Demos count: %1",str _carCount);
 
 for "_i" from 0 to _carCount do {
    [_positionX, _size, 101] spawn SCRT_fnc_rivals_encounter_carDemo;

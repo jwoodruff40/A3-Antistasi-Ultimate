@@ -4,7 +4,7 @@ FIX_LINE_NUMBERS()
 
 if(count (_route select 1) != 3) exitWith
 {
-    Debug_1("Input was %1", str _this);
+    Debug_1("Input was %1",str _this);
     Debug("Path is broken, abort");
 };
 
@@ -36,7 +36,7 @@ _pos = _pos vectorAdd [0,0,0.1];
 _dir = _pos getDir (_route select 0);
 if(isNil "_dir") exitWith
 {
-    Debug_2("Dir uncalced, Pos was %1, route was %2", _pos, (_route select 0));
+    Debug_2("Dir uncalced, Pos was %1, route was %2",_pos,(_route select 0));
     _dir = 0;
 };
 private _targetDir = _pos vectorFromTo _targetPos;
@@ -46,7 +46,7 @@ private _createdUnits = [];
 private _airVehicles = [];
 private _landVehicles = [];
 
-Info_1("Spawning in convoy %1", _convoyID);
+Info_1("Spawning in convoy %1",_convoyID);
 VerboseArray("Convoy Units", _units);
 
 for "_i" from 0 to ((count _units) - 1) do
@@ -108,7 +108,7 @@ while {true} do
 			_createdUnits deleteAt _i;
 			_airVehicles deleteAt (_airVehicles find _veh);
 			_landVehicles deleteAt (_landVehicles find _veh);
-            Debug_2("Vehicle FSM result %1, rem units %2", _result, count _createdUnits);
+            Debug_2("Vehicle FSM result %1, rem units %2",_result,count _createdUnits);
 		}
 		else {
 			if ([distanceSPWN*1.2, 1, getPos _veh, teamPlayer] call A3A_fnc_distanceUnits) then { _despawn = false };
@@ -119,7 +119,7 @@ while {true} do
 	if (count _createdUnits == 0) exitWith {
 		deleteMarker _convoyMarker;
 		server setVariable [format ["Con%1", _convoyID], nil, true];
-        Info_2("%1 Convoy [%2]: Terminated", _convoyType, _convoyID);
+        Info_2("%1 Convoy [%2]: Terminated",_convoyType,_convoyID);
 
 		if (_failure > 0) then {
 			// At least one vehicle failed, add base/target to killZones to avoid repetition

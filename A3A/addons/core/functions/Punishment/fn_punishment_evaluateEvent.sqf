@@ -118,7 +118,7 @@ if (_isCollision) then {
     _customMessage = [_customMessage,localize "STR_A3A_punishment_damaged_driver"] joinString "<br/>";
     _timeAdded = 27;
     _offenceAdded = 0.15;
-    Info_4("COLLISION | %1 [%2]'s %3 %4", name _instigator, getPlayerUID _instigator, _vehicleType, _victimStats);
+    Info_4("COLLISION | %1 [%2]'s %3 %4",name _instigator,getPlayerUID _instigator,_vehicleType,_victimStats);
 };
 
 /////////Checks for important roles/////////
@@ -147,7 +147,7 @@ _exemption = switch (true) do {
 };
 if (!(_exemption isEqualTo "")) exitWith {
     private _playerStats = format["%1 [%2] %3, Avoided-time: %4, Avoided-offence: %5", name _instigator, getPlayerUID _instigator, _victimStats,str _timeAdded, str _offenceAdded];
-    Info_2("%1 | %2", _exemption, _playerStats);
+    Info_2("%1 | %2",_exemption,_playerStats);
     _exemption;
 };
 

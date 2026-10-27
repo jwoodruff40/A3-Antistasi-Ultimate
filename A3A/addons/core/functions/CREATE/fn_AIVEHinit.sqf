@@ -234,7 +234,7 @@ if (_side != teamPlayer) then
 		private _oldside = _veh getVariable ["ownerSide", teamPlayer];
 		if (_oldside != teamPlayer) then
 		{
-			ServerDebug_2("%1 switching side from %2 to rebels", typeof _veh, _oldside);
+			ServerDebug_2("%1 switching side from %2 to rebels",typeof _veh,_oldside);
 			[_veh, teamPlayer, true] call A3A_fnc_vehKilledOrCaptured;
 		};
 		_veh removeEventHandler ["GetIn", _thisEventHandler];
@@ -261,7 +261,7 @@ if(([_veh] call A3A_Logistics_fnc_getVehCapacity) > 1) then {
 		private _cargo = _vehicle call A3A_Logistics_fnc_getCargo;
 		if (_cargo isEqualTo []) exitWith {};
 
-		_cargo = _cargo select {typeOf _x isEqualTo FactionGet(reb, "lootCrate")};
+		_cargo = _cargo select {typeOf _x isEqualTo FactionGet(reb,"lootCrate")};
 
 		{
 			_cargoItem setDamage 1; 

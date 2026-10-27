@@ -29,7 +29,7 @@ private _taskId = "CON" + str A3A_taskCount;
 
 private _milAdministrationIndex = A3A_milAdministrations findIf { _milAdministrationPos distance2D _x < 30 };
 if (_milAdministrationIndex isEqualTo -1) exitWith {
-	Error_1("For some reason %1 mil administration has no corresponding building, aborting.", _marker);
+	Error_1("For some reason %1 mil administration has no corresponding building, aborting.",_marker);
 };
 
 private _milAdministration = A3A_milAdministrations select _milAdministrationIndex;

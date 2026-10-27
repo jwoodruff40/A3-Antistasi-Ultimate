@@ -3,10 +3,10 @@ FIX_LINE_NUMBERS()
 
 private _unit = _this select 0;
 if (debug) then {
-    Debug_1("Unit: %1", _unit);
+    Debug_1("Unit: %1",_unit);
 };
 if ((isNil "_unit") || (isNull _unit)) exitWith {
-    Error_1("Problem with NATO Param: %1", _this);
+    Error_1("Problem with NATO Param: %1",_this);
 };
 private  _markerX = "";
 if (count _this > 1) then {

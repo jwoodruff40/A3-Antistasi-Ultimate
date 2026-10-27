@@ -50,7 +50,7 @@ for "_i" from 1 to _maxResourceCivilians do {
         ServerDebug("Resource Civilian could not be spawned because no valid spawn position was found.");
         continue;
     };
-    private _civUnit = [_groupX, FactionGet(civ, "unitWorker"), _spawnPosition, [],0, "NONE"] call A3A_fnc_createUnit;
+    private _civUnit = [_groupX, FactionGet(civ,"unitWorker"), _spawnPosition, [],0, "NONE"] call A3A_fnc_createUnit;
     _civUnit setVariable ["markerX", _markerX, true];
     _civs pushBack _civUnit;
 

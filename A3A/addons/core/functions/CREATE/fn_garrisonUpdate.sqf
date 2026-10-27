@@ -19,7 +19,7 @@ if (_typeX isEqualType []) then {
 };
 
 if !(_markerX isEqualType "") exitWith {
-	Error_1("Failed to update Garrison at Position:%1", _this);
+	Error_1("Failed to update Garrison at Position:%1",_this);
 };
 
 _exit = false;

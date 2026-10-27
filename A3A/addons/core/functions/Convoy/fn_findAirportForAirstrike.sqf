@@ -62,7 +62,7 @@ _suitableAirports = [];
 if (count _suitableAirports > 0) then
 {
     _airport = [_suitableAirports,_destinationPos] call BIS_fnc_nearestPosition;
-    Debug_2("Found %1 suitable airports, will return %2", count _suitableAirports, _airport);
+    Debug_2("Found %1 suitable airports, will return %2",count _suitableAirports,_airport);
 }
 else
 {

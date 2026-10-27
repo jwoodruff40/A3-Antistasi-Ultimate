@@ -22,6 +22,6 @@ if (isNil "_readyPlayers" || {count _readyPlayers == 0}) then {
     []
 };
 
-Info_1("Paradrop players: %1", str _readyPlayers);
+Info_1("Paradrop players: %1",str _readyPlayers);
 
 _readyPlayers

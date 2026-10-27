@@ -101,7 +101,7 @@ if !(alive _vehicle) exitWith {};
 
 if(currentWaypoint _groupPilot > 0) then
 {
-    ServerDebug_1("Drop pos %1 reached", _dropPos);
+    ServerDebug_1("Drop pos %1 reached",_dropPos);
     _vehicle setCollisionLight true;
 
     private _vehicleVelocity = velocity _vehicle;

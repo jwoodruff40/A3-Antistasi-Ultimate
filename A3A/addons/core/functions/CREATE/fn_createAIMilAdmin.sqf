@@ -8,7 +8,7 @@ if (!isServer and hasInterface) exitWith {};
 private _milAdministrationPos = getMarkerPos _marker;
 private _milAdministrationIndex = A3A_milAdministrations findIf { _milAdministrationPos distance2D _x < 30 };
 if (_milAdministrationIndex isEqualTo -1) exitWith {
-	Error_1("For some reason %1 mil administration has no corresponding building, aborting.", _marker);
+	Error_1("For some reason %1 mil administration has no corresponding building, aborting.",_marker);
 };
 
 private _milAdministration = A3A_milAdministrations select _milAdministrationIndex;
@@ -17,19 +17,19 @@ if (_marker in townSkirmishes) exitWith {
 	Info("Aborting mil admin spawn; is in town skirmish");
 };
 if (_milAdministration isEqualTo objNull) exitWith {
-	Error_1("For some reason mil administration %1 object is null, aborting.", _marker);
+	Error_1("For some reason mil administration %1 object is null, aborting.",_marker);
 };
 if (!alive _milAdministration) exitWith {
-	Warning_1("Mil Admin building %1 was destroyed before (should not spawn at all, suspicious), aborting.", _marker);
+	Warning_1("Mil Admin building %1 was destroyed before (should not spawn at all, suspicious), aborting.",_marker);
 };
 
 private _side = sidesX getVariable [_marker, sideUnknown];
 
 if (_side isEqualTo sideUnknown) exitWith {
-	Error_2("For some reason mil administration %1 side is %2, aborting.", _marker, str _side);
+	Error_2("For some reason mil administration %1 side is %2, aborting.",_marker,str _side);
 };
 
-Info_2("Spawning military administration personel for %1 marker on %2 position.", _marker, str _milAdministrationPos);
+Info_2("Spawning military administration personel for %1 marker on %2 position.",_marker,str _milAdministrationPos);
 
 private _vehicles = [];
 private _groups = [];
@@ -256,13 +256,13 @@ waitUntil {sleep 1; spawner getVariable _marker == 2 or {!alive _milAdministrati
 
 switch (true) do {
     case (!alive _collaborant): {
-        Info_1("Military Administration %1 was captured - collaborant has been killed.", _marker);
+        Info_1("Military Administration %1 was captured - collaborant has been killed.",_marker);
         [_milAdministration, "CAPTURE"] call SCRT_fnc_location_removeMilAdmin;
         sleep 1;
         [_marker] call A3A_fnc_mrkUpdate;
     };
     case (!alive _milAdministration): {
-        Info_1("Military Administration %1 was destroyed.", _marker);
+        Info_1("Military Administration %1 was destroyed.",_marker);
         [_milAdministration, "DESTROY"] call SCRT_fnc_location_removeMilAdmin;
         destroyedSites pushBackUnique _marker;
         publicVariable "destroyedSites";

@@ -224,7 +224,7 @@ switch (_type) do {
 				[petros,"hint",format [localize "STR_chats_mission_request_no_SUPP_hint_text", str distanceMission], localize "STR_chats_mission_request_header"] remoteExec ["A3A_fnc_commsMP",_requester];
 			};
 		} else {
-            Debug_1("City weights: %1", _weightedMarkers);
+            Debug_1("City weights: %1",_weightedMarkers);
 			private _site = selectRandomWeighted _weightedMarkers;
 
 			if (([_site] call _checkRivalsTaskPossibility)) then {
@@ -331,7 +331,7 @@ switch (_type) do {
 	};
 
 	default {
-        Error_1("%1 is not an accepted task type.", _type);
+        Error_1("%1 is not an accepted task type.",_type);
 	};
 };
 

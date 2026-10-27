@@ -30,7 +30,7 @@ private _vehType = selectRandom (_faction get "staticMortars");
 private _shellType = _faction get "mortarMagazineHE";
 ([_vehType, _shellType] call A3A_fnc_getArtilleryRanges) params ["_minRange", "_maxRange"];
 
-Info_6("Mortar support %1 against %2 will be carried out by a %3 with %4 mags, min range %5 max %6", _supportName, _targPos, _vehType, _shellType, _minRange, _maxRange);
+Info_6("Mortar support %1 against %2 will be carried out by a %3 with %4 mags, min range %5 max %6",_supportName,_targPos,_vehType,_shellType,_minRange,_maxRange);
 
 //Search for a outpost, that isnt more than 3 kilometers away, which isnt spawned
 private _possibleBases = (outposts + airportsX + milbases) select

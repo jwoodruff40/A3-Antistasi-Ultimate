@@ -65,7 +65,7 @@ private _baseInputClassesMap = createHashMap;
 		_originItemFireModes isEqualTo _weaponFireModes && _weaponMuzzles == _originItemMuzzles && _originItemOpticSystem == _weaponSystem && _originMagazines isEqualTo _weaponMagazines
 	};
 
-	Debug_3("Weapon: %1, Base Config: %2, Final similar weapons: %3", str _item, _cfgName, str _similarClassnames);
+	Debug_3("Weapon: %1, Base Config: %2, Final similar weapons: %3",str _item,_cfgName,str _similarClassnames);
 
 	_possibleClassesMap set [_cfgName, _similarClassnames];
 

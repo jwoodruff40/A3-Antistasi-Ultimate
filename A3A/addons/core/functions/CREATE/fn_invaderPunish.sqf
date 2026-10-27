@@ -27,7 +27,7 @@ if (areInvadersDefeated) exitWith {
 
 params ["_mrkDest", "_mrkOrigin", "_delay"];
 
-ServerInfo_2("Launching CSAT Punishment Against %1 from %2", _mrkDest, _mrkOrigin);
+ServerInfo_2("Launching CSAT Punishment Against %1 from %2",_mrkDest,_mrkOrigin);
 
 // Mostly to prevent fast travel
 forcedSpawn pushBack _mrkDest; publicVariable "forcedSpawn";
@@ -82,8 +82,8 @@ while {count _civilians < _numCiv} do
     };
     for "_i" from 1 to (4 min (_numCiv - count _civilians)) do
     {
-        private _identity = [A3A_faction_civ, FactionGet(reb, "unitUnarmed")] call A3A_fnc_createRandomIdentity;
-        private _civ = [_groupCivil, FactionGet(reb, "unitUnarmed"), _pos, [], 0, "NONE", _identity] call A3A_fnc_createUnit;
+        private _identity = [A3A_faction_civ, FactionGet(reb,"unitUnarmed")] call A3A_fnc_createRandomIdentity;
+        private _civ = [_groupCivil, FactionGet(reb,"unitUnarmed"), _pos, [], 0, "NONE", _identity] call A3A_fnc_createUnit;
         [_civ, createHashMapFromArray [["face", selectRandom (A3A_faction_civ get "faces")], ["speaker", "NoVoice"]]] call A3A_fnc_setIdentity;
         _civ forceAddUniform selectRandom (A3A_faction_civ get "uniforms");
         _civ addHeadgear selectRandom (A3A_faction_civ get "headgear");
@@ -120,7 +120,7 @@ private _fnc_adjustNearCities = {
 };
 
 if (({_x call A3A_fnc_canFight} count _soldiers < count _soldiers / 3) or (time > _missionExpireTime)) then {
-    Info_1("Rebels defeated a punishment attack against %1", _mrkDest);
+    Info_1("Rebels defeated a punishment attack against %1",_mrkDest);
     [_taskId, "invaderPunish", "SUCCEEDED"] call A3A_fnc_taskSetState;
     [_posDest, 30, 3000] call _fnc_adjustNearCities;
 
@@ -133,7 +133,7 @@ if (({_x call A3A_fnc_canFight} count _soldiers < count _soldiers / 3) or (time 
     [10,theBoss] call A3A_fnc_addScorePlayer;
     [round (100*((tierWar/3) max 1)), theBoss, true] call A3A_fnc_addMoneyPlayer;
 } else {
-    Info_1("Rebels lost a punishment attack against %1", _mrkDest);
+    Info_1("Rebels lost a punishment attack against %1",_mrkDest);
     [_taskId, "invaderPunish", "FAILED"] call A3A_fnc_taskSetState;
     [_posDest, -30, 3000] call _fnc_adjustNearCities;
 

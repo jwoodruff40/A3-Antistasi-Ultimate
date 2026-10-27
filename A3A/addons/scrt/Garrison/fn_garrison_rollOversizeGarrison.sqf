@@ -32,7 +32,7 @@ if ((random 100) < _oversizeChance) then {
         _additionalGroups pushBack (selectRandom _pool);
     };
 
-    Info_2("Oversized %1 garrison, number of additional squads: %2", str _marker, str _squadCount);
+    Info_2("Oversized %1 garrison, number of additional squads: %2",str _marker,str _squadCount);
 };
 
 _additionalGroups

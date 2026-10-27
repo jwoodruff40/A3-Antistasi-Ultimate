@@ -7,7 +7,7 @@ params ["_markerX"];
 //Not sure if that ever happens, but it reduces redundance
 if(spawner getVariable _markerX == 2) exitWith {};
 
-ServerInfo_1("Spawning Airbase %1", _markerX);
+ServerInfo_1("Spawning Airbase %1",_markerX);
 
 private _civs = [];
 private _soldiers = [];

@@ -48,7 +48,7 @@ private _fnc_createMarker = {
     _marker setMarkerPos (getPos _anomaly);
 };
 
-Debug_1("Creating anomaly field, anomaly amount: %1", _anomalyAmount);
+Debug_1("Creating anomaly field, anomaly amount: %1",_anomalyAmount);
 
 for "_i" from 1 to _anomalyAmount do {
     private _pos = call _fnc_grabPos;
@@ -88,6 +88,6 @@ for "_i" from 1 to _anomalyAmount do {
     };
 };
 
-Debug_1("Created anomaly field, anomaly amount final: %1", count _anomalies);
+Debug_1("Created anomaly field, anomaly amount final: %1",count _anomalies);
 
 _anomalies

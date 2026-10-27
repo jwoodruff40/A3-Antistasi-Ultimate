@@ -40,13 +40,13 @@ if ((spawner getVariable _markerX != 2) and {!(sidesX getVariable [_markerX,side
 	_groupX = [_positionX, _sideX, _specOps] call A3A_fnc_spawnGroup;
 	{[_x] call A3A_fnc_NATOinit} forEach units _groupX;
 	[_groupX, "Patrol_Area", 25, 100, 250, true, _positionX, false] call A3A_fnc_patrolLoop;
-	Info_2("SpecOps Group Array: %1, Group: %2", str _specOps, str _groupX);
+	Info_2("SpecOps Group Array: %1, Group: %2",str _specOps,str _groupX);
 };
 
 waitUntil {
 	sleep 1; 
 	_aliveCount = {alive _x} count units _groupX;
-	Info_1("SpecOps team alive count: %1", str _aliveCount);
+	Info_1("SpecOps team alive count: %1",str _aliveCount);
 	dateToNumber date > _dateLimitNum or {sidesX getVariable [_markerX,sideUnknown] == teamPlayer or {_aliveCount == 0}}};
 
 if (dateToNumber date > _dateLimitNum) then

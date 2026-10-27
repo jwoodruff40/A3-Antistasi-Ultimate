@@ -19,7 +19,7 @@ License: MIT License
 */
 #include "..\script_component.hpp"
 FIX_LINE_NUMBERS()
-if !(params [ ["_event", "", [""]] ]) exitWith { Error_1("Invalid params passed: %1", _this)};
+if !(params [ ["_event", "", [""]] ]) exitWith { Error_1("Invalid params passed: %1",_this)};
 
 private _cbaEvent = configFile >> "A3A" >> "Events" >> _event;
 

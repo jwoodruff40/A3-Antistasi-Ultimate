@@ -4483,12 +4483,12 @@
                 <Turkish>İPTAL</Turkish>
             </Key>
             <Key ID="STR_antistasi_dialogs_setup_confirm_start_create">
-                <Original>Create new game with </Original>
-                <Russian>Создать новую игру с </Russian>
+                <Original>Create new game with</Original>
+                <Russian>Создать новую игру с</Russian>
                 <Chinesesimp>创建新游戏</Chinesesimp>
-                <Korean>새 게임 만들기: </Korean>
+                <Korean>새 게임 만들기:</Korean>
                 <French>Créer une nouvelle partie avec</French>
-                <Turkish>Yeni oyun: </Turkish>
+                <Turkish>Yeni oyun:</Turkish>
             </Key>
             <Key ID="STR_antistasi_dialogs_setup_confirm_delete">
                 <Original>Are you sure that you want to delete the game with ID %1 on %2?</Original>
@@ -4499,32 +4499,32 @@
                 <Turkish>%2 üzerindeki %1 kimliğiyle oyunu silmek istediğinizden emin misiniz?</Turkish>
             </Key>
             <Key ID="STR_antistasi_dialogs_setup_confirm_start_copy">
-                <Original>Copy game with ID %1, </Original>
-                <Russian>Копировать игру с ID %1, </Russian>
+                <Original>Copy game with ID %1,</Original>
+                <Russian>Копировать игру с ID %1,</Russian>
                 <Chinesesimp>复制 ID 为 %1 的游戏，</Chinesesimp>
-                <Korean>ID가 %1인 게임 복사, </Korean>
+                <Korean>ID가 %1인 게임 복사,</Korean>
                 <French>Copier la partie avec ID %1,</French>
-                <Turkish>%1 kimliğiyle Oyunu kopyala, </Turkish>
+                <Turkish>%1 kimliğiyle Oyunu kopyala,</Turkish>
             </Key>
             <Key ID="STR_antistasi_dialogs_setup_confirm_start_load">
-                <Original>Load game with ID %1, </Original>
-                <Russian>Загрузить игру с ID %1, </Russian>
+                <Original>Load game with ID %1,</Original>
+                <Russian>Загрузить игру с ID %1,</Russian>
                 <Chinesesimp>加载 ID 为 %1 的游戏，</Chinesesimp>
-                <Korean>ID가 %1인 게임 불러오기, </Korean>
+                <Korean>ID가 %1인 게임 불러오기,</Korean>
                 <French>Charger la partie avec l' ID %1,</French>
-                <Turkish>%1 kimliğiyle oyunu yükle, </Turkish>
+                <Turkish>%1 kimliğiyle oyunu yükle,</Turkish>
             </Key>
             <Key ID="STR_antistasi_dialogs_setup_confirm_factions">
                 <!-- <Original>Rebels: %1\n Civilians: %2\n Occupants: %3\n Invaders: %4\n Rivals: %5</Original> -->
                 <Original>Occupants: %3\n Invaders: %4\n Rebels: %1\n Rivals: %5\n Civilians: %2</Original>
             </Key>
             <Key ID="STR_antistasi_dialogs_setup_confirm_game_name">
-                <Original>name "%1", </Original>
-                <Russian>названием "%1", </Russian>
+                <Original>name "%1",</Original>
+                <Russian>названием "%1",</Russian>
                 <Chinesesimp>名称“%1”，</Chinesesimp>
-                <Korean>"%1"(으)로 명명, </Korean>
-                <French>nom "%1", </French>
-                <Turkish> isim "%1", </Turkish>
+                <Korean>"%1"(으)로 명명,</Korean>
+                <French>nom "%1",</French>
+                <Turkish>isim "%1",</Turkish>
             </Key>
             <Key ID="STR_antistasi_dialogs_setup_param_locked_saveexists">
                 <Original>This parameter cannot be changed for an existing save.</Original>

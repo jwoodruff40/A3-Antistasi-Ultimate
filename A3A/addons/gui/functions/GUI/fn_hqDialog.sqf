@@ -108,7 +108,7 @@ switch (_mode) do
         // Get selected tab
         private _selectedTab = _params select 0;
 
-        Debug_1("HqDialog switching tab to %1.", _selectedTab);
+        Debug_1("HqDialog switching tab to %1.",_selectedTab);
 
         // Get IDC for selected tab
         private _selectedTabIDC = -1;
@@ -133,7 +133,7 @@ switch (_mode) do
 
         // Log attempt at accessing tab without permission
         if (_selectedTabIDC == -1) exitWith {
-            Error_1("Attempted to access non-existant tab: %1", _selectedTab);
+            Error_1("Attempted to access non-existant tab: %1",_selectedTab);
         };
 
         // Array of IDCs for all the tabs, including subtabs (like AI & player management)
@@ -559,13 +559,13 @@ switch (_mode) do
     case ("garrisonMapClicked"):
     {
         // TODO UI-update: Clicking away from outposts should deselect current outpost
-        Debug_1("Garrison map clicked: %1", _params);
+        Debug_1("Garrison map clicked: %1",_params);
         // Find closest marker to the clicked position
         _params params ["_clickedPosition"];
         private _clickedWorldPosition = _garrisonMap ctrlMapScreenToWorld _clickedPosition;
         private _garrisonableLocations = airportsX + resourcesX + factories + outposts + milbases + seaports + citiesX + hmgpostsFIA + atpostsFIA + aapostsFIA + roadblocksFIA + watchpostsFIA + ["Synd_HQ"];
         private _selectedMarker = [_garrisonableLocations, _clickedWorldPosition] call BIS_fnc_nearestPosition;
-        Debug_1("Selected marker: %1", _selectedMarker);
+        Debug_1("Selected marker: %1",_selectedMarker);
 
         _markerMapPosition = _garrisonMap ctrlMapWorldToScreen (getMarkerPos _selectedMarker);
         private _maxDistance = 8 * GRID_W; // TODO UI-update: Move somewhere else?
@@ -656,7 +656,7 @@ switch (_mode) do
             };
         };
 
-        Debug_2("Calling A3A_fnc_garrisonRemove with [%1,%2]", _unitType, _selectedMarker);
+        Debug_2("Calling A3A_fnc_garrisonRemove with [%1,%2]",_unitType,_selectedMarker);
         [_unitType, _selectedMarker] spawn A3A_fnc_garrisonRemove;
 
         sleep 1; // TODO UI-update: bad hack to make it correctly update the UI with the new number
@@ -724,6 +724,6 @@ switch (_mode) do
     default
     {
         // Log error if attempting to call a mode that doesn't exist
-        Error_1("HQ Dialog mode does not exist: %1", _mode);
+        Error_1("HQ Dialog mode does not exist: %1",_mode);
     };
 };

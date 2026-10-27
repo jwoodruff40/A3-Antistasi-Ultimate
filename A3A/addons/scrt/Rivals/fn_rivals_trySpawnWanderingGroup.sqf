@@ -36,7 +36,7 @@ if (!([] call SCRT_fnc_rivals_rollProbability)) exitWith {
 	Info("Low probability, exiting.");
 };
 
-Info_1("Creating rivals patrol on %1 marker...", _marker);
+Info_1("Creating rivals patrol on %1 marker...",_marker);
 
 sleep 15;
 
@@ -48,7 +48,7 @@ if (_rivalsTacUnit isEqualTo []) exitWith {
 	Error("Empty rivals group for some reason, aborting.");
 };
 
-Info_1("Rivals tactical unit: %1", str _rivalsTacUnit);
+Info_1("Rivals tactical unit: %1",str _rivalsTacUnit);
 
 private _spawnableGroup = _rivalsTacUnit select 0;
 private _spawnableVehicle = _rivalsTacUnit select 1;

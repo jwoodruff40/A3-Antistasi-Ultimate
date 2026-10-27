@@ -17,7 +17,7 @@ private _spawnsUsed = [];
 private _positionX = getMarkerPos (_markerX);
 private _pos = [];
 
-ServerInfo_1("Spawning Outpost %1", _markerX);
+ServerInfo_1("Spawning Outpost %1",_markerX);
 
 private _size = [_markerX] call A3A_fnc_sizeMarker;
 private _frontierX = [_markerX] call A3A_fnc_isFrontline;
@@ -149,7 +149,7 @@ if (_markerX in seaports) then {
 		_vehiclesX pushBack _veh;
 		sleep 1;
 	} else {
-		Error_1("Could not find seaSpawn marker on %1!", _markerX);
+		Error_1("Could not find seaSpawn marker on %1!",_markerX);
 	};
 } else {
 	if (_frontierX && {count _roads != 0}) then {

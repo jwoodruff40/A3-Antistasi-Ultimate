@@ -1,7 +1,7 @@
 #include "..\defines.inc"
 FIX_LINE_NUMBERS()
 
-private _reviveBox = FactionGet(reb, "reviveKitBox");
+private _reviveBox = FactionGet(reb,"reviveKitBox");
 private _itemType = _reviveBox#0;
 private _cost = _reviveBox#1;
 

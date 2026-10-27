@@ -121,7 +121,7 @@ if (isServer) then {
 		} forEach _unlockedItemsInTab;
 	} forEach jna_dataList;
 
-	Info_1("Categories to publish: %1", keys _categoriesToPublish);
+	Info_1("Categories to publish: %1",keys _categoriesToPublish);
 
 	// Publish the unlocked categories (once each)
 	{ publicVariable ("unlocked" + _x) } forEach keys _categoriesToPublish;
@@ -192,7 +192,7 @@ if (isServer) then {
 			_playerData set [_x, [_uid, _x] call A3A_fnc_retrievePlayerStat];
 		} forEach ["moneyX", "loadoutPlayer", "scorePlayer", "rankPlayer", "personalGarage", "pluginsData"];
 
-		if (isNil {_playerData get "moneyX"}) then { Error_1("Saved player %1 has no money var", _uid); continue };
+		if (isNil {_playerData get "moneyX"}) then { Error_1("Saved player %1 has no money var",_uid); continue };
 		A3A_playerSaveData set [_uid, _playerData];
 	} forEach _savedPlayers;
 

@@ -51,7 +51,7 @@ if (_return isEqualType 0) exitWith {
         case -7: { [localize "STR_A3A_Logistics_header", format [localize "STR_A3A_Logistics_unableToLoad", _vehicleName]] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner] };
         case -8: { [localize "STR_A3A_Logistics_header", format [localize "STR_A3A_Logistics_tryLoad_not_enough_space", _vehicleName, _cargoName]] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner] };
         case -9: { [localize "STR_A3A_Logistics_header", format [localize "STR_A3A_Logistics_tryLoad_blocking_plane_cargo", _vehicleName]] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner] };
-        default { Error_1("Unknown error code: %1", _return) };
+        default { Error_1("Unknown error code: %1",_return) };
     };
 };
 

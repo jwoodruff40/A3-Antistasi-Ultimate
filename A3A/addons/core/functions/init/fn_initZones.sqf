@@ -40,7 +40,7 @@ if ((toLower worldName) in ["altis", "chernarus_summer"]) then {
 	};
 };  //this only for Altis and Cherno
 if (debug) then {
-    Debug_1("Setting Spawn Points for %1.", worldname);
+    Debug_1("Setting Spawn Points for %1.",worldname);
 };
 //We're doing it this way, because Dedicated servers world name changes case, depending on how the file is named.
 //And weirdly, == is not case sensitive.

@@ -19,13 +19,13 @@ class CfgPatches
     };
 };
 
-class cfgWeapons
+class CfgWeapons
 {
     class ItemRadio;
     #include "cfgWeapons.hpp"
 };
 
-class cfgVehicles
+class CfgVehicles
 {
     class Item_Base_F;
     class Thing;
@@ -35,8 +35,6 @@ class cfgVehicles
 class RscBackPicture;
 class RscEditLCD;
 class HiddenButton;
-class HiddenRotator;
-class HiddenFlip;
 
 /* #Mosecu
 $[

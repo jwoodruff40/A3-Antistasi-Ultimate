@@ -44,7 +44,7 @@ private _fnc_canHelp = {
 // Use available medics as priority
 private _index = _medics findIf { _x call _fnc_canHelp };
 if (_index != -1) exitWith {
-    ServerDebug_2("Sending medic %1 to assist target %2", _medics select _index, _target);
+    ServerDebug_2("Sending medic %1 to assist target %2",_medics select _index,_target);
     [_target, _medics select _index] spawn A3A_fnc_help;
     _medics select _index;
 };
@@ -54,7 +54,7 @@ if !(_target getVariable ["incapacitated", false]) exitWith { objNull };
 
 private _index = _units findIf { _x call _fnc_canHelp };
 if (_index != -1) exitWith {
-    ServerDebug_2("Sending non-medic %1 to assist target %2", _units select _index, _target);
+    ServerDebug_2("Sending non-medic %1 to assist target %2",_units select _index,_target);
     [_target, _units select _index] spawn A3A_fnc_help;
     _units select _index;
 };

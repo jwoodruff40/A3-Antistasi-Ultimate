@@ -14,7 +14,7 @@ Arguments:
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 
-Debug_1("ASFRoutine called with %1", _this);
+Debug_1("ASFRoutine called with %1",_this);
 
 params ["_suppData", "_resPool", "_airport", "_planeType", "_sleepTime", "_reveal"];
 _suppData params ["_supportName", "_side", "_suppType", "_suppCenter", "_suppRadius", "_suppTarget"];
@@ -50,7 +50,7 @@ _loiterWP setWaypointType "Loiter";
 _loiterWP setWaypointLoiterRadius 2000;
 _loiterWP setWaypointLoiterAltitude 700;
 _group setCurrentWaypoint _loiterWP;
-Debug_2("%1 underway from %2", _supportName, _airport);
+Debug_2("%1 underway from %2",_supportName,_airport);
 
 
 private _remTargets = 2;
@@ -61,15 +61,15 @@ while {true} do
 {
     //Plane somehow destroyed or disabled
     if !(canFire _plane && side _plane == _side) exitWith {
-        Info_1("%1 has been destroyed or disabled, aborting routine", _supportName);
+        Info_1("%1 has been destroyed or disabled, aborting routine",_supportName);
     };
 
     if (!_currentlyAttacking && _remTargets <= 0) exitWith {
-        Info_1("%1 has run out of targets, aborting routine", _supportName);
+        Info_1("%1 has run out of targets, aborting routine",_supportName);
     };
 
     if (time > _timeout) exitWith {
-        Info_1("%1 has run out of time, aborting routine", _supportName);
+        Info_1("%1 has run out of time, aborting routine",_supportName);
     };
 
     if (!_currentlyAttacking) then
@@ -79,9 +79,9 @@ while {true} do
         _targetObj = _suppTarget select 0;
         if !(alive _targetObj) exitWith {
             _suppTarget resize 0;
-            Debug_1("%1 skips target, as it is already dead", _supportName);
+            Debug_1("%1 skips target, as it is already dead",_supportName);
         };
-        Debug_2("Next target for %2 is %1", _suppTarget, _supportName);
+        Debug_2("Next target for %2 is %1",_suppTarget,_supportName);
         _timeout = _timeout + 300;              // make sure it has some time to kill
 
         private _attackWP = _group addWaypoint [_targetObj, 0];
@@ -107,9 +107,9 @@ while {true} do
             _suppTarget resize 0;           // clear target array so support routines can add the next
 
             if !(alive _targetObj) then {
-                Debug_1("Target destroyed, %1 returns to cycle mode", _supportName);
+                Debug_1("Target destroyed, %1 returns to cycle mode",_supportName);
             } else {
-                Debug_1("Target evaded, %1 returns to cycle mode", _supportName);
+                Debug_1("Target evaded, %1 returns to cycle mode",_supportName);
             };
 
             deleteWaypoint [_group, 1];

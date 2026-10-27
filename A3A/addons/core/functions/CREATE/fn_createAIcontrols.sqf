@@ -9,7 +9,7 @@ _positionX = getMarkerPos _markerX;
 _sideX = sidesX getVariable [_markerX,sideUnknown];
 private _faction = Faction(_sideX);
 
-ServerInfo_1("Spawning Control Point %1", _markerX);
+ServerInfo_1("Spawning Control Point %1",_markerX);
 
 if ((_sideX == teamPlayer) or (_sideX == sideUnknown)) exitWith {};
 if ({if ((sidesX getVariable [_x,sideUnknown] != _sideX) and (_positionX inArea _x)) exitWith {1}} count markersX >1) exitWith {};
@@ -63,7 +63,7 @@ if (_isControl) then
 
     if (_radiusX >= 100) then {
         // fallback case, shouldn't happen unless the map is very broken
-        Error_2("Roadblock error for %1 at %2", _markerX, _positionX);
+        Error_2("Roadblock error for %1 at %2",_markerX,_positionX);
         _roads = _positionX nearRoads 20;		// guaranteed due to isOnRoad check
         _dirveh = random 360;
     } else {
@@ -177,11 +177,11 @@ if (_isControl) then
         private _vehicleCategory = selectRandomWeighted _vehicleCategories;
         private _fallbackVehicles = _faction getOrDefault["vehiclesAPCs", []];
 
-        Debug_2("Chosen %1 as vehicle category. tierWar is %2", _vehicleCategory, tierWar);
+        Debug_2("Chosen %1 as vehicle category. tierWar is %2",_vehicleCategory,tierWar);
 
         _typeVehX = selectRandom (_faction getOrDefault [_vehicleCategory, _fallbackVehicles]);
         if (isNil "_typeVehX" || { !isClass(configFile >> "CfgVehicles" >> _typeVehX) }) exitWith {
-            Warning_1("Failed to select a valid vehicle type for '%1'; fallback also failed.", _vehicleCategory);
+            Warning_1("Failed to select a valid vehicle type for '%1'; fallback also failed.",_vehicleCategory);
         };
 
         _veh = _typeVehX createVehicle getPos (_roads select 0);
@@ -219,7 +219,7 @@ else
         _size = [_markerX] call A3A_fnc_sizeMarker;
         if ({if (_x inArea _markerX) exitWith {1}} count allMines == 0) then
         {
-            Debug_1("Creating a Minefield at %1", _markerX);
+            Debug_1("Creating a Minefield at %1",_markerX);
             private _mines = (_faction get "minefieldAPERS");
             for "_i" from 1 to 45 do {
                 _mineX = createMine [ selectRandom _mines ,_positionX,[],_size];
@@ -310,7 +310,7 @@ if (spawner getVariable _markerX != 2) then
     _closest = [_allUnits,_positionX] call BIS_fnc_nearestPosition;
     _winner = side _closest;
     _loser = Occupants;
-    Debug_3("Control %1 captured by %2. Is Roadblock: %3", _markerX, _winner, _isControl);
+    Debug_3("Control %1 captured by %2. Is Roadblock: %3",_markerX,_winner,_isControl);
     if (_isControl && _spawnRoadblock) then
     {
         ["TaskSucceeded", ["", "Roadblock Destroyed"]] remoteExec ["BIS_fnc_showNotification",_winner];

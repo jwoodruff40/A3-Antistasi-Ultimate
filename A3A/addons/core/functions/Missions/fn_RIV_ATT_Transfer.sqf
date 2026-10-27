@@ -35,7 +35,7 @@ private _fnc_createLight = {
     [_light, [0.3, 0.1, 0.05]] remoteExecCall ["setLightColor", 0, _light];
     _light
 };
-Info_1("Prevent transfer task initialization started, marker: %1.", _marker);
+Info_1("Prevent transfer task initialization started, marker: %1.",_marker);
 
 private _vehicles = [];
 private _groups = [];
@@ -46,7 +46,7 @@ private _faction = Faction(_sideX);
 
 private _isDifficult = if (random 10 < tierWar) then {true} else {false};
 
-Info_1("Is difficult: %1.", str _isDifficult);
+Info_1("Is difficult: %1.",str _isDifficult);
 //mitigation of negative terrain gradient
 if(!(_radGrad > -0.25 && _radGrad < 0.25) || {isOnRoad _hideoutPosition || {surfaceIsWater _hideoutPosition || {_outOfBounds || {_isTooCloseToOutposts}}}}) then {
     private _radiusX = 100;
@@ -80,7 +80,7 @@ _route = _route apply { _x select 0 };			// reduce to position array
 if (_route isEqualTo []) then { _route = [_posOrigin, _posDest] };
 private _fnc_spawnConvoyVehicle = {
     params ["_vehType", "_markName"];//,""
-    ServerDebug_1("Spawning vehicle type %1", _vehType);
+    ServerDebug_1("Spawning vehicle type %1",_vehType);
     // Find location down route
     _pathState = [_route, [20, 0] select (count _pathState == 0), _pathState] call A3A_fnc_findPosOnRoute;
     while {true} do {
@@ -215,7 +215,7 @@ if (_isDifficult) then {
     _vehicles append [_prizeVehicle];
 };
 
-Info_1("Loot container on %1 position.", str (position _lootContainer));
+Info_1("Loot container on %1 position.",str (position _lootContainer));
 {
     [_x,false] remoteExec ["setCaptive",0,_x];
 } forEach ((call SCRT_fnc_misc_getRebelPlayers) inAreaArray [_hideoutPosition, distanceSPWN1, distanceSPWN1]);

@@ -33,7 +33,7 @@ _cityConfigs apply {
 		_numCiv = server getVariable [_nameX, server getVariable (configName _x)]; //backwards compat to config name based pop defines
 		if (isNil "_numCiv" || {!(_numCiv isEqualType 0)}) then
 		{
-            Error_1("Bad population count data for %1", _nameX);
+            Error_1("Bad population count data for %1",_nameX);
 			_numCiv = (count (nearestObjects [_pos, ["house"], _size]));
 		};
 	}

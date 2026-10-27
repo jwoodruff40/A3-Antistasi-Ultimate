@@ -1,7 +1,7 @@
 name = "Antistasi Ultimate"
 author = "Antistasi Ultimate Dev Team"
 prefix = "a3a"
-mainprefix = "z"
+mainprefix = "x"
 
 [files]
 include = [

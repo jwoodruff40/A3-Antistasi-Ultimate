@@ -18,7 +18,7 @@ FIX_LINE_NUMBERS()
 
 params ["_varName", "_varValue", "_saveTarget"];
 
-Info_1("Writing back save var with params %1", _this);
+Info_1("Writing back save var with params %1",_this);
 
 isNil {
     private _oldTarget = if (!isNil "A3A_saveTarget") then { A3A_saveTarget };

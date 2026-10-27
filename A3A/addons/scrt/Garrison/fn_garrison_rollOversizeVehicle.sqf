@@ -45,9 +45,9 @@ if ((random 100) < _oversizeChance) then {
         private _vehicleData = [_position, 0, _selectedVehicle, _side] call A3A_fnc_spawnVehicle;
         _return = _vehicleData;
 
-        Info_2("Oversized vehicle position: %1, classname: %2", str _position, _selectedVehicle);
+        Info_2("Oversized vehicle position: %1, classname: %2",str _position,_selectedVehicle);
     } else {
-        Warning_1("%1 has not enough vehicles, oversized vehicle will be not spawned.", str _side);
+        Warning_1("%1 has not enough vehicles, oversized vehicle will be not spawned.",str _side);
     };  
 };
 

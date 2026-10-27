@@ -165,7 +165,7 @@ class GVAR(sellDialog) {
 		
 			UI_FONT_DEFAULT;
 		};
-		class ListContainerContent: RscListbox
+		class ListContainerContent: RscListBox
 		{
 			type = CT_LISTNBOX;
 			drawSideArrows = 1;
@@ -191,7 +191,7 @@ class GVAR(sellDialog) {
 			w = QUOTE(0.118594 * safezoneW);
 			h = QUOTE(0.055 * safezoneH);
 		};
-		class CheckShowUnsellable: RscCheckbox
+		class CheckShowUnsellable: RscCheckBox
 		{
 			idc = IDC_RSCA3USPCMSTORESELLDIALOG_CHECKSHOWUNSELLABLE;
 			x = QUOTE(0.62375 * safezoneW + safezoneX);

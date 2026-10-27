@@ -27,19 +27,19 @@ params ["_group"];
 // We exit here if the group is empty. It's a waste of performance to handle empty groups.
 if (count units _group <= 0) exitWith {
     if (PATCOM_DEBUG) then {
-        ServerDebug_1("PATCOM | Group: %1 is Empty", _group);
+        ServerDebug_1("PATCOM | Group: %1 is Empty",_group);
     };
 };
 
 // Skip if Group is already being controlled by the PATCOM or is Civilian Controlled.
 if (_group getVariable "PATCOM_Controlled") exitWith {
     if (PATCOM_DEBUG) then {
-        ServerDebug_1("PATCOM | Group: %1 is already controlled", _group);
+        ServerDebug_1("PATCOM | Group: %1 is already controlled",_group);
     };
 };
 
 If (PATCOM_DEBUG) then {
-    ServerDebug_2("PATCOM | Setting up Variables on group: %1 - side: %2", _group, side (leader _group));
+    ServerDebug_2("PATCOM | Setting up Variables on group: %1 - side: %2",_group,side (leader _group));
 };
 
 if ((side leader _group) == civilian) then {

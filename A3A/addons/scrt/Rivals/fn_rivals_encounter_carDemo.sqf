@@ -20,10 +20,10 @@ if (_overridePosition isEqualTo []) then {
     };
 
     _originPosition = position _player;
-    Info_2("%1 will be used as center of the event at %2 position.", name _player, str _originPosition);
+    Info_2("%1 will be used as center of the event at %2 position.",name _player,str _originPosition);
 } else {
     _originPosition = _overridePosition;
-    Info_1("%1 position will be used as center of the event.", str _originPosition);
+    Info_1("%1 position will be used as center of the event.",str _originPosition);
 };
 
 if (isNil "_originPosition") exitWith {

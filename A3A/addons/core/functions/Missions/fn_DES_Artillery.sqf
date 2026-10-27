@@ -75,10 +75,10 @@ _mgCrewClass = [_faction get "unitTierStaticCrew"] call SCRT_fnc_unit_getTiered;
 
 if (isNil "_artilleryClass" || {isNil "_artilleryShellClass" || {isNil "_mgClass" || {isNil "_mgCrewClass"}}}) exitWith {
 	["DES"] remoteExec ["A3A_fnc_missionRequest",2];
-    Error_4("Problems with faction template classes(%1, %2, %3, %4), rerequesting new destroy mission.", _artilleryClass, _artilleryShellClass, _mgClass, _mgCrewClass);
+    Error_4("Problems with faction template classes(%1, %2, %3, %4), rerequesting new destroy mission.",_artilleryClass,_artilleryShellClass,_mgClass,_mgCrewClass);
 };
 
-Info_5("Artillery: %1, Artillery Shell: %2, Static: %3, Squad: %4, MG Crew: %5", _artilleryClass, _artilleryShellClass, _mgClass, str _infantrySquadArray, _mgCrewClass);
+Info_5("Artillery: %1, Artillery Shell: %2, Static: %3, Squad: %4, MG Crew: %5",_artilleryClass,_artilleryShellClass,_mgClass,str _infantrySquadArray,_mgCrewClass);
 
 //////////////////////
 //Artillery and it's target
@@ -109,7 +109,7 @@ _potentialSites pushBack "Synd_HQ"; //sorry, Petros
 private _targetSite = selectRandom _potentialSites;
 private _targetPosition = getMarkerPos _targetSite;
 
-Info_1("Target Outpost: %1", _targetSite);
+Info_1("Target Outpost: %1",_targetSite);
 
 //finding suitable position for artillery
 private _artilleryPosition = [_missionOriginPos, 0, 800, 3, 0, 0.6] call BIS_fnc_findSafePos;
@@ -125,7 +125,7 @@ if(!(_targetPosition inRangeOfArtillery [[_artilleryVeh], _artilleryShellClass])
     };
 };
 
-Info_1("Artillery Position: %1", str _artilleryPosition);
+Info_1("Artillery Position: %1",str _artilleryPosition);
 
 //////////////////////
 //Task

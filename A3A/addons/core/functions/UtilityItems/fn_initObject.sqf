@@ -26,8 +26,8 @@ _object setVehicleReportRemoteTargets true;
 //_object setVehicleReportOwnPosition true;
 
 if (isNull _object) exitWith { Error("Non-existent object passed") };
-if !(typeof _object in A3A_utilityItemHM) exitWith { Error_1("initObject used on object type %1", typeof _object) };
-if (!isNil {_object getVariable "A3A_canGarage"}) exitWith { Error_1("Object type %1 already initialized", typeof _object) };
+if !(typeof _object in A3A_utilityItemHM) exitWith { Error_1("initObject used on object type %1",typeof _object) };
+if (!isNil {_object getVariable "A3A_canGarage"}) exitWith { Error_1("Object type %1 already initialized",typeof _object) };
 
 (A3A_utilityItemHM get typeof _object) params ["", "_price", "", "", "_flags"];
 

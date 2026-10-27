@@ -145,6 +145,6 @@ switch (_mode) do
     default
     {
         // Log error if attempting to call a mode that doesn't exist
-        Error_1("Admin tab mode does not exist: %1", _mode);
+        Error_1("Admin tab mode does not exist: %1",_mode);
     };
 };

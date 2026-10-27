@@ -86,13 +86,13 @@ while {time < _timeout} do
 
     //Mortar somehow disabled/stolen
     if !(canFire _mortar && side _mortar == _side) exitWith {
-        Info_1("%1 has been destroyed or crew killed, aborting routine", _supportName);
+        Info_1("%1 has been destroyed or crew killed, aborting routine",_supportName);
     };
 
     if !(isNil {_mortar getVariable "FireOrder"}) then { continue };        // mortar still firing at last target
 
     if (_maxVolleys <= 0) exitWith {
-        Info_1("%1 has no more rounds left to fire, aborting routine", _supportName);
+        Info_1("%1 has no more rounds left to fire, aborting routine",_supportName);
     };
 
     // Read in new target if there is one
@@ -100,7 +100,7 @@ while {time < _timeout} do
     _mortar setVehicleAmmo 1;
     private _targetPos = _target select 1;                  // only use position here, not target object
     _target resize 0;                                       // clear target array so that a new one can be added externally
-    Debug_2("%1 Next target is %2", _supportName, _targetPos);
+    Debug_2("%1 Next target is %2",_supportName,_targetPos);
 
     private _flightTime = _mortar getArtilleryETA [_targetPos, _mortar getVariable "shellType"];
     private _subTargets = [];

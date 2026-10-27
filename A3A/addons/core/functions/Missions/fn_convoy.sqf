@@ -165,7 +165,7 @@ private _taskId = "CONVOY" + str A3A_taskCount;
 [[teamPlayer,civilian],_taskId,[_textX,_taskTitle,_mrkDest],_posDest,false,0,true,_taskIcon,true] call BIS_fnc_taskCreate;
 [_taskId, "CONVOY", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
-ServerInfo_3("%1 convoy mission created from %2 to %3", _convoyType, _mrkOrigin, _mrkDest);
+ServerInfo_3("%1 convoy mission created from %2 to %3",_convoyType,_mrkOrigin,_mrkDest);
 
 
 // *********** Convoy vehicle spawning ***********************
@@ -199,7 +199,7 @@ private _resourcesSpent = 0;
 
 private _fnc_spawnConvoyVehicle = {
     params ["_vehType", "_markName"];
-    ServerDebug_1("Spawning vehicle type %1", _vehType);
+    ServerDebug_1("Spawning vehicle type %1",_vehType);
 
     // Find location down route
     _pathState = [_route, [20, 0] select (count _pathState == 0), _pathState] call A3A_fnc_findPosOnRoute;
@@ -361,7 +361,7 @@ if (_resPool != "legacy") then {
 sleep 2;
 {_x allowDamage true} forEach _vehiclesX;
 {_x allowDamage true; if (vehicle _x == _x) then {deleteVehicle _x}} forEach _soldiers;
-ServerInfo_2("Spawn performed: %1 ground vehicles, %2 soldiers", count _vehiclesX, count _soldiers);
+ServerInfo_2("Spawn performed: %1 ground vehicles, %2 soldiers",count _vehiclesX,count _soldiers);
 
 
 // Send the vehicles after the delay
@@ -409,7 +409,7 @@ private _fnc_applyResults =
     };
 
 #define CONVOY_MISSION_STATUS_ARRAY ["lost", "won"]
-    ServerDebug_2("Rebels %1 a %2 convoy mission", CONVOY_MISSION_STATUS_ARRAY select _success, _type);
+    ServerDebug_2("Rebels %1 a %2 convoy mission",CONVOY_MISSION_STATUS_ARRAY select _success,_type);
 };
 
 if (_convoyType isEqualTo "Ammunition") then

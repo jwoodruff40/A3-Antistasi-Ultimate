@@ -86,7 +86,7 @@ class CfgFunctions
             class configSort {};
             class compatibleMagazinesWithExceptions {};
             class dress {};
-            class empty {};
+            class Empty {};
             class equipmentClassToCategories {};
             class equipmentIsValidForCurrentModset {};
             class equipmentSort {};

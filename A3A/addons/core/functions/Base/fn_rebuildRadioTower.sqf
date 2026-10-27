@@ -7,7 +7,7 @@ if (!isServer) exitWith { Error("Server-only function miscalled") };
 params ["_antenna"];
 
 if !(_antenna in antennasDead) exitWith { Error("Attempted to rebuild invalid radio tower") };
-Info_1("Repairing Antenna %1", str _antenna);
+Info_1("Repairing Antenna %1",str _antenna);
 
 antennasDead = antennasDead - [_antenna]; publicVariable "antennasDead";
 [_antenna] call A3A_fnc_repairRuinedBuilding;

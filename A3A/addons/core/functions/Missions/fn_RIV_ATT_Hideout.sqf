@@ -6,7 +6,7 @@ params ["_marker"];
 //Mission: Seize Hideout Cache
 if (!isServer and hasInterface) exitWith {};
 
-Info_1("Seize Hideout task initialization started, marker: %1.", _marker);
+Info_1("Seize Hideout task initialization started, marker: %1.",_marker);
 
 private _vehicles = [];
 private _groups = [];
@@ -15,7 +15,7 @@ private _groups = [];
 
 private _isDifficult = if (random 10 < tierWar) then {true} else {false};
 
-Info_1("Is difficult: %1.", str _isDifficult);
+Info_1("Is difficult: %1.",str _isDifficult);
 
 private _positionX = getMarkerPos _marker;
 
@@ -199,7 +199,7 @@ if (dateToNumber date < _dateLimitNum) then {
         _vehicles append [_prizeVehicle];
     };
 
-    Info_1("Loot container on %1 position.", str (position _lootContainer));
+    Info_1("Loot container on %1 position.",str (position _lootContainer));
 
     {
         [_x,false] remoteExec ["setCaptive",0,_x];

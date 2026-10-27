@@ -54,7 +54,7 @@ _strikeObject enableSimulation false;
 private _nearObjects = (ASLtoAGL _impactPosition) nearObjects ["Static", 200];
 _nearObjects append ((ASLtoAGL _impactPosition) nearEntities [["Man", "AllVehicles"], 250]);
 _nearObjects append ( nearestTerrainObjects [ASLtoAGL _impactPosition, ["BUSH", "TREE", "WALL", "FENCE", "POWER LINES", "FUELSTATION"], 150, true]);
-Info_1("Found %1 objects to destroy", count _nearObjects);
+Info_1("Found %1 objects to destroy",count _nearObjects);
 private _destroyCounter = 0;
 {
 

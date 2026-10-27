@@ -15,7 +15,7 @@ FIX_LINE_NUMBERS()
 //TODO we may want to rename that file to AIinit or something
 if ((isNil "_unit") || (isNull _unit)) exitWith
 {
-    Error_1("Bad init parameter: %1", _this);
+    Error_1("Bad init parameter: %1",_this);
 };
 
 private _type = _unit getVariable "unitType";
@@ -26,7 +26,7 @@ private _faction = Faction(_side);
 _unit setVariable ["originalSide", _side];          // used for delete handler, which is local
 
 if (isNil "_type") then {
-    Warning_2("Unit does not have a type assigned: %1, vehicle: %2", typeOf _unit, typeOf vehicle _unit);
+    Warning_2("Unit does not have a type assigned: %1, vehicle: %2",typeOf _unit,typeOf vehicle _unit);
     _type = typeOf _unit;
 };
 

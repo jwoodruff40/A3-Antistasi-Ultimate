@@ -17,7 +17,7 @@ private _bases = (seaports + airportsX + outposts + milbases) select {
 };
 if (_bases isEqualTo []) exitWith {};
 
-Debug_1("Possible patrol bases %1", _bases);
+Debug_1("Possible patrol bases %1",_bases);
 
 private _soldiers = [];
 private _vehiclesX = [];
@@ -67,7 +67,7 @@ switch (true) do {
 	};
 };
 
-Info_3("Sending patrol of type %1 vehicle %2 from %3", _typePatrol, _typeCar, _base);
+Info_3("Sending patrol of type %1 vehicle %2 from %3",_typePatrol,_typeCar,_base);
 
 private _posbase = getMarkerPos _base;
 private _arrayDestinations = [];

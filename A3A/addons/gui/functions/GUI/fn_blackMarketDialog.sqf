@@ -73,7 +73,7 @@ switch (_mode) do
 
         private _display = findDisplay A3A_IDD_BLACKMARKETVEHICLEDIALOG;
 
-        Debug_1("MainDialog switching tab to %1.", _categoryIndex);
+        Debug_1("MainDialog switching tab to %1.",_categoryIndex);
 
         if (_categoryIndex < 0 || {_categoryIndex > 11}) exitWith {};
         private _selectedTab = _allTabs select _categoryIndex;
@@ -153,6 +153,6 @@ switch (_mode) do
     default
     {
         // Log error if attempting to call a mode that doesn't exist
-        Error_1("BlackMarketDialog mode does not exist: %1", _mode);
+        Error_1("BlackMarketDialog mode does not exist: %1",_mode);
     };
 };
