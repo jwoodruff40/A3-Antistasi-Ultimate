@@ -166,7 +166,7 @@ private _timeOut = time + 1800;
 waitUntil {time > _timeOut && (call SCRT_fnc_misc_getRebelPlayers) inAreaArray [_skirmishposition, distanceSPWN1, distanceSPWN1] isEqualTo []};
 ///If someone survived -> move to base from the check above?
 ///some sort of check needed to delete groups and vehicles smart way
-{[_x] spawn A3A_fnc_vehDespawner} forEach _vehicles;
+{[_x] spawn A3A_fnc_vehDespawner} forEach (_vehiclesArray + _vehiclesArray2);
 {[_x] spawn A3A_fnc_groupDespawner} forEach _InfGroups;
 {[_x] spawn A3A_fnc_groupDespawner} forEach _Rivalsgroups;
 

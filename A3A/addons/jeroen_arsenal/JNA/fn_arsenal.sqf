@@ -1266,9 +1266,9 @@ switch _mode do {
 			case IDC_RSCDISPLAYARSENAL_TAB_ITEMMUZZLE;
 			case IDC_RSCDISPLAYARSENAL_TAB_ITEMBIPOD: {
 				private _weapon = switch true do {
-					case (ctrlEnabled (_display displayCtrl IDC_RSCDISPLAYARSENAL_LIST + IDC_RSCDISPLAYARSENAL_TAB_PRIMARYWEAPON)): { primaryWeapon player };
-					case (ctrlEnabled (_display displayCtrl IDC_RSCDISPLAYARSENAL_LIST + IDC_RSCDISPLAYARSENAL_TAB_SECONDARYWEAPON)): { secondaryWeapon player };
-					case (ctrlEnabled (_display displayCtrl IDC_RSCDISPLAYARSENAL_LIST + IDC_RSCDISPLAYARSENAL_TAB_HANDGUN)): { handgunWeapon player };
+					case (ctrlEnabled (IDC_RSCDISPLAYARSENAL_LIST + IDC_RSCDISPLAYARSENAL_TAB_PRIMARYWEAPON)): { primaryWeapon player };
+					case (ctrlEnabled (IDC_RSCDISPLAYARSENAL_LIST + IDC_RSCDISPLAYARSENAL_TAB_SECONDARYWEAPON)): { secondaryWeapon player };
+					case (ctrlEnabled (IDC_RSCDISPLAYARSENAL_LIST + IDC_RSCDISPLAYARSENAL_TAB_HANDGUN)): { handgunWeapon player };
 				};
 				private _weaponItems = weaponsItems player select { _x select 0 isEqualTo _weapon } select 0;
 
@@ -1861,8 +1861,8 @@ switch _mode do {
 			default										{configFile >> "cfgweapons" >> _item};
 		};
 
-		["ShowItemInfo",[_itemCfg]] call jn_fnc_arsenal;
-		["ShowItemStats",[_itemCfg]] call jn_fnc_arsenal;
+		["ShowItemInfo",[_itemCfg,_index]] call jn_fnc_arsenal;
+		["ShowItemStats",[_itemCfg, _index]] call jn_fnc_arsenal;
 	};
 
 	///////////////////////////////////////////////////////////////////////////////////////////
@@ -2657,10 +2657,14 @@ switch _mode do {
 
 	///////////////////////////////////////////////////////////////////////////////////////////
 	case "ShowItemInfo": {
-		_itemCfg = _this select 0;
+		_this params ["_itemCfg","_index"];
+		
+		private _display = uiNamespace getVariable "arsenalDisplay";
 
-		if (isClass _itemCfg) then {
-			_dataStr = param [1,if (ctrlType _ctrlList == 102) then {_ctrlList lnbData [_cursel,0]} else {_ctrlList lbData _cursel}];
+		if (isClass _itemCfg) then {			
+			private _ctrlList = _display displayCtrl (IDC_RSCDISPLAYARSENAL_LIST + _index);
+			private _curSel = lbCurSel _ctrlList;
+			_dataStr = param [1,if (ctrlType _ctrlList == 102) then {_ctrlList lnbData [_curSel,0]} else {_ctrlList lbData _curSel}];
 			_data = call compile _dataStr;
 			_item = _data select 0;
 
@@ -2714,7 +2718,10 @@ switch _mode do {
 
 	///////////////////////////////////////////////////////////////////////////////////////////
 	case "ShowItemStats": {
-		_itemCfg = _this select 0;
+		_this params ["_itemCfg", "_index"];
+
+		private _display = uiNamespace getVariable "arsenalDisplay";
+
 		if (isClass _itemCfg) then {
 			_ctrlStats = _display displayCtrl IDC_RSCDISPLAYARSENAL_STATS_STATS;
 
@@ -2829,7 +2836,7 @@ switch _mode do {
 						}; //--- Force no backpack armor
 
 						[
-							if (_item == "H_Beret_blk") then {[0.95,localize "STR_difficulty3"]} else {[]}, //--- Easter egg
+							if ((configName _itemCfg) == "H_Beret_blk") then {[0.95,localize "STR_difficulty3"]} else {[]}, //--- Easter egg
 							[_statArmorShot,localize "str_a3_rscdisplayarsenal_stat_passthrough"],
 							[_statArmorExpl,localize "str_a3_rscdisplayarsenal_stat_armor"],
 							[_statMaximumLoad,localize "str_a3_rscdisplayarsenal_stat_load"],
@@ -2838,7 +2845,7 @@ switch _mode do {
 					};
 				};
 				default {
-					if(_item == "G_Sport_Blackred")then{
+					if((configName _itemCfg) == "G_Sport_Blackred")then{
 						_ctrlStats ctrlSetFade 0;
 						[
 							[],
@@ -2995,6 +3002,7 @@ switch _mode do {
 		_shift = _this select 2;
 		_ctrl = _this select 3;
 		_alt = _this select 4;
+		private _return = false;
 		switch true do {
 			case (_key == DIK_LSHIFT): {
 				uiNamespace setVariable ["arsenalShift", false];
@@ -3269,6 +3277,7 @@ switch _mode do {
 		_ctrlTemplateValue = _display displayCtrl IDC_RSCDISPLAYARSENAL_TEMPLATE_VALUENAME;
 		_cursel = lnbCurSelRow _ctrlTemplateValue;
 		_name = _ctrlTemplateValue lnbText [_cursel,0];
+		_center = (missionNamespace getVariable ["BIS_fnc_arsenal_center",player]);
 		[_center,[profileNamespace,_name],nil,true] call bis_fnc_saveInventory;
 		['showTemplates',[_display]] call jn_fnc_arsenal;
 		_ctrlTemplateValue lnbSetCurSelRow (_cursel max (lbSize _ctrlTemplateValue - 1));

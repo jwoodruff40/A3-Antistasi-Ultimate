@@ -12,7 +12,6 @@ private _saveDataHM = _namespace getVariable format ["A3A_saveData_%1", _campaig
 if (!isNil "_saveDataHM") then {
 	// Simple single-hashmap delete for new saves
 	_namespace setVariable [format ["A3A_saveData_%1", _campaignID], nil];
-	[_namespace, _campaignID] call _removeFromSaveList;
 } else {
 	// Legacy saves with save variables stored directly in the namespace
 	private _postfix = if (_serverID isEqualTo false) then { 

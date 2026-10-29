@@ -839,6 +839,7 @@ switch _mode do {
 		_shift = _this select 2;
 		_ctrl = _this select 3;
 		_alt = _this select 4;
+		private _return = false;
 		switch true do {
 			case (_key == DIK_LSHIFT): {
 				uiNamespace setVariable ["arsenalShift", false];

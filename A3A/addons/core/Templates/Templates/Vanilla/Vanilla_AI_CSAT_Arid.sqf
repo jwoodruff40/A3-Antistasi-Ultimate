@@ -105,7 +105,6 @@ if (_hasTanks) then {
 };
 
 if (_hasRF) then {
-    _basic pushBack "B_Pickup_rf";
     _unarmedVehicles append ["B_Pickup_rf", "B_Pickup_Comms_rf"];
     _armedVehicles append ["B_Pickup_mmg_rf"];
     _policeVehs append ["B_GEN_Pickup_covered_rf"];

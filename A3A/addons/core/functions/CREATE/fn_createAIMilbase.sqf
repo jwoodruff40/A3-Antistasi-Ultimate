@@ -101,8 +101,9 @@ if (_frontierX) then {
 
 		if (_faction getOrDefault ["noSandbag", false]) then {		
 			private _veh = _typeVehX createVehicle _positionX;
+			private _dirVeh = direction _veh;
 			_vehiclesX pushBack _veh;
-			_veh setPos _pos;
+			_veh setPos _positionX;
 			_veh setDir _dirVeh + 180;
 			private _typeUnit = [_faction get "unitTierStaticCrew"] call SCRT_fnc_unit_getTiered;
 			private _unit = [_groupX, _typeUnit, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
@@ -111,13 +112,14 @@ if (_frontierX) then {
 			[_veh, _sideX] call A3A_fnc_AIVEHinit;
 			_soldiers pushBack _unit;
 		} else {
-			private _bunker = (_faction get "sandbag") createVehicle _pos;
+			private _bunker = (_faction get "sandbag") createVehicle _positionX;
+			private _dirVeh = direction _bunker;
 			_vehiclesX pushBack _bunker;
-			_bunker setDir _dirveh;
-			_pos = getPosATL _bunker;
+			_bunker setDir _dirVeh;
+			_positionX = getPosATL _bunker;
 			private _veh = _typeVehX createVehicle _positionX;
 			_vehiclesX pushBack _veh;
-			_veh setPos _pos;
+			_veh setPos _positionX;
 			_veh setDir _dirVeh + 180;
 			private _typeUnit = [_faction get "unitTierStaticCrew"] call SCRT_fnc_unit_getTiered;
 			private _unit = [_groupX, _typeUnit, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;

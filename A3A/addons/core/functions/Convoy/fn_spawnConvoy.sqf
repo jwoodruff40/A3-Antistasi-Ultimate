@@ -145,6 +145,6 @@ while {true} do
 	// all convoy vehicles out of spawn distance, switch back to simulation
 	if (_despawn) exitWith {
 		deleteMarker _convoyMarker;			// because we're using createConvoy rather than convoyMovement to restart sim
-		[_convoyID, _createdUnits, _convoyPos, _targetPos, _markerArray, _convoyType, _convoySide] call A3A_fnc_despawnConvoy;
+		[_convoyID, _createdUnits, _convoyPos, _targetPos, _markers, _convoyType, _convoySide] call A3A_fnc_despawnConvoy;
 	};
 };

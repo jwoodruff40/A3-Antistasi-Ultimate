@@ -20,9 +20,7 @@ if (_cargoSeats < 6 or { _cargoSeats == 6 and random 3 < 1}) exitWith			// 6-man
 {
 	selectRandom (A3A_faction_riv get "groupsFireteam");
 };
-private _squad = call {
-	if (_isRivals) exitWith { selectRandom (A3A_faction_riv get "groupsSquad") };
-};
+private _squad = selectRandom (A3A_faction_riv get "groupsSquad");
 while { count _squad > _cargoSeats } do {
 	_squad deleteAt (1 + floor random (count _squad - 1));		// don't remove the squad leader
 };
