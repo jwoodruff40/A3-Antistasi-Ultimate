@@ -151,4 +151,4 @@ _marker setMarkerType "A3AU_RebelHQ_mrk";
 
 Info("initPetros completed");
 
-[CBA_EVENT_SERVER_INIT_PETROS, []] call FUNCMAIN(triggerServerEvent);
+[CBA_EVENT_SERVER_INIT_PETROS, [petros]] call FUNCMAIN(triggerServerEvent);
