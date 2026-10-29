@@ -23,9 +23,7 @@ Maintainer: DoomMetal
 ////////////////////
 #define REFLECT(Text) Text
 #define SHARP REFLECT(#)
-#ifndef QUOTE
-#define QUOTE(Text) #Text
-#endif
+#include "\x\A3A\addons\gui\script_component.hpp"
 
 #include "\x\A3A\addons\core\ui_const.hpp"
 
