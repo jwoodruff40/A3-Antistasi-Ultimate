@@ -68,22 +68,22 @@ if ((typeOf _plane) in _cfg) exitWith
     if (_mainGun isNotEqualTo "") then {
         _plane setVariable ["mainGun", _mainGun];
     };
-    if _rocketLauncher isNotEqualTo [] then {
+    if (_rocketLauncher isNotEqualTo []) then {
         _plane setVariable ["rocketLauncher", _rocketLauncher];
     };
-    if _missileLauncher isNotEqualTo [] then {
+    if (_missileLauncher isNotEqualTo []) then {
         _plane setVariable ["missileLauncher", _missileLauncher];
     };
-    if _bombRacks isNotEqualTo [] then {
+    if (_bombRacks isNotEqualTo []) then {
         _plane setVariable ["bombRacks", _bombRacks];
     };
-    if _diveParams isNotEqualTo [] then {
+    if (_diveParams isNotEqualTo []) then {
         _plane setVariable ["diveParams", _diveParams];
     } else {
         _plane setVariable ["diveParams", [1000, 600, 180, 55, 15, [0, 0]]]
     };
 
-    if _loadout isNotEqualTo [] then
+    if (_loadout isNotEqualTo []) then
     {
         Debug("Selected new loadout for plane, now equiping plane with it");
         {
@@ -1812,7 +1812,7 @@ if (_type == "AA") then
     };
 };
 
-if _loadout isNotEqualTo [] then
+if (_loadout isNotEqualTo []) then
 {
     Debug("Selected new loadout for plane, now equiping plane with it");
     {

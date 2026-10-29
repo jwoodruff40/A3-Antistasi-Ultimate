@@ -41,7 +41,7 @@ if((typeOf _thingX) in _carryableBoxes) exitWith {
 	[_thingX] call SCRT_fnc_common_moveObject;
 };
 
-if (crew _thingX) isNotEqualTo [] exitWith {
+if ((crew _thingX) isNotEqualTo []) exitWith {
 	[(localize "STR_antistasi_actions_move_assets_header_failure"), (localize "STR_antistasi_actions_move_assets_vehicle_occupied_failure")] call SCRT_fnc_misc_deniedHint;
 };
 

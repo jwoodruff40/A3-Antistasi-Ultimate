@@ -222,7 +222,7 @@ if (!_busy) then {
 	private _ang = nil;
 	//Newer system in place
 	private _runwaySpawnLocation = [_markerX] call A3A_fnc_getRunwayTakeoffForAirportMarker;
-	if _runwaySpawnLocation isNotEqualTo [] then
+	if (_runwaySpawnLocation isNotEqualTo []) then
 	{
 		_pos = _runwaySpawnLocation select 0;
 		_ang = _runwaySpawnLocation select 1;
@@ -268,7 +268,7 @@ if (!_busy) then {
 			_vehiclesX pushBack _veh;
 			[_veh, _sideX] call A3A_fnc_AIVEHinit;
 		} else {
-			if _runwaySpawnLocation isNotEqualTo [] then {
+			if (_runwaySpawnLocation isNotEqualTo []) then {
 				private _vehiclesPlanesCAS = _faction get "vehiclesPlanesCAS";
 				private _vehiclesPlanesAA = _faction get "vehiclesPlanesAA";
 				private _vehiclesPlanesLargeCAS = _faction get "vehiclesPlanesLargeCAS";

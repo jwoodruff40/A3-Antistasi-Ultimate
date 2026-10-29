@@ -69,7 +69,7 @@ if (_unit getVariable ["hasLaptop", false] && {!(_unit getVariable ["hasLaptopSp
 // move all unit's equipment except uniform into the surrender crate
 private _loadout = getUnitLoadout _unit;
 for "_i" from 0 to 2 do {
-	if _loadout select _i isNotEqualTo [] then {
+	if (_loadout select _i isNotEqualTo []) then {
 		_boxX addWeaponWithAttachmentsCargoGlobal [_loadout select _i, 1];
 	};
 };

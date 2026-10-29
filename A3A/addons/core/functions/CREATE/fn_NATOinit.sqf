@@ -237,7 +237,7 @@ if (sunOrMoon < 1) then { // Night time conditions
         private _lamps = _weaponItems arrayIntersect allLightAttachments;
         if (_lamps isEqualTo []) then {
             private _compatibleLamps = (compatibleItems (primaryWeapon _unit)) arrayIntersect allLightAttachments;
-            if _compatibleLamps isNotEqualTo [] then {
+            if (_compatibleLamps isNotEqualTo []) then {
                 _lamp = selectRandom _compatibleLamps;
                 _unit addPrimaryWeaponItem _lamp;
                 _unit assignItem _lamp;

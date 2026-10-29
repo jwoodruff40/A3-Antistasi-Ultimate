@@ -31,7 +31,7 @@ while {true} do
 	} forEach (allUnits - _soldiers);
 	} forEach _soldiers;
 	if (_exit) exitWith {};
-	if _enemiesX isNotEqualTo [] then
+	if (_enemiesX isNotEqualTo []) then
 		{
 		_chanceToKill = 50 * ((count _soldiers) / (count _enemiesX));
 		if (random 100 <= _chanceToKill) then

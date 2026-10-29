@@ -15,7 +15,7 @@ if !(alive _vehicle) exitWith {
 };
 
 private _crew = crew _vehicle;
-if _crew isNotEqualTo [] exitWith {
+if (_crew isNotEqualTo []) exitWith {
     [localize "STR_unflip_fail_header", localize "STR_unflip_fail_veh_occupied"] call SCRT_fnc_misc_deniedHint;
 };
 

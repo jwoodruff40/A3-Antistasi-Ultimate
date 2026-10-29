@@ -135,7 +135,7 @@ while {_wave <= _maxWaves and !_victory} do
         private _target = markerPos _mrkDest getPos [random 100, random 360];
         private _vehicles = vehicles inAreaArray _mrkDest;
         _vehicles = _vehicles select { canFire _x and _x isKindOf "StaticWeapon" };
-        if _vehicles isNotEqualTo [] then { _target = selectRandom _vehicles };
+        if (_vehicles isNotEqualTo []) then { _target = selectRandom _vehicles };
 
         // ["_side", "_target", "_caller", "_precision", "_reveal", "_delay"];
         [_side, _target, "attack", _wave min 4, 0, 0] call A3A_fnc_requestArtillery;

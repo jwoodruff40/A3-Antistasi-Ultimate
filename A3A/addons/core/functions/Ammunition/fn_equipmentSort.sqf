@@ -17,7 +17,7 @@ allBackpacksEmpty deleteAt (allBackpacksEmpty find "B_CombinationUnitRespirator_
 {
 	switch (true) do {
 		case ((getText (configFile >> "CfgVehicles" >> _x >> "assembleInfo" >> "assembleTo")) != ""): {
-			if (getArray (configFile >> "CfgVehicles" >> _x >> "assembleInfo" >> "base")) isNotEqualTo [] then {
+			if ((getArray (configFile >> "CfgVehicles" >> _x >> "assembleInfo" >> "base")) isNotEqualTo []) then {
 				allBackpacksStatic pushBack _x;
 			}
 			else {

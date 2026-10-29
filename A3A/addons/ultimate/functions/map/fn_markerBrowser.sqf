@@ -101,10 +101,10 @@ private _readHoverMetadata = {
     private _dummy = [_original] call _toDummyMarkerName;
 
     private _meta = _hoverMetaMap getOrDefault [_original, []];
-    if _meta isNotEqualTo [] exitWith { _meta };
+    if (_meta isNotEqualTo []) exitWith { _meta };
     
     _meta = _hoverMetaMap getOrDefault [_dummy, []];
-    if _meta isNotEqualTo [] exitWith { _meta };
+    if (_meta isNotEqualTo []) exitWith { _meta };
 
     missionNamespace setVariable ["A3U_suppressNetworkForUI", true];
     [_original] call A3A_fnc_mrkUpdate;
@@ -347,7 +347,7 @@ private _refreshList = {
             ];
         } forEach _markerNames;
 
-        if _validMarkers isNotEqualTo [] then {
+        if (_validMarkers isNotEqualTo []) then {
             
             _validMarkers sort true; 
             

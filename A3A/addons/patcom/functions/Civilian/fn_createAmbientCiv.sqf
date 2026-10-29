@@ -161,7 +161,7 @@ for "_i" from 1 to _numCiv do {
         private _housePositions = [_building] call BIS_fnc_buildingPositions;
         _buildings deleteAt (_buildings find _building);
 
-        if _housePositions isNotEqualTo [] then {
+        if (_housePositions isNotEqualTo []) then {
             _posHouse = selectRandom _housePositions;
         } else {
             _posHouse = [_positionX, 10, 150, 3, 0, -1, 0] call A3A_fnc_getSafePos;

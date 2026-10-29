@@ -32,7 +32,7 @@ private _checkTypes = ["#crater","#crateronvehicle","#soundonvehicle","#particle
 } forEach (_objectsX - _roads);
 
 if ((_big isEqualTo []) and (_small isEqualTo [])) exitWith {[]};
-if _big isNotEqualTo [] then {_objectX = [_big,_unit] call BIS_fnc_nearestPosition} else {_objectX = [_small,_unit] call BIS_fnc_nearestPosition};
+if (_big isNotEqualTo []) then {_objectX = [_big,_unit] call BIS_fnc_nearestPosition} else {_objectX = [_small,_unit] call BIS_fnc_nearestPosition};
 if (isNull _objectX) exitWith {_pos};
 
 if !(_objectX isKindOf "House") then {

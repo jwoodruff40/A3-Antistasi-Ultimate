@@ -99,7 +99,7 @@ while {true} do
 		_flankers = _flankers select {[_x] call A3A_fnc_canFight};
 		_objectivesX = _groupX call A3A_fnc_enemyList;
 		_groupX setVariable ["objectivesX",_objectivesX];
-		if _objectivesX isNotEqualTo [] then
+		if (_objectivesX isNotEqualTo []) then
 			{
 			private _air = objNull;
 			private _tank = objNull;

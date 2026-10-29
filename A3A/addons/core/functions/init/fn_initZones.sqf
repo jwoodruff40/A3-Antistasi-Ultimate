@@ -331,7 +331,7 @@ _milAdminPositions apply {
     }];
 };
 
-if _milAdminMarkersToUpdate isNotEqualTo [] then {[_milAdminMarkersToUpdate] call A3U_fnc_mrkUpdateBulk};
+if (_milAdminMarkersToUpdate isNotEqualTo []) then {[_milAdminMarkersToUpdate] call A3U_fnc_mrkUpdateBulk};
 if (mrkAntennas isNotEqualTo []) then {[mrkAntennas] call A3U_fnc_mrkUpdateBulk};
 
 // markersX append milAdministrationsX;

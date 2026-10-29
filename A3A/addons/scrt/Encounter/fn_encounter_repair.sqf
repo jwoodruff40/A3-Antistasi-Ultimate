@@ -20,7 +20,7 @@ private _originPosition = position _player;
 private _frontLine = (outposts + milbases + airportsX + resourcesX + factories + citiesX) select {([_x] call A3A_fnc_isFrontlineNoFIA && {sidesX getVariable [_x,sideUnknown] != teamPlayer})};
 private _frontlineSitesNearPlayer = ((outposts + milbases + airportsX + resourcesX + factories + citiesX) select {(_x in _frontLine) && {((getMarkerPos _x) distance2D _player <= distanceSPWN*2.5) && {sidesX getVariable [_x,sideUnknown] != teamPlayer}}}) call BIS_fnc_arrayShuffle;
 
-if _frontlineSitesNearPlayer isNotEqualTo [] exitWith {
+if (_frontlineSitesNearPlayer isNotEqualTo []) exitWith {
     Error("Position is near frontline, need to select appropriate event.");
     [VEH_REPAIR] remoteExecCall ["SCRT_fnc_encounter_selectAndExecuteEvent", 2];
 };
