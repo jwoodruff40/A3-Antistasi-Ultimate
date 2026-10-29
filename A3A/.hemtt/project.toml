@@ -35,6 +35,7 @@ reasign_reserved_variable = "Warning"
 format_args = "Warning"
 banned_commands = "Warning"
 invalid_comparisons = "Warning"
+direct_private = false
 
 [lints.stringtables]
 usage = false
