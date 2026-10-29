@@ -60,13 +60,7 @@ private _fnc_spawnPoliceForces = {
             getPosATL _road
         } else {
             // Create position near base if no roads found
-            _basePos getPos [random 150, random 360]
-        };
-        
-        // Use random position if no roads found
-        if (isNull _road) then {
-            _road = _basePos getPos [random 150, random 360];
-            _road setPosATL [getPosATL _road#0, getPosATL _road#1, 0]; // Reset height to 0
+            (_basePos getPos [random 150, random 360]) vectorMultiply [1,1,0]
         };
         
         // Proper spawnVehicle call
@@ -122,13 +116,7 @@ private _fnc_spawnForces = {
             getPosATL _road
         } else {
             // Create position near base if no roads found
-            _basePos getPos [random 150, random 360]
-        };
-        
-        // Use random position if no roads found
-        if (isNull _road) then {
-            _road = _basePos getPos [random 150, random 360];
-            _road setPosATL [getPosATL _road#0, getPosATL _road#1, 0]; // Reset height to 0
+            (_basePos getPos [random 150, random 360]) vectorMultiply [1,1,0]
         };
         
         // Proper spawnVehicle call

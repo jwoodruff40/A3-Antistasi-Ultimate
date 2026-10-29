@@ -1051,18 +1051,15 @@ switch _mode do {
 					case (ctrlEnabled _ctrlListUniform): {uniformItems player;};
 					case (ctrlEnabled _ctrlListVest): {vestItems player;};
 					case (ctrlEnabled _ctrlListBackPack): {backpackItems player;};
-					default {_items = [];};
+					default {[];};
 				};
 
-				_itemsUnique = [];
-				{
-					_type = _x call jn_fnc_arsenal_itemType;
-					if(_type == _index || (_type == IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL &&  _index == IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG))then{
-						_itemsUnique pushBackUnique _x;
-					};
-				}forEach _items;
+				_itemsUnique = _items select {
+					private _type = _x call jn_fnc_arsenal_itemType;
+					_type isEqualTo _index || {_type isEqualTo IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL && {_index == IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG}}
+				};
 
-				_inventory = if(_index == IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG)then{
+				if(_index == IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG)then{
 					{
 						{
 							if([_itemsUnique, _x] call _arrayContains)then{

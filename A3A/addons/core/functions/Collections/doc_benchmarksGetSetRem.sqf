@@ -1,7 +1,7 @@
-#pragma hemtt ignore_variables ["_bucket", "_startTime", "_var"]
+#pragma hemtt ignore_variables ["_bucket", "_var"]
 
 private _totalTime = 0;
-private _startTime;
+private _startTime = 0;
 for "_bucket" from 1 to 10 do {
 	_startTime = diag_tickTime;
 	[str _bucket,[]] call A3A_fnc_punishment_dataRem;
@@ -10,8 +10,7 @@ for "_bucket" from 1 to 10 do {
 [str (1000*_totalTime),"ms"] joinString "";  // 1.95313ms  O(n)
 
 
-private _totalTime = 0;
-private _startTime;
+_totalTime = 0;
 private _keyPairs = [];
 for "_bucket" from 1 to 10 do {
 	for "_i" from 1 to 1000 do {
@@ -24,9 +23,8 @@ for "_bucket" from 1 to 10 do {
 [str (1000*_totalTime),"ms"] joinString "";  // 1x1000: 722.168ms; 10x1: 1.95313ms; 10x10: 10.7422ms; 10x100: 432.617ms; 10x1000: 40690.4ms; O(n^2)  O((n-1)^(n-1))  // AKA, train smash
 
 
-private _totalTime = 0;
-private _startTime;
-private _keyPairs = [];
+_totalTime = 0;
+_keyPairs = [];
 for "_bucket" from 1 to 10 do {
 	for "_i" from 1 to 1000 do {
 		_keyPairs pushBack [str _i,str _i];
@@ -38,11 +36,9 @@ for "_bucket" from 1 to 10 do {
 [str (1000*_totalTime),"ms"] joinString "";  // 1x1000: 698.73ms; 10x1: 0.976563ms; 10x10: 9.27734ms; 10x100: 423.828ms; 10x1000: 38228.5ms  O((n-1)^(n-1))  // AKA, train smash
 
 
-private _totalTime = 0;
-private _startTime;
+_totalTime = 0;
 private _out = [];
-private _bucket;
-private _keyPairs;
+private _bucket = 0;
 for "_i" from 1 to 1000*100 do {
 	_bucket = floor(random 10) + 1;
 	_keyPairs = [[str (floor(random 1000) + 1),"0"]];
@@ -56,14 +52,14 @@ for "_i" from 1 to 1000*100 do {
 
 // Everything from this point on is less than O(n)
 
-private _startTime = diag_tickTime;
+_startTime = diag_tickTime;
 for "_bucket" from 1 to 1000 do {
 	[missionNamespace getVariable [str _bucket,locationNull]] call A3A_fnc_remNestedObject;
 };
 [str (1000*(diag_tickTime - _startTime)),"ms"] joinString "";  // 100x1000: 562.988ms; 1000x1000: 5624.02ms;
 
 
-private _startTime = diag_tickTime;
+_startTime = diag_tickTime;
 for "_bucket" from 1 to 1000 do {
 	private _varspace = [missionNamespace, str _bucket, "0", "0"] call A3A_fnc_setNestedObject;
 	for "_i" from 1 to 1000 do {
@@ -73,8 +69,8 @@ for "_bucket" from 1 to 1000 do {
 [str (1000*(diag_tickTime - _startTime)),"ms"] joinString "";  // 100x1000: 302.734ms; 1000x1000: 2861.33ms;
 
 
-private _startTime = diag_tickTime;
-private _out = [];
+_startTime = diag_tickTime;
+_out = [];
 for "_bucket" from 1 to 1000 do {
 	private _varspace = missionNamespace getVariable [str _bucket,locationNull];
 	for "_i" from 1 to 1000 do {
@@ -84,11 +80,10 @@ for "_bucket" from 1 to 1000 do {
 [str (1000*(diag_tickTime - _startTime)),"ms"] joinString "";  // 100x1000: 314.941ms; 1000x1000: 3106.93ms;
 
 
-private _totalTime = 0;
-private _startTime;
-private _out = [];
-private _bucket;
-private _var;
+_totalTime = 0;
+_out = [];
+_bucket = 0;
+_var = 0;
 for "_i" from 1 to 1000*1000 do {
 	_bucket = floor(random 1000) + 1;
 	_var = floor(random 1000) + 1;

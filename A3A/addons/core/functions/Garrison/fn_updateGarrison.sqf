@@ -23,6 +23,7 @@ if(_side == sideUnknown) exitWith
     Error("Could not retrieve side!");
 };
 
+_garCount = count _garrison;
 for "_i" from 0 to (_garCount - 1) do
 {
   _garData = _garrison select _i;
@@ -46,7 +47,6 @@ for "_i" from 0 to (_garCount - 1) do
   };
 };
 
-_garCount = count _garrison;
 _preCount = count _preferred;
 
 //Current garrison is bigger (not really possible) or equal preference, exit

@@ -6,7 +6,7 @@ _zombie setVariable ["A3U_zombieGroup", _groupZombies];
 _zombie addEventHandler ["Killed", {
     params ["_unit", "_killer", "_instigator", "_useEffects"];
     private _groupZombies = _unit getVariable ["A3U_zombieGroup", grpNull];
-    if (_unit isEqualTo (leader _groupZombies)) then {
-        _groupZombies selectLeader (units _groupZombies select {alive _x});
+    if (_unit isEqualTo (leader _groupZombies) && {units _groupZombies isNotEqualTo []}) then {
+        _groupZombies selectLeader selectRandom (units _groupZombies select {alive _x});
     };
 }];

@@ -345,7 +345,9 @@ _g=[] spawn {
 
 			if(((assignedItems player) arrayIntersect ["B_UavTerminal","O_UavTerminal","I_UavTerminal","C_UavTerminal","I_E_UavTerminal"]) isNotEqualTo []) then {
 				if((sa_local_jamm_list select {(_x select 0)==player}) isNotEqualTo []) then {
-					player disableUAVConnectability [allUnitsUAV];
+					{
+						player disableUAVConnectability [_x,false];
+					} forEach (allUnitsUAV);
 					if(count(getConnectedUAV player)>0) then {
 						player connectTerminalToUAV objNull;
 					};

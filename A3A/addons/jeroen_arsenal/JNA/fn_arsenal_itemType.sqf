@@ -178,18 +178,18 @@ private _itemCategory = switch true do {
 				"Placeable";
 			};
 			// Everything else
+			// haaaaack
+			case (_item isKindOf ["SPE_MUZZLE_FAKEMAG", configFile >> "CfgMagazines"]): {
+				"Junk";
+			};
 			default {
-				// haaaaack
-				if (_item isKindOf ["SPE_MUZZLE_FAKEMAG", configFile >> "CfgMagazines"]) exitWith {"Junk"};
 				"Magazine";
 			};
 		};
 	};
 
-	case (isClass (configFile >> "CfgVehicles" >> _item)): {
-		if (getNumber (configFile >> "CfgVehicles" >> _item >> "isBackpack") == 1) then {
-			"Backpack";
-		};
+	case (isClass (configFile >> "CfgVehicles" >> _item) && {getNumber (configFile >> "CfgVehicles" >> _item >> "isBackpack") == 1}): {
+		"Backpack";
 	};
 	case (isClass (configFile >> "CfgGlasses" >> _item)): {
 		"Glasses";

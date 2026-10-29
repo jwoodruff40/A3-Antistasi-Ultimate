@@ -10,7 +10,7 @@ _unitsX = [];
 {_groupX = _x;
 {_unitsX pushBack _x} forEach units _groupX;
 } forEach _groups;
-typeAmmunition = nil;
+typeAmmunition = "";
 _artyArray = [];
 _artyRoundsArr = [];
 
@@ -230,7 +230,7 @@ else
 	[_fdc,"sideChat",_textX] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
 	};
 
-_pos = [_positionTel,random 10,random 360] call BIS_fnc_relPos;
+_pos = _positionTel getPos [random 10, random 360];
 
 for "_i" from 0 to (count _artyArrayDef1) - 1 do
 	{
@@ -254,7 +254,7 @@ for "_i" from 0 to (count _artyArrayDef1) - 1 do
 					{
 					_piece commandArtilleryFire [_pos,_typeAmmunition,1];
 					sleep 2;
-					_pos = [_pos,10,_ang + 5 - (random 10)] call BIS_fnc_relPos;
+					_pos = _pos getPos [10, _ang + 5 - (random 10)];
 					};
 				};
 			_rounds = 0;
@@ -263,7 +263,7 @@ for "_i" from 0 to (count _artyArrayDef1) - 1 do
 			{
 			if (_typeArty != "BARRAGE") then
 				{
-				_piece commandArtilleryFire [[_pos,random 10,random 360] call BIS_fnc_relPos,_typeAmmunition,_countX];
+				_piece commandArtilleryFire [_pos getPos [random 10,random 360],_typeAmmunition,_countX];
 				}
 			else
 				{
@@ -271,7 +271,7 @@ for "_i" from 0 to (count _artyArrayDef1) - 1 do
 					{
 					_piece commandArtilleryFire [_pos,_typeAmmunition,1];
 					sleep 2;
-					_pos = [_pos,10,_ang + 5 - (random 10)] call BIS_fnc_relPos;
+					_pos = _pos getPos [10, _ang + 5 - (random 10)];
 					};
 					
 				};

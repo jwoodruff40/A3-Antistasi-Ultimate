@@ -197,14 +197,17 @@ membersX = [];					// These two published later by startGame
 theBoss = objNull;
 
 activityIsChanging = false;
-baseRivalsDecay = switch (rivalsDifficulty) do {
-    case (1): { 0.28 };
-	case (2): { 0.42 };
-    case (3): { 0.65 };
-    default {
-		Error_1("Can't set base rivals decay - something wrong with %1 difficulty value.",str rivalsDifficulty);
+if (isNil "rivalsDifficulty" || {!(rivalsDifficulty isEqualType 0)}) then {
+	Error_1("Can't set base rivals decay - something wrong with %1 difficulty value.",str rivalsDifficulty);
+	baseRivalsDecay = 0;
+} else {
+	baseRivalsDecay = switch (rivalsDifficulty) do {
+		case (1): { 0.28 };
+		case (2): { 0.42 };
+		case (3): { 0.65 };
 	};
 };
+
 publicVariable "A3A_buildingsToSave";
 publicVariable "baseRivalsDecay";
 
