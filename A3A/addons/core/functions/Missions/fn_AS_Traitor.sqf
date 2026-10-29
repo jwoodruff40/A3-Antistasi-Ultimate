@@ -171,7 +171,7 @@ if (!alive _traitor || {traitorIntel}) then {
 		_traitor setUnitPos "UP";
 		_traitor playMoveNow "AmovPercMstpSnonWnonDnon_AmovPercMstpSsurWnonDnon";
 
-		_wp1 = _groupTraitor addWaypoint [_posBase];
+		_wp1 = _groupTraitor addWaypoint [_posBase, 0];
 		_wp1 setWaypointType "MOVE";
 		_wp1 setWaypointBehaviour "CARELESS";
 		_wp1 setWaypointSpeed "FULL";

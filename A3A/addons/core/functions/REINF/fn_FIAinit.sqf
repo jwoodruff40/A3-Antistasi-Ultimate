@@ -81,7 +81,7 @@ if (player == leader _unit) then {
 				private _timeX = time + 900;
 				waitUntil {sleep 1;(!alive _unit) or (_unit distance player < 500) or (time > _timeX)};
 				if ((_unit distance player >= 500) and (alive _unit)) then {_unit setPos (getMarkerPos respawnTeamPlayer)};
-				[_unit] joinAs[group player, _unit getVariable QGVAR(groupId)];
+				_unit joinAs[group player, _unit getVariable QGVAR(groupId)];
 				_unit assignTeam(_unit getVariable QGVAR(assignedTeam));
 			};
 		};

@@ -248,7 +248,7 @@ private _ammoBox = if (garrison getVariable [_marker + "_lootCD", 0] == 0) then 
 	_ammoBox allowDamage true;
 
 	_ammoBox;
-};
+} else { objNull };
 
 [CBA_EVENT_SERVER_SPAWN_LOCATION, [_marker, "MilAdmin", true]] call FUNCMAIN(triggerLocalEvent);
 

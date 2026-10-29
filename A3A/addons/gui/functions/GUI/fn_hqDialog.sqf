@@ -454,14 +454,14 @@ switch (_mode) do
         _marksmanPriceText = _display displayCtrl A3A_IDC_MARKSMANPRICE;
         _atPriceText = _display displayCtrl A3A_IDC_ATPRICE;
 
-        _riflemanPriceText ctrlSetText str _riflemanPrice + A3A_faction_civ get "currencySymbol";
-        _squadLeaderPriceText ctrlSetText str _squadLeaderPrice + A3A_faction_civ get "currencySymbol";
-        _autoriflemanPriceText ctrlSetText str _autoriflemanPrice + A3A_faction_civ get "currencySymbol";
-        _grenadierPriceText ctrlSetText str _grenadierPrice + A3A_faction_civ get "currencySymbol";
-        _medicPriceText ctrlSetText str _medicPrice + A3A_faction_civ get "currencySymbol";
-        _mortarPriceText ctrlSetText str _mortarPrice + A3A_faction_civ get "currencySymbol";
-        _marksmanPriceText ctrlSetText str _marksmanPrice + A3A_faction_civ get "currencySymbol";
-        _atPriceText ctrlSetText str _atPrice + A3A_faction_civ get "currencySymbol";
+        _riflemanPriceText ctrlSetText str _riflemanPrice + (A3A_faction_civ get "currencySymbol");
+        _squadLeaderPriceText ctrlSetText str _squadLeaderPrice + (A3A_faction_civ get "currencySymbol");
+        _autoriflemanPriceText ctrlSetText str _autoriflemanPrice + (A3A_faction_civ get "currencySymbol");
+        _grenadierPriceText ctrlSetText str _grenadierPrice + (A3A_faction_civ get "currencySymbol");
+        _medicPriceText ctrlSetText str _medicPrice + (A3A_faction_civ get "currencySymbol");
+        _mortarPriceText ctrlSetText str _mortarPrice + (A3A_faction_civ get "currencySymbol");
+        _marksmanPriceText ctrlSetText str _marksmanPrice + (A3A_faction_civ get "currencySymbol");
+        _atPriceText ctrlSetText str _atPrice + (A3A_faction_civ get "currencySymbol");
 
         // Disable add buttons if faction is lacking the resources to recruit them (1HR + money)
         _hr = server getVariable ["hr", 0];

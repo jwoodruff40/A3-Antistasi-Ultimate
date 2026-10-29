@@ -437,7 +437,7 @@ private _spawnSurvivor = {
             while {alive _unit} do {
                 private _movePos = _roadPos getPos [random 50, random 360];
                 _unit doMove _movePos;
-                sleep 120 + random 180;
+                sleep (120 + random 180);
             };
         };
     };
