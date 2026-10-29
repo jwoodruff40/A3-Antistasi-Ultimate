@@ -551,7 +551,7 @@
         Triggered when Petros is initialized on the server.
 
     Parameters:
-        None
+        0: unit - Petros unit reference <OBJECT>
 
     Broadcast:
         No
