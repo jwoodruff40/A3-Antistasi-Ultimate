@@ -13,6 +13,7 @@ Parameters:
 */
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
+#pragma hemtt ignore_variables ["_thisScript"]
 params ["_helicopter", "_crewGroup", "_cargoGroup", "_posDestination", "_originPos", "_landPos"];
 
 private _vehType = typeOf _helicopter;

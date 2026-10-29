@@ -191,7 +191,7 @@ if (_HeliClass == "O_Heli_Transport_04_F") then {
 sleep 1;
 private _heliVehicleData = [_actualspawnPosition, 90, _HeliClass, _side] call A3A_fnc_spawnVehicle;
 
-private _heliVehicle = _heliVehicleData select 0;
+_heliVehicleData params ["_heliVehicle", "_heliVehicleCrew", "_heliGroup"];
 _heliVehicle setSlingLoad _lootCrate;
 _lootCrate allowDamage false; ///not sure about this
 _heliVehicle setVelocity [20,0,0];
@@ -210,9 +210,7 @@ _heliVehicle flyInHeight _midHeight;
 _heliVehicle limitSpeed 150;
 [_heliVehicle, _side] call A3A_fnc_AIVEHinit;
 
-private _heliVehicleCrew = _heliVehicleData select 1;
 {[_x] call A3A_fnc_NATOinit} forEach _heliVehicleCrew;
-private _heliGroup = _heliVehicleData select 2;
 
 [_heliVehicle, localize "STR_marker_logistics_heli", false] spawn A3A_fnc_inmuneConvoy;	
 _groups pushBack _heliGroup;

@@ -46,7 +46,7 @@ else
     };
 
     // Remove from garrison if it belongs to one
-    private _marker = _victim getVariable "markerX";
+    private _marker = _unit getVariable "markerX";
     if (isNil "_marker" or { sidesX getVariable [_marker, sideUnknown] != _side }) exitWith {};
-    [_victim getVariable "unitType", _side, _marker,-1] remoteExec ["A3A_fnc_garrisonUpdate", 2];
+    [_unit getVariable "unitType", _side, _marker,-1] remoteExec ["A3A_fnc_garrisonUpdate", 2];
 };

@@ -10,6 +10,7 @@ params["_marker", "_isLarge"];
 */
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
+#pragma hemtt ignore_variables ["_thisScript"]
 
 private _intelSize = if (_isLarge) then {"large"} else {"medium"};
 ServerDebug_2("Spawning %2 intel on marker %1",_marker,_intelSize);

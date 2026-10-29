@@ -160,9 +160,9 @@ private _firedEH = _plane addEventHandler ["Fired", {
         if(_remainingShots > 1) then
         {
             //Fire next shot
-            [_plane, _weapon, _mode] spawn
+            [_plane, _weapon, _mode, _targetObj] spawn
             {
-                params ["_plane", "_weapon", "_mode"];
+                params ["_plane", "_weapon", "_mode", "_targetObj"];
                 sleep 0.25;
                 _plane fireAtTarget [_targetObj, _weapon];
             };

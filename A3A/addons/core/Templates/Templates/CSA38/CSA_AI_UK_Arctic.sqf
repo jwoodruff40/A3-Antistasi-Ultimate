@@ -49,6 +49,7 @@ if (isClass (configFile >> "CfgPatches" >> "FA_WW2_Armored_Cars")) then {
 
 private _vehiclesPlanesCAS = ["LIB_P47"];
 private _vehiclesPlanesAA = ["LIB_RAF_P39"];
+private _vehiclesPlanesLargeCAS = [];
 ["vehiclesPlanesTransport", ["LIB_C47_RAF"]] call _fnc_saveToTemplate;
 
 if (isClass (configFile >> "CfgPatches" >> "sab_flyinglegends")) then {

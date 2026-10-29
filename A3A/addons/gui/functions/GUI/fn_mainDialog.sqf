@@ -132,6 +132,7 @@ switch (_mode) do
         Debug("MainDialog onUnload starting...");
 
         // Remove map drawing EH
+        private _commanderMap = _display displayCtrl A3A_IDC_COMMANDERMAP;
         _commanderMap ctrlRemoveAllEventHandlers "Draw";
 
         // Restore HC group icons state

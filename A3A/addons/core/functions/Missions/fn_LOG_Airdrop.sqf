@@ -215,6 +215,8 @@ waitUntil {
     (!(isNull _planeVeh) && {_planeVeh inArea [_positionX, 100, 100, 0, false]}) || (dateToNumber date > _dateLimitNum) || !(alive _planeVeh)
 };
 
+private _box1 = objNull;
+private _box2 = objNull;
 private _airDropHappened = false;
 
 if(alive _planeVeh) then {
@@ -229,7 +231,7 @@ if(alive _planeVeh) then {
 
     _planeVeh allowDamage false;
     sleep 1;
-    private _box1 = [_boxType,position _planeVeh] call SCRT_fnc_common_airdropCargo;
+    _box1 = [_boxType,position _planeVeh] call SCRT_fnc_common_airdropCargo;
     _box1 enableRopeAttach true;
     _box1 allowDamage false;
     [_box1] call A3A_Logistics_fnc_addLoadAction;
@@ -245,7 +247,7 @@ if(alive _planeVeh) then {
         _faction get "ammobox"
     ] select _difficultX;
 
-    private _box2 = [_box2Class,position _planeVeh] call SCRT_fnc_common_airdropCargo;
+    _box2 = [_box2Class,position _planeVeh] call SCRT_fnc_common_airdropCargo;
     _box2 enableRopeAttach true;
     _box2 allowDamage false;
     [_box2] call A3A_Logistics_fnc_addLoadAction;
@@ -319,7 +321,7 @@ switch(true) do {
     };
     case (dateToNumber date > _dateLimitNum): {
         Info("Fail, mission Expired.");
-        [2, "Fail, mission Expired.", _fileName, true] call A3A_fnc_log;
+        [2, "Fail, mission Expired.", "fn_LOG_Airdrop", true] call A3A_fnc_log;
         [_taskId, "LOG", "FAILED"] call A3A_fnc_taskSetState;
         [-25,theBoss] call A3A_fnc_addScorePlayer;
     }; 

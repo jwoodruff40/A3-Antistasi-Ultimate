@@ -627,6 +627,8 @@ if (_cargoVehicle distance _box < 50 || _cargoVehicle2 distance _box < 50 && (al
         };
     };
 
+    private _cargoWp2 = [grpNull, -1];
+    private _heliInfWp2 = [grpNull, -1];
     if ((!isNull _cargoVehicle2 || alive _cargoVehicle2) && (_cargoVehicle2 distance2D _reconVehicle < 50)) then {
 
         {

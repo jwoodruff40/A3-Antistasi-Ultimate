@@ -423,7 +423,7 @@ _militaryLoadoutData set ["binoculars", ["uns_binocular_army"]];
 _militaryLoadoutData set ["sniHats", ["UNS_M1_2", "uns_simc_m1_bitch_op"]];
 _militaryLoadoutData set ["slHat", ["UNS_M1_2"]];
 _militaryLoadoutData set ["gpses", []];
-_militiaLoadoutData set ["NVGs", []];
+_militaryLoadoutData set ["NVGs", []];
 
 _militaryLoadoutData set ["rifles", [
 	["uns_M16A1", "", "", "", ["uns_30Rnd_556x45_Stanag"], [], ""],

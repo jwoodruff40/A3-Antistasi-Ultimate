@@ -41,11 +41,10 @@ switch (_mode) do
         {
             case ("civil"): {
                 _selectedTabIDC = A3A_IDC_BUYCIVVEHICLEMAIN;
-                lnbClear _valsCtrl;
-    
                 private _displayCV = findDisplay A3A_IDD_BUYVEHICLEDIALOG;
                 private _cvTable = _displayCV displayCtrl A3A_IDC_SETUP_CVTABLE;
                 private _valsCtrl = _cvTable;
+                lnbClear _valsCtrl;
                 private _vehicleTypes = [localize "STR_antistasi_dialogs_vehicle_tab_civall",
                 localize "STR_antistasi_dialogs_vehicle_tab_civcars",
                 localize "STR_antistasi_dialogs_vehicle_tab_civtrucks",
@@ -69,11 +68,10 @@ switch (_mode) do
             };
             case("rebel"): {
                 _selectedTabIDC = A3A_IDC_BUYREBVEHICLEMAIN;
-                lnbClear _valsCtrl;
-
                 private _displayCV = findDisplay A3A_IDD_BUYVEHICLEDIALOG;
                 private _cvTable = _displayCV displayCtrl A3A_IDC_SETUP_CVTABLE;
                 private _valsCtrl = _cvTable;
+                lnbClear _valsCtrl;
                 private _vehicleTypes = [localize "STR_antistasi_dialogs_vehicle_tab_reball",
                 localize "STR_antistasi_dialogs_vehicle_tab_rebbasic",
                 localize "STR_antistasi_dialogs_vehicle_tab_rebtrucks",
@@ -101,11 +99,10 @@ switch (_mode) do
             };
             case ("static"): {
                 _selectedTabIDC = A3A_IDC_BUYSTATICMAIN;
-                lnbClear _valsCtrl;
-    
                 private _displayCV = findDisplay A3A_IDD_BUYVEHICLEDIALOG;
                 private _cvTable = _displayCV displayCtrl A3A_IDC_SETUP_CVTABLE;
                 private _valsCtrl = _cvTable;
+                lnbClear _valsCtrl;
                 private _vehicleTypes = [localize "STR_antistasi_dialogs_vehicle_tab_statics",
                 localize "STR_antistasi_dialogs_vehicle_tab_staticMG",
                 localize "STR_antistasi_dialogs_vehicle_tab_staticAT",
@@ -128,11 +125,10 @@ switch (_mode) do
             };
             case("other"): {
                 _selectedTabIDC = A3A_IDC_BUYOTHERMAIN;
-                lnbClear _valsCtrl;
-
                 private _displayCV = findDisplay A3A_IDD_BUYVEHICLEDIALOG;
                 private _cvTable = _displayCV displayCtrl A3A_IDC_SETUP_CVTABLE;
                 private _valsCtrl = _cvTable;
+                lnbClear _valsCtrl;
                 private _vehicleTypes = [localize "STR_antistasi_dialogs_vehicle_tab_other"];
                 private _vals = ["other"];
 

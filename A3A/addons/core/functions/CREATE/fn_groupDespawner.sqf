@@ -1,3 +1,4 @@
+#pragma hemtt ignore_variables ["_thisScript"]
 params ["_group", ["_checkNonRebel", false]];
 
 if (!isNil { _group getVariable "A3A_despawnerHandle" }) exitWith {};

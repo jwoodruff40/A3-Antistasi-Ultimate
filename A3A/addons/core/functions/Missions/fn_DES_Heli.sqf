@@ -174,7 +174,7 @@ _reapirTruckWP = _groupVehR addWaypoint [_posCrash, 0];
 _reapirTruckWP setWaypointType "MOVE";
 _reapirTruckWP setWaypointBehaviour "SAFE";
 Debug_3("Transport Vehicle: %1, Crew: %2, Waypoint: %3",_typeVeh,_vehCrewR,_posCrash);
-Debug_3("Waiting until %1 is destroyed or %2 has reached %1, or mission expires at: %3",_heli,_vehR,_dateLimit);
+Debug_3("Waiting until %1 is destroyed or %2 has reached %1, or mission expires at: %3",_heli,_vehR,_dateLimitNum);
 
 ///////////////////////////
 //Helicopter Crew & Guard//
@@ -242,7 +242,7 @@ _pilotsWP setWaypointBehaviour "STEALTH";
     };
 };
 
-Debug_3("Waiting until %1 reaches origin or rebel base, gets destroyed, timer expires at %3 or %2 reaches %1",_heli,_vehR,_dateLimit);
+Debug_3("Waiting until %1 reaches origin or rebel base, gets destroyed, timer expires at %3 or %2 reaches %1",_heli,_vehR,_dateLimitNum);
 waitUntil
 {
     sleep 1;
@@ -341,7 +341,7 @@ if (_vehR distance _heli < 50) then {
 ////////////////
 //Mission done//
 ////////////////
-Debug_2("Waiting until %1 reaches origin or rebel base, gets destroyed or timer expires at %2",_heli,_dateLimit);
+Debug_2("Waiting until %1 reaches origin or rebel base, gets destroyed or timer expires at %2",_heli,_dateLimitNum);
 waitUntil
 {
     sleep 1;

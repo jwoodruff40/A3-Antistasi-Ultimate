@@ -1,5 +1,6 @@
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
+#pragma hemtt ignore_variables ["_thisScript"]
 
 private _groupX = _this;
 if !(isNil {_groupX getVariable "A3A_AIScriptHandle"}) exitWith {};			// hmm

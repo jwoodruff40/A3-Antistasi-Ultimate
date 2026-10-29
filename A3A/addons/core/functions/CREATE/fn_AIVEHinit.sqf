@@ -196,7 +196,7 @@ if (_side == Invaders || _side == Occupants) then {
 		params ["_veh", "_ammo", "_source", "_instigator"];
 		private _group = group _veh;
 		if (isNull _group or { side _group == teamPlayer }) exitWith { _veh removeEventHandler ["IncomingMissile", _thisEventHandler] };
-		private _isRival = (units _group) findIf {_unit getVariable ["isRival", false]} != -1;
+		private _isRival = (units _group) findIf {_x getVariable ["isRival", false]} != -1;
 		if (_isRival) exitWith { _veh removeEventHandler ["IncomingMissile", _thisEventHandler] };
 
 		//it would be really annoying if on each missile launch support will be called
@@ -264,7 +264,7 @@ if(([_veh] call A3A_Logistics_fnc_getVehCapacity) > 1) then {
 		_cargo = _cargo select {typeOf _x isEqualTo FactionGet(reb,"lootCrate")};
 
 		{
-			_cargoItem setDamage 1; 
+			_x setDamage 1; 
 			[_x] spawn {
 				params["_cargoItem"];
 				sleep 4;

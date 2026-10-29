@@ -504,7 +504,7 @@ for "_i" from 1 to _max do {
 private _boatType = selectRandom (_faction get "vehiclesGunBoats");
 private _mrkMar = seaSpawn select {getMarkerPos _x inArea _markerX};
 if (_mrkMar isNotEqualTo []) then {
-	private _pos = (getMarkerPos (_mrkMar select 0)) findEmptyPosition [0,20,_typeVehX];
+	private _pos = (getMarkerPos (_mrkMar select 0)) findEmptyPosition [0,20,_boatType];
 	private _vehicle=[_pos, 0,_boatType, _sideX] call A3A_fnc_spawnVehicle;
 	private _veh = _vehicle select 0;
 	[_veh, _sideX] call A3A_fnc_AIVEHinit;

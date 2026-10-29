@@ -72,6 +72,8 @@ private _helisAttack = ["E22_B_JTF_D_Heli_Attack_03_F"];
 
 private _airPatrol = ["E22_B_JTF_D_Heli_Attack_03_F", "E22_B_JTF_D_Heli_Transport_01_F"];
 
+private _policeVehs = ["B_GEN_Offroad_01_gen_F"];
+
 if (_hasRF) then {
     _basic pushBack "B_Pickup_rf";
     _unarmedVehicles append ["B_Pickup_rf", "B_Pickup_Comms_rf"];
@@ -106,12 +108,6 @@ private _militiaLightArmed = ["E22_B_JTF_D_LSV_02_armed_F"];
 private _militiaTrucks = ["E22_B_JTF_D_Truck_01_transport_F"];
 private _militiaCars = ["E22_B_JTF_D_LSV_01_unarmed_F"];
 private _militiaAPCs = ["E22_B_JTF_D_MRAP_03_hmg_F"];
-
-private _policeVehs = ["B_GEN_Offroad_01_gen_F"];
-
-if (_hasRF) then {
-    _policeVehs = ["B_GEN_Pickup_covered_rf"];
-};
 
 if (_hasEF) then {
     _policeVehs append ["EF_B_Gyra_GEN", "EF_B_Gyra_HMG_GEN"];

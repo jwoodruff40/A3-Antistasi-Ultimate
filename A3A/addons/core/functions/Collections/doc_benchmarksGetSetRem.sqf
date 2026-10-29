@@ -1,3 +1,4 @@
+#pragma hemtt ignore_variables ["_bucket", "_startTime", "_var"]
 
 private _totalTime = 0;
 private _startTime;

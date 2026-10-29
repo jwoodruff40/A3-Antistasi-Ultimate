@@ -1,4 +1,4 @@
-#pragma hemtt ignore_variables ["_fnc_saveToTemplate"]
+#pragma hemtt ignore_variables ["_fnc_saveToTemplate","_fnc_getFromTemplate"]
 
 ["attributesVehicles", [
     ["I_SDV_01_F", ["rebCost", 3000]],

@@ -88,7 +88,7 @@ if ((dateToNumber date > _dateLimitNum) or {isNull _truckX}) then {
 
 		private _group2Position = [_positionX, 450, 700, 0, 0] call BIS_fnc_findSafePos;
 		private _groupX2 = [_group2Position, Occupants, _typeGroup] call A3A_fnc_spawnGroup;
-		{[_x] call A3A_fnc_NATOinit} forEach units _groupX;
+		{[_x] call A3A_fnc_NATOinit} forEach units _groupX2;
 		_groups pushBack _groupX2;
 
 		private _groupX2WP = _groupX2 addWaypoint [(position _truckX), 0];

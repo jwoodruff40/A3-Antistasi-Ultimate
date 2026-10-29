@@ -1,3 +1,4 @@
+#pragma hemtt ignore_variables ["_thisEventHandler"]
 params ["_artillery"];
 
 if (!alive _artillery) exitWith {

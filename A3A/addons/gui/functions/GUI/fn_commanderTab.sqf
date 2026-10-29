@@ -106,6 +106,7 @@ switch (_mode) do
         private _fireMissionButton = _display displayCtrl A3A_IDC_HCFIREMISSIONBUTTON;
         _fireMissionButton ctrlShow false;
 
+        private _selectedGroup = _commanderMap getVariable ["selectedGroup", grpNull];
         private _groupInfo = [_selectedGroup] call A3A_fnc_getGroupInfo;
         _groupInfo params [
             "_group",

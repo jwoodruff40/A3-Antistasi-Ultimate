@@ -37,8 +37,8 @@ if (alive _planeVehicle) then {
     
 	private _startTime = time;
 
-    [_supplyDrop, _para] spawn {
-        params ["_obj","_para"];
+    [_supplyDrop, _para, _startTime] spawn {
+        params ["_obj","_para","_startTime"];
 
         private _smokeShellVariants = ["SmokeShellRed", "SmokeShellGreen", "SmokeShellYellow", "SmokeShellPurple", "SmokeShellBlue", "SmokeShellOrange"];
 

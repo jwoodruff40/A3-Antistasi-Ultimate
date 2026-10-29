@@ -11,6 +11,7 @@ Parameters:
 
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
+#pragma hemtt ignore_variables ["_thisScript"]
 
 params ["_group", "_marker"];
 

@@ -21,6 +21,7 @@
     Example:
 */
 #include "..\script_component.hpp"
+#pragma hemtt ignore_variables ["_thisScript"]
 params ["_cargo", "_vehicle", "_node", "_weapon", ["_instant", false, [true]]];
 
 if (_vehicle getVariable ["LoadingCargo", false]) exitWith {

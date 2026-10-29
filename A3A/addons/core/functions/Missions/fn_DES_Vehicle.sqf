@@ -31,6 +31,8 @@ private _taskId = "DES" + str A3A_taskCount;
 ] call BIS_fnc_taskCreate;
 [_taskId, "DES", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
+private _groupX = grpNull;
+private _veh = objNull;
 _truckCreated = false;
 waitUntil {sleep 1;(dateToNumber date > _dateLimitNum) or (spawner getVariable _markerX == 0)};
 _bonus = if (_difficultX) then {2} else {1};

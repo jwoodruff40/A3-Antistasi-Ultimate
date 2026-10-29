@@ -76,9 +76,9 @@ private _groupX = grpNull;
 private _veh = objNull;
 private _groupX1 = grpNull;
 if (_sideX == Invaders) then {
-	[_houseX, _difficultX] spawn
+	[_houseX, _difficultX, _taskId, _positionX] spawn
 	{
-		params ["_house", "_isDifficult"];
+		params ["_house", "_isDifficult", "_taskId", "_positionX"];
 		if (_isDifficult) then {sleep 300} else {sleep (300 + random 1800)};
 		if !(_taskId call BIS_fnc_taskCompleted) then
 		{

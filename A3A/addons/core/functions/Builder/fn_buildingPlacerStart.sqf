@@ -51,7 +51,7 @@ isNil {
         [_hintTitle, "Server failed to respond to building placer request."] call A3A_fnc_customHint;
     };
     if (alive _owner and _owner != player) exitWith {
-        [_hintTitle, format ["Builder box is already being used by %1", name _curOwner]] call A3A_fnc_customHint;
+        [_hintTitle, format ["Builder box is already being used by %1", name _owner]] call A3A_fnc_customHint;
     };
 
     // Have box ownership so start the placer

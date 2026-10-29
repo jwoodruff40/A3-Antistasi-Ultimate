@@ -39,7 +39,6 @@ private _hasContact = "enoch" in A3A_enabledDLC;
 ["vehiclesAPCs", ["ffp_bmp2", "ffp_bmp2_atgm", "ffp_cv9030"]] call _fnc_saveToTemplate; 				//this line determines APCs -- Example: ["vehiclesAPCs", ["B_APC_Tracked_01_rcws_F", "B_APC_Tracked_01_CRV_F"]] -- Array, can contain multiple assets
 ["vehiclesTanks", ["ffp_leopard2a4", "ffp_leopard2a6"]] call _fnc_saveToTemplate; 			//this line determines tanks -- Example: ["vehiclesTanks", ["B_MBT_01_cannon_F", "B_MBT_01_TUSK_F"]] -- Array, can contain multiple assets
 ["vehiclesAA", ["sfp_lvkv90c"]] call _fnc_saveToTemplate; 				//this line determines AA vehicles -- Example: ["vehiclesAA", ["B_APC_Tracked_01_AA_F"]] -- Array, can contain multiple assets
-["vehiclesLightAPCs", _vehiclesLightAPCs] call _fnc_saveToTemplate;			//this line determines light APCs
 ["vehiclesIFVs", []] call _fnc_saveToTemplate;				//this line determines IFVs
 
 private _vehiclesLightAPCs = []; 
@@ -47,6 +46,7 @@ private _vehiclesLightAPCs = [];
 if (isClass (configFile >> "CfgPatches" >> "XA_185")) then {
     _vehiclesLightAPCs = ["XA185_A1"];
 };
+["vehiclesLightAPCs", _vehiclesLightAPCs] call _fnc_saveToTemplate;			//this line determines light APCs
 
 
 ["vehiclesTransportBoats", ["ffp_gruppbat"]] call _fnc_saveToTemplate; 	//this line determines transport boats -- Example: ["vehiclesTransportBoats", ["B_Boat_Transport_01_F"]] -- Array, can contain multiple assets

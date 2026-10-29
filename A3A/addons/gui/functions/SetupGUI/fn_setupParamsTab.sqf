@@ -35,6 +35,7 @@ switch (_mode) do
             params ["_control", "_newText"];
 
             private _display = findDisplay A3A_IDD_SETUPDIALOG;
+            private _presetCstmCtrl = _display displayCtrl A3A_IDC_SETUP_PARAMSPRESETS_CSTM;
             private _presetSaveBtn = _display displayCtrl A3A_IDC_SETUP_PARAMSPRESETS_CSTM_SAVEBUTTON;
             private _presetRenameBtn = _display displayCtrl A3A_IDC_SETUP_PARAMSPRESETS_CSTM_RENAMEBUTTON;
 

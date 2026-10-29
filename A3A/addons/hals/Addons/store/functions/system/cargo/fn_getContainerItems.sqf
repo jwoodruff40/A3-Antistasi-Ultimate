@@ -17,7 +17,7 @@ params [
 ];
 
 private _containerItems = [];
-if (isNull _unit) exitWith {_containerItems};
+if (isNull _container) exitWith {_containerItems};
 
 private _backpack = backpackCargo _container;
 if (_backpack isNotEqualTo []) then {_containerItems append _backpack};

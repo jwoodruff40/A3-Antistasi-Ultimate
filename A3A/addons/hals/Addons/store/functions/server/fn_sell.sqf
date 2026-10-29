@@ -41,7 +41,7 @@ try {
 	private _trader = _unit getVariable ["HALs_store_trader_current", objNull];
 	if (isNull _trader) then {throw [""]};
 
-	private _forbiddenItem_is_unlimited = 0;
+	private _is_forbiddenItemUnlimited = 0;
 
 	if (_classname in A3U_forbiddenItems) then {
 		private _is_forbiddenItem = isClass (configFile >> "A3U" >> "forbiddenItems" >> _classname);

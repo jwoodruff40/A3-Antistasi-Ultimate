@@ -1,3 +1,4 @@
+#pragma hemtt ignore_variables ["_thisScript"]
 params ["_cured", "_medic"];
 
 private _player = isPlayer _medic;

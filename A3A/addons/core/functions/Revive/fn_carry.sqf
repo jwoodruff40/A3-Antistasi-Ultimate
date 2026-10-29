@@ -11,7 +11,7 @@ if !(_carry getVariable ["incapacitated",false]) exitWith {
 if !(isNull attachedTo _carry) exitWith {
 	[localize  "STR_A3A_revive_carry_header", format [localize "STR_A3A_revive_transported",name _carry]] call A3A_fnc_customHint;
 };
-if (call A3A_fnc_isCarrying) exitWith {[_titleStr, format [localize "STR_A3A_fn_revive_carry_already",name _carry]] call A3A_fnc_customHint;};
+if (call A3A_fnc_isCarrying) exitWith {[localize  "STR_A3A_revive_carry_header", format [localize "STR_A3A_fn_revive_carry_already",name _carry]] call A3A_fnc_customHint;};
 
 if (captive _carrier) then {
 	_carrier setCaptive false

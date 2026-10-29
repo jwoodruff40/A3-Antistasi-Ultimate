@@ -35,7 +35,7 @@ _suppTarget append [_target, _targPos];              // target list may need bot
 Info_3("Added target %1 (position %2) to support %3",_target,_targPos,_suppName);
 
 // Add the strike call here so that we don't repeat it
-private _suppTypeHM = [A3A_supportTypesOcc, A3A_supportTypesInv] select (_side == Invaders);
+private _suppTypeHM = [A3A_supportTypesOcc, A3A_supportTypesInv] select (_suppSide == Invaders);
 (_suppTypeHM get _suppType) params ["_baseType", "", "", "_strikePower"];
 private _strikeTarg = if (_baseType == "TARGET") then { _target } else { _targPos };
 A3A_supportStrikes pushBack [_suppSide, _baseType, _strikeTarg, time + 20*60, 20*60, _strikePower];

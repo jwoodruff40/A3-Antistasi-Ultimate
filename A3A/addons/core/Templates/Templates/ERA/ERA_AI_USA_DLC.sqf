@@ -50,6 +50,7 @@ if (isClass (configFile >> "CfgPatches" >> "WW2_SPEX_Assets_c_Vehicles_Boats_c")
 
 private _vehiclesPlanesCAS = ["SPE_P47", "CUP_B_A10_DYN_USA", "vn_b_air_f4c_at", "vn_b_air_f100d_at"];
 private _vehiclesPlanesAA = ["SPE_P47", "CUP_B_AV8B_DYN_USMC", "vn_b_air_f4c_cap", "vn_b_air_f100d_cap", "CUP_B_F35B_USMC"];
+private _vehiclesPlanesLargeCAS = [];
 
 private _vehiclesPlanesTransport = ["CUP_B_C130J_USMC", "CUP_B_MV22_USMC_RAMPGUN"];
 if (isClass (configFile >> "CfgPatches" >> "WW2_SPEX_Assets_m_Vehicles_Planes_m")) then {
@@ -79,6 +80,7 @@ if (isClass (configFile >> "cfgVehicles" >> "vnx_b_air_ac119_02_01")) then {
 
 ["vehiclesPlanesGunship", _gunship] call _fnc_saveToTemplate;
 ["vehiclesPlanesCAS", _vehiclesPlanesCAS] call _fnc_saveToTemplate;
+["vehiclesPlanesLargeCAS", _vehiclesPlanesLargeCAS] call _fnc_saveToTemplate;
 ["vehiclesPlanesAA", _vehiclesPlanesAA] call _fnc_saveToTemplate;
 ["vehiclesPlanesTransport", _vehiclesPlanesTransport] call _fnc_saveToTemplate;
 

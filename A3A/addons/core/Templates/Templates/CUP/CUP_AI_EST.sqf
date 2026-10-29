@@ -7,6 +7,7 @@ private _hasLawsOfWar = "orange" in A3A_enabledDLC;
 private _hasTanks = "tank" in A3A_enabledDLC;
 private _hasLawsOfWar = "orange" in A3A_enabledDLC;
 private _hasContact = "enoch" in A3A_enabledDLC;
+private _hasEF = "ef" in A3A_enabledDLC;
 //////////////////////////
 //   Side Information   //
 //////////////////////////

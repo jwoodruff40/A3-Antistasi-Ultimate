@@ -1,3 +1,4 @@
+#pragma hemtt ignore_variables ["_thisScript"]
 private _vehicle = cursorTarget;
 
 if(isNil "_vehicle" || {isNull _vehicle}) exitWith {};

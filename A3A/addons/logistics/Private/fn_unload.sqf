@@ -19,6 +19,7 @@
 */
 #include "..\script_component.hpp"
 FIX_LINE_NUMBERS()
+#pragma hemtt ignore_variables ["_thisScript"]
 params ["_vehicle", ["_instant", false, [true]]];
 private _fileName = "fn_logistics_unload";
 

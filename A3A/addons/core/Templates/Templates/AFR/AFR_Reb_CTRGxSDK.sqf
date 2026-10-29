@@ -43,7 +43,7 @@ private _hasEF = "ef" in A3A_enabledDLC;
 
 private _vehicleBasic = ["AFR_B_CTRG_rhsusf_mrzr4_d"];
 private _vehicleLightUnarmed = ["AFR_I_Syndi_HIDF_m998_2d", "rhsgref_nat_uaz_open"]; 
-private _vehiclesightArmed = ["rhssaf_m1025_olive_m2"];
+private _vehiclesLightArmed = ["rhssaf_m1025_olive_m2"];
 private _vehicleTruck = ["AFR_I_Syndi_rhsgref_tla_kraz255b1_cargo_open"];
 private _vehicleAT = ["AFR_I_Syndi_Offroad_02_AT_F", "rhsgref_nat_uaz_spg9"];
 private _vehicleAA = [];
