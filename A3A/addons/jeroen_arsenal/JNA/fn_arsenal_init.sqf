@@ -106,7 +106,7 @@ if(hasInterface)then{
 					private _tb = getNumber (configFile >> "CfgVehicles" >> _className >> "transportmaxbackpacks");
 					private _tm = getNumber (configFile >> "CfgVehicles" >> _className >> "transportmaxmagazines");
 					private _tw = getNumber (configFile >> "CfgVehicles" >> _className >> "transportmaxweapons");
-					if (_tb > 0  || _tm > 0 || _tw > 0) then {true;} else {false;};
+					_tb > 0  || _tm > 0 || _tw > 0;
 				
 				}//return
 			};

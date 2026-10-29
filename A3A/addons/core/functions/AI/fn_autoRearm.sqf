@@ -324,7 +324,7 @@ if (!(headgear _unit in allArmoredHeadgear)) then {
 };
 
 _foundItem = false;
-private _targetFAKs = if ([_unit] call A3A_fnc_isMedic) then {10} else {1};
+private _targetFAKs = [1, 10] select ([_unit] call A3A_fnc_isMedic);
 if ({_x == "FirstAidKit"} count (items _unit) < _targetFAKs) then {
 	_needsRearm = true;
 	_foundItem = false;

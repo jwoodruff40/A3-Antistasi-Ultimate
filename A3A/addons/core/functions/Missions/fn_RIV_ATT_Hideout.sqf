@@ -14,7 +14,7 @@ private _groups = [];
 
 (90 call SCRT_fnc_misc_getTimeLimit) params ["_dateLimitNum", "_displayTime"];
 
-private _isDifficult = if (random 10 < tierWar) then {true} else {false};
+private _isDifficult = random 10 < tierWar;
 
 Info_1("Is difficult: %1.",str _isDifficult);
 
@@ -288,7 +288,7 @@ if (dateToNumber date < _dateLimitNum) then {
 
         sleep (random [120, 240, 360]);
 
-        private _chance = if (_isDifficult) then {30} else {15};
+        private _chance = [15, 30] select (_isDifficult);
         if ((random 100) > _chance && {!isNil "_lootContainer" && {alive _lootContainer && {!(_lootContainer inArea [getMarkerPos respawnTeamPlayer, 50, 50, 0, false])}}}) then {
             private _event = selectRandom [200, 300];
 

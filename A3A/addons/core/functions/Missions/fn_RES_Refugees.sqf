@@ -28,7 +28,7 @@ private _limit = if (_difficultX) then {
 };
 _limit params ["_dateLimitNum", "_displayTime"];
 
-private _sideX = if (sidesX getVariable [_markerX,sideUnknown] == Occupants) then {Occupants} else {Invaders};
+private _sideX = [Invaders, Occupants] select (sidesX getVariable [_markerX,sideUnknown] == Occupants);
 private _faction = Faction(_sideX);
 
 private _text = nil;
@@ -140,7 +140,7 @@ if (_sideX == Invaders) then {
 	_groupX1 = [_houseX buildingExit 0, Occupants, _faction get "groupPolice"] call A3A_fnc_spawnGroup;
 };
 
-private _bonus = if (_difficultX) then {2} else {1};
+private _bonus = [1, 2] select (_difficultX);
 
 if (_sideX == Occupants) then {
 	waitUntil {sleep 1; ({alive _x} count _POWs == 0) or ({(alive _x) and (_x distance getMarkerPos respawnTeamPlayer < 50)} count _POWs > 0) or (dateToNumber date > _dateLimitNum)};

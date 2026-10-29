@@ -110,7 +110,7 @@ private _replaceBadAntenna = {
 		};
 		private _antennaPos = getPos _antenna;
 		_antennaPos set [2, 0];
-		private _antennaClass = if (worldName isEqualTo "chernarus_summer") then { "Land_Telek1" } else { "Land_TTowerBig_2_F" };
+		private _antennaClass = ["Land_TTowerBig_2_F", "Land_Telek1"] select (worldName isEqualTo "chernarus_summer");
 		_antenna = createVehicle [_antennaClass, _antennaPos, [], 0, "NONE"];
 		_antenna setVectorUp [0, 0, 1];
         _antenna setDir (getDir _antenna);
@@ -234,7 +234,7 @@ blackListDest = (markersX - controlsX - ["Synd_HQ"] - citiesX) select {
 //	_nearRoads = _nearRoads inAreaArray _x;
 	private _badSurfaces = ["#GdtForest", "#GdtRock", "#GdtGrassTall"];
 	private _idx = _nearRoads findIf { !(surfaceType (position _x) in _badSurfaces) && { roadsConnectedTo _x isNotEqualTo [] } };
-	if (_idx == -1) then {true} else {false};
+	_idx == -1;
 };
 
 

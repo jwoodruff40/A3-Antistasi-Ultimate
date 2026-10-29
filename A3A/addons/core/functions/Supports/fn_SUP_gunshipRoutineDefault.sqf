@@ -148,7 +148,7 @@ private _mainGunnerList = [];
         {
             if(_gunshots > 0) then
             {
-                private _muzzle = if(_belt select ((_i - 1) % 3)) then {"HE"} else {"AP"};
+                private _muzzle = ["AP", "HE"] select (_belt select ((_i - 1) % 3));
                 _gunner forceWeaponFire [_muzzle, "close"];
                 [_gunner, (weapons _gunner) select 0] call BIS_fnc_fire;
                 _gunshots = _gunshots - 1;

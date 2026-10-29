@@ -10,8 +10,8 @@ Info("Artillery mission init.");
 
 private _missionOriginPos = getMarkerPos _markerX;
 
-private _difficult = if (random 10 < tierWar) then {true} else {false};
-private _sideX = if (sidesX getVariable [_markerX, sideUnknown] == Occupants) then {Occupants} else {Invaders};
+private _difficult = random 10 < tierWar;
+private _sideX = [Invaders, Occupants] select (sidesX getVariable [_markerX, sideUnknown] == Occupants);
 private _faction = Faction(_sideX);
 
 private _limit = if (_difficult) then {
@@ -50,12 +50,7 @@ switch (true) do
 	{
 		private _potentialArtillery = (_howitzersPool + _mortarsPool);
 		_artilleryClass = selectRandom (_potentialArtillery select {_x isNotEqualTo []});
-		_artilleryShellClass = if (_artilleryClass in _howitzersPool) then 
-        {
-            _howitzerMagazine
-        } else {
-            _mortarMagazine
-        };
+		_artilleryShellClass = [_mortarMagazine, _howitzerMagazine] select (_artilleryClass in _howitzersPool);
 	};
 	default
 	{

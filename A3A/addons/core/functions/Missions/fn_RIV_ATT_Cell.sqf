@@ -560,7 +560,7 @@ for "_i" from 0 to _carCount do {
 
     sleep (random [120, 240, 360]);
 
-    private _chance = if (_isDifficult) then {30} else {15};
+    private _chance = [15, 30] select (_isDifficult);
     if ((random 100) > _chance) exitWith {}; 
 
     private _event = selectRandom [200, 300];

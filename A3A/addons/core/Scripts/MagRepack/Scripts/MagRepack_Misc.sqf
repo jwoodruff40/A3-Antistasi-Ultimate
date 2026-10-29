@@ -17,14 +17,7 @@ outlw_MR_modifierCheck =
 		}
 		else
 		{
-			if (outlw_MR_alt && {!_alt}) then
-			{
-				false;
-			}
-			else
-			{
-				true;
-			};
+			!(outlw_MR_alt && {!_alt});
 		};
 	};
 };

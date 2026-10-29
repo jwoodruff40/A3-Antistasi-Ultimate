@@ -44,7 +44,7 @@ private _faction = Faction(_sideX);
 
 (90 call SCRT_fnc_misc_getTimeLimit) params ["_dateLimitNum", "_displayTime"];
 
-private _isDifficult = if (random 10 < tierWar) then {true} else {false};
+private _isDifficult = random 10 < tierWar;
 
 Info_1("Is difficult: %1.",str _isDifficult);
 //mitigation of negative terrain gradient

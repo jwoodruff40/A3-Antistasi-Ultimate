@@ -54,7 +54,7 @@ _group deleteGroupWhenEmpty true;
 { [_x, nil, false, _resPool] call A3A_fnc_NATOinit } forEach units _group;
 
 
-private _aggro = if(_side == Occupants) then {aggressionOccupants} else {aggressionInvaders};
+private _aggro = [aggressionInvaders, aggressionOccupants] select (_side == Occupants);
 if (_delay < 0) then { _delay = (0.5 + random 1) * (100 - _aggro + 22*A3A_enemyResponseTime) };
 
 private _targArray = [];

@@ -184,7 +184,7 @@ waitUntil {
 
     sleep (random [120, 240, 360]);
 
-    private _chance = if (_isDifficult) then {20} else {10};
+    private _chance = [10, 20] select (_isDifficult);
     if ((random 100) > _chance) exitWith {}; 
 
     private _event = selectRandom [200, 300];

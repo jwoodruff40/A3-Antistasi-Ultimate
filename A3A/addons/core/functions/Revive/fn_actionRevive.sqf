@@ -2,7 +2,7 @@
 params ["_cured", "_medic"];
 
 private _player = isPlayer _medic;
-private _inPlayerGroup = if !(_player) then {if ({isPlayer _x} count (units group _medic) > 0) then {true} else {false}} else {false};
+private _inPlayerGroup = if !(_player) then {{isPlayer _x} count (units group _medic) > 0} else {false};
 private _isMedic = [_medic] call A3A_fnc_isMedic;
 
 if (captive _medic) then { _medic setCaptive false };         // medic is will be local

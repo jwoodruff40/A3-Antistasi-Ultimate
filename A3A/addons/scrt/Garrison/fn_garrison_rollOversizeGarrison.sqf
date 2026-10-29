@@ -7,7 +7,7 @@ private _additionalGroups = [];
 
 
 private _faction = Faction(_side);
-private _aggression = if (_side == Occupants) then {aggressionOccupants} else {aggressionInvaders};
+private _aggression = [aggressionInvaders, aggressionOccupants] select (_side == Occupants);
 private _oversizeChance =  _aggression / 2;
 if (_oversizeChance > 15) then {
 	_oversizeChance = 15;

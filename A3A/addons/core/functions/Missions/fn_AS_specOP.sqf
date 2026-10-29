@@ -9,7 +9,7 @@ if (!isServer and hasInterface) exitWith{};
 private _positionX = getMarkerPos _markerX;
 private _difficultX = random 10 < tierWar;
 
-private _sideX = if (sidesX getVariable [_markerX,sideUnknown] == Occupants) then {Occupants} else {Invaders};
+private _sideX = [Invaders, Occupants] select (sidesX getVariable [_markerX,sideUnknown] == Occupants);
 private _faction = Faction(_sideX);
 
 private _limit = if (_difficultX) then {

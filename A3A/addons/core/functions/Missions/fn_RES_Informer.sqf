@@ -8,7 +8,7 @@ params ["_markerX"];
 
 Info("Rescue Rebel Informer task initialization started, marker: %1.");
 
-private _side = if (sidesX getVariable [_markerX, sideUnknown] == Occupants) then {Occupants} else {Invaders};
+private _side = [Invaders, Occupants] select (sidesX getVariable [_markerX, sideUnknown] == Occupants);
 private _faction = Faction(_side);
 private _difficulty = random 10 < tierWar;
 private _positionX = getMarkerPos _markerX;
@@ -380,7 +380,7 @@ waitUntil {
     !alive _informer || {dateToNumber date > _dateLimitNum || {(_informer distance2D (getMarkerPos "Synd_HQ") < 25)}}
 };
 
-private _bonus = if (_difficulty) then {2} else {1};
+private _bonus = [1, 2] select (_difficulty);
 
 switch(true) do {
     case (dateToNumber date > _dateLimitNum): {

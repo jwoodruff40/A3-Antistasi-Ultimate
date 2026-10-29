@@ -53,7 +53,7 @@ private _unlocks = (unlockedHeadgear + unlockedVests + unlockedNVGs + unlockedOp
         {
             if (_originalItem in _indexed) exitWith {}; // element is already indexed, ignore
             if (_item in _x) then {
-                private _hasAttachments = if (_itemAttachments findIf {_x != ""} != -1) then {true} else {false};
+                private _hasAttachments = _itemAttachments findIf {_x != ""} != -1;
 
                 if (!_hasAttachments) then {
                     Verbose_1("%1 is already unlocked as a weapon",_item);

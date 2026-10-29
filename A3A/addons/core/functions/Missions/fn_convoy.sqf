@@ -6,8 +6,8 @@ if (!isServer and hasInterface) exitWith {};
 if (missionNamespace getVariable ["A3A_convoyInProgress", false]) exitWith {};
 params ["_mrkDest", "_mrkOrigin", ["_convoyType", ""], ["_resPool", "legacy"], ["_startDelay", -1], ["_visible", false]];
 
-private _difficult = if (random 10 < tierWar) then {true} else {false};
-private _sideX = if (sidesX getVariable [_mrkOrigin,sideUnknown] == Occupants) then {Occupants} else {Invaders};
+private _difficult = random 10 < tierWar;
+private _sideX = [Invaders, Occupants] select (sidesX getVariable [_mrkOrigin,sideUnknown] == Occupants);
 private _milFaction = Faction(_sideX);
 private _rebFaction = Faction(teamPlayer);
 private _civFaction = Faction(civilian);
@@ -174,7 +174,7 @@ private _route = [_posOrigin, _posDest] call A3A_fnc_findPath;
 
 private _markers = [];
 if (_visible) then {
-	private _markerColor = if (_sideX == Occupants) then {colorOccupants} else {colorInvaders};
+	private _markerColor = [colorInvaders, colorOccupants] select (_sideX == Occupants);
 	
 	{ 
 		private _waypointPosition = _x select 0;  
@@ -385,7 +385,7 @@ reverse _markNames;
 
 // **************** Termination condition handling ********************************
 
-private _bonus = if (_difficult) then {1.5} else {1};
+private _bonus = [1, 1.5] select (_difficult);
 private _arrivalDist = 100;
 private _timeout = time + 3600;
 
@@ -393,8 +393,8 @@ private _fnc_applyResults =
 {
     params ["_success", "_success1", "_adjustCA", "_adjustBoss", "_aggroMod", "_aggroTime", "_type"];
 
-    _taskState = if (_success) then { "SUCCEEDED" } else { "FAILED" };
-    _taskState1 = if (_success1) then { "SUCCEEDED" } else { "FAILED" };
+    _taskState = ["FAILED", "SUCCEEDED"] select (_success);
+    _taskState1 = ["FAILED", "SUCCEEDED"] select (_success1);
 
     [_adjustCA, _sideX] remoteExec ["A3A_fnc_timingCA", 2];
     [_adjustBoss,theBoss] call A3A_fnc_addScorePlayer;

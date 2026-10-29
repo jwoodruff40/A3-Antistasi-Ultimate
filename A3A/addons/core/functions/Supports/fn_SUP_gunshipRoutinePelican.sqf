@@ -147,7 +147,7 @@ private _mainGunnerList = [];
         {
             if(_gunshots > 0) then
             {
-                private _muzzle = if(_belt select ((_i - 1) % 3)) then {"HE"} else {"AP"};
+                private _muzzle = ["AP", "HE"] select (_belt select ((_i - 1) % 3));
                 _gunner forceWeaponFire ["OPTRE_M370", "close"];
 				_gunner forceWeaponFire ["OPTRE_CHAINGUN40", "close"];
                 _gunshots = _gunshots - 1;

@@ -5,9 +5,9 @@ FIX_LINE_NUMBERS()
 //Mission: Destroy the vehicle
 if (!isServer and hasInterface) exitWith{};
 
-private _difficultX = if (random 10 < tierWar) then {true} else {false};
+private _difficultX = random 10 < tierWar;
 private _positionX = getMarkerPos _markerX;
-private _sideX = if (sidesX getVariable [_markerX,sideUnknown] == Occupants) then {Occupants} else {Invaders};
+private _sideX = [Invaders, Occupants] select (sidesX getVariable [_markerX,sideUnknown] == Occupants);
 private _faction = Faction(_sideX);
 private _limit = if (_difficultX) then {
 	30 call SCRT_fnc_misc_getTimeLimit
@@ -35,7 +35,7 @@ private _groupX = grpNull;
 private _veh = objNull;
 _truckCreated = false;
 waitUntil {sleep 1;(dateToNumber date > _dateLimitNum) or (spawner getVariable _markerX == 0)};
-_bonus = if (_difficultX) then {2} else {1};
+_bonus = [1, 2] select (_difficultX);
 if (spawner getVariable _markerX == 0) then
 	{
 	_truckCreated = true;

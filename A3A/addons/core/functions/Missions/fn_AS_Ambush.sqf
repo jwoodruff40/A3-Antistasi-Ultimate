@@ -14,7 +14,7 @@ private _groups = [];
 
 private _missionOriginPos = getMarkerPos _missionOrigin;
 private _difficult = random 10 < tierWar;
-private _sideX = if (sidesX getVariable [_missionOrigin,sideUnknown] == Occupants) then {Occupants} else {Invaders};
+private _sideX = [Invaders, Occupants] select (sidesX getVariable [_missionOrigin,sideUnknown] == Occupants);
 private _faction = Faction(_sideX);
 
 Info_3("Origin: %1, Hardmode: %2, Controlling Side: %3",_missionOrigin,_difficult,str _sideX);
@@ -57,7 +57,7 @@ if (isNil "_destinationSite") exitWith {
 private _destinationName = [_destinationSite] call A3A_fnc_localizar;
 private _destinationPosition = getMarkerPos _destinationSite;
 
-private _markerColor = if(_sideX == Occupants) then {"colorBLUFOR"} else {"colorOPFOR"};
+private _markerColor = ["colorOPFOR", "colorBLUFOR"] select (_sideX == Occupants);
 private _markerPosition = [_destinationPosition select 0, (_destinationPosition select 1) + 50, _destinationPosition select 2];
 
 private _officerDestinationMarker = createMarker ["OfficerDestinationMarker", _markerPosition];

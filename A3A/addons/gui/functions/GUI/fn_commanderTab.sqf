@@ -893,8 +893,8 @@ switch (_mode) do
         private _endPos = _fireMissionControlsGroup getVariable ["endPos", []];
 
         // Debug stuff
-        private _shell = if (_heSelected) then {"HE"} else {"Smoke"};
-        private _type = if (_pointSelected) then {"Point"} else {"Barrage"};
+        private _shell = ["Smoke", "HE"] select (_heSelected);
+        private _type = ["Barrage", "Point"] select (_pointSelected);
 
         // private _debugStr = format["FIRE MISSION- Shell: %1, Type: %2, Rounds: %3, StartPos: %4, EndPos: %5", _shell, _type, _roundsNumber, _startPos, _endPos];
         // Debug(_debugStr);

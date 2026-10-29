@@ -5,9 +5,9 @@ params ["_markerX"];
 
 if (!isServer and hasInterface) exitWith{};
 
-private _difficultX = if (random 10 < tierWar) then {true} else {false};
+private _difficultX = random 10 < tierWar;
 private _positionX = getMarkerPos _markerX;
-private _sideX = if (sidesX getVariable [_markerX,sideUnknown] == Occupants) then {Occupants} else {Invaders};
+private _sideX = [Invaders, Occupants] select (sidesX getVariable [_markerX,sideUnknown] == Occupants);
 private _faction = Faction(_sideX);
 private _limit = if (_difficultX) then {
 	30 call SCRT_fnc_misc_getTimeLimit
@@ -30,7 +30,7 @@ private _taskId = "LOG" + str A3A_taskCount;
 [_taskId, "LOG", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
 waitUntil {sleep 1;(dateToNumber date > _dateLimitNum) or {(spawner getVariable _markerX != 2 and (sidesX getVariable [_markerX,sideUnknown] != teamPlayer))}};
-private _bonus = if (_difficultX) then {2} else {1};
+private _bonus = [1, 2] select (_difficultX);
 private _truckX = objNull;
 private _groupX = nil;
 private _groupX1 = nil;

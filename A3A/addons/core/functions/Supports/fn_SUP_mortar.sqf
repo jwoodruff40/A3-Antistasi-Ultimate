@@ -70,7 +70,7 @@ private _group = [_side, _vehicle] call A3A_fnc_createVehicleCrew;
 { [_x, nil, false, _resPool] call A3A_fnc_NATOinit } forEach units _group;
 _group deleteGroupWhenEmpty true;
 
-private _aggro = if(_side == Occupants) then {aggressionOccupants} else {aggressionInvaders};
+private _aggro = [aggressionInvaders, aggressionOccupants] select (_side == Occupants);
 if (_delay < 0) then { _delay = (0.5 + random 1) * (250 - 10*tierWar - 1*_aggro) };
 
 private _targArray = [];

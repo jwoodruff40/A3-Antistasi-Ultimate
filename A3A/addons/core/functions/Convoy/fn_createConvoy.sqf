@@ -76,8 +76,8 @@ if (_route isEqualTo []) exitWith {
     Info_3("CreateConvoy[%1]: Unable to create convoy, no valid path. HasAir: %2, HasLand: %3",_convoyID,_hasAir,_hasLand);
 };
 
-_markerPrefix = if(colorTeamPlayer == "colorGUER") then {"b"} else {"n"};
-if(_convoySide == Occupants) then {_markerPrefix = if(colorInvaders == "colorBLUFOR") then {"n"} else {"b"};};
+_markerPrefix = ["n", "b"] select (colorTeamPlayer == "colorGUER");
+if(_convoySide == Occupants) then {_markerPrefix = ["b", "n"] select (colorInvaders == "colorBLUFOR");};
 if(_convoySide == Invaders) then {_markerPrefix = "o"};
 
 _markerType = "_mech_inf";

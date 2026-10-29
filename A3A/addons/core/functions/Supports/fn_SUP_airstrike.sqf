@@ -24,11 +24,11 @@ params ["_supportName", "_side", "_resPool", "_maxSpend", "_target", "_targPos",
 private _airport = [_side, _targPos] call A3A_fnc_availableBasesAir;
 if(isNil "_airport") exitWith { Debug_1("No airport found for %1 support",_supportName); -1; };
 
-private _aggroValue = if(_side == Occupants) then {aggressionOccupants} else {aggressionInvaders};
-private _weightHE = if (_side == Occupants) then {2} else {1};             // occupants less likely to use the wide-area stuff
+private _aggroValue = [aggressionInvaders, aggressionOccupants] select (_side == Occupants);
+private _weightHE = [1, 2] select (_side == Occupants);             // occupants less likely to use the wide-area stuff
 private _weightCluster = 0 max ((tierWar - 5) / 10 + _aggroValue / 200);           // 1 at max warlevel and aggro
-private _weightNapalm = if (napalmEnabled) then {_weightCluster} else {0};
-private _weightChemical = if (_side == Invaders) then {_weightCluster} else {0};
+private _weightNapalm = [0, _weightCluster] select (napalmEnabled);
+private _weightChemical = [0, _weightCluster] select (_side == Invaders);
 
 private _bombType = selectRandomWeighted ["HE", _weightHE, "CLUSTER", _weightCluster, "NAPALM", _weightNapalm, "CHEMICAL", _weightChemical];
 

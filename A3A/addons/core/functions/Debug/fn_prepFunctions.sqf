@@ -20,7 +20,7 @@ Example: call A3A_fnc_prepFunctions;
 License: MIT License
 */
 private _callType = param [0, "", [""]];
-private _skipPreInit = if (_callType isEqualTo "preInit") then {false} else {true};
+private _skipPreInit = _callType isNotEqualTo "preInit";
 
 //Headers (optimised headers by Killzone_Kid)
 private _headerNoDebug = "

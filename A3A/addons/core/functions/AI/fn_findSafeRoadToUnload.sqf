@@ -1,7 +1,7 @@
 params ["_destinationX", "_originX", "_safe", "_blacklist"];
 
 if (count _blackList == 0) then {_blackList = [[0,0,0]]};
-private _radiusX = if (!_safe) then {400} else {50};
+private _radiusX = [400, 50] select (_safe);
 private _dif = (_destinationX select 2) - (_originX select 2);
 
 if (_dif > 0) then {

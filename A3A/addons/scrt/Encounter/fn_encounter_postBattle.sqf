@@ -12,7 +12,7 @@ private _craterPositions = [];
 
 // Randomly select winning side
 private _winningSide = selectRandom [Occupants, Invaders];
-private _losingSide = if (_winningSide == Occupants) then {Invaders} else {Occupants};
+private _losingSide = [Occupants, Invaders] select (_winningSide == Occupants);
 private _winFaction = Faction(_winningSide);
 private _loseFaction = Faction(_losingSide);
 

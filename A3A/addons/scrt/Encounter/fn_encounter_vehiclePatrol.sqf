@@ -52,7 +52,7 @@ private _outpost = selectRandom _potentialOutposts;
 private _side = sidesX getVariable [_outpost, sideUnknown];
 private _faction = Faction(_side);
 
-private _isFia = if (random 10 > (tierWar + difficultyCoef)) then {true} else {false};
+private _isFia = random 10 > (tierWar + difficultyCoef);
 private _vehicleClass = if (_isFia) then {
     selectRandom ((_faction get "vehiclesMilitiaLightArmed") +  (_faction get "vehiclesMilitiaAPCs") + (_faction get "vehiclesHelisLight"));
 } else {

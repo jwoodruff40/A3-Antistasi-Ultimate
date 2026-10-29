@@ -148,7 +148,7 @@ private _mainGunnerList = [];
         {
             if(_gunshots > 0) then
             {
-                private _muzzle = if(_belt select ((_i - 1) % 3)) then {"HE"} else {"AP"};
+                private _muzzle = ["AP", "HE"] select (_belt select ((_i - 1) % 3));
                 _gunner forceWeaponFire [_muzzle, "close"];
 				[_gunship, "UK3CB_Factions_AC47_M134_LSV"] call BIS_fnc_fire;
                 _gunshots = _gunshots - 1;
@@ -283,7 +283,7 @@ private _heavyGunnerList = [];
         {
             if(_gunshots > 0) then
             {
-                private _muzzle = if(_belt select ((_i - 1) % 3)) then {"HE"} else {"AP"};
+                private _muzzle = ["AP", "HE"] select (_belt select ((_i - 1) % 3));
                 _gunner forceWeaponFire [_muzzle, "close"];
 				[_gunship, "UK3CB_Factions_AC47_M134_LSV_2"] call BIS_fnc_fire;
                 _gunshots = _gunshots - 1;
@@ -418,7 +418,7 @@ private _thirdGunnerList = [];
         {
             if(_gunshots > 0) then
             {
-                private _muzzle = if(_belt select ((_i - 1) % 3)) then {"HE"} else {"AP"};
+                private _muzzle = ["AP", "HE"] select (_belt select ((_i - 1) % 3));
                 _gunner forceWeaponFire [_muzzle, "close"];
 				[_gunship, "UK3CB_Factions_AC47_M134_LSV_3"] call BIS_fnc_fire;
                 _gunshots = _gunshots - 1;

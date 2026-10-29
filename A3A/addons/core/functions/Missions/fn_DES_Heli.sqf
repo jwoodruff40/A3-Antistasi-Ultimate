@@ -20,17 +20,17 @@ params ["_missionOrigin"];
 //Mission: Destroy the helicopter
 if (!isServer and hasInterface) exitWith{};
 
-private _difficult = if (random 10 < tierWar) then {true} else {false};
-private _bonus = if (_difficult) then {2} else {1};
+private _difficult = random 10 < tierWar;
+private _bonus = [1, 2] select (_difficult);
 private _missionOriginPos = getMarkerPos _missionOrigin;
-private _sideX = if (sidesX getVariable [_missionOrigin,sideUnknown] == Occupants) then {Occupants} else {Invaders};
+private _sideX = [Invaders, Occupants] select (sidesX getVariable [_missionOrigin,sideUnknown] == Occupants);
 private _faction = Faction(_sideX);
 Debug_3("Origin: %1, Hardmode: %2, Controlling Side: %3",_missionOrigin,_difficult,_sideX);
 
 //finding crash position
 private _ang = random 360;
 private _countX = 0;
-private _dist = if (_difficult) then {2000} else {3000};
+private _dist = [3000, 2000] select (_difficult);
 private _posCrashOrigin = [];
 while {true} do {
     _posCrashOrigin = _missionOriginPos getPos [_dist,_ang];

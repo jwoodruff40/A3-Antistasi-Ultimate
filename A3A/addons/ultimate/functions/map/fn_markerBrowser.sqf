@@ -185,9 +185,9 @@ private _getFactionName = {
     private _factionName = [_markerSide] call _getFactionDisplayNameBySide;
 
     switch (_markerSide) do {
-        case teamPlayer; case resistance: { format ["%1 (reb)", if (_factionName == "") then {"Rebels"} else {_factionName}] };
-        case Occupants: { format ["%1 (occ)", if (_factionName == "") then {"Occupiers"} else {_factionName}] };
-        case Invaders: { format ["%1 (inv)", if (_factionName == "") then {"Invaders"} else {_factionName}] };
+        case teamPlayer; case resistance: { format ["%1 (reb)", [_factionName, "Rebels"] select (_factionName == "")] };
+        case Occupants: { format ["%1 (occ)", [_factionName, "Occupiers"] select (_factionName == "")] };
+        case Invaders: { format ["%1 (inv)", [_factionName, "Invaders"] select (_factionName == "")] };
         default { "Unknown" };
     };
 };

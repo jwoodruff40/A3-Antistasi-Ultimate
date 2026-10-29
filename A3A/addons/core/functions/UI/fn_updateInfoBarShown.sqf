@@ -20,7 +20,7 @@ Example:
 */
 
 if (isNil "A3A_InfoBarRegistre") exitWith {};
-private _state = if (count A3A_InfoBarRegistre isEqualTo 0) then {true} else {false};
+private _state = count A3A_InfoBarRegistre isEqualTo 0;
 
 #ifdef UseDoomGUI
     ERROR("Disabled due to UseDoomGUI Switch.")

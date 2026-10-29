@@ -32,8 +32,8 @@ _mrk3 setMarkerSize [25, 25];
 
 Debug_3("Salvage Mission Positions: %1, %2, %3",_mrk1Pos,_mrk2Pos,_mrk3Pos);
 
-private _difficultX = if (random 10 < tierWar) then {true} else {false};
-private _sideX = if (sidesX getVariable [_markerX,sideUnknown] == Occupants) then {Occupants} else {Invaders};
+private _difficultX = random 10 < tierWar;
+private _sideX = [Invaders, Occupants] select (sidesX getVariable [_markerX,sideUnknown] == Occupants);
 private _faction = Faction(_sideX);
 
 //Type of salvage crate to spawn
@@ -165,7 +165,7 @@ if (dateToNumber date > _dateLimitNum) then {
 	waitUntil {sleep 1; (_box distance2D posHQ) < 100 || {allPlayers inAreaArray [getPos _box, 50, 50] isEqualTo [] || {isNull _box}}};
 };
 
-private _bonus = if (_difficultX) then {2} else {1};
+private _bonus = [1, 2] select (_difficultX);
 
 if (_timeout && alive _box) then {
 	[_taskId, "LOG", "FAILED"] call A3A_fnc_taskSetState;

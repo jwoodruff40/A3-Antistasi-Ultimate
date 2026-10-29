@@ -143,7 +143,7 @@ else
         _targetMarker setMarkerShapeLocal "ELLIPSE";
         _targetMarker setMarkerBrushLocal "Grid";
         _targetMarker setMarkerSizeLocal [_markerType, _markerType];        // actually a radius
-        _targetMarker setMarkerColorLocal (if(_side == Occupants) then { colorOccupants } else { colorInvaders });
+        _targetMarker setMarkerColorLocal ([colorInvaders, colorOccupants] select (_side == Occupants));
         _targetMarker setMarkerAlpha 1;
 
         createMarkerLocal [_textMarker, _position];

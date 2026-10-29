@@ -70,13 +70,13 @@ if ((spawner getVariable _markerX != 2) and {(sidesX getVariable [_markerX,sideU
 
 waitUntil {sleep 1; (dateToNumber date > _dateLimitNum) or ((_truckX distance _positionX < 40) and (isNull attachedTo _truckX) and (isNull ropeAttachedTo _truckX)) or (isNull _truckX)};
 
-private _bonus = if (_difficultX) then {2} else {1};
+private _bonus = [1, 2] select (_difficultX);
 if ((dateToNumber date > _dateLimitNum) or {isNull _truckX}) then {
 	[_taskId, "SUPP", "FAILED"] call A3A_fnc_taskSetState;
 	[5*_bonus,-5*_bonus,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
 	[-10*_bonus,theBoss] call A3A_fnc_addScorePlayer;
 } else {
-	private _countX = if (_difficultX) then {90} else {180};
+	private _countX = [180, 90] select (_difficultX);
 
 	if (_difficultX && {spawner getVariable _markerX != 2 && {(sidesX getVariable [_markerX,sideUnknown] != teamPlayer)}}) then {
 		Info("Rebels in area, spawning additional group.");

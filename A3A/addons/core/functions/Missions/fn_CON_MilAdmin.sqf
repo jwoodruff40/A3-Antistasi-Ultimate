@@ -6,7 +6,7 @@ params ["_marker"];
 //Mission: Capture military administration
 if (!isServer and hasInterface) exitWith{};
 
-private _difficultX = if (random 10 < tierWar) then {true} else {false};
+private _difficultX = random 10 < tierWar;
 private _milAdministrationPos = getMarkerPos _marker;
 
 private _limit = if (_difficultX) then {

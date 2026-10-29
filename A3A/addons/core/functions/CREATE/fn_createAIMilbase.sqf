@@ -367,7 +367,7 @@ for "_i" from 0 to (count _array - 1) do {
 ////////////////////////////
 
 if (random 10 < (tierWar + difficultyCoef)) then {
-	private _max = if (_frontierX) then {2} else {1};
+	private _max = [1, 2] select (_frontierX);
 	for "_i" from 1 to _max do {
 		private _spawnParameter = [_markerX, "Vehicle"] call A3A_fnc_findSpawnPosition;
 		

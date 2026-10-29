@@ -16,11 +16,7 @@ private _index = switch (toLower _simulation) do {
 	};
 	case "tank";
 	case "tankx": {
-		if (getNumber (_cfg >> "maxspeed") > 0) then {
-			TYPE_ARMOR;
-		} else {
-			TYPE_STATIC;
-		};
+		[TYPE_STATIC, TYPE_ARMOR] select (getNumber (_cfg >> "maxspeed") > 0);
 	};
 	case "helicopter";
 	case "helicopterx";

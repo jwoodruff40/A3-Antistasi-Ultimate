@@ -405,7 +405,7 @@ private _fnc_vehicleIsValid = {
 	params ["_type"];
 	private _cfg = configFile >> "CfgVehicles" >> _type;
 	if !(isClass _cfg) exitWith { Error_1("Vehicle class %1 not found",_type); false };
-	if (_cfg call A3A_fnc_getModOfConfigClass in A3A_disabledDLC) then {false} else {true};
+	!(_cfg call A3A_fnc_getModOfConfigClass in A3A_disabledDLC);
 };
 
 private _fnc_filterAndWeightArray = {

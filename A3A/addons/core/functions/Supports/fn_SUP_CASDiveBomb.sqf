@@ -37,7 +37,7 @@ _loiterWP setWaypointLoiterAltitude _startAlt;
 _group setCurrentWaypoint _setupWP;
 
 
-private _aggro = if(_side == Occupants) then {aggressionOccupants} else {aggressionInvaders};
+private _aggro = [aggressionInvaders, aggressionOccupants] select (_side == Occupants);
 private _baseSpotChance = 0.1 * (1 + _aggro / 100);
 
 

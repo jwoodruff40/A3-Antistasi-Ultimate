@@ -197,7 +197,7 @@ if (_moneyEarned > 0) then {
     };
 };
 
-private _volume = if (_overridePosition isNotEqualTo []) then {500} else {_radius};
+private _volume = [_radius, 500] select (_overridePosition isNotEqualTo []);
 playSound3D ["x\A3A\addons\core\Sounds\Misc\LootSuccess.ogg", _vehicle, false, getPosASL _vehicle, 3, 1, _volume];
 
 {

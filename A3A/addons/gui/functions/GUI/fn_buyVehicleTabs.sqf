@@ -187,8 +187,8 @@ if (_tab isEqualTo "vehicles") then
         };
 
         // Crew icons and counts
-        private _hasGunners = if (_gunners > 0) then {1} else {0}; // Is there a better way to just return all positive numbers as 1?
-        private _hasPassengers = if (_passengers > 0) then {1} else {0}; // Too sleepy to think of one right now...
+        private _hasGunners = parseNumber (_gunners > 0);
+        private _hasPassengers = parseNumber (_passengers > 0);
         private _numberOfCrewTypes = (_driver + _commander + _hasGunners + _hasPassengers);
         private _crewCountHeight = _numberOfCrewTypes * 4.5 * GRID_H;
         private _crewCountYpos = 24 * GRID_H - _crewCountHeight;

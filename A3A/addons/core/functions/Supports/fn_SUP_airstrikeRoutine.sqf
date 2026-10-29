@@ -23,7 +23,7 @@ params ["_supportName", "_side", "_sleepTime", "_targetPos", "_airport", "_resPo
 sleep _sleepTime;
 
 private _isHelicopter = _planeType isKindOf "Helicopter";
-private _spawnPos = (getMarkerPos _airport) vectorAdd [0, 0, if (_isHelicopter) then {150} else {500}];
+private _spawnPos = (getMarkerPos _airport) vectorAdd [0, 0, [500, 150] select (_isHelicopter)];
 private _plane = createVehicle [_planeType, _spawnPos, [], 0, "FLY"];     // FLY forces 100m alt
 private _targDir = _spawnPos getDir _targetPos;
 _plane setDir _targDir;
@@ -52,7 +52,7 @@ _plane addEventHandler ["Killed", {
 
 
 //Determine speed and bomb count on aggression
-private _aggroValue = if(_side == Occupants) then {aggressionOccupants} else {aggressionInvaders};
+private _aggroValue = [aggressionInvaders, aggressionOccupants] select (_side == Occupants);
 private _bombCount = [2, 3, 4] select (round random [1, _aggroValue / 50, 0]);
 if (_bombType == "HE") then {_bombCount = _bombCount * 2};
 private _bombParams = [_plane, _bombType, _bombCount, 200];

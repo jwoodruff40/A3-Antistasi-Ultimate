@@ -269,7 +269,7 @@ _bmData apply {
         private _crewTooltipLines = [];
         {
             _x params ["_icon", "_count", "_isSecondary", "_tooltipText"];
-            private _linePrefix = if (_isSecondary) then {"<t align='left' color='#CCCCCC'>"} else {"<t align='left'>"};
+            private _linePrefix = ["<t align='left'>", "<t align='left' color='#CCCCCC'>"] select (_isSecondary);
             _crewLines pushBack format ["%1<img image='%2' size='0.8'/> x%3</t>", _linePrefix, _icon, _count];
             _crewTooltipLines pushBack format ["%1: %2", _tooltipText, _count];
         } forEach _crewRows;

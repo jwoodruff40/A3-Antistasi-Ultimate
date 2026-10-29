@@ -69,7 +69,7 @@ if (_hasEF) then {
 
 if (_hasRF) then {
   _vehicleLightUnarmed append ["a3a_black_Pickup_mmg_rf", "a3u_black_Pickup_mmg_frame_rf", "a3u_black_Pickup_mmg_alt_rf"];
-  _vehicleLightArmed pushBack "a3u_black_Pickup_rival_rf";
+  _vehiclesLightArmed pushBack "a3u_black_Pickup_rival_rf";
   _vehicleCivCar append ["C_Pickup_rf", "C_Pickup_covered_rf"];
   _vehicleCivHelicopter append ["C_Heli_EC_01A_civ_RF", "C_Heli_EC_01_civ_RF"];
 };
@@ -143,7 +143,7 @@ if (_hasRF) then {
 ["vehiclesAA", _vehicleAA] call _fnc_saveToTemplate;
 ["vehiclesCivCar", _vehicleCivCar] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", _vehicleLightUnarmed] call _fnc_saveToTemplate;
-["vehiclesLightArmed", _vehicleLightArmed] call _fnc_saveToTemplate;
+["vehiclesLightArmed", _vehiclesLightArmed] call _fnc_saveToTemplate;
 ["vehiclesAT", _vehicleAT] call _fnc_saveToTemplate;
 
 ///////////////////////////

@@ -30,7 +30,7 @@ hasHeadlessClients = false;     //check if has headless clients
 //enables Discord Rich Presence if game client uses English language and mod is turned on
 private _richPresenceFunc = missionNamespace getVariable "DiscordRichPresence_fnc_update";
 private _isEnglish = ((localize "STR_antistasi_dialogs_generic_button_yes_text") isEqualTo "Yes");
-isDiscordRichPresenceActive = if (isNil "_richPresenceFunc") then {false} else {true};
+isDiscordRichPresenceActive = !(isNil "_richPresenceFunc");
 Info_1("Discord Rich Presence: %1",str isDiscordRichPresenceActive);
 
 //Disables rabbits and snakes, because they cause the log to be filled with "20:06:39 Ref to nonnetwork object Agent 0xf3b4a0c0"
@@ -368,8 +368,8 @@ if(isDiscordRichPresenceActive) then {
 				[["UpdateState", format ["Operates %1", _vehicleName]]] call SCRT_fnc_misc_updateRichPresence;
 			};
 			case (_vehicle isKindOf "Air"): {
-				private _isDriver = if ((driver (vehicle player)) isEqualTo player) then {true} else {false};
-				private _isGunner = if ((gunner (vehicle player)) isEqualTo player) then {true} else {false};
+				private _isDriver = (driver (vehicle player)) isEqualTo player;
+				private _isGunner = (gunner (vehicle player)) isEqualTo player;
 
 				switch (true) do {
 					case (_isDriver): {
@@ -384,8 +384,8 @@ if(isDiscordRichPresenceActive) then {
 				};
 			};
 			default {
-				private _isDriver = if ((driver (vehicle player)) isEqualTo player) then {true} else {false};
-				private _isGunner = if ((gunner (vehicle player)) isEqualTo player) then {true} else {false};
+				private _isDriver = (driver (vehicle player)) isEqualTo player;
+				private _isGunner = (gunner (vehicle player)) isEqualTo player;
 
 				switch (true) do {
 					case (_isDriver): {

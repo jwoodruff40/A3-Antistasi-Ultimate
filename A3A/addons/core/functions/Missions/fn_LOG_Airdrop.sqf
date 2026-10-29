@@ -12,7 +12,7 @@ private _vehicles = [];
 private _groups = [];
 private _boxes = [];
 
-private _sideX = if (sidesX getVariable [_markerX, sideUnknown] == Occupants) then {Occupants} else {Invaders};
+private _sideX = [Invaders, Occupants] select (sidesX getVariable [_markerX, sideUnknown] == Occupants);
 private _faction = Faction(_sideX);
 private _difficultX = random 10 < tierWar;
 private _positionX = getMarkerPos _markerX;

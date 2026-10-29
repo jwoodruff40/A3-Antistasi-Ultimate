@@ -31,7 +31,7 @@ if (isClass (configFile >> "CfgPatches" >> "LIB_core")) then {
     [2,"Iront Front Detected.",_fnc_scriptName] call A3A_fnc_log;
 };
 
-_isControl = if (isOnRoad _positionX) then {true} else {false};
+_isControl = isOnRoad _positionX;
 
 private _aggrRoadblock = [aggressionOccupants, aggressionInvaders] select (_sideX == Invaders);
 _aggrRoadblock = _aggrRoadblock max A3A_roadBlocksBaseChance;

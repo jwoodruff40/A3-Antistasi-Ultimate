@@ -24,7 +24,7 @@ if(_isAirport && {(getMarkerPos _base) distance2D (getMarkerPos _target) > dista
 if (_target in (killZones getVariable [_base, []])) exitWith {false};
 
 _targetIsBase = _target in outposts || {_target in milbases};
-_reinfMarker = if(_side == Occupants) then {reinforceMarkerOccupants} else {reinforceMarkerInvaders};
+_reinfMarker = [reinforceMarkerInvaders, reinforceMarkerOccupants] select (_side == Occupants);
 
 _targetReinforcements = [_target] call A3A_fnc_getRequested;
 _reinfCount = [_targetReinforcements, true] call A3A_fnc_countGarrison;

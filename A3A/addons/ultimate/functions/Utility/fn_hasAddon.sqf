@@ -21,8 +21,4 @@ if (_class isEqualType []) exitWith {
     true
 };
 
-if (isClass (configFile >> "cfgPatches" >> _class)) then {
-    true
-} else {
-    false
-};
+isClass (configFile >> "cfgPatches" >> _class);

@@ -4,8 +4,8 @@ FIX_LINE_NUMBERS()
 params ["_side", "_markerPosition", "_size"];
 
 private _return = [];
-private _aggression = if (_side == Occupants) then {aggressionOccupants} else {aggressionInvaders};
-private _isFia = if (random 10 > (tierWar + difficultyCoef)) then {true} else {false};
+private _aggression = [aggressionInvaders, aggressionOccupants] select (_side == Occupants);
+private _isFia = random 10 > (tierWar + difficultyCoef);
 
 private _faction = Faction(_side);
 

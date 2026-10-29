@@ -295,7 +295,7 @@ addMissionEventHandler ["BuildingChanged", {
 addMissionEventHandler ["EntityKilled", {
     params ["_victim", "_killer", "_instigator"];
     if (typeOf _victim == "") exitWith {};
-    private _killerSide = side group (if (isNull _instigator) then {_killer} else {_instigator});
+    private _killerSide = side group ([_instigator, _killer] select (isNull _instigator));
     if (isPlayer _killer) then {
         private _killerUID = getPlayerUID _killer;
         Debug_3("%1 killed by %2. Killer UID: %3",typeOf _victim,_killerSide,_killerUID);

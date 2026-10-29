@@ -11,8 +11,8 @@ Info("Helicrash mission init.");
 
 private _missionOriginPos = getMarkerPos _markerX;
 private _difficult = random 10 < tierWar;
-private _bonus = if (_difficult) then {2} else {1};
-private _sideX = if (sidesX getVariable [_markerX,sideUnknown] == Occupants) then {Occupants} else {Invaders};
+private _bonus = [1, 2] select (_difficult);
+private _sideX = [Invaders, Occupants] select (sidesX getVariable [_markerX,sideUnknown] == Occupants);
 private _faction = Faction(_sideX);
 Info_3("Origin: %1, Hardmode: %2, Controlling Side: %3",_markerX,_difficult,_sideX);
 
@@ -45,7 +45,7 @@ Info_3("Difficulty: %1, Side: %2, Destination: %3",str _difficult,str _sideX,_de
 //finding crash position
 private _angle = random 360;
 private _countX = 0;
-private _distance = if (_difficult) then {2000} else {3000};
+private _distance = [3000, 2000] select (_difficult);
 private _posCrashOrigin = [];
 private _respawnTeamPlayerMarkerPos = getMarkerPos respawnTeamPlayer;
 while {true} do {

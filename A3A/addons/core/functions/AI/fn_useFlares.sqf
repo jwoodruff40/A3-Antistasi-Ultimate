@@ -20,7 +20,7 @@ if (_flares <= 0) exitWith {};
 _unit setVariable ["smokeUsed", time + 60];
 _unit setVariable ["remainingFlares", (_flares - 1)];
 
-private _target = if (!isNull _enemy) then {_enemy} else {_unit};
+private _target = [_enemy, _unit] select (isNull _enemy);
 private _faction = if (_side != sideUnknown) then {
 	Faction(_side);
 } else {

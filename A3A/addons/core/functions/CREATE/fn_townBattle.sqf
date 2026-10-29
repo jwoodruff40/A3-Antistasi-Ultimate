@@ -118,7 +118,7 @@ private _vipVehicle = _vipVehicleData select 0;
 // Spawn "vip"
 private _unitTypeCiv = A3A_faction_civ getOrDefault ["unitVIP", ""];
 private _unitTypeOcc = _faction getOrDefault ["unitOfficial", ""];
-private _unitType = if (A3A_customUnitTypes getVariable [_unitTypeCiv, []] isNotEqualTo []) then {_unitTypeCiv} else {_unitTypeOcc};
+private _unitType = [_unitTypeOcc, _unitTypeCiv] select (A3A_customUnitTypes getVariable [_unitTypeCiv, []] isNotEqualTo []);
 private _identity = [A3A_faction_civ, _unitType] call A3A_fnc_createRandomIdentity;
 private _vip = [_groupVIP, _unitType, _nearestRoad, [], 0, "NONE", _identity] call A3A_fnc_createUnit;
 [_vip, createHashMapFromArray [["face", selectRandom (A3A_faction_civ get "faces")], ["speaker", "NoVoice"]]] call A3A_fnc_setIdentity;

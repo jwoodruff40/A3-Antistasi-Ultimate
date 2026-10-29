@@ -17,7 +17,7 @@ _medicX setVariable ["helping",true];
 _medicX setVariable ["maneuvering",true];
 
 private _cured = false;
-private _isPlayerGroup = if ({isPlayer _x} count units _unit > 0) then {true} else {false};
+private _isPlayerGroup = {isPlayer _x} count units _unit > 0;
 
 private _fnc_canHelp = {
     params ["_medic", "_target"];
