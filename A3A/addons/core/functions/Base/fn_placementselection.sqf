@@ -34,7 +34,7 @@ private _positionIsInvalid = true;
 while {_positionIsInvalid} do {
 	positionClickedDuringHQPlacement = [];
 	onMapSingleClick "positionClickedDuringHQPlacement = _pos;";
-	waitUntil {sleep 1; (count positionClickedDuringHQPlacement > 0) or (not visibleMap)};
+	waitUntil {sleep 1; (positionClickedDuringHQPlacement isNotEqualTo []) or (not visibleMap)};
 	onMapSingleClick "";
 
 	//If they quit the map, keep HQ where it is.

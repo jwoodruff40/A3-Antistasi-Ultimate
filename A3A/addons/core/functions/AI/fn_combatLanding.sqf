@@ -173,7 +173,7 @@ waitUntil {sleep 1; (!alive _helicopter) || {!canMove _helicopter || {!alive _dr
 
 deleteVehicle _landPad;
 
-if (count (units _cargoGroup select {alive _x}) > 0) then {
+if ((units _cargoGroup select {alive _x}) isNotEqualTo []) then {
     private _cargoWP1 = _cargoGroup addWaypoint [_posDestination, 10];
     _cargoWP1 setWaypointType "MOVE";
     _cargoWP1 setWaypointBehaviour "AWARE";

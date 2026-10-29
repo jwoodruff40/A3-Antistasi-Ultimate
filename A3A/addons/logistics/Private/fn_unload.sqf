@@ -97,7 +97,7 @@ if (_isLootcrate) then {
 _vehicle animateDoor ["Door_rear", 1];
 //detach cargo
 private _keepUnloading = false;
-if !(_cargo isEqualTo objNull) then {//cargo not deleted
+if (_cargo isNotEqualTo objNull) then {//cargo not deleted
     //check if its a weapon
     private _cargoConfig = [_cargo] call A3A_Logistics_fnc_getCargoConfig;
     private _weapon = 1 == getNumber (_cargoConfig/"isWeapon");

@@ -34,7 +34,7 @@ if (random 100 < _chance) then {
 
     private _bases = _airports + _milbases;
 
-    if (count _bases > 0) then {
+    if (_bases isNotEqualTo []) then {
         private _base = selectRandom _bases;
         _sideX = sidesX getVariable [_base, sideUnknown];
         

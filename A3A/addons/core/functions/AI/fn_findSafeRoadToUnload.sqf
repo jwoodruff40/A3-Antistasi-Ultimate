@@ -12,7 +12,7 @@ private _roads = [];
 private _roadsTmp = nil;
 private _road = nil;
 private _ok = nil;
-while {count _roads == 0} do {
+while {_roads isEqualTo []} do {
 	_roadsTmp = (_destinationX nearRoads _radiusX) select {surfaceType (position _x) != "#GdtForest" && {surfaceType (position _x)!= "#GdtRock" && {surfaceType (position _x)!= "#GdtGrassTall"}}};
 	{
 		_road = _x;

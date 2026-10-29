@@ -88,7 +88,7 @@ private _posVeh = [];
 private _dirVeh = 0;
 private _roads = [];
 private _radius = 20;
-while {count _roads == 0} do {
+while {_roads isEqualTo []} do {
 	_roads = (getPos _houseX) nearRoads _radius;
 	_radius = _radius + 10;
 };
@@ -96,10 +96,10 @@ while {count _roads == 0} do {
 private _road = _roads select 0;
 private _posroad = getPos _road;
 _roadcon = roadsConnectedTo _road;
-if (count _roadCon == 0) then {
+if (_roadCon isEqualTo []) then {
     Error_1("Road has no connection :%1.",position _road);
 };
-if (count _roadCon > 0) then {
+if (_roadCon isNotEqualTo []) then {
 	private _posrel = getPos (_roadcon select 0);
 	_dirveh = [_posroad,_posrel] call BIS_fnc_DirTo;
 } else {

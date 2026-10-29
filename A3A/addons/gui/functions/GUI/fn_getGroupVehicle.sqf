@@ -26,7 +26,7 @@ FIX_LINE_NUMBERS()
 params [["_groupX",grpNull]];
 
 
-if !((typeName _groupX) isEqualTo "GROUP") exitWith
+if ((typeName _groupX) isNotEqualTo "GROUP") exitWith
 {
     Error_1("%1 is not a group",_groupX);
     objNull;
@@ -47,7 +47,7 @@ _vehicle = objNull;
 if (isNull _vehicle) then
 {
     {
-        if ((vehicle _x != _x) and (_x == driver _x) and !(vehicle _x isKindOf "StaticWeapon")) exitWith {_vehicle = vehicle _x};
+        if ((!isNull objectParent _x) and (_x == driver _x) and !(vehicle _x isKindOf "StaticWeapon")) exitWith {_vehicle = vehicle _x};
     } forEach units _groupX;
 };
 

@@ -66,7 +66,7 @@ private _crewObjs = [];
 		};
 	  };
     };
-	if (vehicle _unit == _unit) then {
+	if (isNull objectParent _unit) then {
       _slowConvoy = true;
 	};
     [_unit] call A3A_fnc_NATOinit;
@@ -90,7 +90,7 @@ private _unit = objNull;
       _unit moveInCargo _vehicleObj;
     };
 
-	if (vehicle _unit == _unit) then
+	if (isNull objectParent _unit) then
     {
       //Units are moving by foot, slow down convoy
       _slowConvoy = true;

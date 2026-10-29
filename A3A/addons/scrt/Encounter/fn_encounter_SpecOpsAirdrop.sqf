@@ -77,7 +77,7 @@ private _smokes = _AirDropPosition nearObjects ["SmokeShell", 200];
 _others append _smokes;
 private _planeVeh = objNull;
 
-if(count _smokes > 0) then {
+if(_smokes isNotEqualTo []) then {
     Info("Smoke detected, spawning airplane.");
 
     private _initialPlanePosition = [
@@ -113,7 +113,7 @@ if(count _smokes > 0) then {
     private _smokes = _AirDropPosition nearObjects ["SmokeShell", 200];
     private _dropPosition = _AirDropPosition;
 
-    if(count _smokes > 0) then {
+    if(_smokes isNotEqualTo []) then {
         private _smoke = _smokes select 0;
         _dropPosition = position _smoke;
     };

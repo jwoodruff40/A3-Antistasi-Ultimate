@@ -12,7 +12,7 @@ if(isNil "_construction" || {isNull _construction}) then {
     private _constuctions = +constructionsToSave;
     private _closeConstructions = [_constuctions, [], { player distance _x }, "ASCEND"] call BIS_fnc_sortBy;
 
-    if (count _closeConstructions > 0 && {player distance2D (_closeConstructions select 0) < 3}) then {
+    if (_closeConstructions isNotEqualTo [] && {player distance2D (_closeConstructions select 0) < 3}) then {
         _construction = _closeConstructions select 0;
     };
 };

@@ -24,7 +24,7 @@ if (!_isAir) then {
 		while {isNull _road && {_radius < 50}} do
 		{
 			_possibleRoads = _pos nearRoads _radius;
-			if(count _possibleRoads > 0) then { _road = _possibleRoads select 0 }
+			if(_possibleRoads isNotEqualTo []) then { _road = _possibleRoads select 0 }
 			else { _radius = _radius * 1.5 };
 		};
 		if(!(isNull _road)) then { _pos = (getPos _road) };
@@ -116,7 +116,7 @@ while {true} do
 	};
 
 	// no tracked vehicles remaining in convoy, terminate
-	if (count _createdUnits == 0) exitWith {
+	if (_createdUnits isEqualTo []) exitWith {
 		deleteMarker _convoyMarker;
 		server setVariable [format ["Con%1", _convoyID], nil, true];
         Info_2("%1 Convoy [%2]: Terminated",_convoyType,_convoyID);
@@ -131,7 +131,7 @@ while {true} do
 
 	// Have at least one remaining vehicle if we got here
 	private _convoyPos = [0,0,0];
-	if (count _landVehicles != 0) then {
+	if (_landVehicles isNotEqualTo []) then {
 		_convoyPos = getPos (_landVehicles select 0);
 		{ _x setVariable["followpos", _convoyPos] } forEach _airVehicles;		// used by FSM to circle around
 		// can potentially set ground vehicle follow chain here too

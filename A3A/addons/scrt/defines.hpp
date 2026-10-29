@@ -597,7 +597,7 @@ class ScrtRscMapControl
 		icon = "\A3\ui_f\data\map\mapcontrol\bunker_ca.paa";
 		color[] = {0.00, 0.0, 0.0, 1.00};
 		size = 14;
-		importance = "1.5 * 14 * 0.05";
+		importance = 1.05; // importance = "1.5 * 14 * 0.05";
 		coefMin = 0.25;
 		coefMax = 4.00;
 	};
@@ -605,7 +605,7 @@ class ScrtRscMapControl
 		icon = "\A3\ui_f\data\map\mapcontrol\bush_ca.paa";
 		color[] = {0.45,0.64,0.33,0.4};
 		size = 14;
-		importance = "0.2 * 14 * 0.05";
+		importance = 0.14; // importance = "0.2 * 14 * 0.05";
 		coefMin = 0.25;
 		coefMax = 4.00;
 	  };
@@ -613,7 +613,7 @@ class ScrtRscMapControl
 		icon = "\A3\ui_f\data\map\mapcontrol\busstop_CA.paa";
 		color[] = {1,1,1,1};
 		size = 10;
-		importance = "1 * 10 * 0.05";
+		importance = 0.5; // importance = "1 * 10 * 0.05";
 		coefMin = 0.25;
 		coefMax = 4.00;
 	  };
@@ -621,7 +621,7 @@ class ScrtRscMapControl
 		icon = "\A3\ui_f\data\map\mapcontrol\Chapel_CA.paa";
 		color[] = {0,0,0,1};
 		size = 16;
-		importance = "1 * 16 * 0.05";
+		importance = 0.8; // importance = "1 * 16 * 0.05";
 		coefMin = 0.90;
 		coefMax = 4.00;
 	};
@@ -629,7 +629,7 @@ class ScrtRscMapControl
 		icon = "\A3\ui_f\data\map\mapcontrol\church_CA.paa";
 		color[] = {1,1,1,1};
 		size = 16;
-		importance = "2 * 16 * 0.05";
+		importance = 1.6; // importance = "2 * 16 * 0.05";
 		coefMin = 0.90;
 		coefMax = 4.00;
 	};
@@ -661,7 +661,7 @@ class ScrtRscMapControl
 		icon = "\A3\ui_f\data\map\mapcontrol\bunker_ca.paa";
 		color[] = {0,0,0,1};
 		size = 16;
-		importance = "2 * 16 * 0.05";
+		importance = 1.6; // importance = "2 * 16 * 0.05";
 		coefMin = 0.25;
 		coefMax = 4.00;
 	};
@@ -670,7 +670,7 @@ class ScrtRscMapControl
 		icon = "\A3\ui_f\data\map\mapcontrol\fountain_ca.paa";
 		color[] = {0,0,0,1};
 		size = 11;
-		importance = "1 * 12 * 0.05";
+		importance = 0.6; // importance = "1 * 12 * 0.05";
 		coefMin = 0.25;
 		coefMax = 4;
 	};
@@ -759,7 +759,7 @@ class ScrtRscMapControl
 		icon = "\A3\ui_f\data\map\mapcontrol\rock_ca.paa";
 		color[] = {0.1,0.1,0.1,0.8};
 		size = 12;
-		importance = "0.5 * 12 * 0.05";
+		importance = 0.3; // importance = "0.5 * 12 * 0.05";
 		coefMin = 0.25;
 		coefMax = 4.00;
 	};	
@@ -767,7 +767,7 @@ class ScrtRscMapControl
 		icon = "\A3\ui_f\data\map\mapcontrol\ruin_ca.paa";
 		color[] = {0,0,0,1};
 		size = 16;
-		importance = "1.2 * 16 * 0.05";
+		importance = 0.96; // importance = "1.2 * 16 * 0.05";
 		coefMin = 1.00;
 		coefMax = 4.00;
 	};
@@ -783,7 +783,7 @@ class ScrtRscMapControl
 		icon = "\A3\ui_f\data\map\mapcontrol\bush_ca.paa";
 		color[] = {0.45,0.64,0.33,0.4};
 		size = 12;
-		importance = "0.6 * 12 * 0.05";
+		importance = 0.36; // importance = "0.6 * 12 * 0.05";
 		coefMin = 0.25;
 		coefMax = 4.00;
 	};
@@ -791,7 +791,7 @@ class ScrtRscMapControl
 		icon = "\A3\ui_f\data\map\mapcontrol\stack_ca.paa";
 		color[] = {0,0,0,1};
 		size = 20;
-		importance = "2 * 16 * 0.05";
+		importance = 1.6; // importance = "2 * 16 * 0.05";
 		coefMin = 0.90;
 		coefMax = 4.00;
 	};
@@ -821,7 +821,7 @@ class ScrtRscMapControl
 		icon = "\A3\ui_f\data\map\mapcontrol\tourism_ca.paa";
 		color[] = {0,0,0,1};
 		size = 16;
-		importance = "1 * 16 * 0.05";
+		importance = 0.8; // importance = "1 * 16 * 0.05";
 		coefMin = 0.70;
 		coefMax = 4.00;
 	};
@@ -837,7 +837,7 @@ class ScrtRscMapControl
 		icon = "\A3\ui_f\data\map\mapcontrol\bush_ca.paa";
 		color[] = {0.45,0.64,0.33,0.4};
 		size = 12;
-		importance = "0.9 * 16 * 0.05";
+		importance = 0.72; // importance = "0.9 * 16 * 0.05";
 		coefMin = 0.25;
 		coefMax = 4.00;
 	};	 
@@ -845,7 +845,7 @@ class ScrtRscMapControl
 		icon = "\A3\ui_f\data\map\mapcontrol\viewtower_ca.paa";
 		color[] = {0,0,0,1};
 		size = 16;
-		importance = "2.5 * 16 * 0.05";
+		importance = 2; // importance = "2.5 * 16 * 0.05";
 		coefMin = 0.50;
 		coefMax = 4.00;
 	};

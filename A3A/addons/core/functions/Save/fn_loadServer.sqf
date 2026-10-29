@@ -140,8 +140,8 @@ if (isServer) then {
     } forEach controlsX;
 
     [markersX - controlsX] call A3U_fnc_mrkUpdateBulk;
-    if !(milAdministrationsX isEqualTo []) then {[milAdministrationsX] call A3U_fnc_mrkUpdateBulk};
-    if !(mrkAntennas isEqualTo []) then {[mrkAntennas] call A3U_fnc_mrkUpdateBulk};
+    if (milAdministrationsX isNotEqualTo []) then {[milAdministrationsX] call A3U_fnc_mrkUpdateBulk};
+    if (mrkAntennas isNotEqualTo []) then {[mrkAntennas] call A3U_fnc_mrkUpdateBulk};
     // ---------------------------
 
 	markersX append (watchpostsFIA + roadblocksFIA + aapostsFIA + atpostsFIA + hmgpostsFIA);

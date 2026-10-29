@@ -20,7 +20,7 @@ if(!alive _vehicle) exitWith
 
 private _vehCrew = crew _vehicle;
 private _aliveCrew = _vehCrew select {alive _x};
-if(count _aliveCrew == 0) exitWith
+if(_aliveCrew isEqualTo []) exitWith
 {
     [localize "STR_A3A_Base_breachVeh_header", localize "STR_A3A_Base_breachVeh_no_crew"] call SCRT_fnc_misc_deniedHint;
     _vehicle lock false;
@@ -86,7 +86,7 @@ _index = -1;
 
 private _needed = FactionGet(reb,(if(_isTank) then {"breachingExplosivesTank"} else {"breachingExplosivesAPC"}));
 private _explo = [_needed, _magazineArray] call _fn_selectExplosive;
-if(!(_explo isEqualTo [])) then
+if(_explo isNotEqualTo []) then
 {
     _explosive = _explo select 0;
     _explosiveCount = _explo select 1;

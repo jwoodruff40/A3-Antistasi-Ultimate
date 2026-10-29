@@ -42,7 +42,7 @@ _cityConfigs apply {
 	};
 
 	_roads = nearestTerrainObjects [_pos, ["MAIN ROAD", "ROAD", "TRACK"], _size, true, true];
-	if (count _roads > 0) then {
+	if (_roads isNotEqualTo []) then {
 		// Move marker position to the nearest road, if any
 		_pos = _roads select 0;
 	};

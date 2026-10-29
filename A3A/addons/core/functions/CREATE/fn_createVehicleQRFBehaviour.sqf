@@ -52,7 +52,7 @@ if (_vehicle isKindOf "Air" || _vehType in FactionGet(all,"vehiclesDropPod")) th
                 [_vehicle, _cargoGroup, _posDestination, _posOrigin] spawn A3A_fnc_OrbitalLanding;
             };
 
-            if !(_landPos isEqualTo [0,0,0]) then {
+            if (_landPos isNotEqualTo [0,0,0]) then {
                 _landPos set [2, 0];
                 _landPosBlacklist pushBack _landPos;
 
@@ -94,7 +94,7 @@ if (_vehicle isKindOf "Air" || _vehType in FactionGet(all,"vehiclesDropPod")) th
         } forEach _landPosBlacklist;
 
         if (count units _cargoGroup > 3) then {
-            if !(_landPosAttackheli isEqualTo [0,0,0]) then
+            if (_landPosAttackheli isNotEqualTo [0,0,0]) then
             {
                 _landPosAttackheli set [2, 0];
                 _landPosBlacklist pushBack _landPosAttackheli;

@@ -81,7 +81,7 @@ while {_endTime > serverTime && !([_cancellationTokenUUID] call _fnc_cancelReque
     isNil {  // Run in unscheduled scope to prevent parallel filtering.
         _allRenderers = _allRenderers select {
             !isNull _x &&
-            {!(getPlayerUID _x isEqualTo "")} &&
+            {(getPlayerUID _x isNotEqualTo "")} &&
             {!(_storageNamespace getVariable [getPlayerUID _x, false])}
         };    // Per napalm as every effect needs to be rendered.
         { _storageNamespace setVariable [getPlayerUID _x, true]; } forEach _allRenderers;

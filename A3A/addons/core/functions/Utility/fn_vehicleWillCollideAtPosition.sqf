@@ -84,7 +84,7 @@ private _heightOffset = (_boundingBox select 1 select 2) - (_boundingBox select 
 	];
 
 	private _result = lineIntersectsSurfaces [AGLToASL _startPos, AGLToASL _endPos, objNull, objNull, false, 1, "FIRE", "FIRE"]; 
-	if (count _result > 0) exitWith { 
+	if (_result isNotEqualTo []) exitWith { 
 		_collision = true;
 	}; 
 } forEach _lines; 

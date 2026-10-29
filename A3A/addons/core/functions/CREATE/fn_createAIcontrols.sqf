@@ -57,7 +57,7 @@ if (_isControl) then
     {
         _roads = _positionX nearRoads _radiusX;
         _roads = _roads select { count (roadsConnectedTo _x) == 2 };
-        if (count _roads > 0) exitWith {};
+        if (_roads isNotEqualTo []) exitWith {};
         _radiusX = _radiusX + 10;
     };
 
@@ -208,7 +208,7 @@ else
 {
     _markersX = markersX select {(getMarkerPos _x distance _positionX < distanceSPWN) and (sidesX getVariable [_x,sideUnknown] == teamPlayer)};
     _markersX = _markersX - ["Synd_HQ"] - watchpostsFIA - roadblocksFIA - aapostsFIA - atpostsFIA - hmgpostsFIA;
-    _frontierX = if (count _markersX > 0) then {true} else {false};
+    _frontierX = _markersX isNotEqualTo [];
     if (_frontierX) then
     {
         _cfg =  selectRandom (_faction get "groupSpecOpsRandom");
@@ -272,11 +272,11 @@ while {(spawner getVariable _markerX != 2) and ({[_x,_markerX] call A3A_fnc_canC
         _spawnStatus = 1;
         if (isMultiplayer) then
         {
-            {if (vehicle _x == _x) then {[_x,false] remoteExec ["enableSimulationGlobal",2]}} forEach _soldiers
+            {if (isNull objectParent _x) then {[_x,false] remoteExec ["enableSimulationGlobal",2]}} forEach _soldiers
         }
         else
         {
-            {if (vehicle _x == _x) then {_x enableSimulationGlobal false}} forEach _soldiers
+            {if (isNull objectParent _x) then {_x enableSimulationGlobal false}} forEach _soldiers
         };
     }
     else
@@ -286,11 +286,11 @@ while {(spawner getVariable _markerX != 2) and ({[_x,_markerX] call A3A_fnc_canC
             _spawnStatus = 0;
             if (isMultiplayer) then
             {
-                {if (vehicle _x == _x) then {[_x,true] remoteExec ["enableSimulationGlobal",2]}} forEach _soldiers
+                {if (isNull objectParent _x) then {[_x,true] remoteExec ["enableSimulationGlobal",2]}} forEach _soldiers
             }
             else
             {
-                {if (vehicle _x == _x) then {_x enableSimulationGlobal true}} forEach _soldiers
+                {if (isNull objectParent _x) then {_x enableSimulationGlobal true}} forEach _soldiers
             };
         };
     };

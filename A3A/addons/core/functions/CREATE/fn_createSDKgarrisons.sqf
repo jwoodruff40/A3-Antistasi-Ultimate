@@ -101,7 +101,7 @@ if (_typeCrew in _garrison) then {
 
     // Process each position
     {
-        if (count _garrison == 0) exitWith {};
+        if (_garrison isEqualTo []) exitWith {};
         _x params ["_role", "_turretPath"];
         
         // Find rifleman in garrison
@@ -170,7 +170,7 @@ for "_i" from 0 to (count _groups) - 1 do {
 	_groupX = _groups select _i;
 	if (_i == 0) then {
 		private _garrisonGroup = [_groupX, getMarkerPos _markerX, _size] call A3A_fnc_patrolGroupGarrison;
-		if (count _garrisonGroup > 0) then {
+		if (_garrisonGroup isNotEqualTo []) then {
 			_groups append _garrisonGroup;
 		};
 	} else {

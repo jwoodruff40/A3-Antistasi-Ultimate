@@ -23,7 +23,7 @@ if (_positionTel distance2D (getMarkerPos _nearX) > 50) exitWith {
     [localize "STR_A3A_garrison_header", format [localize "STR_A3A_garrison_fail_not_markerzone",FactionGet(reb,"name")]] call SCRT_fnc_misc_deniedHint;
 };
 
-if (!(sidesX getVariable [_nearX,sideUnknown] == teamPlayer)) exitWith {
+if ((sidesX getVariable [_nearX,sideUnknown] != teamPlayer)) exitWith {
     [localize "STR_A3A_garrison_header", format [localize "STR_A3A_garrison_fail_not_teamplayer",FactionGet(reb,"name")]] call SCRT_fnc_misc_deniedHint;
 };
 
@@ -156,8 +156,8 @@ if (spawner getVariable _nearX != 2) then {
         if !(isNull leader _group) then { [_marker] remoteExec ["A3A_fnc_updateRebelStatics", 2] };
     };
 
-    waitUntil {sleep 1; spawner getVariable _nearX == 2 or {!(sidesX getVariable [_nearX,sideUnknown] == teamPlayer)}};
-    if (!(sidesX getVariable [_nearX,sideUnknown] == teamPlayer)) exitWith {_noDeletion = true};
+    waitUntil {sleep 1; spawner getVariable _nearX == 2 or {(sidesX getVariable [_nearX,sideUnknown] != teamPlayer)}};
+    if ((sidesX getVariable [_nearX,sideUnknown] != teamPlayer)) exitWith {_noDeletion = true};
 };
 
 if (!_noDeletion) then {

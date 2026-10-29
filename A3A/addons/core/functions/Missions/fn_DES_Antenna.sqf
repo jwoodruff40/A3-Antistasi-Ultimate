@@ -41,7 +41,7 @@ private _taskId = "DES" + str A3A_taskCount;
 	true
 	] call BIS_fnc_taskCreate;
 [_taskId, "DES", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
-waitUntil {sleep 1; dateToNumber date > _dateLimitNum or {!alive _antenna or {!(sidesX getVariable [_markerX,sideUnknown] == Occupants)}}};
+waitUntil {sleep 1; dateToNumber date > _dateLimitNum or {!alive _antenna or {(sidesX getVariable [_markerX,sideUnknown] != Occupants)}}};
 
 private _bonus = if (_difficultX) then {2} else {1};
 

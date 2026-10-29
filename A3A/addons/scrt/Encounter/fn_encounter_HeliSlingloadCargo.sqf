@@ -34,7 +34,7 @@ if ((_potentialOutposts isEqualTo []) && (_potentialControl isEqualTo [])) exitW
 
 private _outpost = locationNull;
 
-if ((random 100 <= 40) && !(_potentialControl isEqualTo [])) then {
+if ((random 100 <= 40) && _potentialControl isNotEqualTo []) then {
  	_outpost = selectRandom _potentialControl;
 } else {
 	_outpost = selectRandom _potentialOutposts;

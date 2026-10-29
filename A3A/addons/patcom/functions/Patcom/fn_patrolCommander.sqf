@@ -31,7 +31,7 @@ FIX_LINE_NUMBERS()
 params ["_group"];
 
 // We exit here if the group is empty. It's a waste of performance to handle empty groups.
-if (count units _group == 0) exitWith {
+if (units _group isEqualTo []) exitWith {
     if (PATCOM_DEBUG) then {
         ServerDebug_1("PATCOM | Group Eliminated, Exiting PATCOM Group: %1",_group);
     };
@@ -45,7 +45,7 @@ private _currentOrders = _patrolParams # 0;
 [leader _group] call A3A_fnc_patrolHandleFormation;
 
 // Check if enemy combat is near.
-if (count _knownEnemies > 0) then {
+if (_knownEnemies isNotEqualTo []) then {
     if ((_currentOrders != "Patrol_Attack") && (_currentOrders != "Patrol_Water")) then {
             _group setVariable ["PATCOM_Previous_Orders", _currentOrders];
 

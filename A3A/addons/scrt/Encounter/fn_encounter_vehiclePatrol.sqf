@@ -16,7 +16,7 @@ private _originPosition = position _player;
 
 private _frontLine = (outposts + milbases + airportsX + resourcesX + factories + citiesX) select {([_x] call A3A_fnc_isFrontlineNoFIA && {sidesX getVariable [_x,sideUnknown] != teamPlayer})};
 
-if !(_frontLine isEqualTo []) exitWith {
+if _frontLine isNotEqualTo [] exitWith {
     Error("Position is near frontline, need to select appropriate event.");
     isEventInProgress = false;
     publicVariableServer "isEventInProgress";
@@ -40,12 +40,12 @@ private _radiusX = 5;
 
 while {true} do {
     _road = _spawnPosition nearRoads _radiusX;
-    if (count _road > 0) exitWith {};
+    if (_road isNotEqualTo []) exitWith {};
     _radiusX = _radiusX + 5;
 };
 
 private _roadcon = roadsConnectedTo (_road select 0);
-private _dirveh = if (count _roadcon > 0) then {[_road select 0, _roadcon select 0] call BIS_fnc_dirTo} else {random 360};
+private _dirveh = if (_roadcon isNotEqualTo []) then {[_road select 0, _roadcon select 0] call BIS_fnc_dirTo} else {random 360};
 private _roadPosition = getPos (_road select 0);
 
 private _outpost = selectRandom _potentialOutposts;
@@ -97,7 +97,7 @@ private _relativePositions = [];
     private _radiusX = 5;
     while {true} do {
         _road = _rndPosition nearRoads _radiusX;
-        if (count _road > 0) exitWith {};
+        if (_road isNotEqualTo []) exitWith {};
         _radiusX = _radiusX + 5;
     };
     private _roadPosition = getPos (_road select 0);

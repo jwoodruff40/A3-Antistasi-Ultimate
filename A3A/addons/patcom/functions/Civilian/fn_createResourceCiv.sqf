@@ -35,7 +35,7 @@ if (_markerX in destroyedSites) exitWith {
     nil;
 };
 
-if !(_daystate == "DAY") exitWith {
+if (_daystate != "DAY") exitWith {
     ServerDebug("Civilian Workers are outside of working hours and have not spawned.");
     nil;
 };

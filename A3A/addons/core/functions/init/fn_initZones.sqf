@@ -164,11 +164,11 @@ if (debug) then {
     Debug("Radio Tower built.");
     Debug("Finding broken Radio Towers.");
 };
-if (count _posAntennas > 0) then {
+if (_posAntennas isNotEqualTo []) then {
 	for "_i" from 0 to (count _posAntennas - 1) do {
 		_antennaProv = nearestObjects [_posAntennas select _i, _antennaTypes, 35];
 
-		if (count _antennaProv > 0) then {
+		if (_antennaProv isNotEqualTo []) then {
 			_antenna = _antennaProv select 0;
 
 			if (_i in _blacklistIndex) then {
@@ -215,11 +215,11 @@ if (count _posAntennas > 0) then {
 if (debug) then {
 	Error("Broken Radio Towers identified.");
 };
-if (count _posBank > 0) then {
+if (_posBank isNotEqualTo []) then {
 	for "_i" from 0 to (count _posBank - 1) do {
 		_bankProv = nearestObjects [_posBank select _i, _banktypes, 30];
 
-		if (count _bankProv > 0) then {
+		if (_bankProv isNotEqualTo []) then {
 			private _banco = _bankProv select 0;
 			banks = banks + [_banco];
 		};
@@ -233,7 +233,7 @@ blackListDest = (markersX - controlsX - ["Synd_HQ"] - citiesX) select {
 	private _nearRoads = (getMarkerPos _x) nearRoads (([_x] call A3A_fnc_sizeMarker) * 1.5);
 //	_nearRoads = _nearRoads inAreaArray _x;
 	private _badSurfaces = ["#GdtForest", "#GdtRock", "#GdtGrassTall"];
-	private _idx = _nearRoads findIf { !(surfaceType (position _x) in _badSurfaces) && { count roadsConnectedTo _x != 0 } };
+	private _idx = _nearRoads findIf { !(surfaceType (position _x) in _badSurfaces) && { roadsConnectedTo _x isNotEqualTo [] } };
 	if (_idx == -1) then {true} else {false};
 };
 
@@ -331,8 +331,8 @@ _milAdminPositions apply {
     }];
 };
 
-if !(_milAdminMarkersToUpdate isEqualTo []) then {[_milAdminMarkersToUpdate] call A3U_fnc_mrkUpdateBulk};
-if !(mrkAntennas isEqualTo []) then {[mrkAntennas] call A3U_fnc_mrkUpdateBulk};
+if _milAdminMarkersToUpdate isNotEqualTo [] then {[_milAdminMarkersToUpdate] call A3U_fnc_mrkUpdateBulk};
+if (mrkAntennas isNotEqualTo []) then {[mrkAntennas] call A3U_fnc_mrkUpdateBulk};
 
 // markersX append milAdministrationsX;
 

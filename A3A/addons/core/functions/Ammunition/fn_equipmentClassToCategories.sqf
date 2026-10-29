@@ -15,7 +15,7 @@ params ["_className", "_itemType"];
 
 // First check if the item has hardcoded categories
 private _categories = A3A_categoryOverrides getVariable [_className, []];
-if (count _categories > 0) exitWith { _categories };
+if (_categories isNotEqualTo []) exitWith { _categories };
 
 if (isNil "_itemType") then { _itemType = _className call A3A_fnc_itemType };
 

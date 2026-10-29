@@ -31,7 +31,7 @@ for "_i" from 0 to (count _houses) - 1 do {
 	_posHouse = [_houseX] call BIS_fnc_buildingPositions;
 	if (count _posHouse > 1) then {_potentials pushBack _houseX};
 };
-if (count _potentials > 0) then {
+if (_potentials isNotEqualTo []) then {
 	_houseX = selectRandom _potentials;
 	_spawnPos = _houseX;
 	_posHouse = [_houseX] call BIS_fnc_buildingPositions;
@@ -46,7 +46,7 @@ if (count _potentials > 0) then {
 	};
 };
 private _taskId = "RES" + str A3A_taskCount;
-if (count _potentials > 0) then {
+if (_potentials isNotEqualTo []) then {
 	[[teamPlayer,civilian],_taskId,[format [localize "STR_A3A_Missions_RES_Deserters_task_desc",_nameDest,_displayTime],localize "STR_A3A_Missions_RES_Deserters_task_header",_markerX],_spawnPos,false,0,true,"run",true] call BIS_fnc_taskCreate;///add stringtables
 	[_taskId, "RES", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 } else {
@@ -120,7 +120,7 @@ private _unitTypes = [(_faction get "unitMilitiaGrunt"),(_faction get "unitMilit
 for "_i" from 0 to _countX do {
 	_unitRandom = selectRandom _unitTypes;
 	if (_sideX == Occupants) then {
-		if (count _potentials > 0) then {
+		if (_potentials isNotEqualTo []) then {
 			
 			_unit = [_grpDeserters, _unitRandom,_spawnPos, [], 3, "NONE"] call A3A_fnc_createUnit;
 			[_unit, createHashMapFromArray [["face", selectRandom (A3A_faction_occ get "faces")], ["speaker", selectRandom (A3A_faction_occ get "voices")]]] call A3A_fnc_setIdentity;
@@ -129,7 +129,7 @@ for "_i" from 0 to _countX do {
 			[_unit, createHashMapFromArray [["face", selectRandom (A3A_faction_occ get "faces")], ["speaker", selectRandom (A3A_faction_occ get "voices")]]] call A3A_fnc_setIdentity;
 		};
 	} else {
-		if (count _potentials > 0) then {
+		if (_potentials isNotEqualTo []) then {
 			_unit = [_grpDeserters, _unitRandom, (_posHouse select _i), [], 0, "NONE"] call A3A_fnc_createUnit;
 			[_unit, createHashMapFromArray [["face", selectRandom (A3A_faction_inv get "faces")], ["speaker", selectRandom (A3A_faction_inv get "voices")]]] call A3A_fnc_setIdentity;
 		} else {

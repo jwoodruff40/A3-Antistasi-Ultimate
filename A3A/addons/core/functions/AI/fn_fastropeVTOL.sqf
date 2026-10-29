@@ -171,7 +171,7 @@ _driver action ["VTOLVectoringCancel", _veh];
 _driver enableAI "MOVE";
 _driver enableAI "PATH";
 
-waitUntil {sleep 1; (not alive _veh) or ((count assignedCargo _veh == 0) and (([_veh] call A3A_fnc_countAttachedObjects) == 0))};
+waitUntil {sleep 1; (not alive _veh) or ((assignedCargo _veh isEqualTo []) and (([_veh] call A3A_fnc_countAttachedObjects) == 0))};
 
 sleep 3;
 

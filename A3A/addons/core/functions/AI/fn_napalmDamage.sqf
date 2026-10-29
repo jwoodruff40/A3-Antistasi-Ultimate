@@ -82,7 +82,7 @@ switch (true) do {
             clearItemCargoGlobal _victim;
             clearBackpackCargoGlobal _victim;';
 
-        if !(getAllHitPointsDamage _victim isEqualTo []) then { // The static has a class entry, but its empty and getAllHitPointsDamage will return empty array
+        if getAllHitPointsDamage _victim isNotEqualTo [] then { // The static has a class entry, but its empty and getAllHitPointsDamage will return empty array
             _fnc_onTick = _fnc_onTick +
                 '_victim setHitPointDamage ["HitHull",(((_victim getHitPointDamage "HitHull") + ' + str _damagePerTick + ') min 0.8) max (_victim getHitPointDamage "HitHull")];'+ // Limited to avoid vehicle being destroyed. Will not decrease vehicle damage if it was initially above 80%
                 '{
@@ -97,7 +97,7 @@ switch (true) do {
             '_victim setVehicleTIPars [_thermalHeat, _thermalHeat, _thermalHeat];';
 
         private _horn = getArray (configFile >> "cfgVehicles" >> typeOf _victim >> "weapons");
-        if !(_horn isEqualTo []) then {
+        if _horn isNotEqualTo [] then {
             private _soundArray = getArray (configFile >> "cfgWeapons" >> _horn#0 >> "drySound");
             _soundArray params [["_sound",""],["_volume",1],["_pitch",1],["_range",250]];
             if (_sound == "") exitWith {};  // When fileExists becomes available on stable, use `fileExists (_soundArray#0 + ".wss")`

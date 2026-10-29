@@ -10,7 +10,7 @@ params [
 sleep random 5;
 
 if (time < _unit getVariable ["smokeUsed",time - 1]) exitWith {};
-if (vehicle _unit != _unit) exitWith {};
+if (!isNull objectParent _unit) exitWith {};
 if (!isNull _enemy && {_enemy distance _unit > 450}) exitWith {};
 if (!(_unit call A3A_fnc_canFight)) exitWith {};
 

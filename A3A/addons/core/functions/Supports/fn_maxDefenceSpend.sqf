@@ -127,7 +127,7 @@ else
         if !(_x call A3A_fnc_canFight) then { continue };
         if (vehicle _x isKindOf "Air") then { continue };
         _enemyStr = _enemyStr + ([10, 30] select isPlayer _x);          // TODO: parameterize player multiplier
-        if (vehicle _x != _x and {_x == gunner vehicle _x}) then {
+        if (!isNull objectParent _x and {_x == gunner vehicle _x}) then {
             _enemyStr = _enemyStr + (A3A_groundVehicleThreat getOrDefault [typeOf vehicle _x, 0]);
         };
     } forEach _nearEnemies;
@@ -141,7 +141,7 @@ else
         if (_x getVariable ["A3A_resPool", ""] isEqualTo "defence") then { continue };      // accounted for in supportSpends
         _friendStr = _friendStr + 10;
         // Don't include friendly statics atm because they're not remanned and not registered in recentDamage if gunner killed 
-        //if (vehicle _x != _x and {_x == gunner vehicle _x}) then {
+        //if (!isNull objectParent _x and {_x == gunner vehicle _x}) then {
         //    _friendStr = _friendStr + (A3A_groundVehicleThreat getOrDefault [typeOf vehicle _x, 0]);
         //};
     } forEach _nearFriends;

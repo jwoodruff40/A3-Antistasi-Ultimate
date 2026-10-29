@@ -37,7 +37,7 @@ outlw_MR_createDialog =
 	outlw_MR_blur ppEffectAdjust [1.5];
 	outlw_MR_blur ppEffectCommit 0;
 
-	if (vehicle player == player) then
+	if (isNull objectParent player) then
 	{
 		_stance = "Pknl";
 		_raised = "Sras";

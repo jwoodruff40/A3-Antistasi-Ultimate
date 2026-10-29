@@ -131,7 +131,7 @@ switch (_mode) do
         private _aiAutoLootIcon = _display displayCtrl A3A_IDC_AIAUTOLOOTICON;
         private _aiAutoHealButton = _display displayCtrl A3A_IDC_AIAUTOHEALBUTTON;
         private _aiAutoHealIcon = _display displayCtrl A3A_IDC_AIAUTOHEALICON;
-        if (count _lbSelection > 0) then {
+        if (_lbSelection isNotEqualTo []) then {
             _aiDismissButton ctrlEnable true;
             _aiDismissButton ctrlSetTooltip "";
             _aiDismissIcon ctrlSetTextColor ([QUOTE(A3A_COLOR_WHITE)] call A3A_fnc_configColorToArray);

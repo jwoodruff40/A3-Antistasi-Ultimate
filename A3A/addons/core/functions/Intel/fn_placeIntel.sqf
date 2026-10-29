@@ -53,7 +53,7 @@ private _searchArray = _listvnslum
 
 private _allBuildings = nearestObjects [getMarkerPos _marker, _searchArray, _radius, true];
 
-if(count _allBuildings == 0) exitWith {
+if(_allBuildings isEqualTo []) exitWith {
 	ServerInfo_1("No suitable buildings found on marker %1",_marker);
 };
 

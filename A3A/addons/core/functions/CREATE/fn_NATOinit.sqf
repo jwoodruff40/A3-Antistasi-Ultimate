@@ -237,7 +237,7 @@ if (sunOrMoon < 1) then { // Night time conditions
         private _lamps = _weaponItems arrayIntersect allLightAttachments;
         if (_lamps isEqualTo []) then {
             private _compatibleLamps = (compatibleItems (primaryWeapon _unit)) arrayIntersect allLightAttachments;
-            if !(_compatibleLamps isEqualTo []) then {
+            if _compatibleLamps isNotEqualTo [] then {
                 _lamp = selectRandom _compatibleLamps;
                 _unit addPrimaryWeaponItem _lamp;
                 _unit assignItem _lamp;
@@ -263,7 +263,7 @@ if (sunOrMoon < 1) then { // Night time conditions
         };
     } else { // Elite units handling
         private _arr = (allNVGs arrayIntersect (items _unit));
-        if (count _arr > 0) then {
+        if (_arr isNotEqualTo []) then {
             _hmd = _arr select 0;
             _unit removeItem _hmd;
         };

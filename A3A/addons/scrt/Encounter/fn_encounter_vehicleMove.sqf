@@ -40,12 +40,12 @@ private _radiusX = 5;
 
 while {true} do {
     _road = _spawnPosition nearRoads _radiusX;
-    if (count _road > 0) exitWith {};
+    if (_road isNotEqualTo []) exitWith {};
     _radiusX = _radiusX + 5;
 };
 
 private _roadcon = roadsConnectedTo (_road select 0);
-private _dirveh = if (count _roadcon > 0) then {[_road select 0, _roadcon select 0] call BIS_fnc_dirTo} else {random 360};
+private _dirveh = if (_roadcon isNotEqualTo []) then {[_road select 0, _roadcon select 0] call BIS_fnc_dirTo} else {random 360};
 private _roadPosition = getPos (_road select 0);
 
 private _truckClass = selectRandom ((_faction get "vehiclesAmmoTrucks") + (_faction get "vehiclesRepairTrucks") + (_faction get "vehiclesFuelTrucks") + (_faction get "vehiclesMedical"));

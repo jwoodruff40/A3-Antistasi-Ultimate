@@ -58,7 +58,7 @@ private _taskId = "LOG" + str A3A_taskCount;
 [] remoteExec ["A3A_fnc_SalvageRope", 0, true];
 
 Debug("Mission created, waiting for players to get near");
-waitUntil {sleep 1;(dateToNumber date > _dateLimitNum) or ((spawner getVariable _markerX != 2) and !(sidesX getVariable [_markerX,sideUnknown] == teamPlayer))};
+waitUntil {sleep 1;(dateToNumber date > _dateLimitNum) or ((spawner getVariable _markerX != 2) and (sidesX getVariable [_markerX,sideUnknown] != teamPlayer))};
 Debug("players in spawning range, starting spawning");
 
 private _boxPos = selectRandom [_mrk1Pos, _mrk2Pos, _mrk3Pos];
@@ -191,7 +191,7 @@ deleteVehicle _ship;
 [_vehCrewGroup] spawn A3A_fnc_groupDespawner;
 [_veh] spawn A3A_fnc_vehDespawner;
 if (_typeSDV != "") then {
-	[_SDVcrewGroup] spawn A3A_fnc_groupDespawner;
+	[_diversGroup2] spawn A3A_fnc_groupDespawner;
 	[_diversGroup] spawn A3A_fnc_groupDespawner;
 	[_vehSDV] spawn A3A_fnc_vehDespawner;
 };

@@ -43,7 +43,7 @@ if(hasInterface)then{
         true,
         false,
         "",
-        "alive _target && {_target distance _this < 5} && {vehicle player == player}"
+        "alive _target && {_target distance _this < 5} && {isNull objectParent player}"
     ];
 
     //add vehicle/box filling button
@@ -120,7 +120,7 @@ if(hasInterface)then{
         true,
         false,
         "",
-        "alive _target && {_target distance _this < 5 && {vehicle player == player}}"
+        "alive _target && {_target distance _this < 5 && {isNull objectParent player}}"
     ];
 
     //add quick equip button
@@ -149,7 +149,7 @@ if(hasInterface)then{
         true,
         false,
         "",
-        "alive _target && {_target distance _this < 5} && {vehicle player == player}"
+        "alive _target && {_target distance _this < 5} && {isNull objectParent player}"
     ];
 
     //add open event

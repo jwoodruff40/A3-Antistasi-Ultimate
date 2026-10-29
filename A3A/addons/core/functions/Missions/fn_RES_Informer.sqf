@@ -77,7 +77,7 @@ if (isNil "_buildings" || {count _buildings < 0}) exitWith {
     ["RES"] remoteExec ["A3A_fnc_missionRequest",2];
 };
 
-private _capableBuildings = _buildings select {!(([_x] call BIS_fnc_buildingPositions) isEqualTo []) && {!(isObjectHidden _x)}};
+private _capableBuildings = _buildings select {([_x] call BIS_fnc_buildingPositions) isNotEqualTo [] && {!(isObjectHidden _x)}};
 
 if (isNil "_capableBuildings" || {count _capableBuildings < 0}) exitWith {
     Error("Problems with city buildings, rerequesting new rescue mission.");
@@ -198,7 +198,7 @@ for "_i" from 0 to _roadblockCount do {
 	while {_radiusX < 500} do {
 		_roads = _rawPosition nearRoads _radiusX;
 		_roads = _roads select { count (roadsConnectedTo _x) == 2 };
-		if (count _roads > 0) exitWith {};
+		if (_roads isNotEqualTo []) exitWith {};
 		_radiusX = _radiusX + 20;
 	};
 
@@ -211,7 +211,7 @@ for "_i" from 0 to _roadblockCount do {
     };
 
     //no roads at all, aborting
-    if (_i == 0 && {(isNil "_roads" || count _roads < 1)}) exitWith {
+    if (_i == 0 && {(isNil "_roads" || _roads isEqualTo [])}) exitWith {
         _earlyEscape = true;
     };
 

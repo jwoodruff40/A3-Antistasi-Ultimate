@@ -121,7 +121,7 @@ if !(_markerX in airportsX) then
 {
 	// clear killzones from nearest friendly airfield to enable reinforcements
 	private _friendlyAirports = airportsX select { _winner == sidesX getVariable [_x, sideUnknown] };
-	if (count _friendlyAirports > 0) then
+	if (_friendlyAirports isNotEqualTo []) then
 	{
 		private _nearAirport = [_friendlyAirports, _markerX] call BIS_fnc_nearestPosition;
 		private _kzlist = killZones getVariable [_nearAirport, []];

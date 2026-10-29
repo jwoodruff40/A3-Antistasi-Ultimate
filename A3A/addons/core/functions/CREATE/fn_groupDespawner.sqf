@@ -3,7 +3,7 @@ params ["_group", ["_checkNonRebel", false]];
 if (!isNil { _group getVariable "A3A_despawnerHandle" }) exitWith {};
 _group setVariable ["A3A_despawnerHandle", _thisScript];			// only meaningful locally
 
-if (count units _group == 0) exitWith { deleteGroup _group };
+if (units _group isEqualTo []) exitWith { deleteGroup _group };
 
 // Strip spawner status. If the group is waiting to despawn then it's no longer active
 {
@@ -30,7 +30,7 @@ private _fnc_distCheckRebel = {
 
 _fnc_distCheck = if (_checkNonRebel) then {_fnc_distCheckEnemy} else {_fnc_distCheckRebel};
 
-while {count units _group > 0} do
+while {units _group isNotEqualTo []} do
 {
 	private _leader = objNull;
 	waitUntil {
@@ -43,7 +43,7 @@ while {count units _group > 0} do
 		private _pos = position _leader;
 		{
 			if (_x distance2D _pos < 100) then {
-				if (vehicle _x != _x) then { deleteVehicle (vehicle _x) };
+				if (!isNull objectParent _x) then { deleteVehicle (vehicle _x) };
 				deleteVehicle _x;
 			};
 		} forEach units _group;

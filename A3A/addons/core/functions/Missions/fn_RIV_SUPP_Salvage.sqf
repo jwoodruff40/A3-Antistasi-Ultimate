@@ -75,7 +75,7 @@ private _radiusX = 5;
 
 while {true} do {
     _roads = _startNode nearRoads _radiusX;
-    if (count _roads > 0 && {_roads findIf {[position _x, _positionX] call A3A_fnc_arePositionsConnected} != -1}) exitWith {};
+    if (_roads isNotEqualTo [] && {_roads findIf {[position _x, _positionX] call A3A_fnc_arePositionsConnected} != -1}) exitWith {};
     _radiusX = _radiusX + 5;
 };
 
@@ -91,7 +91,7 @@ private _radiusX = 5;
 
 while {true} do {
     _roads = _midPoint nearRoads _radiusX;
-    if (count _roads > 0) exitWith {};
+    if (_roads isNotEqualTo []) exitWith {};
     _radiusX = _radiusX + 5;
 };
 
@@ -104,7 +104,7 @@ private _radiusX = 5;
 
 while {true} do {
     _roads = _midMidPoint nearRoads _radiusX;
-    if (count _roads > 0) exitWith {};
+    if (_roads isNotEqualTo []) exitWith {};
     _radiusX = _radiusX + 5;
 };
 private _midRoad = _roads select 0;
@@ -243,7 +243,7 @@ if (dateToNumber date < _dateLimitNum) then {
 
 	private _barricadePos = position _nextRoad;
 	private _roadcon = roadsConnectedTo _nextRoad;
-	private _dirBarricade = if (count _roadcon > 0) then {[_nextRoad, _roadcon select 0] call BIS_fnc_dirTo} else {random 360};
+	private _dirBarricade = if (_roadcon isNotEqualTo []) then {[_nextRoad, _roadcon select 0] call BIS_fnc_dirTo} else {random 360};
 	private _barricadeTypes = [
 		"Land_Barricade_01_10m_F", 
 		"Land_Barricade_01_4m_F", 

@@ -88,7 +88,7 @@ _openList pushBack [_startNav, 0, [_startNav select 0, _endNav select 0] call A3
 missionNamespace setVariable [format ["PF_%1", str (_startNav select 0)], WORKSTATE_OPENED];
 _touchedNodes pushBack (str (_startNav select 0));
 
-while {(!(_lastNav isEqualType [])) && {count _openList > 0}} do
+while {(!(_lastNav isEqualType [])) && {_openList isNotEqualTo []}} do
 {
     //Select node with lowest score
     private _current = _openList deleteAt 0;

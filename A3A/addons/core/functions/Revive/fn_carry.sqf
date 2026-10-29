@@ -33,7 +33,7 @@ waitUntil {sleep 0.5;
 	!(_carry getVariable ["incapacitated",false]) or
 	(_carrier getVariable ["A3A_cancelCarry", false]) or
 	(time > _timeOut) or
-	(vehicle _carrier != _carrier)
+	(!isNull objectParent _carrier)
 };
 
 [] call SCRT_fnc_misc_updateRichPresence;

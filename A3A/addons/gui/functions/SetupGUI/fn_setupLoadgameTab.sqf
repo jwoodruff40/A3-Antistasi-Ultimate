@@ -167,7 +167,7 @@ switch (_mode) do
         } else {
             A3A_setup_saveData select _rowIndex;
         };
-        if (!(worldName == _saveData get "map")) exitWith {};
+        if ((worldName != _saveData get "map")) exitWith {};
 
         ["startGame"] call A3A_fnc_setupLoadgameTab;
     };

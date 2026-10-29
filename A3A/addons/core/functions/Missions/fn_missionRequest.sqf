@@ -11,7 +11,7 @@ A3A_missionRequestInProgress = true;
 if(isNil "_type" || {!(isNil "_type") && (_type isEqualTo "RAN")}) then {
 	private _types = ["CON","DES","LOG","SUPP","RES","CONVOY"];
 	_type = selectRandom (_types - A3A_activeTasks);
-	_silent = !(_type isEqualTo "RAN");
+	_silent = (_type isNotEqualTo "RAN");
 }; // tfw you add a "random mission" button just to realize it already checks for isNil anyway
 if (isNil "_type" or leader group petros != petros) exitWith { A3A_missionRequestInProgress = nil };
 if (_type in A3A_activeTasks) exitWith {
@@ -335,7 +335,7 @@ switch (_type) do {
 	};
 };
 
-if (count _possibleMarkers > 0) then {
+if (_possibleMarkers isNotEqualTo []) then {
 	if (!_silent) then {
 		[petros, "globalChat", localize "STR_chats_mission_request_success"] remoteExec ["A3A_fnc_commsMP",_requester]
 	};

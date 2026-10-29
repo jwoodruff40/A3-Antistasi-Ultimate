@@ -109,7 +109,7 @@ switch (_mode) do
         // Check if AI Management is available
         switch (true) do
         {
-            case !(leader player == player):
+            case (leader player != player):
             {
                 _aiManagementTooltipText = localize "STR_antistasi_dialogs_main_ai_management_sl_tooltip";
             };

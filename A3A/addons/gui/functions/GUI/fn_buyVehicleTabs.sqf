@@ -91,9 +91,9 @@ if (_tab isEqualTo "vehicles") then
         _label ctrlSetPosition [36 * GRID_W, 0.55 * GRID_H, 8 * GRID_W, 8 * GRID_H];
         private _dlc = "";
         private _addons = configSourceAddonList _configClass;
-        if (count _addons > 0) then {
+        if (_addons isNotEqualTo []) then {
         	private _mods = configSourceModList (configFile >> "CfgPatches" >> _addons select 0);
-        	if (count _mods > 0) then {
+        	if (_mods isNotEqualTo []) then {
         		_dlc = _mods select 0;
         	};
         };

@@ -39,7 +39,7 @@ private _potentialSites = outposts + milbases + airportsX;
 _potentialSites = _potentialSites select {sidesX getVariable [_x,sideUnknown] != teamPlayer};
 private _deliverySite = getMarkerPos _markerX;
 
-if (count _potentialSites > 0) then {
+if (_potentialSites isNotEqualTo []) then {
     //TODO: find closest enemy outposts
     _randomEnemySite = selectRandom _potentialSites;
     _deliverySite = getMarkerPos _randomEnemySite;
@@ -305,7 +305,7 @@ private _radiusX = 1500;
 private _roads = [];
 while {true} do {
 	_roads = (position _box) nearRoads _radiusX;
-	if (count _roads > 0) exitWith {};
+	if (_roads isNotEqualTo []) exitWith {};
 	_radiusX = _radiusX + 25;
 };
 private _roadR = _roads select 0;
@@ -614,13 +614,13 @@ if (_cargoVehicle distance _box < 50 || _cargoVehicle2 distance _box < 50 && (al
 
     Info("Departing.");
 
-    if(count waypoints _cargoVehicleGroup > 0) then {
+    if(waypoints _cargoVehicleGroup isNotEqualTo []) then {
         for "_i" from count waypoints _cargoVehicleGroup - 1 to 0 step -1 do {
             deleteWaypoint [_cargoVehicleGroup, _i];
         };
     };
     if (_searchHeliClass isNotEqualTo []) then {
-        if(count waypoints _heliInfGroup  > 0) then {
+        if(waypoints _heliInfGroup isNotEqualTo []) then {
             for "_i" from count waypoints _heliInfGroup  - 1 to 0 step -1 do {
                 deleteWaypoint [_heliInfGroup , _i];
             };
@@ -738,7 +738,7 @@ if (_cargoVehicle distance _box < 50 || _cargoVehicle2 distance _box < 50 && (al
                 _heliInfWp2 setWaypointBehaviour "SAFE";
             };
 
-            if(count waypoints _heliVehicleGroup > 0) then {
+            if(waypoints _heliVehicleGroup isNotEqualTo []) then {
                 for "_i" from count waypoints _heliVehicleGroup - 1 to 0 step -1 do {
                     deleteWaypoint [_heliVehicleGroup, _i];
                 };

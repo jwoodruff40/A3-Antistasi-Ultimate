@@ -29,7 +29,7 @@ _possibleTargets = _possibleTargets select {sidesX getVariable [_x,sideUnknown] 
 private _hqInfo = [A3A_curHQInfoOcc, A3A_curHQInfoInv] select (_side == Invaders);
 if (_targetSide == teamPlayer and _hqInfo >= 1) then { _possibleTargets pushBack "Synd_HQ" };
 
-if (count _possibleTargets == 0 || count _possibleStartBases == 0) exitWith {
+if (_possibleTargets isEqualTo [] || _possibleStartBases isEqualTo []) exitWith {
     Info("Attack found no suitable targets or no suitable start bases, aborting!"); [[], []];
 };
 Debug_2("%1 possible targets for attack found, possible start points are %2",count _possibleTargets,_possibleStartBases);

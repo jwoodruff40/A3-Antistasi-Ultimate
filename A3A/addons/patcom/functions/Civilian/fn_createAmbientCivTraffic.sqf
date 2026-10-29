@@ -59,7 +59,7 @@ private _roads = nearestTerrainObjects [getMarkerPos _markerX, ["MAIN ROAD", "RO
 // no bridges or junctions
 _roads = _roads select { !(getRoadInfo _x # 8) and (count roadsConnectedTo [_x, true] <= 2) and (count (_x nearRoads 10) < 2)};
 
-if (count _roads == 0) exitWith
+if (_roads isEqualTo []) exitWith
 {
     Error_1("Roads not found for marker %1",_markerX);
 };
@@ -84,11 +84,11 @@ while {(spawner getVariable _spawnKey != 2) and (_countParked < _numParked)} do 
     private _road = roadAt _p1;
     
     if (!isNull _road) then {
-        if ((count (nearestObjects [_p1, ["Car", "Truck"], 5]) == 0) and !([50,1,_road,teamPlayer] call A3A_fnc_distanceUnits)) then {
+        if (((nearestObjects [_p1, ["Car", "Truck"], 5]) isEqualTo []) and !([50,1,_road,teamPlayer] call A3A_fnc_distanceUnits)) then {
             _dirveh = 0;
             private _roadcon = roadsConnectedTo [_road, true];
 
-            if (count _roadcon != 0) then {
+            if (_roadcon isNotEqualTo []) then {
                 private _p2 = getPosATL (_roadcon # 0);
                 _dirveh = _p1 getDir _p2;
             };
@@ -120,7 +120,7 @@ while {(spawner getVariable _spawnKey != 2) and (_countParked < _numParked)} do 
 };
 
 private _mrkMar = seaSpawn select {getMarkerPos _x inArea _markerX};
-if (count _mrkMar > 0) then {
+if (_mrkMar isNotEqualTo []) then {
     for "_i" from 0 to (round (random 3)) do {
         if (spawner getVariable _spawnKey != 2) then {
             _typeVehX = selectRandomWeighted civBoatsWeighted;
@@ -153,13 +153,13 @@ if ([_markerX,false] call A3A_fnc_fogCheck > 0.2) then {
     private _countTraffic = 0;
     private _patrolCities = [_markerX] call A3A_fnc_citiesToCivPatrol;
 
-    if (count _patrolCities > 0) then {
+    if (_patrolCities isNotEqualTo []) then {
         while {(spawner getVariable _spawnKey != 2) and (_countTraffic < _numTraffic)} do {
             private _p1 = selectRandom _roads;
             private _road = roadAt _p1;
             
             if (!isNull _road) then {
-                if (count (nearestObjects [_p1, ["Car", "Truck"], 5]) == 0) then {
+                if ((nearestObjects [_p1, ["Car", "Truck"], 5]) isEqualTo []) then {
 
                     // Create group and add them to patrol array for deletion later
                     private _groupP = createGroup civilian;

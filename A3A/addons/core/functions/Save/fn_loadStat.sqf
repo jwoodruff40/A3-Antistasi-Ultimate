@@ -474,7 +474,7 @@ if (_varName in specialVarLoads) then {
             A3A_fuelAmountleftArray = _varValue;
             for "_i" from 0 to (count A3A_fuelAmountleftArray - 1) do {
                 private _nearFuelStations = nearestObjects [A3A_fuelAmountleftArray # _i # 0, A3A_fuelStationTypes, 1];
-                if (count _nearFuelStations == 0) then { continue };
+                if (_nearFuelStations isEqualTo []) then { continue };
                 private _fuelStation = _nearFuelStations#0;
                 if(A3A_hasACE) then {
                     [_fuelStation, A3A_fuelAmountleftArray # _i # 1] call ace_refuel_fnc_setFuel;
@@ -515,7 +515,7 @@ if (_varName in specialVarLoads) then {
 		};
 
         case 'traderPosition': {
-			if(count _varvalue > 0) then {
+			if(_varvalue isNotEqualTo []) then {
                 traderX = [_varvalue] call SCRT_fnc_trader_createTrader; 
 				publicVariable "traderX";
 				[traderX] call SCRT_fnc_trader_setStockType;
@@ -596,12 +596,12 @@ if (_varName in specialVarLoads) then {
                     _mrk setMarkerColorLocal colorTeamPlayer;
                     _mrk setMarkerText "";
                     spawner setVariable [_mrk,2,true];
-                    if (count _garrison > 0) then {garrison setVariable [_mrk,_garrison,true]};
+                    if (_garrison isNotEqualTo []) then {garrison setVariable [_mrk,_garrison,true]};
                     sidesX setVariable [_mrk,teamPlayer,true];
                     watchpostsFIA pushBack _mrk;
                 } forEach _varvalue;
 
-                if !(watchpostsFIA isEqualTo []) then {[watchpostsFIA] remoteExec ["A3U_fnc_mrkUpdateBulk", 0, true]};
+                if (watchpostsFIA isNotEqualTo []) then {[watchpostsFIA] remoteExec ["A3U_fnc_mrkUpdateBulk", 0, true]};
 			};
 		};
 		case 'roadblocksFIA': {
@@ -615,12 +615,12 @@ if (_varName in specialVarLoads) then {
                     _mrk setMarkerColorLocal colorTeamPlayer;
                     _mrk setMarkerText "";
                     spawner setVariable [_mrk,2,true];
-                    if (count _garrison > 0) then {garrison setVariable [_mrk,_garrison,true]};
+                    if (_garrison isNotEqualTo []) then {garrison setVariable [_mrk,_garrison,true]};
                     sidesX setVariable [_mrk,teamPlayer,true];
                     roadblocksFIA pushBack _mrk;
                 } forEach _varvalue;
 
-                if !(roadblocksFIA isEqualTo []) then {[roadblocksFIA] remoteExec ["A3U_fnc_mrkUpdateBulk", 0, true]};
+                if (roadblocksFIA isNotEqualTo []) then {[roadblocksFIA] remoteExec ["A3U_fnc_mrkUpdateBulk", 0, true]};
 			};
 		};
 		case 'aapostsFIA': {
@@ -635,13 +635,13 @@ if (_varName in specialVarLoads) then {
                     _mrk setMarkerColorLocal colorTeamPlayer;
                     _mrk setMarkerText "";
                     spawner setVariable [_mrk,2,true];
-                    if (count _garrison > 0) then {garrison setVariable [_mrk,_garrison,true]};
-                    if (count _staticPositions > 0) then {staticPositions setVariable [_mrk,_staticPositions,true]};
+                    if (_garrison isNotEqualTo []) then {garrison setVariable [_mrk,_garrison,true]};
+                    if (_staticPositions isNotEqualTo []) then {staticPositions setVariable [_mrk,_staticPositions,true]};
                     sidesX setVariable [_mrk,teamPlayer,true];
                     aapostsFIA pushBack _mrk;
                 } forEach _varvalue;
 
-                if !(aapostsFIA isEqualTo []) then {[aapostsFIA] remoteExec ["A3U_fnc_mrkUpdateBulk", 0, true]};
+                if (aapostsFIA isNotEqualTo []) then {[aapostsFIA] remoteExec ["A3U_fnc_mrkUpdateBulk", 0, true]};
 			};	
 		};
 		case 'atpostsFIA': {
@@ -656,13 +656,13 @@ if (_varName in specialVarLoads) then {
                     _mrk setMarkerColorLocal colorTeamPlayer;
                     _mrk setMarkerText "";
                     spawner setVariable [_mrk,2,true];
-                    if (count _garrison > 0) then {garrison setVariable [_mrk,_garrison,true]};
-                    if (count _staticPositions > 0) then {staticPositions setVariable [_mrk,_staticPositions,true]};
+                    if (_garrison isNotEqualTo []) then {garrison setVariable [_mrk,_garrison,true]};
+                    if (_staticPositions isNotEqualTo []) then {staticPositions setVariable [_mrk,_staticPositions,true]};
                     sidesX setVariable [_mrk,teamPlayer,true];
                     atpostsFIA pushBack _mrk;
                 } forEach _varvalue;
 
-                if !(atpostsFIA isEqualTo []) then {[atpostsFIA] remoteExec ["A3U_fnc_mrkUpdateBulk", 0, true]};
+                if (atpostsFIA isNotEqualTo []) then {[atpostsFIA] remoteExec ["A3U_fnc_mrkUpdateBulk", 0, true]};
 			};		
 		};
 		case 'hmgpostsFIA': {
@@ -677,13 +677,13 @@ if (_varName in specialVarLoads) then {
                     _mrk setMarkerColorLocal colorTeamPlayer;
                     _mrk setMarkerText "";
                     spawner setVariable [_mrk,2,true];
-                    if (count _garrison > 0) then {garrison setVariable [_mrk,_garrison,true]};
-                    if (count _staticPositions > 0) then {staticPositions setVariable [_mrk,_staticPositions,true]};
+                    if (_garrison isNotEqualTo []) then {garrison setVariable [_mrk,_garrison,true]};
+                    if (_staticPositions isNotEqualTo []) then {staticPositions setVariable [_mrk,_staticPositions,true]};
                     sidesX setVariable [_mrk,teamPlayer,true];
                     hmgpostsFIA pushBack _mrk;
                 } forEach _varvalue;
 
-                if !(hmgpostsFIA isEqualTo []) then {[hmgpostsFIA] remoteExec ["A3U_fnc_mrkUpdateBulk", 0, true]};
+                if (hmgpostsFIA isNotEqualTo []) then {[hmgpostsFIA] remoteExec ["A3U_fnc_mrkUpdateBulk", 0, true]};
 			};
 		};
 

@@ -94,7 +94,7 @@ if (garrison getVariable [_markerX + "_samDestroyedCD", 0] == 0) then
 
 if (_frontierX) then {
 	private _roads = _positionX nearRoads _size;
-	if (count _roads != 0) then {
+	if (_roads isNotEqualTo []) then {
 		private _groupX = createGroup _sideX;
 		_groups pushBack _groupX;
 		private _typeVehX = selectRandom (_faction get "staticAT");
@@ -402,7 +402,7 @@ if (random 10 < (tierWar + difficultyCoef)) then {
 
 private _boatType = selectRandom (_faction get "vehiclesGunBoats");
 private _mrkMar = seaSpawn select {getMarkerPos _x inArea _markerX};
-if (count _mrkMar > 0) then {
+if (_mrkMar isNotEqualTo []) then {
 	private _pos = (getMarkerPos (_mrkMar select 0)) findEmptyPosition [0,20,_typeVehX];
 	private _vehicle=[_pos, 0,_boatType, _sideX] call A3A_fnc_spawnVehicle;
 	private _veh = _vehicle select 0;

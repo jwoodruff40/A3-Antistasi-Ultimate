@@ -92,17 +92,17 @@ if (_sideX == Invaders) then {
 	_dirVeh = 0;
 	_roads = [];
 	_radius = 20;
-	while {count _roads == 0} do
+	while {_roads isEqualTo []} do
 		{
 		_roads = (getPos _houseX) nearRoads _radius;
 		_radius = _radius + 10;
 		};
 	_road = _roads select 0;
 	_posroad = getPos _road;
-	_roadcon = roadsConnectedTo _road; if (count _roadCon == 0) then {
+	_roadcon = roadsConnectedTo _road; if (_roadCon isEqualTo []) then {
         Error_1("Road has no connection :%1.",position _road);
 		};
-	if (count _roadCon > 0) then
+	if (_roadCon isNotEqualTo []) then
 		{
 		_posrel = getPos (_roadcon select 0);
 		_dirveh = [_posroad,_posrel] call BIS_fnc_DirTo;

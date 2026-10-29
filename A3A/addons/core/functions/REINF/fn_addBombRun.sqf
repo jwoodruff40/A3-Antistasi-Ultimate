@@ -49,7 +49,7 @@ if (!(_veh isKindOf "Air")) exitWith {
 _typeX = typeOf _veh;
 
 if (isClass (configFile >> "CfgVehicles" >> _typeX >> "assembleInfo")) then {
-	if (count getArray (configFile >> "CfgVehicles" >> _typeX >> "assembleInfo" >> "dissasembleTo") > 0) then {
+	if ((getArray (configFile >> "CfgVehicles" >> _typeX >> "assembleInfo" >> "dissasembleTo")) isNotEqualTo []) then {
 		_exit = true;
 	};
 };

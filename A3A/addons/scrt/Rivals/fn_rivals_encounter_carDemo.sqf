@@ -48,13 +48,13 @@ private _radiusX = 5;
 
 while {true} do {
     _roads = _spawnPosition nearRoads _radiusX;
-    if (count _roads > 0) exitWith {};
+    if (_roads isNotEqualTo []) exitWith {};
     _radiusX = _radiusX + 5;
 };
 
 private _road = selectRandom _roads;
 private _roadcon = roadsConnectedTo _road;
-private _dirveh = if (count _roadcon != 0) then {[_road, _roadcon select 0] call BIS_fnc_dirTo} else {random 360};
+private _dirveh = if (_roadcon isNotEqualTo []) then {[_road, _roadcon select 0] call BIS_fnc_dirTo} else {random 360};
 private _roadPosition = getPos _road;
 
 private _vehicleClass = selectRandom arrayCivVeh;

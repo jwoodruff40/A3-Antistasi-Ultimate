@@ -152,7 +152,7 @@ private _taskId = "DES" + str A3A_taskCount;
 
 _artilleryVeh allowDamage true;
 
-waitUntil {sleep 1; dateToNumber date > _dateLimitNum or {!alive _artilleryVeh or {(spawner getVariable _markerX != 2 and !(sidesX getVariable [_markerX,sideUnknown] == teamPlayer))}}};
+waitUntil {sleep 1; dateToNumber date > _dateLimitNum or {!alive _artilleryVeh or {(spawner getVariable _markerX != 2 and (sidesX getVariable [_markerX,sideUnknown] != teamPlayer))}}};
 
 private _firedEh = nil;
 
@@ -210,7 +210,7 @@ if (alive _artilleryVeh) then {
     };
 };
 
-if ((spawner getVariable _markerX != 2) and {!(sidesX getVariable [_markerX,sideUnknown] == teamPlayer)}) then {
+if ((spawner getVariable _markerX != 2) and {(sidesX getVariable [_markerX,sideUnknown] != teamPlayer)}) then {
     //////////////
     //Infantry and MG
     /////////////

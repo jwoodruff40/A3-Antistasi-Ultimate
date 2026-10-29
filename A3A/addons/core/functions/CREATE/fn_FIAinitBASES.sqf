@@ -12,7 +12,7 @@ private  _markerX = "";
 if (count _this > 1) then {
 	_markerX = _this select 1;
 	_unit setVariable ["markerX",_markerX,true];
-	if ((spawner getVariable _markerX != 0) and (vehicle _unit != _unit)) then {
+	if ((spawner getVariable _markerX != 0) and (!isNull objectParent _unit)) then {
 		[_unit,false] remoteExec ["enableSimulationGlobal",2];
 	};
 };

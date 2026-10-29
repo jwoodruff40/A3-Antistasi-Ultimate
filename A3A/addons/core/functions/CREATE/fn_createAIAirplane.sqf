@@ -94,7 +94,7 @@ if (garrison getVariable [_markerX + "_samDestroyedCD", 0] == 0) then
 
 if (_frontierX) then {
 	_roads = _positionX nearRoads _size;
-	if (count _roads != 0) then {
+	if (_roads isNotEqualTo []) then {
 		private _groupX = createGroup _sideX;
 		_groups pushBack _groupX;
 		private _typeVehX = selectRandom (_faction get "staticAT");
@@ -222,7 +222,7 @@ if (!_busy) then {
 	private _ang = nil;
 	//Newer system in place
 	private _runwaySpawnLocation = [_markerX] call A3A_fnc_getRunwayTakeoffForAirportMarker;
-	if !(_runwaySpawnLocation isEqualTo []) then
+	if _runwaySpawnLocation isNotEqualTo [] then
 	{
 		_pos = _runwaySpawnLocation select 0;
 		_ang = _runwaySpawnLocation select 1;
@@ -268,7 +268,7 @@ if (!_busy) then {
 			_vehiclesX pushBack _veh;
 			[_veh, _sideX] call A3A_fnc_AIVEHinit;
 		} else {
-			if !(_runwaySpawnLocation isEqualTo []) then {
+			if _runwaySpawnLocation isNotEqualTo [] then {
 				private _vehiclesPlanesCAS = _faction get "vehiclesPlanesCAS";
 				private _vehiclesPlanesAA = _faction get "vehiclesPlanesAA";
 				private _vehiclesPlanesLargeCAS = _faction get "vehiclesPlanesLargeCAS";
@@ -503,7 +503,7 @@ for "_i" from 1 to _max do {
 
 private _boatType = selectRandom (_faction get "vehiclesGunBoats");
 private _mrkMar = seaSpawn select {getMarkerPos _x inArea _markerX};
-if (count _mrkMar > 0) then {
+if (_mrkMar isNotEqualTo []) then {
 	private _pos = (getMarkerPos (_mrkMar select 0)) findEmptyPosition [0,20,_typeVehX];
 	private _vehicle=[_pos, 0,_boatType, _sideX] call A3A_fnc_spawnVehicle;
 	private _veh = _vehicle select 0;

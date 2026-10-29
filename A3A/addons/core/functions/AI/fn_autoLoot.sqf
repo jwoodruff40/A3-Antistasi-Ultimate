@@ -14,7 +14,7 @@ _weaponX = "";
 _weaponsX = [];
 _bigTimeOut = time + 120;
 _objectsX = nearestObjects [_unit, ["WeaponHolderSimulated", "GroundWeaponHolder", "WeaponHolder"], 50];
-if (count _objectsX == 0) exitWith {_unit groupChat localize "STR_chats_autoloot_no_bodies"};
+if (_objectsX isEqualTo []) exitWith {_unit groupChat localize "STR_chats_autoloot_no_bodies"};
 
 _target = objNull;
 _distanceX = 51;
@@ -22,7 +22,7 @@ _distanceX = 51;
 _objectX = _x;
 if (_unit distance _objectX < _distanceX) then
 	{
-	if ((count weaponCargo _objectX > 0) and !(_objectX getVariable ["busy",false])) then
+	if ((weaponCargo _objectX isNotEqualTo []) and !(_objectX getVariable ["busy",false])) then
 		{
 		_weaponsX = weaponCargo _objectX;
 		for "_i" from 0 to (count _weaponsX - 1) do
@@ -149,7 +149,7 @@ while {_continuar and ([_unit] call A3A_fnc_canFight) and (_unit getVariable "re
 	_objectX = _x;
 	if (_unit distance _objectX < _distanceX) then
 		{
-		if ((count weaponCargo _objectX > 0) and !(_objectX getVariable ["busy",false])) then
+		if ((weaponCargo _objectX isNotEqualTo []) and !(_objectX getVariable ["busy",false])) then
 			{
 			_weaponsX = weaponCargo _objectX;
 			for "_i" from 0 to (count _weaponsX - 1) do

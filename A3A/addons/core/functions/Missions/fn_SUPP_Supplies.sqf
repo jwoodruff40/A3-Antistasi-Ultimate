@@ -55,7 +55,7 @@ _truckX setVariable ["destinationX",_nameDest,true];
 
 waitUntil {sleep 1; dateToNumber date > _dateLimitNum or {spawner getVariable _markerX != 2}};
 
-if ((spawner getVariable _markerX != 2) and {!(sidesX getVariable [_markerX,sideUnknown] == teamPlayer)}) then {
+if ((spawner getVariable _markerX != 2) and {(sidesX getVariable [_markerX,sideUnknown] != teamPlayer)}) then {
 	private _typeGroup = [
 	_faction get "groupPoliceTeam",
 		_faction get "groupPoliceSquad"
@@ -78,7 +78,7 @@ if ((dateToNumber date > _dateLimitNum) or {isNull _truckX}) then {
 } else {
 	private _countX = if (_difficultX) then {90} else {180};
 
-	if (_difficultX && {spawner getVariable _markerX != 2 && {!(sidesX getVariable [_markerX,sideUnknown] == teamPlayer)}}) then {
+	if (_difficultX && {spawner getVariable _markerX != 2 && {(sidesX getVariable [_markerX,sideUnknown] != teamPlayer)}}) then {
 		Info("Rebels in area, spawning additional group.");
 
 		private _typeGroup = [
@@ -106,7 +106,7 @@ if ((dateToNumber date > _dateLimitNum) or {isNull _truckX}) then {
 			if (side _x == Occupants and _x distance _positionX < distanceSPWN) then {
 				if (_x distance _positionX < 300) then {_x doMove _positionX} else {_x reveal [_friendX,4]};
 			};
-			if ((side _x == civilian) and (_x distance _positionX < 300) and (vehicle _x == _x)) then {_x doMove position _truckX};
+			if ((side _x == civilian) and (_x distance _positionX < 300) and (isNull objectParent _x)) then {_x doMove position _truckX};
 		} forEach allUnits;
 	} forEach ([300,0,_truckX,teamPlayer] call A3A_fnc_distanceUnits);
 

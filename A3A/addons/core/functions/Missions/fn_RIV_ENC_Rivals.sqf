@@ -45,7 +45,7 @@ while {true} do {
 };
 
 private _roadcon = roadsConnectedTo (selectRandom _road);
-private _dirveh = if(count _roadcon > 0) then {[_road select 0, _roadcon select 0] call BIS_fnc_dirTo} else {random 360};
+private _dirveh = if(_roadcon isNotEqualTo []) then {[_road select 0, _roadcon select 0] call BIS_fnc_dirTo} else {random 360};
 private _roadPosition = getPos (_road select 0);
 
 private _crater = createVehicle ["Crater", _roadPosition, [], 0, "NONE"];
@@ -65,7 +65,7 @@ _vehicles append [_crater, _crashedVehicle];
 
 private _damagedBuildings = (nearestObjects [_roadPosition, ["house"], 350]) select {(count ([_x] call BIS_fnc_buildingPositions)) > 0};
 private _damagedBuilding = nil;
-if (count _damagedBuildings > 0) then {
+if (_damagedBuildings isNotEqualTo []) then {
 	_damagedBuilding = selectRandom _damagedBuildings;
 	_damagedBuilding setDamage ((random 0.5)+0.4);
 	private _damagedBuildingPos = position _damagedBuilding;
@@ -389,7 +389,7 @@ while {true} do {
 };
 
 _roadcon = roadsConnectedTo (selectRandom _road);
-_dirveh = if(count _roadcon > 0) then {[_road select 0, _roadcon select 0] call BIS_fnc_DirTo} else {random 360};
+_dirveh = if(_roadcon isNotEqualTo []) then {[_road select 0, _roadcon select 0] call BIS_fnc_DirTo} else {random 360};
 _roadPosition = getPos (_road select 0);
 
 private _rivalVehData = [_roadPosition, 0, selectRandom (A3A_faction_riv get "vehiclesRivalsLightArmed"), Rivals] call A3A_fnc_RivalsSpawnVehicle;

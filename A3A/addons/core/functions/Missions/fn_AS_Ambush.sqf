@@ -45,7 +45,7 @@ private _potentialSites = (outposts + milbases + airportsX + resourcesX + factor
 };
 
 private _destinationSite = nil;
-if(count _potentialSites > 0) then {
+if(_potentialSites isNotEqualTo []) then {
     _destinationSite = selectRandom _potentialSites;
 };
 

@@ -65,7 +65,7 @@ try {
 		_items = "true" configClasses (_configCategory) apply {configName _x};
 
 		_duplicateClass = {_classes find _x > -1} count _items > 0;
-		_duplicateItem = !(count (_items arrayIntersect _items) isEqualTo count _items);
+		_duplicateItem = (count (_items arrayIntersect _items) isNotEqualTo count _items);
 		// if (_duplicateClass || _duplicateItem) then {
 			// throw [format ["Duplicate items [category: %1, type: %2]", toUpper _x, toUpper (_traderType select 0)], __LINE__];
 		// };

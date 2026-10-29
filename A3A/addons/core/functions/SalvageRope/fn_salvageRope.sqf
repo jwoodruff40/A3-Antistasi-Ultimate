@@ -4,7 +4,7 @@ private _filename = "fn_salvageRope.sqf";
 A3A_SR_canDeployWinch = { //can deploy winch if player is not in a vehicle, is within 10m, theres no rope deployed yet and the vehicle can load cargo
     private _vehicle = cursorTarget;
     if (_vehicle isKindOf "Ship") then {
-        vehicle player == player && player distance _vehicle < 10 && isNil {_vehicle getVariable "WinchRope"} && !([_vehicle, boxX] call A3A_Logistics_fnc_canLoad isEqualTo -7);
+        isNull objectParent player && player distance _vehicle < 10 && isNil {_vehicle getVariable "WinchRope"} && ([_vehicle, boxX] call A3A_Logistics_fnc_canLoad isNotEqualTo -7);
     } else {
         false;
     };
@@ -65,7 +65,7 @@ A3A_SR_canStow = { //can stow when the player is not in a vehicle, is within 10m
     private _helper = _vehicle getVariable ["WinchHelper", objNull];
     if (isNull _helper) exitWith {false};//this is the case when retrieving cargo
     private _attachedPlayer = attachedTo _helper;
-    vehicle player == player && player distance _vehicle < 10 && (!alive _attachedPlayer || player == _attachedPlayer); //only attached player unless dead
+    isNull objectParent player && player distance _vehicle < 10 && (!alive _attachedPlayer || player == _attachedPlayer); //only attached player unless dead
 };
 
 A3A_SR_stowRope = {

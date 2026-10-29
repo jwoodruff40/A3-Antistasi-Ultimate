@@ -26,7 +26,7 @@ if (units _group isEqualTo []) exitWith { deleteGroup _group };
 private _fnc_nearestBase = {
     params ["_group", "_potentials"];
 	_potentials = _potentials select { (spawner getVariable _x == 2) and (sidesX getVariable [_x, sideUnknown] == side _group) };
-	if (count _potentials == 0) exitWith {nil};
+	if (_potentials isEqualTo []) exitWith {nil};
     [_potentials, leader _group] call BIS_fnc_nearestPosition;
 };
 
@@ -36,7 +36,7 @@ if (!isNil "_AIScriptHandle") then { terminate _AIScriptHandle; };   // _group s
 
 // Remove any current waypoints
 // Turns out that this is actually bugged (for infantry?) and followed vs visible waypoints desync in unpredictable ways
-while {count waypoints _group > 0} do { deleteWaypoint [_group, 0] };
+while {waypoints _group isNotEqualTo []} do { deleteWaypoint [_group, 0] };
 
 // Group in vehicle
 if (vehicle leader _group != leader _group) exitWith

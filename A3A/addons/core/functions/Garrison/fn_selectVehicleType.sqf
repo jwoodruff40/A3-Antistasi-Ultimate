@@ -58,7 +58,7 @@ if(_preference in ["AIR_GENERIC", "AIR_DEFAULT"]) then {
     _possibleVehicles append (_faction get "vehiclesPlanesGunship");
 };
 
-if(count _possibleVehicles == 0) exitWith
+if(_possibleVehicles isEqualTo []) exitWith
 {
     //Error_1("No result for %1, assuming bad parameter!", _preference);
     "Empty";

@@ -105,7 +105,7 @@ _suppData set [4, 0];           // Set activesupport radius to zero, prevents ad
 //Have the plane fly back home
 if (canMove _uav) then
 {
-    while {count waypoints _groupVeh > 0} do { deleteWaypoint [_groupVeh, 0] };
+    while {waypoints _groupVeh isNotEqualTo []} do { deleteWaypoint [_groupVeh, 0] };
     private _wpBase = _groupVeh addWaypoint [markerPos _airport, 0];
     _wpBase setWaypointSpeed "NORMAL";
     _wpBase setWaypointBehaviour "CARELESS";

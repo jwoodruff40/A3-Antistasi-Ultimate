@@ -83,7 +83,7 @@ private _spawnPosition = [_originPosition, 1200, 2000, 8, 0, 1] call BIS_fnc_fin
 private _sites = (outposts + airportsX + resourcesX + factories + seaports + milbases) select {sidesX getVariable [_x, sideUnknown] != Rivals};
 
 //if too close to some outposts - reroll if possible
-if (count _sites > 0 && {_sites findIf {private _markerPos = getMarkerPos _x; _markerPos distance2D _spawnPosition < 800 } != -1 }) then {
+if (_sites isNotEqualTo [] && {_sites findIf {private _markerPos = getMarkerPos _x; _markerPos distance2D _spawnPosition < 800 } != -1 }) then {
     private _iterations = 0;
     private _radius = 1200;
     while {_iterations < 50} do {

@@ -220,7 +220,7 @@ player addEventHandler ["FiredMan", {
                 if (_player distance getMarkerPos _city < _size * 1.5) then {
                     [_player,false] remoteExec ["setCaptive",0,_player];
                     _player setCaptive false;
-                    if (vehicle _player != _player) then {
+                    if (!isNull objectParent _player) then {
                         {if (isPlayer _x) then {[_x,false] remoteExec ["setCaptive",0,_x]; _x setCaptive false}} forEach ((assignedCargo (vehicle _player)) + (crew (vehicle _player)) - [player]);
                     };
                 };

@@ -171,7 +171,7 @@ private _mainGunnerList = [];
         {
             //Currently not firing
             private _targetList = server getVariable [format ["%1_targets", _supportName], []];
-            if(count _targetList > 0) then
+            if(_targetList isNotEqualTo []) then
             {
                 Debug("Gunship | Using priority list");
                 //Priority target, execute first
@@ -210,7 +210,7 @@ private _mainGunnerList = [];
             }
             else
             {
-                if(count _mainGunnerList > 0) then
+                if(_mainGunnerList isNotEqualTo []) then
                 {
                     Debug("Gunship | Using target list");
                     private _targetParams = _mainGunnerList deleteAt 0;
@@ -306,7 +306,7 @@ private _heavyGunnerList = [];
         {
             //Currently not firing
             private _targetList = server getVariable [format ["%1_targets", _supportName], []];
-            if(count _targetList > 0) then
+            if(_targetList isNotEqualTo []) then
             {
                 Debug("Gunship | Using priority list");
                 //Priority target, execute first
@@ -345,7 +345,7 @@ private _heavyGunnerList = [];
             }
             else
             {
-                if(count _heavyGunnerList > 0) then
+                if(_heavyGunnerList isNotEqualTo []) then
                 {
                     Debug("Gunship | Using target list");
                     private _targetParams = _heavyGunnerList deleteAt 0;
@@ -441,7 +441,7 @@ private _thirdGunnerList = [];
         {
             //Currently not firing
             private _targetList = server getVariable [format ["%1_targets", _supportName], []];
-            if(count _targetList > 0) then
+            if(_targetList isNotEqualTo []) then
             {
                 Debug("Gunship | Using priority list");
                 //Priority target, execute first
@@ -480,7 +480,7 @@ private _thirdGunnerList = [];
             }
             else
             {
-                if(count _thirdGunnerList > 0) then
+                if(_thirdGunnerList isNotEqualTo []) then
                 {
                     Debug("Gunship | Using target list");
                     private _targetParams = _thirdGunnerList deleteAt 0;
@@ -534,7 +534,7 @@ while {_lifeTime > 0} do
         };
         Debug_2("%1 found %2 targets in its area",_supportName,count _targets);
 
-        if(count _targets > 0) then
+        if(_targets isNotEqualTo []) then
         {
             {
                 private _target = _x;

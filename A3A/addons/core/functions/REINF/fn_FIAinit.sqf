@@ -70,7 +70,7 @@ if (player == leader _unit) then {
 			_unit groupChat format [localize "STR_A3A_reinf_fiainit_radiocheckok",name _unit]
 		};
 		if (!_unitHasRadio && { unitReady _unit }) then {
-			if ((alive _unit) and (_unit distance (getMarkerPos respawnTeamPlayer) > 50) and (_unit distance leader group _unit > 500) and ((vehicle _unit == _unit) or ((typeOf (vehicle _unit)) in arrayCivVeh))) then {
+			if ((alive _unit) and (_unit distance (getMarkerPos respawnTeamPlayer) > 50) and (_unit distance leader group _unit > 500) and ((isNull objectParent _unit) or ((typeOf (vehicle _unit)) in arrayCivVeh))) then {
 				["", format [localize "STR_A3A_reinf_fiainit_lost_comms", name _unit]] call A3A_fnc_customHint;
 
 				_unit setVariable[QGVAR(groupId), groupId _unit];

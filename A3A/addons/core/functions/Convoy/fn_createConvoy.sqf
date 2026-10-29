@@ -22,7 +22,7 @@ params [
 */
 
 if (isNil "_convoyID") exitWith {Error("CreateConvoy: No convoy ID given")};
-if (isNil "_units" || {count _units == 0}) exitWith {Error_1("CreateConvoy[%1]: No units given for convoy!",_convoyID)};
+if (isNil "_units" || {_units isEqualTo []}) exitWith {Error_1("CreateConvoy[%1]: No units given for convoy!",_convoyID)};
 if (isNil "_origin") exitWith {Error_1("CreateConvoy[%1]: No origin given for the convoy!",_convoyID)};
 if (isNil "_destination") exitWith {Error_1("CreateConvoy[%1]: No destination given for the convoy!",_convoyID)};
 

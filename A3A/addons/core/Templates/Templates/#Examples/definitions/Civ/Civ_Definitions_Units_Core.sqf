@@ -1,4 +1,4 @@
-#pragma hemtt ignore_variables ["_fnc_setHelmet","_fnc_setVest","_fnc_setUniform","_fnc_addItemSet","_fnc_addMap","_fnc_addWatch","_fnc_addCompass","_fnc_setHandgun","_fnc_addMagazines","_fnc_generateAndSaveUnitsToTemplate"]/////////////////////////////////
+#pragma hemtt ignore_variables ["_fnc_setHelmet","_fnc_setVest","_fnc_setUniform","_fnc_addItemSet","_fnc_addMap","_fnc_addWatch","_fnc_addCompass","_fnc_setHandgun","_fnc_addMagazines","_loadoutData","_fnc_generateAndSaveUnitsToTemplate"]
 
 private _templateMan = {
     ["headgear"] call _fnc_setHelmet;

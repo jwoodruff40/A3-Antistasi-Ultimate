@@ -85,7 +85,7 @@ switch (_mode) do
 
         // Check for selected groups
         private _selectedGroup = _commanderMap getVariable ["selectedGroup", grpNull];
-        if !(_selectedGroup isEqualTo grpNull) then
+        if (_selectedGroup isNotEqualTo grpNull) then
         {
             // If a group is selected show the single group view
             ["updateSingleGroupView"] call A3A_fnc_commanderTab;

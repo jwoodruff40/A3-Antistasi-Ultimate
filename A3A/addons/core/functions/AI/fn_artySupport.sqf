@@ -1,6 +1,6 @@
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
-if (count hcSelected player == 0) exitWith {[localize "STR_A3A_ai_artySupport_header", localize "STR_A3A_ai_artySupport_must_select"] call A3A_fnc_customHint;};
+if (hcSelected player isEqualTo []) exitWith {[localize "STR_A3A_ai_artySupport_header", localize "STR_A3A_ai_artySupport_must_select"] call A3A_fnc_customHint;};
 
 private ["_groups","_artyArray","_artyRoundsArr","_hasAmmunition","_areReady","_hasArtillery","_areAlive","_soldierX","_veh","_typeAmmunition","_typeArty","_positionTel","_artyArrayDef1","_artyRoundsArr1","_piece","_isInRange","_positionTel2","_rounds","_roundsMax","_markerX","_size","_forcedX","_textX","_mrkFinal","_mrkFinal2","_timeX","_eta","_countX","_pos","_ang"];
 
@@ -101,7 +101,7 @@ positionTel = [];
 if (!visibleMap) then {openMap true};
 onMapSingleClick "positionTel = _pos;";
 
-waitUntil {sleep 1; (count positionTel > 0) or (!visibleMap)};
+waitUntil {sleep 1; (positionTel isNotEqualTo []) or (!visibleMap)};
 onMapSingleClick "";
 
 if (!visibleMap) exitWith {};
@@ -122,7 +122,7 @@ for "_i" from 0 to (count _artyArray) - 1 do
 		};
 	};
 
-if (count _artyArrayDef1 == 0) exitWith {[localize "STR_A3A_ai_artySupport_header", localize "STR_A3A_ai_artySupport_out_of_bounds"] call A3A_fnc_customHint;};
+if (_artyArrayDef1 isEqualTo []) exitWith {[localize "STR_A3A_ai_artySupport_header", localize "STR_A3A_ai_artySupport_out_of_bounds"] call A3A_fnc_customHint;};
 
 _mrkFinal = createMarkerLocal [format ["Arty%1", random 100], _positionTel];
 _mrkFinal setMarkerShapeLocal "ICON";
@@ -139,7 +139,7 @@ if (_typeArty == "BARRAGE") then
 	if (!visibleMap) then {openMap true};
 	onMapSingleClick "positionTel = _pos;";
 
-	waitUntil {sleep 1; (count positionTel > 0) or (!visibleMap)};
+	waitUntil {sleep 1; (positionTel isNotEqualTo []) or (!visibleMap)};
 	onMapSingleClick "";
 
 	_positionTel2 = positionTel;

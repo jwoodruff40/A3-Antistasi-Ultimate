@@ -29,13 +29,13 @@ private _taskId = "LOG" + str A3A_taskCount;
 [[teamPlayer,civilian],_taskId,[format [localize "STR_A3A_Missions_LOG_Ammo_task_desc",_nameDest,_displayTime],localize "STR_A3A_Missions_LOG_Ammo_task_header",_markerX],_pos,false,0,true,"rearm",true] call BIS_fnc_taskCreate;
 [_taskId, "LOG", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
-waitUntil {sleep 1;(dateToNumber date > _dateLimitNum) or {(spawner getVariable _markerX != 2 and !(sidesX getVariable [_markerX,sideUnknown] == teamPlayer))}};
+waitUntil {sleep 1;(dateToNumber date > _dateLimitNum) or {(spawner getVariable _markerX != 2 and (sidesX getVariable [_markerX,sideUnknown] != teamPlayer))}};
 private _bonus = if (_difficultX) then {2} else {1};
 private _truckX = objNull;
 private _groupX = nil;
 private _groupX1 = nil;
 
-if ((spawner getVariable _markerX != 2) and !(sidesX getVariable [_markerX,sideUnknown] == teamPlayer)) then {
+if ((spawner getVariable _markerX != 2) and (sidesX getVariable [_markerX,sideUnknown] != teamPlayer)) then {
 	private _truckX = _typeVehX createVehicle _pos;
 	_truckX setDir (getDir _road);
 	[_truckX] spawn A3A_fnc_fillLootCrate;

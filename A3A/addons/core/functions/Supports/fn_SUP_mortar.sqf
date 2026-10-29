@@ -40,7 +40,7 @@ private _possibleBases = (outposts + airportsX + milbases) select
     {(markerPos _X distance2D _targPos > _minRange) &&
     {spawner getVariable _x == 2}}}
 };
-if(count _possibleBases == 0) exitWith { Debug("No bases found for mortar support"); -1 };
+if(_possibleBases isEqualTo []) exitWith { Debug("No bases found for mortar support"); -1 };
 
 //Search for an outpost with a designated mortar position if possible
 private _spawnRadius = 0;

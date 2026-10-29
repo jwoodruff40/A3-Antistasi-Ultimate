@@ -184,25 +184,25 @@ _assignedItems = ((_inventory select 9) + [_inventory select 3] + [_inventory se
 
 		//TFAR fix
 		private _radioName = getText(configFile >> "CfgWeapons" >> _item >> "tf_parent");
-		if!(_radioName isEqualTo "")then{
+		if(_radioName isNotEqualTo "")then{
 			_item =_radioName;
 		};
 
 		//ACRE fix
 		private _radioName = getText(configFile >> "CfgVehicles" >> _item >> "acre_baseClass");
-		if!(_radioName isEqualTo "")then{
+		if(_radioName isNotEqualTo "")then{
 			_item =_radioName;
 		};
 		
         //Weapon Stack fix
         private _weaponname = getText(configFile >> "CfgWeapons" >> _item >> "baseWeapon");
-        if!(_weaponname isEqualTo "")then{
+        if(_weaponname isNotEqualTo "")then{
             _item = _weaponname
         };
 
         //RHS Sight Stack fix
         private _sightname = getText(configFile >> "CfgWeapons" >> _item >> "rhs_optic_base");
-        if!(_sightname isEqualTo "")then{
+        if(_sightname isNotEqualTo "")then{
             _item = _sightname
         };
 
@@ -240,7 +240,7 @@ _weapons = [_inventory select 6,_inventory select 7,_inventory select 8];
 	private ["_item"];
 	_item = _x select 0;
 
-	if!(_item isEqualTo "")then{
+	if(_item isNotEqualTo "")then{
 		private ["_itemAttachmets","_itemMag","_amount","_amountMag","_index","_indexMag"];
 		_itemAttachmets = _x select 1;
 		_itemMag = _x select 2;
@@ -287,7 +287,7 @@ _weapons = [_inventory select 6,_inventory select 7,_inventory select 8];
 		//add attachments
 		{
 			_itemAcc = _x;
-			if!(_itemAcc isEqualTo "")then{
+			if(_itemAcc isNotEqualTo "")then{
 				_amountAcc = 1;
 
 				_indexAcc = _itemAcc call jn_fnc_arsenal_itemType;
@@ -338,7 +338,7 @@ private _addContainerFuncs = [
 														 ];
 {
 	_item = _x;
-	if!(_item isEqualTo "")then{
+	if(_item isNotEqualTo "")then{
 		_amount = 1;
 		_index = [
 			IDC_RSCDISPLAYARSENAL_TAB_UNIFORM,
@@ -359,7 +359,7 @@ private _addContainerFuncs = [
 				[_availableItems,_index,_item,_amount] call _removeFromArray;
 			} else {
 				_oldItem = [_uniform_old,_vest_old,_backpack_old] select _foreachindex;
-				if !(_oldItem isEqualTo "") then {
+				if (_oldItem isNotEqualTo "") then {
 					[_oldItem] call _addContainerFunc;
 					_arrayReplaced = [_arrayReplaced,[_item,_oldItem]] call jn_fnc_arsenal_addToArray;
 					[_arrayTaken,_index,_oldItem,1] call _addToArray;
@@ -443,11 +443,11 @@ _addItemToContainer = {
 private _lookupConfigName = {
 	private _class = param [0];
 	private _configs = "configName _x == _class" configClasses (configFile >> "CfgWeapons");
-	if (count _configs > 0) exitWith {
+	if (_configs isNotEqualTo []) exitWith {
 		[_configs select 0] call BIS_fnc_displayName;
 	};
 	private _configs = "configName _x == _class" configClasses (configFile >> "CfgMagazines");
-	if (count _configs > 0) exitWith {
+	if (_configs isNotEqualTo []) exitWith {
 		[_configs select 0] call BIS_fnc_displayName;
 	};
 	_class;
@@ -470,7 +470,7 @@ _reportReplaced = "";
 	_reportReplaced = _reportReplaced + _nameOld + " has been kept, because there is no " + _nameNew + "\n";
 } forEach _arrayReplaced;
 
-if!(_reportReplaced isEqualTo "")then{
+if(_reportReplaced isNotEqualTo "")then{
 	_reportTotal = ("These items were not in the Arsenal, so the originals have been kept:\n" + _reportReplaced+"\n");
 };
 
@@ -481,11 +481,11 @@ _reportMissing = "";
 	_reportMissing = _reportMissing + _name + " (" + (str _amount) + "x)\n";
 }forEach _arrayMissing;
 
-if!(_reportMissing isEqualTo "")then{
+if(_reportMissing isNotEqualTo "")then{
 	_reportTotal = (_reportTotal+"These items were not in the Arsenal:\n" + _reportMissing+"\n");
 };
 
-if!(_reportTotal isEqualTo "")then{
+if(_reportTotal isNotEqualTo "")then{
 	titleText[_reportTotal, "PLAIN"];
 };
 

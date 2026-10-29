@@ -54,10 +54,10 @@ switch (_mode) do
 
         private _playerList = _display displayCtrl A3A_IDC_DONATEPLAYERLIST;
         {
-            if !(_x == player) then
+            if (_x != player) then
             {
                 _playerList lbAdd name _x;
-                if !(_target == objNull) then
+                if (_target != objNull) then
                 {
                     if (_target == _x) then
                     {

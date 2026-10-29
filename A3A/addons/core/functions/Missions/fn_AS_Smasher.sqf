@@ -72,6 +72,7 @@ private _groupSFSide = Occupants;
 private _groupsSF = [];
 
 private _attackHeliVehicle = objNull;
+private _heliGroup = grpNull;
 
 if (_difficultX) then {
 	_mutant = [_groupSmasher, "WBK_Goliaph_3", _posTask, [], 0, "NONE"] call A3A_fnc_createUnit; // goliath (OPF)
@@ -85,7 +86,7 @@ if (_difficultX) then {
 	
 	private _heliPos = _posTask getPos [random [1000, 2000, 3000], random 360]; // replace this with an airbase or outpost, etc
 
-	private _heliGroup = createGroup _groupSFSide;
+	_heliGroup = createGroup _groupSFSide;
 	private _attackHeli = [_heliPos, 0, _heliType, _groupSFSide] call A3A_fnc_spawnVehicle;
 	_attackHeliVehicle = (_attackHeli#0); // defined in outer scope first
 

@@ -82,10 +82,10 @@ private _fnc_spawnConvoyVehicle = {
     params ["_vehType", "_markName"];//,""
     ServerDebug_1("Spawning vehicle type %1",_vehType);
     // Find location down route
-    _pathState = [_route, [20, 0] select (count _pathState == 0), _pathState] call A3A_fnc_findPosOnRoute;
+    _pathState = [_route, [20, 0] select (_pathState isEqualTo []), _pathState] call A3A_fnc_findPosOnRoute;
     while {true} do {
         // make sure there are no other vehicles within 10m
-        if (count (ASLToAGL (_pathState#0) nearEntities 10) == 0) exitWith {};
+        if ((ASLToAGL (_pathState#0) nearEntities 10) isEqualTo []) exitWith {};
         _pathState = [_route, 10, _pathState] call A3A_fnc_findPosOnRoute;
     };
     private _veh = createVehicle [_vehType, ASLToAGL (_pathState#0) vectorAdd [0,0,0.5]];               // Give it a little air

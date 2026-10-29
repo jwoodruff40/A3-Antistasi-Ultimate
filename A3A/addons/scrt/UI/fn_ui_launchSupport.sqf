@@ -114,7 +114,7 @@ if (supportType isEqualTo "PARADROP") then {
 
     private _readyPlayers = _attendants select {
         _x distance2D (getMarkerPos "Synd_HQ") < 50 
-        && vehicle _x isEqualTo _x && {[_x] call A3A_fnc_canFight} 
+        && isNull objectParent _x && {[_x] call A3A_fnc_canFight} 
         && !(!(isNil "HR_GRG_placing") && {HR_GRG_placing})
     };
     if (isNil "_readyPlayers" || {count _readyPlayers == 0}) exitWith {

@@ -21,7 +21,7 @@ private _originPosition = position _player;
 private _frontLine = (outposts + milbases + airportsX + resourcesX + factories + citiesX) select {([_x] call A3A_fnc_isFrontlineNoFIA && {sidesX getVariable [_x,sideUnknown] != teamPlayer})};
 private _frontlineSitesNearPlayer = ((outposts + milbases + airportsX + resourcesX + factories + citiesX) select {(_x in _frontLine) && {((getMarkerPos _x) distance2D _player <= distanceSPWN*2.5) && {sidesX getVariable [_x,sideUnknown] != teamPlayer}}}) call BIS_fnc_arrayShuffle;
 
-if !(_frontlineSitesNearPlayer isEqualTo []) exitWith {
+if _frontlineSitesNearPlayer isNotEqualTo [] exitWith {
     Error("Position is near frontline, need to select appropriate event.");
     [VEH_POSTAMBUSHCONVOY] remoteExecCall ["SCRT_fnc_encounter_selectAndExecuteEvent", 2];
 };
@@ -40,7 +40,7 @@ while {true} do {
 
 private _mainRoad = (_road select {(position _x) distance2D _originPosition > 500}) select 0;
 private _roadcon = roadsConnectedTo _mainRoad;
-private _dirveh = if (count _roadcon > 0) then {
+private _dirveh = if (_roadcon isNotEqualTo []) then {
     [_mainRoad, _roadcon select 0] call BIS_fnc_dirTo; // Direction from main segment to first connected road
 } else {
     random 360; // Fallback direction if no connected roads
@@ -49,7 +49,7 @@ private _dirveh = if (count _roadcon > 0) then {
 private _roadSegments = [_mainRoad];
 private _connectedRoads = _roadcon;
 
-while {count _roadSegments < 3 && count _connectedRoads > 0} do {
+while {count _roadSegments < 3 && _connectedRoads isNotEqualTo []} do {
     private _nextSegment = _connectedRoads select 0;
     if (!(_nextSegment in _roadSegments)) then {
         _roadSegments pushBack _nextSegment;
@@ -88,7 +88,7 @@ private _convoySpacing = 15;
         if (!isNull _nearestRoad) then {
             _roadPosition = getPos _nearestRoad;
             private _newRoadcon = roadsConnectedTo _nearestRoad;
-            if (count _newRoadcon > 0) then {
+            if (_newRoadcon isNotEqualTo []) then {
                 // Update direction from new segment
                 _roadDir = [_nearestRoad, _newRoadcon select 0] call BIS_fnc_dirTo;
             };
@@ -111,7 +111,7 @@ private _convoySpacing = 15;
             _specialVehicles = (_faction get "vehiclesAA") + (_faction get "vehiclesTrucks") + (_faction get "vehiclesFuelTrucks") + (_faction get "vehiclesAmmoTrucks") + (_faction get "vehiclesRepairTrucks");
         };
         
-        if (count _specialVehicles > 0) then {
+        if (_specialVehicles isNotEqualTo []) then {
             _vehicleClass = selectRandom _specialVehicles;
         } else {
             _vehicleClass = if (_isFia) then {

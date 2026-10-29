@@ -9,7 +9,7 @@ _unit = leader _groupX;
 
 if !([_unit] call A3A_fnc_canFight) exitWith {[localize "STR_A3A_reinf_control_squad", localize "STR_A3A_reinf_control_no_dead"] call A3A_fnc_customHint;};
 
-while {(count (waypoints _groupX)) > 0} do
+while {(waypoints _groupX) isNotEqualTo []} do
  {
   deleteWaypoint ((waypoints _groupX) select 0);
  };

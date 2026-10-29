@@ -11,7 +11,7 @@ if (_unit getVariable ["helping",false]) exitWith {if (_inPlayerGroup) then {_un
 
 private _rearming = _unit getVariable ["rearming",false];
 if (_rearming) exitWith {if (_inPlayerGroup) then {_unit groupChat localize "STR_chats_autoloot_rearm_in_progress"; _unit setVariable ["rearming",false]}};
-if (vehicle _unit != _unit) exitWith {};
+if (!isNull objectParent _unit) exitWith {};
 _unit setVariable ["rearming",true];
 
 private _unitType = _unit getVariable "unitType";
@@ -45,11 +45,11 @@ if (boxX in _nearbyContainers) then {_nearbyContainers = _nearbyContainers - [bo
 
 if ((!isNil "_customLoadout" && {_primaryWeapon != _loadoutPrimaryWeapon}) || {isNil "_customLoadout"}) then {
 	_needsRearm = true;
-	if (count _nearbyContainers > 0) then {
+	if (_nearbyContainers isNotEqualTo []) then {
 		{
 			_potentialContainer = _x;
 			if (_unit distance _potentialContainer < _maxDistance) then {
-				if ((count weaponCargo _potentialContainer > 0) && !(_potentialContainer getVariable ["busy",false])) then {
+				if ((weaponCargo _potentialContainer isNotEqualTo []) && !(_potentialContainer getVariable ["busy",false])) then {
 					_containerWeapons = weaponCargo _potentialContainer;
 					for "_i" from 0 to (count _containerWeapons - 1) do {
 						_potentialWeapon = _containerWeapons select _i;
@@ -94,7 +94,7 @@ _primaryMagazines = getArray (configFile / "CfgWeapons" / _primaryWeapon / "maga
 if ({_x in _primaryMagazines} count (magazines _unit) < _targetMagazines) then {
 	_needsRearm = true;
 	_foundItem = false;
-	if (count _nearbyContainers > 0) then {
+	if (_nearbyContainers isNotEqualTo []) then {
 		{
 			_potentialContainer = _x;
 			if (({_x in _primaryMagazines} count magazineCargo _potentialContainer) > 0) then {
@@ -138,11 +138,11 @@ if ((_foundItem) && (_unit getVariable "rearming")) then {
 
 _foundItem = false;
 if ((_secondaryWeapon == "") && (loadAbs _unit < 340)) then {
-	if (count _nearbyContainers > 0) then {
+	if (_nearbyContainers isNotEqualTo []) then {
 		{
 			_potentialContainer = _x;
 			if (_unit distance _potentialContainer < _maxDistance) then {
-				if ((count weaponCargo _potentialContainer > 0) && !(_potentialContainer getVariable ["busy",false])) then {
+				if ((weaponCargo _potentialContainer isNotEqualTo []) && !(_potentialContainer getVariable ["busy",false])) then {
 					_containerWeapons = weaponCargo _potentialContainer;
 					for "_i" from 0 to (count _containerWeapons - 1) do {
 						_potentialWeapon = _containerWeapons select _i;
@@ -184,7 +184,7 @@ if (_secondaryWeapon != "") then {
 	if ({_x in _primaryMagazines} count (magazines _unit) < 2) then {
 		_needsRearm = true;
 		_foundItem = false;
-		if (count _nearbyContainers > 0) then {
+		if (_nearbyContainers isNotEqualTo []) then {
 			{
 				_potentialContainer = _x;
 				if ({_x in _primaryMagazines} count magazineCargo _potentialContainer > 0) then {
@@ -379,7 +379,7 @@ if ((_foundItem) && (_unit getVariable "rearming")) then {
 		{_unit addItemToVest _x} forEach _itemsUnit;
 		_unit action ["rearm",_selectedContainer];
 		_bodyEquipment = nearestObjects [_selectedContainer, ["WeaponHolderSimulated", "GroundWeaponHolder", "WeaponHolder"], 5];
-		if (count _bodyEquipment > 0) then {
+		if (_bodyEquipment isNotEqualTo []) then {
 			_selectedEquipment = _bodyEquipment select 0;
 			{_selectedEquipment addItemCargoGlobal [_x,1]} forEach (vestItems _selectedContainer);
 		};
@@ -410,7 +410,7 @@ if (backpack _unit == "") then {
 			_unit addBackpackGlobal ((backpack _selectedContainer) call A3A_fnc_basicBackpack);
 			_unit action ["rearm",_selectedContainer];
 			_bodyEquipment = nearestObjects [_selectedContainer, ["WeaponHolderSimulated", "GroundWeaponHolder", "WeaponHolder"], 5];
-			if (count _bodyEquipment > 0) then {
+			if (_bodyEquipment isNotEqualTo []) then {
 				_selectedEquipment = _bodyEquipment select 0;
 				{_selectedEquipment addItemCargoGlobal [_x,1]} forEach (backpackItems _selectedContainer);
 			};

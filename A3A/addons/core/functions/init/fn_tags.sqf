@@ -19,7 +19,7 @@ while{ true } do {
 			_name = name _target;
 			_nameString = "<t size='0.5' shadow='2' color='#7FFF00'>" + format['%1',_target getVariable ['unitname', name _target]] + "</t>";
 			_rank = [_target,"displayNameShort"] call BIS_fnc_rankParams;
-			if (count _weaponsPlayer > 0) then {
+			if (_weaponsPlayer isNotEqualTo []) then {
 				_weaponsplayer =  _weaponsplayer select 0;
 				_weaponsplayername = getText (configFile >> "CfgWeapons" >> _weaponsplayer >> "displayname");
 				_weaponspic = getText (configFile >> "CfgWeapons" >> _weaponsplayer >> "picture");

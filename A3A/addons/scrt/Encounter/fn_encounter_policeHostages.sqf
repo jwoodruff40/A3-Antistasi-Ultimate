@@ -40,7 +40,7 @@ if (isNull _road) exitWith {
 
 // After finding the road _road
 private _roadcon = roadsConnectedTo _road;
-private _roadDir = if (count _roadcon > 0) then {
+private _roadDir = if (_roadcon isNotEqualTo []) then {
     [_road, _roadcon select 0] call BIS_fnc_dirTo
 } else {
     random 360

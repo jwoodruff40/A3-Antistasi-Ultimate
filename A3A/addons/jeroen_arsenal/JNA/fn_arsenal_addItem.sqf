@@ -20,26 +20,26 @@ if(typeName (_this select 0) isEqualTo "SCALAR")then{//[_index, _item] and [_ind
 		private _amount = _x select 1;
 		if (_item isEqualType "") then
 			{
-			if !(_item isEqualTo "")then{
+			if (_item isNotEqualTo "")then{
 
 				if(_index == -1)exitWith{["Antistasi: ERROR in additemarsenal: %1", _this] call BIS_fnc_error};
 				if(_index == IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG)then{_index = IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL};
 
 				//TFAR fix
 				private _radioName = getText(configFile >> "CfgWeapons" >> _item >> "tf_parent");
-				if!(_radioName isEqualTo "")then{_item = _radioName};
+				if(_radioName isNotEqualTo "")then{_item = _radioName};
 
 				//Weapon Stack fix
 				private _weaponname = getText(configFile >> "CfgWeapons" >> _item >> "baseWeapon");
-				if!(_weaponname isEqualTo "")then{_item = _weaponname};
+				if(_weaponname isNotEqualTo "")then{_item = _weaponname};
 
 				//RHS Sight Stack fix
 				private _sightname = getText(configFile >> "CfgWeapons" >> _item >> "rhs_optic_base");
-				if!(_sightname isEqualTo "")then{_item = _sightname};
+				if(_sightname isNotEqualTo "")then{_item = _sightname};
 				
 				//ACRE fix
 				private _radioName = getText(configFile >> "CfgVehicles" >> _item >> "acre_baseClass");
-				if!(_radioName isEqualTo "")then{_item = _radioName};
+				if(_radioName isNotEqualTo "")then{_item = _radioName};
 
 				// Update server immediately if local. Avoids lag after unlockEquipment
 				if (isServer) then { ["UpdateItemAdd",[_index, _item, _amount,true]] call jn_fnc_arsenal }

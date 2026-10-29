@@ -135,7 +135,7 @@ while {_reason == ""} do
 
         if (_vehType isKindOf "Land") then
         {
-            if (!(isOnRoad position _veh) && {count (_veh nearRoads 50) == 0}) then
+            if (!(isOnRoad position _veh) && {(_veh nearRoads 50) isEqualTo []}) then
             {
                 if ({((side _x == Invaders) || (side _x == Occupants)) && ((_x knowsAbout player > 1.4) || (_x distance player < 350))} count allUnits > 0) then
                 {
@@ -242,7 +242,7 @@ switch (_reason) do
     case "Reported":
     {
         ["Undercover", localize "STR_A3A_fn_undercover_goUn_reported"] call A3A_fnc_customHint;
-        if (vehicle player != player) then
+        if (!isNull objectParent player) then
         {
             (objectParent player) setVariable ["A3A_reported", true, true];
         }

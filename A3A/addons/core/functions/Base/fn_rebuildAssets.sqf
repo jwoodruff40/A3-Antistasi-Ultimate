@@ -24,7 +24,7 @@ private _cost = 5000; // Default cost for generic locations (cities, milbases, o
 // Check for Radio Tower
 if (_site in outposts || {_site in mrkAntennas}) then {
     private _antennasDead = antennasDead select {(_x inArea _site) || {(_x distance2D _position) < 100}};
-    if (count _antennasDead > 0) then {
+    if (_antennasDead isNotEqualTo []) then {
         _antennaDead = _antennasDead select 0;
         _cost = 3500; // Radio tower specific cost
     };
@@ -132,7 +132,7 @@ if (random 100 <= 75) then {
         sidesX getVariable [_x, sideUnknown] in [Occupants, Invaders]
     };
     
-    if (count _enemyMarkers > 0) then {
+    if (_enemyMarkers isNotEqualTo []) then {
         private _nearestEnemyMarker = [_enemyMarkers, _position] call BIS_fnc_nearestPosition;
         private _qrfSide = sidesX getVariable [_nearestEnemyMarker, sideUnknown];
         

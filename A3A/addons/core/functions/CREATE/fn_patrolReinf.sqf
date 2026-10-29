@@ -80,7 +80,7 @@ else
 {
 	_landPos = if (_vehicleType isKindOf "Helicopter") then {[_posDest, 0, 300, 10, 0, 0.20, 0,[],[[0,0,0],[0,0,0]]] call BIS_fnc_findSafePos} else {[0,0,0]};
 	Debug_1("Landpos air = %1",_landPos);
-	if !(_landPos isEqualTo [0,0,0]) then
+	if (_landPos isNotEqualTo [0,0,0]) then
 	{
 		_landPos set [2, 0];
 		_landpad = createVehicle ["Land_HelipadEmpty_F", _landpos, [], 0, "NONE"];
@@ -138,7 +138,7 @@ if !(isNull _landpad) then { deleteVehicle _landpad };
 
 
 private _units = (units _cargoGroup) select { alive _x };
-if (count _units == 0 || time > _timeout || _side != (sidesX getVariable _mrkDest)) exitWith
+if (_units isEqualTo [] || time > _timeout || _side != (sidesX getVariable _mrkDest)) exitWith
 {
 	Debug_2("patrolReinf failure: time %1, units %2",_timeout - time,count _units);
 

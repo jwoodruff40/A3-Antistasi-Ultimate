@@ -77,7 +77,7 @@ _groupX setVariable ["baseOfFire",_baseOfFire];
 _groupX setVariable ["flankers",_flankers];
 if (side _groupX == teamPlayer) then {_groupX setVariable ["autoRearmed",time + 300]};
 {
-if (vehicle _x != _x) then
+if (!isNull objectParent _x) then
 	{
 	if !(vehicle _x isKindOf "Air") then
 		{
@@ -98,7 +98,7 @@ while {true} do
 		_flankers = _flankers select {[_x] call A3A_fnc_canFight};
 		_objectivesX = _groupX call A3A_fnc_enemyList;
 		_groupX setVariable ["objectivesX",_objectivesX];
-		if !(_objectivesX isEqualTo []) then
+		if _objectivesX isNotEqualTo [] then
 			{
 			private _air = objNull;
 			private _tank = objNull;
@@ -246,7 +246,7 @@ while {true} do
 						if !(isNull _nearX) then
 							{
 							_flankers = _flankers select {!(_x getVariable ["maneuvering",false])};
-							if (count _flankers != 0) then
+							if (_flankers isNotEqualTo []) then
 								{
 								{
 								[_x,_x,_nearX] spawn A3A_fnc_chargeWithSmoke;
@@ -310,7 +310,7 @@ while {true} do
 				};
 			if (!isNull(_groupX getVariable ["transporte",objNull]) and !(_groupX getVariable ["A3A_forceDismount",false])) then
 				{
-				(units _groupX select {vehicle _x == _x}) allowGetIn true;
+				(units _groupX select {isNull objectParent _x}) allowGetIn true;
 				};
 			};
 		sleep 30;

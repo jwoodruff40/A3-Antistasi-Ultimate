@@ -29,7 +29,7 @@ private _item = _player getVariable "A3A_objectCarried";
 _player setVelocity [0,0,0];
 detach _item;
 
-if (vehicle _player != _player) then {
+if (!isNull objectParent _player) then {
     // GetInMan triggered case, semi-safe place nearby
     _item setVehiclePosition [getPosATL _player, [], 10, "NONE"];
 };
@@ -53,7 +53,7 @@ if (_isHQ and {_item distance2D _posHQ > 50}) then {
 // Place on closest surface
 private _pos = getPosASL _item;
 private _intersects = lineIntersectsSurfaces [_pos, _pos vectorAdd [0,0,-100], _item];
-if (count _intersects > 0) then {
+if (_intersects isNotEqualTo []) then {
     _item setPosASL (_intersects select 0 select 0);
 };
 

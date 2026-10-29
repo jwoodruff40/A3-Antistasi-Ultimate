@@ -151,7 +151,7 @@ Info_1("Group: %1",_infGroup1);
 waitUntil {
     sleep 1;
     private _smokes = _positionX nearObjects ["SmokeShell", 200];
-    count _smokes > 0 || {dateToNumber date > _dateLimitNum}
+    _smokes isNotEqualTo [] || {dateToNumber date > _dateLimitNum}
 };
 
 Info("Players are inside, looking for smoke grenades.");
@@ -159,7 +159,7 @@ Info("Players are inside, looking for smoke grenades.");
 private _smokes = _positionX nearObjects ["SmokeShell", 200];
 private _planeVeh = objNull;
 
-if(count _smokes > 0) then {
+if(_smokes isNotEqualTo []) then {
     Info("Smoke detected, spawning airplane.");
 
     private _initialPlanePosition = [
@@ -195,7 +195,7 @@ if(count _smokes > 0) then {
     private _smokes = _positionX nearObjects ["SmokeShell", 200];
     private _dropPosition = _positionX;
 
-    if(count _smokes > 0) then {
+    if(_smokes isNotEqualTo []) then {
         private _smoke = _smokes select 0;
         _dropPosition = position _smoke;
     };

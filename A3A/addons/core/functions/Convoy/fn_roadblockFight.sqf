@@ -32,7 +32,7 @@ _attackerCount = 0;
     case (_vehicle isKindOf "Helicopter"):
     {
       //Transport helicopter without a gun dont count
-      if(count (getArray (configFile >> "CfgVehicles" >> _vehicle >> "weapons")) > 0) then
+      if((getArray (configFile >> "CfgVehicles" >> _vehicle >> "weapons")) isNotEqualTo []) then
       {
         _attackerCount = _attackerCount + 7;
       };

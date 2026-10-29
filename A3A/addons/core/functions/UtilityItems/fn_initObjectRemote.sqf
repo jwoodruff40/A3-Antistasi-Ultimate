@@ -38,7 +38,7 @@ if ("move" in _flags) then {
         localize "STR_A3A_carryObject",
         A3A_fnc_carryItem,
         _object, 1.5, true, true, "",
-        "!(call A3A_fnc_isCarrying) and (vehicle _this == _this)
+        "!(call A3A_fnc_isCarrying) and (isNull objectParent _this)
             and (isNull attachedTo _originalTarget)", 8
     ];
 };

@@ -81,9 +81,9 @@ _bmData apply {
 
         private _dlc = "";
         private _addons = configSourceAddonList _configClass;
-        if (count _addons > 0) then {
+        if (_addons isNotEqualTo []) then {
             private _mods = configSourceModList (configFile >> "CfgPatches" >> (_addons select 0));
-            if (count _mods > 0) then {
+            if (_mods isNotEqualTo []) then {
                 _dlc = _mods select 0;
             };
         };
@@ -253,7 +253,7 @@ _bmData apply {
     if (_passengers > 0) then { _crewRows pushBack [A3A_Icon_Cargo, _passengers, false, localize "STR_antistasi_dialogs_buy_vehicle_passenger_tooltip"]; };
     if (_passengersFFV > 0) then { _crewRows pushBack [A3A_Icon_FFV, _passengersFFV, true, localize "STR_antistasi_dialogs_buy_vehicle_ffv_tooltip"]; };
 
-    if (count _crewRows > 0) then {
+    if (_crewRows isNotEqualTo []) then {
         private _crewCountHeight = (count _crewRows) * (3.6 * GRID_H);
         private _crewCountYpos = 7 * GRID_H;
         private _maxCrewYpos = (24 * GRID_H) - _crewCountHeight;

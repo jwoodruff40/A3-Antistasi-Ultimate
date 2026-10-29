@@ -63,7 +63,7 @@ switch (_mode) do
         private _fastTravelCommitButton = _display displayCtrl A3A_IDC_FASTTRAVELCOMMITBUTTON;
 
         // Check if a location is selected.
-        if !(_selectedMarker isEqualTo "") then {
+        if (_selectedMarker isNotEqualTo "") then {
             // Location is selected
 
             // Format info text
@@ -113,7 +113,7 @@ switch (_mode) do
             _infoText = _infoText + localize "STR_antistasi_dialogs_main_fast_travel_time" + " " + _timeString + ".<br/><br/>";
 
             // Vehicle
-            if (!_hcMode && vehicle player != player) then {
+            if (!_hcMode && !isNull objectParent player) then {
                 _infoText = _infoText + localize "STR_antistasi_dialogs_main_fast_travel_vehicle";
             };
 

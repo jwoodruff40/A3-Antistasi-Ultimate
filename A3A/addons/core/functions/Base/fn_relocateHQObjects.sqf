@@ -51,7 +51,7 @@ _pos = [_firePos, 3, _rnd] call BIS_Fnc_relPos;
 _rnd = _rnd + 45;
 _pos = [_firePos, 3, _rnd] call BIS_Fnc_relPos;
 _emptyPos = _pos findEmptyPosition [0,50,(typeOf flagX)];
-_pos = if (count _emptyPos > 0) then {_emptyPos} else {_pos};
+_pos = if (_emptyPos isNotEqualTo []) then {_emptyPos} else {_pos};
 flagX setPos _pos;
 _rnd = _rnd + 45;
 _pos = [_firePos, 3, _rnd] call BIS_Fnc_relPos;

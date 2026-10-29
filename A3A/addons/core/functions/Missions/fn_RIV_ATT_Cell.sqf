@@ -75,7 +75,7 @@ private _damagedBuildings = (nearestObjects [_positionX, ["house"], _size]) sele
 private _damagedBuildingsCount = round (random [1,2,3]);
 
 private _blacklistPos = [];
-if (count _damagedBuildings > 0) then {
+if (_damagedBuildings isNotEqualTo []) then {
     for "_i" from 0 to _damagedBuildingsCount do {
         private _damagedBuilding = selectRandom _damagedBuildings;
         _damagedBuilding setDamage ((random 0.5)+0.4);
@@ -229,7 +229,7 @@ for "_i" from 0 to (count _cardinalDirections) - 1 do {
 	while {_radiusX < 500} do {
 		_roads = _rawPosition nearRoads _radiusX;
 		_roads = _roads select { count (roadsConnectedTo _x) == 2 };
-		if (count _roads > 0) exitWith {};
+		if (_roads isNotEqualTo []) exitWith {};
 		_radiusX = _radiusX + 20;
 	};
 
@@ -532,7 +532,7 @@ if (sidesX getVariable [_marker, sideUnknown] == Occupants) then {
             side _x isEqualTo Occupants && 
             {_x distance2D _positionX <= (_size * 1.5) && 
             {!(_x call SCRT_fnc_misc_isInHouse) && 
-            {vehicle _x isEqualTo _x}}}
+            {isNull objectParent _x}}}
         };
 
         _units apply {

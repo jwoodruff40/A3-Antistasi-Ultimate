@@ -43,7 +43,7 @@ private _cities = (citiesX select {!(_x in _frontLineCities) && {sidesX getVaria
 private _controls = (controlsX select {
     private _control = _x;
     private _controlPos = getMarkerPos _control;
-    !(isOnRoad _controlPos) && {!((_controlPos) distance2D (getMarkerPos respawnTeamPlayer) < 1000) && {_nearSites findIf {(getMarkerPos _x) distance2D _controlPos < _radius} != -1}}
+    !(isOnRoad _controlPos) && {((_controlPos) distance2D (getMarkerPos respawnTeamPlayer) >= 1000) && {_nearSites findIf {(getMarkerPos _x) distance2D _controlPos < _radius} != -1}}
 }) call BIS_fnc_arrayShuffle;
 
 Info_4("Overall count for possible %1 locations. Frontilne cities: %2, other cities: %3, controls: %4",A3A_faction_riv get "name",str (count _frontLineCities),str (count _cities),str (count _controls));
@@ -55,7 +55,7 @@ Info_3("%1 will use %2 non-frontline cities and %3 control points.",A3A_faction_
 
 for "_i" from 1 to _rivalsCityCount do {
     private _cityArray = _cities select {!(_x in _locations)};
-    if (count _cityArray == 0) exitWith {
+    if (_cityArray isEqualTo []) exitWith {
         Error("Location parsing error - no city outside of locations pool left.");
     };
     _locations pushBack (_cityArray#0);
@@ -63,7 +63,7 @@ for "_i" from 1 to _rivalsCityCount do {
 
 for "_i" from 1 to _rivalsControlCount do {
     private _controlArray = _controls select {!(_x in _locations)};
-    if (count _controlArray == 0) exitWith {
+    if (_controlArray isEqualTo []) exitWith {
         Error("Location parsing error - no control point outside of locations pool left.");
     };
     _locations pushBack (_controlArray#0);

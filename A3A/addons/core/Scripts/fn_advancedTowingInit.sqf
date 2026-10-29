@@ -394,7 +394,7 @@ SA_Attach_Tow_Ropes = {
 			};
 
 			// capture empty vehicles when attached
-			if (count crew _cargo == 0) then {
+			if (crew _cargo isEqualTo []) then {
 				[_cargo, side group _player, true] remoteExec ["A3A_fnc_vehKilledOrCaptured", 2];
 			};
 		};
@@ -523,7 +523,7 @@ SA_Attach_Tow_Ropes_Action_Check = {
 SA_Can_Attach_Tow_Ropes = {
 	params ["_vehicle","_cargo"];
 	if(!isNull _vehicle && !isNull _cargo) then {
-		[_vehicle,_cargo] call SA_Is_Supported_Cargo && vehicle player == player && player distance _cargo < 10 && _vehicle != _cargo;
+		[_vehicle,_cargo] call SA_Is_Supported_Cargo && isNull objectParent player && player distance _cargo < 10 && _vehicle != _cargo;
 	} else {
 		false;
 	};
@@ -560,7 +560,7 @@ SA_Can_Take_Tow_Ropes = {
 		private ["_existingVehicle","_existingTowRopes"];
 		_existingTowRopes = _vehicle getVariable ["SA_Tow_Ropes",[]];
 		_existingVehicle = player getVariable ["SA_Tow_Ropes_Vehicle", objNull];
-		vehicle player == player && player distance _vehicle < 10 && (count _existingTowRopes) == 0 && isNull _existingVehicle;
+		isNull objectParent player && player distance _vehicle < 10 && (count _existingTowRopes) == 0 && isNull _existingVehicle;
 	} else {
 		false;
 	};
@@ -596,7 +596,7 @@ SA_Can_Put_Away_Tow_Ropes = {
 	private ["_existingTowRopes"];
 	if([_vehicle] call SA_Is_Supported_Vehicle) then {
 		_existingTowRopes = _vehicle getVariable ["SA_Tow_Ropes",[]];
-		vehicle player == player && player distance _vehicle < 10 && (count _existingTowRopes) > 0;
+		isNull objectParent player && player distance _vehicle < 10 && (count _existingTowRopes) > 0;
 	} else {
 		false;
 	};
@@ -616,7 +616,7 @@ SA_Drop_Tow_Ropes_Action_Check = {
 };
 
 SA_Can_Drop_Tow_Ropes = {
-	!isNull (player getVariable ["SA_Tow_Ropes_Vehicle", objNull]) && vehicle player == player;
+	!isNull (player getVariable ["SA_Tow_Ropes_Vehicle", objNull]) && isNull objectParent player;
 };
 
 
@@ -648,7 +648,7 @@ SA_Pickup_Tow_Ropes_Action_Check = {
 };
 
 SA_Can_Pickup_Tow_Ropes = {
-	isNull (player getVariable ["SA_Tow_Ropes_Vehicle", objNull]) && count (missionNamespace getVariable ["SA_Nearby_Tow_Vehicles",[]]) > 0 && vehicle player == player && !(call A3A_fnc_isCarrying);
+	isNull (player getVariable ["SA_Tow_Ropes_Vehicle", objNull]) && count (missionNamespace getVariable ["SA_Nearby_Tow_Vehicles",[]]) > 0 && isNull objectParent player && !(call A3A_fnc_isCarrying);
 };
 
 SA_TOW_SUPPORTED_VEHICLES = [

@@ -56,7 +56,7 @@ _suppData set [4, 0];           // Set activesupport radius to zero, enabling cl
 //Have the plane fly back home
 if (canMove _plane && {driver _plane call A3A_fnc_canFight}) then
 {
-    while {count waypoints _group > 0} do { deleteWaypoint [_group, 0] };
+    while {waypoints _group isNotEqualTo []} do { deleteWaypoint [_group, 0] };
     private _wpBase = _group addWaypoint [_spawnPos, 0];
     _wpBase setWaypointSpeed "NORMAL";
     _wpBase setWaypointBehaviour "CARELESS";

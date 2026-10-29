@@ -68,7 +68,7 @@ private _initVeh = {
     _group addVehicle _vehicle;
     _vehicle setVariable ["owner",_group,true];
     driver _vehicle action ["engineOn", _vehicle];
-    { if (vehicle _x == _x) then { _x moveInAny _vehicle } } forEach units _group;
+    { if (isNull objectParent _x) then { _x moveInAny _vehicle } } forEach units _group;
 };
 
 // special handling

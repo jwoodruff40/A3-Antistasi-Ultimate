@@ -55,7 +55,7 @@ _mainMarker = getMarkerPos _marker;
   _fullName setMarkerAlpha 0;
 } forEach _placementMarker;
 
-if(count _vehicleMarker == 0) then
+if(_vehicleMarker isEqualTo []) then
 {
   // Not automatically wrong. Some locations may not have any vehicle places
   Warning_1("InitSpawnPlaces: Could not find any vehicle places on %1!",_marker);

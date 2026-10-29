@@ -51,7 +51,7 @@ private _side = side _callerGroup;
     };
 } forEach ((groups _side) select {_x getVariable ["PATCOM_ArtilleryBattery", false]});
 
-if (count _batteryArray == 0) exitWith {
+if (_batteryArray isEqualTo []) exitWith {
     if (PATCOM_DEBUG) then {
         [leader _callerGroup, "NO SUPPORT AVAILABLE", 5, "Red"] call A3A_fnc_debugText3D;
     };

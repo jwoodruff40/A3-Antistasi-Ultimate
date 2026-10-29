@@ -52,7 +52,7 @@ if (isNil {_display getVariable "validFactions"}) then
         {
             private _priority = getNumber (_x/"priority") + 0.01*_forEachIndex;
             private _maps = getArray (_x/"maps");
-            if (count _maps > 0) then { _priority = _priority + ([-2, 2] select (_worldName in _maps)) };
+            if (_maps isNotEqualTo []) then { _priority = _priority + ([-2, 2] select (_worldName in _maps)) };
             if !(_x call _fnc_factionLoaded) then { _priority = _priority - 100 };
             _factionSort pushBack [_priority, _x];
         } forEach _factions;

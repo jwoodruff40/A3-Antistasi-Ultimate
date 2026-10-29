@@ -30,12 +30,12 @@ private _units = units _group;
 private _buildings = [];
 private _newGroups = [];
 
-if (count _units == 0) exitWith {};
+if (_units isEqualTo []) exitWith {};
 
 _group lockWP true;
 _buildings = nearestObjects [_position, keys PATCOM_Garrison_Positions, _radius];
 
-if (count _buildings == 0) then {
+if (_buildings isEqualTo []) then {
     _buildings = [_position, _radius] call A3A_fnc_patrolEnterableBuildings;
 };
 
@@ -44,7 +44,7 @@ _buildings = _buildings select { damage _x < 1 && !isObjectHidden _x };
 _buildings = _buildings call BIS_fnc_arrayShuffle;
 
 {
-    if (count _units == 0) exitWith {};
+    if (_units isEqualTo []) exitWith {};
     private _building = _x;
     private _class = typeOf _building;
     private _buildingPositions = [];
@@ -52,7 +52,7 @@ _buildings = _buildings call BIS_fnc_arrayShuffle;
     if (_class in PATCOM_Garrison_Positions) then {
         {
             private _buildingPos = _building buildingPos _x;
-            if !(_buildingPos isEqualTo [0,0,0]) then {
+            if (_buildingPos isNotEqualTo [0,0,0]) then {
                 _buildingPositions pushBack _buildingPos;
             };
         } forEach (PATCOM_Garrison_Positions get _class);
@@ -61,7 +61,7 @@ _buildings = _buildings call BIS_fnc_arrayShuffle;
     };
 
     {
-        if (count _units == 0) exitWith {};
+        if (_units isEqualTo []) exitWith {};
         private _unit = _units select 0;
         private _position = _x;
         _unit setPosATL _position;
@@ -76,7 +76,7 @@ _buildings = _buildings call BIS_fnc_arrayShuffle;
 } forEach _buildings;
 
 // Splits Garrison AI into an additional defense group if not enough buildings/positions were found.
-if (count _units > 0) then {
+if (_units isNotEqualTo []) then {
    private _groupSplit = createGroup (side _group);
    _newGroups pushBack _groupSplit;
    _units joinSilent _groupSplit;

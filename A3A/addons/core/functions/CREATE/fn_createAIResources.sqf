@@ -27,7 +27,7 @@ private _isFIA = random 10 > (tierWar + difficultyCoef) and {!(_frontierX)};
 
 if (_frontierX) then {
 	_roads = _positionX nearRoads _size;
-	if (count _roads != 0) then
+	if (_roads isNotEqualTo []) then
 	{
 		private _dist = 0;
 		private _road = objNull;
@@ -141,7 +141,7 @@ if (_spawnParameter isEqualType []) then {
 			_faction get "vehiclesMilitiaTrucks"
 		};
 		_types = _types select { _x in FactionGet(all,"vehiclesCargoTrucks") };
-		if (count _types == 0) then { _types = (_faction get "vehiclesCargoTrucks") } else { _types }; // failsafe didn't work?
+		if (_types isEqualTo []) then { _types = (_faction get "vehiclesCargoTrucks") } else { _types }; // failsafe didn't work?
 		selectRandom _types;
 	};
 	isNil {
@@ -180,7 +180,7 @@ for "_i" from 0 to (count _array - 1) do {
 
 	if (_i == 0) then {
 		private _garrisonGroup = [_groupX, getMarkerPos _markerX, _size] call A3A_fnc_patrolGroupGarrison;
-		if (count _garrisonGroup > 0) then {
+		if (_garrisonGroup isNotEqualTo []) then {
 			_groups append _garrisonGroup;
 		};
 	} else {

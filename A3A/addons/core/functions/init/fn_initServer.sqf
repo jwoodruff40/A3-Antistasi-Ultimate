@@ -357,9 +357,9 @@ savingServer = false;           // enable saving
     while {true} do
     {
         //Sleep if no player is online
-        if (count (allPlayers - (entities "HeadlessClient_F")) == 0) then
+        if ((allPlayers - (entities "HeadlessClient_F")) isEqualTo []) then
         {
-            waitUntil {sleep 10; (count (allPlayers - (entities "HeadlessClient_F")) > 0)};
+            waitUntil {sleep 10; ((allPlayers - (entities "HeadlessClient_F")) isNotEqualTo [])};
         };
 
         [] call A3A_fnc_logPerformance;

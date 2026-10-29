@@ -31,11 +31,11 @@ private _taskId = "AS" + str A3A_taskCount;
 [[teamPlayer,civilian],_taskId,[_taskString,localize "STR_A3A_Missions_AS_specOP_task_header",_markerX],_positionX,false,0,true,"Kill",true] call BIS_fnc_taskCreate;
 [_taskId, "AS", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
-waitUntil {sleep 1;dateToNumber date > _dateLimitNum or {(spawner getVariable _markerX != 2 and !(sidesX getVariable [_markerX,sideUnknown] == teamPlayer))}};
+waitUntil {sleep 1;dateToNumber date > _dateLimitNum or {(spawner getVariable _markerX != 2 and (sidesX getVariable [_markerX,sideUnknown] != teamPlayer))}};
 
 private _groupX = createGroup _sideX;
 
-if ((spawner getVariable _markerX != 2) and {!(sidesX getVariable [_markerX,sideUnknown] == teamPlayer)}) then {
+if ((spawner getVariable _markerX != 2) and {(sidesX getVariable [_markerX,sideUnknown] != teamPlayer)}) then {
 	private _specOps = selectRandom (_faction get "groupSpecOpsRandom");
 	_groupX = [_positionX, _sideX, _specOps] call A3A_fnc_spawnGroup;
 	{[_x] call A3A_fnc_NATOinit} forEach units _groupX;

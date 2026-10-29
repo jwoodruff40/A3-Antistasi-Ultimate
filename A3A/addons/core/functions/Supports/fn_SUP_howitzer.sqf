@@ -40,7 +40,7 @@ private _possibleBases = (airportsX + milbases) select
     {(markerPos _X distance2D _targPos > _minRange) &&
     {spawner getVariable _x == 2}}}
 };
-if(count _possibleBases == 0) exitWith { Debug("No bases found for howitzer support"); -1 };
+if(_possibleBases isEqualTo []) exitWith { Debug("No bases found for howitzer support"); -1 };
 private _base = selectRandom _possibleBases;
 
 // Spawn in howitzer

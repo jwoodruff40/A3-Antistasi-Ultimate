@@ -60,7 +60,7 @@ private _measureGarrison = {
 
 while {visibleMap} do {
 	sleep 1;
-	if (count positionTel > 0) then {
+	if (positionTel isNotEqualTo []) then {
 		_positionTel = positionTel;
 		_siteX = [markersX, _positionTel] call BIS_Fnc_nearestPosition;
 		_textX = localize "STR_A3A_cityinfo_zone_click";

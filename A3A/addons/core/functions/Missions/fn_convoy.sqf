@@ -202,10 +202,10 @@ private _fnc_spawnConvoyVehicle = {
     ServerDebug_1("Spawning vehicle type %1",_vehType);
 
     // Find location down route
-    _pathState = [_route, [20, 0] select (count _pathState == 0), _pathState] call A3A_fnc_findPosOnRoute;
+    _pathState = [_route, [20, 0] select (_pathState isEqualTo []), _pathState] call A3A_fnc_findPosOnRoute;
     while {true} do {
         // make sure there are no other vehicles within 10m
-        if (count (ASLToAGL (_pathState#0) nearEntities 10) == 0) exitWith {};
+        if ((ASLToAGL (_pathState#0) nearEntities 10) isEqualTo []) exitWith {};
         _pathState = [_route, 10, _pathState] call A3A_fnc_findPosOnRoute;
     };
 
@@ -360,7 +360,7 @@ if (_resPool != "legacy") then {
 // Remove spawn-suicide protection
 sleep 2;
 {_x allowDamage true} forEach _vehiclesX;
-{_x allowDamage true; if (vehicle _x == _x) then {deleteVehicle _x}} forEach _soldiers;
+{_x allowDamage true; if (isNull objectParent _x) then {deleteVehicle _x}} forEach _soldiers;
 ServerInfo_2("Spawn performed: %1 ground vehicles, %2 soldiers",count _vehiclesX,count _soldiers);
 
 
@@ -678,7 +678,7 @@ missionNamespace setVariable ["A3A_convoyInProgress", false, true];
 // Hang around for a bit, and then send all escorts back to the source base
 sleep 60;
 {
-    if (count units _x > 0) then {
+    if (units _x isNotEqualTo []) then {
         private _wp = _x addWaypoint [_posOrigin, 50];
         _wp setWaypointType "MOVE";
         _x setCurrentWaypoint _wp;

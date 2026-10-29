@@ -177,7 +177,7 @@ private _firedEH = _plane addEventHandler ["Fired", {
 #define ALT_REPOS 700
 #define ALT_APPROACH 400
 
-while {count waypoints _group > 0} do { deleteWaypoint [_group, 0] };
+while {waypoints _group isNotEqualTo []} do { deleteWaypoint [_group, 0] };
 private _setupWP = _group addWaypoint [_suppCenter, 0];
 _setupWP setWaypointSpeed "NORMAL";
 

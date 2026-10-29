@@ -47,7 +47,7 @@ private _fnc_spawnPoliceForces = {
 		while {!_foundRoad && _radius <= 300} do {
 		    private _nearRoads = _basePos nearRoads _radius;
 
-		    if (count _nearRoads > 0) then {
+		    if (_nearRoads isNotEqualTo []) then {
 		        _road = selectRandom _nearRoads;
 		        _foundRoad = true;
 		    } else {
@@ -109,7 +109,7 @@ private _fnc_spawnForces = {
 		while {!_foundRoad && _radius <= 300} do {
 		    private _nearRoads = _basePos nearRoads _radius;
 
-		    if (count _nearRoads > 0) then {
+		    if (_nearRoads isNotEqualTo []) then {
 		        _road = selectRandom _nearRoads;
 		        _foundRoad = true;
 		    } else {

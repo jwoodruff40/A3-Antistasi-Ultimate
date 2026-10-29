@@ -31,7 +31,7 @@ private _actionID = _vehicle addAction [
     _text,
     {
         params ["_vehicle", "_caller", "_id", "_static"];
-        if !(attachedTo _static isEqualTo _vehicle) exitWith {[_vehicle, _id] remoteExecCall ["removeAction", 0]};// incase of code break in unloading static
+        if (attachedTo _static isNotEqualTo _vehicle) exitWith {[_vehicle, _id] remoteExecCall ["removeAction", 0]};// incase of code break in unloading static
         if (!alive gunner _static) then {
             _caller moveInGunner _static;
         } else {[localize "STR_A3A_Logistics_header", localize "STR_A3A_Logistics_addWeaponAction_staticoccupied"] call A3A_fnc_customHint};

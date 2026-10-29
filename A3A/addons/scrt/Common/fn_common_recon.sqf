@@ -8,7 +8,7 @@ private _markers = [];
 
 private _revealText = nil;
 
-if (!isNil "_enemyUnits" && {count _enemyUnits > 0}) then {
+if (!isNil "_enemyUnits" && {_enemyUnits isNotEqualTo []}) then {
     {
         private _entityPosition = position _x;
         _entityPosition = [(_entityPosition select 0) + random 10, (_entityPosition select 1) + random 10, _entityPosition select 2];

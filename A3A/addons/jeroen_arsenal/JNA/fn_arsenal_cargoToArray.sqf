@@ -68,15 +68,13 @@ _unloadContainer = {
 	{
 		{
 			private["_index","_item","_amount"];
-			if(typeName _x  isEqualTo "ARRAY")then{
-				if(count _x > 0)then{
-					_item = _x select 0;
-					_amount = _x select 1;
-					_index = IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL;
-					[_array,_index,_item,_amount]call _addToArray;
-				};
+			if(_x  isEqualType [] && {_x isNotEqualTo []})then{
+				_item = _x select 0;
+				_amount = _x select 1;
+				_index = IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL;
+				[_array,_index,_item,_amount]call _addToArray;
 			}else{
-				if!(_x isEqualTo "")then{
+				if(_x isNotEqualTo "")then{
 					_item = _x;
 					_amount = 1;
 					_index = _item call jn_fnc_arsenal_itemType;

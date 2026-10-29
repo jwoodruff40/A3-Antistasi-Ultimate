@@ -435,7 +435,7 @@ private _eventHanderEachFrame = addMissionEventHandler ["EachFrame", {
         private _posASL = AGLToASL _vehiclePos;
         private _intersects = lineIntersectsSurfaces [_posASL vectorAdd [0,0,100], _posASL vectorAdd [0,0,-100], _object, objNull, true, 1, "GEOM"];
 
-        if (count _intersects > 0) then {
+        if (_intersects isNotEqualTo []) then {
             _vehiclePos = ASLToAGL (_intersects select 0 select 0);
             _vehicleVectorUp = _intersects select 0 select 1;
 

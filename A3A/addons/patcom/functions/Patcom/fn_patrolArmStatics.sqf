@@ -46,7 +46,7 @@ _staticsNear = _staticsNear select {
 };
 
 // Exit if no statics are near.
-if (count _staticsNear == 0) exitWith {};
+if (_staticsNear isEqualTo []) exitWith {};
 
 // Get all units in the current group looking for statics.
 private _unitArray = units _group;
@@ -58,11 +58,11 @@ _unitArray deleteAt (_unitArray find _leader);
 _unitArray = _unitArray select {isNull objectParent _x};
 
 // Exit if no units are available to be used in the statics.
-if (count _unitArray == 0) exitWith {};
+if (_unitArray isEqualTo []) exitWith {};
 
 {
     // Exit if unitArray is empty.
-    if (count _unitArray == 0) exitWith {};
+    if (_unitArray isEqualTo []) exitWith {};
 
     private _unit = selectRandom _unitArray;
     if (_unit distance2D _x < 100) then {

@@ -73,7 +73,7 @@ private _entryPos = _dropPos getPos [-100, _angle];
 private _exitPos = _dropPos getPos [300, _angle];
 { _x set [2, 500] } forEach [_entryPos, _exitPos, _originPosition];
 
-while {count waypoints _groupPilot > 0} do { deleteWaypoint [_groupPilot, 0] };
+while {waypoints _groupPilot isNotEqualTo []} do { deleteWaypoint [_groupPilot, 0] };
 
 private _wp = _groupPilot addWaypoint [_entryPos, 0];
 _wp setWaypointType "MOVE";
@@ -160,7 +160,7 @@ if(currentWaypoint _groupPilot > 0) then
     };
 };
 
-while {count waypoints _groupJumper > 0} do { deleteWaypoint [_groupJumper, 0] };
+while {waypoints _groupJumper isNotEqualTo []} do { deleteWaypoint [_groupJumper, 0] };
 
 _vehicle limitSpeed (2 * getNumber(configOf _vehicle >> "maxSpeed"));	// remove the limit
 

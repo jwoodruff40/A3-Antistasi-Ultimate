@@ -25,9 +25,9 @@ FIX_LINE_NUMBERS()
 	{\
 		private _dlc = "";\
 		private _addons = configSourceAddonList _this;\
-		if (count _addons > 0) then {\
+		if (_addons isNotEqualTo []) then {\
 			private _mods = configSourceModList (configFile >> "CfgPatches" >> _addons select 0);\
-			if (count _mods > 0) then {\
+			if (_mods isNotEqualTo []) then {\
 				_dlc = _mods select 0;\
 			};\
 		};\
@@ -730,7 +730,7 @@ switch _mode do {
 			_handgunweapon set [0,((_handgunweapon select 0) call BIS_fnc_baseWeapon)];
 
 			//Some mod backpacks have no empty variant
-			if (count _backpack > 0) then {
+			if (_backpack isNotEqualTo []) then {
 				_backpack set [0,((_backpack select 0) call A3A_fnc_basicBackpack)];
 			};
 
@@ -1240,13 +1240,13 @@ switch _mode do {
 
 				//TFAR FIX
 				_radioName = getText(configFile >> "CfgWeapons" >> _return1 >> "tf_parent");
-				if!(_radioName isEqualTo "")then{_return1 = _radioName};
+				if(_radioName isNotEqualTo "")then{_return1 = _radioName};
 
 				_return1;
 
 								//ACRE FIX
 				_radioName = getText(configFile >> "CfgVehicles" >> _return1 >> "acre_baseClass");
-				if!(_radioName isEqualTo "")then{_return1 = _radioName};
+				if(_radioName isNotEqualTo "")then{_return1 = _radioName};
 
 				_return1;
 
@@ -2066,7 +2066,7 @@ switch _mode do {
 					if (_item != "") then{
 						player addWeapon _item;
 						_magazines = getArray (configFile >> "cfgweapons" >> _item >> "magazines");
-						if (count _magazines > 0) then {
+						if (_magazines isNotEqualTo []) then {
 							_mag = (_magazines select 0);
 							if([jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL, _mag] call jn_fnc_arsenal_itemCount > 0)then{
 								if((player canAddItemToUniform _mag)||(player canAddItemToVest _mag)||(player canAddItemToBackpack _mag))then{
@@ -2228,7 +2228,7 @@ switch _mode do {
 				_OldItemUnequal = _oldItem;
 				if(_index == IDC_RSCDISPLAYARSENAL_TAB_COMPASS)then{
 					_radioName = getText(configFile >> "CfgWeapons" >> _oldItem >> "tf_parent");
-					if!(_radioName isEqualTo "")exitWith{
+					if(_radioName isNotEqualTo "")exitWith{
 						_OldItemUnequal = _radioName;
 					};
 				};
@@ -2237,7 +2237,7 @@ switch _mode do {
 				_OldItemUnequal = _oldItem;
 				if(_index == IDC_RSCDISPLAYARSENAL_TAB_COMPASS)then{
 					_radioName = getText(configFile >> "CfgVehicles" >> _oldItem >> "acre_baseClass");
-					if!(_radioName isEqualTo "")exitWith{
+					if(_radioName isNotEqualTo "")exitWith{
 						_OldItemUnequal = _radioName;
 					};
 				};
@@ -2578,7 +2578,7 @@ switch _mode do {
 			case IDC_RSCDISPLAYARSENAL_TAB_BACKPACK: {loadBackpack player};
 		};
 
-		if!(_loadOld isEqualTo _load)then{
+		if(_loadOld isNotEqualTo _load)then{
 			_amountOld = parseNumber (_ctrlList lnbText [_lbcursel,2]);
 			if(_add > 0)then{
 				_ctrlList lnbSetText [[_lbcursel,2],str (_amountOld + _count)];
@@ -2741,7 +2741,7 @@ switch _mode do {
 				{
 					_ctrlStat = _display displayCtrl ((_statControls select _foreachindex) select 0);
 					_ctrlText = _display displayCtrl ((_statControls select _foreachindex) select 1);
-					if (count _x > 0) then {
+					if (_x isNotEqualTo []) then {
 						_ctrlStat progressSetPosition (_x select 0);
 						_ctrlText ctrlSetText toUpper (_x select 1);
 						_ctrlText ctrlSetFade 0;
@@ -2954,11 +2954,11 @@ switch _mode do {
 
 			//--- Save
 			case (_key == DIK_S): {
-				if (_ctrl && (vehicle player isEqualTo player)) then {['buttonSave',[_display]] call jn_fnc_arsenal;};
+				if (_ctrl && (isNull objectParent player)) then {['buttonSave',[_display]] call jn_fnc_arsenal;};
 			};
 			//--- Open
 			case (_key == DIK_O): {
-				if (_ctrl && (vehicle player isEqualTo player)) then {['buttonLoad',[_display]] call jn_fnc_arsenal;};
+				if (_ctrl && (isNull objectParent player)) then {['buttonLoad',[_display]] call jn_fnc_arsenal;};
 			};
 
 			//--- Vision mode

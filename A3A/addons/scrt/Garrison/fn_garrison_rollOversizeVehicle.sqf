@@ -28,7 +28,7 @@ if ((random 100) < _oversizeChance) then {
 
         while {true} do {
             _road = _markerPosition nearRoads _radiusX;
-            if (count _road > 0) exitWith {};
+            if (_road isNotEqualTo []) exitWith {};
             if (_radiusX > 700) exitWith {};
             _radiusX = _radiusX + 10;
         };
@@ -36,7 +36,7 @@ if ((random 100) < _oversizeChance) then {
         private _position = nil;
         if (!isNil "_road") then {
             private _roadcon = roadsConnectedTo (_road select 0);
-            private _dirveh = if(count _roadcon > 0) then {[_road select 0, _roadcon select 0] call BIS_fnc_DirTo} else {random 360};
+            private _dirveh = if(_roadcon isNotEqualTo []) then {[_road select 0, _roadcon select 0] call BIS_fnc_DirTo} else {random 360};
             _position = getPos (_road select 0);
         } else {
             _position = [_markerPosition, 10, _size, 5, 0, 0.7, 0, [], [_markerPosition, _markerPosition]] call BIS_fnc_findSafePos;

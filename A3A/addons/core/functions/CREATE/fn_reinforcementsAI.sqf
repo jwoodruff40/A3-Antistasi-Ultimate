@@ -12,7 +12,7 @@ private _allKillzones = [];
 if (isNil "killZoneRemove") then {killZoneRemove = 0};
 private _kzAggroMult = 0.2 + 0.4 * (aggressionOccupants + aggressionInvaders) / 100;
 killZoneRemove = killZoneRemove + _kzAggroMult * (0.5 + 0.1 * count _allKillzones);
-if (count _allKillzones == 0) then { killZoneRemove = 0 };
+if (_allKillzones isEqualTo []) then { killZoneRemove = 0 };
 
 while {killZoneRemove >= 1} do
 {

@@ -46,7 +46,7 @@ while {alive _unit} do
 				};
 			};
 		_minesX = allMines select {(_x distance _unit) < 100};
-		if (count _minesX == 0) then
+		if (_minesX isEqualTo []) then
 			{
 			waitUntil {sleep 1;(!alive _unit) or (!unitReady _unit)};
 			}
@@ -70,7 +70,7 @@ while {alive _unit} do
 					//_unit action ["deactivateMine", _unit];
 					sleep 3;
 					_toDelete = nearestObjects [position _unit, ["WeaponHolderSimulated", "GroundWeaponHolder", "WeaponHolder"], 9];
-					if (count _toDelete > 0) then
+					if (_toDelete isNotEqualTo []) then
 						{
 						_wh = _toDelete select 0;
 						if (alive _truckX) then {_truckX addMagazineCargoGlobal [((magazineCargo _wh) select 0),1]};

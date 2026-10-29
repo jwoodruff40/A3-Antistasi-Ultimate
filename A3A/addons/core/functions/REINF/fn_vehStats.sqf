@@ -1,4 +1,4 @@
-if (count hcSelected player == 0) exitWith {
+if (hcSelected player isEqualTo []) exitWith {
 	[localize "STR_A3A_reinf_vehStat_header", localize "STR_A3A_reinf_vehStat_one_group"] call A3A_fnc_customHint;};
 
 private ["_groupX","_veh","_textX","_unitsX"];
@@ -74,7 +74,7 @@ if (!isNil "_owner") then {if (_owner == _groupX) exitWith {_veh = _x}};
 if (isNull _veh) then
 	{
 	{
-	if ((vehicle _x != _x) and (_x == driver _x) and !(vehicle _x isKindOf "StaticWeapon")) exitWith {_veh = vehicle _x};
+	if ((!isNull objectParent _x) and (_x == driver _x) and !(vehicle _x isKindOf "StaticWeapon")) exitWith {_veh = vehicle _x};
 	} forEach _unitsX;
 	};
 if !(isNull _veh) then

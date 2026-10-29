@@ -65,25 +65,25 @@ if ((typeOf _plane) in _cfg) exitWith
             _diveParams         = [(_cfgAA >> (typeOf _plane)), "diveParams", []] call BIS_fnc_returnConfigEntry;
         };
     };
-    if !(_mainGun isEqualTo "") then {
+    if (_mainGun isNotEqualTo "") then {
         _plane setVariable ["mainGun", _mainGun];
     };
-    if !(_rocketLauncher isEqualTo []) then {
+    if _rocketLauncher isNotEqualTo [] then {
         _plane setVariable ["rocketLauncher", _rocketLauncher];
     };
-    if !(_missileLauncher isEqualTo []) then {
+    if _missileLauncher isNotEqualTo [] then {
         _plane setVariable ["missileLauncher", _missileLauncher];
     };
-    if !(_bombRacks isEqualTo []) then {
+    if _bombRacks isNotEqualTo [] then {
         _plane setVariable ["bombRacks", _bombRacks];
     };
-    if !(_diveParams isEqualTo []) then {
+    if _diveParams isNotEqualTo [] then {
         _plane setVariable ["diveParams", _diveParams];
     } else {
         _plane setVariable ["diveParams", [1000, 600, 180, 55, 15, [0, 0]]]
     };
 
-    if !(_loadout isEqualTo []) then
+    if _loadout isNotEqualTo [] then
     {
         Debug("Selected new loadout for plane, now equiping plane with it");
         {
@@ -1812,7 +1812,7 @@ if (_type == "AA") then
     };
 };
 
-if !(_loadout isEqualTo []) then
+if _loadout isNotEqualTo [] then
 {
     Debug("Selected new loadout for plane, now equiping plane with it");
     {

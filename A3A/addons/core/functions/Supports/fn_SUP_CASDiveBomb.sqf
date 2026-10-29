@@ -24,7 +24,7 @@ _suppData params ["_supportName", "_side", "_suppType", "_suppCenter", "_suppRad
 #define DIST_APPROACH 2000
 private _startAlt = (_plane getVariable "diveParams")#0;
 
-while {count waypoints _group > 0} do { deleteWaypoint [_group, 0] };
+while {waypoints _group isNotEqualTo []} do { deleteWaypoint [_group, 0] };
 private _setupWP = _group addWaypoint [_suppCenter, 0];
 _setupWP setWaypointSpeed "NORMAL";
 _plane flyInHeight _startAlt;

@@ -56,7 +56,7 @@ private _processOccupantMarker = {
             // disable simulation for all marker units
             {
                 if (_x getVariable ["markerX", ""] == _marker
-                    && { vehicle _x == _x })
+                    && { isNull objectParent _x })
                 then { _x enableSimulationGlobal false; };
             } forEach allUnits;
         };
@@ -77,7 +77,7 @@ private _processOccupantMarker = {
                 // enable simulation for all marker units
                 {
                     if (_x getVariable ["markerX", ""] == _marker
-                        && { vehicle _x == _x })
+                        && { isNull objectParent _x })
                     then { _x enableSimulationGlobal true; };
                 } forEach allUnits;
             }
@@ -175,7 +175,7 @@ private _processFIAMarker = {
             // disable simulation for all marker units
             {
                 if (_x getVariable ["markerX", ""] == _marker
-                    && { vehicle _x == _x }) then { _x enableSimulationGlobal false; };
+                    && { isNull objectParent _x }) then { _x enableSimulationGlobal false; };
             } forEach allUnits;
         };
 
@@ -197,7 +197,7 @@ private _processFIAMarker = {
                 // enable simulation for all marker units
                 {
                     if (_x getVariable ["markerX", ""] == _marker && {
-                        vehicle _x == _x }) then { _x enableSimulationGlobal true; };
+                        isNull objectParent _x }) then { _x enableSimulationGlobal true; };
                 } forEach allUnits;
             }
             else
@@ -276,7 +276,7 @@ private _processInvaderMarker = {
             // disable simulation for all marker units
             {
                 if (_x getVariable ["markerX", ""] == _marker
-                    && { vehicle _x == _x }) then { _x enableSimulationGlobal false; };
+                    && { isNull objectParent _x }) then { _x enableSimulationGlobal false; };
             } forEach allUnits;
         };
 
@@ -296,7 +296,7 @@ private _processInvaderMarker = {
                 // enable simulation for all marker units
                 {
                     if (_x getVariable ["markerX", ""] == _marker
-                        && { vehicle _x == _x }) then { _x enableSimulationGlobal true; };
+                        && { isNull objectParent _x }) then { _x enableSimulationGlobal true; };
                 } forEach allUnits;
             }
             else

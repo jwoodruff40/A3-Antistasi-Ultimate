@@ -139,7 +139,7 @@ private _outpostIconData = [];
     ];
 
     // Draw text
-    if !(_type isEqualTo "city") then {_color = _fadedColor};
+    if (_type isNotEqualTo "city") then {_color = _fadedColor};
     _map drawIcon [
         "#(rgb,1,1,1)color(0,0,0,0)", // the icon itself is transparent
         _color, // colour

@@ -1,4 +1,4 @@
-#pragma hemtt ignore_variables ["_fnc_setUniform","_fnc_addItemSet","_fnc_addMap","_fnc_addWatch","_fnc_addCompass","_fnc_addBinoculars","_fnc_setFacewear","_fnc_generateAndSaveUnitsToTemplate"]
+#pragma hemtt ignore_variables ["_fnc_setUniform","_fnc_addItemSet","_fnc_addMap","_fnc_addWatch","_fnc_addCompass","_fnc_addBinoculars","_fnc_setFacewear","_loadoutData","_crewLoadoutData","_pilotLoadoutData","_fnc_generateAndSaveUnitsToTemplate"]
 
 /////////////////////////////////
 //    Unit Type Definitions    //

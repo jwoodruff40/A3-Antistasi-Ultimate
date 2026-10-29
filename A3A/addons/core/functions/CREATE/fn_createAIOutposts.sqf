@@ -31,7 +31,7 @@ private _antenna = objNull;
 
 if (_sideX == Occupants && {_markerX in outposts}) then {
 	private _buildings = nearestObjects [_positionX,["Land_TTowerBig_1_F","Land_TTowerBig_2_F","Land_Communication_F"], _size];
-	if (count _buildings > 0) then {
+	if (_buildings isNotEqualTo []) then {
 		_antenna = _buildings select 0;
 	};
 };
@@ -135,7 +135,7 @@ _roads = _positionX nearRoads _size;
 if (_markerX in seaports) then {
 	_typeVehX = selectRandom (_faction get "vehiclesGunBoats");
 	private _mrkMar = seaSpawn select {getMarkerPos _x inArea _markerX};
-	if(count _mrkMar > 0) then {
+	if(_mrkMar isNotEqualTo []) then {
 		private _pos = (getMarkerPos (_mrkMar select 0)) findEmptyPosition [0,20,_typeVehX];
 		private _vehicle=[_pos, 0,_typeVehX, _sideX] call A3A_fnc_spawnVehicle;
 		private _veh = _vehicle select 0;
@@ -152,7 +152,7 @@ if (_markerX in seaports) then {
 		Error_1("Could not find seaSpawn marker on %1!",_markerX);
 	};
 } else {
-	if (_frontierX && {count _roads != 0}) then {
+	if (_frontierX && {_roads isNotEqualTo []}) then {
 		_dist = 0;
 		_road = objNull;
 		{
@@ -356,7 +356,7 @@ for "_i" from 0 to (count _array - 1) do {
 	// Garrison the first group into buildings
 	if (_i == 0) then {
 		private _garrisonGroup = [_groupX, getMarkerPos _markerX, _size] call A3A_fnc_patrolGroupGarrison;
-		if (count _garrisonGroup > 0) then {
+		if (_garrisonGroup isNotEqualTo []) then {
 			_groups append _garrisonGroup;
 		};
 	} else {

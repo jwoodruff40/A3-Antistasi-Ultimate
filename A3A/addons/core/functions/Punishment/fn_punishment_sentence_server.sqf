@@ -53,7 +53,7 @@ private _detainee = _varspace getVariable ["player",objNull];
     while {(ceil serverTime) < _sentenceEndTime-1} do { // ceil and -1 if something doesn't sync up
         if (!isPlayer _detainee) exitWith {_disconnected=true};
         _admin = [] call A3A_fnc_getAdmin;  // Refreshes in case the admin logged in.
-        if !(_admin isEqualTo _lastAdmin) then {  // Admin Change
+        if (_admin isNotEqualTo _lastAdmin) then {  // Admin Change
             if (!isNull _lastAdmin) then {
                 [_name] remoteExecCall ["A3A_fnc_punishment_removeActionForgive",_lastAdmin,false];
             };

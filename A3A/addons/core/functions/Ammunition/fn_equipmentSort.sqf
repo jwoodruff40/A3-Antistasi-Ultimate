@@ -17,7 +17,7 @@ allBackpacksEmpty deleteAt (allBackpacksEmpty find "B_CombinationUnitRespirator_
 {
 	switch (true) do {
 		case ((getText (configFile >> "CfgVehicles" >> _x >> "assembleInfo" >> "assembleTo")) != ""): {
-			if !((getArray (configFile >> "CfgVehicles" >> _x >> "assembleInfo" >> "base")) isEqualTo []) then {
+			if (getArray (configFile >> "CfgVehicles" >> _x >> "assembleInfo" >> "base")) isNotEqualTo [] then {
 				allBackpacksStatic pushBack _x;
 			}
 			else {
@@ -161,7 +161,7 @@ if (A3A_hasTFAR || {A3A_hasTFARBeta}) then {
 	private _encryptRebel = A3A_faction_reb getOrDefault ["attributeTFARCodes", ["tf_guer_radio_code", "tf_independent_radio_code"]];
     // tf_independent_radio_code may not exist. More investigation needed.
 	allRadios = _allRadioItems select { getText (configFile >> "CfgWeapons" >> _x >> "tf_encryptionCode") in _encryptRebel };
-	if (count allRadios == 0) then {
+	if (allRadios isEqualTo []) then {
 		Error("No TFAR radios with matching encryption codes found. Recommendation is to remove TFAR from the mod-set, and use the vanilla radio channel system.");
 	};
 

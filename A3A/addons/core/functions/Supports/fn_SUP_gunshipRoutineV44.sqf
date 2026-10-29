@@ -48,7 +48,7 @@ _gunship addEventHandler ["Fired", {
         _gunship setWeaponReloadingTime [_gunner, _weapon, 0.3];
     };
 
-    if(count _target == 0) exitWith {};
+    if(_target isEqualTo []) exitWith {};
 
     private _speed = (speed _projectile)/3.6;
     private _dir = vectorNormalized (_target vectorDiff (getPosASL _projectile));
@@ -155,7 +155,7 @@ private _heavyGunnerList = [];
         {
             //Currently not firing
             private _targetList = server getVariable [format ["%1_targets", _supportName], []];
-            if(count _targetList > 0) then
+            if(_targetList isNotEqualTo []) then
             {
                 Debug("Gunship | Using priority list");
                 //Priority target, execute first
@@ -194,7 +194,7 @@ private _heavyGunnerList = [];
             }
             else
             {
-                if(count _mainGunnerList > 0) then
+                if(_mainGunnerList isNotEqualTo []) then
                 {
                     Debug("Gunship | Using target list");
                     private _targetParams = _mainGunnerList deleteAt 0;
@@ -278,7 +278,7 @@ private _heavyGunnerList = [];
         {
             //Currently not firing
             private _targetList = server getVariable [format ["%1_targets", _supportName], []];
-            if(count _targetList > 0) then
+            if(_targetList isNotEqualTo []) then
             {
                 Debug("Gunship | Using priority list");
                 Debug(_targetList);
@@ -321,7 +321,7 @@ private _heavyGunnerList = [];
             }
             else
             {
-                if(count _heavyGunnerList > 0) then
+                if(_heavyGunnerList isNotEqualTo []) then
                 {
                     private _targetParams = _heavyGunnerList deleteAt 0;
                     _targetParams params ["_target", "_minigunShots", "_howitzerShots"];
@@ -371,7 +371,7 @@ while {_lifeTime > 0} do
         };
         Debug_2("%1 found %2 targets in its area",_supportName,count _targets);
 
-        if(count _targets > 0) then
+        if(_targets isNotEqualTo []) then
         {
             {
                 private _target = _x;

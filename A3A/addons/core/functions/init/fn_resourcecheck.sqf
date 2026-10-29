@@ -245,7 +245,7 @@ while {true} do {
 				};
 			};
 		} forEach antennasDead;
-		if (count _potentials > 0) then {
+		if (_potentials isNotEqualTo []) then {
 			_potential = selectRandom _potentials;
 			[[_potential select 0,_potential select 1],"A3A_fnc_REP_Antenna"] call A3A_fnc_scheduler;
 		};

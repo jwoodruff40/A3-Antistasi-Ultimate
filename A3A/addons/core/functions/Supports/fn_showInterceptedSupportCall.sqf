@@ -180,7 +180,7 @@ else
 
 //Broadcast message to nearby players
 private _nearbyPlayers = allPlayers select {(_x distance2D _position) <= 2000};
-if(count _nearbyPlayers > 0) then
+if(_nearbyPlayers isNotEqualTo []) then
 {
     ["RadioIntercepted", [_text]] remoteExec ["BIS_fnc_showNotification",_nearbyPlayers];
 };

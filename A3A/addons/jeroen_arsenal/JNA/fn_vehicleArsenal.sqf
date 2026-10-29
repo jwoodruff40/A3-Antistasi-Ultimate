@@ -22,9 +22,9 @@
 	{\
 		private _dlc = "";\
 		private _addons = configsourceaddonlist _this;\
-		if (count _addons > 0) then {\
+		if (_addons isNotEqualTo []) then {\
 			private _mods = configsourcemodlist (configfile >> "CfgPatches" >> _addons select 0);\
-			if (count _mods > 0) then {\
+			if (_mods isNotEqualTo []) then {\
 				_dlc = _mods select 0;\
 			};\
 		};\
