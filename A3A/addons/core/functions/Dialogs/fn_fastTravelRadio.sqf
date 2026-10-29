@@ -112,7 +112,7 @@ if (!_esHC && {fastTravelEnemyCheck && {_units findIf {[getPosATL _x] call A3A_f
 	[localize "STR_A3A_Dialogs_fast_travel_header", localize "STR_A3A_Dialogs_fast_travel_enemiesnear_group"] call SCRT_fnc_misc_deniedHint;
 };
 
-if (!_esHC && {!isNull objectParent player && {driver !isNull objectParent player}}) exitWith {
+if (!_esHC && {!isNull objectParent player && {driver objectParent player != player}}) exitWith {
 	[localize "STR_A3A_Dialogs_fast_travel_header", localize "STR_A3A_Dialogs_fast_travel_only_drivers"] call SCRT_fnc_misc_deniedHint;
 };
 
@@ -202,7 +202,7 @@ private _ftUnits = [];
 		_unit allowDamage false;
 		_ftUnits pushBack _unit;
 		if !(isNull objectParent _unit) then {
-			if (driver isNull objectParent _unit) then {
+			if (driver objectParent _unit == _unit) then {
 				_radiusX = 10;
 				private _roads = [];
 				while {true} do {
