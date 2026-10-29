@@ -83,6 +83,7 @@ private ["_item","_return","_data"];
 params ["_item"];
 
 _return = -1;
+if (isNil "_item") exitWith { _return };
 
 private ["_weaponType","_weaponTypeCategory"];
 /*
@@ -102,6 +103,15 @@ private _itemType = switch true do {
 };
 private _itemInfoType =	if (isClass _itemInfoConfig) then {(getNumber (_itemInfoConfig >> "type"))} else {-1};
 private _simulationType = getText (_weaponConfig >> "simulation");
+
+
+diag_log format ["arsenal_itemType: _item = %1", _item];
+diag_log format ["arsenal_itemType: _weaponConfig = %1", _weaponConfig];
+diag_log format ["arsenal_itemType: _itemInfoConfig = %1", _itemInfoConfig];
+diag_log format ["arsenal_itemType: _magazineConfig = %1", _magazineConfig];
+diag_log format ["arsenal_itemType: _itemType = %1", _itemType];
+diag_log format ["arsenal_itemType: _itemInfoType = %1", _itemInfoType];
+diag_log format ["arsenal_itemType: _simulationType = %1", _simulationType];
 
 private _itemCategory = switch true do {
 	case (isClass _weaponConfig): {

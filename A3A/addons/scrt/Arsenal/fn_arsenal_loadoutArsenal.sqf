@@ -154,6 +154,7 @@ FIX_LINE_NUMBERS()
 	["passthrough","armor","maximumLoad","mass"],\
 	[false,false,false,false]
 
+#undef ERROR
 #define ERROR if !(_item in _disabledItems) then {_disabledItems set [count _disabledItems,_item];};
 
 #define SORT_DEFAULT 0
@@ -2829,7 +2830,7 @@ switch _mode do {
 		if (isClass _itemCfg) then {			
 			private _ctrlList = _display displayCtrl (IDC_RSCDISPLAYARSENAL_LIST + _index);
 			private _curSel = lbCurSel _ctrlList;
-			_dataStr = param [1,if (ctrlType _ctrlList == 102) then {_ctrlList lnbData [_curSel,0]} else {_ctrlList lbData _curSel}];
+			_dataStr = if (ctrlType _ctrlList == 102) then {_ctrlList lnbData [_curSel,0]} else {_ctrlList lbData _curSel};
 			_data = call compile _dataStr;
 			_item = _data select 0;
 
