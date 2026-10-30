@@ -179,10 +179,10 @@ if (_visible) then {
 	{ 
 		private _waypointPosition = _x select 0;  
 		private _marker = createMarker [format ["%1convoyNode%2", random 10000, random 10000], _waypointPosition]; 
-		_marker setMarkerType "hd_dot"; 
-		_marker setMarkerSize [1, 1]; 
-		_marker setMarkerText ""; 
-		_marker setMarkerColor _markerColor; 
+		_marker setMarkerTypeLocal "hd_dot"; 
+		_marker setMarkerSizeLocal [1, 1]; 
+		_marker setMarkerTextLocal ""; 
+		_marker setMarkerColorLocal _markerColor; 
 		_marker setMarkerAlpha 1; 
 		_markers pushBack _marker;
 	} forEach _route;

@@ -86,8 +86,8 @@ if(_type == "Mixed") then {_markerType = "_armor"};
 
 _convoyMarker = createMarker [format ["convoy%1", _convoyID], _origin];
 _convoyMarker setMarkerShapeLocal "ICON";
-_convoyMarker setMarkerType format ["%1%2", _markerPrefix, _markerType];
-_convoyMarker setMarkerAlpha 0;
+_convoyMarker setMarkerTypeLocal format ["%1%2", _markerPrefix, _markerType];
+_convoyMarker setMarkerAlphaLocal 0;
 
 if(_convoySide == Occupants) then
 {

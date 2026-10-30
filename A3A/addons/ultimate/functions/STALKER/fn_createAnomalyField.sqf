@@ -43,8 +43,8 @@ private _fnc_createMarker = {
     if (_drawAnomalies isEqualTo false) exitWith {};
     
     private _marker = createMarker [(_text + str _index), [0,0]];
-    _marker setMarkerType "mil_dot";
-    _marker setMarkerText _text;
+    _marker setMarkerTypeLocal "mil_dot";
+    _marker setMarkerTextLocal _text;
     _marker setMarkerPos (getPos _anomaly);
 };
 

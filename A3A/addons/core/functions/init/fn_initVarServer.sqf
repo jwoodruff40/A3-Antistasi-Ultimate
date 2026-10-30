@@ -394,8 +394,8 @@ call A3A_fnc_compileMissionAssets;
 // Set template-dependent map stuff
 
 flagX setFlagTexture FactionGet(reb,"flagTexture");                 // HQ flag, should be local here
-"NATO_carrier" setMarkerText FactionGet(occ,"spawnMarkerName");
-"CSAT_carrier" setMarkerText FactionGet(inv,"spawnMarkerName");
+"NATO_carrier" setMarkerTextLocal FactionGet(occ,"spawnMarkerName");
+"CSAT_carrier" setMarkerTextLocal FactionGet(inv,"spawnMarkerName");
 "NATO_carrier" setMarkerType FactionGet(occ,"flagMarkerType");
 "CSAT_carrier" setMarkerType FactionGet(inv,"flagMarkerType");
 

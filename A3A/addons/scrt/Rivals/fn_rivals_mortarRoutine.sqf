@@ -145,20 +145,20 @@ while {_timeAlive > 0} do
 
             //Show target to players if change is high enough
             private _targetMarker = createMarker [format ["%1_targetMarker", _supportName], _targetPos];
-            _targetMarker setMarkerShape "ELLIPSE";
-            _targetMarker setMarkerBrush "Grid";
-            _targetMarker setMarkerSize [_distance + 25, _distance + 25];
+            _targetMarker setMarkerShapeLocal "ELLIPSE";
+            _targetMarker setMarkerBrushLocal "Grid";
+            _targetMarker setMarkerSizeLocal [_distance + 25, _distance + 25];
 
             private _textMarker = createMarker [format ["%1_text", _supportName], _targetPos];
-            _textMarker setMarkerShape "ICON";
-            _textMarker setMarkerType "mil_dot";
-            _textMarker setMarkerText (localize "STR_marker_roving_mortar_target");
+            _textMarker setMarkerShapeLocal "ICON";
+            _textMarker setMarkerTypeLocal "mil_dot";
+            _textMarker setMarkerTextLocal (localize "STR_marker_roving_mortar_target");
 
             //Makes sure that all units escape before attacking
             [Rivals, _targetMarker] spawn A3A_fnc_clearTargetArea;
 
-			_targetMarker setMarkerColor colorRivals;
-            _textMarker setMarkerColor colorRivals;
+			_targetMarker setMarkerColorLocal colorRivals;
+            _textMarker setMarkerColorLocal colorRivals;
             _targetMarker setMarkerAlpha 1;
             _textMarker setMarkerAlpha 1;
 

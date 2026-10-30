@@ -21,13 +21,13 @@ private _mrk3Pos = (selectRandom (selectBestPlaces [_mrk2Pos, 300,"waterDepth", 
 
 //Create markers for treasure locations!
 private _mrk1 = createMarker ["salvageLocation1", _mrk1Pos];
-_mrk1 setMarkerShape "ELLIPSE";
+_mrk1 setMarkerShapeLocal "ELLIPSE";
 _mrk1 setMarkerSize [25, 25];
 private _mrk2 = createMarker ["salvageLocation2", _mrk2Pos];
-_mrk2 setMarkerShape "ELLIPSE";
+_mrk2 setMarkerShapeLocal "ELLIPSE";
 _mrk2 setMarkerSize [25, 25];
 private _mrk3 = createMarker ["salvageLocation3", _mrk3Pos];
-_mrk3 setMarkerShape "ELLIPSE";
+_mrk3 setMarkerShapeLocal "ELLIPSE";
 _mrk3 setMarkerSize [25, 25];
 
 Debug_3("Salvage Mission Positions: %1, %2, %3",_mrk1Pos,_mrk2Pos,_mrk3Pos);
