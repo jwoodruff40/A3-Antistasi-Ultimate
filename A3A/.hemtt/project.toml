@@ -37,5 +37,10 @@ banned_commands = "Warning"
 invalid_comparisons = "Warning"
 direct_private = false
 
+[lints.sqf.var_all_caps]
+options.ignore = [
+    "PATCOM_*", "SA_TOW_*", "HR_GRG_*", "A3A_IDC_*", "A3A_IDD_*", "SPACER", "SDKSL", "SDKMG", "SDKGL"
+]
+
 [lints.stringtables]
 usage = false
