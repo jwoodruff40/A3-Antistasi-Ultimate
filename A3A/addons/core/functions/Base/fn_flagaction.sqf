@@ -303,15 +303,15 @@ switch _typeX do
 
     #define VEHICLE_STATIC_COND(aiFlagVar1) \
         QUOTE((isPlayer _this) && {isNull objectParent _this} && {_this call A3A_fnc_isMember} && {[ARR_2(_target,aiFlagVar1)] call A3A_fnc_canAIMountVehicle})
+    #define MOVE_ASSET_COND \
+        QUOTE((isPlayer _this) && {isNull objectParent _this} && {_this call A3A_fnc_isMember} &&\
+        {_target getVariable[ARR_2(QQUOTE(ownerSide),teamPlayer)] == teamPlayer} && {locked _target < 2} && {isNull attachedTo _target} &&\
+        {crew _target isEqualTo []} && {!(call A3A_fnc_isCarrying)})
     case "static":
     {
         _flag addAction [localize "STR_antistasi_actions_move_static_allow_ai", A3A_fnc_unlockStatic, nil, 1, false, true, "", VEHICLE_STATIC_COND(true), 4];
         _flag addAction [localize "STR_antistasi_actions_move_static_prevent_ai", A3A_fnc_lockStatic, nil, 1, false, true, "", VEHICLE_STATIC_COND(false), 4];
-        _flag addAction [localize "STR_antistasi_actions_move_this_asset", A3A_fnc_carryItem, nil, 1.5, false, true, "", QUOTE(
-            (isPlayer _this) && {isNull objectParent _this} && {_this call A3A_fnc_isMember} &&
-            {_target getVariable[ARR_2(QQUOTE(ownerSide),teamPlayer)] == teamPlayer} && {locked _target < 2} && {isNull attachedTo _target} &&
-            {crew _target isEqualTo []} && {!(call A3A_fnc_isCarrying)}
-        ), 4];
+        _flag addAction [localize "STR_antistasi_actions_move_this_asset", A3A_fnc_carryItem, nil, 1.5, false, true, "", MOVE_ASSET_COND, 4];
     };
     case "vehiclestatic":
     {
