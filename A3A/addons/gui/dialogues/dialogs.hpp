@@ -4,6 +4,12 @@ Maintainer: DoomMetal
 */
 
 #include "\x\A3A\addons\core\ui_define.hpp"
+FORWARD(RscButton);
+FORWARD(RscCheckBox);
+FORWARD(RscControlsGroup);
+FORWARD(RscListBox);
+FORWARD(RscListNBox);
+FORWARD(RscText);
 #include "mainDialog.hpp"
 #include "hqDialog.hpp"
 #include "requestMissionDialog.hpp"

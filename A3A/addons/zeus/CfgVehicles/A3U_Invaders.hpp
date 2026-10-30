@@ -26,7 +26,7 @@
         magazines[] = {};
         respawnMagazines[] = {};
         GVAR(unitFaction) = QUOTE(inv);
-        class EventHandlers {
+        class EventHandlers : EventHandlers {
             class ADDON {
                 PostInit = UNIT_INIT_HANDLER;
             };
@@ -441,6 +441,19 @@
         displayName = "$STR_A3U_Zeus_UnitType_Sniper";
         role = "Sniper";
         GVAR(unitType) = QUOTE(Sniper);
+    };
+    class GVAR(Invaders_SpecialForces_PatrolSniper) : GVAR(Invaders_SpecialForces_Rifleman) {
+        displayName = "$STR_A3U_Zeus_UnitType_PSniper";
+        role = "Sniper";
+        nameSound = "veh_infantry_sniper_S";
+        textSingular = "sniper";
+        textPlural = "snipers";
+        GVAR(unitType) = QUOTE(PatrolSniper);
+    };
+    class GVAR(Invaders_SpecialForces_PatrolSpotter) : GVAR(Invaders_SpecialForces_Rifleman) {
+        displayName = "$STR_A3U_Zeus_UnitType_PSpotter";
+        role = "Spotter";
+        GVAR(unitType) = QUOTE(PatrolSpotter);
     };
     class GVAR(Invaders_Police_Standard) : GVAR(Invaders_Militia_Rifleman) {
         editorSubcategory = QGVAR(Police);

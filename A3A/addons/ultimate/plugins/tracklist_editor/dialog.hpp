@@ -1,4 +1,7 @@
 #include "\x\A3A\addons\core\ui_define.hpp"
+FORWARD(RscEdit);
+FORWARD(RscListBox);
+FORWARD(RscText);
 #include "\x\A3A\addons\scrt\defines.hpp"
 #include "RscDefine.hpp"
 

@@ -1,4 +1,12 @@
 #include "\x\A3A\addons\core\ui_define.hpp"
+FORWARD(RscCheckBox);
+FORWARD(RscCombo);
+FORWARD(RscEdit);
+FORWARD(RscFrame);
+FORWARD(RscListBox);
+FORWARD(RscPictureKeepAspect);
+FORWARD(RscStructuredText);
+FORWARD(RscText);
 #include "\x\A3A\addons\scrt\defines.hpp"
 #include "RscDefine.hpp"
 

@@ -20,7 +20,7 @@
         magazines[] = {};
         respawnMagazines[] = {};
         GVAR(unitFaction) = QUOTE(reb);
-        class EventHandlers {
+        class EventHandlers : EventHandlers {
             class ADDON {
                 PostInit = UNIT_INIT_HANDLER;
             };
