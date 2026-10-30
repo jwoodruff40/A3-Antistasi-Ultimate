@@ -362,8 +362,8 @@ _prestigeBLUFOR = [];
 {
 	_city = _x;
 	_dataX = A3A_townData get _city;
-	_prestigeOPFOR = _prestigeOPFOR + [_dataX select 2];
-	_prestigeBLUFOR = _prestigeBLUFOR + [_dataX select 3];
+	_prestigeOPFOR pushBack (_dataX select 2);
+	_prestigeBLUFOR pushBack (_dataX select 3);
 } forEach citiesX;
 
 ["prestigeOPFOR", _prestigeOPFOR] call A3A_fnc_setStatVariable;

@@ -163,7 +163,7 @@ if ([_markerX,false] call A3A_fnc_fogCheck > 0.2) then {
 
                     // Create group and add them to patrol array for deletion later
                     private _groupP = createGroup civilian;
-                    _groupsPatrol = _groupsPatrol + [_groupP];
+                    _groupsPatrol pushBack _groupP;
 
                     // Get connected road and direction for use with facing the vehicle.
                     private _roadcon = roadsConnectedTo _road;
@@ -185,7 +185,7 @@ if ([_markerX,false] call A3A_fnc_fogCheck > 0.2) then {
                     [_veh, true, true, true, true] call A3A_fnc_clearVehicleCargo;
 
                     // Add vehicle to currently spawned vehicles patrolling array. Used for deletion later.
-                    _vehPatrol = _vehPatrol + [_veh];
+                    _vehPatrol pushBack _veh;
 
                     // Creat AI Unit to add into Civilian Vehicle
                     private _civ = [_groupP, FactionGet(civ,"unitMan"), (getPosATL _p1), [],0, "NONE"] call A3A_fnc_createUnit;

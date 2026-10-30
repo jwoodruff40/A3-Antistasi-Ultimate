@@ -10,7 +10,7 @@ private _sites = citiesX select {
 };
 
 //fallback in case nothing would be found
-if (count _sites == 0) then {
+if (_sites isEqualTo []) then {
     _sites = citiesX;
 };
 

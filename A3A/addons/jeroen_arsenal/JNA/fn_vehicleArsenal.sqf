@@ -379,7 +379,7 @@ switch _mode do {
 				_amountAvailable = _x select 1;
 
 				if(_itemAvailable in _usableMagazines)then{
-					_magazines set [count _magazines,[_itemAvailable, _amountAvailable]];
+					_magazines pushBack [_itemAvailable, _amountAvailable];
 				};
 			} forEach (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL);
 			

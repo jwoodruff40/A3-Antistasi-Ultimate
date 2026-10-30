@@ -327,9 +327,7 @@ if (_winner == teamPlayer) then {
 	private _staticWeapons = nearestObjects [_positionX, ["LandVehicle", "Ship"], _size * 1.5, true];
 	{
 		[_x, teamPlayer, true] call A3A_fnc_vehKilledOrCaptured;
-		if !(_x in staticsToSave) then {
-			staticsToSave pushBack _x;
-		};
+		staticsToSave pushBackUnique _x;
 	} forEach _staticWeapons;
 	publicVariable "staticsToSave";
 

@@ -141,7 +141,7 @@ if (({_x call A3A_fnc_canFight} count _soldiers < count _soldiers / 3) or (time 
     private _citypop = (server getVariable _mrkDest) select 0;
     [-4 * _citypop * A3A_balancePlayerScale, Invaders, "attack"] remoteExec ["A3A_fnc_addEnemyResources", 2];
 
-    destroyedSites = destroyedSites + [_mrkDest];
+    destroyedSites pushBackUnique _mrkDest;
     publicVariable "destroyedSites";
     private _mineTypes = A3A_faction_inv get "minefieldAPERS";
     for "_i" from 1 to 60 do {

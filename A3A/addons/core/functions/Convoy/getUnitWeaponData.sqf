@@ -30,7 +30,7 @@ _findRecurse =
     {
       _currentPath = _path + [_i];
       {
-        _result set [count _result, [_x, _x call _getAnyMagazines, _currentPath, str _class]];
+        _result pushBack [_x, _x call _getAnyMagazines, _currentPath, str _class];
       } forEach getArray (_class >> "weapons");
       _class = _class >> "turrets";
       if (isClass _class) then

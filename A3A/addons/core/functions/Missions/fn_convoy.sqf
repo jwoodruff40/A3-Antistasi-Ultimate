@@ -404,7 +404,7 @@ private _fnc_applyResults =
 
     if !(_success1) then {
         _killZones = killZones getVariable [_mrkOrigin,[]];
-        _killZones = _killZones + [_mrkDest,_mrkDest];
+        _killZones append [_mrkDest,_mrkDest];
         killZones setVariable [_mrkOrigin,_killZones,true];
     };
 

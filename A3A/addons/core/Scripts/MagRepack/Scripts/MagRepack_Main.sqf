@@ -131,7 +131,7 @@ outlw_MR_populateMagComboBox =
 		{
 			((uiNamespace getVariable "outlw_MR_Dialog_Main") displayCtrl 22170) lbAdd ([([(getText(configFile >> "cfgMagazines" >> (_magTypes select _n) >> "ammo"))] call outlw_MR_ammoDisplayName), 25] call outlw_MR_shortString);
 			((uiNamespace getVariable "outlw_MR_Dialog_Main") displayCtrl 22170) lbSetData [_a, (getText(configFile >> "cfgMagazines" >> (_magTypes select _n) >> "ammo"))];
-			_ammoTypes set [count _ammoTypes, (getText(configFile >> "cfgMagazines" >> (_magTypes select _n) >> "ammo"))];
+			_ammoTypes pushBack getText(configFile >> "cfgMagazines" >> (_magTypes select _n) >> "ammo");
 
 			_a = _a + 1;
 		};
@@ -255,9 +255,9 @@ outlw_MR_filter =
 	{
 		if (((getText (configFile >> "cfgMagazines" >> _magTypes select _n >> "ammo")) == _ammoType) && (((getNumber (configFile >> "cfgMagazines" >> _magTypes select _n >> "tracersEvery")) == _ammoTracer) || {_userFilter}  )) then
 		{
-			_returnTypes set [count _returnTypes, _magTypes select _n];
-			_returnCounts set [count _returnCounts, _magAmmoCounts select _n];
-			_returnCaps set [count _returnCaps, _magAmmoCaps select _n];
+			_returnTypes pushBack (_magTypes select _n);
+			_returnCounts pushBack (_magAmmoCounts select _n);
+			_returnCaps pushBack (_magAmmoCaps select _n);
 		};
 	};
 
@@ -435,7 +435,7 @@ outlw_MR_debugInfo =
 			}
 			else
 			{
-				_typeCountAmmo set [(count _typeCountAmmo), [_magType, 1, _magAmmo]];
+				_typeCountAmmo pushBack [_magType, 1, _magAmmo];
 			};
 
 			_totalMagCount = _totalMagCount + 1;

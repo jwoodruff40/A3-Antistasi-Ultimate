@@ -171,7 +171,7 @@ switch (_mode) do
 
         (["validateSaveData", [_saveDataHM]] call A3A_fnc_setupImportExportDialog) params ["_invalid", "_errors"];
         if (_invalid) exitWith {
-            { Error_1(format [localize "STR_antistasi_dialogs_setup_ie_import_error", _x]) } forEach _errors;
+            { Error_1(format [localize "STR_antistasi_dialogs_setup_ie_import_error",_x]) } forEach _errors;
             [localize "STR_antistasi_dialogs_setup_import_export", format [localize "STR_antistasi_dialogs_setup_ie_import_malformed", _errors joinString "<br/>"]] call A3A_fnc_customHint;
         };
 

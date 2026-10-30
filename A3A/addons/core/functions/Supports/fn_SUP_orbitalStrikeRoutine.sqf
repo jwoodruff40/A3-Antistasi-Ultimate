@@ -124,7 +124,7 @@ private _bulkMarkerUpdate = [];
 private _citiesInRange = (citiesX - destroyedSites) select {((getMarkerPos _x) distance2D _impactPosition) < 200};
 {
     ["TaskFailed", ["", format [localize "STR_notifiers_orbitalStrike_destruct", [_x] call A3A_fnc_localizar]]] remoteExec ["BIS_fnc_showNotification",teamPlayer];
-    destroyedSites = destroyedSites + [_x];
+    destroyedSites pushBackUnique _x;
 	publicVariable "destroyedSites";
     sidesX setVariable [_x, Invaders, true];
     garrison setVariable [_x, [], true];

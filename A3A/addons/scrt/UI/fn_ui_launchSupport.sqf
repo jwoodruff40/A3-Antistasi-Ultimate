@@ -117,7 +117,7 @@ if (supportType isEqualTo "PARADROP") then {
         && isNull objectParent _x && {[_x] call A3A_fnc_canFight} 
         && !(!(isNil "HR_GRG_placing") && {HR_GRG_placing})
     };
-    if (isNil "_readyPlayers" || {count _readyPlayers == 0}) exitWith {
+    if (isNil "_readyPlayers" || {_readyPlayers isEqualTo []}) exitWith {
         _exit = true;
         _exitMessage = localize "STR_notifiers_paradrop_no_players_ready_2";
     };

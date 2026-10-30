@@ -221,7 +221,7 @@ if (_posBank isNotEqualTo []) then {
 
 		if (_bankProv isNotEqualTo []) then {
 			private _banco = _bankProv select 0;
-			banks = banks + [_banco];
+			banks pushBack _banco;
 		};
 	};
 };

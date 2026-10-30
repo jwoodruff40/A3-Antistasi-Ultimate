@@ -36,7 +36,7 @@ private _hasMedkit = (_medkits arrayIntersect (items _medic + items _cured)) isN
 private _medicFAKs = if (!_hasMedkit) then { _firstAidKits arrayIntersect items _medic } else { [] };
 private _curedFAKs = if (!_hasMedkit) then { _firstAidKits arrayIntersect items _cured } else { [] };
 
-if (!_hasMedkit && {count _medicFAKs == 0 && count _curedFAKs == 0}) exitWith
+if (!_hasMedkit && {_medicFAKs isEqualTo [] && {_curedFAKs isEqualTo []}}) exitWith
 {
     if (_player) then {[localize "STR_antistasi_revive_header", format [localize "STR_chats_action_revive_no_fak_you",name _cured]] call A3A_fnc_customHint;};
     if (_inPlayerGroup) then {_medic groupChat localize "STR_chats_action_revive_no_fak_me"};
@@ -159,7 +159,7 @@ if (!([_medic] call A3A_fnc_canFight)) exitWith
 // Successful revive
 if (_isMedic) then {_cured setDamage 0} else {_cured setDamage 0.25};
 if (!_hasMedkit) then {
-    if (count _medicFAKs == 0) then { _cured removeItem selectRandom _curedFAKs }
+    if (_medicFAKs isEqualTo []) then { _cured removeItem selectRandom _curedFAKs }
     else { _medic removeItem selectRandom _medicFAKs };
 };
 private _sideX = side (group _cured);

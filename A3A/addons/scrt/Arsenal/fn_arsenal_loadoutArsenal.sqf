@@ -207,7 +207,7 @@ private _getUsableMagazines = {
 		_amountAvailable = _x select 1;
 
 		if([_usableMagazines, _itemAvailable] call _arrayContains) then {
-			_magazines set [count _magazines,[_itemAvailable, _amountAvailable]];
+			_magazines pushBack [_itemAvailable, _amountAvailable];
 		};
 	} forEach (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL);
 	//return
@@ -252,7 +252,7 @@ switch _mode do {
 					if (_weaponTypeID >= 0) then {
 						private ["_items"];
 						_items = _data select _weaponTypeID;
-						_items set [count _items,configName _class];
+						_items pushBack (configName _class);
 					};
 				};
 			};
@@ -267,7 +267,7 @@ switch _mode do {
 					if (getNumber (_x >> "disabled") == 0 && getText (_x >> "head") != "" && configName _x != "Default") then {
 						private ["_items"];
 						_items = _data select IDC_RSCDISPLAYARSENAL_TAB_FACE;
-						_items set [count _items,[_x,_index]];
+						_items pushBack [_x,_index];
 					};
 				} forEach ("isclass _x" configClasses _x);
 			} forEach ("isclass _x" configClasses (configFile >> "cfgfaces"));
@@ -278,7 +278,7 @@ switch _mode do {
 				if (_scope == 2 && getText (_x >> "protocol") != "RadioProtocolBase") then {
 					private ["_items"];
 					_items = _data select IDC_RSCDISPLAYARSENAL_TAB_VOICE;
-					_items set [count _items,configName _x];
+					_items pushBack (configName _x);
 				};
 			} forEach ("isclass _x" configClasses (configFile >> "cfgvoice"));
 
@@ -288,7 +288,7 @@ switch _mode do {
 				_scope = if (isNumber (_x >> "scope")) then {getNumber (_x >> "scope")} else {2};
 				if (_scope == 2) then {
 					_items = _data select IDC_RSCDISPLAYARSENAL_TAB_INSIGNIA;
-					_items set [count _items,configName _x];
+					_items pushBack (configName _x);
 				};
 			} forEach ("isclass _x" configClasses (configFile >> "cfgunitinsignia"));
 		};
@@ -304,7 +304,7 @@ switch _mode do {
 					private _mag = _x;
 					if ({_x == _mag} count _magazines == 0) then {
 						private ["_cfgMag"];
-						_magazines set [count _magazines,_mag];
+						_magazines pushBack _mag;
 						_cfgMag = configFile >> "cfgmagazines" >> _mag;
 						if (getNumber (_cfgMag >> "scope") == 2 || getNumber (_cfgMag >> "scopeArsenal") == 2) then {
 							private ["_items"];
@@ -2069,7 +2069,7 @@ switch _mode do {
 
 					_items = [""] + (itemCargo _container);
 					{
-						_items = _items + [
+						_items append [
 							(_x select 0), //weapon
 							(_x select 1), //attachments
 							(_x select 2),

@@ -73,7 +73,7 @@ outlw_MR_getIDCs =
 		
 		if (call _filter) then
 		{
-			_returnList = _returnList + [getNumber(_config >> _ctrl >> "idc")];
+			_returnList pushBack getNumber(_config >> _ctrl >> "idc");
 		};
 		
 		if (isClass(_config >> _ctrl >> "Controls")) then
