@@ -522,7 +522,6 @@ if (_type == "CASDIVE") then
             _plane setVariable ["diveParams", [1200, 350, 110, 55, 15, [3, 0]]];        // start (m), end (m), diveSpeed (m/s), dive start angle (deg), turnRate (deg/s), bombOffset (m)
         };
         case "3AS_BTLB_Bomber";
-        case "3AS_BTLB_Bomber_Shadow";
         case "3AS_BTLB_Bomber_RedLeader";
         case "3AS_BTLB_Bomber_Shadow":
         {
@@ -1065,7 +1064,6 @@ if (_type == "CAS") then
             _plane setVariable ["missileLauncher", ["weapon_AGM_65Launcher","3as_ARC_Missile_AGM","weapon_HARMLauncher"]];
         };
         case "3AS_BTLB_Bomber";
-        case "3AS_BTLB_Bomber_Shadow";
         case "3AS_BTLB_Bomber_RedLeader";
         case "3AS_BTLB_Bomber_Shadow":
         {
@@ -1433,12 +1431,15 @@ if (_type == "AA") then
             _plane setVariable ["missileLauncher", ["weapon_AMRAAMLauncher"]];
         };
         //Vanilla-Aegis IND CAS //different case due to additional weapons not present in vanilla //in templates should use one of these classnames with proper variant skin
+        /*
+        // This case will never be selected due to earlier definition, will require additional logic or new classes to implement the desired behavior
         case "O_A_Plane_Fighter_03_dynamicLoadout_F";
         case "Atlas_O_T_Plane_Fighter_03_dynamicLoadout_F":
         {
             _loadout = ["PylonRack_19Rnd_Rocket_Skyfire","PylonRack_20Rnd_Rocket_03_HE_F","PylonRack_7Rnd_Rocket_50mm","PylonWeapon_300Rnd_20mm_shells","PylonRack_6Rnd_Vikhr_missiles"];
             _plane setVariable ["mainGun", "Twin_Cannon_20mm_gunpod"];
         };
+        */
         //RHS US Air superiority fighter
         case "rhsusf_f22":
         {
@@ -1449,7 +1450,6 @@ if (_type == "AA") then
             _loadout = ["rhs_mag_aim9m","rhs_mag_aim120","rhs_mag_aim120","rhs_mag_zpl20_mixed","rhs_mag_aim120","rhs_mag_aim120","rhs_mag_aim9m","rhsusf_ANALE40_CMFlare_Chaff_Magazine_x2"];
         };
         //RHS Russian Air superiority
-        case "rhs_mig29sm_vvs";
         case "rhs_mig29s_vvs";
         case "rhs_mig29sm_vvs";
         case "UK3CB_ARD_O_MIG29S";

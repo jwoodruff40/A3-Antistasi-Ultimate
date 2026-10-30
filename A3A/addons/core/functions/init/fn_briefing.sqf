@@ -120,10 +120,6 @@ switch (victoryCondition) do
 	case 3: {
 		player createDiaryRecord ["Diary",[format [localize "STR_antistasi_journal_entry_header_Default_2"],format [localize "STR_antistasi_journal_entry_text_Default_logistical"]]];
 	};
-	case 3: {
-		player createDiaryRecord ["Diary",[format [localize "STR_antistasi_journal_entry_header_Default_2"],format [localize "STR_antistasi_journal_entry_text_Default_political"]]];
-	};
-	
 	default {Error_1("Victory condition was not recognized. Condition given: %1",victoryCondition)};
 };
 // Default Welcome stuff.

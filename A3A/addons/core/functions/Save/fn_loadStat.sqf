@@ -692,12 +692,7 @@ if (_varName in specialVarLoads) then {
 			publicVariable "rebelLoadouts";
 		};
 
-        case 'randomizeRebelLoadoutUniforms': {
-			randomizeRebelLoadoutUniforms = _varValue;
-			publicVariable "randomizeRebelLoadoutUniforms";
-		};
-
-		case 'rivalsLocationsMap': {
+        case 'rivalsLocationsMap': {
             Info_1("Rivals Locations: %1",str _varValue);
 			rivalsLocationsMap = _varValue;
 			publicVariable "rivalsLocationsMap";
