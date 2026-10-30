@@ -13,7 +13,7 @@ private _layer = ["A3A_tags"] call BIS_fnc_rscLayer;
 while{ true } do {
    // PLAYER NAME CHECK AND DISPLAY
 	_target = cursorTarget;
-	if (_target isKindOf "CAManBase" && player == vehicle player) then{
+	if (_target isKindOf "CAManBase" && {isNull objectParent player}) then{
 			if((side _target == playerSide) && ((player distance _target) < _distance))then {
 			_weaponsplayer = weapons _target;
 			_name = name _target;

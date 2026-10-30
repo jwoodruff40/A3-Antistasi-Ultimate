@@ -16,7 +16,7 @@ private _owner = player getVariable ["owner",player];
 if (_owner!=player) exitWith {[localize "STR_control_unit_hint_header", localize "STR_control_unit_error_ai_recursion"] call A3A_fnc_customHint;};
 
 {
-	if (_x != vehicle _x) then {
+	if (!isNull objectParent _x) then {
 	[_x] orderGetIn true;
 	};
 } forEach units group player;

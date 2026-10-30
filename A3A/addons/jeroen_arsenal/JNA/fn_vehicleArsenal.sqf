@@ -125,8 +125,7 @@ private _minItemsMember = {
 	_min;
 };
 
-_mode = [_this,0,"Open",[displayNull,""]] call bis_fnc_param;
-_this = [_this,1,[]] call bis_fnc_param;
+params [["_mode", "Open", [displayNull, ""]], "_this"];
 
 switch _mode do {
 
@@ -527,7 +526,7 @@ switch _mode do {
 		//Show or hide background
 		{
 			_ctrl = _display displayCtrl _x;
-			_ctrl ctrlSetFade ([1,0] select (_index in [IDCS_LEFT]));
+			_ctrl ctrlSetFade (parseNumber !(_index in [IDCS_LEFT]));
 			_ctrl ctrlCommit FADE_DELAY;
 		} forEach [
 			IDC_RSCDISPLAYARSENAL_LINETABLEFT,
@@ -537,7 +536,7 @@ switch _mode do {
 
 		{
 			_ctrl = _display displayCtrl _x;
-			_ctrl ctrlSetFade ([1,0] select (_index in [IDCS_RIGHT]));
+			_ctrl ctrlSetFade (parseNumber !(_index in [IDCS_RIGHT]));
 			_ctrl ctrlCommit FADE_DELAY;
 		} forEach [
 			IDC_RSCDISPLAYARSENAL_LINETABRIGHT,

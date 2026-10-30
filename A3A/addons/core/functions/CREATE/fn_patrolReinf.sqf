@@ -127,7 +127,7 @@ waitUntil {
 	sleep 10;
 	private _leader = leader _cargoGroup;
 	{ alive _x } count (units _cargoGroup) == 0 || time > _timeout
-	|| { _leader == vehicle _leader && { _leader distance _posDest < 200 } }
+	|| { isNull objectParent _leader && { _leader distance _posDest < 200 } }
 };
 
 

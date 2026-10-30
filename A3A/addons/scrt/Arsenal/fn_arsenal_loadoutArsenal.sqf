@@ -214,8 +214,7 @@ private _getUsableMagazines = {
 	_magazines;
 };
 
-_mode = [_this,0,"Open",[displayNull,""]] call bis_fnc_param;
-_this = [_this,1,[]] call bis_fnc_param;
+params [["_mode", "Open", [displayNull, ""]], "_this"];
 
 switch _mode do {
 
@@ -452,7 +451,7 @@ switch _mode do {
 		if (A3A_hasTFAR) then {
 			private _backpackRadio = player call TFAR_fnc_backpackLr;
 			if (!isNil "_backpackRadio" && {count _backpackRadio >= 2}) then {
-				if (isNil "jna_backpackRadioSettings" || {typeName jna_backpackRadioSettings != typeName []}) exitWith {
+				if (isNil "jna_backpackRadioSettings" || {!(jna_backpackRadioSettings isEqualType [])}) exitWith {
 					Error("Arsenal failed to restore TFAR longrange radio settings due to invalid saved setting");
 				};
 				[_backpackRadio select 0, _backpackRadio select 1, jna_backpackRadioSettings] call TFAR_fnc_setLrSettings;
@@ -471,7 +470,7 @@ switch _mode do {
 					private _swRadio = if (call TFAR_fnc_haveSWRadio) then { call TFAR_fnc_activeSwRadio } else { nil };
 					//Doesn't hurt to be careful!
 					if (!isNil "_swRadio") then {
-						if (isNil "jna_swRadioSettings" || {typeName jna_swRadioSettings != typeName []}) exitWith {
+						if (isNil "jna_swRadioSettings" || {!(jna_swRadioSettings isEqualType [])}) exitWith {
 							Error("Arsenal failed to restore TFAR shortwave radio settings due to invalid saved setting");
 						};
 						[_swRadio, jna_swRadioSettings] call TFAR_fnc_setSwSettings;
@@ -804,7 +803,7 @@ switch _mode do {
 		//replace all items to base type
 		_loadout = getUnitLoadout player;//this crap doesnt save weapon attachments in containers
 
-			_unifrom = _loadout select 3;
+			_uniform = _loadout select 3;
 			_vest = _loadout select 4;
 			_backpack = _loadout select 5;
 
@@ -821,13 +820,13 @@ switch _mode do {
 				_backpack set [0,((_backpack select 0) call A3A_fnc_basicBackpack)];
 			};
 
-			_uniformitems = [_unifrom,1,[]] call BIS_fnc_param;
-			_vestitems = [_vest,1,[]] call BIS_fnc_param;
-			_backpackitems = [_backpack,1,[]] call BIS_fnc_param;
+			_uniformitems = _uniform param [1,[]];
+			_vestitems = _vest param [1,[]];
+			_backpackitems = _backpack param [1,[]];
 			{
 				{
-					_item = [_x,0,[]] call BIS_fnc_param;
-					_itemname = [_item,0,""] call BIS_fnc_param;
+					_item = _x param [0,[]];
+					_itemname = _item param [0,""];
 					if(typeName _item isEqualTo "ARRAY")then {
 						if(typeName _itemname isEqualTo "STRING")then {
 							if ( isClass (configFile >> "CFGweapons" >> _itemname)) then {

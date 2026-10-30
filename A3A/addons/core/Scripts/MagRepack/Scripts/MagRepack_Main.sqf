@@ -103,7 +103,7 @@ outlw_MR_createDialog =
 
 			_b = magazinesAmmo player;
 
-			if !([_a, _b] call BIS_fnc_areEqual) then
+			if (_a isNotEqualTo _b) then
 			{
 				call outlw_MR_populateMagListBox;
 				_a =+ _b;
@@ -207,7 +207,7 @@ outlw_MR_populateMagListBox =
 		//Added: ListBox version for 1.48 - GiPPO
 		private ["_magname","_text"];
 		_magName = ([(getText(configFile >> "cfgMagazines" >> _magTypes select _n >> "DisplayName")), 25] call outlw_MR_shortString);
-		_text = (format ["%1x  %2 %3",_magCountStr,_magname]);
+		_text = (format ["%1x  %2",_magCountStr,_magname]);
 
 
 		((uiNamespace getVariable "outlw_MR_Dialog_Main") displayCtrl 1500) lbAdd _text;

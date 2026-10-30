@@ -178,8 +178,7 @@ private _getUsableMagazines = {
 	_magazines;
 };
 
-_mode = [_this,0,"Open",[displayNull,""]] call bis_fnc_param;
-_this = [_this,1,[]] call bis_fnc_param;
+params [["_mode", "Open", [displayNull, ""]], "_this"];
 
 switch _mode do {
 
@@ -401,7 +400,7 @@ switch _mode do {
 		if (A3A_hasTFAR) then {
 			private _backpackRadio = player call TFAR_fnc_backpackLr;
 			if (!isNil "_backpackRadio" && {count _backpackRadio >= 2}) then {
-				if (isNil "jna_backpackRadioSettings" || {typeName jna_backpackRadioSettings != typeName []}) exitWith {
+				if (isNil "jna_backpackRadioSettings" || {!(jna_backpackRadioSettings isEqualType [])}) exitWith {
 					Error("Arsenal failed to restore TFAR longrange radio settings due to invalid saved setting");
 				};
 				[_backpackRadio select 0, _backpackRadio select 1, jna_backpackRadioSettings] call TFAR_fnc_setLrSettings;
@@ -420,7 +419,7 @@ switch _mode do {
 					private _swRadio = if (call TFAR_fnc_haveSWRadio) then { call TFAR_fnc_activeSwRadio } else { nil };
 					//Doesn't hurt to be careful!
 					if (!isNil "_swRadio") then {
-						if (isNil "jna_swRadioSettings" || {typeName jna_swRadioSettings != typeName []}) exitWith {
+						if (isNil "jna_swRadioSettings" || {!(jna_swRadioSettings isEqualType [])}) exitWith {
 							Error("Arsenal failed to restore TFAR shortwave radio settings due to invalid saved setting");
 						};
 						[_swRadio, jna_swRadioSettings] call TFAR_fnc_setSwSettings;
@@ -718,7 +717,7 @@ switch _mode do {
 		//replace all items to base type
 		_loadout = getUnitLoadout player;//this crap doesnt save weapon attachments in containers
 
-			_unifrom = _loadout select 3;
+			_uniform = _loadout select 3;
 			_vest = _loadout select 4;
 			_backpack = _loadout select 5;
 
@@ -735,13 +734,13 @@ switch _mode do {
 				_backpack set [0,((_backpack select 0) call A3A_fnc_basicBackpack)];
 			};
 
-			_uniformitems = [_unifrom,1,[]] call BIS_fnc_param;
-			_vestitems = [_vest,1,[]] call BIS_fnc_param;
-			_backpackitems = [_backpack,1,[]] call BIS_fnc_param;
+			_uniformitems = _uniform param [1,[]];
+			_vestitems = _vest param [1,[]];
+			_backpackitems = _backpack param [1,[]];
 			{
 				{
-					_item = [_x,0,[]] call BIS_fnc_param;
-					_itemname = [_item,0,""] call BIS_fnc_param;
+					_item = _x param [0,[]];
+					_itemname = _item param [0,""];
 					if(typeName _item isEqualTo "ARRAY")then {
 						if(typeName _itemname isEqualTo "STRING")then {
 							if ( isClass (configFile >> "CFGweapons" >> _itemname)) then {
@@ -3039,33 +3038,33 @@ switch _mode do {
 	case "buttonDefaultGear":{
 
 		/////////////////////////////////////////////////////////////////////////////////
-		// unifrom
-		_itemsUnifrom = [];
+		// uniform
+		_itemsUniform = [];
 		if(A3A_hasACEMedical)then{
-			_itemsUnifrom pushBack ["ACE_elasticBandage",2];
-			_itemsUnifrom pushBack ["ACE_packingBandage",2];
-			_itemsUnifrom pushBack ["ACE_morphine",1];
-			_itemsUnifrom pushBack ["ACE_epinephrine",1];
-			_itemsUnifrom pushBack ["ACE_adenosine", 1];
-			_itemsUnifrom pushBack ["ACE_tourniquet",1];
-			_itemsUnifrom pushBack ["ACE_splint", 1];
+			_itemsUniform pushBack ["ACE_elasticBandage",2];
+			_itemsUniform pushBack ["ACE_packingBandage",2];
+			_itemsUniform pushBack ["ACE_morphine",1];
+			_itemsUniform pushBack ["ACE_epinephrine",1];
+			_itemsUniform pushBack ["ACE_adenosine", 1];
+			_itemsUniform pushBack ["ACE_tourniquet",1];
+			_itemsUniform pushBack ["ACE_splint", 1];
 		}else{
-			_itemsUnifrom pushBack ["FirstAidKit",2];
+			_itemsUniform pushBack ["FirstAidKit",2];
 			if(A3A_hasACE) then {
-				_itemsUnifrom pushBack ["ACE_EarPlugs",1];
-				_itemsUnifrom pushBack ["ACE_MapTools",1];
-				_itemsUnifrom pushBack ["ACE_CableTie",2];
+				_itemsUniform pushBack ["ACE_EarPlugs",1];
+				_itemsUniform pushBack ["ACE_MapTools",1];
+				_itemsUniform pushBack ["ACE_CableTie",2];
 			};
 		};
 
 		if ((A3A_hasACE) AND (sunOrMoon <1)) then {
-			_itemsUnifrom pushBack ["ACE_HandFlare_Red",1];
-			_itemsUnifrom pushBack ["ACE_Chemlight_HiRed",1];
-			_itemsUnifrom pushBack ["ACE_Flashlight_MX991",1];
+			_itemsUniform pushBack ["ACE_HandFlare_Red",1];
+			_itemsUniform pushBack ["ACE_Chemlight_HiRed",1];
+			_itemsUniform pushBack ["ACE_Flashlight_MX991",1];
 		};
 		//check items that already exist
 		{
-			_itemsUnifrom = [_itemsUnifrom,_x] call jn_fnc_arsenal_removeFromArray;
+			_itemsUniform = [_itemsUniform,_x] call jn_fnc_arsenal_removeFromArray;
 		} forEach (uniformItems player);
 		//add non existing items to uniform
 		{
@@ -3080,7 +3079,7 @@ switch _mode do {
 			if(_amountAdded > 0)then{
 
 			};
-		} forEach _itemsUnifrom;
+		} forEach _itemsUniform;
 
 		/////////////////////////////////////////////////////////////////////////////////
 		// backpack stuff

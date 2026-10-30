@@ -10,7 +10,7 @@ if(count (_route select 1) != 3) exitWith
 
 private ["_targetPos", "_dir", "_convoyMarker"];
 
-_targetPos = _route select (count _route - 1);
+_targetPos = _route select -1;
 
 _convoyMarker = format ["convoy%1", _convoyID];
 

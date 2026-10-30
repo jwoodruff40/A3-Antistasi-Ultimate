@@ -58,7 +58,7 @@ for "_i" from 1 to _vehCount do {
     // Attempt to grab veh types
     _vehType = selectRandomWeighted ([_supportPool, _transportPool] select _isTransport);
     if (isNil "_vehType") then {
-        Error_1("Failed to grab land vehicle, attempting to grab a transport vehicle.",_base);
+        Error("Failed to grab land vehicle, attempting to grab a transport vehicle.");
         _vehType = selectRandomWeighted _transportPool;
     };
 

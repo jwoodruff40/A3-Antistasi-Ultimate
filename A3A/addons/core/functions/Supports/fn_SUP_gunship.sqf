@@ -38,7 +38,7 @@ if (_side == Occupants) then {
     _oppositeSide = Occupants;
 };
 private _vehType = selectRandom (_faction get "vehiclesPlanesGunship");
-if (isNil "_vehType") exitWith { Debug_1("No gunship for faction.",_supportName); -1; };
+if (isNil "_vehType") exitWith { Debug("No gunship for faction."); -1; };
 
 private _targArray = [];
 if (_target isEqualType objNull and {!isNull _target}) then {

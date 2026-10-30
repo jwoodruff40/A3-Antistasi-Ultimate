@@ -23,7 +23,7 @@ if (fullCrew [_veh, "", true] isEqualTo []) exitWith {
 	if (typeOf _veh in A3A_utilityItemHM) then { _veh call A3A_fnc_initObject };
 };
 
-_veh setVehicleRadar ([0, 1] select (getNumber(configOf _veh >> "radarType") in [2, 4]));
+_veh setVehicleRadar (parseNumber (getNumber(configOf _veh >> "radarType") in [2, 4]));
 _veh setVehicleReceiveRemoteTargets true;
 _veh setVehicleReportRemoteTargets true;
 _veh setVehicleReportOwnPosition true;
@@ -126,7 +126,7 @@ if ((_veh isKindOf  "LandVehicle") || (_veh isKindOf  "Ship")) then {
 		private _isUAV = unitIsUAV _veh; // ! HR Garage force-crews all rebel UAVs, so call unlockStatic to update staticsToFlip and available vehicle actions appropriately
 		private _saved = _veh in staticsToSave;
 		private _flipped = _veh in staticsToFlip;
-		_veh call ([A3A_fnc_lockStatic, A3A_fnc_unlockStatic] select (_isUAV || {_saved && {XOR(A3U_enableVehiclesForAI, _flipped)}}));
+		_veh call ([A3A_fnc_lockStatic, A3A_fnc_unlockStatic] select (_isUAV || {_saved && {XOR(A3U_enableVehiclesForAI,_flipped)}}));
 
 		// add *all* rebel vehicles to staticsToSave since we don't have an appropriate rebelVehicles var
 		// only vehicles in staticsToSave AND near a rebel marker will actually be saved during the save loop

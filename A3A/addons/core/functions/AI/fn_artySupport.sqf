@@ -224,7 +224,7 @@ else
 	_timeX = time + _eta - 5;
 	if (isNil "_timeX") exitWith {
         #define ARTILLERY_ERROR_INFORMATION [_positionTel, ((getArtilleryAmmo [(_artyArrayDef1 select 0)]) select 0)]
-        Error_4("Params: %1,%2,%3,%4,%5",_artyArrayDef1 select 0,_positionTel,((getArtilleryAmmo [(_artyArrayDef1 select 0)]) select 0),(_artyArrayDef1 select 0) getArtilleryETA ARTILLERY_ERROR_INFORMATION);
+        Error_4("Params: %1,%2,%3,%4",_artyArrayDef1 select 0,_positionTel,((getArtilleryAmmo [(_artyArrayDef1 select 0)]) select 0),(_artyArrayDef1 select 0) getArtilleryETA ARTILLERY_ERROR_INFORMATION);
     };
 	_textX = format [localize "STR_chats_mortar_barrage_confirm",round _eta,_roundsMax - _rounds];
 	[_fdc,"sideChat",_textX] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];

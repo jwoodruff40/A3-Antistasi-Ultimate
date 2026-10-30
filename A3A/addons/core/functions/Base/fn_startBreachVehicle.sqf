@@ -127,7 +127,7 @@ _caller addEventHandler ["AnimDone",
 	if
   (
     (alive _vehicle) &&
-    {(_caller == vehicle _caller) &&
+    {(isNull objectParent _caller) &&
     {(_caller distance _vehicle < 8) &&
     {([_caller] call A3A_fnc_canFight) &&
     {(time <= (_caller getVariable ["timeToBreach",time])) &&
@@ -152,7 +152,7 @@ _caller removeAction _action;
 if
 (
   !alive _vehicle ||
-  {_caller != vehicle _caller || //TODO there was something about that on the optimisation page, look it up
+  {!isNull objectParent _caller ||
   {_caller distance _vehicle >= 8 ||
   {!([_caller] call A3A_fnc_canFight) ||
   {_caller getVariable ["cancelBreach",false]}}}}

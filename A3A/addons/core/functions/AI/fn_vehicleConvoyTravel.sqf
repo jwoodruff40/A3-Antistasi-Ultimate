@@ -40,7 +40,7 @@ _driverGroup setBehaviour "CARELESS";
 _vehicle setEffectiveCommander (driver _vehicle);
 
 // Navigation setup
-private _destination = _route select (count _route - 1);
+private _destination = _route select -1;
 private _accuracy = 50;
 private _currentNode = 0;
 private _nextPos = _route select _currentNode;

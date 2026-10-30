@@ -49,7 +49,7 @@ if (supportType isEqualTo "LOOTHELI" && {_resourcesFIA < 2000}) exitWith {
     [
 		localize "STR_notifiers_fail_type",
 		localize "STR_notifiers_support_header",  
-		parseText format ["STR_notifiers_support_need_money", A3A_faction_reb get "name", 2000, A3A_faction_civ get "currencySymbol"], 
+		parseText format [localize "STR_notifiers_support_need_money", A3A_faction_reb get "name", 2000, A3A_faction_civ get "currencySymbol"], 
 		30
 	] spawn SCRT_fnc_ui_showMessage;
 };
@@ -58,7 +58,7 @@ if (supportType isEqualTo "VEH_AIRDROP" && {_resourcesFIA < 200}) exitWith {
     [
 		localize "STR_notifiers_fail_type",
 		localize "STR_notifiers_support_header",  
-		parseText format ["STR_notifiers_support_need_money", A3A_faction_reb get "name", 200, A3A_faction_civ get "currencySymbol"], 
+		parseText format [localize "STR_notifiers_support_need_money", A3A_faction_reb get "name", 200, A3A_faction_civ get "currencySymbol"], 
 		30
 	] spawn SCRT_fnc_ui_showMessage;
 };

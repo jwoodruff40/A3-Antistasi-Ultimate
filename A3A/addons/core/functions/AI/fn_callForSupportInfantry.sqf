@@ -55,7 +55,7 @@ _radioMan spawn {
 
 _radioMan addEventHandler ["AnimDone", {
     params ["_supportCaller"];
-    if (([_supportCaller] call A3A_fnc_canFight) && {(time <= (_supportCaller getVariable ["timeToCall",time])) && {_supportCaller == vehicle _supportCaller}}) then {
+    if (([_supportCaller] call A3A_fnc_canFight) && {(time <= (_supportCaller getVariable ["timeToCall",time])) && {isNull objectParent _supportCaller}}) then {
         _supportCaller spawn {
             sleep random 3;
             playSound3D [(selectRandom radioSoundsMid), _this, false, getPosASL _this, 3, 1, 30];
@@ -64,7 +64,7 @@ _radioMan addEventHandler ["AnimDone", {
     } else {
         _supportCaller removeEventHandler ["AnimDone",_thisEventHandler];
         _supportCaller setVariable ["callAnimsDone",true];
-        if (([_supportCaller] call A3A_fnc_canFight) && {_supportCaller == vehicle _supportCaller}) then {
+        if (([_supportCaller] call A3A_fnc_canFight) && {isNull objectParent _supportCaller}) then {
             _supportCaller playMoveNow "Acts_SupportTeam_Front_FromKneelLoop";
             _supportCaller spawn {
                 sleep random 3;

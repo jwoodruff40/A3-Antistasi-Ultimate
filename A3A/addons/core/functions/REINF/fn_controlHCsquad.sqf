@@ -17,7 +17,7 @@ while {(waypoints _groupX) isNotEqualTo []} do
 _wp = _groupX addWaypoint [getPos _unit,0];
 
 {
-if (_x != vehicle _x) then
+if (!isNull objectParent _x) then
 	{
 	[_x] orderGetIn true;
 	};
