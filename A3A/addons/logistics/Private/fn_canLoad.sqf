@@ -56,7 +56,7 @@ private _weapon = 1 == getNumber (_cargoConfig/"isWeapon");
 private _allowed = if (!_weapon) then {true} else {
     if (0 == getNumber (_vehConfig/"canLoadWeapon")) exitWith {false};
 
-    private _vehModel = getText (configOf
+    private _vehModel = getText (configOf _vehicle/"model");
     private _blackList = getArray (_cargoConfig/"blackList");
     !(
         _vehModel in _blackList
