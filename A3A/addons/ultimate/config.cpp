@@ -7,7 +7,14 @@ class CfgPatches
     {
         name = COMPONENT_NAME;
         magazines[] = {QGVAR(LockpickKit_MultiUse), QGVAR(LockpickKit_SingleUse)};
-        units[] = {};
+        units[] = {
+            "A3AU_RebHelipad_CircleNC_F",
+            "A3AU_RebHelipad_Circle_F",
+            "A3AU_RebHelipad_SquareNC_F",
+            "A3AU_RebHelipad_Square_F",
+            QGVAR(BaseAssemblyAreaSign),
+            QGVAR(BaseVehicleSpawnHelperArrow)
+        };
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"A3A_events"};

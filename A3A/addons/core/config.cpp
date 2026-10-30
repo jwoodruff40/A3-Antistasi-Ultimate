@@ -23,7 +23,9 @@ class CfgPatches {
             "a3a_unit_riv",
             "a3a_unit_civ"
         };
-        weapons[] = {};
+        weapons[] = {
+            "A3AP_SelfReviveKit"
+        };
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"A3A_events"};
         skipWhenAnyAddonPresent[] = {"a3uebet_main"};
