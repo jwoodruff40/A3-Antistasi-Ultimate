@@ -54,7 +54,7 @@ while {true} do
                 _mrk setMarkerAlphaLocal 1;
                 _mrk setMarkerPosLocal getPosATL _veh;
                 _mrk setMarkerDirLocal getDir _veh;
-                private _textX = format ["%1 (%2)", _name, getText (configFile >> "CfgVehicles" >> typeOf _veh >> "DisplayName")];
+                private _textX = format ["%1 (%2)", _name, getText (configOf _veh >> "DisplayName")];
                 if (count _crew > 1) then { _textX = format ["%1/%2", _textX, name (_crew#1)] };
                 if (count _crew > 2) then { _textX = format ["%1+%2", _textX, count _crew - 2] };
                 _mrk setMarkerTextLocal _textX;

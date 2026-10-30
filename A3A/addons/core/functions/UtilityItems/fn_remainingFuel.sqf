@@ -19,7 +19,7 @@ Example:
 
 params [["_vehicle", objNull, [objNull]]];
 
-private _vehCfg = configFile/"CfgVehicles"/typeOf _vehicle;
+private _vehCfg = configOf _vehicle;
 
 if(A3A_hasACE) then {
     private _vehicleMaxFuel = getNumber (_vehCfg >> "ace_refuel_fuelCargo");

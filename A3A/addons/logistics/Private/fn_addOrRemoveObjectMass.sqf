@@ -57,8 +57,8 @@ if (_dontMsg) exitWith {};
 private _nodes = _vehicle getVariable [QGVAR(Nodes),[]];
 private _availableNodes = { (_x#0) isEqualTo 1 } count _nodes;
 
-private _objectName = getText (configFile >> "cfgVehicles" >> typeOf _object >> "displayName");
-private _vehicleName = getText (configFile >> "cfgVehicles" >> typeOf _vehicle >> "displayName");
+private _objectName = getText (configOf _object >> "displayName");
+private _vehicleName = getText (configOf _vehicle >> "displayName");
 //Mass of all cargo attached to the vehicle.
 private _cargoMass = _newMass - _defaultMass;
 
@@ -85,8 +85,8 @@ private _text = format [
     <t color='#00aafd' size='1.2' shadow='1' shadowColor='#000000' align='left'>%8: </t>
     <t color='#00ff59' size='1.2' shadow='1' shadowColor='#000000' align='left'>%5</t><br/>
     ",
-    getText(configFile >> "cfgVehicles" >> typeOf _vehicle >> "picture"),
-    getText(configFile >> "cfgVehicles" >> typeOf _vehicle >> "displayName"),
+    getText(configOf _vehicle >> "picture"),
+    getText(configOf _vehicle >> "displayName"),
     _defaultMass,
     _cargoMass,
     _defaultMass + _cargoMass,

@@ -176,7 +176,7 @@ for "_count" from 1 to _explosiveCount do
 [localize "STR_A3A_Base_breachVeh_header", localize "STR_A3A_Base_breachVeh_timer"] call A3A_fnc_customHint;
 sleep 10;
 
-private _hitPointsConfigPath = configFile >> "CfgVehicles" >> (typeOf _vehicle) >> "HitPoints";
+private _hitPointsConfigPath = (configOf _vehicle) >> "HitPoints";
 
 private _hullHitPoint = getText (_hitPointsConfigPath >> "HitHull" >> "name");
 private _currentDamage = _vehicle getHit _hullHitPoint;

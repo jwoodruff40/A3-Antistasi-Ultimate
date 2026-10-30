@@ -37,8 +37,8 @@ private _vehicle = _vehicles select _firstViable;
 private _return = [_vehicle, _cargo] call A3A_Logistics_fnc_canLoad;
 if (_return isEqualType 0) exitWith {
 
-    private _cargoName = getText (configFile >> "CfgVehicles" >> typeOf _cargo >> "displayName");
-    private _vehicleName = getText (configFile >> "CfgVehicles" >> typeOf _vehicle >> "displayName");
+    private _cargoName = getText (configOf _cargo >> "displayName");
+    private _vehicleName = getText (configOf _vehicle >> "displayName");
     if (_cargo isKindOf "CAManBase") then {_cargoName = name _cargo};
 
     switch _return do {

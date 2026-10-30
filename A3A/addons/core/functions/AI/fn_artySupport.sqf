@@ -24,7 +24,7 @@ _areAlive = false;
 	_veh = vehicle _soldierX;
 	if ((_veh != _soldierX) and (not(_veh in _artyArray))) then
 	{
-		if (( "Artillery" in (getArray (configFile >> "CfgVehicles" >> typeOf _veh >> "availableForSupportTypes")))) then
+		if (( "Artillery" in (getArray (configOf _veh >> "availableForSupportTypes")))) then
 		{
 			_hasArtillery = true;
 			if ((canFire _veh) and (alive _veh) and (isNil "typeAmmunition")) then

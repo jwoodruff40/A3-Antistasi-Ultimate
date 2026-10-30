@@ -67,7 +67,7 @@ SA_Simulate_Towing_Speed = {
 
 	private ["_runSimulation","_currentCargo","_maxVehicleSpeed","_maxTowedVehicles","_vehicleMass"];
 
-	_maxVehicleSpeed = getNumber (configFile >> "CfgVehicles" >> typeOf _vehicle >> "maxSpeed");
+	_maxVehicleSpeed = getNumber (configOf _vehicle >> "maxSpeed");
 	_vehicleMass = 1000 max (getMass _vehicle);
 	_maxTowedCargo = missionNamespace getVariable ["SA_MAX_TOWED_CARGO",2];
 	_runSimulation = true;
@@ -132,8 +132,8 @@ SA_Simulate_Towing = {
 	private ["_cargoCorner1AGL","_cargoCorner1ASL","_cargoCorner2AGL","_cargoCorner2ASL","_cargoCorner3AGL","_cargoCorner3ASL","_cargoCorner4AGL","_cargoCorner4ASL","_surfaceNormal1","_surfaceNormal2","_surfaceNormal"];
 	private ["_cargoCenterASL","_surfaceHeight","_surfaceHeight2","_maxSurfaceHeight"];
 
-	_maxVehicleSpeed = getNumber (configFile >> "CfgVehicles" >> typeOf _vehicle >> "maxSpeed");
-	_cargoCanFloat = getNumber (configFile >> "CfgVehicles" >> typeOf _cargo >> "canFloat") == 1;
+	_maxVehicleSpeed = getNumber (configOf _vehicle >> "maxSpeed");
+	_cargoCanFloat = getNumber (configOf _cargo >> "canFloat") == 1;
 
 	private ["_cargoCenterOfMassAGL","_cargoModelCenterGroundPosition"];
 	SA_Find_Surface_AGL_Under_Model(_cargo,getCenterOfMass _cargo,_cargoCenterOfMassAGL,_cargoCanFloat);
@@ -364,8 +364,8 @@ SA_Attach_Tow_Ropes = {
 			
 			if (newCarTowing && 
 				{(_cargo call A3A_Logistics_fnc_getCargo) isEqualTo [] && 
-				{toLowerANSI getText(configFile >> "CfgVehicles" >> typeOf _cargo >> "simulation") isEqualTo "carx" && 
-				{toLowerANSI getText(configFile >> "CfgVehicles" >> typeOf _vehicle >> "simulation") in ["carx", "tankx"]}}}
+				{toLowerANSI getText(configOf _cargo >> "simulation") isEqualTo "carx" && 
+				{toLowerANSI getText(configOf _vehicle >> "simulation") in ["carx", "tankx"]}}}
 			) then {
 				_cargo setTowParent _vehicle;
 				private _driver = driver _cargo;
@@ -426,7 +426,7 @@ SA_Pickup_Tow_Ropes = {
 		{
 			private _attachedObj = _x;
 
-			if (newCarTowing && {toLowerANSI getText(configFile >> "CfgVehicles" >> typeOf _attachedObj >> "simulation") isEqualTo "carx"}) then {
+			if (newCarTowing && {toLowerANSI getText(configOf _attachedObj >> "simulation") isEqualTo "carx"}) then {
 				_attachedObj lockDriver false;
 				_attachedObj setTowParent objNull;
 				_attachedObj disableBrakes false;

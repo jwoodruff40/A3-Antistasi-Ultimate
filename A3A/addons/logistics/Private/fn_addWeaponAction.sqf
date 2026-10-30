@@ -24,7 +24,7 @@ if (isNull _cargo || isNull _vehicle) exitWith {
 };
 
 //action to get into static
-private _name = getText (configFile >> "CfgVehicles" >> typeOf _cargo >> "displayName");
+private _name = getText (configOf _cargo >> "displayName");
 private _text = format [(localize "STR_antistasi_actions_get_in_gunner"), _name];
 
 private _actionID = _vehicle addAction [

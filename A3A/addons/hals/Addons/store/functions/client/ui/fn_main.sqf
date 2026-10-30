@@ -76,7 +76,7 @@ switch (_mode) do {
 
 		// Get all nearby vehicles that we can sell to
 		HALs_store_vehicles = ([_trader] call HALs_store_getNearbyVehicles) apply {
-			[typeOf _x, format ["%1 (%2m)", getText(configFile >> "cfgVehicles" >> typeOf _x >> "displayName"), (_x distance2D _trader) toFixed 0], "", _x]	
+			[typeOf _x, format ["%1 (%2m)", getText(configOf _x >> "displayName"), (_x distance2D _trader) toFixed 0], "", _x]	
 		};
 		
 		// Process all items and store in trader
@@ -635,7 +635,7 @@ switch (_mode) do {
 
 		private _classname = _data param [0, ""];
 		_currentLoad = [_container] call HALs_store_fnc_getCargoMass;
-		_maxLoad = 1 max getNumber (configFile >> "CfgVehicles" >> typeOf _container >> "maximumLoad");
+		_maxLoad = 1 max getNumber (configOf _container >> "maximumLoad");
 	
 		if (_classname isEqualTo "" || cbChecked CTRL(IDC_CHECKBOX + 3)) exitWith {
 			_bar progressSetPosition (_currentLoad / _maxLoad);

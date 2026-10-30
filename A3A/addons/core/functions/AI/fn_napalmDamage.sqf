@@ -96,7 +96,7 @@ switch (true) do {
             'private _thermalHeat = 0.75*(_tickCount/'+ str _totalTicks +') + 0.25;'+  // The vehicles shouldn't snap to cold when the napalm effect starts begin.
             '_victim setVehicleTIPars [_thermalHeat, _thermalHeat, _thermalHeat];';
 
-        private _horn = getArray (configFile >> "cfgVehicles" >> typeOf _victim >> "weapons");
+        private _horn = getArray (configOf _victim >> "weapons");
         if (_horn isNotEqualTo []) then {
             private _soundArray = getArray (configFile >> "cfgWeapons" >> _horn#0 >> "drySound");
             _soundArray params [["_sound",""],["_volume",1],["_pitch",1],["_range",250]];

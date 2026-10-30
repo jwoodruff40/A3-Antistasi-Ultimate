@@ -361,7 +361,7 @@ if(isDiscordRichPresenceActive) then {
 	player addEventHandler ["GetInMan", {
 		params ["_unit", "_role", "_vehicle", "_turret"];
 
-		private _vehicleName = getText (configFile >> "CfgVehicles" >> typeOf _vehicle >> "displayName");
+		private _vehicleName = getText (configOf _vehicle >> "displayName");
 
 		switch (true) do {
 			case (_vehicle isKindOf "StaticWeapon"): {

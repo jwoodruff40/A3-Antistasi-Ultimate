@@ -34,7 +34,7 @@ private _display = findDisplay 123;
 
 if (str (_display) != "no display") then {
 	private _childControl = _display displayCtrl 1244;
-    private _name = getText (configFile >> "CfgVehicles" >> typeOf _construction >> "displayName");
+    private _name = getText (configOf _construction >> "displayName");
 	_childControl ctrlSetText format ["%1 (%2)?",localize "STR_antistasi_dialogs_remove_construction", _name];
 };
 

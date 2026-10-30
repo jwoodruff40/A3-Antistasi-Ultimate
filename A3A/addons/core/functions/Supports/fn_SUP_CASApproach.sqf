@@ -270,7 +270,7 @@ while {true} do
                     _targetObj = selectRandom (units side _targetObj inAreaArray [getPosATL _targetObj, 20, 20]);
                 };
 
-                private _vis = 1 max getNumber (configFile >> "CfgVehicles" >> typeOf _targetObj >> "camouflage");
+                private _vis = 1 max getNumber (configOf _targetObj >> "camouflage");
                 private _knownDist = _targetPos distance2D _lastKnownPos;
                 private _dist = _targetPos distance2D _planePos;
                 private _chance = _baseSpotChance * _vis * exp (_knownDist / -500) * exp (_dist / -3000);

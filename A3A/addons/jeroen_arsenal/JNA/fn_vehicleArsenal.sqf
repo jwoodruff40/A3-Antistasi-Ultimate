@@ -366,7 +366,7 @@ switch _mode do {
 			_usableMagazines =_usableMagazines arrayIntersect _usableMagazines;
 
 			// Add compatible vehicle magazines for 3CB-style ammunition systems
-			private _cfgVehicle = configFile >> "cfgVehicles" >> typeOf _objectSelected;
+			private _cfgVehicle = configOf _objectSelected;
 			private _vehMagTypes = _cfgVehicle call A3A_fnc_allMagazines;
 			{ _usableMagazines pushBackUnique toLower _x } forEach _vehMagTypes;
 

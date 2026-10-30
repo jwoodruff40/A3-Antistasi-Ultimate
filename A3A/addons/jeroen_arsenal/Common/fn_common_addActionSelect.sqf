@@ -51,7 +51,7 @@ _id = player addAction [
 		private _color = [player getVariable 'jn_selectAction_object'] call %2;
 		private _colorCode = [%4,%3] select _color;
 		private _text = '<t color=' + _colorCode + '>' + %5;
-		if(%6 && _color)then{_text = _text + ' (' + getText(configfile >> 'CfgVehicles' >> typeof cursorObject >>'displayName') + ')'};
+		if(%6 && _color)then{_text = _text + ' (' + getText(configOf cursorObject >>'displayName') + ')'};
 		player setUserActionText [(player getVariable ['jn_selectAction_id',-1]), _text];
 		true
 	}",_conditionActive,_conditionColor,str TEXTGOOD,str TEXTBAD,str localize 'STR_JNC_ACT_SELECT',_showCursorObject]

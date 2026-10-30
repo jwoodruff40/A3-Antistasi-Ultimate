@@ -79,7 +79,7 @@ if (isNull _veh) then
 	};
 if !(isNull _veh) then
 	{
-	_textX = format [localize "STR_A3A_reinf_vehStat_current_veh",_textX,getText (configFile >> "CfgVehicles" >> (typeOf _veh) >> "displayName")];
+	_textX = format [localize "STR_A3A_reinf_vehStat_current_veh",_textX,getText ((configOf _veh) >> "displayName")];
 	if (!alive _veh) then
 		{
 		_textX = format [localize "STR_A3A_reinf_vehStat_current_veh_disabled",_textX];
