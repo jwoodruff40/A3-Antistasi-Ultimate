@@ -13,32 +13,32 @@ class A3U_StaticHolderBase: HouseBase
 
 class A3U_StaticHolderSmall: A3U_StaticHolderBase
 {
-    model = QPATHTOFOLDER(data\staticHolders\static_small);
+    model = QPATHTOFOLDER(data\staticHolders\static_small.p3d);
     displayName = "Static Holder (Small)";
     scope = 2;
 };
 
 class A3U_StaticHolderMediumAT: A3U_StaticHolderSmall
 {
-    model = QPATHTOFOLDER(data\staticHolders\static_medium);
+    model = QPATHTOFOLDER(data\staticHolders\static_medium.p3d);
     displayName = "Static Holder (Medium, AT)";
 };
 
 class A3U_StaticHolderMediumAA: A3U_StaticHolderSmall
 {
-    model = QPATHTOFOLDER(data\staticHolders\static_medium);
+    model = QPATHTOFOLDER(data\staticHolders\static_medium.p3d);
     displayName = "Static Holder (Medium, AA)";
 };
 
 class A3U_StaticHolderLargeAT: A3U_StaticHolderMediumAT
 {
-    model = QPATHTOFOLDER(data\staticHolders\static_large);
+    model = QPATHTOFOLDER(data\staticHolders\static_large.p3d);
     displayName = "Static Holder (Large, AT)";
 };
 
 class A3U_StaticHolderLargeAA: A3U_StaticHolderMediumAA
 {
-    model = QPATHTOFOLDER(data\staticHolders\static_large);
+    model = QPATHTOFOLDER(data\staticHolders\static_large.p3d);
     displayName = "Static Holder (Large, AA)";
 };
 
