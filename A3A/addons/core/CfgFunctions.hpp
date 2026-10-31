@@ -369,7 +369,6 @@ class CfgFunctions
         class Garrison {
             file = QPATHTOFOLDER(functions\Garrison);
             class addGarrison {};
-            class addRequested {};
             class checkGroupType {};
             class checkVehicleType {};
             class countGarrison {};
@@ -387,7 +386,6 @@ class CfgFunctions
             class selectReinfUnits {};
             class selectVehicleType {};
             class shouldReinforce {};
-            class updateGarrison {};
             class updatePreference {};
             class updateReinfState {};
             class updateVehicles {};

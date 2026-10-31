@@ -240,8 +240,6 @@ Maintainer: DoomMetal
 ///////////////////////////
 
 // Request Mission
-#define A3A_IDD_REQUESTMISSIONDIALOG 9000
-#define A3A_IDC_REQUESTMISSIONMAIN 9001
 
 // Recruit
 #define A3A_IDD_RECRUITDIALOG 9100

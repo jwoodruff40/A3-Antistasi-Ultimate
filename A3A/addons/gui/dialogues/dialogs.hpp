@@ -10,11 +10,7 @@ FORWARD(RscControlsGroup);
 FORWARD(RscListBox);
 FORWARD(RscListNBox);
 FORWARD(RscText);
-#include "mainDialog.hpp"
-#include "hqDialog.hpp"
-#include "requestMissionDialog.hpp"
-#include "recruitDialog.hpp"
-#include "recruitSquadDialog.hpp"
+#include "ids.inc"
 #include "buyVehicleDialog.hpp"
 #include "blackMarketDialog.hpp"
 #include "arsenalLimitsDialog.hpp"
