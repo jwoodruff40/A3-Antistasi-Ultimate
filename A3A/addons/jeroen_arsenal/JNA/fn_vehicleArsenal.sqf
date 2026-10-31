@@ -125,13 +125,13 @@ private _minItemsMember = {
 	_min;
 };
 
-params [["_mode", "Open", [displayNull, ""]], "_this"];
+params [["_mode", "Open", [displayNull, ""]], ["_params", [], [[],""]]];
 
 switch _mode do {
 
 	///////////////////////////////////////////////////////////////////////////////////////////
 	case "CustomInit":{
-		params ["_display"];
+		_params params ["_display"];
 		private _objectSelected = uiNamespace getVariable "jn_object_selected";
 
 		missionNamespace setVariable ["bis_fnc_arsenal_center",_objectSelected];
@@ -173,9 +173,7 @@ switch _mode do {
 
 	///////////////////////////////////////////////////////////////////////////////////////////
 	case "getMassItem":{
-		_item = _this select 0;
-		_amount = _this select 1;
-		_index = _this select 2;
+		_params params ["_item","_amount","_index"];
 
 		_magCount = 1;
 		_cfg = switch _index do {
@@ -200,7 +198,7 @@ switch _mode do {
 
 	///////////////////////////////////////////////////////////////////////////////////////////
 	case "customGUI":{
-		_display = _this select 0;
+		_params params ["_display"];
 
 		//move CARGOMAGALL to left so we can use it there
 		{
@@ -257,7 +255,7 @@ switch _mode do {
 
 	///////////////////////////////////////////////////////////////////////////////////////////
 	case "customEvents":{
-		_display = _this select 0;
+		_params params ["_display"];
 
 
 
@@ -331,13 +329,12 @@ switch _mode do {
 
 	///////////////////////////////////////////////////////////////////////////////////////////
 	case "ColorTabs":{
-		_display = _this select 0;
+		_params params ["_display"];
 	};
 
 	///////////////////////////////////////////////////////////////////////////////////////////
 	case "TabSelect": {
-		_display = _this select 0;
-		_index = _this select 1;
+		_params params ["_display","_index"];
 		_ctrlList = ctrlnull;
 		jnca_tab_selected = _index;
 		
@@ -548,9 +545,7 @@ switch _mode do {
 	///////////////////////////////////////////////////////////////////////////////////////////
 	// This function isn't used here. Colouring is done by updateItemGui in fn_arsenal
 	case "SelectItemRight": {
-		_display = _this select 0;
-		_ctrlList = _this select 1;
-		_index = _this select 2;
+		_params params ["_display","_ctrlList","_index"];
 		_center = (missionNamespace getVariable ["BIS_fnc_arsenal_center",player]);
 		_type = (ctrlType _ctrlList == 102);
 
@@ -592,10 +587,7 @@ switch _mode do {
 
 	///////////////////////////////////////////////////////////////////////////////////////////
 	case "CreateList":{
-		_display =  _this select 0;
-		_index = _this select 1;
-		_inventory = _this select 2;
-		_indexList = _this select 3;
+		_params params ["_display","_index","_inventory","_indexList"];		
 		_ctrlList = _display displayCtrl (IDC_RSCDISPLAYARSENAL_LIST + _indexList);
 
 		lnbClear _ctrlList;
@@ -611,8 +603,7 @@ switch _mode do {
 
 	///////////////////////////////////////////////////////////////////////////////////////////
 	case "SelectItem":{
-		_display = _this select 0;
-		_ctrlList = _this select 1;
+		_params params ["_display","_ctrlList"];
 		_index = jnca_tab_selected;
 
 		["updateItemInfo",[ _display,_ctrlList,_index]] call jn_fnc_arsenal;
@@ -620,8 +611,7 @@ switch _mode do {
 
 	/////////////////////////////////////////////////////////////////////////////////////////// event
 	case "buttonCargo": {
-		_display = _this select 0;
-		_add = _this select 1;
+		_params params ["_display","_add"];
 
 		private _objectSelected = uiNamespace getVariable "jn_object_selected";
 
@@ -725,11 +715,7 @@ switch _mode do {
 
 	/////////////////////////////////////////////////////////////////////////////////////////// event
 	case "KeyDown": {
-		_display = _this select 0;
-		_key = _this select 1;
-		_shift = _this select 2;
-		_ctrl = _this select 3;
-		_alt = _this select 4;
+		_params params ["_display","_key","_shift","_ctrl","_alt"];		
 		_center = (missionNamespace getVariable ["BIS_fnc_arsenal_center",player]);
 		_return = false;
 		_ctrlTemplate = _display displayCtrl IDC_RSCDISPLAYARSENAL_TEMPLATE_TEMPLATE;
@@ -833,11 +819,7 @@ switch _mode do {
 
     /////////////////////////////////////////////////////////////////////////////////////////// event
  	case "KeyUp": {
-		_display = _this select 0;
-		_key = _this select 1;
-		_shift = _this select 2;
-		_ctrl = _this select 3;
-		_alt = _this select 4;
+		_params params ["_display","_key","_shift","_ctrl","_alt"];
 		private _return = false;
 		switch true do {
 			case (_key == DIK_LSHIFT): {
@@ -858,7 +840,7 @@ switch _mode do {
 
 	///////////////////////////////////////////////////////////////////////////////////////////
 	case "Unload":{
-		params ["_display"];
+		_params params ["_display"];
 
 		private _objectSelected = uiNamespace getVariable "jn_object_selected";
 
@@ -957,6 +939,6 @@ switch _mode do {
 
 	///////////////////////////////////////////////////////////////////////////////////////////
 	default {
-		["Error: wrong input given '%1' for mode '%2'",_this,_mode] call BIS_fnc_error;
+		["Error: wrong input given '%1' for mode '%2'",_params,_mode] call BIS_fnc_error;
 	};
 };

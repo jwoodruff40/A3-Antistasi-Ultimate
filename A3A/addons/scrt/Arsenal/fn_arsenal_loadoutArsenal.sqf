@@ -214,7 +214,7 @@ private _getUsableMagazines = {
 	_magazines;
 };
 
-params [["_mode", "Open", [displayNull, ""]], "_this"];
+params [["_mode", "Open", [displayNull, ""]], ["_params", [], [[],""]]];
 
 switch _mode do {
 
@@ -349,7 +349,7 @@ switch _mode do {
 	/////////////////////////////////////////////////////////////////////////////////////////// Externaly called
 	case "Open": {
 		Info("JNA open arsenal");
-		jna_dataList = _this select 0;
+		jna_dataList = _params select 0;
 		["SaveTFAR"] call SCRT_fnc_arsenal_loadoutArsenal;
 		private _object = missionNamespace getVariable ["jna_object",objNull];
 		["Open",[nil,_object,player,false]] call bis_fnc_arsenal;
@@ -358,7 +358,7 @@ switch _mode do {
 	///////////////////////////////////////////////////////////////////////////////////////////
 	case "CustomControls":{
 		// Add controls for active weapon magazine(s) button(s)
-		_display = _this select 0;
+		_params params ["_display"];
 
 		// Base tabs
 		_ctrlItemOptic = _display displayCtrl (IDC_RSCDISPLAYARSENAL_TAB + IDC_RSCDISPLAYARSENAL_TAB_ITEMOPTIC);
@@ -417,7 +417,7 @@ switch _mode do {
 
 	///////////////////////////////////////////////////////////////////////////////////////////
 	case "CustomInit":{
-		_display = _this select 0;
+		_params params ["_display"];
 		["ReplaceBaseItems",[_display]] call SCRT_fnc_arsenal_loadoutArsenal;
 		["CustomControls", [_display]] call SCRT_fnc_arsenal_loadoutArsenal;
 		["customEvents",[_display]] call SCRT_fnc_arsenal_loadoutArsenal;
@@ -485,7 +485,7 @@ switch _mode do {
 
 	///////////////////////////////////////////////////////////////////////////////////////////
 	case "customEvents": {
-		_display = _this select 0;
+		_params params ["_display"];
 
 		//Keys
 		_display displayRemoveAllEventHandlers "KeyDown";
@@ -615,7 +615,7 @@ switch _mode do {
 	};
 
 	case "OverrideTab": {
-		_this params ["_control", "_force"];
+		_params params ["_control", "_force"];
 
 		private _display = ctrlParent _control;
 		private _IDC = ctrlIDC _control;
@@ -640,7 +640,7 @@ switch _mode do {
 	};
 
   case "SortBy":{
-    _this params ["_eventParams", "_currentTabIdc"];
+    _params params ["_eventParams", "_currentTabIdc"];
     _eventParams params ["_ctrlSort", "_selectedIndex"];
 
     private _display = ctrlParent _ctrlSort;
@@ -868,8 +868,7 @@ switch _mode do {
 
 	///////////////////////////////////////////////////////////////////////////////////////////
 	case "TabSelectLeft": {
-		_display = _this select 0;
-		_index = _this select 1;
+		_params params ["_display","_index"];		
 		_ctrlList = _display displayCtrl (IDC_RSCDISPLAYARSENAL_LIST + _index);
 		//create list
 		["UpdateListGui",[ _display,_ctrlList,_index]] call SCRT_fnc_arsenal_loadoutArsenal;
@@ -1036,9 +1035,7 @@ switch _mode do {
 
 	///////////////////////////////////////////////////////////////////////////////////////////
 	case "TabSelectRight": {
-		private ["_ctrlList","_index","_cursel"];
-		_display = _this select 0;
-		_index = _this select 1;
+		_params params ["_display","_index"];
 		_ctrlList = _display displayCtrl (IDC_RSCDISPLAYARSENAL_LIST + _index);
 		_type = (ctrlType _ctrlList == 102);
 
@@ -1267,7 +1264,7 @@ switch _mode do {
 
 	///////////////////////////////////////////////////////////////////////////////////////////
 	case "CreateListAll":{
-		_display =  _this select 0;
+		_params params ["_display"];
 		_inventory_box_all = jna_dataList;
 		{
 			_inventory_box = _x;
@@ -1283,7 +1280,7 @@ switch _mode do {
 
 	///////////////////////////////////////////////////////////////////////////////////////////
 	case "ListCurSel":{
-		private _index = _this select 0;
+		_params params ["_index"];
 
 		_return = switch _index do {
 			case IDC_RSCDISPLAYARSENAL_TAB_PRIMARYWEAPON: {
@@ -1377,9 +1374,7 @@ switch _mode do {
 
 	///////////////////////////////////////////////////////////////////////////////////////////
 	case "ListSelectCurrent":{
-		_display =  _this select 0;
-		_index = _this select 1;
-		_item = _this select 2;
+		_params params ["_display","_index","_item"];
 		_ctrlList = _display displayCtrl (IDC_RSCDISPLAYARSENAL_LIST + _index);
 
 
@@ -1399,9 +1394,7 @@ switch _mode do {
 
 	///////////////////////////////////////////////////////////////////////////////////////////
 	case "CreateList":{
-		_display =  _this select 0;
-		_index = _this select 1;
-		_orgInventory = _this select 2;
+		_params params ["_display","_index","_orgInventory"];
 		_ctrlList = _display displayCtrl (IDC_RSCDISPLAYARSENAL_LIST + _index);
 		_type = (ctrlType _ctrlList == 102);
 		if _type then{
@@ -1510,17 +1503,14 @@ switch _mode do {
 
 	///////////////////////////////////////////////////////////////////////////////////////////
 	case "ListSort":{
-		_display =  _this select 0;
-		_index = _this select 1;
+		_params params ["_display","_index"];
 		_ctrlList = _display displayCtrl (IDC_RSCDISPLAYARSENAL_LIST + _index);
 		_type = (ctrlType _ctrlList == 102);
 	};
 
 	///////////////////////////////////////////////////////////////////////////////////////////
 	case "UpdateListGui":{
-		_display =  _this select 0;
-		_ctrlList = _this select 1;
-		_index = _this select 2;
+		_params params ["_display","_ctrlList","_index"];
 
 		_type = (ctrlType _ctrlList == 102);
 		_rows = if _type then{ (lnbSize _ctrlList select 0) - 1}else{lbSize _ctrlList - 1};
@@ -1531,7 +1521,7 @@ switch _mode do {
 
 	///////////////////////////////////////////////////////////////////////////////////////////  GLOBAL
 	case "UpdateItemAdd":{
-		params ["_index","_item","_amount",["_updateDataList",false]];
+		_params params ["_index","_item","_amount",["_updateDataList",false]];
 
 		//update datalist
 		if(_updateDataList) then {
@@ -1591,7 +1581,7 @@ switch _mode do {
 
 	///////////////////////////////////////////////////////////////////////////////////////////  GLOBAL
 	case "UpdateItemRemove":{
-		params ["_index","_item","_amount",["_updateDataList",false]];
+		_params params ["_index","_item","_amount",["_updateDataList",false]];
 
 		//update datalist
 		if(_updateDataList)then{
@@ -1664,11 +1654,8 @@ switch _mode do {
 
 	///////////////////////////////////////////////////////////////////////////////////////////
 	case "CreateItem":{
-		private _display = _this select 0;
-		private _ctrlList = _this select 1;
-		private _index = _this select 2;
-		private _item = _this select 3;			if(_item isEqualTo "")exitWith{};
-		private _amount = _this select 4;
+		_params params ["_display","_ctrlList","_index","_item","_amount"];
+		if(_item isEqualTo "")exitWith{};
 
 		private _xCfg = switch _index do {
 			case IDC_RSCDISPLAYARSENAL_TAB_BACKPACK:	{configFile >> "cfgvehicles" 	>> _item};
@@ -1757,10 +1744,7 @@ switch _mode do {
 
 	///////////////////////////////////////////////////////////////////////////////////////////
 	case "UpdateItemGui":{
-		_display = _this select 0;
-		_ctrlList = _this select 1;
-		_index = _this select 2;
-		_l = _this select 3;
+		_params params ["_display","_ctrlList","_index","_l"];
 
 		_type = (ctrlType _ctrlList == 102);
 		_cursel = lbCurSel _ctrlList;
@@ -1962,9 +1946,7 @@ switch _mode do {
 
 	///////////////////////////////////////////////////////////////////////////////////////////
 	case "updateItemInfo": {
-		_display = _this select 0;
-		_ctrlList = _this select 1;
-		_index = _this select 2;
+		_params params ["_display","_ctrlList","_index"];
 
 
 		_cursel = lbCurSel _ctrlList;
@@ -2008,7 +1990,7 @@ switch _mode do {
 
 	///////////////////////////////////////////////////////////////////////////////////////////
 	case "SelectItem": {
-		params ["_display","_ctrlList","_index"];
+		_params params ["_display","_ctrlList","_index"];
 
 		private _cursel = lbCurSel _ctrlList;
 		private _type = (ctrlType _ctrlList == 102);
@@ -2543,10 +2525,7 @@ switch _mode do {
 
 	///////////////////////////////////////////////////////////////////////////////////////////
 	case "SelectItemRight": {
-		private ["_ctrlList","_index","_cursel"];
-		_display = _this select 0;
-		_ctrlList = _this select 1;
-		_index = _this select 2;
+		_params params ["_display","_ctrlList","_index"];
 		_center = (missionNamespace getVariable ["BIS_fnc_arsenal_center",player]);
 		_type = (ctrlType _ctrlList == 102);
 
@@ -2607,8 +2586,7 @@ switch _mode do {
 
 	///////////////////////////////////////////////////////////////////////////////////////////  event
 	case "buttonCargo": {
-		_display = _this select 0;
-		_add = _this select 1;
+		_params params ["_display","_add"];
 		_selected = -1;
 		{
 			_ctrlList = _display displayCtrl (IDC_RSCDISPLAYARSENAL_LIST + _x);
@@ -2774,10 +2752,9 @@ switch _mode do {
 	case "showMessage": {
 		if !(isNil {missionNamespace getVariable "BIS_fnc_arsenal_message"}) then {terminate (missionNamespace getVariable "BIS_fnc_arsenal_message")};
 
-		_spawn = _this spawn {
+		_spawn = _params spawn {
 			disableSerialization;
-			_display = _this select 0;
-			_message = _this select 1;
+			params ["_display","_message"];
 
 			_ctrlMessage = _display displayCtrl IDC_RSCDISPLAYARSENAL_MESSAGE;
 			_ctrlMessage ctrlSetText _message;
@@ -2794,7 +2771,7 @@ switch _mode do {
 
 	///////////////////////////////////////////////////////////////////////////////////////////
 	case "hideMessage":{
-		_display = _this select 0;
+		_params params ["_display"];
 		if !(isNil {missionNamespace getVariable "BIS_fnc_arsenal_message"}) then {terminate (missionNamespace getVariable "BIS_fnc_arsenal_message")};
 		_ctrlMessage = _display displayCtrl IDC_RSCDISPLAYARSENAL_MESSAGE;
 		_ctrlMessage ctrlSetFade 1;
@@ -2805,10 +2782,9 @@ switch _mode do {
 	case "showMessageEndless": {
 		if !(isNil {missionNamespace getVariable "BIS_fnc_arsenal_message"}) then {terminate (missionNamespace getVariable "BIS_fnc_arsenal_message")};
 
-		_spawn = _this spawn {
+		_spawn = _params spawn {
 			disableSerialization;
-			_display = _this select 0;
-			_message = _this select 1;
+			params ["_display","_message"];
 
 			_ctrlMessage = _display displayCtrl IDC_RSCDISPLAYARSENAL_MESSAGE;
 			_ctrlMessage ctrlSetText _message;
@@ -2822,7 +2798,7 @@ switch _mode do {
 
 	///////////////////////////////////////////////////////////////////////////////////////////
 	case "ShowItemInfo": {
-		_this params ["_itemCfg","_index"];
+		_params params ["_itemCfg","_index"];
 		
 		private _display = uiNamespace getVariable "arsenalDisplay";
 
@@ -2883,7 +2859,7 @@ switch _mode do {
 
 	///////////////////////////////////////////////////////////////////////////////////////////
 	case "ShowItemStats": {
-		_this params ["_itemCfg", "_index"];
+		_params params ["_itemCfg", "_index"];
 
 		private _display = uiNamespace getVariable "arsenalDisplay";
 
@@ -3036,7 +3012,7 @@ switch _mode do {
 
 	///////////////////////////////////////////////////////////////////////////////////////////
 	case "HighlightMissingIcons": {
-		_display = _this select 0;
+		_params params ["_display"];
 
 		{
 			_index = _x;
@@ -3054,11 +3030,7 @@ switch _mode do {
 
 	/////////////////////////////////////////////////////////////////////////////////////////// event
 	case "KeyDown": {
-		_display = _this select 0;
-		_key = _this select 1;
-		_shift = _this select 2;
-		_ctrl = _this select 3;
-		_alt = _this select 4;
+		_params params ["_display","_key","_shift","_ctrl","_alt"];
 		_center = (missionNamespace getVariable ["BIS_fnc_arsenal_center",player]);
 		_return = false;
 		_ctrlTemplate = _display displayCtrl IDC_RSCDISPLAYARSENAL_TEMPLATE_TEMPLATE;
@@ -3162,11 +3134,7 @@ switch _mode do {
 
 	/////////////////////////////////////////////////////////////////////////////////////////// event
  	case "KeyUp": {
-		_display = _this select 0;
-		_key = _this select 1;
-		_shift = _this select 2;
-		_ctrl = _this select 3;
-		_alt = _this select 4;
+		_params params ["_display","_key","_shift","_ctrl","_alt"];
 		_return = false;
 		switch true do {
 			case (_key == DIK_LSHIFT): {
@@ -3187,7 +3155,7 @@ switch _mode do {
 
 	/////////////////////////////////////////////////////////////////////////////////////////// event
 	case "buttonClose": {
-		_display = _this select 0;
+		_params params ["_display"];
 
 		["RestoreTFAR"] call SCRT_fnc_arsenal_loadoutArsenal;
 
@@ -3200,7 +3168,7 @@ switch _mode do {
 	};
 
 	case "buttonSetLoadoutMenu": {
-		_display = _this select 0;
+		_params params ["_display"];
 
 		private _loadout = getUnitLoadout player;
 		
@@ -3255,7 +3223,7 @@ switch _mode do {
 	};
 
 	case "applyInitialLoadout": {
-		private _display = _this select 0;
+		_params params ["_display"];
 		private _loadoutName = currentRebelLoadout call SCRT_fnc_misc_getLoadoutName;
 		private _text = localize "STR_antistasi_dialogs_hq_button_rebel_set_loadout_loadout_title";
 		['showMessage',[_display, format ["%1 %2", _loadoutName,_text]]] call SCRT_fnc_arsenal_loadoutArsenal;
@@ -3340,6 +3308,6 @@ switch _mode do {
 
 	///////////////////////////////////////////////////////////////////////////////////////////
 	default {
-		["Error: wrong input given '%1' for mode '%2'",_this,_mode] call BIS_fnc_error;
+		["Error: wrong input given '%1' for mode '%2'",_params,_mode] call BIS_fnc_error;
 	};
 };
