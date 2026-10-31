@@ -215,7 +215,7 @@ switch _typeX do
     case "captureRivals":
     {
         _flag addAction [format ["<img image='a3\ui_f\data\igui\cfg\holdactions\holdaction_secure_ca.paa' size='1.6' shadow=2 /> <t>%1</t>", localize "STR_imprison_action"], { _this spawn SCRT_fnc_rivals_imprison; },false,6,true,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4];
-        _flag addAction [format ["<img image='a3\missions_f_oldman\data\img\holdactions\holdaction_talk_ca.paa' size='1.6' shadow=2 /> <t>%1</t>", localize "STR_interrogate_action"], A3A_fnc_interrogateRivals, nil, 0, false, true, "", "(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (_target getVariable ['canBeInterrogated', false])",4];
+        _flag addAction [format ["<img image='a3\missions_f_oldman\data\img\holdactions\holdaction_talk_ca.paa' size='1.6' shadow=2 /> <t>%1</t>", localize "STR_interrogate_action"], A3A_fnc_interrogate, nil, 0, false, true, "", "(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (_target getVariable ['canBeInterrogated', false])",4];
         _flag addAction [format ["<img image='a3\ui_f_oldman\data\igui\cfg\holdactions\map_ca.paa' size='1.6' shadow=2 /> <t>%1</t>", localize "STR_reveal_action"],SCRT_fnc_common_reveal,false,6,true,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4];
     };
     case "seaport":
