@@ -56,7 +56,7 @@ switch (_action) do {
             "(
                 (alive _target) &&
                 {(isNull objectParent _this) && (isNull attachedTo _target)} &&
-                {count nearestObjects[ARR_3(_target,[ARR_3('Air','LandVehicle','Ship')],10)] > ([ARR_2(1,0)] select(_target isKindOf 'ThingX'))}
+                {count nearestObjects[_target,['Air','LandVehicle','Ship'],10] > ([1,0] select(_target isKindOf 'ThingX'))}
             )",
             5
         ];
