@@ -20,10 +20,10 @@ class A3A_SetupDialog : A3A_TabbedDialog
         class TabButtons : A3A_ControlsGroupNoScrollbars
         {
             idc = A3A_IDC_SETUP_TABBUTTONS;
-            x = QUOTE(DIALOG_X);
-            y = QUOTE(DIALOG_Y - 5 * GRID_H);
-            w = QUOTE(DIALOG_W * GRID_W);
-            h = QUOTE(5 * GRID_H);
+            x = DIALOG_X;
+            y = DIALOG_Y - 5 * GRID_H;
+            w = DIALOG_W * GRID_W;
+            h = 5 * GRID_H;
 
             class Controls
             {
