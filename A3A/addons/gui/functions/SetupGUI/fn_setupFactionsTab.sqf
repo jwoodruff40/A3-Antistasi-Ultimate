@@ -50,7 +50,7 @@ if (isNil {_display getVariable "validFactions"}) then
         params ["_factions"];
         private _factionSort = [];
         {
-            private _priority = getNumber (_x/"priority") + 0.01*_forEachIndex;
+            private _priority = getnumber (_x/"priority") + 0.01*_forEachIndex;
             private _maps = getArray (_x/"maps");
             if (_maps isNotEqualTo []) then { _priority = _priority + ([-2, 2] select (_worldName in _maps)) };
             if !(_x call _fnc_factionLoaded) then { _priority = _priority - 100 };
@@ -440,7 +440,7 @@ switch (_mode) do
         private _failedFactions = [];
         {
             _sfact = A3A_SETUP_CONFIGFILE/"A3A"/"Templates"/_x;
-            if !(isClass _sfact) then { Info_1("Bad saved faction name %1",_x); _failedFactions pushBack _x };
+            if !(isClass _sfact) then { Info_1("Bad saved faction name %1", _x); _failedFactions pushBack _x };
             if !(_sfact call _fnc_factionLoaded) then { Info_1("Saved faction %1 not loadable",_x); _failedFactions pushBack _x };
             _factions#_forEachIndex pushBackUnique _sfact;				// does nothing if already in list
         } forEach _savedFactions;
