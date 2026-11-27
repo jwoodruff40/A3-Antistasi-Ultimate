@@ -17010,15 +17010,31 @@ class Mission
 				angles[]={0,5.9202266,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
-				init="this setObjectTexture [0, ""x\A3A\addons\maps\Antistasi_Esseker.Esseker\Pictures\Mission\es.paa""];";
-				createAsSimpleObject=1;
-				disableSimulation=1;
+				name="mapX";
 			};
 			id=13739;
-			type="Land_MapBoard_F";
+			type="MapBoard_seismic_F";
 			atlOffset=3.1889038;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 		class Item610
 		{

@@ -13286,13 +13286,27 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="enr setObjectTexture [0, ""x\A3A\addons\maps\Antistasi_Altis.Altis\Pictures\Mission\e.paa""];";
-				name="enr";
-				createAsSimpleObject=1;
-				disableSimulation=1;
+				name="mapX";
 			};
 			id=2768;
-			type="Land_MapBoard_F";
+			type="MapBoard_seismic_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 		class Item507
 		{
