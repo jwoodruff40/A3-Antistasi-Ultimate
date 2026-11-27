@@ -17001,41 +17001,6 @@ class Mission
 			type="Land_FoodSacks_01_cargo_white_idap_F";
 			atlOffset=0.3704201;
 		};
-		class Item609
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={10035.314,2.9520476,10840.452};
-				angles[]={0,5.9202266,0};
-			};
-			side="Empty";
-			flags=4;
-			class Attributes
-			{
-				name="mapX";
-			};
-			id=13739;
-			type="MapBoard_seismic_F";
-			atlOffset=3.1889038;
-			class CustomAttributes
-			{
-				class Attribute0
-				{
-					property="allowDamage";
-					expression="_this allowdamage _value;";
-					class Value
-					{
-						class data
-						{
-							singleType="BOOL";
-							value=0;
-						};
-					};
-				};
-				nAttributes=1;
-			};
-		};
 		class Item610
 		{
 			dataType="Object";
