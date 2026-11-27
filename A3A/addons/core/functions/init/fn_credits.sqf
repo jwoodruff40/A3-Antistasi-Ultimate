@@ -5,7 +5,7 @@ FIX_LINE_NUMBERS()
 #define DURATION 4
 
 private _credits = [
-	[ (call SCRT_fnc_misc_getMissionTitle), [QUOTE(VERSION)], "<img image='Pictures\Mission\logo.paa' size='1.6' />"],
+	[ (call SCRT_fnc_misc_getMissionTitle), [QUOTE(VERSION)], QUOTE(<img image=QUOTE(QPATHTOFOLDER(Pictures\altis_flag_logo.paa)) size=QQUOTE(1.6) />)],
 	[ (localize "STR_antistasi_credits_authors_ultimate"), ["Antistasi Ultimate Team"]],
 	[ (localize "STR_antistasi_credits_authors_plus"), ["Socrates"]],
 	[ (localize "STR_antistasi_credits_authors"), ["Barbolani","Official Antistasi Community"]]
