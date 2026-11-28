@@ -13274,6 +13274,26 @@ class Mission
 				nAttributes=1;
 			};
 		};
+		class Item506
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={14596.082,19.003881,16779.625};
+				angles[]={0,0.79740602,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="enr setObjectTexture [0, ""x\A3A\addons\maps\Antistasi_Altis.Altis\Pictures\Mission\e.paa""];";
+				name="enr";
+				createAsSimpleObject=1;
+				disableSimulation=1;
+			};
+			id=2768;
+			type="Land_MapBoard_F";
+		};
 		class Item507
 		{
 			dataType="Object";

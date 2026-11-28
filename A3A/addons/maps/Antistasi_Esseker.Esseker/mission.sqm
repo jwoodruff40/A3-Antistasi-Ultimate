@@ -17001,6 +17001,25 @@ class Mission
 			type="Land_FoodSacks_01_cargo_white_idap_F";
 			atlOffset=0.3704201;
 		};
+		class Item609
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={10035.314,2.9520476,10840.452};
+				angles[]={0,5.9202266,0};
+			};
+			side="Empty";
+			class Attributes
+			{
+				init="this setObjectTexture [0, ""x\A3A\addons\maps\Antistasi_Esseker.Esseker\Pictures\Mission\es.paa""];";
+				createAsSimpleObject=1;
+				disableSimulation=1;
+			};
+			id=13739;
+			type="Land_MapBoard_F";
+			atlOffset=3.1889038;
+		};
 		class Item610
 		{
 			dataType="Object";
