@@ -9,6 +9,11 @@ include = [
     "README.md",
     "mod.cpp"
 ]
+exclude = [
+    "*.psd",
+    "*.xcf"
+]
+
 
 [lints.sqf]
 reasign_reserved_variable = "Warning" # All existing cleaned up, warn on new instance
