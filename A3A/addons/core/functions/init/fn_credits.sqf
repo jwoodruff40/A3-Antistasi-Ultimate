@@ -4,8 +4,11 @@ FIX_LINE_NUMBERS()
 #define DELAY 4
 #define DURATION 4
 
+private _logoImage = "Pictures\Mission\logo.paa";
+if (!fileExists _logoImage) then { _logoImage = QPATHTOFOLDER(Pictures\credits_logo_default.paa) };
+
 private _credits = [
-	[ (call SCRT_fnc_misc_getMissionTitle), [QUOTE(VERSION)], QUOTE(<img image=QUOTE(QPATHTOFOLDER(Pictures\altis_flag_logo.paa)) size=QQUOTE(1.6) />)],
+	[ (call SCRT_fnc_misc_getMissionTitle), [QUOTE(VERSION)], format ['<img image="%1" size="1.6" />', _logoImage]],
 	[ (localize "STR_antistasi_credits_authors_ultimate"), ["Antistasi Ultimate Team"]],
 	[ (localize "STR_antistasi_credits_authors_plus"), ["Socrates"]],
 	[ (localize "STR_antistasi_credits_authors"), ["Barbolani","Official Antistasi Community"]]
