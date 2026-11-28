@@ -25,11 +25,9 @@ GVAR(despawnQueue) = [];
     _x hideObjectGlobal true;
 } forEach [boxX, flagX, vehicleBox, mapX, petros];
 
-switch (toLower worldName) do {
-	case "cam_lao_nam": {};
-	case "vn_khe_sanh": {mapX setObjectTextureGlobal [0,"Pictures\Mission\whiteboard.paa"];};
-	default {mapX setObjectTextureGlobal [0,"Pictures\Mission\whiteboard.jpg"];};
-};
+private _wbImage = "Pictures\Mission\whiteboard.paa";
+if (!fileExists _wbImage) then { _wbImage = "Pictures\Mission\whiteboard.jpg" };
+mapX setObjectTextureGlobal [0, _wbImage];
 
 enableSaving [false,false];
 
